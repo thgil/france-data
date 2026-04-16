@@ -825,8 +825,11 @@ export function drawWalkingExplorer(selector, refs) {
     return { lat: cLat, lng: cLng, bakeries: f.properties.bakeries || 0, name: f.properties.name || '' };
   });
 
+  // ── World group (transformed by zoom) ─────────────────────────────────────────
+  const worldG = svg.append('g').attr('class', 'walk-world');
+
   // ── Commune outlines (no choropleth fill) ────────────────────────────────────
-  const communeGroup = svg.append('g').attr('class', 'walk-communes');
+  const communeGroup = worldG.append('g').attr('class', 'walk-communes');
   communeGroup.selectAll('path')
     .data(communes.features)
     .join('path')
@@ -837,10 +840,10 @@ export function drawWalkingExplorer(selector, refs) {
     .attr('stroke-opacity', 0.4);
 
   // ── Ring group (rendered below pins) ─────────────────────────────────────────
-  const ringGroup = svg.append('g').attr('class', 'walk-rings');
+  const ringGroup = worldG.append('g').attr('class', 'walk-rings');
 
   // ── Pharmacy pins ─────────────────────────────────────────────────────────────
-  const pinGroup = svg.append('g').attr('class', 'walk-pins');
+  const pinGroup = worldG.append('g').attr('class', 'walk-pins');
   const pharmCoords = pharmacies.map(d => {
     const pt = projection([d.lng, d.lat]);
     return { px: pt ? pt[0] : -9999, py: pt ? pt[1] : -9999, lat: d.lat, lng: d.lng, name: d.name, address: d.address };
@@ -858,7 +861,59 @@ export function drawWalkingExplorer(selector, refs) {
     .style('pointer-events', 'none');
 
   // ── Marker group (rendered above rings, above pins) ──────────────────────────
-  const markerGroup = svg.append('g').attr('class', 'walk-marker');
+  const markerGroup = worldG.append('g').attr('class', 'walk-marker');
+
+  // ── Zoom behaviour ──────────────────────────────────────────────────────────
+  let currentK = 1; // track current zoom scale for inverse-scaling
+  const walkZoom = d3.zoom()
+    .scaleExtent([1, 12])
+    .translateExtent([[-width * 0.5, -height * 0.5], [width * 1.5, height * 1.5]])
+    .filter((event) => {
+      if (event.type === 'wheel') return event.ctrlKey || event.metaKey;
+      return !event.button;
+    })
+    .on('zoom', (event) => {
+      currentK = event.transform.k;
+      worldG.attr('transform', event.transform);
+      worldG.selectAll('.walk-pins circle')
+        .attr('r', PIN_R / currentK)
+        .attr('stroke-width', 0.5 / currentK);
+      worldG.selectAll('.walk-communes path')
+        .attr('stroke-width', 0.3 / currentK);
+      worldG.selectAll('.walk-marker circle')
+        .attr('r', 8 / currentK)
+        .attr('stroke-width', 2 / currentK);
+      // Ring strokes scale inversely so they stay readable
+      worldG.selectAll('.walk-rings circle').each(function(d, i) {
+        const baseWidth = RING_STYLES[i % RING_STYLES.length]?.strokeWidth || 1;
+        d3.select(this).attr('stroke-width', baseWidth / currentK);
+      });
+    });
+  svg.call(walkZoom);
+
+  // ── Zoom controls ──────────────────────────────────────────────────────────
+  const zoomControls = document.createElement('div');
+  zoomControls.className = 'walk-zoom-controls';
+  zoomControls.innerHTML = `
+    <button class="walk-zoom-btn" data-action="out" title="Zoom out">−</button>
+    <button class="walk-zoom-btn" data-action="in" title="Zoom in">+</button>
+    <button class="walk-zoom-btn" data-action="reset" title="Reset zoom">⌕ Zoom</button>
+  `;
+  container.appendChild(zoomControls);
+  zoomControls.querySelectorAll('.walk-zoom-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const action = btn.dataset.action;
+      if (action === 'in')  svg.transition().duration(300).call(walkZoom.scaleBy, 1.5);
+      if (action === 'out') svg.transition().duration(300).call(walkZoom.scaleBy, 1 / 1.5);
+      if (action === 'reset') svg.transition().duration(400).call(walkZoom.transform, d3.zoomIdentity);
+    });
+  });
+
+  const zoomHint = document.createElement('p');
+  zoomHint.className = 'walk-zoom-hint';
+  zoomHint.textContent = 'Drag to pan · pinch or ⌘+scroll to zoom';
+  container.appendChild(zoomHint);
 
   // ── State ────────────────────────────────────────────────────────────────────
   let activeCorner = null;
@@ -1044,9 +1099,10 @@ export function drawWalkingExplorer(selector, refs) {
 
   emptyPanel();
 
-  // ── Click handler ─────────────────────────────────────────────────────────────
+  // ── Click handler (accounts for zoom transform) ──────────────────────────────
   svg.on('click', function(event) {
-    const [mx, my] = d3.pointer(event);
+    const transform = d3.zoomTransform(svg.node());
+    const [mx, my] = transform.invert(d3.pointer(event));
     const coords = projection.invert([mx, my]);
     if (!coords) return;
     const [lng, lat] = coords;

@@ -328,6 +328,31 @@
       font-style: italic;
       color: #888;
     }
+    .walk-zoom-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 0;
+      justify-content: flex-end;
+    }
+    .walk-zoom-btn {
+      font-family: var(--sans);
+      font-size: 12px;
+      background: var(--paper);
+      border: 1px solid #ccc;
+      padding: 4px 10px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+    .walk-zoom-btn:hover { background: var(--card-hover); border-color: var(--rule); }
+    .walk-zoom-hint {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #999;
+      letter-spacing: 0.5px;
+      text-align: right;
+      margin: 2px 0 8px;
+    }
     @media (max-width: 500px) {
       .walk-count-row { flex-wrap: wrap; gap: 3px 6px; }
       .walk-ring-label { min-width: auto; }
