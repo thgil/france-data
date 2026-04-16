@@ -120,7 +120,7 @@ export function drawTimelapseMap(selector, refs) {
   // ── Tooltip ──────────────────────────────────────────────────────────────────
   const tooltip = d3.select(container)
     .append('div')
-    .attr('class', 'timelapse-tooltip')
+    .attr('class', 'map-tooltip timelapse-tooltip')
     .style('display', 'none');
 
   // ── Control bar (HTML below the SVG) ────────────────────────────────────────
@@ -330,8 +330,355 @@ export function drawTimelapseMap(selector, refs) {
   updateOverlayBg();
 }
 
-export function drawTwinChoropleths(selector, _refs) {
-  placeholder(selector, 'Map B — twin choropleths · coming next');
+export function drawTwinChoropleths(selector, refs) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  const { communes } = refs;
+  const features = communes.features;
+  const N = features.length;
+
+  // ── Layout ──────────────────────────────────────────────────────────────────
+  const GAP = 16;
+  const totalWidth = container.clientWidth || 800;
+  const isNarrow = totalWidth < 720;
+  const mapWidth  = isNarrow ? totalWidth : Math.floor((totalWidth - GAP) / 2);
+  const mapHeight = Math.round(mapWidth * (5 / 4));
+
+  container.style.position = 'relative';
+
+  // ── Outer wrapper ────────────────────────────────────────────────────────────
+  const wrapper = document.createElement('div');
+  wrapper.className = 'twin-wrapper';
+  wrapper.style.cssText = isNarrow
+    ? 'display:flex;flex-direction:column;gap:16px;'
+    : 'display:flex;flex-direction:row;gap:' + GAP + 'px;align-items:flex-start;';
+  container.appendChild(wrapper);
+
+  // ── Colour scales (95th-percentile cap) ─────────────────────────────────────
+  const pharmValues = features.map(f => f.properties.pharmaciesPer10k || 0)
+    .filter(v => v > 0).sort(d3.ascending);
+  const bakValues   = features.map(f => f.properties.bakeriesPer10k  || 0)
+    .filter(v => v > 0).sort(d3.ascending);
+
+  const p95Pharm = d3.quantile(pharmValues, 0.95) || 1;
+  const p95Bak   = d3.quantile(bakValues,   0.95) || 1;
+
+  const pharmScale = d3.scaleSequential(d3.interpolateReds).domain([0, p95Pharm]);
+  const bakScale   = d3.scaleSequential(d3.interpolateGreys).domain([0, p95Bak]);
+
+  const PAPER = '#faf7f2';
+  const PAPER_ALT = '#f5f0e8';
+
+  function pharmColor(v) {
+    return v <= 0 ? PAPER_ALT : pharmScale(Math.min(v, p95Pharm));
+  }
+  function bakColor(v) {
+    return v <= 0 ? PAPER_ALT : bakScale(Math.min(v, p95Bak));
+  }
+
+  // ── Pre-sort ranks ───────────────────────────────────────────────────────────
+  // leftRanks[0] = index of highest pharmacy-density commune, etc.
+  function buildRanks(accessor) {
+    return features
+      .map((f, i) => ({ i, v: accessor(f) || 0 }))
+      .sort((a, b) => b.v - a.v || (a.i < b.i ? -1 : 1))
+      .map(o => o.i);
+  }
+
+  const leftRanks  = buildRanks(f => f.properties.pharmaciesPer10k);
+  const rightRanks = buildRanks(f => f.properties.bakeriesPer10k);
+
+  // rank lookup arrays (1-based rank for tooltip)
+  const pharmRank = new Array(N);
+  const bakRank   = new Array(N);
+  leftRanks.forEach((fi, rank) => { pharmRank[fi] = rank + 1; });
+  rightRanks.forEach((fi, rank) => { bakRank[fi]   = rank + 1; });
+
+  // ── Build one map panel ──────────────────────────────────────────────────────
+  function buildPanel(label, labelColor) {
+    const panel = document.createElement('div');
+    panel.className = 'twin-panel';
+    panel.style.cssText = 'display:flex;flex-direction:column;flex:0 0 auto;width:' + mapWidth + 'px;';
+
+    const caption = document.createElement('div');
+    caption.className = 'twin-caption';
+    caption.textContent = label;
+    caption.style.color = labelColor;
+    panel.appendChild(caption);
+
+    const svg = d3.select(panel)
+      .append('svg')
+      .attr('width', mapWidth)
+      .attr('height', mapHeight)
+      .style('display', 'block')
+      .style('background', PAPER);
+
+    wrapper.appendChild(panel);
+    return { panel, svg };
+  }
+
+  const { svg: leftSvg }  = buildPanel('Pharmacies / 10k', '#b32020');
+  const { svg: rightSvg } = buildPanel('Bakeries / 10k',   '#1a1a1a');
+
+  // ── Projection (shared parameters since both maps are same size) ─────────────
+  const projection = d3.geoMercator().fitSize([mapWidth, mapHeight], communes);
+  const path = d3.geoPath(projection);
+
+  // ── Render commune paths ─────────────────────────────────────────────────────
+  const leftPaths  = leftSvg.append('g').selectAll('path')
+    .data(features).join('path')
+    .attr('d', path)
+    .attr('fill', PAPER)
+    .attr('stroke', '#1a1a1a')
+    .attr('stroke-width', 0.3)
+    .attr('stroke-opacity', 0.2);
+
+  const rightPaths = rightSvg.append('g').selectAll('path')
+    .data(features).join('path')
+    .attr('d', path)
+    .attr('fill', PAPER)
+    .attr('stroke', '#1a1a1a')
+    .attr('stroke-width', 0.3)
+    .attr('stroke-opacity', 0.2);
+
+  // index → DOM node arrays for fast RAF access
+  const leftNodes  = leftPaths.nodes();
+  const rightNodes = rightPaths.nodes();
+
+  // ── Tooltip ──────────────────────────────────────────────────────────────────
+  const tooltip = d3.select(container)
+    .append('div')
+    .attr('class', 'map-tooltip twin-tooltip')
+    .style('display', 'none');
+
+  function positionTooltip(event) {
+    const rect = container.getBoundingClientRect();
+    let x = event.clientX - rect.left + 14;
+    let y = event.clientY - rect.top  - 14;
+    const ttNode = tooltip.node();
+    if (ttNode) {
+      const ttW = ttNode.offsetWidth || 220;
+      if (x + ttW > rect.width - 8) x = x - ttW - 28;
+    }
+    tooltip.style('left', x + 'px').style('top', y + 'px');
+  }
+
+  // ── Hover sync ───────────────────────────────────────────────────────────────
+  let hoverEnabled = false;
+
+  // Build a fast feature→index lookup
+  const featureIndex = new Map(features.map((f, i) => [f, i]));
+
+  function attachHover(pathSel) {
+    pathSel.on('mouseover', function(event, d) {
+      if (!hoverEnabled) return;
+      const idx = featureIndex.get(d);
+      if (idx == null) return;
+
+      // Highlight both sides
+      [leftNodes[idx], rightNodes[idx]].forEach(node => {
+        if (!node) return;
+        node.setAttribute('stroke-width', '1.5');
+        node.setAttribute('stroke-opacity', '1');
+        node.parentNode && node.parentNode.appendChild(node); // raise
+      });
+
+      const pVal  = (d.properties.pharmaciesPer10k || 0).toFixed(2);
+      const bVal  = (d.properties.bakeriesPer10k  || 0).toFixed(2);
+      const pRank = pharmRank[idx] || '–';
+      const bRank = bakRank[idx]   || '–';
+
+      tooltip
+        .style('display', 'block')
+        .html(
+          `<strong class="tt-name">${d.properties.name || d.properties.code || ''}</strong>` +
+          `<div class="tt-row"><span class="tt-label">Pharmacies</span> · ${pVal} / 10k · rank ${pRank} of ${N}</div>` +
+          `<div class="tt-row"><span class="tt-label">Bakeries</span>   · ${bVal} / 10k · rank ${bRank} of ${N}</div>`
+        );
+      positionTooltip(event);
+    });
+
+    pathSel.on('mousemove', function(event) {
+      if (!hoverEnabled) return;
+      positionTooltip(event);
+    });
+
+    pathSel.on('mouseout', function(event, d) {
+      if (!hoverEnabled) return;
+      const idx = featureIndex.get(d);
+      if (idx == null) return;
+      // Restore to revealed fill (or paper if not yet revealed)
+      leftNodes[idx].setAttribute('stroke-width', '0.3');
+      leftNodes[idx].setAttribute('stroke-opacity', leftRevealed[idx] ? '0.4' : '0.2');
+      leftNodes[idx].setAttribute('fill',
+        leftRevealed[idx] ? pharmColor(d.properties.pharmaciesPer10k) : PAPER);
+      rightNodes[idx].setAttribute('stroke-width', '0.3');
+      rightNodes[idx].setAttribute('stroke-opacity', rightRevealed[idx] ? '0.4' : '0.2');
+      rightNodes[idx].setAttribute('fill',
+        rightRevealed[idx] ? bakColor(d.properties.bakeriesPer10k) : PAPER);
+      tooltip.style('display', 'none');
+    });
+  }
+
+  attachHover(leftPaths);
+  attachHover(rightPaths);
+
+  // ── Animation engine ─────────────────────────────────────────────────────────
+  const ANIM_DURATION = 6000; // ms
+  let animStart = null;
+  let animRaf   = null;
+  let animDone  = false;
+
+  // Track which communes have been revealed (to avoid redundant setAttribute)
+  const leftRevealed  = new Uint8Array(N); // 0 = not revealed, 1 = revealed
+  const rightRevealed = new Uint8Array(N);
+
+  function revealFrame(now) {
+    if (animStart === null) animStart = now;
+    const t = Math.min((now - animStart) / ANIM_DURATION, 1);
+    const k = Math.floor(t * N);
+
+    // Reveal communes in rank order up to index k (exclusive)
+    for (let r = 0; r < k; r++) {
+      const li = leftRanks[r];
+      if (!leftRevealed[li]) {
+        leftRevealed[li] = 1;
+        leftNodes[li].setAttribute('fill',
+          pharmColor(features[li].properties.pharmaciesPer10k));
+        leftNodes[li].setAttribute('stroke-opacity', '0.4');
+      }
+      const ri = rightRanks[r];
+      if (!rightRevealed[ri]) {
+        rightRevealed[ri] = 1;
+        rightNodes[ri].setAttribute('fill',
+          bakColor(features[ri].properties.bakeriesPer10k));
+        rightNodes[ri].setAttribute('stroke-opacity', '0.4');
+      }
+    }
+
+    if (t < 1) {
+      animRaf = requestAnimationFrame(revealFrame);
+    } else {
+      // Ensure all communes revealed
+      for (let r = 0; r < N; r++) {
+        const li = leftRanks[r];
+        if (!leftRevealed[li]) {
+          leftNodes[li].setAttribute('fill', pharmColor(features[li].properties.pharmaciesPer10k));
+          leftNodes[li].setAttribute('stroke-opacity', '0.4');
+        }
+        const ri = rightRanks[r];
+        if (!rightRevealed[ri]) {
+          rightNodes[ri].setAttribute('fill', bakColor(features[ri].properties.bakeriesPer10k));
+          rightNodes[ri].setAttribute('stroke-opacity', '0.4');
+        }
+      }
+      animDone = true;
+      hoverEnabled = true;
+    }
+  }
+
+  function resetAnimation() {
+    if (animRaf) { cancelAnimationFrame(animRaf); animRaf = null; }
+    animStart   = null;
+    animDone    = false;
+    hoverEnabled = false;
+    leftRevealed.fill(0);
+    rightRevealed.fill(0);
+    // Reset all fills to paper
+    leftNodes.forEach(n => {
+      n.setAttribute('fill', PAPER);
+      n.setAttribute('stroke-opacity', '0.2');
+    });
+    rightNodes.forEach(n => {
+      n.setAttribute('fill', PAPER);
+      n.setAttribute('stroke-opacity', '0.2');
+    });
+    tooltip.style('display', 'none');
+  }
+
+  function startAnimation() {
+    resetAnimation();
+    animRaf = requestAnimationFrame(revealFrame);
+  }
+
+  // ── Legend strip ─────────────────────────────────────────────────────────────
+  const legendEl = document.createElement('div');
+  legendEl.className = 'twin-legend';
+
+  function makeLegendBar(label, scale, sortedValues, p95Val, accentColor) {
+    const div = document.createElement('div');
+    div.className = 'twin-legend-row';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'twin-legend-label';
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'twin-legend-name';
+    nameSpan.style.color = accentColor;
+    nameSpan.textContent = label;
+    wrap.appendChild(nameSpan);
+
+    const barWrap = document.createElement('div');
+    barWrap.className = 'twin-legend-bar-wrap';
+
+    const canvas = document.createElement('canvas');
+    canvas.width  = 200;
+    canvas.height = 12;
+    const ctx = canvas.getContext('2d');
+    for (let x = 0; x < 200; x++) {
+      ctx.fillStyle = scale(p95Val * x / 199);
+      ctx.fillRect(x, 0, 1, 12);
+    }
+    barWrap.appendChild(canvas);
+
+    const p50Val = d3.quantile(sortedValues, 0.5) || p95Val / 2;
+    const fmt = v => v < 10 ? v.toFixed(1) : Math.round(v);
+
+    function tick(pct, text, cls) {
+      const s = document.createElement('span');
+      s.className = 'twin-legend-tick' + (cls ? ' ' + cls : '');
+      s.style.left = pct.toFixed(1) + '%';
+      if (cls) s.title = 'Communes above this value use the darkest colour.';
+      s.textContent = text;
+      barWrap.appendChild(s);
+    }
+    tick(0,   '0',            '');
+    tick(p50Val / p95Val * 100, fmt(p50Val), '');
+    tick(100, fmt(p95Val) + ' ↑', 'twin-legend-cap');
+
+    wrap.appendChild(barWrap);
+    div.appendChild(wrap);
+    return div;
+  }
+
+  legendEl.appendChild(makeLegendBar('Pharmacies / 10k', pharmScale, pharmValues, p95Pharm, '#b32020'));
+  legendEl.appendChild(makeLegendBar('Bakeries / 10k',   bakScale,   bakValues,   p95Bak,   '#1a1a1a'));
+
+  container.appendChild(legendEl);
+
+  // ── Replay button ─────────────────────────────────────────────────────────────
+  const replayWrap = document.createElement('div');
+  replayWrap.className = 'twin-replay-wrap';
+  const replayBtn = document.createElement('button');
+  replayBtn.className = 'twin-replay-btn';
+  replayBtn.innerHTML = '&#8635; Replay';
+  replayBtn.addEventListener('click', startAnimation);
+  replayWrap.appendChild(replayBtn);
+  container.appendChild(replayWrap);
+
+  // ── IntersectionObserver ──────────────────────────────────────────────────────
+  let hasAutoplayed = false;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAutoplayed) {
+        hasAutoplayed = true;
+        observer.disconnect();
+        startAnimation();
+      }
+    });
+  }, { threshold: 0.30 });
+  observer.observe(container);
 }
 
 export function drawWalkingExplorer(selector, _refs) {

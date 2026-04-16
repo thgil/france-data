@@ -88,8 +88,8 @@
       padding: 2px 7px;
     }
 
-    /* ── Pharmacy tooltip ────────────────────────────────────────── */
-    .timelapse-tooltip {
+    /* ── Shared map tooltip ──────────────────────────────────────── */
+    .map-tooltip {
       position: absolute;
       pointer-events: none;
       background: #faf7f2;
@@ -104,11 +104,104 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       z-index: 100;
     }
-    .timelapse-tooltip strong {
+    /* Map A still works via alias */
+    .timelapse-tooltip { }
+    .map-tooltip strong,
+    .map-tooltip .tt-name {
       font-family: Georgia, serif;
       font-size: 13px;
       display: block;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+    }
+    .map-tooltip .tt-label {
+      font-weight: 600;
+    }
+
+    /* ── Twin choropleth layout ──────────────────────────────────── */
+    .twin-panel {
+      flex: 0 0 auto;
+    }
+    .twin-caption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ── Twin legend ─────────────────────────────────────────────── */
+    .twin-legend {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .twin-legend-row {
+      display: block;
+    }
+    .twin-legend-label {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .twin-legend-name {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .twin-legend-bar-wrap {
+      position: relative;
+      width: 200px;
+      height: 12px;
+    }
+    .twin-legend-bar-wrap canvas {
+      display: block;
+      width: 200px;
+      height: 12px;
+    }
+    .twin-legend-tick {
+      position: absolute;
+      top: 14px;
+      transform: translateX(-50%);
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      color: #777;
+      white-space: nowrap;
+    }
+    .twin-legend-cap {
+      cursor: help;
+    }
+
+    /* ── Replay button ───────────────────────────────────────────── */
+    .twin-replay-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 32px;
+    }
+    .twin-replay-btn {
+      background: none;
+      border: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #777;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      padding: 2px 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .twin-replay-btn:hover {
+      color: #1a1a1a;
+      border-bottom-color: #1a1a1a;
     }
 
   </style>
