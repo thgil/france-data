@@ -9,7 +9,7 @@ import maplibregl from 'https://cdn.jsdelivr.net/npm/maplibre-gl@4/+esm';
 
 const BASEMAP = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
 const PARIS_CENTER = [2.3522, 48.8566];
-const MAP_ZOOM = 11;
+const MAP_ZOOM = 10;
 
 // ── Shared: set container height ─────────────────────────────────────────────
 function setContainerHeight(el) {
@@ -101,7 +101,7 @@ export function drawTimelapseMap(selector, refs) {
   const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
 
   // ── Animation state ───────────────────────────────────────────────────────
-  const DURATION  = 30000;
+  const DURATION  = 45000;
   const START_MS  = new Date('1943-01-01').getTime();
   const END_MS    = new Date('2013-12-31').getTime();
   const SPAN_MS   = END_MS - START_MS;
@@ -325,7 +325,7 @@ export function drawTwinChoropleths(selector, refs) {
   const leftDiv  = buildPanel('Pharmacies / 10k', '#b32020', 'twin-map-left');
   const rightDiv = buildPanel('Bakeries / 10k',   '#1a1a1a', 'twin-map-right');
 
-  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: 10,
+  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: 9,
     maxZoom: 16, minZoom: 9, attributionControl: false };
   const mapLeft  = new maplibregl.Map({ ...baseOpts, container: leftDiv });
   const mapRight = new maplibregl.Map({ ...baseOpts, container: rightDiv });
