@@ -34,8 +34,9 @@ export function drawTimelapseMap(selector, refs) {
   const width = container.clientWidth || 800;
   const height = Math.min(Math.round(width * (10 / 16)), 640);
   const isNarrow = width < 600;
-  const PIN_R        = isNarrow ? 2.5 : 3;    // boosted for contrast against grey fills
-  const PIN_STROKE_W = isNarrow ? 0.8 : 1.2;  // cream halo width scales with viewport
+  const PIN_R          = isNarrow ? 2.5 : 3;    // boosted for contrast against grey fills
+  const PIN_STROKE_W   = isNarrow ? 0.8 : 1.2;  // cream halo width scales with viewport
+  const COMMUNE_STROKE_W = 0.3;                  // base commune stroke (scaled with zoom)
 
   // Make container position:relative so tooltip offsets work
   container.style.position = 'relative';
@@ -46,11 +47,24 @@ export function drawTimelapseMap(selector, refs) {
     .attr('width', width)
     .attr('height', height)
     .style('display', 'block')
-    .style('background', '#f7f4ee');
+    .style('background', '#f7f4ee')
+    .style('cursor', 'grab');
 
-  // ── Projection ───────────────────────────────────────────────────────────────
+  // ── World group (transformed by zoom) ────────────────────────────────────────
+  const worldG = svg.append('g').attr('class', 'tl-world');
+
+  // ── Projection: fit to Paris + petite couronne (dépts 75, 92, 93, 94) ────────
+  // The fit uses only the inner-ring FeatureCollection so the default view is
+  // ~4× tighter than full-IDF. ALL 1,300 communes and ALL 3,991 pins are still
+  // rendered; outer dépts are initially clipped by the SVG viewport but appear
+  // when the user pans or zooms out.
+  const INNER_DEPTS = new Set(['75', '92', '93', '94']);
+  const innerFC = {
+    type: 'FeatureCollection',
+    features: communes.features.filter(f => INNER_DEPTS.has(f.properties.dept)),
+  };
   const projection = d3.geoMercator()
-    .fitSize([width, height], communes);
+    .fitSize([width, height], innerFC);
   const path = d3.geoPath(projection);
 
   // ── Bakery opacity scale (85th-percentile cap — reduced from 95th to suppress
@@ -68,21 +82,23 @@ export function drawTimelapseMap(selector, refs) {
   // ── Background: commune choropleth (monochrome grey, opacity-only encoding) ──
   // Fill is a fixed dark ink colour (#1a1a1a); only opacity varies with bakery
   // density. This keeps the backdrop neutral so red pharmacy pins read clearly.
-  const communeGroup = svg.append('g').attr('class', 'communes');
+  const communeGroup = worldG.append('g').attr('class', 'communes');
   communeGroup.selectAll('path')
     .data(communes.features)
     .join('path')
+    .attr('class', 'commune')
     .attr('d', path)
     .attr('fill', '#1a1a1a')
     .attr('fill-opacity', d => bakeryOpacityScale(d.properties.bakeriesPer10k || 0))
     .attr('stroke', '#1a1a1a')
-    .attr('stroke-width', 0.3);
+    .attr('stroke-width', COMMUNE_STROKE_W);
 
   // ── Foreground: pharmacy circles (all pre-rendered, hidden) ──────────────────
-  const pinGroup = svg.append('g').attr('class', 'pharmacies');
+  const pinGroup = worldG.append('g').attr('class', 'pharmacies');
   const circles = pinGroup.selectAll('circle')
     .data(pharmacies)
     .join('circle')
+    .attr('class', 'pharmacy-pin')
     .attr('cx', d => {
       const pt = projection([d.lng, d.lat]);
       return pt ? pt[0] : -9999;
@@ -98,7 +114,7 @@ export function drawTimelapseMap(selector, refs) {
     .style('display', 'none')
     .style('pointer-events', 'none');
 
-  // ── Year counter overlay ─────────────────────────────────────────────────────
+  // ── Year counter overlay (stays fixed in SVG space, not in worldG) ──────────
   const overlayBg = svg.append('rect')
     .attr('x', 12).attr('y', 12)
     .attr('rx', 3)
@@ -128,6 +144,33 @@ export function drawTimelapseMap(selector, refs) {
     .attr('class', 'map-tooltip timelapse-tooltip')
     .style('display', 'none');
 
+  // ── d3-zoom setup ────────────────────────────────────────────────────────────
+  const zoom = d3.zoom()
+    .scaleExtent([1, 12])
+    .translateExtent([[-width * 0.5, -height * 0.5], [width * 1.5, height * 1.5]])
+    .filter((event) => {
+      // Allow drag always; wheel zoom only with ctrl/cmd held (pinch always works)
+      if (event.type === 'wheel') return event.ctrlKey || event.metaKey;
+      return !event.button; // no right-click pan
+    })
+    .on('zoom', (event) => {
+      worldG.attr('transform', event.transform);
+      // Keep pin radius visually consistent across zoom levels
+      worldG.selectAll('.pharmacy-pin')
+        .attr('r', PIN_R / event.transform.k)
+        .attr('stroke-width', PIN_STROKE_W / event.transform.k);
+      worldG.selectAll('.commune')
+        .attr('stroke-width', COMMUNE_STROKE_W / event.transform.k);
+    })
+    .on('start', () => {
+      svg.style('cursor', 'grabbing');
+    })
+    .on('end', () => {
+      svg.style('cursor', 'grab');
+    });
+
+  svg.call(zoom);
+
   // ── Control bar (HTML below the SVG) ────────────────────────────────────────
   const controls = document.createElement('div');
   controls.className = 'timelapse-controls';
@@ -137,13 +180,36 @@ export function drawTimelapseMap(selector, refs) {
     <input type="range" class="tl-scrubber" min="0" max="1000" step="1" value="0" aria-label="Timeline scrubber">
     <span class="tl-year-end">2013</span>
     <span class="tl-year-counter">1943</span>
-    <button class="tl-btn tl-reset" aria-label="Reset">&#8635;</button>
+    <button class="tl-btn tl-reset" aria-label="Reset animation">&#8635;</button>
+    <button class="tl-btn tl-zoom-out" aria-label="Zoom out">&#8722;</button>
+    <button class="tl-btn tl-zoom-in" aria-label="Zoom in">&#43;</button>
+    <button class="tl-btn tl-zoom-reset" aria-label="Reset zoom">&#8982; Zoom</button>
   `;
   container.after(controls);
+
+  // ── Pan/zoom hint (below controls) ──────────────────────────────────────────
+  const hint = document.createElement('p');
+  hint.className = 'timelapse-zoom-hint';
+  hint.textContent = 'Drag to pan · pinch or ⌘ + scroll to zoom';
+  controls.after(hint);
 
   const playBtn    = controls.querySelector('.tl-play');
   const scrubber   = controls.querySelector('.tl-scrubber');
   const yearCounter = controls.querySelector('.tl-year-counter');
+
+  // Zoom button handlers
+  const MID_X = width / 2;
+  const MID_Y = height / 2;
+
+  controls.querySelector('.tl-zoom-in').addEventListener('click', () => {
+    svg.transition().duration(300).call(zoom.scaleBy, 1.5, [MID_X, MID_Y]);
+  });
+  controls.querySelector('.tl-zoom-out').addEventListener('click', () => {
+    svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.5, [MID_X, MID_Y]);
+  });
+  controls.querySelector('.tl-zoom-reset').addEventListener('click', () => {
+    svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+  });
 
   // ── Animation state ──────────────────────────────────────────────────────────
   const DURATION = 30000; // ms for full play-through
@@ -285,6 +351,7 @@ export function drawTimelapseMap(selector, refs) {
   // ── Pharmacy pin tooltip ─────────────────────────────────────────────────────
   circles.on('mouseover', function(event, d) {
     if (playing) return;
+    d3.select(this).style('cursor', 'pointer');
     const year = d.dateouv ? d.dateouv.slice(0, 4) : '?';
     tooltip
       .style('display', 'block')
@@ -298,6 +365,7 @@ export function drawTimelapseMap(selector, refs) {
   });
 
   circles.on('mouseout', function() {
+    d3.select(this).style('cursor', null);
     tooltip.style('display', 'none');
   });
 
