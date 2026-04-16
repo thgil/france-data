@@ -9,6 +9,7 @@ datasets and the resulting story.
 - 🟢 **open** — not yet investigated
 - 🟡 **researching** — data being explored
 - 🔵 **blocked** — data not available / quality insufficient
+- 🟣 **premise-failed** — data was available, but the question's framing didn't hold (worth a brief note; may reshape into a new question)
 - ✅ **answered** — finding recorded in topic file (and maybe a story)
 
 ---
@@ -23,7 +24,7 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
 
-### Q-003: How has France's fertility rate actually changed since 2000, and where is it rising?
+### Q-003: How has France's fertility rate changed since 2000, and which types of territory (urban / rural / DOM-TOM) have diverged most from the national trend?
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
 
@@ -62,6 +63,14 @@ datasets and the resulting story.
 - Topic: [economy](topics/economy.md)
 
 ### Q-012: Where are micro-enterprises growing fastest?
+- Status: 🟢 open
+- Topic: [economy](topics/economy.md)
+
+### Q-026: How many cows does France have, and where are they densest? (Agriculture / livestock — filed under economy.)
+- Status: 🟢 open
+- Topic: [economy](topics/economy.md)
+
+### Q-036: Which region files the most patents per capita?
 - Status: 🟢 open
 - Topic: [economy](topics/economy.md)
 
@@ -123,10 +132,6 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [environment](topics/environment.md)
 
-### Q-026: How many cows does France have, and where are they densest?
-- Status: 🟢 open
-- Topic: [environment](topics/environment.md)
-
 ### Q-027: What's the most polluted river in France, by recent monitoring?
 - Status: 🟢 open
 - Topic: [environment](topics/environment.md)
@@ -164,10 +169,6 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-035: How many communes have a public library, and how many don't?
-- Status: 🟢 open
-- Topic: [culture](topics/culture.md)
-
-### Q-036: Which region files the most patents per capita?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
