@@ -101,7 +101,7 @@ export function drawTimelapseMap(selector, refs) {
   const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
 
   // ── Animation state ───────────────────────────────────────────────────────
-  const DURATION  = 45000;
+  const DURATION  = 60000;
   const START_MS  = new Date('1943-01-01').getTime();
   const END_MS    = new Date('2013-12-31').getTime();
   const SPAN_MS   = END_MS - START_MS;
@@ -113,9 +113,9 @@ export function drawTimelapseMap(selector, refs) {
     return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   }
 
-  function setT(t) {
+  // Update DOM/filter to reflect progress t ∈ [0,1]. No state mutation.
+  function updateVisuals(t) {
     t = Math.max(0, Math.min(1, t));
-    tAtPause = t;
     const ms   = START_MS + t * SPAN_MS;
     const year = new Date(ms).getFullYear();
     scrubber.value      = Math.round(t * 1000);
@@ -127,11 +127,18 @@ export function drawTimelapseMap(selector, refs) {
     }
   }
 
+  // Set tAtPause AND update visuals — for scrubber, reset, end-of-animation.
+  function setT(t) {
+    t = Math.max(0, Math.min(1, t));
+    tAtPause = t;
+    updateVisuals(t);
+  }
+
   function frame(now) {
     if (!playing) return;
     const t = tAtPause + (now - startTS) / DURATION;
     if (t >= 1) { setT(1); pause(); return; }
-    setT(t);
+    updateVisuals(t);  // don't call setT — would compound tAtPause
     rafId = requestAnimationFrame(frame);
   }
 
@@ -143,6 +150,10 @@ export function drawTimelapseMap(selector, refs) {
   }
 
   function pause() {
+    // Freeze tAtPause at the current progress before stopping
+    if (playing && startTS) {
+      tAtPause = Math.min(tAtPause + (performance.now() - startTS) / DURATION, 1);
+    }
     playing = false;
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     playBtn.innerHTML = '&#9654; Play';
@@ -325,7 +336,7 @@ export function drawTwinChoropleths(selector, refs) {
   const leftDiv  = buildPanel('Pharmacies / 10k', '#b32020', 'twin-map-left');
   const rightDiv = buildPanel('Bakeries / 10k',   '#1a1a1a', 'twin-map-right');
 
-  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: 9,
+  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: 8.5,
     maxZoom: 16, minZoom: 9, attributionControl: false };
   const mapLeft  = new maplibregl.Map({ ...baseOpts, container: leftDiv });
   const mapRight = new maplibregl.Map({ ...baseOpts, container: rightDiv });
