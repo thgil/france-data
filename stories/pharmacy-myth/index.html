@@ -3,8 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The pharmacy myth — France, by the numbers</title>
+  <title>Every pharmacy in Île-de-France — France, by the numbers</title>
   <link rel="stylesheet" href="/shared/style.css">
+  <style>
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
 </head>
 <body class="story">
   <header id="masthead"></header>
@@ -12,74 +36,103 @@
     <article>
       <header class="story-header">
         <div class="story-kicker">Economy</div>
-        <h1 class="story-title">The pharmacy myth</h1>
-        <p class="story-dek">Everyone says France has more pharmacies than bakeries. The data says otherwise — but what's actually weird about French pharmacies is even better.</p>
+        <h1 class="story-title">Every pharmacy in Île-de-France</h1>
+        <p class="story-dek">Three maps, three angles on what French neighbourhood density actually looks like — and a couple of myths corrected along the way.</p>
         <div class="story-meta">
           <span>2026-04-16</span>
-          <span>4 min read</span>
+          <span>6 min read</span>
         </div>
       </header>
 
-      <p>There's a fact that travels well. You hear it from tour guides doing their best to seem interesting, from trivia accounts padding their feeds, from expats explaining France to people who've never been. The claim is this: France has more pharmacies than bakeries. Sometimes it comes with numbers — 21,000 pharmacies, 19,000 bakeries. Sometimes it's delivered without attribution, the way you'd state that the sun rises in the east.</p>
+      <p>Two myths about French pharmacies travel further than they deserve. The first is that France has more pharmacies than bakeries — a claim that sounds plausible because the green crosses are everywhere, and because you know how many boulangeries there are. But nationally there are roughly 21,000 pharmacies and roughly 35,000 bakeries; bakeries outnumber pharmacies by about 1.7 to 1. The second myth is subtler: that France leads Europe in pharmacy density. It doesn't. Greece runs at 97 pharmacies per 100,000 residents; France sits at 33, just above the OECD average of 28. Both myths flatly contradict the OECD's own published figures (Health at a Glance 2023, 2021 data). Better to look at the map than argue the count.</p>
 
-      <p>It captures something true-feeling. The green crosses are everywhere in Paris — lit up at night, visible from across the street, one on every other corner. And you know how many bakeries there are. The claim sounds plausible precisely because both things are real and both things are common. What could be wrong?</p>
+      <p>The Région Île-de-France open data portal publishes 3,991 individual pharmacy points — FINESS-registered, each with name, address, latitude/longitude, and an ouverture date — plus the INSEE Base Permanente des Équipements commune-level counts that include matching boulangerie figures for the same 1,300 IDF communes. Three maps follow, built from those two sources.</p>
 
-      <p>The numbers, as it turns out. Almost all of them.</p>
+      <h2>Where the network actually is</h2>
 
-      <p>The Ordre national des pharmaciens does put the national count of retail pharmacies — officines, the small dispensing shops, not hospital pharmacies — at roughly 21,000. That part is right. But cross-reference the Confédération nationale de la boulangerie-pâtisserie française against INSEE's SIRENE business registry under the NAF code for artisan bakers, and you land somewhere around 35,000 bakeries. That's not close. Bakeries outnumber pharmacies by roughly 1.7 to 1.</p>
+      <p>The IDF pharmacy network didn't appear in one go. The earliest ouverture date in the dataset is 1943-12-27; the most recent in our snapshot is 2013-10-15. Watch the dots arrive in chronological order and the geography of the build-out becomes visible: dense inner-city cores filling first, then a ring of suburban nodes, then the outer communes catching up decades later.</p>
 
-      <figure>
-        <div id="chart-1"></div>
-        <figcaption>Bakeries outnumber pharmacies by about 1.7 to 1. Sources: Ordre national des pharmaciens; Confédération nationale de la boulangerie-pâtisserie / INSEE SIRENE.</figcaption>
+      <figure class="map-figure">
+        <div id="map-timelapse" class="mount"></div>
+        <figcaption>Every retail pharmacy in Île-de-France, ordered by ouverture date. Bakery density per commune as the background fill. Source: <a href="https://www.data.gouv.fr/datasets/carte-des-pharmacies-dile-de-france">Région IDF — Carte des pharmacies d'IDF</a> (FINESS); <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Commerces (IDF)</a>.</figcaption>
       </figure>
 
-      <p>So why does the myth feel so true? Because the people most likely to be repeating it — tourists, Parisian expats, anyone who's spent a week in the Marais — are living inside an unusual data point. In central Paris, the density of pharmacies is genuinely extraordinary, and density is what you actually experience when you walk around a neighbourhood.</p>
+      <p>One caveat on the dateouv field: in French regulatory practice the ouverture date can reset when a pharmacy changes ownership or transfers its licence. Early dates therefore undercount, and recent years oversample slightly. The shape of the curve is real; year-by-year absolute counts are noisier than they look.</p>
 
-      <h2>Where the myth comes from</h2>
+      <p>Look at the resulting distribution and a quieter pattern surfaces. Pull back to commune level, switch to density rather than raw counts, and the same neighbourhoods top both the pharmacy and the bakery lists.</p>
 
-      <p>Using INSEE's Base Permanente des Équipements, which tracks service infrastructure at commune level, you can look at Paris arrondissement by arrondissement. The picture is striking. The 8e arrondissement — the Champs-Élysées end of the city, commercial and tourist-heavy — has 58 pharmacies for around 41,000 residents. That works out to roughly 14 pharmacies per 10,000 people, or one for every 712 residents. For context, the European Union's average sits somewhere around 3 per 10,000. The 8e is running at nearly five times that rate.</p>
+      <h2>Pharmacies and bread don't compete</h2>
 
-      <p>But the 8e is an outlier even within Paris. The chart below shows all fourteen arrondissements in our dataset, ranked by pharmacy density. Even the residential neighbourhoods — the 11e, the 17e, the 18e — sit between 5 and 6 per 10,000. That's still well above the European norm. Paris, as a whole, is saturated with pharmacies in a way that most of the country isn't.</p>
-
-      <figure>
-        <div id="chart-2"></div>
-        <figcaption>Paris arrondissements ranked by pharmacies per 10,000 residents. The 8e arrondissement has roughly one pharmacy for every 712 people. Source: INSEE Base Permanente des Équipements (Île-de-France), via data.gouv.fr.</figcaption>
+      <figure class="map-figure">
+        <div id="map-twin" class="mount"></div>
+        <figcaption>Pharmacies per 10,000 residents (left) and bakeries per 10,000 residents (right), at commune level. Île-de-France BPE, vintage circa 2014. Source: <a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Santé (IDF)</a>; <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Commerces (IDF)</a>.</figcaption>
       </figure>
 
-      <p>Look at the chart long enough and a second pattern emerges, quieter than the headline density figure. The arrondissements that top the pharmacy list also top the bakery list, and in roughly the same order. The 8e leads both. The 9e and 5e follow on both sides. Down at the bottom, the 19e and 20e are sparse in both. Pharmacies and bakeries don't compete for the same location — they cluster together, on the same commercial high streets, drawing from the same daytime footfall. The myth was asking the wrong question. Pharmacies don't crowd out boulangeries. They move in together.</p>
+      <p>Pharmacies don't crowd out boulangeries — they move in alongside them. The same arrondissements (the 8e, 9e, 5e) top both lists in roughly the same order; the same outer communes sit near the bottom of both. French law forbids chain ownership of pharmacies: each officine must be majority-owned by a licensed pharmacist, and new licences are gated to local population thresholds — one per 2,500 residents in communes under 30,000, one per 4,500 in larger ones. Bakeries follow the same urban logic by accident — independent ownership, neighbourhood scale, foot traffic. They cluster on the same commercial streets because they answer to the same pressures.</p>
 
-      <h2>Why pharmacies cluster like this</h2>
+      <h2>Standing in the picture</h2>
 
-      <p>The density isn't an accident, and it isn't just urban population pressure. France regulates pharmacy ownership in ways that most countries don't. Each officine must be majority-owned by a licensed pharmacist — no chain-store ownership, no investor rollup, no CVS-style consolidation. New licences are tied to local population thresholds: you can't open a second pharmacy in a small town until the first one has served enough residents to justify the expansion. The result is a network that's small-shop in character, geographically distributed, and defended politically by the pharmacists who own the shops.</p>
+      <p>Looking at the city from above is one thing. Standing inside it is another. Click anywhere in IDF to see how many pharmacies and bakeries are within a five-, ten-, and fifteen-minute walk.</p>
 
-      <p>That structure produces something unusual in a country otherwise shaped by large-scale retail: a professional service that's genuinely embedded in its neighbourhood, not consolidated to a logistics hub. The myth got the numbers wrong. The intuition behind it — that something about France is unusually pharmacy-dense, and that it has something to do with how the French organise daily life — is exactly right.</p>
+      <figure class="map-figure">
+        <div id="map-walking" class="mount"></div>
+        <figcaption>Walking-distance counts of pharmacies (red) and bakeries (commune-aggregate; estimated to point density). Click any spot in IDF, or pick a featured corner. Source: same as Map A.</figcaption>
+      </figure>
 
-      <p style="font-family: var(--sans); font-size: 13px; color: var(--ink-mute); margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--ink-mute); max-width: 680px; margin-left: auto; margin-right: auto;">
-        A note on the data: commune-level counts are from INSEE's Base Permanente des Équipements (BPE), vintage circa 2014, with 2010 census population. Absolute counts have shifted since; the structural pattern — that central Paris arrondissements have the densest pharmacy networks in France — is durable. National totals are current figures from trade bodies (Ordre national des pharmaciens; Confédération nationale de la boulangerie-pâtisserie).
-      </p>
+      <p>Both myths land softer when you've seen the geography. The pharmacy count is just a number; the network is the story. France doesn't have the most pharmacies per capita, or more pharmacies than bakeries — it has a particular kind of small-shop, regulated, neighbourhood-scale infrastructure, replicated across thousands of corners. The unusual thing isn't the count. It's the urban form.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune-level counts of pharmacies and bakeries come from INSEE's Base Permanente des Équipements (BPE), republished by Région Île-de-France, vintage circa 2014, with 2010 census population. The individual pharmacy points come from the IDF "Carte des pharmacies" dataset (FINESS register). The BPE commune aggregate (4,228 pharmacies) and the FINESS point file (3,991) differ because they're different vintages and definitions — BPE includes some establishments FINESS classifies separately. The structural pattern (where the dense neighbourhoods are) is durable; the absolute counts have shifted since.</p>
+
+        <p>Density per 10,000 residents is computed from BPE counts and 2010 population. The Mauregard outlier (1 pharmacy / 314 residents = 63.7 per 10k) is a small-commune artefact — the rural pharmacy serves the surrounding villages but the population denominator is tiny. Density figures are unreliable for communes under ~1,000 residents; treat them as indicative.</p>
+
+        <h3>Prior work we built on</h3>
+        <ul>
+          <li><a href="https://www.thelocal.fr/20210308/explained-why-does-france-have-so-many-pharmacies">The Local France — "Why does France have so many pharmacies?"</a> (2021). The clearest existing explainer for the regulatory context. Where we got the framing on pharmacist-only ownership and population-threshold licensing.</li>
+          <li><a href="https://www.oecd.org/en/publications/health-at-a-glance-2023_7a7afb35-en/full-report/pharmacists-and-pharmacies_521be7d5.html">OECD Health at a Glance 2023 — Pharmacists and Pharmacies</a>. The canonical EU/OECD comparison; the source for "Greece leads, not France."</li>
+          <li><a href="https://www.insee.fr/fr/statistiques/1281354">INSEE Première no. 1525 — "Les pharmacies depuis 2000"</a>. The French statistical baseline.</li>
+          <li><a href="https://www.data.gouv.fr/reuses/pharmacies-densite-pour-100-000-habitants/">Geoclip — "Pharmacies : densité pour 100 000 habitants" (2014)</a>. Earlier interactive choropleth at département level. We push the resolution to commune level and add the bakery comparison.</li>
+        </ul>
+
+        <h3>Sources on data.gouv.fr</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/carte-des-pharmacies-dile-de-france">Carte des pharmacies d'Île-de-France</a> (Région IDF, 3,991 geocoded points)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">BPE Services de santé par commune (IDF)</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">BPE Commerces par commune (IDF)</a></li>
+        </ul>
+      </div>
     </article>
   </main>
   <footer class="site-footer">
     <span><a href="/">← all stories</a></span>
     <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
   </footer>
+
   <script src="/shared/nav.js" defer></script>
   <script type="module">
-    import { drawNationalBars, drawArrondissementBars } from "./charts.js";
+    import { drawTimelapseMap, drawTwinChoropleths, drawWalkingExplorer } from "./charts.js";
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
 
     async function main() {
-      let data;
       try {
-        const res = await fetch("./data.json");
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        data = await res.json();
-      } catch (err) {
-        console.error("Failed to load data.json:", err);
-        return;
-      }
+        const [pharmacies, communes, meta] = await Promise.all([
+          loadJSON('./pharmacies.json'),
+          loadJSON('./communes.geojson'),
+          loadJSON('./data-meta.json'),
+        ]);
+        const refs = { pharmacies, communes, meta };
 
-      drawNationalBars("#chart-1", data);
-      drawArrondissementBars("#chart-2", data);
+        drawTimelapseMap('#map-timelapse', refs);
+        drawTwinChoropleths('#map-twin', refs);
+        drawWalkingExplorer('#map-walking', refs);
+      } catch (err) {
+        console.error('Failed to load story data:', err);
+      }
     }
 
     main();
