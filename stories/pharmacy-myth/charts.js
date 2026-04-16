@@ -34,7 +34,8 @@ export function drawTimelapseMap(selector, refs) {
   const width = container.clientWidth || 800;
   const height = Math.min(Math.round(width * (10 / 16)), 640);
   const isNarrow = width < 600;
-  const PIN_R = isNarrow ? 2 : 2.5;
+  const PIN_R        = isNarrow ? 2.5 : 3;    // boosted for contrast against grey fills
+  const PIN_STROKE_W = isNarrow ? 0.8 : 1.2;  // cream halo width scales with viewport
 
   // Make container position:relative so tooltip offsets work
   container.style.position = 'relative';
@@ -52,24 +53,28 @@ export function drawTimelapseMap(selector, refs) {
     .fitSize([width, height], communes);
   const path = d3.geoPath(projection);
 
-  // ── Bakery colour scale (95th percentile cap) ────────────────────────────────
+  // ── Bakery opacity scale (85th-percentile cap — reduced from 95th to suppress
+  //    small-commune outliers that distort the visual hierarchy) ─────────────────
   const bpValues = communes.features
     .map(f => f.properties.bakeriesPer10k || 0)
     .filter(v => v > 0)
     .sort(d3.ascending);
-  const p95 = d3.quantile(bpValues, 0.95) || 1;
-  const colorScale = d3.scaleSequential(d3.interpolateYlOrBr).domain([0, p95]);
+  const capValue = d3.quantile(bpValues, 0.85) || 1; // 85th percentile cap
+  const bakeryOpacityScale = d3.scaleLinear()
+    .domain([0, capValue])
+    .range([0.02, 0.28])
+    .clamp(true);
 
-  // ── Background: commune choropleth ──────────────────────────────────────────
+  // ── Background: commune choropleth (monochrome grey, opacity-only encoding) ──
+  // Fill is a fixed dark ink colour (#1a1a1a); only opacity varies with bakery
+  // density. This keeps the backdrop neutral so red pharmacy pins read clearly.
   const communeGroup = svg.append('g').attr('class', 'communes');
   communeGroup.selectAll('path')
     .data(communes.features)
     .join('path')
     .attr('d', path)
-    .attr('fill', d => {
-      const v = d.properties.bakeriesPer10k || 0;
-      return v === 0 ? colorScale(0) : colorScale(v);
-    })
+    .attr('fill', '#1a1a1a')
+    .attr('fill-opacity', d => bakeryOpacityScale(d.properties.bakeriesPer10k || 0))
     .attr('stroke', '#1a1a1a')
     .attr('stroke-width', 0.3);
 
@@ -87,9 +92,9 @@ export function drawTimelapseMap(selector, refs) {
       return pt ? pt[1] : -9999;
     })
     .attr('r', PIN_R)
-    .attr('fill', 'rgba(179,32,32,0.70)')
-    .attr('stroke', 'rgba(255,255,255,0.60)')
-    .attr('stroke-width', 0.5)
+    .attr('fill', '#b32020')              // full-saturation red — punches through neutral grey
+    .attr('stroke', 'rgba(250,247,242,0.80)')  // paper (#faf7f2) halo at 80% opacity
+    .attr('stroke-width', PIN_STROKE_W)
     .style('display', 'none')
     .style('pointer-events', 'none');
 
