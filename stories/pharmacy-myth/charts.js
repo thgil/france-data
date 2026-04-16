@@ -796,7 +796,8 @@ export function drawWalkingExplorer(selector, refs) {
 
   // ── Layout ───────────────────────────────────────────────────────────────────
   const width = container.clientWidth || 800;
-  const height = Math.min(Math.round(width * (10 / 16)), 600);
+  const viewportH = window.innerHeight || 800;
+  const height = Math.max(Math.round(viewportH * 0.8), 500);
 
   container.style.position = 'relative';
 
@@ -809,9 +810,13 @@ export function drawWalkingExplorer(selector, refs) {
     .style('background', '#f7f4ee')
     .style('cursor', 'crosshair');
 
-  // ── Projection ───────────────────────────────────────────────────────────────
+  // ── Projection: fit to Paris intra-muros (dépt 75) ──────────────────────────
+  const parisFC = {
+    type: 'FeatureCollection',
+    features: communes.features.filter(f => f.properties.dept === '75'),
+  };
   const projection = d3.geoMercator()
-    .fitSize([width, height], communes);
+    .fitSize([width, height], parisFC);
   const path = d3.geoPath(projection);
 
   // ── Precompute commune centroids ─────────────────────────────────────────────
