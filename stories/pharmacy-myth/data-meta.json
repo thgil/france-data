@@ -1,0 +1,30 @@
+{
+  "vintage": {
+    "bpe": "circa 2014",
+    "population": "2010 census",
+    "pharmacies_finess": "datamaj per row, latest ~2010-2024"
+  },
+  "sources": [
+    {
+      "id": "DS-001",
+      "label": "BPE Services de santé par commune (IDF)",
+      "url": "https://data.iledefrance.fr/explore/dataset/les-service-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equip/download?format=csv"
+    },
+    {
+      "id": "DS-002",
+      "label": "BPE Commerces par commune (IDF)",
+      "url": "https://data.iledefrance.fr/explore/dataset/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements/download?format=csv"
+    },
+    {
+      "id": "DS-pharmacies-points",
+      "label": "Carte des pharmacies d'Île-de-France",
+      "url": "https://data.iledefrance.fr/api/explore/v2.1/catalog/datasets/carte-des-pharmacies-dile-de-france/exports/csv?use_labels=true"
+    }
+  ],
+  "totals": {
+    "communes": 1300,
+    "pharmacies_individual": 3991,
+    "pharmacies_aggregate": 4228,
+    "bakeries_aggregate": 6299
+  }
+}

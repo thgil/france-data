@@ -41,6 +41,16 @@ any caveats about quality.
 - Notes: Counts include `boulangerie`, `boucherie_charcuterie`, `epicerie`, `supermarche`, `librairie_papeterie_journaux`, `magasin_de_vetements`, etc. Pairs cleanly with DS-001 for cross-category density comparisons.
 - Used by: Q-007
 
+### DS-004: Carte des pharmacies d'Île-de-France
+- URL: https://data.iledefrance.fr/explore/dataset/carte-des-pharmacies-dile-de-france/information/
+- Resource (CSV): https://data.iledefrance.fr/api/explore/v2.1/catalog/datasets/carte-des-pharmacies-dile-de-france/exports/csv?use_labels=true
+- Dataset ID: `595917a8a3a7291dd09c8092`
+- Publisher: Région Île-de-France
+- Coverage: Île-de-France only. 3,991 individual pharmacy points with FINESS identifier, address, lat/lng, and ouverture date. Date range spans roughly 1900–2024 (some historical records have implausible early dates).
+- Formats: CSV, JSON, GeoJSON, SHP
+- Notes: 3,991 individual pharmacy points with FINESS ID, address, lat/lng, and ouverture date. Joinable to BPE communes via the `commune` and postal-code fields. Column `dateouv` (date d'ouverture) is the pharmacy opening date; a small number of rows are missing it or carry placeholder dates (e.g. 1900-01-01). Column `rs` is the registered name; `rslongue` is the long-form name. Address built from `numvoie`, `typvoie`, `voie`, `cp`, `commune`.
+- Used by: Q-007
+
 ### DS-003: Base Sirene des entreprises et de leurs établissements (national)
 - URL: https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret
 - Publisher: INSEE
