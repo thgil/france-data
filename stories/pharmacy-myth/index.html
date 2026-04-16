@@ -28,6 +28,89 @@
       text-transform: uppercase;
       margin: 24px 0 8px;
     }
+
+    /* ── Time-lapse controls ─────────────────────────────────────── */
+    .timelapse-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .tl-btn {
+      background: none;
+      border: 1px solid #999;
+      border-radius: 3px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tl-btn:hover { background: #ece8e0; }
+
+    .tl-year-start,
+    .tl-year-end {
+      font-size: 11px;
+      color: #777;
+      flex-shrink: 0;
+    }
+
+    .tl-scrubber {
+      flex: 1;
+      min-width: 60px;
+      accent-color: #b32020;
+      cursor: pointer;
+      height: 4px;
+    }
+
+    .tl-year-counter {
+      font-family: Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #1a1a1a;
+      min-width: 3.5ch;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .tl-reset {
+      font-size: 15px;
+      padding: 2px 7px;
+    }
+
+    /* ── Pharmacy tooltip ────────────────────────────────────────── */
+    .timelapse-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .timelapse-tooltip strong {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
   </style>
 </head>
 <body class="story">
