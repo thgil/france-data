@@ -405,8 +405,8 @@ export function drawTwinChoropleths(selector, refs) {
   const communesRight = JSON.parse(JSON.stringify(communes));
 
   function setupMap(m, communeData, isLeft) {
-    m.addSource('communes', { type: 'geojson', data: communeData, promoteId: 'id' });
-    // Must use promoteId so setFeatureState works by numeric ID
+    // features have f.id = i (top-level GeoJSON feature ID), so setFeatureState works by index
+    m.addSource('communes', { type: 'geojson', data: communeData });
     m.addLayer({ id: 'commune-fill', type: 'fill', source: 'communes',
       paint: { 'fill-color': fillExpr, 'fill-opacity': 0.9 } });
     m.addLayer({ id: 'commune-borders', type: 'line', source: 'communes',
