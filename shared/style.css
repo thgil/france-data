@@ -131,6 +131,15 @@ body { line-height: 1.5; }
   margin: 0;
 }
 
+.index-empty {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

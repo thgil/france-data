@@ -6,7 +6,7 @@
   "description": "Data storytelling about France, built on datagouv-mcp.",
   "scripts": {
     "build": "node scripts/build-index.js",
-    "test": "node --test scripts/"
+    "test": "node --test scripts/*.test.js"
   },
   "engines": {
     "node": ">=20"
