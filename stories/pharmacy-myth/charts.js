@@ -32,7 +32,8 @@ export function drawTimelapseMap(selector, refs) {
 
   // ── Layout ──────────────────────────────────────────────────────────────────
   const width = container.clientWidth || 800;
-  const height = Math.min(Math.round(width * (10 / 16)), 640);
+  const viewportH = window.innerHeight || 800;
+  const height = Math.max(Math.round(viewportH * 0.8), 500);
   const isNarrow = width < 600;
   const PIN_R          = isNarrow ? 2.5 : 3;    // boosted for contrast against grey fills
   const PIN_STROKE_W   = isNarrow ? 0.8 : 1.2;  // cream halo width scales with viewport
@@ -58,7 +59,7 @@ export function drawTimelapseMap(selector, refs) {
   // ~4× tighter than full-IDF. ALL 1,300 communes and ALL 3,991 pins are still
   // rendered; outer dépts are initially clipped by the SVG viewport but appear
   // when the user pans or zooms out.
-  const INNER_DEPTS = new Set(['75', '92', '93', '94']);
+  const INNER_DEPTS = new Set(['75']);
   const innerFC = {
     type: 'FeatureCollection',
     features: communes.features.filter(f => INNER_DEPTS.has(f.properties.dept)),
