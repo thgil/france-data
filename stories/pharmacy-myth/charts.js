@@ -325,7 +325,7 @@ export function drawTwinChoropleths(selector, refs) {
   const leftDiv  = buildPanel('Pharmacies / 10k', '#b32020', 'twin-map-left');
   const rightDiv = buildPanel('Bakeries / 10k',   '#1a1a1a', 'twin-map-right');
 
-  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: MAP_ZOOM,
+  const baseOpts = { style: BASEMAP, center: PARIS_CENTER, zoom: 10,
     maxZoom: 16, minZoom: 9, attributionControl: false };
   const mapLeft  = new maplibregl.Map({ ...baseOpts, container: leftDiv });
   const mapRight = new maplibregl.Map({ ...baseOpts, container: rightDiv });
