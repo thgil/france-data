@@ -1,0 +1,14 @@
+{
+  "name": "france-data",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Data storytelling about France, built on datagouv-mcp.",
+  "scripts": {
+    "build": "node scripts/build-index.js",
+    "test": "node --test scripts/"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
