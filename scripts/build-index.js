@@ -2,9 +2,9 @@
 // Reads stories/*/meta.json and writes a static index.html.
 // Run: node scripts/build-index.js  (or: npm run build)
 
-import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, realpathSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const escapeHtml = (s) =>
   String(s)
@@ -25,11 +25,12 @@ function loadStories(projectRoot) {
     })
     .map((dir) => {
       const metaPath = join(dir, 'meta.json');
-      if (!existsSync(metaPath)) return null;
+      if (!existsSync(metaPath)) return null;   // draft / WIP — skip silently
+      const raw = readFileSync(metaPath, 'utf8');
       try {
-        return JSON.parse(readFileSync(metaPath, 'utf8'));
-      } catch {
-        return null;
+        return JSON.parse(raw);
+      } catch (err) {
+        throw new Error(`Invalid JSON in ${metaPath}: ${err.message}`);
       }
     })
     .filter(Boolean)
@@ -88,8 +89,14 @@ export function buildIndex(projectRoot) {
   return { count: stories.length, path: join(projectRoot, 'index.html') };
 }
 
-// Entry point when run as a script
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Entry point when run as a script. The realpathSync/pathToFileURL round-trip
+// handles paths with spaces, non-ASCII characters, and symlinks (common under
+// `npm run` which can resolve through a binary symlink).
+const invokedAsScript =
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+
+if (invokedAsScript) {
   const here = dirname(fileURLToPath(import.meta.url));
   const root = join(here, '..');
   const result = buildIndex(root);

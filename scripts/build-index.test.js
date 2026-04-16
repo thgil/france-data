@@ -79,3 +79,18 @@ test('buildIndex ignores folders without a meta.json (e.g. drafts)', () => {
 
   rmSync(root, { recursive: true, force: true });
 });
+
+test('buildIndex throws a clear error when a meta.json is malformed', () => {
+  const root = makeTempProject();
+  const dir = join(root, 'stories', 'broken');
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'meta.json'), '{ "slug": "broken", '); // truncated JSON
+  writeFileSync(join(dir, 'index.html'), '<p>broken</p>');
+
+  assert.throws(
+    () => buildIndex(root),
+    /Invalid JSON in .*broken.*meta\.json/
+  );
+
+  rmSync(root, { recursive: true, force: true });
+});
