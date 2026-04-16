@@ -43,8 +43,10 @@ datasets and the resulting story.
 ## Economy
 
 ### Q-007: Are there really more pharmacies than bakeries in France?
-- Status: 🟢 open
-- Topic: [economy](topics/economy.md)
+- Status: 🟣 premise-failed
+- Topic: [economy](topics/economy.md#pharmacies-vs-bakeries)
+- Datasets: [DS-001](datasets.md#ds-001), [DS-002](datasets.md#ds-002)
+- Finding: Bakeries outnumber pharmacies in every Paris arrondissement (the IDF data we have at commune level), and well-cited national totals put it at ~35K bakeries vs ~21K pharmacies. The folklore is wrong. The real story is the *density* — Paris 8e has ~14 pharmacies per 10,000 residents, among the highest urban densities in Europe. See [pitch](story-ideas.md#pharmacy-myth).
 
 ### Q-008: Which commune has the highest median household income?
 - Status: 🟢 open
