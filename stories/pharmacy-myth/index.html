@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The pharmacy myth — France, by the numbers</title>
+  <link rel="stylesheet" href="/shared/style.css">
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Economy</div>
+        <h1 class="story-title">The pharmacy myth</h1>
+        <p class="story-dek">Everyone says France has more pharmacies than bakeries. The data says otherwise — but what's actually weird about French pharmacies is even better.</p>
+        <div class="story-meta">
+          <span>2026-04-16</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <p>There's a fact that travels well. You hear it from tour guides doing their best to seem interesting, from trivia accounts padding their feeds, from expats explaining France to people who've never been. The claim is this: France has more pharmacies than bakeries. Sometimes it comes with numbers — 21,000 pharmacies, 19,000 bakeries. Sometimes it's delivered without attribution, the way you'd state that the sun rises in the east.</p>
+
+      <p>It captures something true-feeling. The green crosses are everywhere in Paris — lit up at night, visible from across the street, one on every other corner. And you know how many bakeries there are. The claim sounds plausible precisely because both things are real and both things are common. What could be wrong?</p>
+
+      <p>The numbers, as it turns out. Almost all of them.</p>
+
+      <p>The Ordre national des pharmaciens does put the national count of retail pharmacies — officines, the small dispensing shops, not hospital pharmacies — at roughly 21,000. That part is right. But cross-reference the Confédération nationale de la boulangerie-pâtisserie française against INSEE's SIRENE business registry under the NAF code for artisan bakers, and you land somewhere around 35,000 bakeries. That's not close. Bakeries outnumber pharmacies by roughly 1.7 to 1.</p>
+
+      <figure>
+        <div id="chart-1"></div>
+        <figcaption>Bakeries outnumber pharmacies by about 1.7 to 1. Sources: Ordre national des pharmaciens; Confédération nationale de la boulangerie-pâtisserie / INSEE SIRENE.</figcaption>
+      </figure>
+
+      <p>So why does the myth feel so true? Because the people most likely to be repeating it — tourists, Parisian expats, anyone who's spent a week in the Marais — are living inside an unusual data point. In central Paris, the density of pharmacies is genuinely extraordinary, and density is what you actually experience when you walk around a neighbourhood.</p>
+
+      <h2>Where the myth comes from</h2>
+
+      <p>Using INSEE's Base Permanente des Équipements, which tracks service infrastructure at commune level, you can look at Paris arrondissement by arrondissement. The picture is striking. The 8e arrondissement — the Champs-Élysées end of the city, commercial and tourist-heavy — has 58 pharmacies for around 41,000 residents. That works out to roughly 14 pharmacies per 10,000 people, or one for every 712 residents. For context, the European Union's average sits somewhere around 3 per 10,000. The 8e is running at nearly five times that rate.</p>
+
+      <p>But the 8e is an outlier even within Paris. The chart below shows all fourteen arrondissements in our dataset, ranked by pharmacy density. Even the residential neighbourhoods — the 11e, the 17e, the 18e — sit between 5 and 6 per 10,000. That's still well above the European norm. Paris, as a whole, is saturated with pharmacies in a way that most of the country isn't.</p>
+
+      <figure>
+        <div id="chart-2"></div>
+        <figcaption>Paris arrondissements ranked by pharmacies per 10,000 residents. The 8e arrondissement has roughly one pharmacy for every 712 people. Source: INSEE Base Permanente des Équipements (Île-de-France), via data.gouv.fr.</figcaption>
+      </figure>
+
+      <p>Look at the chart long enough and a second pattern emerges, quieter than the headline density figure. The arrondissements that top the pharmacy list also top the bakery list, and in roughly the same order. The 8e leads both. The 9e and 5e follow on both sides. Down at the bottom, the 19e and 20e are sparse in both. Pharmacies and bakeries don't compete for the same location — they cluster together, on the same commercial high streets, drawing from the same daytime footfall. The myth was asking the wrong question. Pharmacies don't crowd out boulangeries. They move in together.</p>
+
+      <h2>Why pharmacies cluster like this</h2>
+
+      <p>The density isn't an accident, and it isn't just urban population pressure. France regulates pharmacy ownership in ways that most countries don't. Each officine must be majority-owned by a licensed pharmacist — no chain-store ownership, no investor rollup, no CVS-style consolidation. New licences are tied to local population thresholds: you can't open a second pharmacy in a small town until the first one has served enough residents to justify the expansion. The result is a network that's small-shop in character, geographically distributed, and defended politically by the pharmacists who own the shops.</p>
+
+      <p>That structure produces something unusual in a country otherwise shaped by large-scale retail: a professional service that's genuinely embedded in its neighbourhood, not consolidated to a logistics hub. The myth got the numbers wrong. The intuition behind it — that something about France is unusually pharmacy-dense, and that it has something to do with how the French organise daily life — is exactly right.</p>
+
+      <p style="font-family: var(--sans); font-size: 13px; color: var(--ink-mute); margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--ink-mute); max-width: 680px; margin-left: auto; margin-right: auto;">
+        A note on the data: commune-level counts are from INSEE's Base Permanente des Équipements (BPE), vintage circa 2014, with 2010 census population. Absolute counts have shifted since; the structural pattern — that central Paris arrondissements have the densest pharmacy networks in France — is durable. National totals are current figures from trade bodies (Ordre national des pharmaciens; Confédération nationale de la boulangerie-pâtisserie).
+      </p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <span><a href="/">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+  <script src="/shared/nav.js" defer></script>
+  <script type="module">
+    import { drawNationalBars, drawArrondissementBars } from "./charts.js";
+
+    async function main() {
+      let data;
+      try {
+        const res = await fetch("./data.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (err) {
+        console.error("Failed to load data.json:", err);
+        return;
+      }
+
+      drawNationalBars("#chart-1", data);
+      drawArrondissementBars("#chart-2", data);
+    }
+
+    main();
+  </script>
+</body>
+</html>
