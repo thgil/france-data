@@ -204,6 +204,109 @@
       border-bottom-color: #1a1a1a;
     }
 
+    /* ── Walking explorer (Map C) ────────────────────────────────── */
+    .walk-panel {
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      padding: 14px 16px 12px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #1a1a1a;
+    }
+    .walk-empty-prompt {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .walk-panel-inner {
+      margin-bottom: 12px;
+    }
+    .walk-loc-name {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+    .walk-counts {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .walk-count-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 13px;
+    }
+    .walk-ring-label {
+      font-weight: 600;
+      min-width: 4.5ch;
+      color: #1a1a1a;
+    }
+    .walk-count-sep {
+      color: #aaa;
+    }
+    .walk-count-val {
+      color: #333;
+    }
+    .walk-approx {
+      color: #555;
+    }
+    .walk-corners {
+      margin-bottom: 10px;
+    }
+    .walk-corners-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .walk-corners-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .walk-corner-pill {
+      background: #f0ece4;
+      border: 1px solid #c8c0b0;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+      white-space: nowrap;
+    }
+    .walk-corner-pill:hover {
+      background: #e4ddd4;
+      border-color: #b32020;
+      color: #b32020;
+    }
+    .walk-corner-active {
+      background: #b32020;
+      border-color: #b32020;
+      color: #fff;
+    }
+    .walk-corner-active:hover {
+      background: #8f1a1a;
+      border-color: #8f1a1a;
+      color: #fff;
+    }
+    .walk-footnote {
+      font-size: 11px;
+      font-style: italic;
+      color: #888;
+    }
+    @media (max-width: 500px) {
+      .walk-count-row { flex-wrap: wrap; gap: 3px 6px; }
+      .walk-ring-label { min-width: auto; }
+    }
+
   </style>
 </head>
 <body class="story">

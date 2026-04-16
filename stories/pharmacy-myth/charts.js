@@ -681,6 +681,297 @@ export function drawTwinChoropleths(selector, refs) {
   observer.observe(container);
 }
 
-export function drawWalkingExplorer(selector, _refs) {
-  placeholder(selector, 'Map C — walking explorer · coming next');
+export function drawWalkingExplorer(selector, refs) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  const { pharmacies, communes } = refs;
+
+  // ── Constants ────────────────────────────────────────────────────────────────
+  // Walking speed: 5 km/h = 83.33 m/min
+  // Radii: 5 min = 417 m, 10 min = 833 m, 15 min = 1250 m
+  const RADII_M = [417, 833, 1250];
+  const RING_LABELS = ['5 min', '10 min', '15 min'];
+
+  // Distance conversion at IDF latitude (~48.85°N)
+  const LAT_CENTER_DEG = 48.85;
+  const LAT_CENTER_RAD = LAT_CENTER_DEG * Math.PI / 180;
+  const COS_LAT = Math.cos(LAT_CENTER_RAD);
+  // 1° lat ≈ 111,320 m; 1° lng ≈ 73,500 m at this latitude (×cos for actual)
+  const M_PER_DEG_LAT = 111320;
+  const M_PER_DEG_LNG = 73500;
+
+  // Ring stroke styles
+  const RING_STYLES = [
+    { fill: 'rgba(179,32,32,0.10)', stroke: '#b32020', strokeWidth: 1.5, strokeDasharray: null,   strokeOpacity: 1 },
+    { fill: 'rgba(179,32,32,0.05)', stroke: '#b32020', strokeWidth: 1,   strokeDasharray: '4 3',  strokeOpacity: 1 },
+    { fill: 'none',                 stroke: '#b32020', strokeWidth: 1,   strokeDasharray: '2 4',  strokeOpacity: 0.5 },
+  ];
+
+  // Featured corners
+  const CORNERS = [
+    { name: 'Champs-Élysées',       lat: 48.8700, lng: 2.3075 },
+    { name: 'Bastille',             lat: 48.8532, lng: 2.3692 },
+    { name: 'Gare du Nord',         lat: 48.8809, lng: 2.3553 },
+    { name: 'Marais',               lat: 48.8554, lng: 2.3657 },
+    { name: 'Montmartre',           lat: 48.8867, lng: 2.3431 },
+    { name: 'Versailles',           lat: 48.8014, lng: 2.1301 },
+  ];
+
+  const PIN_R = 2.5;
+
+  // ── Layout ───────────────────────────────────────────────────────────────────
+  const width = container.clientWidth || 800;
+  const height = Math.min(Math.round(width * (10 / 16)), 600);
+
+  container.style.position = 'relative';
+
+  // ── SVG ──────────────────────────────────────────────────────────────────────
+  const svg = d3.select(container)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .style('display', 'block')
+    .style('background', '#f7f4ee')
+    .style('cursor', 'crosshair');
+
+  // ── Projection ───────────────────────────────────────────────────────────────
+  const projection = d3.geoMercator()
+    .fitSize([width, height], communes);
+  const path = d3.geoPath(projection);
+
+  // ── Precompute commune centroids ─────────────────────────────────────────────
+  const communeCentroids = communes.features.map(f => {
+    const [cLng, cLat] = d3.geoCentroid(f);
+    return { lat: cLat, lng: cLng, bakeries: f.properties.bakeries || 0, name: f.properties.name || '' };
+  });
+
+  // ── Commune outlines (no choropleth fill) ────────────────────────────────────
+  const communeGroup = svg.append('g').attr('class', 'walk-communes');
+  communeGroup.selectAll('path')
+    .data(communes.features)
+    .join('path')
+    .attr('d', path)
+    .attr('fill', '#f7f4ee')
+    .attr('stroke', '#1a1a1a')
+    .attr('stroke-width', 0.3)
+    .attr('stroke-opacity', 0.4);
+
+  // ── Ring group (rendered below pins) ─────────────────────────────────────────
+  const ringGroup = svg.append('g').attr('class', 'walk-rings');
+
+  // ── Pharmacy pins ─────────────────────────────────────────────────────────────
+  const pinGroup = svg.append('g').attr('class', 'walk-pins');
+  const pharmCoords = pharmacies.map(d => {
+    const pt = projection([d.lng, d.lat]);
+    return { px: pt ? pt[0] : -9999, py: pt ? pt[1] : -9999, lat: d.lat, lng: d.lng, name: d.name, address: d.address };
+  });
+
+  const circles = pinGroup.selectAll('circle')
+    .data(pharmCoords)
+    .join('circle')
+    .attr('cx', d => d.px)
+    .attr('cy', d => d.py)
+    .attr('r', PIN_R)
+    .attr('fill', 'rgba(179,32,32,0.70)')
+    .attr('stroke', 'rgba(255,255,255,0.60)')
+    .attr('stroke-width', 0.5)
+    .style('pointer-events', 'none');
+
+  // ── Marker group (rendered above rings, above pins) ──────────────────────────
+  const markerGroup = svg.append('g').attr('class', 'walk-marker');
+
+  // ── State ────────────────────────────────────────────────────────────────────
+  let activeCorner = null;
+
+  // ── Distance helper ──────────────────────────────────────────────────────────
+  function distMetres(lat1, lng1, lat2, lng2) {
+    const dx = (lng2 - lng1) * M_PER_DEG_LNG * COS_LAT;
+    const dy = (lat2 - lat1) * M_PER_DEG_LAT;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // ── Count pharmacies within radius ───────────────────────────────────────────
+  function countPharmacies(lat, lng, radiusM) {
+    let count = 0;
+    for (let i = 0; i < pharmacies.length; i++) {
+      if (distMetres(lat, lng, pharmacies[i].lat, pharmacies[i].lng) <= radiusM) count++;
+    }
+    return count;
+  }
+
+  // ── Count bakeries (centroid approximation) ───────────────────────────────────
+  function countBakeries(lat, lng, radiusM) {
+    let count = 0;
+    for (let i = 0; i < communeCentroids.length; i++) {
+      const c = communeCentroids[i];
+      if (distMetres(lat, lng, c.lat, c.lng) <= radiusM) count += c.bakeries;
+    }
+    return count;
+  }
+
+  // ── Convert metre radius to SVG pixel radius ──────────────────────────────────
+  function metreToPixelRadius(lat, lng, radiusM) {
+    // Project a point radiusM metres due east and measure the pixel distance
+    const dLng = radiusM / (M_PER_DEG_LNG * COS_LAT);
+    const ptCenter = projection([lng, lat]);
+    const ptEast   = projection([lng + dLng, lat]);
+    if (!ptCenter || !ptEast) return 0;
+    const dx = ptEast[0] - ptCenter[0];
+    const dy = ptEast[1] - ptCenter[1];
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // ── Identify commune at click ─────────────────────────────────────────────────
+  function findCommune(lat, lng) {
+    for (const f of communes.features) {
+      if (d3.geoContains(f, [lng, lat])) return f.properties.name || '';
+    }
+    return null;
+  }
+
+  // ── Update rings and pin opacity ──────────────────────────────────────────────
+  function updateMap(lat, lng) {
+    const pt = projection([lng, lat]);
+    if (!pt) return;
+    const [px, py] = pt;
+
+    // Remove old rings and marker
+    ringGroup.selectAll('*').remove();
+    markerGroup.selectAll('*').remove();
+
+    // Draw rings in reverse order (largest first, so smaller ones render on top)
+    for (let i = RADII_M.length - 1; i >= 0; i--) {
+      const pxR = metreToPixelRadius(lat, lng, RADII_M[i]);
+      const s = RING_STYLES[i];
+      const c = ringGroup.append('circle')
+        .attr('cx', px).attr('cy', py)
+        .attr('r', pxR)
+        .attr('fill', s.fill)
+        .attr('stroke', s.stroke)
+        .attr('stroke-width', s.strokeWidth)
+        .attr('stroke-opacity', s.strokeOpacity)
+        .style('pointer-events', 'none');
+      if (s.strokeDasharray) c.attr('stroke-dasharray', s.strokeDasharray);
+    }
+
+    // Draw marker
+    markerGroup.append('circle')
+      .attr('cx', px).attr('cy', py)
+      .attr('r', 8)
+      .attr('fill', '#1a1a1a')
+      .attr('stroke', 'white')
+      .attr('stroke-width', 2)
+      .style('pointer-events', 'none');
+
+    // Pin opacity: inside 5-min ring → full; outside → dimmed
+    const pxR5 = metreToPixelRadius(lat, lng, RADII_M[0]);
+    circles.each(function(d) {
+      const ddx = d.px - px;
+      const ddy = d.py - py;
+      const inside = (ddx * ddx + ddy * ddy) <= pxR5 * pxR5;
+      d3.select(this)
+        .transition().duration(200)
+        .attr('opacity', inside ? 1.0 : 0.4)
+        .attr('stroke-width', inside ? 0.8 : 0.5);
+    });
+
+    // Change cursor
+    svg.style('cursor', 'default');
+  }
+
+  // ── Update panel ──────────────────────────────────────────────────────────────
+  function updatePanel(lat, lng, communeName) {
+    const counts = RADII_M.map(r => ({
+      pharm: countPharmacies(lat, lng, r),
+      bak:   countBakeries(lat, lng, r),
+    }));
+
+    const latStr = lat.toFixed(4);
+    const lngStr = lng.toFixed(4);
+    const locLabel = communeName
+      ? `${communeName} · ${latStr}, ${lngStr}`
+      : `${latStr}, ${lngStr}`;
+
+    const rows = counts.map((c, i) =>
+      `<div class="walk-count-row">
+        <span class="walk-ring-label">${RING_LABELS[i]}</span>
+        <span class="walk-count-sep">·</span>
+        <span class="walk-count-val">${c.pharm} pharmacies</span>
+        <span class="walk-count-sep">·</span>
+        <span class="walk-count-val walk-approx">≈ ${c.bak} bakeries</span>
+      </div>`
+    ).join('');
+
+    panel.innerHTML = `
+      <div class="walk-panel-inner">
+        <div class="walk-panel-left">
+          <div class="walk-loc-name">${locLabel}</div>
+          <div class="walk-counts">${rows}</div>
+        </div>
+      </div>
+      <div class="walk-corners">
+        <div class="walk-corners-label">Featured corners</div>
+        <div class="walk-corners-pills">${cornerPills()}</div>
+      </div>
+      <div class="walk-footnote">Straight-line radii, not street-network distance. · Bakery counts are estimates from commune-level totals.</div>
+    `;
+    attachCornerListeners();
+  }
+
+  // ── Empty state panel ─────────────────────────────────────────────────────────
+  function emptyPanel() {
+    panel.innerHTML = `
+      <div class="walk-empty-prompt">Click the map to pick a spot, or try a featured corner below.</div>
+      <div class="walk-corners">
+        <div class="walk-corners-label">Featured corners</div>
+        <div class="walk-corners-pills">${cornerPills()}</div>
+      </div>
+      <div class="walk-footnote">Straight-line radii, not street-network distance. · Bakery counts estimated from commune totals.</div>
+    `;
+    attachCornerListeners();
+  }
+
+  // ── Corner pill HTML ──────────────────────────────────────────────────────────
+  function cornerPills() {
+    return CORNERS.map((c, i) =>
+      `<button class="walk-corner-pill${activeCorner === i ? ' walk-corner-active' : ''}" data-corner="${i}">${c.name}</button>`
+    ).join('');
+  }
+
+  // ── Attach corner button listeners ────────────────────────────────────────────
+  function attachCornerListeners() {
+    panel.querySelectorAll('.walk-corner-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.corner, 10);
+        const c = CORNERS[i];
+        activeCorner = i;
+        handlePoint(c.lat, c.lng);
+      });
+    });
+  }
+
+  // ── Handle a new point selection ──────────────────────────────────────────────
+  function handlePoint(lat, lng) {
+    updateMap(lat, lng);
+    const communeName = findCommune(lat, lng);
+    updatePanel(lat, lng, communeName);
+  }
+
+  // ── Panel (below SVG) ─────────────────────────────────────────────────────────
+  const panel = document.createElement('div');
+  panel.className = 'walk-panel';
+  container.after(panel);
+
+  emptyPanel();
+
+  // ── Click handler ─────────────────────────────────────────────────────────────
+  svg.on('click', function(event) {
+    const [mx, my] = d3.pointer(event);
+    const coords = projection.invert([mx, my]);
+    if (!coords) return;
+    const [lng, lat] = coords;
+    activeCorner = null;
+    handlePoint(lat, lng);
+  });
 }
