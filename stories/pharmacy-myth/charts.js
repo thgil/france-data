@@ -101,7 +101,7 @@ export function drawTimelapseMap(selector, refs) {
   const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
 
   // ── Animation state ───────────────────────────────────────────────────────
-  const DURATION  = 60000;
+  const DURATION  = 5000;
   const START_MS  = new Date('1943-01-01').getTime();
   const END_MS    = new Date('2013-12-31').getTime();
   const SPAN_MS   = END_MS - START_MS;
