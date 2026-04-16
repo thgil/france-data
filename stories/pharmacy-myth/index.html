@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Every pharmacy in Île-de-France — France, by the numbers</title>
   <link rel="stylesheet" href="/shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
   <style>
     .map-figure { margin: 64px 0; }
     .map-figure .mount {
@@ -86,32 +87,6 @@
     .tl-reset {
       font-size: 15px;
       padding: 2px 7px;
-    }
-
-    .tl-zoom-in,
-    .tl-zoom-out {
-      font-size: 15px;
-      font-weight: 600;
-      padding: 2px 8px;
-      min-width: 26px;
-    }
-
-    .tl-zoom-reset {
-      font-size: 11px;
-      padding: 3px 7px;
-      margin-left: auto;  /* push zoom-reset to far right */
-    }
-
-    /* Muted hint beneath the controls bar */
-    .timelapse-zoom-hint {
-      margin: 0;
-      padding: 4px 12px 6px;
-      font-family: var(--sans, 'Helvetica Neue', sans-serif);
-      font-size: 11px;
-      color: #999;
-      background: #faf7f2;
-      border: 1px solid #d8d0c0;
-      border-top: none;
     }
 
     /* ── Shared map tooltip ──────────────────────────────────────── */
@@ -327,31 +302,6 @@
       font-size: 11px;
       font-style: italic;
       color: #888;
-    }
-    .walk-zoom-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 0;
-      justify-content: flex-end;
-    }
-    .walk-zoom-btn {
-      font-family: var(--sans);
-      font-size: 12px;
-      background: var(--paper);
-      border: 1px solid #ccc;
-      padding: 4px 10px;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-    }
-    .walk-zoom-btn:hover { background: var(--card-hover); border-color: var(--rule); }
-    .walk-zoom-hint {
-      font-family: var(--sans);
-      font-size: 10px;
-      color: #999;
-      letter-spacing: 0.5px;
-      text-align: right;
-      margin: 2px 0 8px;
     }
     @media (max-width: 500px) {
       .walk-count-row { flex-wrap: wrap; gap: 3px 6px; }
