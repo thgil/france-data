@@ -35,10 +35,10 @@ test('buildIndex writes an index.html that lists every story card', () => {
 
   const html = readFileSync(join(root, 'index.html'), 'utf8');
   assert.match(html, /More pharmacies than bakeries/);
-  assert.match(html, /href="\/stories\/pharmacies-vs-bakeries\/"/);
+  assert.match(html, /href="stories\/pharmacies-vs-bakeries\/"/);
   assert.match(html, /Economy/);
   assert.match(html, /5 min read/);
-  assert.match(html, /<link rel="stylesheet" href="\/shared\/style.css">/);
+  assert.match(html, /<link rel="stylesheet" href="shared\/style.css">/);
 
   rmSync(root, { recursive: true, force: true });
 });

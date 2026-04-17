@@ -39,7 +39,7 @@ function loadStories(projectRoot) {
 
 function renderCard(story) {
   return `
-    <a class="story-card" href="/stories/${escapeHtml(story.slug)}/">
+    <a class="story-card" href="stories/${escapeHtml(story.slug)}/">
       <div class="kicker">${escapeHtml(story.topic)}</div>
       <h2>${escapeHtml(story.title)}</h2>
       <p class="dek">${escapeHtml(story.dek)}</p>
@@ -64,7 +64,7 @@ function renderIndex(stories) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>France, by the numbers</title>
-  <link rel="stylesheet" href="/shared/style.css">
+  <link rel="stylesheet" href="shared/style.css">
 </head>
 <body>
   <header id="masthead"></header>
@@ -76,7 +76,7 @@ function renderIndex(stories) {
     <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
     <span>Built with care, one story at a time.</span>
   </footer>
-  <script src="/shared/nav.js" defer></script>
+  <script src="shared/nav.js" defer></script>
 </body>
 </html>
 `;
