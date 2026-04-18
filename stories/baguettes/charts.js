@@ -38,7 +38,8 @@ function bakeriesGeoJSON(bakeries) {
       geometry: { type: 'Point', coordinates: [b.lng, b.lat] },
       properties: {
         commune: b.commune,
-        dept:    b.dept,
+        name:    b.name || '',
+        dept:    b.commune ? b.commune.substring(0, 2) : '',
         rank,         // animation order (0 = closest to Paris)
       },
     })),
@@ -78,6 +79,29 @@ export function drawBaguetteMap(selector, refs) {
   // ── Build sources ──────────────────────────────────────────────────────────
   const bakGeoJSON   = bakeriesGeoJSON(bakeries);
   const pharmGeoJSON = pharmacies ? pharmaciesGeoJSON(pharmacies) : null;
+
+  // Commune code → name lookup (from the commune borders GeoJSON)
+  const communeNames = new Map();
+  if (communes && communes.features) {
+    for (const f of communes.features) {
+      const code = f.properties.code || '';
+      const name = f.properties.name || f.properties.communeName || f.properties.nom || '';
+      if (code && name) communeNames.set(code, name);
+    }
+  }
+
+  // Département code → name lookup
+  const DEPT_NAMES = {
+    '75': 'Paris', '77': 'Seine-et-Marne', '78': 'Yvelines',
+    '91': 'Essonne', '92': 'Hauts-de-Seine', '93': 'Seine-Saint-Denis',
+    '94': 'Val-de-Marne', '95': "Val-d'Oise",
+  };
+
+  // Per-commune bakery count (for tooltip)
+  const communeBakeryCounts = new Map();
+  for (const b of bakeries) {
+    communeBakeryCounts.set(b.commune, (communeBakeryCounts.get(b.commune) || 0) + 1);
+  }
 
   // ── Map instance ───────────────────────────────────────────────────────────
   const map = new maplibregl.Map({
@@ -196,15 +220,15 @@ export function drawBaguetteMap(selector, refs) {
     // Hover — bakeries
     map.on('mouseenter', 'bakery-dots', (e) => {
       map.getCanvas().style.cursor = 'pointer';
-      const { commune, dept } = e.features[0].properties;
-      // Count bakeries in commune from GeoJSON (pre-computed via feature count)
-      const communeBakeries = bakGeoJSON.features.filter(
-        f => f.properties.commune === commune
-      ).length;
+      const { commune, dept, name } = e.features[0].properties;
+      const communeName = communeNames.get(commune) || commune;
+      const deptName = DEPT_NAMES[dept] || dept;
+      const count = communeBakeryCounts.get(commune) || '?';
+      const displayName = name || 'Boulangerie';
       showTooltip(e,
-        `<span class="tt-name">${commune}</span>` +
-        `<span class="tt-row"><span class="tt-label">Département</span> ${dept}</span>` +
-        `<span class="tt-row"><span class="tt-label">Bakeries</span> ${communeBakeries}</span>`
+        `<span class="tt-name">${displayName}</span>` +
+        `<span class="tt-row">${communeName} · ${deptName}</span>` +
+        `<span class="tt-row"><span class="tt-label">${count}</span> bakeries in this commune</span>`
       );
     });
     map.on('mouseleave', 'bakery-dots', () => {
