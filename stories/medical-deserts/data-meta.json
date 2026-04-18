@@ -1,0 +1,266 @@
+{
+  "vintage": "APL 2023 (DREES), population 2021 (INSEE)",
+  "sources": [
+    {
+      "id": "DS-APL",
+      "label": "APL aux m\u00e9decins g\u00e9n\u00e9ralistes 2023 (DREES)",
+      "url": "https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl"
+    },
+    {
+      "id": "DS-CONTOURS",
+      "label": "Contours administratifs communes 2025 1000m",
+      "url": "https://www.data.gouv.fr/datasets/contours-administratifs"
+    }
+  ],
+  "totals": {
+    "communes": 34886,
+    "population": 67329462,
+    "desert_communes": 12771,
+    "desert_population": 11103526,
+    "severe_communes": 1748,
+    "severe_population": 478895,
+    "well_served_communes": 6363,
+    "well_served_population": 27069458
+  },
+  "apl_distribution": {
+    "min": 0.0,
+    "p10": 1.44,
+    "p25": 2.12,
+    "median": 2.88,
+    "p75": 3.7,
+    "p90": 4.52,
+    "max": 40.03,
+    "desert_threshold": 2.5
+  },
+  "worst_departements": [
+    {
+      "dept": "18",
+      "avgApl": 2.25,
+      "pop": 299573,
+      "desertPop": 181154,
+      "desertPct": 60.5,
+      "communes": 286,
+      "desertCommunes": 231
+    },
+    {
+      "dept": "77",
+      "avgApl": 2.38,
+      "pop": 1438100,
+      "desertPop": 792589,
+      "desertPct": 55.1,
+      "communes": 507,
+      "desertCommunes": 368
+    },
+    {
+      "dept": "28",
+      "avgApl": 2.41,
+      "pop": 430976,
+      "desertPop": 240293,
+      "desertPct": 55.8,
+      "communes": 363,
+      "desertCommunes": 261
+    },
+    {
+      "dept": "95",
+      "avgApl": 2.41,
+      "pop": 1256607,
+      "desertPop": 793798,
+      "desertPct": 63.2,
+      "communes": 183,
+      "desertCommunes": 121
+    },
+    {
+      "dept": "91",
+      "avgApl": 2.52,
+      "pop": 1313768,
+      "desertPop": 673703,
+      "desertPct": 51.3,
+      "communes": 194,
+      "desertCommunes": 117
+    },
+    {
+      "dept": "78",
+      "avgApl": 2.58,
+      "pop": 1456365,
+      "desertPop": 563020,
+      "desertPct": 38.7,
+      "communes": 259,
+      "desertCommunes": 153
+    },
+    {
+      "dept": "27",
+      "avgApl": 2.59,
+      "pop": 598934,
+      "desertPop": 272734,
+      "desertPct": 45.5,
+      "communes": 585,
+      "desertCommunes": 341
+    },
+    {
+      "dept": "45",
+      "avgApl": 2.63,
+      "pop": 684561,
+      "desertPop": 276684,
+      "desertPct": 40.4,
+      "communes": 325,
+      "desertCommunes": 261
+    },
+    {
+      "dept": "89",
+      "avgApl": 2.63,
+      "pop": 333385,
+      "desertPop": 151197,
+      "desertPct": 45.4,
+      "communes": 423,
+      "desertCommunes": 239
+    },
+    {
+      "dept": "01",
+      "avgApl": 2.64,
+      "pop": 663025,
+      "desertPop": 293134,
+      "desertPct": 44.2,
+      "communes": 391,
+      "desertCommunes": 224
+    }
+  ],
+  "best_departements": [
+    {
+      "dept": "05",
+      "avgApl": 5.02,
+      "pop": 140976,
+      "desertPop": 13265,
+      "desertPct": 9.4,
+      "communes": 162,
+      "desertCommunes": 42
+    },
+    {
+      "dept": "75",
+      "avgApl": 4.96,
+      "pop": 2133111,
+      "desertPop": 0,
+      "desertPct": 0.0,
+      "communes": 20,
+      "desertCommunes": 0
+    },
+    {
+      "dept": "33",
+      "avgApl": 4.94,
+      "pop": 1654884,
+      "desertPop": 58048,
+      "desertPct": 3.5,
+      "communes": 534,
+      "desertCommunes": 45
+    },
+    {
+      "dept": "67",
+      "avgApl": 4.91,
+      "pop": 1152662,
+      "desertPop": 39886,
+      "desertPct": 3.5,
+      "communes": 514,
+      "desertCommunes": 50
+    },
+    {
+      "dept": "13",
+      "avgApl": 4.59,
+      "pop": 2056943,
+      "desertPop": 30085,
+      "desertPct": 1.5,
+      "communes": 134,
+      "desertCommunes": 8
+    }
+  ],
+  "notable_towns_in_desert": [
+    {
+      "code": "97353",
+      "name": "Maripasoula",
+      "apl": 0.0,
+      "pop": 9177
+    },
+    {
+      "code": "97357",
+      "name": "Grand-Santi",
+      "apl": 0.0,
+      "pop": 9120
+    },
+    {
+      "code": "97362",
+      "name": "Papaichton",
+      "apl": 0.0,
+      "pop": 5606
+    },
+    {
+      "code": "97360",
+      "name": "Apatou",
+      "apl": 0.46,
+      "pop": 9818
+    },
+    {
+      "code": "89464",
+      "name": "Villeneuve-sur-Yonne",
+      "apl": 0.9,
+      "pop": 5136
+    },
+    {
+      "code": "01419",
+      "name": "Thoiry",
+      "apl": 0.99,
+      "pop": 6136
+    },
+    {
+      "code": "27198",
+      "name": "Mesnils-sur-Iton",
+      "apl": 1.14,
+      "pop": 6145
+    },
+    {
+      "code": "27448",
+      "name": "Pacy-sur-Eure",
+      "apl": 1.23,
+      "pop": 5001
+    },
+    {
+      "code": "78311",
+      "name": "Houilles",
+      "apl": 1.23,
+      "pop": 33449
+    },
+    {
+      "code": "78418",
+      "name": "Montesson",
+      "apl": 1.31,
+      "pop": 14511
+    },
+    {
+      "code": "27213",
+      "name": "Vexin-sur-Epte",
+      "apl": 1.33,
+      "pop": 5990
+    },
+    {
+      "code": "78124",
+      "name": "Carri\u00e8res-sur-Seine",
+      "apl": 1.33,
+      "pop": 15038
+    },
+    {
+      "code": "78165",
+      "name": "Les Clayes-sous-Bois",
+      "apl": 1.34,
+      "pop": 17237
+    },
+    {
+      "code": "49218",
+      "name": "Montrevault-sur-\u00c8vre",
+      "apl": 1.38,
+      "pop": 15755
+    },
+    {
+      "code": "91577",
+      "name": "Saintry-sur-Seine",
+      "apl": 1.38,
+      "pop": 5829
+    }
+  ]
+}
