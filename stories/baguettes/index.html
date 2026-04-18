@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6,299 baguettes — France, by the numbers</title>
+  <title>7,378 baguettes — France, by the numbers</title>
   <link rel="stylesheet" href="../../shared/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
   <style>
@@ -214,8 +214,8 @@
       <!-- ── Story header ─────────────────────────────────────────────── -->
       <header class="story-header">
         <div class="story-kicker">Culture</div>
-        <h1 class="story-title">6,299 baguettes</h1>
-        <p class="story-dek">Every bakery in Île-de-France, approximately placed. A love letter to French bread, in dots.</p>
+        <h1 class="story-title">7,378 baguettes</h1>
+        <p class="story-dek">Every bakery in Île-de-France, placed at its real address. A love letter to French bread, in dots.</p>
         <div class="story-meta">
           <span>2026-04-18</span>
           <span>3 min read</span>
@@ -223,7 +223,7 @@
       </header>
 
       <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
-      <p>France has roughly 35,000 bakeries. Île-de-France alone has 6,299 — one for every 1,870 residents, spread across 693 of its 1,300 communes. The rest have none. That gap between city and countryside, between dense arrondissement and outlying village, is the whole story. The map below shows every bakery as a single gold dot, placed randomly within its commune — not the exact shopfront, but the right neighbourhood. Watch the city fill up with bread.</p>
+      <p>France has roughly 35,000 bakeries. Île-de-France alone has 7,378 active boulangeries registered in the national SIRENE business registry — one for every 1,600 residents. The map below shows each one as a single gold dot at its real geocoded address. Watch the city fill up with bread.</p>
 
       <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
       <figure class="map-figure">
@@ -253,7 +253,7 @@
             <button class="replay-btn" id="btn-replay">Replay animation</button>
           </div>
         </div>
-        <figcaption>Each gold dot is one bakery, randomly placed within its commune polygon. 6,299 total. Source: <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Commerces (IDF)</a>.</figcaption>
+        <figcaption>Each gold dot is one bakery at its geocoded address. 7,378 active boulangeries (NAF 10.71C). Source: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> + <a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">SIRENE Géolocalisation</a>.</figcaption>
       </figure>
 
       <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
@@ -284,7 +284,7 @@
 
       <!-- ── Credits ───────────────────────────────────────────────────── -->
       <div class="credits">
-        <p><strong>A note on the data.</strong> Bakery counts come from INSEE's Base Permanente des Équipements (BPE), republished by Région Île-de-France, vintage circa 2014, at commune level. Dot positions are randomly sampled within each commune polygon using the bounding-box rejection method with a fixed seed — they represent the correct neighbourhood, not the exact address. Pharmacy points in the overlay come from the same dataset used in <a href="../pharmacy-myth/">Story 1</a>.</p>
+        <p><strong>A note on the data.</strong> Bakery locations come from INSEE's SIRENE business registry (active establishments with NAF code 10.71C — boulangerie et boulangerie-pâtisserie artisanale), geocoded by INSEE's statistical geolocation file, both snapshot March 2026. Of 7,654 active IDF bakeries in SIRENE, 7,378 had valid geocoded coordinates (96.4%). Pharmacy points in the overlay come from the FINESS dataset used in <a href="../pharmacy-myth/">Story 1</a>.</p>
 
         <p>Density per 10,000 residents uses 2010 census population. Communes under 1,000 residents are excluded from the density ranking to avoid small-sample artefacts. The 607 communes with zero recorded bakeries may include very small villages served by nearby towns, or where the BPE count is zero due to classification differences.</p>
 
