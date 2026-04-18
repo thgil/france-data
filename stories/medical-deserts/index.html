@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where the doctors aren't — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure {
+      margin: 64px 0;
+    }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Loading overlay ────────────────────────────────────────────── */
+    .md-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f5f0;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 14px;
+      color: #888;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ── Controls bar ───────────────────────────────────────────────── */
+    .md-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .md-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .md-controls-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #888;
+      text-transform: uppercase;
+      margin-right: 2px;
+    }
+
+    .md-preset-pill {
+      background: #f0ece4;
+      border: 1px solid #c8c0b0;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+      white-space: nowrap;
+    }
+    .md-preset-pill:hover {
+      background: #e4ddd4;
+      border-color: #7a1818;
+      color: #7a1818;
+    }
+    .md-preset-active {
+      background: #7a1818;
+      border-color: #7a1818;
+      color: #fff;
+    }
+    .md-preset-active:hover {
+      background: #5e1212;
+      border-color: #5e1212;
+      color: #fff;
+    }
+
+    /* ── Deserts-only toggle ────────────────────────────────────────── */
+    .md-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #333;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .md-toggle input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: #7a1818;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .md-legend {
+      padding: 12px 14px 10px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+
+    .md-legend-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .md-legend-bar-wrap {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .md-legend-bar {
+      height: 12px;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 2px;
+      background: linear-gradient(to right,
+        #7a1818 0%,
+        #c0392b 16.7%,
+        #f5c242 41.7%,
+        #27ae60 66.7%,
+        #1a7a1a 100%
+      );
+    }
+
+    .md-legend-ticks {
+      position: relative;
+      max-width: 480px;
+      height: 18px;
+      margin-top: 2px;
+    }
+
+    .md-tick {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .md-tick-threshold {
+      font-weight: 700;
+      color: #333;
+    }
+
+    .md-legend-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 4px;
+      font-size: 11px;
+      color: #444;
+    }
+
+    .md-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .md-swatch-nodata {
+      background: #e0dbd2;
+      border: 1px solid #b8b0a0;
+    }
+
+    /* ── Stats row ──────────────────────────────────────────────────── */
+    .md-stats-row {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 48px;
+      padding: 10px 0;
+      border-top: 1px solid #e0dbd2;
+      border-bottom: 1px solid #e0dbd2;
+      line-height: 1.6;
+    }
+    .md-stats-row strong {
+      color: #c0392b;
+      font-weight: 700;
+    }
+
+    /* ── Tooltip ─────────────────────────────────────────────────────── */
+    .md-popup .maplibregl-popup-content {
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 11px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .md-popup .maplibregl-popup-tip {
+      border-top-color: #b8b0a0;
+    }
+    .md-popup .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .md-popup .tt-code {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      font-style: normal;
+    }
+    .md-popup .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+      white-space: nowrap;
+    }
+    .md-popup .tt-label {
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .md-controls { gap: 8px; }
+      .md-toggle { margin-left: 0; }
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">Where the doctors aren't</h1>
+        <p class="story-dek">Over a third of French communes are officially medical deserts. Eleven million people, an invisible ring around Paris, and three towns in Guyane with no GP at all.</p>
+        <div class="story-meta">
+          <span>2026-04-18</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>Houilles has 33,449 residents and a direct RER A connection to Paris Saint-Lazare in under twenty minutes. It sits in the Yvelines, inside the Île-de-France commuter belt, twenty kilometres from Notre-Dame. By every metropolitan measure, it is not remote. It is not rural. It is not struggling with depopulation. And yet Houilles has an APL score of 1.23 — meaning its residents have access, on the official French measure, to roughly 1.2 GP consultations per person per year. The national median is 2.88. The legal threshold for a <em>zone sous-dense</em> is 2.5. Houilles clears neither. By the government's own metric, it is a medical desert.</p>
+
+      <p>This is not a quirk of one commune. It is a structural feature of French healthcare geography.</p>
+
+      <h2>The metric</h2>
+
+      <p>APL — <em>accessibilité potentielle localisée</em> — is the indicator DREES uses to measure how many GP consultations are geographically accessible per standardised resident per year. It accounts for the distance between patients and doctors, the supply of GPs in surrounding communes, and the demand from the local population. An APL below 2.5 marks a commune as <em>sous-dense</em> in official policy language. Below 1.0 is severe: not just underserved, but close to no meaningful access at all.</p>
+
+      <p>The map below shows every commune in France coloured by its APL score. Deep red is severe; amber is adequate; green is well-served. Hover over any commune for its numbers.</p>
+
+      <div class="md-stats-row">
+        <strong>12,771 communes</strong> below the 2.5 desert threshold ·
+        <strong>11.1 million people</strong> · 36.6% of communes · 16.5% of the population
+      </div>
+
+      <figure class="map-figure" id="map-figure-deserts">
+        <div id="map-deserts" class="mount"></div>
+        <figcaption>APL scores for all 34,886 French communes. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>; <a href="https://www.data.gouv.fr/datasets/contours-administratifs">contours administratifs communes 2025</a>. Null APL (communes with no data) rendered transparent.</figcaption>
+      </figure>
+
+      <h2>The numbers at scale</h2>
+
+      <p>Zoom out. Of 34,886 communes in the dataset, 12,771 are below the 2.5 APL threshold — 36.6% of all communes, home to 11.1 million people (16.5% of the population). That population figure is the one that matters: this is not a rural fringe problem measured in thousands. It's eleven million people who cannot reliably see a GP near home.</p>
+
+      <p>At the other end: 6,363 communes have APL scores of 4.0 or above. That sounds like a lot until you note that those communes are home to 27.1 million people — 40.2% of the population living in just 18.2% of communes. The access gap is a density story. Deserts are many small communes with few people; well-served areas are fewer but larger, and that's where most of France actually lives.</p>
+
+      <p>The 1,748 communes with APL below 1.0 are the severe cases: 478,895 residents with less than one GP consultation accessible per person per year. In statistical terms, some of them are barely above zero.</p>
+
+      <h2>The ring around Paris</h2>
+
+      <p>Paris itself — département 75 — has an average APL of 4.96, second only to the Hautes-Alpes (05) at 5.02. Not a single Parisian commune falls below the 2.5 threshold. Zero. The city is, by this metric, extraordinarily well-served.</p>
+
+      <p>Now look at what surrounds it. Press <em>Île-de-France</em> above to zoom in. Seine-et-Marne (77) has an average APL of 2.38 — 368 of its 507 communes are medical deserts, and 55.1% of its population lives in one. Val-d'Oise (95): average 2.41, 63.2% of residents in a desert. Yvelines (78): average 2.58, where Houilles sits, and where Montesson (pop. 14,511) comes in at 1.31. Essonne (91): 51.3% of residents. These are the suburbs of the capital of France. They're on the RER.</p>
+
+      <p>The doctor gap in France isn't urban versus rural. It's centre versus periphery. The ring is visible on the map.</p>
+
+      <h2>La diagonale du vide</h2>
+
+      <p>France has a well-established demographic concept: the <em>diagonale du vide</em>, the empty diagonal running roughly from the Meuse to the Pyrenees, a belt of low population density that has been geographically stable for over a century. Toggle "Show deserts only" above. Everything that isn't red disappears. The diagonal appears. Medical access tracks population density, and population density tracks history.</p>
+
+      <p>This isn't evidence that the problem is insoluble. It's evidence that it's structural. The communes in the diagonal are underserved because they've been underpopulated for generations; the policy challenge is whether healthcare supply should chase population, or whether supply can help anchor it.</p>
+
+      <h2>Guyane: zero</h2>
+
+      <p>Press <em>Guyane</em> to zoom to the overseas territory. Maripasoula has a population of 9,177 and an APL of 0.00. Grand-Santi: 9,120 residents, APL 0.00. Papaichton: 5,606 residents, APL 0.00. No GP consultations accessible per person per year, not because the metric rounds down but because there is, on the official measure, no accessible GP supply.</p>
+
+      <p>These are communities reachable primarily by pirogue or small aircraft. Apatou, just downstream, comes in at 0.46 — a small fraction of the already-low <em>sous-dense</em> threshold. The number zero, in a dataset of 34,886 communes, appears only in Guyane.</p>
+
+      <h2>The desert is not empty</h2>
+
+      <p>The word "desert" implies emptiness. But 11.1 million people live in these communes. The desert isn't empty — it's underserved. The map shows the where with reasonable precision. The why sits partly outside this dataset: in the economics of medical practice, in the structure of training quotas that for decades capped the number of new doctors France trained, in the planning choices that concentrated hospitals in regional capitals, and in the simple arithmetic of an ageing GP workforce retiring faster than new graduates arrive in peripheral communes.</p>
+
+      <p>The map is the starting point. The question it raises — why do doctors stay in the centre? — is harder, and won't be answered by colouring 34,886 polygons.</p>
+
+      <div class="credits">
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a>. The primary dataset. Commune-level APL scores published by the Direction de la recherche, des études, de l'évaluation et des statistiques. Population base: INSEE 2021.</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs communes 2025 (1000m simplified)</a>. The commune boundary polygons used for the choropleth.</li>
+        </ul>
+
+        <h3>Prior work</h3>
+        <ul>
+          <li><a href="https://drees.solidarites-sante.gouv.fr/publications-documents-de-reference/les-dossiers-de-la-drees/laccessibilite-potentielle-localisee-apl">DREES — Dossiers de la DREES: L'accessibilité potentielle localisée (APL)</a>. The methodological reference for the APL indicator. Explains the catchment-area model, demand standardisation, and the 2.5 threshold rationale.</li>
+          <li><a href="https://www.senat.fr/rap/r22-785/r22-785_mono.html">Sénat — Rapport d'information sur les déserts médicaux (2022)</a>. Parliamentary overview of the policy landscape, training quotas, and the IDF periphery problem.</li>
+        </ul>
+
+        <h3>Notes on the data</h3>
+        <p>APL scores of null indicate communes where DREES did not compute a score (typically very small communes or recently merged entities). These are rendered as transparent on the map. The overseas territories Martinique, Guadeloupe, and La Réunion are present in the dataset but do not appear in the metropolitan France default view — zoom out or press the Guyane preset to see overseas communes. Population figures are from INSEE's 2021 communal population estimates as published alongside the APL dataset.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawMedicalDesertMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const [geojson, meta] = await Promise.all([
+          loadJSON('./communes-apl.geojson'),
+          loadJSON('./data-meta.json'),
+        ]);
+        const refs = { geojson, meta };
+        drawMedicalDesertMap('#map-deserts', refs);
+      } catch (err) {
+        console.error('Failed to load medical deserts data:', err);
+        const mount = document.getElementById('map-deserts');
+        if (mount) {
+          mount.style.height = '120px';
+          mount.style.display = 'flex';
+          mount.style.alignItems = 'center';
+          mount.style.justifyContent = 'center';
+          mount.style.background = '#f8f5f0';
+          mount.style.color = '#888';
+          mount.style.fontFamily = 'sans-serif';
+          mount.style.fontSize = '13px';
+          mount.textContent = 'Map failed to load. Check browser console for details.';
+        }
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

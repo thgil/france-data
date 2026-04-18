@@ -84,8 +84,11 @@ datasets and the resulting story.
 - Topic: [health](topics/health.md)
 
 ### Q-014: How many "medical deserts" are there in France, and where?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: 12,771 of 34,886 communes (36.6%) fall below the APL 2.5 threshold, home to 11.1 million people. The access gap is centre-vs-periphery, not urban-vs-rural: Paris (dept 75) has an average APL of 4.96 with zero desert communes, while the surrounding IDF suburbs (Seine-et-Marne, Val-d'Oise, Yvelines, Essonne) rank among the worst-served in France. Three Guyanese communes (Maripasoula, Grand-Santi, Papaichton) have APL = 0.00.
+- Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
 - Status: 🟢 open

@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### medical-deserts: Where the doctors aren't
+- Status: ✅ published
+- Published URL: /stories/medical-deserts/
+- Source question: [Q-014](questions.md#q-014-how-many-medical-deserts-are-there-in-france-and-where)
+- Hook: Over a third of French communes are officially medical deserts — and some of them are on the RER A.
+- Data: DREES APL 2023 commune-level scores ([DS-APL](datasets.md#ds-apl)) joined to administrative boundaries ([DS-CONTOURS](datasets.md#ds-contours)). 34,886 communes, 35 MB GeoJSON rendered in WebGL via Maplibre GL.
+- Angle: One full-France choropleth. The spatial pattern tells two stories: the diagonale du vide (persistent low-density diagonal from Meuse to Pyrenees) and the invisible ring around Paris (inner suburbs far worse served than the capital itself).
+- Draft X summary:
+  > Houilles is 20 minutes from the Louvre on the RER. It's also a medical desert. One in three French communes is. Today on **france-data**: 34,886 polygons, one very visible ring around Paris, and three towns in Guyane where the official APL score is literally 0.00. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/
