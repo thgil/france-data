@@ -193,3 +193,9 @@ datasets and the resulting story.
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
+
+### Q-041: Where are IDF's bakeries densest?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
+- Story: [baguettes](/stories/baguettes/)

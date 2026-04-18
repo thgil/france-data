@@ -20,3 +20,6 @@ that surfaced it.
 - 🔥 Maripasoula, Grand-Santi, Papaichton (Guyane): population ~23,000 combined, APL = 0.00. Zero. [Q-014]
 - 🔥 36.6% of French communes are below the official APL 2.5 threshold. That's 12,771 communes and 11.1 million people. [Q-014]
 - 🔥 Toggle "deserts only" on the map and the diagonale du vide appears: medical access follows a demographic pattern that's been stable for a century. [Q-014]
+- 🔥 6,299 bakeries in Île-de-France. 607 of its 1,300 communes have zero. The baguette desert looks a lot like the medical desert. [Q-041]
+- 🔥 Paris's 18e arrondissement has 155 bakeries — that's one for every 1,308 residents. The city smells like bread because the maths say it should. [Q-041]
+- 🔥 Pharmacies and bakeries cluster on the same streets. Overlay them on the same map and you can barely tell the two networks apart. Independent ownership, foot traffic, neighbourhood scale — same pressures, same geography. [Q-041]

@@ -1,0 +1,197 @@
+{
+  "totalBakeries": 6299,
+  "totalCommunes": 693,
+  "totalPopulation": 11786234,
+  "topCommunes": [
+    {
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "bakeries": 155,
+      "population": 202685
+    },
+    {
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "bakeries": 147,
+      "population": 236715
+    },
+    {
+      "name": "Paris 17e Arrondissement",
+      "dept": "75",
+      "bakeries": 133,
+      "population": 169325
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "bakeries": 128,
+      "population": 153202
+    },
+    {
+      "name": "Paris 20e Arrondissement",
+      "dept": "75",
+      "bakeries": 124,
+      "population": 196880
+    },
+    {
+      "name": "Paris 12e Arrondissement",
+      "dept": "75",
+      "bakeries": 123,
+      "population": 144262
+    },
+    {
+      "name": "Paris 19e Arrondissement",
+      "dept": "75",
+      "bakeries": 118,
+      "population": 186652
+    },
+    {
+      "name": "Paris 14e Arrondissement",
+      "dept": "75",
+      "bakeries": 108,
+      "population": 138299
+    },
+    {
+      "name": "Paris 16e Arrondissement",
+      "dept": "75",
+      "bakeries": 105,
+      "population": 171124
+    },
+    {
+      "name": "Paris 13e Arrondissement",
+      "dept": "75",
+      "bakeries": 104,
+      "population": 181532
+    }
+  ],
+  "topDensity": [
+    {
+      "name": "Cormeilles-en-Vexin",
+      "dept": "95",
+      "bakeries": 3,
+      "population": 1112,
+      "bakeriesPer10k": 26.98
+    },
+    {
+      "name": "Gouvernes",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1113,
+      "bakeriesPer10k": 26.95
+    },
+    {
+      "name": "Guermantes",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1243,
+      "bakeriesPer10k": 24.14
+    },
+    {
+      "name": "Moisselles",
+      "dept": "95",
+      "bakeries": 3,
+      "population": 1255,
+      "bakeriesPer10k": 23.9
+    },
+    {
+      "name": "Rebais",
+      "dept": "77",
+      "bakeries": 5,
+      "population": 2151,
+      "bakeriesPer10k": 23.25
+    },
+    {
+      "name": "Barbizon",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1346,
+      "bakeriesPer10k": 22.29
+    },
+    {
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "bakeries": 36,
+      "population": 17308,
+      "bakeriesPer10k": 20.8
+    },
+    {
+      "name": "Dammartin-en-Serve",
+      "dept": "78",
+      "bakeries": 2,
+      "population": 1028,
+      "bakeriesPer10k": 19.46
+    },
+    {
+      "name": "Marolles-sur-Seine",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1600,
+      "bakeriesPer10k": 18.75
+    },
+    {
+      "name": "Vigny",
+      "dept": "95",
+      "bakeries": 2,
+      "population": 1077,
+      "bakeriesPer10k": 18.57
+    }
+  ],
+  "departements": [
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bakeries": 1800,
+      "population": 2243833,
+      "per10k": 8.02
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bakeries": 665,
+      "population": 1324865,
+      "per10k": 5.02
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bakeries": 637,
+      "population": 1408765,
+      "per10k": 4.52
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bakeries": 527,
+      "population": 1215340,
+      "per10k": 4.34
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bakeries": 721,
+      "population": 1572490,
+      "per10k": 4.59
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bakeries": 786,
+      "population": 1522048,
+      "per10k": 5.16
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bakeries": 650,
+      "population": 1327732,
+      "per10k": 4.9
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bakeries": 513,
+      "population": 1171161,
+      "per10k": 4.38
+    }
+  ]
+}

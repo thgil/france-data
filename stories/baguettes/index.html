@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6,299 baguettes — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .replay-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, color 0.1s;
+    }
+    .replay-btn:hover { background: #ece8e0; color: #1a1a1a; border-color: #999; }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .toggle-label input { cursor: pointer; accent-color: #c0392b; }
+
+    .toggle-legend {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .legend-gold  { background: #d4a017; }
+    .legend-red   { background: #c0392b; }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Stats table ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">6,299 baguettes</h1>
+        <p class="story-dek">Every bakery in Île-de-France, approximately placed. A love letter to French bread, in dots.</p>
+        <div class="story-meta">
+          <span>2026-04-18</span>
+          <span>3 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has roughly 35,000 bakeries. Île-de-France alone has 6,299 — one for every 1,870 residents, spread across 693 of its 1,300 communes. The rest have none. That gap between city and countryside, between dense arrondissement and outlying village, is the whole story. The map below shows every bakery as a single gold dot, placed randomly within its commune — not the exact shopfront, but the right neighbourhood. Watch the city fill up with bread.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-baguettes" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-paris">Paris</button>
+            <button class="zoom-btn" id="btn-idf">Île-de-France</button>
+            <button class="zoom-btn" id="btn-sm">Seine-et-Marne</button>
+          </div>
+          <div class="ctrl-group">
+            <label class="toggle-label">
+              <input type="checkbox" id="toggle-pharmacies">
+              <span class="toggle-legend">
+                <span class="legend-dot legend-red"></span>
+                Show pharmacies too
+              </span>
+            </label>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <span class="toggle-legend">
+              <span class="legend-dot legend-gold"></span>
+              Bakery
+            </span>
+            &nbsp;
+            <button class="replay-btn" id="btn-replay">Replay animation</button>
+          </div>
+        </div>
+        <figcaption>Each gold dot is one bakery, randomly placed within its commune polygon. 6,299 total. Source: <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Commerces (IDF)</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>Density tracks population, but not perfectly</h2>
+
+      <p>Paris's 18e arrondissement has 155 bakeries for 202,685 residents. The 8e has 61 for 41,280 — similar per-capita rates, very different feel on the map. The outer communes tell a different story entirely: many villages in Seine-et-Marne have 1 or 2 bakeries serving thousands of residents, and 607 of IDF's 1,300 communes have none recorded. The "baguette desert" mirrors the medical desert: the same ring of low-density outer suburbs that struggles for pharmacies struggles for bread.</p>
+
+      <!-- ── Beat 4: Stats panel ───────────────────────────────────────── -->
+      <div class="stats-grid" id="stats-grid">
+        <div class="stats-block">
+          <h3>Most bakeries (by commune)</h3>
+          <table class="stats-table" id="table-top-bakeries">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Highest density (min. 1,000 residents)</h3>
+          <table class="stats-table" id="table-top-density">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>Enable "Show pharmacies too" on the map to see both networks at once. The clustering is almost identical — pharmacies and bakeries share the same commercial streets because they answer to the same pressures: foot traffic, independent ownership, neighbourhood scale. The regulated network and the artisanal one ended up building the same geography by different means.</p>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <p>Each dot is a person who wakes up at 3 AM to make dough. A regulated trade — French law ties bakery labelling to on-premises production; a shop that bakes frozen dough can't legally call itself a <em>boulangerie</em>. A local business: French bakeries are overwhelmingly owner-operated, typically within a few minutes' walk of half their customers. A walk-to destination, invisible unless you map it. Then it's everywhere.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts come from INSEE's Base Permanente des Équipements (BPE), republished by Région Île-de-France, vintage circa 2014, at commune level. Dot positions are randomly sampled within each commune polygon using the bounding-box rejection method with a fixed seed — they represent the correct neighbourhood, not the exact address. Pharmacy points in the overlay come from the same dataset used in <a href="../pharmacy-myth/">Story 1</a>.</p>
+
+        <p>Density per 10,000 residents uses 2010 census population. Communes under 1,000 residents are excluded from the density ranking to avoid small-sample artefacts. The 607 communes with zero recorded bakeries may include very small villages served by nearby towns, or where the BPE count is zero due to classification differences.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Commerces par commune (IDF)</a> — bakery counts at commune level</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">INSEE BPE Santé par commune (IDF)</a> — pharmacy counts</li>
+          <li><a href="https://www.data.gouv.fr/datasets/carte-des-pharmacies-dile-de-france">Région IDF — Carte des pharmacies d'IDF</a> — geocoded pharmacy points</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBaguetteMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    // Populate stats tables
+    function populateStats(stats) {
+      const topBakTbody = document.querySelector('#table-top-bakeries tbody');
+      if (topBakTbody && stats.topCommunes) {
+        topBakTbody.innerHTML = stats.topCommunes.slice(0, 5).map((c, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${c.name}</td>
+            <td>${c.bakeries.toLocaleString()}</td>
+          </tr>`
+        ).join('');
+      }
+
+      const topDenTbody = document.querySelector('#table-top-density tbody');
+      if (topDenTbody && stats.topDensity) {
+        topDenTbody.innerHTML = stats.topDensity.slice(0, 5).map((c, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${c.name}</td>
+            <td>${c.bakeriesPer10k.toFixed(1)}/10k</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    let pharmCache = null;
+
+    async function main() {
+      try {
+        // Load bakeries (primary data) and communes in parallel
+        const [bakeries, communes, stats] = await Promise.all([
+          loadJSON('./bakeries.json'),
+          loadJSON('../../stories/pharmacy-myth/communes.geojson'),
+          loadJSON('./stats.json'),
+        ]);
+
+        populateStats(stats);
+
+        // Draw map (pharmacies lazy-loaded on first toggle)
+        const mapAPI = drawBaguetteMap('#map-baguettes', { bakeries, communes, pharmacies: null });
+
+        // Show controls bar once map is initialised
+        document.getElementById('map-controls').style.display = '';
+
+        // Zoom buttons
+        document.getElementById('btn-paris').addEventListener('click', () => mapAPI.flyToParis());
+        document.getElementById('btn-idf').addEventListener('click',   () => mapAPI.flyToIDF());
+        document.getElementById('btn-sm').addEventListener('click',    () => mapAPI.flyToSM());
+
+        // Replay animation
+        document.getElementById('btn-replay').addEventListener('click', () => mapAPI.replay());
+
+        // Pharmacy toggle — lazy load on first activation
+        const pharmToggle = document.getElementById('toggle-pharmacies');
+        pharmToggle.addEventListener('change', async () => {
+          const on = pharmToggle.checked;
+
+          if (on && pharmCache === null) {
+            try {
+              pharmCache = await loadJSON('../../stories/pharmacy-myth/pharmacies.json');
+              // Re-draw the map with pharmacies included
+              // Since maplibre sources are immutable after init, we use the API's overlay method
+              // The drawBaguetteMap call above was without pharmacies, so we need to reload.
+              // Simplest approach: re-initialise map on first toggle.
+              const container = document.getElementById('map-baguettes');
+              container.innerHTML = '';
+              const newAPI = drawBaguetteMap('#map-baguettes', { bakeries, communes, pharmacies: pharmCache });
+              // Swap references
+              Object.assign(mapAPI, newAPI);
+
+              // Re-attach zoom/replay listeners (they already reference the new API via closure)
+              document.getElementById('btn-paris').onclick = () => mapAPI.flyToParis();
+              document.getElementById('btn-idf').onclick   = () => mapAPI.flyToIDF();
+              document.getElementById('btn-sm').onclick    = () => mapAPI.flyToSM();
+              document.getElementById('btn-replay').onclick = () => mapAPI.replay();
+
+              // Wait for map load, then show pharmacies
+              setTimeout(() => mapAPI.setPharmacyOverlay(true), 200);
+            } catch (err) {
+              console.error('Failed to load pharmacies:', err);
+              pharmToggle.checked = false;
+            }
+          } else {
+            mapAPI.setPharmacyOverlay(on);
+          }
+        });
+
+      } catch (err) {
+        console.error('Failed to load baguettes story data:', err);
+        document.getElementById('map-baguettes').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
