@@ -64,3 +64,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bars: Where France drinks
+- Status: ✅ published
+- Published URL: /stories/bars/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: 49,385 bars in France — every débit de boissons, dot-mapped nationally. Nord + Pas-de-Calais together beat Paris. Finistère has over 1,000 bars for under a million people. The diagonale du vide shows up again.
+- Data: INSEE SIRENE national snapshot (NAF 56.30Z, active establishments, March 2026) + SIRENE Géolocalisation for coordinates. 49,385 geocoded points.
+- Angle: Full-France dot-density map at zoom 5.5. Amber dots on Positron basemap. 3-second radial animation. Six preset zoom views (France, Paris, Bretagne, Nord, Côte d'Azur, Lyon). Hover tooltip with bar name, commune, département, and commune count.
+- Draft X summary:
+  > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
+

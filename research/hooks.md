@@ -23,3 +23,7 @@ that surfaced it.
 - 🔥 6,299 bakeries in Île-de-France. 607 of its 1,300 communes have zero. The baguette desert looks a lot like the medical desert. [Q-041]
 - 🔥 Paris's 18e arrondissement has 155 bakeries — that's one for every 1,308 residents. The city smells like bread because the maths say it should. [Q-041]
 - 🔥 Pharmacies and bakeries cluster on the same streets. Overlay them on the same map and you can barely tell the two networks apart. Independent ownership, foot traffic, neighbourhood scale — same pressures, same geography. [Q-041]
+- 🔥 France has 49,385 registered bars. Nord + Pas-de-Calais together (3,226) edge out Paris (3,120). The north drinks more than the capital — the map makes it visible. [Q-033]
+- 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
+- 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
+- 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]

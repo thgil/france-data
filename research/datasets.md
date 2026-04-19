@@ -74,3 +74,12 @@ any caveats about quality.
 - Formats: ZIP (CSV) and Parquet. StockEtablissement is 2.6 GB ZIP / 2.0 GB Parquet.
 - Notes: **Too large for the MCP Tabular API.** For aggregations at NAF level (e.g. all `4773Z` pharmacies, `1071C` bakeries), download the parquet and process locally. Treat as the canonical national source when we want to promote a story from "IDF only" to "France-wide."
 - Used by: (referenced for follow-up; not yet used in a story)
+
+### DS-SIRENE-BARS: SIRENE — Débits de boissons actifs (national, NAF 56.30Z)
+- URL: https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret
+- Geolocation: https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques
+- Publisher: INSEE
+- Coverage: All active establishments in metropolitan France and overseas territories with NAF code 56.30Z (débits de boissons — bars, pubs, brasseries, cafés serving alcohol). March 2026 snapshot. 49,385 geocoded points.
+- Formats: Extracted as CSV from the national SIRENE parquet, joined to SIRENE Géolocalisation for lat/lng. Output: bars.json (3.8 MB) with fields lat, lng, commune, name, dept.
+- Notes: NAF 56.30Z covers all licensed premises serving alcohol for on-site consumption. 59% of establishments carry a registered business name (denominationUniteLegale or enseigne fields); the rest trade anonymously. Same pipeline as DS-003 / baguettes story — filter parquet by NAF, join geocoords, export to JSON. Département field derived from commune code prefix.
+- Used by: Q-033, Story 4 (bars)

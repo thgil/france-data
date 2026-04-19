@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where France drinks — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .replay-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, color 0.1s;
+    }
+    .replay-btn:hover { background: #ece8e0; color: #1a1a1a; border-color: #999; }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .legend-amber { background: #c67c00; }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Stats panel ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Where France drinks</h1>
+        <p class="story-dek">49,385 bars, pubs, and cafés — every débit de boissons registered in France, placed at its real address.</p>
+        <div class="story-meta">
+          <span>2026-04-19</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 active <em>débits de boissons</em> — bars, pubs, brasseries, cafés that serve alcohol. Each one is registered in the national SIRENE business directory with a NAF code (56.30Z) and a geocoded address. The map below shows all of them.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-bars" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-paris">Paris</button>
+            <button class="zoom-btn" id="btn-bretagne">Bretagne</button>
+            <button class="zoom-btn" id="btn-nord">Nord</button>
+            <button class="zoom-btn" id="btn-azur">Côte d'Azur</button>
+            <button class="zoom-btn" id="btn-lyon">Lyon</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <span style="display:inline-flex;align-items:center;gap:4px;">
+              <span class="legend-dot legend-amber"></span>
+              Bar
+            </span>
+            &nbsp;
+            <button class="replay-btn" id="btn-replay">Replay animation</button>
+          </div>
+        </div>
+        <figcaption>Each amber dot is one bar at its geocoded address. 49,385 active débits de boissons (NAF 56.30Z). Source: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> + <a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">SIRENE Géolocalisation</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>A dense north, a bright coastal rim</h2>
+
+      <p>Paris has 3,120 bars — the most of any single département. But the Nord (1,961) and Pas-de-Calais (1,265) together top it with 3,226. Bretagne is everywhere: Finistère (1,014), Morbihan (931), Ille-et-Vilaine (914), and Côtes-d'Armor together field over 3,000. The Mediterranean coast — Bouches-du-Rhône (1,632), Var (1,042), Hérault (1,013), Alpes-Maritimes (1,004) — runs hot too. The map shows this as a bright coastal rim and a dense northern band, with the familiar <em>diagonale du vide</em> running through the middle.</p>
+
+      <!-- ── Beat 4: Stats ─────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars (by département)</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars (by département)</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4 (density) ──────────────────────────────────────────── -->
+      <p>Raw counts favour big départements. Per capita, the picture shifts — small, rural, tourism-heavy départements rise. Finistère, with under a million residents and over 1,000 bars, clearly punches above its weight. The same goes for the Var and Hérault: summer tourism translates directly into licences, and those licences stay registered year-round. The empty middle of France — Haute-Marne (90 bars), Territoire de Belfort (65) — reflects both sparse population and the slow retreat of the village café over the last generation.</p>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <h2>The names are a cultural document</h2>
+
+      <p>59% of bars have a registered business name — the rest trade under the owner's name or a legal entity code. The named ones are a cultural document all on their own. <em>#BRUT</em>. <em>0% ALCOHOL FREE EXPERIENCE</em>. <em>100 PRESSIONS</em>. <em>LE TWENTY FOUR SEVEN</em>. A bar called <em>%</em> exists. Hover over the map to see them.</p>
+
+      <!-- ── Beat 6 ────────────────────────────────────────────────────── -->
+      <p>Each dot is a counter, a licence, a 3 AM closing time. The French café isn't just a cultural symbol — it's a regulated, mapped, countable piece of infrastructure. Like pharmacies. Like bakeries. Like doctors. The grid is everywhere. You just have to look.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar locations come from INSEE's SIRENE business registry (active establishments with NAF code 56.30Z — débits de boissons), geocoded by INSEE's statistical geolocation file, both as a March 2026 snapshot. Of registered active bars in SIRENE nationally, 49,385 had valid geocoded coordinates. The bars.json source file is 3.8 MB. This story uses the same data pipeline as <a href="../baguettes/">Story 3 (baguettes)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026 snapshot)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded establishment coordinates</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBarMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateStats(stats) {
+      const topTbody = document.querySelector('#table-top tbody');
+      if (topTbody && stats.topDepts) {
+        topTbody.innerHTML = stats.topDepts.slice(0, 8).map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.count.toLocaleString('fr-FR')}</td>
+          </tr>`
+        ).join('');
+      }
+
+      const bottomTbody = document.querySelector('#table-bottom tbody');
+      if (bottomTbody && stats.bottomDepts) {
+        // Filter to real département entries (numeric-looking codes)
+        const realDepts = stats.bottomDepts.filter(d => /^\d/.test(d.dept)).slice(0, 5);
+        bottomTbody.innerHTML = realDepts.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.count.toLocaleString('fr-FR')}</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const [bars, stats] = await Promise.all([
+          loadJSON('./bars.json'),
+          loadJSON('./stats.json'),
+        ]);
+
+        populateStats(stats);
+
+        const mapAPI = drawBarMap('#map-bars', { bars, stats });
+
+        document.getElementById('map-controls').style.display = '';
+
+        document.getElementById('btn-france').addEventListener('click',   () => mapAPI.flyToFrance());
+        document.getElementById('btn-paris').addEventListener('click',    () => mapAPI.flyToParis());
+        document.getElementById('btn-bretagne').addEventListener('click', () => mapAPI.flyToBretagne());
+        document.getElementById('btn-nord').addEventListener('click',     () => mapAPI.flyToNord());
+        document.getElementById('btn-azur').addEventListener('click',     () => mapAPI.flyToCoteAzur());
+        document.getElementById('btn-lyon').addEventListener('click',     () => mapAPI.flyToLyon());
+        document.getElementById('btn-replay').addEventListener('click',   () => mapAPI.replay());
+
+      } catch (err) {
+        console.error('Failed to load bars story data:', err);
+        document.getElementById('map-bars').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
