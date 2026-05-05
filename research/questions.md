@@ -176,16 +176,20 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Nationally, **Saint-Martin** is the most common exact commune name, shared by 48 communes across France. In IDF, Saint-Germain leads with 9 variants, followed by Saint-Martin with 7. See [commune-names](/stories/commune-names/).
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Nationally, **Y** (Somme, 1 letter) holds the record. In IDF, **Us** (Val-d'Oise, 2 letters) is the shortest. See [commune-names](/stories/commune-names/).
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Chart mounts ───────────────────────────────────────────────────────── */
+    .chart-mount {
+      max-width: 680px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+
+    .map-figure { margin: 64px 0; }
+    .map-figure .map-mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map tooltip ────────────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Name-type legend ───────────────────────────────────────────────────── */
+    .name-type-legend {
+      position: absolute;
+      bottom: 32px;
+      left: 12px;
+      background: rgba(250, 247, 242, 0.92);
+      border: 1px solid #c8c0b0;
+      border-radius: 3px;
+      padding: 10px 12px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #1a1a1a;
+      z-index: 10;
+      line-height: 1.7;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-label { color: #333; }
+
+    /* ── Stat callouts ──────────────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      max-width: 680px;
+      margin: 32px auto;
+    }
+    .stat-block {
+      flex: 1 1 160px;
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+    .stat-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Name extremes table ────────────────────────────────────────────────── */
+    .name-extremes {
+      max-width: 680px;
+      margin: 32px auto;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 14px;
+      width: 100%;
+    }
+    .name-extremes th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      padding: 6px 12px 6px 0;
+      border-bottom: 1px solid #c8c0b0;
+    }
+    .name-extremes td {
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid #e8e0d0;
+      vertical-align: top;
+    }
+    .name-extremes .name-cell {
+      font-family: Georgia, serif;
+      font-size: 15px;
+    }
+    .name-extremes .dept-cell { color: var(--ink-mute); }
+
+    /* ── Credits ────────────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">One commune is called "Us." Another takes 28 letters to write. In Île-de-France's 1,280 commune names, a millennium of geography, saints, and royal administration.</p>
+        <div class="story-meta">
+          <span>2026-05-05</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>Île-de-France has 1,300 administrative units: twenty Paris arrondissements and 1,280 proper communes. Their names span two characters to twenty-eight, skew toward compound hyphenated constructions, and collectively encode the landscape as it was understood over roughly a millennium. Some names derive from the people who first cleared the land. Others are pinned to the river they sit beside, the regional identity they claimed, or the patron saint their medieval church was dedicated to.</p>
+
+      <p>This is a pattern-level read of those 1,280 names — not a history lesson, but a guided tour through the distributions. Three questions structure the tour: How long are commune names, and why? What naming conventions cluster where on the map? And which rivers show up most in addresses?</p>
+
+      <h2>The length of a name</h2>
+
+      <p>The shortest commune in IDF is <strong>Us</strong> — two letters, Val-d'Oise, population under 900. The name is thought to derive from the Latin <em>usus</em> or possibly a Gaulish root; written records go back to the 12th century. It has never been spelled differently. On the other end: <strong>Saint-Martin-de-Bréthencourt</strong>, 28 characters, Yvelines. The full construction is a saint's name, disambiguated with the name of a medieval village. This double-compound is the logical endpoint of a naming pressure that affected France's thousands of Saint-Martins: when too many villages share the same patron saint, you append a geographic qualifier to make each one unique.</p>
+
+      <figure class="map-figure">
+        <div id="chart-length" class="chart-mount"></div>
+        <figcaption>Distribution of commune name lengths in Île-de-France, excluding the 20 Paris arrondissements. Bars highlighted in red (≤ 4 characters) and purple (≥ 22 characters) mark the outlier zones. Most names cluster between 6 and 10 characters; a secondary peak from 14 to 18 reflects compound saint-or-place constructions.</figcaption>
+      </figure>
+
+      <p>The bimodal shape is the story. The left peak (5–10 characters) represents the oldest stratum: short, inherited place names whose roots predate the Capetian dynasty — Gaulish, Frankish, or early Latin. The right peak (14–18 characters) represents the administrative layer added in the medieval period, when the French state began requiring unique commune identifiers. Saint-Germain became Saint-Germain-en-Laye; Saint-Martin became Saint-Martin-de-Bréthencourt. The gap between 10 and 14 characters is the most thinly populated zone — names that were long enough to be distinctive without needing a qualifier.</p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="stat-number">Us</span>
+          <span class="stat-label">shortest IDF name (2 chars)</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">89</span>
+          <span class="stat-label">communes named for a saint</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">140</span>
+          <span class="stat-label">communes on a named river or hill</span>
+        </div>
+      </div>
+
+      <h2>Where naming conventions cluster</h2>
+
+      <p>Each commune's name has a structural type. Names beginning with <em>Saint-</em> or <em>Sainte-</em> signal a religious dedication — the commune takes its name from its medieval church's patron. The <em>-sur-</em> construction positions a village on a river, hill, or pond; <em>-en-</em> places it within a larger regional identity; <em>-sous-</em> puts it below a prominent landmark. <em>Le / La / Les</em> names are usually topographic — a meadow, a forest, a ford. These conventions are not evenly distributed across the landscape.</p>
+
+      <figure class="map-figure">
+        <div id="map-types" class="map-mount"></div>
+        <figcaption>Each dot is one commune, coloured by its naming convention. Saint-named communes (purple) spread across the entire region. River-positioned communes (blue) trace the Seine and Marne valleys. Region-positioned communes (green) cluster in the outer départements, especially Seine-et-Marne. Paris arrondissements (red) occupy the centre. Grey dots are names that don't fit the above patterns — mostly inherited place names of Gaulish, Germanic, or Latin origin. Hover for details. Source: <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE (IDF)</a>, commune geometries; naming analysis by this project.</figcaption>
+      </figure>
+
+      <p>The <em>-sur-</em> names tell a settlement story. Villages founded near rivers took the river as their address; the river provided water, transport, and flood-plain fertility. The Seine alone yields 40 communes: Conflans-Sainte-Honorine-sur-Seine doesn't exist as such, but Villeneuve-sur-Seine, Triel-sur-Seine, and dozens of others embed the river permanently in their identity. The concentration along the Seine–Marne corridor is striking even in a dot map: the valleys were settled first, densest, and named most carefully.</p>
+
+      <p>The <em>-en-Brie</em> cluster is equally visible. Brie is the plateau east and southeast of Paris — the one that gives its name to the cheese — and 31 IDF communes identify themselves as being "in Brie." These are mostly in Seine-et-Marne, which is geographically the Brie plain. The <em>-en-France</em> names are odder: eight communes place themselves "in France," meaning the <em>Pays de France</em>, a medieval county that is the historical heartland of the Capetian dynasty, roughly corresponding to the northern Val-d'Oise and the area around Roissy. Saying you live "en France" in the 11th century was a geographically precise statement.</p>
+
+      <h2>Rivers written into addresses</h2>
+
+      <figure class="map-figure">
+        <div id="chart-rivers" class="chart-mount"></div>
+        <figcaption>Communes whose names contain a river, positioned via the "-sur-[river name]" construction. The Seine dominates with 40 communes; the Marne follows at 23. The Orge and Oise tie at 10. Source: name analysis of INSEE BPE commune list.</figcaption>
+      </figure>
+
+      <p>Forty communes in IDF still carry the Seine in their name. Twenty-three carry the Marne. The Orge and the Oise tie at ten each. The hierarchy is roughly proportional to the rivers' length within the IDF boundary — though the Seine, being the main artery, runs through many more communes than any tributary. The Essonne river, which bisects the département of the same name, shows up in eight commune names; the Yerres, a smaller southeast tributary of the Seine, in five. Smaller streams — the Lunain, the Voulzie — appear once or twice before dropping off the map. The naming pressure correlates with navigability: rivers that could carry a boat, and therefore trade, got named into addresses. Streams too small for commerce were left in the background.</p>
+
+      <h2>Nationally, a single letter</h2>
+
+      <p>The IDF's shortest name is Us at two characters. But Île-de-France doesn't hold the national record. The commune of <strong>Y</strong> in the Somme — one letter, pronounced as in the French word for "there" — has held that distinction since at least the 13th century. France's national commune naming conventions include two other single-syllable edge cases sometimes noted: <strong>Eu</strong> (Seine-Maritime, two letters, former seat of the counts of Eu) and <strong>Oz</strong> (Isère, two letters). None of these are IDF. The IDF's Us is the regional outlier, but nationally it's in respectable company.</p>
+
+      <p>At the other end, the national record for longest commune name is held not by an IDF entry but by <strong>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</strong> in the Marne (45 characters), created by a 19th-century merger of three communes. IDF's Saint-Martin-de-Bréthencourt (28 characters) looks modest by comparison. The longest names almost always follow the same pattern: a saint's name, a qualifying geography, and occasionally a second saint or place appended via a merger. Each hyphen is a piece of administrative history.</p>
+
+      <p>Nationally, the most common exact commune name is <strong>Saint-Martin</strong>, shared by 48 communes across France — each of which had to add its own geographic qualifier to distinguish itself. IDF has seven Saint-Martins: Saint-Martin-du-Tertre, Saint-Martin-en-Bière, Saint-Martin-de-Bréthencourt, and four more. They carry the same saint but a different landscape beneath him.</p>
+
+      <h2>The name as an address in time</h2>
+
+      <p>The naming conventions visible in these 1,280 names are not randomly distributed. Saints cluster in the agricultural interior and the older settled areas. River names follow the valleys. Regional names ("en Brie," "en Vexin") mark the outer edges where commune identity was defined against a larger landscape unit rather than a local landmark. Short inherited names are the oldest: Buc, Ury, Us — these predate the naming conventions, carrying sounds that have been handed down without needing disambiguation because they were always unique enough. Long compound names are the youngest stratum, administratively stamped onto places that needed to be told apart from each other in the era of the cadastre, the mairie, and the postal code.</p>
+
+      <p>A commune's name is the oldest official record most villages have. In IDF, reading across 1,280 of them at once, the history of the Paris basin is faintly visible in the distribution itself — not in any individual name, but in the aggregate of what people thought worth saying about where they lived.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> This analysis covers the 1,300 administrative units in Île-de-France: the 20 Paris arrondissements and 1,280 communes. Commune names, codes, and boundaries come from the INSEE Base Permanente des Équipements (BPE), vintage circa 2014, republished by Région Île-de-France. Name-type classification (saint / sur / en / etc.) is rule-based on string matching; edge cases exist. The BPE commune name field matches the INSEE Code Officiel Géographique (COG) naming at that vintage. Population figures are from the 2010 census.</p>
+
+        <p>For national context: the claim that "Saint-Martin" is France's most common exact commune name is well-documented in the INSEE COG and widely cited in French encyclopaedic sources. The single-letter commune "Y" (Somme) is the shortest in metropolitan France.</p>
+
+        <h3>Source on data.gouv.fr</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">BPE Commerces par commune (IDF)</a> — commune names, codes, geometry (Région Île-de-France)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">BPE Services de santé par commune (IDF)</a> — same commune list (Région Île-de-France)</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <span><a href="/">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawLengthHistogram, drawNameTypeMap, drawRiverBars } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const [stats, points] = await Promise.all([
+          loadJSON('./stats.json'),
+          loadJSON('./communes-points.geojson'),
+        ]);
+        drawLengthHistogram('#chart-length', stats);
+        drawNameTypeMap('#map-types', points);
+        drawRiverBars('#chart-rivers', stats);
+      } catch (err) {
+        console.error('Failed to load story data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

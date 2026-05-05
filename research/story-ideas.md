@@ -27,6 +27,20 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### commune-names: What's in a name? The hidden history of IDF commune names
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: One commune is called "Us." Another takes 28 letters. 1,280 IDF commune names encode a millennium of religion, rivers, and royal geography.
+- Data: BPE commune names from DS-001/DS-002 (IDF, 1,300 communes). Name-type classification derived from string patterns. National context cited from INSEE COG public record.
+- Angle:
+  1. Name-length histogram reveals a bimodal distribution: short ancient names vs. long medieval compound names.
+  2. Dot map coloured by naming convention (saint / sur / en / article / other) shows geographic clustering.
+  3. River bar chart: 40 communes on the Seine, 23 on the Marne — the rivers as original addresses.
+  4. Close with national context: "Y" (Somme) holds the 1-letter record; 48 Saint-Martins nationally.
+- Draft X summary:
+  > France's most common commune name is "Saint-Martin" — 48 villages share it. IDF's shortest is "Us" (2 letters). Today on **france-data**: what 1,280 Île-de-France place names reveal about a millennium of French geography. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/

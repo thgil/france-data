@@ -29,7 +29,7 @@ any caveats about quality.
 - Coverage: 1,300 communes / Paris arrondissements in IDF. Population field is from 2010 census; equipment counts circa 2014 BPE vintage.
 - Formats: CSV, JSON, XLS, SHP
 - Notes: Counts include `pharmacie`, `laboratoire_d_analyses_medicales`, `etablissement_sante_court_sejour`, `urgences`, `maternite`, etc. **IDF only** — for national coverage we'd need the INSEE BPE national release (which redirects off-platform on data.gouv.fr). For commune-level density story, IDF is rich enough — it hosts ~19% of the French population.
-- Used by: Q-007
+- Used by: Q-007, Q-037, Q-039
 
 ### DS-002: BPE — Commerces par commune (Île-de-France)
 - URL: https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf
@@ -39,7 +39,7 @@ any caveats about quality.
 - Coverage: same 1,300 IDF communes / arrondissements; same vintage as DS-001.
 - Formats: CSV, JSON, XLS, SHP
 - Notes: Counts include `boulangerie`, `boucherie_charcuterie`, `epicerie`, `supermarche`, `librairie_papeterie_journaux`, `magasin_de_vetements`, etc. Pairs cleanly with DS-001 for cross-category density comparisons.
-- Used by: Q-007
+- Used by: Q-007, Q-037, Q-039
 
 ### DS-004: Carte des pharmacies d'Île-de-France
 - URL: https://data.iledefrance.fr/explore/dataset/carte-des-pharmacies-dile-de-france/information/
