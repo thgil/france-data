@@ -27,6 +27,20 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### baguettes: The baguette-capital question
+- Status: ✅ published
+- Published URL: /stories/baguettes/
+- Source question: [Q-034](questions.md#q-034)
+- Hook: Which commune in IDF has the most bakeries per person? Not Paris — a market town in Seine-et-Marne with 2,151 people and five boulangeries claims the per-capita crown. Within Paris, it's the 1er, where tourists and office workers inflate the denominator.
+- Data: INSEE BPE Commerces (IDF), 1,300 communes, vintage circa 2014. Reuses data from pharmacy-myth.
+- Angle:
+  1. Paris arrondissement bar chart (per 10k, sorted) — shows internal variation, 1er leads at 20.8 vs 15e at 6.2.
+  2. Département comparison (8 IDF depts) — Seine-Saint-Denis outbakes wealthier Hauts-de-Seine; grande couronne data is skewed by rural communes.
+  3. Scatter plot (population vs per10k, log scale) — shows variance collapsing at larger sizes, Paris as outlier cluster.
+  4. Conclusion: Rebais wins on paper, Paris wins in practice.
+- Draft X summary:
+  > Paris has 8 bakeries per 10,000 people — but the "baguette capital" of Île-de-France is technically a market town in Seine-et-Marne. The numbers, three charts, and why this is actually a story about urban form. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/

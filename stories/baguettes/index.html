@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The baguette-capital question — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-mount {
+      overflow-x: auto;
+    }
+    .chart-mount svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      font-family: var(--sans);
+    }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .legend-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin: 40px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat-block {
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 6px;
+    }
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The baguette-capital question</h1>
+        <p class="story-dek">Which commune in Île-de-France has the most bakeries per person — and what the answer reveals about how bread fits into French urban life.</p>
+        <div class="story-meta">
+          <span>2026-05-05</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <p>Île-de-France has 6,299 bakeries spread across 1,300 communes and 11.8 million residents. That works out to 5.3 boulangeries per 10,000 people — enough, by one rough heuristic, to mean that most urban dwellers can reach a fresh baguette on foot. But averages are the enemy of geography. The 1,300 communes range from the Paris 18th arrondissement (202,000 residents, 155 bakeries, one every five minutes' walk) to Chatignonville, a hamlet of 56 people in Essonne with none at all. Asking which commune has the most bakeries per capita is, in miniature, a question about what kind of place IDF actually is.</p>
+
+      <p>The answer is not Paris — not by density, anyway. Paris has more bakeries in absolute terms than any other territory in IDF, and the city's 20 arrondissements average 8 per 10,000 residents, well above the regional mean. But the per-capita champion among communes with at least 2,000 residents is Rebais, a market town in Seine-et-Marne (population 2,151), which somehow has five boulangeries — a rate of 23.3 per 10,000. Within Paris itself, the 1er arrondissement leads at 20.8 per 10,000: 36 bakeries for 17,308 permanent residents, a ratio driven less by how much bread Parisians eat than by how many offices, tourists, and lunchtime crowds flow through the historic core.</p>
+
+      <p>Three charts follow. Each slices the data differently, and together they describe something real: that bakery density is less about bread preferences than about urban form — about whether a place has the commercial-street density, the foot traffic, and the neighbourhood scale to support an artisan business that must bake on premises, cannot franchise, and competes on freshness alone.</p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-number" id="stat-bakeries">6,299</div>
+          <div class="stat-label">bakeries in IDF</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="stat-avg">5.3</div>
+          <div class="stat-label">per 10,000 residents (IDF avg)</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="stat-zero">47%</div>
+          <div class="stat-label">of communes have zero bakeries</div>
+        </div>
+      </div>
+
+      <h2>Inside Paris: the 1er pulls away</h2>
+
+      <p>Paris's 20 arrondissements are the obvious place to start. By raw count, the 18e (Montmartre, Pigalle, La Goutte d'Or) leads with 155 bakeries. By density, the 1er wins. The difference is instructive: the 18e is a high-population residential and tourist arrondissement where bakeries track the sheer number of people. The 1er is the smallest arrondissement by population (17,308) but one of the highest in commercial activity — the Louvre, the Palais-Royal, Les Halles. Bakeries here serve office workers and tourists as much as residents.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-paris"></div>
+        <figcaption>Bakeries per 10,000 residents by Paris arrondissement. Source: INSEE Base Permanente des Équipements (Région Île-de-France), vintage circa 2014, 2010 census population.</figcaption>
+      </figure>
+
+      <p>The 15e arrondissement — Paris's most populous — brings up the rear at 6.2 per 10,000. It's a large residential district west of Montparnasse: plenty of bread, but spread thin. The 8e (Champs-Élysées, Madeleine) sits mid-table at 9.4 per 10,000, which surprises people who expect the luxury arrondissement to dominate. Luxury retail and bakeries answer to different logics.</p>
+
+      <h2>Petite couronne vs grande couronne</h2>
+
+      <p>Leave Paris and the density drops, but not uniformly. IDF is conventionally divided into three zones: Paris intramuros, the petite couronne (the three inner-ring départements: Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne), and the grande couronne (the four outer-ring départements). The bakery data follows this geography, mostly.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-depts"></div>
+        <figcaption>Bakeries per 10,000 residents by département. The dashed line marks the IDF-wide average (5.3). Source: same as above.</figcaption>
+      </figure>
+
+      <p>The surprise here is Seine-Saint-Denis (93). Conventionally thought of as the most disadvantaged inner-ring département, it outbakes the wealthier Hauts-de-Seine (92) and Val-de-Marne (94) at 5.2 per 10,000. One plausible reason: Seine-Saint-Denis has a high density of street-facing retail in its town centres (Saint-Denis, Montreuil, Aubervilliers), and bread remains more central to everyday eating patterns in lower-income areas. A boulangerie at 8 a.m. is a different institution than a boutique patisserie at 11 a.m. Also notable: Seine-et-Marne (77), the region's vast agricultural east, posts 5.0 per 10,000 — above the IDF average — but that figure flatters it, because the bakeries are clustered in a handful of market towns while 59% of Seine-et-Marne's 514 communes have none.</p>
+
+      <h2>The rural tail and the full scatter</h2>
+
+      <p>Plotting every commune with at least 1,000 residents and at least one bakery shows the underlying shape of the data. As population increases, the variance in bakeries per 10,000 shrinks: small towns are all over the place (one bakery can push a commune of 2,000 to 15 per 10,000; losing it drops the figure to zero). Larger communes converge toward a band of 4–7 per 10,000. The Paris arrondissements are the visible outlier cluster at the far right, sitting above the band — proof that at urban scale, density of activity, not just density of residents, drives bakery counts.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-scatter"></div>
+        <figcaption>Each dot is one commune (population ≥ 1,000, at least one bakery). X axis: population (log scale). Y axis: bakeries per 10,000 residents. Paris arrondissements are highlighted in red. Source: same as above.</figcaption>
+      </figure>
+
+      <p>The 607 communes with zero bakeries don't appear on the scatter — they'd sit on the x-axis, a long tail of small villages, mostly in Seine-et-Marne and the outer ring. They hold only 400,924 people (3.4% of IDF's population), which makes the "47% of communes have no bakery" figure less alarming than it sounds. The people in those communes aren't bread-deprived; they live in places where the market can't sustain a dedicated boulanger, and they drive a few kilometres to the next town. But the zero-bakery commune is a reminder that IDF's headline statistics are Paris statistics. Strip out the city and the picture is quieter, more agricultural, more uneven.</p>
+
+      <h2>So who wins?</h2>
+
+      <p>Rebais, population 2,151, with 23.3 bakeries per 10,000, wins the strict per-capita competition for communes above 2,000 people. But the answer depends on what you're asking. If the question is where bread is most present in everyday life — where you're almost certain to be within five minutes of a fresh baguette — then the 1er arrondissement, and really most of central Paris, is the answer. Small-commune statistics are fragile: Rebais's five bakeries make it a local hub for surrounding villages, not a monument to bread culture. The baguette capital is where the baguette was always going to be.</p>
+
+      <div class="credits">
+        <p><strong>Data note.</strong> Bakery counts and population figures come from the INSEE Base Permanente des Équipements (BPE), republished by Région Île-de-France, vintage circa 2014, with 2010 census population. The data covers 1,300 communes and Paris arrondissements in IDF only. BPE records establishments as "boulangeries" — artisan bakeries baking on premises — and does not separately count patisseries or industrial bread distribution points. Per-10,000 figures are unreliable for communes under ~1,000 residents due to small denominators; we apply a floor of 2,000 for the top-density table and 1,000 for the scatter chart.</p>
+
+        <h3>Source on data.gouv.fr</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">BPE Commerces par commune (IDF)</a> — Région Île-de-France / INSEE</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">BPE Services de santé par commune (IDF)</a> — same source, for population cross-reference</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="/">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+    const COLORS = {
+      "Paris": "#b32020",
+      "Petite Couronne": "#3d6b8e",
+      "Grande Couronne": "#7a8a7a"
+    };
+
+    async function main() {
+      let data;
+      try {
+        const res = await fetch("./data.json");
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        data = await res.json();
+      } catch (err) {
+        console.error("Failed to load data:", err);
+        return;
+      }
+
+      // ── Chart 1: Paris arrondissements, sorted by per10k ──────────
+      const parisChart = Plot.plot({
+        marginLeft: 52,
+        marginRight: 60,
+        height: 460,
+        width: Math.min(680, window.innerWidth - 48),
+        x: {
+          label: "Bakeries per 10,000 residents →",
+          grid: true
+        },
+        y: {
+          label: null,
+          tickSize: 0
+        },
+        marks: [
+          Plot.barX(data.paris, {
+            x: "per10k",
+            y: "name",
+            sort: { y: "x", order: "descending" },
+            fill: "#b32020",
+            fillOpacity: 0.85,
+            rx: 2
+          }),
+          Plot.ruleX([0]),
+          Plot.ruleX([8.02], {
+            stroke: "#666",
+            strokeDasharray: "4 3",
+            strokeWidth: 1.2
+          }),
+          Plot.text([{ per10k: 8.02, name: "Paris avg" }], {
+            x: "per10k",
+            y: "name",
+            dx: 5,
+            dy: -14,
+            text: d => "← Paris avg 8.0",
+            fontSize: 10,
+            fill: "#666",
+            textAnchor: "start"
+          }),
+          Plot.text(data.paris, {
+            x: "per10k",
+            y: "name",
+            sort: { y: "x", order: "descending" },
+            text: d => d.per10k.toFixed(1),
+            dx: 6,
+            fontSize: 10,
+            fill: "#555",
+            textAnchor: "start"
+          })
+        ]
+      });
+      document.getElementById("chart-paris").appendChild(parisChart);
+
+      // ── Chart 2: Département comparison ──────────────────────────
+      const deptChart = Plot.plot({
+        marginLeft: 130,
+        marginRight: 60,
+        height: 220,
+        width: Math.min(680, window.innerWidth - 48),
+        x: {
+          label: "Bakeries per 10,000 residents →",
+          grid: true
+        },
+        y: {
+          label: null,
+          tickSize: 0
+        },
+        color: {
+          domain: ["Paris", "Petite Couronne", "Grande Couronne"],
+          range: [COLORS["Paris"], COLORS["Petite Couronne"], COLORS["Grande Couronne"]]
+        },
+        marks: [
+          Plot.barX(data.deptSummary, {
+            x: "per10k",
+            y: "name",
+            sort: { y: "x", order: "descending" },
+            fill: "zone",
+            fillOpacity: 0.85,
+            rx: 2
+          }),
+          Plot.ruleX([0]),
+          Plot.ruleX([data.stats.idfPer10k], {
+            stroke: "#888",
+            strokeDasharray: "4 3",
+            strokeWidth: 1.2
+          }),
+          Plot.text(data.deptSummary, {
+            x: "per10k",
+            y: "name",
+            sort: { y: "x", order: "descending" },
+            text: d => d.per10k.toFixed(1),
+            dx: 6,
+            fontSize: 10,
+            fill: "#555",
+            textAnchor: "start"
+          })
+        ]
+      });
+      document.getElementById("chart-depts").appendChild(deptChart);
+
+      // Build legend for dept chart
+      const legendEl = document.createElement("div");
+      legendEl.className = "chart-legend";
+      [["Paris", COLORS["Paris"]], ["Petite Couronne", COLORS["Petite Couronne"]], ["Grande Couronne", COLORS["Grande Couronne"]]].forEach(([label, color]) => {
+        legendEl.innerHTML += `<span class="legend-swatch"><span class="legend-dot" style="background:${color}"></span>${label}</span>`;
+      });
+      document.getElementById("chart-depts").appendChild(legendEl);
+
+      // ── Chart 3: Scatter — pop vs per10k ─────────────────────────
+      const nonParis = data.scatter.filter(d => d.dept !== "75");
+      const parisPoints = data.scatter.filter(d => d.dept === "75");
+
+      const scatterChart = Plot.plot({
+        marginLeft: 50,
+        marginRight: 20,
+        height: 340,
+        width: Math.min(700, window.innerWidth - 48),
+        x: {
+          type: "log",
+          label: "Population (log scale) →",
+          grid: true,
+          tickFormat: d => d >= 1000 ? (d >= 1000000 ? (d/1000000)+"M" : (d/1000)+"k") : d
+        },
+        y: {
+          label: "↑ Bakeries per 10,000 residents",
+          grid: true
+        },
+        color: {
+          domain: ["Paris", "Petite Couronne", "Grande Couronne"],
+          range: [COLORS["Paris"], COLORS["Petite Couronne"], COLORS["Grande Couronne"]]
+        },
+        marks: [
+          Plot.dot(nonParis, {
+            x: "pop",
+            y: "per10k",
+            fill: "zone",
+            r: 3,
+            fillOpacity: 0.45,
+            stroke: "white",
+            strokeWidth: 0.3
+          }),
+          Plot.dot(parisPoints, {
+            x: "pop",
+            y: "per10k",
+            fill: COLORS["Paris"],
+            r: 4.5,
+            fillOpacity: 0.9,
+            stroke: "white",
+            strokeWidth: 0.5
+          }),
+          Plot.ruleY([data.stats.idfPer10k], {
+            stroke: "#aaa",
+            strokeDasharray: "4 3",
+            strokeWidth: 1
+          })
+        ]
+      });
+      document.getElementById("chart-scatter").appendChild(scatterChart);
+
+      // Legend for scatter
+      const scatterLegend = document.createElement("div");
+      scatterLegend.className = "chart-legend";
+      [["Paris arrondissements", COLORS["Paris"]], ["Petite Couronne communes", COLORS["Petite Couronne"]], ["Grande Couronne communes", COLORS["Grande Couronne"]]].forEach(([label, color]) => {
+        scatterLegend.innerHTML += `<span class="legend-swatch"><span class="legend-dot" style="background:${color}"></span>${label}</span>`;
+      });
+      document.getElementById("chart-scatter").appendChild(scatterLegend);
+    }
+
+    main();
+  </script>
+</body>
+</html>
