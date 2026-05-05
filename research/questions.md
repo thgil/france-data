@@ -168,8 +168,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: In Île-de-France (IDF BPE data), Paris 1er leads among communes with ≥5,000 residents at 20.8 bakeries per 10,000 residents — one boulangerie per 481 people. Among suburban communes, Enghien-les-Bains (11.9/10k), Le Raincy (11.6/10k), and Fontainebleau (11.2/10k) beat most Paris arrondissements. Two communes with >5,000 residents have zero bakeries: Saint-Germain-lès-Arpajon (9,338) and Nandy (5,814). Density tracks foot traffic and urban walkability, not wealth.
+- Story: [baguettes](/stories/baguettes/)
 
 ### Q-035: How many communes have a public library, and how many don't?
 - Status: 🟢 open

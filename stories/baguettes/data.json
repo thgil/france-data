@@ -1,0 +1,710 @@
+{
+  "source": {
+    "name": "INSEE Base Permanente des Équipements (BPE), Région Île-de-France republication",
+    "vintage": "circa 2014 equipment counts, 2010 census population",
+    "communes": 1300,
+    "region": "Île-de-France"
+  },
+  "summary": {
+    "totalBakeries": 6299,
+    "totalPopulation": 11786234,
+    "idfPer10k": 5.3,
+    "communesTotal": 1300,
+    "communesWithBakery": 693,
+    "communesWithZero": 607,
+    "communesZeroPct": 46.7,
+    "largeCommunesWithZero": 2
+  },
+  "topByDensity": [
+    {
+      "name": "Paris 1er Arrondissement",
+      "shortName": "Paris 1er",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 17308,
+      "bakeries": 36,
+      "bakeriesPer10k": 20.8,
+      "onePerResidents": 481
+    },
+    {
+      "name": "Paris 4e Arrondissement",
+      "shortName": "Paris 4e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 28012,
+      "bakeries": 45,
+      "bakeriesPer10k": 16.06,
+      "onePerResidents": 623
+    },
+    {
+      "name": "Paris 8e Arrondissement",
+      "shortName": "Paris 8e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 41280,
+      "bakeries": 61,
+      "bakeriesPer10k": 14.78,
+      "onePerResidents": 677
+    },
+    {
+      "name": "Paris 9e Arrondissement",
+      "shortName": "Paris 9e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 60139,
+      "bakeries": 78,
+      "bakeriesPer10k": 12.97,
+      "onePerResidents": 771
+    },
+    {
+      "name": "Paris 6e Arrondissement",
+      "shortName": "Paris 6e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 43451,
+      "bakeries": 56,
+      "bakeriesPer10k": 12.89,
+      "onePerResidents": 776
+    },
+    {
+      "name": "Paris 2e Arrondissement",
+      "shortName": "Paris 2e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 23009,
+      "bakeries": 29,
+      "bakeriesPer10k": 12.6,
+      "onePerResidents": 794
+    },
+    {
+      "name": "Paris 5e Arrondissement",
+      "shortName": "Paris 5e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 60938,
+      "bakeries": 73,
+      "bakeriesPer10k": 11.98,
+      "onePerResidents": 835
+    },
+    {
+      "name": "Enghien-les-Bains",
+      "shortName": "Enghien-les-Bains",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "isParis": false,
+      "population": 11809,
+      "bakeries": 14,
+      "bakeriesPer10k": 11.86,
+      "onePerResidents": 843
+    },
+    {
+      "name": "Le Raincy",
+      "shortName": "Le Raincy",
+      "dept": "93",
+      "deptName": "Seine-Saint-Denis",
+      "isParis": false,
+      "population": 13828,
+      "bakeries": 16,
+      "bakeriesPer10k": 11.57,
+      "onePerResidents": 864
+    },
+    {
+      "name": "Fontainebleau",
+      "shortName": "Fontainebleau",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 15107,
+      "bakeries": 17,
+      "bakeriesPer10k": 11.25,
+      "onePerResidents": 889
+    },
+    {
+      "name": "Paris 3e Arrondissement",
+      "shortName": "Paris 3e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 35652,
+      "bakeries": 36,
+      "bakeriesPer10k": 10.1,
+      "onePerResidents": 990
+    },
+    {
+      "name": "La Ferté-sous-Jouarre",
+      "shortName": "La Ferté-sous-Jouarre",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 9061,
+      "bakeries": 9,
+      "bakeriesPer10k": 9.93,
+      "onePerResidents": 1007
+    },
+    {
+      "name": "Paris 7e Arrondissement",
+      "shortName": "Paris 7e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 57974,
+      "bakeries": 56,
+      "bakeriesPer10k": 9.66,
+      "onePerResidents": 1035
+    },
+    {
+      "name": "Nemours",
+      "shortName": "Nemours",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 12745,
+      "bakeries": 12,
+      "bakeriesPer10k": 9.42,
+      "onePerResidents": 1062
+    },
+    {
+      "name": "Souppes-sur-Loing",
+      "shortName": "Souppes-sur-Loing",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 5561,
+      "bakeries": 5,
+      "bakeriesPer10k": 8.99,
+      "onePerResidents": 1112
+    },
+    {
+      "name": "Coulommiers",
+      "shortName": "Coulommiers",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 14544,
+      "bakeries": 13,
+      "bakeriesPer10k": 8.94,
+      "onePerResidents": 1119
+    },
+    {
+      "name": "Beaumont-sur-Oise",
+      "shortName": "Beaumont-sur-Oise",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "isParis": false,
+      "population": 8954,
+      "bakeries": 8,
+      "bakeriesPer10k": 8.93,
+      "onePerResidents": 1120
+    },
+    {
+      "name": "Paris 10e Arrondissement",
+      "shortName": "Paris 10e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 95394,
+      "bakeries": 85,
+      "bakeriesPer10k": 8.91,
+      "onePerResidents": 1122
+    },
+    {
+      "name": "Arnouville",
+      "shortName": "Arnouville",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "isParis": false,
+      "population": 13538,
+      "bakeries": 12,
+      "bakeriesPer10k": 8.86,
+      "onePerResidents": 1129
+    },
+    {
+      "name": "Rungis",
+      "shortName": "Rungis",
+      "dept": "94",
+      "deptName": "Val-de-Marne",
+      "isParis": false,
+      "population": 5662,
+      "bakeries": 5,
+      "bakeriesPer10k": 8.83,
+      "onePerResidents": 1133
+    },
+    {
+      "name": "Magny-en-Vexin",
+      "shortName": "Magny-en-Vexin",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "isParis": false,
+      "population": 5752,
+      "bakeries": 5,
+      "bakeriesPer10k": 8.69,
+      "onePerResidents": 1151
+    },
+    {
+      "name": "Paris 12e Arrondissement",
+      "shortName": "Paris 12e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 144262,
+      "bakeries": 123,
+      "bakeriesPer10k": 8.53,
+      "onePerResidents": 1172
+    },
+    {
+      "name": "Arpajon",
+      "shortName": "Arpajon",
+      "dept": "91",
+      "deptName": "Essonne",
+      "isParis": false,
+      "population": 10574,
+      "bakeries": 9,
+      "bakeriesPer10k": 8.51,
+      "onePerResidents": 1175
+    },
+    {
+      "name": "Meaux",
+      "shortName": "Meaux",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 50755,
+      "bakeries": 43,
+      "bakeriesPer10k": 8.47,
+      "onePerResidents": 1181
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "shortName": "Paris 11e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 153202,
+      "bakeries": 128,
+      "bakeriesPer10k": 8.35,
+      "onePerResidents": 1198
+    },
+    {
+      "name": "Meulan-en-Yvelines",
+      "shortName": "Meulan-en-Yvelines",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "isParis": false,
+      "population": 8855,
+      "bakeries": 7,
+      "bakeriesPer10k": 7.91,
+      "onePerResidents": 1264
+    },
+    {
+      "name": "Mantes-la-Jolie",
+      "shortName": "Mantes-la-Jolie",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "isParis": false,
+      "population": 42969,
+      "bakeries": 34,
+      "bakeriesPer10k": 7.91,
+      "onePerResidents": 1264
+    },
+    {
+      "name": "Serris",
+      "shortName": "Serris",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "isParis": false,
+      "population": 7595,
+      "bakeries": 6,
+      "bakeriesPer10k": 7.9,
+      "onePerResidents": 1266
+    },
+    {
+      "name": "Paris 17e Arrondissement",
+      "shortName": "Paris 17e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 169325,
+      "bakeries": 133,
+      "bakeriesPer10k": 7.85,
+      "onePerResidents": 1274
+    },
+    {
+      "name": "Paris 14e Arrondissement",
+      "shortName": "Paris 14e",
+      "dept": "75",
+      "deptName": "Paris",
+      "isParis": true,
+      "population": 138299,
+      "bakeries": 108,
+      "bakeriesPer10k": 7.81,
+      "onePerResidents": 1280
+    }
+  ],
+  "parisArrondissements": [
+    {
+      "name": "Paris 1er",
+      "population": 17308,
+      "bakeries": 36,
+      "bakeriesPer10k": 20.8,
+      "onePerResidents": 481
+    },
+    {
+      "name": "Paris 4e",
+      "population": 28012,
+      "bakeries": 45,
+      "bakeriesPer10k": 16.06,
+      "onePerResidents": 623
+    },
+    {
+      "name": "Paris 8e",
+      "population": 41280,
+      "bakeries": 61,
+      "bakeriesPer10k": 14.78,
+      "onePerResidents": 677
+    },
+    {
+      "name": "Paris 9e",
+      "population": 60139,
+      "bakeries": 78,
+      "bakeriesPer10k": 12.97,
+      "onePerResidents": 771
+    },
+    {
+      "name": "Paris 6e",
+      "population": 43451,
+      "bakeries": 56,
+      "bakeriesPer10k": 12.89,
+      "onePerResidents": 776
+    },
+    {
+      "name": "Paris 2e",
+      "population": 23009,
+      "bakeries": 29,
+      "bakeriesPer10k": 12.6,
+      "onePerResidents": 794
+    },
+    {
+      "name": "Paris 5e",
+      "population": 60938,
+      "bakeries": 73,
+      "bakeriesPer10k": 11.98,
+      "onePerResidents": 835
+    },
+    {
+      "name": "Paris 3e",
+      "population": 35652,
+      "bakeries": 36,
+      "bakeriesPer10k": 10.1,
+      "onePerResidents": 990
+    },
+    {
+      "name": "Paris 7e",
+      "population": 57974,
+      "bakeries": 56,
+      "bakeriesPer10k": 9.66,
+      "onePerResidents": 1035
+    },
+    {
+      "name": "Paris 10e",
+      "population": 95394,
+      "bakeries": 85,
+      "bakeriesPer10k": 8.91,
+      "onePerResidents": 1122
+    },
+    {
+      "name": "Paris 12e",
+      "population": 144262,
+      "bakeries": 123,
+      "bakeriesPer10k": 8.53,
+      "onePerResidents": 1172
+    },
+    {
+      "name": "Paris 11e",
+      "population": 153202,
+      "bakeries": 128,
+      "bakeriesPer10k": 8.35,
+      "onePerResidents": 1198
+    },
+    {
+      "name": "Paris 17e",
+      "population": 169325,
+      "bakeries": 133,
+      "bakeriesPer10k": 7.85,
+      "onePerResidents": 1274
+    },
+    {
+      "name": "Paris 14e",
+      "population": 138299,
+      "bakeries": 108,
+      "bakeriesPer10k": 7.81,
+      "onePerResidents": 1280
+    },
+    {
+      "name": "Paris 18e",
+      "population": 202685,
+      "bakeries": 155,
+      "bakeriesPer10k": 7.65,
+      "onePerResidents": 1307
+    },
+    {
+      "name": "Paris 19e",
+      "population": 186652,
+      "bakeries": 118,
+      "bakeriesPer10k": 6.32,
+      "onePerResidents": 1582
+    },
+    {
+      "name": "Paris 20e",
+      "population": 196880,
+      "bakeries": 124,
+      "bakeriesPer10k": 6.3,
+      "onePerResidents": 1587
+    },
+    {
+      "name": "Paris 15e",
+      "population": 236715,
+      "bakeries": 147,
+      "bakeriesPer10k": 6.21,
+      "onePerResidents": 1610
+    },
+    {
+      "name": "Paris 16e",
+      "population": 171124,
+      "bakeries": 105,
+      "bakeriesPer10k": 6.14,
+      "onePerResidents": 1629
+    },
+    {
+      "name": "Paris 13e",
+      "population": 181532,
+      "bakeries": 104,
+      "bakeriesPer10k": 5.73,
+      "onePerResidents": 1745
+    }
+  ],
+  "topSuburbs": [
+    {
+      "name": "Rebais",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2151,
+      "bakeries": 5,
+      "bakeriesPer10k": 23.25
+    },
+    {
+      "name": "Houdan",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "population": 3289,
+      "bakeries": 5,
+      "bakeriesPer10k": 15.2
+    },
+    {
+      "name": "Pontcarré",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2001,
+      "bakeries": 3,
+      "bakeriesPer10k": 14.99
+    },
+    {
+      "name": "Bourron-Marlotte",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2712,
+      "bakeries": 4,
+      "bakeriesPer10k": 14.75
+    },
+    {
+      "name": "Annet-sur-Marne",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3239,
+      "bakeries": 4,
+      "bakeriesPer10k": 12.35
+    },
+    {
+      "name": "Varennes-sur-Seine",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3355,
+      "bakeries": 4,
+      "bakeriesPer10k": 11.92
+    },
+    {
+      "name": "Enghien-les-Bains",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "population": 11809,
+      "bakeries": 14,
+      "bakeriesPer10k": 11.86
+    },
+    {
+      "name": "Le Raincy",
+      "dept": "93",
+      "deptName": "Seine-Saint-Denis",
+      "population": 13828,
+      "bakeries": 16,
+      "bakeriesPer10k": 11.57
+    },
+    {
+      "name": "Mareil-Marly",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "population": 3517,
+      "bakeries": 4,
+      "bakeriesPer10k": 11.37
+    },
+    {
+      "name": "Fontainebleau",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 15107,
+      "bakeries": 17,
+      "bakeriesPer10k": 11.25
+    },
+    {
+      "name": "Servon",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2974,
+      "bakeries": 3,
+      "bakeriesPer10k": 10.09
+    },
+    {
+      "name": "Neauphle-le-Château",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "population": 3011,
+      "bakeries": 3,
+      "bakeriesPer10k": 9.96
+    },
+    {
+      "name": "La Ferté-sous-Jouarre",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 9061,
+      "bakeries": 9,
+      "bakeriesPer10k": 9.93
+    },
+    {
+      "name": "La Rochette",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3095,
+      "bakeries": 3,
+      "bakeriesPer10k": 9.69
+    },
+    {
+      "name": "Château-Landon",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3112,
+      "bakeries": 3,
+      "bakeriesPer10k": 9.64
+    }
+  ],
+  "departments": [
+    {
+      "code": "75",
+      "name": "Paris",
+      "bakeries": 1800,
+      "population": 2243833,
+      "bakeriesPer10k": 8.02,
+      "communesCount": 20,
+      "communesZero": 0,
+      "communesZeroPct": 0.0
+    },
+    {
+      "code": "93",
+      "name": "Seine-Saint-Denis",
+      "bakeries": 786,
+      "population": 1522048,
+      "bakeriesPer10k": 5.16,
+      "communesCount": 40,
+      "communesZero": 0,
+      "communesZeroPct": 0.0
+    },
+    {
+      "code": "77",
+      "name": "Seine-et-Marne",
+      "bakeries": 665,
+      "population": 1324865,
+      "bakeriesPer10k": 5.02,
+      "communesCount": 514,
+      "communesZero": 301,
+      "communesZeroPct": 58.6
+    },
+    {
+      "code": "94",
+      "name": "Val-de-Marne",
+      "bakeries": 650,
+      "population": 1327732,
+      "bakeriesPer10k": 4.9,
+      "communesCount": 47,
+      "communesZero": 1,
+      "communesZeroPct": 2.1
+    },
+    {
+      "code": "92",
+      "name": "Hauts-de-Seine",
+      "bakeries": 721,
+      "population": 1572490,
+      "bakeriesPer10k": 4.59,
+      "communesCount": 36,
+      "communesZero": 1,
+      "communesZeroPct": 2.8
+    },
+    {
+      "code": "78",
+      "name": "Yvelines",
+      "bakeries": 637,
+      "population": 1408765,
+      "bakeriesPer10k": 4.52,
+      "communesCount": 262,
+      "communesZero": 136,
+      "communesZeroPct": 51.9
+    },
+    {
+      "code": "95",
+      "name": "Val-d'Oise",
+      "bakeries": 513,
+      "population": 1171161,
+      "bakeriesPer10k": 4.38,
+      "communesCount": 185,
+      "communesZero": 86,
+      "communesZeroPct": 46.5
+    },
+    {
+      "code": "91",
+      "name": "Essonne",
+      "bakeries": 527,
+      "population": 1215340,
+      "bakeriesPer10k": 4.34,
+      "communesCount": 196,
+      "communesZero": 82,
+      "communesZeroPct": 41.8
+    }
+  ],
+  "bakeryDeserts": [
+    {
+      "name": "Saint-Germain-lès-Arpajon",
+      "dept": "91",
+      "deptName": "Essonne",
+      "population": 9338
+    },
+    {
+      "name": "Nandy",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 5814
+    }
+  ]
+}

@@ -27,6 +27,23 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### baguettes: The Bread Gap
+- Status: ✅ published
+- Published URL: /stories/baguettes/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: Paris 1er has one boulangerie for every 481 residents. Two IDF suburbs with more than 5,000 people have zero. The baguette isn't evenly distributed.
+- Data: INSEE BPE Commerces (IDF), 1,300 communes, circa 2014 counts, 2010 population. Same dataset as pharmacy-myth but focused on bakery density as the story rather than as context.
+- Angle:
+  1. Set up the gap: 46.7% of IDF communes have zero bakeries, but most are tiny.
+  2. Among large communes, Paris 1er wins — 20.8/10k, one per 481 residents.
+  3. Surprising suburban champions: Enghien-les-Bains, Le Raincy, Fontainebleau beat most Paris arrondissements.
+  4. Within Paris, steep gradient from 1er (20.8) to 15e (6.2).
+  5. Département level: Paris 8.0/10k, Essonne 4.3/10k.
+  6. Close on urbanisme framing: density tracks foot traffic, not wealth.
+- Confidence: high — same BPE data as pharmacy-myth, structural pattern durable.
+- Draft X summary:
+  > Paris 1er has one boulangerie for every 481 residents. Saint-Germain-lès-Arpajon has 9,338 residents and zero. The baguette, supposedly universal, is unevenly distributed — and the map looks a lot like a walkability map. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/
