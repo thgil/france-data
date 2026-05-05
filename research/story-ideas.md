@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### commune-names: Y, Oô, and 35,226 Others
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: The most common commune name in France isn't Saint-Martin — it's Sainte-Colombe, shared by 12 villages. And the shortest name is a single letter: Y.
+- Data: gregoiredavid/france-geojson (INSEE COG ~2022 vintage), 35,228 metropolitan communes
+- Angle: Text-forward story with two charts — a bar chart of top 25 names and a name-length histogram. No map needed; the patterns are in the names themselves.
+- Draft X summary:
+  > France has 35,228 communes. The shortest name is one letter: "Y" (Somme). The most common exact name isn't Saint-Martin — it's Sainte-Colombe, shared by 12 villages. One in nine communes starts with Saint. And the longest is 45 characters long. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/

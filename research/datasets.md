@@ -51,6 +51,15 @@ any caveats about quality.
 - Notes: 3,991 individual pharmacy points with FINESS ID, address, lat/lng, and ouverture date. Joinable to BPE communes via the `commune` and postal-code fields. Column `dateouv` (date d'ouverture) is the pharmacy opening date; a small number of rows are missing it or carry placeholder dates (e.g. 1900-01-01). Column `rs` is the registered name; `rslongue` is the long-form name. Address built from `numvoie`, `typvoie`, `voie`, `cp`, `commune`.
 - Used by: Q-007
 
+### DS-005: france-geojson — Communes (simplified, ~2022 COG)
+- URL: https://github.com/gregoiredavid/france-geojson
+- Resource (GeoJSON): https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/communes-version-simplifiee.geojson
+- Publisher: Grégoire David (open-source mirror of INSEE COG + IGN ADMIN-EXPRESS)
+- Coverage: 35,228 metropolitan communes. Each feature has `code` (INSEE commune code) and `nom` (official name). No population or other attributes — geometry only.
+- Formats: GeoJSON (simplified polygons, ~19 MB)
+- Notes: Simplified geometries (suitable for web display, not precision analysis). Vintage is approximately 2022; communes created or merged since will differ from the current COG. For name analysis, only `code` and `nom` are needed.
+- Used by: Q-037, Q-039
+
 ### DS-003: Base Sirene des entreprises et de leurs établissements (national)
 - URL: https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret
 - Publisher: INSEE
