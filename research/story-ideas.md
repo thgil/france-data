@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### deux-deserts: Two deserts
+- Status: ✅ published
+- Published URL: /stories/deux-deserts/
+- Source question: synthesis of Q-014 (medical deserts) and Q-033 (bars)
+- Hook: The IDF suburbs have almost no doctors AND almost no bars. Rural France has almost no doctors and more bars per capita than Paris. France has two different deserts, not one.
+- Data: SIRENE bars.json (49,385 national bar points) + DREES APL communes-apl.geojson (35,014 communes). Département-level aggregation of bars per 10k vs % medical-desert communes.
+- Angle: Scatter chart of 96 départements (bars/10k × % desert) reveals two distinct clusters. IDF suburbs cluster bottom-left; rural Massif/Corsica cluster top-right. Paris isolated in bottom-right.
+- Draft X summary:
+  > Lozère has twice as many bars per capita as Paris. It also has almost no doctors. The outer IDF suburbs have neither. Plot every French département by bar density vs medical-desert status — and you see two very different kinds of abandonment. Today on **france-data**. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

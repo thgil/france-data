@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Lozère has 17.6 bars per 10,000 residents — more than Paris. It also has almost no doctors. High bars, high medical desert. The rural interior kept its bistrots. [deux-deserts]
+- 🔥 Essonne: 3.1 bars per 10,000. The lowest in metropolitan France. Also: 60% of its communes are medical deserts. The outer IDF suburbs score worst on both counts. [deux-deserts]
+- 🔥 Seine-et-Marne has more people than Lyon, 72.6% of its communes are medical deserts, and 3.8 bars per 10,000 residents. It's the biggest double-desert in France. [deux-deserts]
+- 🔥 There is no correlation between bar density and medical desert status. France has two distinct deserts: the rural interior (missing doctors, has bars) and the outer IDF suburbs (missing both). [deux-deserts]

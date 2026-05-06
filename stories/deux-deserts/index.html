@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two deserts — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+    .chart-mount {
+      background: transparent;
+      overflow-x: auto;
+    }
+
+    /* ── Stat callout boxes ─────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 140px;
+      border-left: 3px solid var(--accent);
+      padding: 8px 16px;
+    }
+    .stat-box .number {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .stat-box .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 4px;
+    }
+    .stat-box.amber { border-color: #d97706; }
+    .stat-box.amber .number { color: #b45309; }
+
+    /* ── Comparison table ───────────────────────────────────────────── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-family: var(--sans);
+      font-size: 14px;
+    }
+    .compare-table th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      border-bottom: 1px solid var(--rule);
+      padding: 6px 12px 6px 0;
+    }
+    .compare-table th:not(:first-child) { text-align: right; }
+    .compare-table td {
+      padding: 9px 12px 9px 0;
+      border-bottom: 1px solid #e8e0d4;
+      vertical-align: middle;
+    }
+    .compare-table td:not(:first-child) { text-align: right; }
+    .compare-table td:first-child { font-weight: 600; }
+    .compare-table .bad  { color: #b32020; font-weight: 600; }
+    .compare-table .good { color: #16803a; font-weight: 600; }
+
+    /* ── Pull quote ─────────────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 40px 0;
+      padding: 4px 24px;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ── Source note ────────────────────────────────────────────────── */
+    .source-note {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health &amp; Culture</div>
+        <h1 class="story-title">Two deserts</h1>
+        <p class="story-dek">Lozère has twice as many bars per capita as Paris. It also has almost no doctors. The outer IDF suburbs have neither. France's two deserts are not the same places.</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The assumption ───────────────────────────────────── -->
+      <p>When <em>france-data</em> mapped the medical deserts last year, 12,771 communes showed up below the APL 2.5 threshold. The same story noted that the <em>diagonale du vide</em> — the empty diagonal running from the Meuse to the Pyrenees — appeared in bar density too. The implication was clear: the same depopulated places are losing both their doctors and their bars.</p>
+
+      <p>That assumption is wrong. Or rather, only half right.</p>
+
+      <p>France has <strong>49,385 registered bars</strong> and <strong id="total-communes">35,014</strong> communes, <strong id="desert-pct">36.5%</strong> of which are below the official medical access threshold. When you map bar density against medical desert status by département, two very different clusters emerge — and they tell two very different stories about what "abandonment" means in France.</p>
+
+      <!-- ── Stat row ──────────────────────────────────────────────────── -->
+      <div class="stat-row" id="stat-row">
+        <div class="stat-box">
+          <div class="number" id="stat-paris-bars">14.6</div>
+          <div class="label">Paris bars per 10k</div>
+        </div>
+        <div class="stat-box amber">
+          <div class="number" id="stat-essonne-bars">3.1</div>
+          <div class="label">Essonne bars per 10k</div>
+        </div>
+        <div class="stat-box">
+          <div class="number" id="stat-lozere-bars">17.6</div>
+          <div class="label">Lozère bars per 10k</div>
+        </div>
+        <div class="stat-box amber">
+          <div class="number" id="stat-seine-marne-desert">72.6%</div>
+          <div class="label">Seine-et-Marne: communes in medical desert</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The scatter ───────────────────────────────────────── -->
+      <h2>Bars vs. doctors: no correlation</h2>
+
+      <p>Plot every metropolitan département — bars per 10,000 residents on the horizontal axis, share of medical-desert communes on the vertical — and what you get is a cloud with no slope. There is essentially no correlation between how many bars a département has per capita and how medically underserved it is.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-scatter"></div>
+        <figcaption>Each point is a metropolitan <em>département</em>. Horizontal axis: bars per 10,000 residents (from the national SIRENE dataset, 49,385 active <em>débits de boissons</em>, March 2026). Vertical axis: share of communes below the APL 2.5 medical access threshold (DREES 2023). Dashed red line marks the national average. Orange box highlights the IDF suburban ring. Hover for exact values.</figcaption>
+      </figure>
+
+      <p>Two clusters are visible once you look carefully. In the top-left — high medical desert, low bars — sits a tight group of orange dots: the outer ring of Île-de-France. In the top-right — high medical desert, <em>high</em> bars — sit the rural departments of Corsica, the Massif Central, and Bretagne. In the bottom-right, low desert, high bars, sits a single red dot: Paris.</p>
+
+      <!-- ── Beat 3: The IDF double desert ────────────────────────────── -->
+      <h2>The suburbs that lost everything</h2>
+
+      <p>Four outer IDF departments rank at the very bottom of France for bar density, while simultaneously topping the charts for medical deserts:</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Département</th>
+            <th>Bars / 10k</th>
+            <th>Medical desert</th>
+            <th>Avg APL</th>
+          </tr>
+        </thead>
+        <tbody id="idf-table">
+          <!-- filled by JS -->
+        </tbody>
+      </table>
+
+      <p>Essonne's 3.1 bars per 10,000 residents is the lowest of any metropolitan département in France. Yvelines and Hauts-de-Seine follow at 3.3. To put that in perspective: the average French village, the stereotype of rural emptiness, has more bars per resident than the commuter suburbs of the capital.</p>
+
+      <p>The explanation is structural. The outer IDF was built for cars, not for streets. It grew in the era of the <em>pavillon</em> — the detached suburban house — and the <em>ZAC</em>, the zoned commercial area with its supermarché and its fast-food strip. The café was never part of the plan. Neither was the cabinet médical.</p>
+
+      <div class="pull-quote">
+        <p>Seine-et-Marne: 72.6% of its communes are medical deserts. 3.8 bars per 10,000 residents. More people live there than in Lyon, and it scores worse than most of rural France on both counts.</p>
+      </div>
+
+      <!-- ── Beat 4: The rural paradox ─────────────────────────────────── -->
+      <h2>Rural France: missing doctors, kept the bistrots</h2>
+
+      <p>Now look at the other end of the bar-density axis. Haute-Corse tops the chart at <strong>21.1 bars per 10,000 residents</strong> — four times Essonne's rate. Lozère is second at 17.6, Corse-du-Sud third at 16.9. These departments have more bars per capita than Copenhagen, Berlin, or New York.</p>
+
+      <p>They are also, without exception, heavily medical deserts. Lozère: 61.8% of communes below APL 2.5. Haute-Corse: 64.4%. Cantal: 40.4%. The doctors left; the bars didn't.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-bottom"></div>
+        <figcaption>The 12 <em>départements</em> with the fewest bars per 10,000 residents, with their share of medical-desert communes shown at right. Red figures indicate more than half of communes are below APL 2.5. Source: SIRENE (bars, March 2026) + DREES APL 2023.</figcaption>
+      </figure>
+
+      <p>This is not a coincidence. The same forces that drove doctors out of rural France — low income density, a patient population too scattered to fill a waiting room — do not apply to bars. A bistrot can survive on one village's worth of regulars. A GP practice needs critical mass. The thresholds are different.</p>
+
+      <p>There is something else too. Rural French café culture is old, baked in, maintained by inertia and by the absence of alternatives. In Seine-et-Marne, there was never a culture of the neighbourhood café to lose; the suburb was built after it had stopped being built. The architectural memory isn't there.</p>
+
+      <!-- ── Beat 5: Paris ──────────────────────────────────────────────── -->
+      <h2>Paris: the only place that has both</h2>
+
+      <p>Paris sits alone in the bottom-right of the scatter: zero medical-desert communes, an average APL of 5.41 (against a national average below 3), and 14.6 bars per 10,000 — among the highest in France, beaten only by Corsica and the rural Massif Central departments that have bars but no one to serve.</p>
+
+      <p>The disparity between Paris and its immediate suburbs is the sharpest geographic contrast in the French healthcare system. The gap between Paris (APL 5.41) and adjacent Seine-et-Marne (APL 2.11) is larger than the gap between the best and worst-served departments in most other European countries.</p>
+
+      <p>On the bar metric, the contrast is equally stark. Paris at 14.6 bars per 10,000; Essonne next door at 3.1. You could drive twenty minutes south on the A6 and the density drops by a factor of five.</p>
+
+      <!-- ── Closing ────────────────────────────────────────────────────── -->
+      <h2>Two types of abandonment</h2>
+
+      <p>France gets described as a country with a problem of <em>déserts médicaux</em>, and this is true. But the medical desert map and the bar desert map are measuring different kinds of absence, in different places, for different reasons.</p>
+
+      <p>Rural France — the <em>diagonale du vide</em>, the Massif Central, interior Bretagne — lost its doctors because the economics of primary care don't work at low population density. It kept its bars because bars run on social logic, not economic logic. These places are medically underserved. They are not, in any meaningful social sense, empty.</p>
+
+      <p>The outer IDF suburbs — Essonne, Yvelines, Val-d'Oise, Seine-et-Marne — lost the doctors because the same low-density suburban sprawl that makes primary care economically marginal also made the density of bar customers too thin to sustain a café. The suburb was built without either. It is medically <em>and</em> socially underserved.</p>
+
+      <p>These are not the same desert. They need different maps.</p>
+
+      <!-- ── Source note ────────────────────────────────────────────────── -->
+      <div class="source-note">
+        <strong>Sources and methods:</strong> Bar data from INSEE SIRENE national snapshot (NAF 56.30Z, active establishments, March 2026), 49,385 geocoded points. Medical desert classification from DREES APL 2023 (Accessibilité Potentielle Localisée), covering 35,014 communes; communes with APL &lt; 2.5 are classified as under-dense. Population base INSEE 2021 via the DREES dataset. Département-level bar density computed by summing establishments per département code and dividing by total département population. The three special commune codes for Paris (75056), Lyon (69123), and Marseille (13055) are excluded from commune-level desert counts; only the Paris <em>arrondissement</em> codes contribute. Overseas collectivités are excluded.
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>france-data</span>
+    <span><a href="../../index.html">← All stories</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawScatter, drawBarChart } from './charts.js';
+
+    async function main() {
+      const stats = await fetch('./stats.json').then(r => r.json());
+
+      // Stat boxes
+      document.getElementById('total-communes').textContent = stats.totalCommunes.toLocaleString('en');
+      document.getElementById('desert-pct').textContent = `${stats.nationalDesertPct}%`;
+      document.getElementById('stat-paris-bars').textContent = stats.parisBarsPer10k.toFixed(1);
+      document.getElementById('stat-essonne-bars').textContent = stats.essonneBarsPer10k.toFixed(1);
+      document.getElementById('stat-lozere-bars').textContent = stats.lozereBarsPer10k.toFixed(1);
+      document.getElementById('stat-seine-marne-desert').textContent = `${stats.seineMarnePct}%`;
+
+      // IDF table
+      const idfDepts = ['77', '78', '91', '95'];
+      const tbody = document.getElementById('idf-table');
+      const deptMap = Object.fromEntries(stats.departments.map(d => [d.dept, d]));
+      tbody.innerHTML = idfDepts.map(code => {
+        const d = deptMap[code];
+        if (!d) return '';
+        const desertClass = d.desertPct >= 60 ? 'bad' : d.desertPct >= 40 ? '' : 'good';
+        const barsClass = d.barsPer10k <= 4 ? 'bad' : '';
+        return `<tr>
+          <td>${d.name}</td>
+          <td class="${barsClass}">${d.barsPer10k.toFixed(1)}</td>
+          <td class="${desertClass}">${d.desertPct.toFixed(1)}%</td>
+          <td>${d.avgApl.toFixed(2)}</td>
+        </tr>`;
+      }).join('');
+
+      // Charts
+      drawScatter('#chart-scatter', stats);
+      drawBarChart('#chart-bottom', stats);
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>
