@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### apres-ski: Après-ski: France's secret bar capitals
+- Status: ✅ published
+- Published URL: /stories/apres-ski/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: The commune with the most bars per resident in France isn't in Bretagne or Nord. It's Les Deux Alpes — a ski resort with 1,933 permanent residents and 39 bars.
+- Data: bars.json (49,385 national bars) joined to DREES APL 2023 commune-level population data via INSEE commune codes. Both datasets already in-repo.
+- Angle: Horizontal bar chart of top 25 communes (pop ≥ 500). Shows ski-resort dominance clearly. Département-level table reveals the genuine drinking heartlands (Lozère, Corse, Cantal). Distribution stacked bar shows the bar-desert finding (66.4% of communes have zero).
+- Draft X summary:
+  > France has 49,385 bars. Which commune has the most per resident? Not Finistère. Not Nord. It's Les Deux Alpes — a ski resort with 1,933 permanent residents and 39 bars. 201 per 10,000. 23× the national average. Today on **france-data**: why ski stations win this metric, and why 66% of French communes have no bar at all. 🏔️🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

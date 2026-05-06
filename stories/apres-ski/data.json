@@ -1,0 +1,349 @@
+{
+  "nationalAvg": 8.8,
+  "totalBars": 49385,
+  "totalCommunes": 35014,
+  "communesWithBars": 11761,
+  "communesNoBars": 23253,
+  "pctNoBars": 66.4,
+  "skiInTop25": 19,
+  "top25": [
+    {
+      "code": "38253",
+      "name": "Les Deux Alpes",
+      "dept": "38",
+      "bars": 39,
+      "pop": 1933,
+      "per10k": 201.8,
+      "isSki": true
+    },
+    {
+      "code": "74191",
+      "name": "Morzine",
+      "dept": "74",
+      "bars": 51,
+      "pop": 2660,
+      "per10k": 191.7,
+      "isSki": true
+    },
+    {
+      "code": "05096",
+      "name": "Orcières",
+      "dept": "05",
+      "bars": 11,
+      "pop": 683,
+      "per10k": 161.1,
+      "isSki": true
+    },
+    {
+      "code": "05119",
+      "name": "Risoul",
+      "dept": "05",
+      "bars": 10,
+      "pop": 660,
+      "per10k": 151.5,
+      "isSki": true
+    },
+    {
+      "code": "74063",
+      "name": "Châtel",
+      "dept": "74",
+      "bars": 16,
+      "pop": 1193,
+      "per10k": 134.1,
+      "isSki": true
+    },
+    {
+      "code": "73304",
+      "name": "Val-d'Isère",
+      "dept": "73",
+      "bars": 21,
+      "pop": 1580,
+      "per10k": 132.9,
+      "isSki": true
+    },
+    {
+      "code": "74134",
+      "name": "Les Gets",
+      "dept": "74",
+      "bars": 16,
+      "pop": 1223,
+      "per10k": 130.8,
+      "isSki": true
+    },
+    {
+      "code": "73227",
+      "name": "Courchevel",
+      "dept": "73",
+      "bars": 30,
+      "pop": 2311,
+      "per10k": 129.8,
+      "isSki": true
+    },
+    {
+      "code": "2B261",
+      "name": "Rogliano",
+      "dept": "2B",
+      "bars": 7,
+      "pop": 540,
+      "per10k": 129.6,
+      "isSki": false
+    },
+    {
+      "code": "73296",
+      "name": "Tignes",
+      "dept": "73",
+      "bars": 25,
+      "pop": 2005,
+      "per10k": 124.7,
+      "isSki": true
+    },
+    {
+      "code": "15101",
+      "name": "Laveissière",
+      "dept": "15",
+      "bars": 6,
+      "pop": 516,
+      "per10k": 116.3,
+      "isSki": true
+    },
+    {
+      "code": "56195",
+      "name": "La Roche-Bernard",
+      "dept": "56",
+      "bars": 8,
+      "pop": 695,
+      "per10k": 115.1,
+      "isSki": false
+    },
+    {
+      "code": "56087",
+      "name": "Île-aux-Moines",
+      "dept": "56",
+      "bars": 7,
+      "pop": 628,
+      "per10k": 111.5,
+      "isSki": false
+    },
+    {
+      "code": "73071",
+      "name": "Champagny-en-Vanoise",
+      "dept": "73",
+      "bars": 6,
+      "pop": 552,
+      "per10k": 108.7,
+      "isSki": true
+    },
+    {
+      "code": "05161",
+      "name": "La Salle-les-Alpes",
+      "dept": "05",
+      "bars": 10,
+      "pop": 924,
+      "per10k": 108.2,
+      "isSki": true
+    },
+    {
+      "code": "74188",
+      "name": "Montriond",
+      "dept": "74",
+      "bars": 10,
+      "pop": 950,
+      "per10k": 105.3,
+      "isSki": true
+    },
+    {
+      "code": "05139",
+      "name": "Dévoluy",
+      "dept": "05",
+      "bars": 9,
+      "pop": 895,
+      "per10k": 100.6,
+      "isSki": true
+    },
+    {
+      "code": "83119",
+      "name": "Saint-Tropez",
+      "dept": "83",
+      "bars": 34,
+      "pop": 3578,
+      "per10k": 95.0,
+      "isSki": false
+    },
+    {
+      "code": "73015",
+      "name": "Les Allues",
+      "dept": "73",
+      "bars": 17,
+      "pop": 1790,
+      "per10k": 95.0,
+      "isSki": true
+    },
+    {
+      "code": "2B298",
+      "name": "Saint-Florent",
+      "dept": "2B",
+      "bars": 16,
+      "pop": 1689,
+      "per10k": 94.7,
+      "isSki": false
+    },
+    {
+      "code": "74080",
+      "name": "La Clusaz",
+      "dept": "74",
+      "bars": 16,
+      "pop": 1701,
+      "per10k": 94.1,
+      "isSki": true
+    },
+    {
+      "code": "04226",
+      "name": "Uvernet-Fours",
+      "dept": "04",
+      "bars": 5,
+      "pop": 532,
+      "per10k": 94.0,
+      "isSki": true
+    },
+    {
+      "code": "66004",
+      "name": "Les Angles",
+      "dept": "66",
+      "bars": 5,
+      "pop": 539,
+      "per10k": 92.8,
+      "isSki": true
+    },
+    {
+      "code": "65138",
+      "name": "Cauterets",
+      "dept": "65",
+      "bars": 8,
+      "pop": 866,
+      "per10k": 92.4,
+      "isSki": true
+    },
+    {
+      "code": "14220",
+      "name": "Deauville",
+      "dept": "14",
+      "bars": 32,
+      "pop": 3565,
+      "per10k": 89.8,
+      "isSki": false
+    }
+  ],
+  "topDepts": [
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "bars": 135,
+      "pop": 52582,
+      "per10k": 25.7
+    },
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "bars": 390,
+      "pop": 162847,
+      "per10k": 23.9
+    },
+    {
+      "dept": "15",
+      "name": "Cantal",
+      "bars": 239,
+      "pop": 105800,
+      "per10k": 22.6
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "bars": 128,
+      "pop": 60005,
+      "per10k": 21.3
+    },
+    {
+      "dept": "05",
+      "name": "Hautes-Alpes",
+      "bars": 220,
+      "pop": 110420,
+      "per10k": 19.9
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "bars": 276,
+      "pop": 141093,
+      "per10k": 19.6
+    },
+    {
+      "dept": "04",
+      "name": "Alpes-de-Haute-Provence",
+      "bars": 243,
+      "pop": 145916,
+      "per10k": 16.7
+    },
+    {
+      "dept": "65",
+      "name": "Hautes-Pyrénées",
+      "bars": 207,
+      "pop": 125248,
+      "per10k": 16.5
+    },
+    {
+      "dept": "58",
+      "name": "Nièvre",
+      "bars": 245,
+      "pop": 149402,
+      "per10k": 16.4
+    },
+    {
+      "dept": "73",
+      "name": "Savoie",
+      "bars": 539,
+      "pop": 336070,
+      "per10k": 16.0
+    },
+    {
+      "dept": "46",
+      "name": "Lot",
+      "bars": 136,
+      "pop": 86244,
+      "per10k": 15.8
+    },
+    {
+      "dept": "19",
+      "name": "Corrèze",
+      "bars": 239,
+      "pop": 155037,
+      "per10k": 15.4
+    },
+    {
+      "dept": "24",
+      "name": "Dordogne",
+      "bars": 397,
+      "pop": 258815,
+      "per10k": 15.3
+    },
+    {
+      "dept": "07",
+      "name": "Ardèche",
+      "bars": 352,
+      "pop": 229578,
+      "per10k": 15.3
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "bars": 273,
+      "pop": 178536,
+      "per10k": 15.3
+    }
+  ],
+  "distribution": {
+    "onlyOne": 6191,
+    "twoFive": 4135,
+    "sixTwenty": 1107,
+    "twentyPlus": 328
+  }
+}

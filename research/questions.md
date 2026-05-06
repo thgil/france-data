@@ -169,8 +169,8 @@ datasets and the resulting story.
 ### Q-033: Which commune has the most bars per capita?
 - Status: ✅ answered
 - Topic: [culture](topics/culture.md)
-- Finding: Answered nationally rather than at commune level. Finistère (1,014 bars, under 1M residents) and tourism-heavy Mediterranean départements (Var 1,042, Hérault 1,013) punch clearly above their weight per capita. Exact commune-level per-capita rankings require a population join we don't have in this dataset. The overall picture — 49,385 active débits de boissons (NAF 56.30Z), with Nord+Pas-de-Calais (3,226 combined) edging Paris (3,120) for first place — is mapped in Story 4.
-- Story: [bars](/stories/bars/)
+- Finding: At commune level (joining bars.json to DREES APL population data), the top communes by bars per 10,000 residents are almost entirely ski resorts: Les Deux Alpes (201/10k, 23× the national avg of 8.8), Morzine (191/10k), Orcières (161/10k). 19 of the top 25 communes (pop ≥ 500) are ski or mountain resorts — their permanent population is tiny but bars serve massive tourist flows. At département level, genuine drinking heartlands emerge: Lozère (25.7/10k), Haute-Corse (23.9/10k), Cantal (22.6/10k). 23,253 communes (66.4%) have zero bars — more than the medical desert share. Nord (8.1/10k) is actually below the national average despite having the most bars in absolute terms.
+- Story: [bars](/stories/bars/), [apres-ski](/stories/apres-ski/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
 - Status: 🟢 open

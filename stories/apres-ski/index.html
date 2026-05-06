@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Après-ski: France's secret bar capitals — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Big stat callouts ─────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .stat-row .stat-block:last-child { grid-column: 1 / -1; }
+    }
+
+    .stat-block {
+      background: #f4f0e8;
+      border: 1px solid #ddd8cc;
+      border-radius: 4px;
+      padding: 20px 20px 16px;
+    }
+    .stat-block .stat-num {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .stat-block .stat-note {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* ── Chart section ─────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+    }
+
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+    }
+
+    /* ── Bar chart (hand-rolled SVG/CSS) ──────────────────────────────── */
+    .hbar-chart {
+      width: 100%;
+    }
+    .hbar-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 60px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-family: var(--sans);
+    }
+    @media (max-width: 640px) {
+      .hbar-row { grid-template-columns: 130px 1fr 50px; font-size: 11px; }
+    }
+    .hbar-label {
+      text-align: right;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hbar-label.is-ski { font-weight: 600; }
+    .hbar-track {
+      background: #ece8e0;
+      border-radius: 2px;
+      height: 16px;
+      position: relative;
+    }
+    .hbar-fill {
+      background: #5b8db8;
+      border-radius: 2px;
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    .hbar-fill.is-ski { background: #b32020; }
+    .hbar-val {
+      font-variant-numeric: tabular-nums;
+      color: #444;
+      font-size: 11px;
+    }
+
+    /* avg line */
+    .hbar-avg-wrapper {
+      grid-column: 2;
+      position: relative;
+      height: 0;
+      pointer-events: none;
+    }
+
+    /* ── Dept table grid ───────────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .col-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+      font-weight: 600;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 10px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Legend ────────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #444;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    .swatch-ski { background: #b32020; }
+    .swatch-other { background: #5b8db8; }
+
+    /* ── Distribution bar ──────────────────────────────────────────────── */
+    .dist-bar {
+      display: flex;
+      height: 36px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 16px 0 8px;
+      font-family: var(--sans);
+    }
+    .dist-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #fff;
+      font-weight: 600;
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .dist-seg span { overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
+    .seg-none   { background: #c8b8a0; }
+    .seg-one    { background: #9aaa88; }
+    .seg-few    { background: #6a9070; }
+    .seg-more   { background: #3a7058; }
+    .seg-many   { background: #1a5040; }
+
+    .dist-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #555;
+      margin-top: 6px;
+    }
+    .dist-legend .dl-item { display: flex; align-items: center; gap: 5px; }
+    .dist-swatch {
+      width: 10px; height: 10px; border-radius: 1px; flex-shrink: 0;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Après-ski: France's secret bar capitals</h1>
+        <p class="story-dek">France has 49,385 bars. The communes with the most per resident aren't in Bretagne or Nord. They're in the Alps.</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The most-cited bar fact about France is the absolute count: 49,385 active <em>débits de boissons</em>, Nord and Pas-de-Calais together edging Paris, Finistère punching above its weight per capita. All true. But those are raw numbers or rough département averages. Ask a sharper question — which <em>commune</em> has the most bars per resident? — and the answer is nothing you'd expect.</p>
+
+      <p>It's <strong>Les Deux Alpes</strong>, an Alpine ski resort in Isère. Population: 1,933. Bars: 39. That's 201 bars per 10,000 residents — <strong>23 times the national average</strong> of 8.8. The next four spots are also ski stations: Morzine (191/10k), Orcières (161/10k), Risoul (151/10k), Châtel (134/10k).</p>
+
+      <!-- ── Stat callouts ─────────────────────────────────────────────── -->
+      <div class="stat-row" id="stat-row">
+        <div class="stat-block">
+          <div class="stat-num" id="stat-top-val">201</div>
+          <div class="stat-label">bars per 10,000 residents</div>
+          <div class="stat-note" id="stat-top-place">Les Deux Alpes (Isère) — #1 commune</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">8.8</div>
+          <div class="stat-label">national average</div>
+          <div class="stat-note">bars per 10,000 residents, all of France</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" id="stat-ski-frac">19/25</div>
+          <div class="stat-label">top communes are ski stations</div>
+          <div class="stat-note">among communes with ≥ 500 residents</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Chart ─────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-title">Bars per 10,000 residents — top 25 communes (population ≥ 500)</div>
+        <div class="chart-legend">
+          <span><span class="legend-swatch swatch-ski"></span>Ski / mountain resort</span>
+          <span><span class="legend-swatch swatch-other"></span>Other commune</span>
+        </div>
+        <div id="hbar-chart" class="hbar-chart"></div>
+        <figcaption>Population from INSEE 2021 (APL base). Communes with fewer than 500 permanent residents excluded. Source: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> + <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>Why ski resorts top the list</h2>
+
+      <p>The answer is hidden in the denominator. Bars per resident uses the <em>permanent</em> population — the 1,933 people who actually live in Les Deux Alpes year-round. But the resort's 39 bars don't serve 1,933 people: they serve the hundreds of thousands of skiers who pass through each winter. The metric conflates resident infrastructure with tourist infrastructure, and ski stations are extreme cases of the mismatch.</p>
+
+      <p>It's the same logic behind Paris having 14.6 bars per 10,000 residents — twice the national average — while the city's actual daytime population (offices, tourists, commuters) is three or four times the census count. Dense places with high footfall always look bar-rich on a per-resident basis.</p>
+
+      <!-- ── Beat 4: Non-ski outliers ─────────────────────────────────── -->
+      <h2>The non-ski exceptions</h2>
+
+      <p>Five of the top 25 communes break the ski pattern. <strong>Rogliano</strong> (Haute-Corse, 129/10k) is a hilltop village at the tip of Cap Corse — a place where the bar-as-village-centre is intact and the permanent population small. <strong>La Roche-Bernard</strong> (Morbihan, 115/10k) and <strong>Île-aux-Moines</strong> (Morbihan, 111/10k) carry the Breton drinking tradition into the ranking. <strong>Saint-Tropez</strong> (Var, 95/10k) is the coastal tourism equivalent of a ski station: a summer resort town whose 34 bars serve far more visitors than the 3,578 census residents. <strong>Deauville</strong> (Calvados, 89/10k) does the same on the Normandy coast.</p>
+
+      <p>The pattern is consistent: a small permanent population, a large seasonal or tourist flow, and bars licensed to serve the visitors.</p>
+
+      <!-- ── Beat 5: Dept table ────────────────────────────────────────── -->
+      <h2>The genuine drinking heartlands</h2>
+
+      <p>At département level, the ski effect averages out. Savoie (16.0/10k) and Haute-Savoie appear, but they're not at the top. The actual leaders are France's most remote, rural départements: <strong>Lozère</strong> (25.7/10k), <strong>Haute-Corse</strong> (23.9/10k), <strong>Cantal</strong> (22.6/10k), <strong>Creuse</strong> (21.3/10k). These are places where the village café never quite died — where a population of 50,000–160,000 maintains a bar density that no IDF suburb approaches.</p>
+
+      <div class="two-col">
+        <div class="col-block">
+          <h3>Most bars per 10,000 residents (by département)</h3>
+          <table class="stats-table" id="table-top-depts"><tbody></tbody></table>
+        </div>
+        <div class="col-block">
+          <h3>Key comparisons</h3>
+          <table class="stats-table" id="table-compare"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Bar desert ────────────────────────────────────────── -->
+      <h2>The bar desert</h2>
+
+      <p>Zoom back out: <strong id="pct-no-bars">66.4%</strong> of French communes — <strong id="n-no-bars">23,253</strong> out of 35,014 — have no registered bar at all. That's a higher share than the medical desert (36.6% of communes). Of those that do have a bar, 6,191 have exactly one: the last <em>café de France</em>, the place where the postman has coffee and the farmers argue about the weather.</p>
+
+      <div class="chart-figure">
+        <div class="chart-title">How many bars does a commune have?</div>
+        <div class="dist-bar" id="dist-bar"></div>
+        <div class="dist-legend" id="dist-legend"></div>
+        <figcaption>All 35,014 communes in France. Source: INSEE SIRENE (NAF 56.30Z, March 2026) + DREES APL commune list 2023.</figcaption>
+      </div>
+
+      <p>The ski resort story and the bar-desert story are two faces of the same phenomenon. Bars follow people — and in France, people are profoundly unevenly distributed. The mountains and the coasts attract transient crowds large enough to sustain dozens of bars per village. The empty interior of France — the <em>diagonale du vide</em> — has lost its bars along with its people.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE's SIRENE business registry (active establishments, NAF code 56.30Z — débits de boissons), geocoded to commune level. Population figures are from the DREES APL 2023 dataset, which uses an INSEE 2021 population base (34,886 communes with valid population data). Communes with null or zero population in that dataset are excluded from per-capita calculations. The minimum population filter of 500 removes communes where a handful of bars and a tiny resident population produce extreme but uninterpretable ratios. This story uses <a href="../bars/">bars.json from Story 4</a> joined to <a href="../medical-deserts/">communes-apl.geojson from Story 2</a>.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded establishment coordinates</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune-level population and GP access scores</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { renderChart } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./data.json');
+      const data = await res.json();
+      renderChart(data);
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>
