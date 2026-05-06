@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-density: The thirsty map
+- Status: ✅ published
+- Published URL: /stories/bar-density/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Adjust France's 49,385 bars for population and the rankings flip completely — Corsica (21/10k) beats Nord (7.5/10k). The IDF commuter suburbs are the driest places in France.
+- Data: INSEE SIRENE bars (reused from Story 4) joined to DREES APL 2023 commune populations (reused from Story 2), aggregated by département. No new data downloads.
+- Angle: Two visuals — (1) Maplibre dot map with bars colour-coded by their département's per-capita density (blue → amber scale); (2) Chart.js horizontal bar chart ranking all 96 metropolitan départements.
+- Draft X summary:
+  > You've seen France's 49,385 bars mapped. But which part of France drinks most — per person? Adjust for population and the map rewrites itself. Corsica: 21/10k. The commuter suburbs south of Paris: 3/10k. The same ring that lacks doctors also lacks bars. Today on **france-data**. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

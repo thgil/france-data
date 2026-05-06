@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The thirsty map — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .replay-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, color 0.1s;
+    }
+    .replay-btn:hover { background: #ece8e0; color: #1a1a1a; border-color: #999; }
+
+    /* ── Colour legend ─────────────────────────────────────────────── */
+    .legend-gradient {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #555;
+    }
+    .legend-bar {
+      width: 100px;
+      height: 10px;
+      border-radius: 2px;
+      background: linear-gradient(to right, #5b8db8, #c8b89a, #b84800);
+      border: 1px solid #ccc;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Rankings chart ─────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 64px 0;
+    }
+    .chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-canvas-wrap {
+      min-width: 480px;
+      height: 1800px;
+    }
+
+    /* ── Stats tables ───────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .per10k {
+      font-weight: 600;
+    }
+
+    /* ── Colour dot in table ────────────────────────────────────────── */
+    .color-swatch {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+      flex-shrink: 0;
+    }
+
+    /* ── Callout ───────────────────────────────────────────────────── */
+    .callout {
+      background: #faf7f2;
+      border-left: 3px solid #b84800;
+      padding: 14px 18px;
+      margin: 40px 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .callout strong { color: #b84800; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The thirsty map</h1>
+        <p class="story-dek">Adjust France's 49,385 bars for population and the rankings flip entirely — Corsica leads at 21 bars per 10,000 residents, while the commuter belt scrapes 3.</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The <a href="../bars/">previous story</a> mapped every bar in France. In raw numbers, Nord and Pas-de-Calais combined — 3,226 bars — edged out Paris (3,120). Finistère had 1,014. Bouches-du-Rhône 1,632. These are impressive counts. They are also, on their own, misleading.</p>
+
+      <p>Nord has 2.6 million people. Paris has 2.1 million. Haute-Corse has 185,000. Divide by residents, and a completely different France emerges.</p>
+
+      <!-- ── Callout ───────────────────────────────────────────────────── -->
+      <div class="callout">
+        <strong>21.12</strong> — bars per 10,000 residents in Haute-Corse, the national leader. The national average is <strong>7.46</strong>. Essonne, dead last, has <strong>3.07</strong>. The gap between top and bottom is nearly <strong>7×</strong>.
+      </div>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <h2>Every bar, coloured by density</h2>
+
+      <p>The map below shows all 49,385 bars at their geocoded addresses. Each dot is coloured by its département's per-capita bar density: <span style="color:#5b8db8;font-weight:600">blue</span> for the lowest (the IDF commuter belt), <span style="color:#b84800;font-weight:600">warm amber</span> for the highest (Corsica and the rural mountain core). The colour reveals the geography of café culture across France.</p>
+
+      <figure class="map-figure">
+        <div id="map-density" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-paris">Paris</button>
+            <button class="zoom-btn" id="btn-idf">IDF ring</button>
+            <button class="zoom-btn" id="btn-corse">Corse</button>
+            <button class="zoom-btn" id="btn-bretagne">Bretagne</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <span class="legend-gradient">
+              <span style="font-size:10px;color:#5b8db8">3/10k</span>
+              <span class="legend-bar"></span>
+              <span style="font-size:10px;color:#b84800">21/10k</span>
+            </span>
+            &nbsp;
+            <button class="replay-btn" id="btn-replay">Replay</button>
+          </div>
+        </div>
+        <figcaption>Each dot is one bar at its geocoded address, coloured by its département's bars per 10,000 residents. Blue = sparse; amber = dense. Source: INSEE SIRENE + DREES APL 2023 (population base).</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Corsica ───────────────────────────────────────────── -->
+      <h2>Corsica leads, by a lot</h2>
+
+      <p>Haute-Corse (2B) tops the ranking at 21.12 bars per 10,000 — nearly three times the national average of 7.46. Corse-du-Sud (2A) sits third at 16.94. Together the island's two départements occupy the first and third spots. This isn't a fluke of small denominators: Corsica has a combined population of around 350,000 and over 650 active bars. The café is infrastructure here. Every village has one, often several.</p>
+
+      <p>Right behind Corsica: Lozère (17.64) and Cantal (16.57) — two of the emptiest départements in France by population density, relics of the rural plateau where the village bar has survived long after most other shops closed. Hautes-Alpes and Alpes-de-Haute-Provence (both around 15) follow the same logic: mountain tourism and sparse permanent population keep per-capita counts elevated.</p>
+
+      <!-- ── Beat 4: Rankings ──────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest density (bars / 10,000)</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest density (bars / 10,000)</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5: Paris and the IDF ring ───────────────────────────── -->
+      <h2>Paris punches up; its suburbs punch down</h2>
+
+      <p>Paris (75) ranks 7th nationally at 14.63 per 10,000 — above the Var, above Bretagne, above the Côte d'Azur. The concentration of street life in a walkable, dense city without a car park in sight translates directly into licences. The <em>terrasse</em> economy is real, and measurable.</p>
+
+      <p>The five départements immediately surrounding Paris tell the opposite story. Essonne (91) ranks dead last in France at 3.07/10k — less than one-seventh of Haute-Corse. Yvelines (3.28), Hauts-de-Seine (3.34), Val-d'Oise (3.68), and Val-de-Marne (3.99) fill the bottom five slots. These are the same departments that showed up as medical deserts in the <a href="../medical-deserts/">APL story</a>. The commuter belt that is under-served for doctors is also, per person, among the driest places in France for a drink.</p>
+
+      <p>Nord, the absolute count champion, falls to 53rd when adjusted for its 2.6 million residents. The north is not abstinent — it's just populous.</p>
+
+      <!-- ── Beat 6: Full ranking chart ───────────────────────────────── -->
+      <h2>All 96 départements, ranked</h2>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-ranking"></canvas>
+          </div>
+        </div>
+        <figcaption>All 96 metropolitan France départements ranked by bars per 10,000 residents. Colour scale: blue (lowest) → amber (highest). Data: INSEE SIRENE (bar count) + DREES APL 2023 (population).</figcaption>
+      </figure>
+
+      <!-- ── Beat 7: Closing ───────────────────────────────────────────── -->
+      <p>The <em>diagonale du vide</em> has a per-capita inversion. The strip of rural France that runs from Meuse to the Pyrenees — thinly populated, economically fragile — turns out to have more bars per resident than almost anywhere else. The café survives not because the economy is strong but because it's the last gathering place. You can read economic decline in the absolute counts — shrinking, aging, closing. But per capita, the bar is still there. Still counted. Still licensed.</p>
+
+      <p>For now.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from the same INSEE SIRENE extract used in the <a href="../bars/">bars story</a> — 49,385 active establishments with NAF code 56.30Z (débits de boissons), geocoded as of March 2026. Population figures are the commune-level totals from the DREES APL 2023 dataset (population base: INSEE 2021), aggregated by département. The DOM-TOM are excluded (their commune codes aggregate under a single '97' prefix in the SIRENE export and do not join cleanly to the APL population totals). 96 metropolitan and Corsican départements are ranked.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — active bars (NAF 56.30Z), March 2026</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023 — commune-level population</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawRankingChart, drawDensityMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    // Colour helper (mirrors charts.js, kept local for table swatches)
+    function deptColour(per10k) {
+      const MIN = 3.0, MAX = 22.0;
+      const t = Math.max(0, Math.min(1, (per10k - MIN) / (MAX - MIN)));
+      const stops = [
+        [0.00, [91, 141, 184]],
+        [0.35, [200, 184, 154]],
+        [1.00, [184, 72, 0]],
+      ];
+      let lo = stops[0], hi = stops[stops.length - 1];
+      for (let i = 0; i < stops.length - 1; i++) {
+        if (t >= stops[i][0] && t <= stops[i + 1][0]) {
+          lo = stops[i]; hi = stops[i + 1]; break;
+        }
+      }
+      const s = (t - lo[0]) / (hi[0] - lo[0]);
+      const r = Math.round(lo[1][0] + (hi[1][0] - lo[1][0]) * s);
+      const g = Math.round(lo[1][1] + (hi[1][1] - lo[1][1]) * s);
+      const b = Math.round(lo[1][2] + (hi[1][2] - lo[1][2]) * s);
+      return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+    }
+
+    function populateTables(data) {
+      const topBody = document.querySelector('#table-top tbody');
+      const botBody = document.querySelector('#table-bottom tbody');
+      if (!topBody || !botBody) return;
+
+      const top = data.depts.slice(0, 10);
+      const bot = [...data.depts].reverse().slice(0, 10);
+
+      topBody.innerHTML = top.map((d, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">
+            <span class="color-swatch" style="background:${deptColour(d.per10k)}"></span>${d.name}
+          </td>
+          <td class="per10k">${d.per10k.toFixed(2)}</td>
+        </tr>`
+      ).join('');
+
+      botBody.innerHTML = bot.map((d, i) =>
+        `<tr>
+          <td class="rank">${data.depts.length - i}</td>
+          <td class="place">
+            <span class="color-swatch" style="background:${deptColour(d.per10k)}"></span>${d.name}
+          </td>
+          <td class="per10k">${d.per10k.toFixed(2)}</td>
+        </tr>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const [bars, data] = await Promise.all([
+          loadJSON('../bars/bars.json'),
+          loadJSON('./data.json'),
+        ]);
+
+        populateTables(data);
+        drawRankingChart('chart-ranking', data);
+
+        const mapAPI = drawDensityMap('#map-density', { bars, data });
+        document.getElementById('map-controls').style.display = '';
+
+        document.getElementById('btn-france').addEventListener('click',   () => mapAPI.flyToFrance());
+        document.getElementById('btn-paris').addEventListener('click',    () => mapAPI.flyToParis());
+        document.getElementById('btn-idf').addEventListener('click',      () => mapAPI.flyToIDF());
+        document.getElementById('btn-corse').addEventListener('click',    () => mapAPI.flyToCorse());
+        document.getElementById('btn-bretagne').addEventListener('click', () => mapAPI.flyToBretagne());
+        document.getElementById('btn-replay').addEventListener('click',   () => mapAPI.replay());
+
+      } catch (err) {
+        console.error('Failed to load bar-density data:', err);
+        document.getElementById('map-density').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
