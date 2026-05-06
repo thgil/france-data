@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### baguette-capital: The Baguette Capital
+- Status: ✅ published
+- Published URL: /stories/baguette-capital/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: The baguette capital of IDF isn't in Paris. It's Rebais — a 2,151-person market town in Seine-et-Marne with 5 bakeries and a ratio of 23.3 per 10,000 residents, beating every Paris arrondissement.
+- Data: INSEE BPE IDF commune-level bakery counts ([DS-002](datasets.md#ds-002)), reused from the pharmacy-myth and baguettes stories. 1,300 communes, population base 2010, bakery counts circa 2014 BPE vintage.
+- Angle: Two-question structure: (1) by count, Paris dominates — predictably. (2) Divide by residents: the ranking scrambles. Rebais wins, small market towns cluster near the top, and 607 communes have zero bakeries. Two chart types: ranked horizontal bar (per-capita top 15) and département comparison bars.
+- Draft X summary:
+  > The baguette capital of Île-de-France isn't in Paris. It's Rebais — pop 2,151, Seine-et-Marne — at 23.3 bakeries per 10,000 residents. Paris's densest arrondissement (1er, 20.8/10k) comes second. Also: 607 of IDF's 1,300 communes have zero bakeries. Today on **france-data**: the per-capita bread map. 🥖🇫🇷
+

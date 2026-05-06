@@ -1,0 +1,298 @@
+{
+  "totals": {
+    "communes": 1300,
+    "communesWithBakeries": 693,
+    "communesZeroBakeries": 607,
+    "totalBakeries": 6299,
+    "totalPopulation": 11786234,
+    "overallPer10k": 5.3
+  },
+  "top15PerCapita": [
+    {
+      "name": "Rebais",
+      "dept": "77",
+      "population": 2151,
+      "bakeries": 5,
+      "per10k": 23.3
+    },
+    {
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "population": 17308,
+      "bakeries": 36,
+      "per10k": 20.8
+    },
+    {
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "population": 28012,
+      "bakeries": 45,
+      "per10k": 16.1
+    },
+    {
+      "name": "Houdan",
+      "dept": "78",
+      "population": 3289,
+      "bakeries": 5,
+      "per10k": 15.2
+    },
+    {
+      "name": "Pontcarré",
+      "dept": "77",
+      "population": 2001,
+      "bakeries": 3,
+      "per10k": 15
+    },
+    {
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "population": 41280,
+      "bakeries": 61,
+      "per10k": 14.8
+    },
+    {
+      "name": "Bourron-Marlotte",
+      "dept": "77",
+      "population": 2712,
+      "bakeries": 4,
+      "per10k": 14.8
+    },
+    {
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "population": 60139,
+      "bakeries": 78,
+      "per10k": 13
+    },
+    {
+      "name": "Paris 6e Arrondissement",
+      "dept": "75",
+      "population": 43451,
+      "bakeries": 56,
+      "per10k": 12.9
+    },
+    {
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "population": 23009,
+      "bakeries": 29,
+      "per10k": 12.6
+    },
+    {
+      "name": "Annet-sur-Marne",
+      "dept": "77",
+      "population": 3239,
+      "bakeries": 4,
+      "per10k": 12.4
+    },
+    {
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "population": 60938,
+      "bakeries": 73,
+      "per10k": 12
+    },
+    {
+      "name": "Varennes-sur-Seine",
+      "dept": "77",
+      "population": 3355,
+      "bakeries": 4,
+      "per10k": 11.9
+    },
+    {
+      "name": "Enghien-les-Bains",
+      "dept": "95",
+      "population": 11809,
+      "bakeries": 14,
+      "per10k": 11.9
+    },
+    {
+      "name": "Le Raincy",
+      "dept": "93",
+      "population": 13828,
+      "bakeries": 16,
+      "per10k": 11.6
+    }
+  ],
+  "top15Count": [
+    {
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "population": 202685,
+      "bakeries": 155,
+      "per10k": 7.7
+    },
+    {
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "population": 236715,
+      "bakeries": 147,
+      "per10k": 6.2
+    },
+    {
+      "name": "Paris 17e Arrondissement",
+      "dept": "75",
+      "population": 169325,
+      "bakeries": 133,
+      "per10k": 7.9
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "population": 153202,
+      "bakeries": 128,
+      "per10k": 8.4
+    },
+    {
+      "name": "Paris 20e Arrondissement",
+      "dept": "75",
+      "population": 196880,
+      "bakeries": 124,
+      "per10k": 6.3
+    },
+    {
+      "name": "Paris 12e Arrondissement",
+      "dept": "75",
+      "population": 144262,
+      "bakeries": 123,
+      "per10k": 8.5
+    },
+    {
+      "name": "Paris 19e Arrondissement",
+      "dept": "75",
+      "population": 186652,
+      "bakeries": 118,
+      "per10k": 6.3
+    },
+    {
+      "name": "Paris 14e Arrondissement",
+      "dept": "75",
+      "population": 138299,
+      "bakeries": 108,
+      "per10k": 7.8
+    },
+    {
+      "name": "Paris 16e Arrondissement",
+      "dept": "75",
+      "population": 171124,
+      "bakeries": 105,
+      "per10k": 6.1
+    },
+    {
+      "name": "Paris 13e Arrondissement",
+      "dept": "75",
+      "population": 181532,
+      "bakeries": 104,
+      "per10k": 5.7
+    },
+    {
+      "name": "Paris 10e Arrondissement",
+      "dept": "75",
+      "population": 95394,
+      "bakeries": 85,
+      "per10k": 8.9
+    },
+    {
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "population": 60139,
+      "bakeries": 78,
+      "per10k": 13
+    },
+    {
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "population": 60938,
+      "bakeries": 73,
+      "per10k": 12
+    },
+    {
+      "name": "Saint-Denis",
+      "dept": "93",
+      "population": 106785,
+      "bakeries": 67,
+      "per10k": 6.3
+    },
+    {
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "population": 41280,
+      "bakeries": 61,
+      "per10k": 14.8
+    }
+  ],
+  "depts": [
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bakeries": 1800,
+      "population": 2243833,
+      "communes": 20,
+      "zeroBakeries": 0,
+      "per10k": 8
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bakeries": 786,
+      "population": 1522048,
+      "communes": 40,
+      "zeroBakeries": 0,
+      "per10k": 5.2
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bakeries": 665,
+      "population": 1324865,
+      "communes": 514,
+      "zeroBakeries": 301,
+      "per10k": 5
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bakeries": 650,
+      "population": 1327732,
+      "communes": 47,
+      "zeroBakeries": 1,
+      "per10k": 4.9
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bakeries": 721,
+      "population": 1572490,
+      "communes": 36,
+      "zeroBakeries": 1,
+      "per10k": 4.6
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bakeries": 637,
+      "population": 1408765,
+      "communes": 262,
+      "zeroBakeries": 136,
+      "per10k": 4.5
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bakeries": 513,
+      "population": 1171161,
+      "communes": 185,
+      "zeroBakeries": 86,
+      "per10k": 4.4
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bakeries": 527,
+      "population": 1215340,
+      "communes": 196,
+      "zeroBakeries": 82,
+      "per10k": 4.3
+    }
+  ]
+}

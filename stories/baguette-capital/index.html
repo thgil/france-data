@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Baguette Capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+  <style>
+    /* ── Stat callout boxes ─────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    /* ── Stats table ────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 11px;
+      color: var(--ink-mute);
+      display: block;
+    }
+
+    /* ── Callout highlight ──────────────────────────────────────────── */
+    .callout {
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      margin: 32px 0;
+      max-width: 680px;
+    }
+    .callout p {
+      margin: 0 !important;
+      font-size: 16px !important;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Baguette Capital</h1>
+        <p class="story-dek">6,299 bakeries across 1,300 communes in Île-de-France — but which one bakes the most bread per person?</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The count picture ────────────────────────────────── -->
+      <p>Start with the obvious ranking: which communes have the most bakeries? Paris dominates. The 18e arrondissement has 155, the 15e has 147, the 17e has 133. The top ten are all Paris arrondissements. The biggest suburbs — Saint-Denis (67), Montreuil (57) — don't appear until you scroll past the capital's twenty arrondissements.</p>
+
+      <p>That's not surprising. Paris has <em>people</em>. The 15e alone has 236,000 residents. The count chart is really a population chart wearing bread clothing.</p>
+
+      <!-- ── Beat 2: The per-capita flip ──────────────────────────────── -->
+      <h2>Divide by residents, and everything shifts</h2>
+
+      <p>Across all 1,300 IDF communes, there are 6,299 boulangers and 11.8 million mouths to feed — about 5.3 bakeries per 10,000 residents. Paris as a whole runs at 8 per 10,000. But once you look at individual communes, the picture scrambles.</p>
+
+      <div class="stat-row" id="stat-row"></div>
+
+      <p>The chart below ranks communes with at least 2,000 residents by bakeries per 10,000 people. Smaller communes were excluded because a single boulangerie in a village of 150 people gives a ratio of 67/10k — technically true, practically misleading.</p>
+
+      <!-- ── Chart A: per-capita ranking ───────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-percapita"></div>
+        <figcaption>Communes with at least 2,000 residents, ranked by bakeries per 10,000 people. Source: INSEE BPE (Île-de-France), population base 2010.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: The surprise outsider ────────────────────────────── -->
+      <h2>The winner is not in Paris</h2>
+
+      <p>Rebais is a market town of 2,151 people in Seine-et-Marne, about 60 km east of Paris. It has five bakeries. That works out to 23.3 per 10,000 residents — the highest ratio of any IDF commune above 2,000 inhabitants.</p>
+
+      <div class="callout">
+        <p>Rebais has one boulangerie for every <strong>430 residents</strong>. Paris's 1st arrondissement — the densest among Paris's twenty — has one for every <strong>481</strong>.</p>
+      </div>
+
+      <p>Rebais isn't alone. Several small Seine-et-Marne market towns — Houdan (Yvelines, 3,289 people, 15.2/10k), Bourron-Marlotte (Seine-et-Marne, 2,712 people, 14.75/10k) — outrank nearly every Paris arrondissement. These are the communes where the village baker is still the only baker, and where the ratio stays high because the population stayed small while the bakery stayed open.</p>
+
+      <p>Among Paris's twenty arrondissements, the 1st leads at 20.8/10k (36 bakeries, 17,308 residents), followed closely by the 4e at 16.1/10k. These are the most tourist-dense arrondissements in the city — not coincidentally, both cluster around the Île de la Cité and the Marais.</p>
+
+      <!-- ── Beat 4: Dept-level view ───────────────────────────────────── -->
+      <h2>Paris leads the départements — by a mile</h2>
+
+      <p>At the département level, the pattern is less surprising but equally stark. Paris (dept 75) runs at 8.0 bakeries per 10,000 residents, well ahead of Seine-Saint-Denis at 5.2 and Seine-et-Marne at 5.0. The outer ring — Essonne, Yvelines, Val-d'Oise — hovers around 4.3–4.5. The further you get from the capital, the fewer boulangers per person.</p>
+
+      <!-- ── Chart B: dept comparison ──────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-depts"></div>
+        <figcaption>Bakeries per 10,000 residents by département. Source: INSEE BPE (Île-de-France), population base 2010.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: The bakery deserts ───────────────────────────────── -->
+      <h2>607 communes have no bakery at all</h2>
+
+      <p>The other side of the ranking: 607 of IDF's 1,300 communes — 47% — have zero bakeries recorded in the BPE data. Almost all of them are outer suburbs and exurbs in Seine-et-Marne (301), Yvelines (136), and Val-d'Oise (86). Hauts-de-Seine and Val-de-Marne each have just one.</p>
+
+      <!-- ── Stats tables ──────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bakeries by count</h3>
+          <table class="stats-table" id="table-count">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Most bakeries per 10k residents</h3>
+          <table class="stats-table" id="table-percapita">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>The BPE data is a point-in-time survey (circa 2014 vintage, population base 2010) — some small communes may have gained or lost a bakery since. But the structural pattern is durable: the bakery network in IDF is dense at the centre and thin at the edges, with pockets of unexpected per-capita richness in the old market towns of Seine-et-Marne.</p>
+
+      <!-- ── Closing beat ──────────────────────────────────────────────── -->
+      <p>The baguette capital of Île-de-France is officially a matter of definition. By count: Paris 18e, with 155 boulangers. By per-capita among towns with real population: Rebais, a medieval market town that never stopped taking bread seriously. Both answers are correct. They just measure different things.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts come from the INSEE Base Permanente des Équipements (BPE), Île-de-France edition, republished by Région Île-de-France. The bakery count field is <em>boulangerie</em>. Population figures are from the 2010 census included in the same dataset. The BPE snapshot is circa 2014. This story reuses the commune dataset built for <a href="../pharmacy-myth/">Story 1 (pharmacy-myth)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">BPE — Commerces par commune (Île-de-France)</a> — INSEE BPE via Région Île-de-France</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">BPE — Services de santé par commune (Île-de-France)</a> — INSEE BPE via Région Île-de-France</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { renderCharts } from './charts.js';
+
+    async function main() {
+      try {
+        const stats = await fetch('./stats.json').then(r => r.json());
+        renderCharts(stats);
+      } catch (err) {
+        console.error('Failed to load baguette-capital data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
