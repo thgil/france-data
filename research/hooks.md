@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 The median French commune has 456 residents. Half of France's 35,000 communes are smaller than a single apartment block. [Q-042]
+- 🔥 52.6% of French communes have fewer than 500 people. Together they hold just 6.3% of the population — France's municipal map and population map are almost completely different pictures. [Q-042]
+- 🔥 Haute-Marne has 426 communes. In 65% of them, fewer than 200 people live. The département has 171,000 residents spread across a territory the size of Corsica. [Q-042]
+- 🔥 Six villages near Verdun have had zero official residents since 1916. Each has a mayor, a council, a budget, and no inhabitants. France keeps them alive on the map as an administrative memorial to the Great War. [Q-042]

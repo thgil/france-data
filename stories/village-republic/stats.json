@@ -1,0 +1,288 @@
+{
+  "total": 34788,
+  "totalPop": 65426623,
+  "median": 456,
+  "medianCommune": "Bazoches-au-Houlme",
+  "medianDept": "61",
+  "mean": 1881,
+  "pctUnder500": 52.6,
+  "popUnder500Pct": 6.3,
+  "count100kPlus": 48,
+  "pop100kPlusPct": 12.6,
+  "buckets": [
+    {
+      "label": "<100",
+      "communes": 3382,
+      "population": 219336,
+      "pctCommunes": 9.7,
+      "pctPop": 0.3
+    },
+    {
+      "label": "100–499",
+      "communes": 14910,
+      "population": 3887944,
+      "pctCommunes": 42.9,
+      "pctPop": 5.9
+    },
+    {
+      "label": "500–999",
+      "communes": 6590,
+      "population": 4647449,
+      "pctCommunes": 18.9,
+      "pctPop": 7.1
+    },
+    {
+      "label": "1K–2K",
+      "communes": 4508,
+      "population": 6287347,
+      "pctCommunes": 13.0,
+      "pctPop": 9.6
+    },
+    {
+      "label": "2K–5K",
+      "communes": 3210,
+      "population": 9897836,
+      "pctCommunes": 9.2,
+      "pctPop": 15.1
+    },
+    {
+      "label": "5K–20K",
+      "communes": 1678,
+      "population": 15077954,
+      "pctCommunes": 4.8,
+      "pctPop": 23.0
+    },
+    {
+      "label": "20K–100K",
+      "communes": 445,
+      "population": 17150905,
+      "pctCommunes": 1.3,
+      "pctPop": 26.2
+    },
+    {
+      "label": "100K+",
+      "communes": 48,
+      "population": 8257852,
+      "pctCommunes": 0.1,
+      "pctPop": 12.6
+    }
+  ],
+  "deptRanked": [
+    {
+      "dept": "52",
+      "name": "Haute-Marne",
+      "communes": 426,
+      "tinyCommunes": 275,
+      "pctTiny": 64.6,
+      "population": 171042
+    },
+    {
+      "dept": "55",
+      "name": "Meuse",
+      "communes": 499,
+      "tinyCommunes": 303,
+      "pctTiny": 60.7,
+      "population": 181919
+    },
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "communes": 236,
+      "tinyCommunes": 142,
+      "pctTiny": 60.2,
+      "population": 184655
+    },
+    {
+      "dept": "65",
+      "name": "Hautes-Pyrénées",
+      "communes": 469,
+      "tinyCommunes": 269,
+      "pctTiny": 57.4,
+      "population": 230956
+    },
+    {
+      "dept": "09",
+      "name": "Ariège",
+      "communes": 325,
+      "tinyCommunes": 182,
+      "pctTiny": 56.0,
+      "population": 154588
+    },
+    {
+      "dept": "32",
+      "name": "Gers",
+      "communes": 458,
+      "tinyCommunes": 252,
+      "pctTiny": 55.0,
+      "population": 192235
+    },
+    {
+      "dept": "21",
+      "name": "Côte-d'Or",
+      "communes": 698,
+      "tinyCommunes": 357,
+      "pctTiny": 51.1,
+      "population": 535503
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "communes": 124,
+      "tinyCommunes": 63,
+      "pctTiny": 50.8,
+      "population": 162942
+    },
+    {
+      "dept": "08",
+      "name": "Ardennes",
+      "communes": 447,
+      "tinyCommunes": 226,
+      "pctTiny": 50.6,
+      "population": 268847
+    },
+    {
+      "dept": "70",
+      "name": "Haute-Saône",
+      "communes": 536,
+      "tinyCommunes": 265,
+      "pctTiny": 49.4,
+      "population": 234010
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "communes": 152,
+      "tinyCommunes": 74,
+      "pctTiny": 48.7,
+      "population": 76519
+    },
+    {
+      "dept": "88",
+      "name": "Vosges",
+      "communes": 506,
+      "tinyCommunes": 242,
+      "pctTiny": 47.8,
+      "population": 360359
+    }
+  ],
+  "verdunGhosts": [
+    {
+      "name": "Beaumont-en-Verdunois",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55039"
+    },
+    {
+      "name": "Bezonvaux",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55050"
+    },
+    {
+      "name": "Cumières-le-Mort-Homme",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55139"
+    },
+    {
+      "name": "Fleury-devant-Douaumont",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55189"
+    },
+    {
+      "name": "Haumont-près-Samogneux",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55239"
+    },
+    {
+      "name": "Louvemont-Côte-du-Poivre",
+      "dept": "55",
+      "deptName": "Meuse",
+      "code": "55307"
+    }
+  ],
+  "otherGhosts": [
+    {
+      "name": "Conques-en-Rouergue",
+      "dept": "12",
+      "deptName": "Aveyron",
+      "code": "12218"
+    },
+    {
+      "name": "Aurseulles",
+      "dept": "14",
+      "deptName": "Calvados",
+      "code": "14581"
+    },
+    {
+      "name": "Celles",
+      "dept": "15",
+      "deptName": "Cantal",
+      "code": "15031"
+    },
+    {
+      "name": "Chalinargues",
+      "dept": "15",
+      "deptName": "Cantal",
+      "code": "15035"
+    },
+    {
+      "name": "Chavagnac",
+      "dept": "15",
+      "deptName": "Cantal",
+      "code": "15047"
+    }
+  ],
+  "largest": [
+    {
+      "name": "Toulouse",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "pop": 504078
+    },
+    {
+      "name": "Nice",
+      "dept": "06",
+      "deptName": "Alpes-Maritimes",
+      "pop": 348085
+    },
+    {
+      "name": "Nantes",
+      "dept": "44",
+      "deptName": "Loire-Atlantique",
+      "pop": 323204
+    },
+    {
+      "name": "Montpellier",
+      "dept": "34",
+      "deptName": "Hérault",
+      "pop": 302454
+    },
+    {
+      "name": "Strasbourg",
+      "dept": "67",
+      "deptName": "Bas-Rhin",
+      "pop": 291313
+    },
+    {
+      "name": "Bordeaux",
+      "dept": "33",
+      "deptName": "Gironde",
+      "pop": 261804
+    },
+    {
+      "name": "Lille",
+      "dept": "59",
+      "deptName": "Nord",
+      "pop": 236710
+    },
+    {
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 227746
+    }
+  ]
+}

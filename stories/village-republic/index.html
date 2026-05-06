@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A republic of villages — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .chart-mount {
+      background: transparent;
+      overflow-x: auto;
+    }
+
+    /* ── Stat callout ───────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      border-left: 3px solid var(--accent);
+      padding: 8px 16px;
+    }
+    .stat-box .number {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .stat-box .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 4px;
+    }
+
+    /* ── Ghost commune table ────────────────────────────────────────── */
+    .ghost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-family: var(--sans);
+      font-size: 14px;
+    }
+    .ghost-table th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      border-bottom: 1px solid var(--rule);
+      padding: 6px 12px 6px 0;
+    }
+    .ghost-table td {
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid #e8e0d4;
+      vertical-align: top;
+    }
+    .ghost-table td:first-child {
+      font-weight: 600;
+    }
+    .ghost-table .note {
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+
+    /* ── Pull quote ─────────────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 40px 0;
+      padding: 4px 24px;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ── Source note ────────────────────────────────────────────────── */
+    .source-note {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Demographics</div>
+        <h1 class="story-title">A republic of villages</h1>
+        <p class="story-dek">France has nearly 35,000 communes — more than Germany, Italy, Spain, and Poland combined. Half of them have fewer than 500 people. Here's what that actually looks like.</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: context ──────────────────────────────────────────── -->
+      <p>In 1789, the Revolutionary Assemblée nationale needed a way to organize the new French Republic. They solved it by turning every church parish into a municipality. France had roughly 44,000 parishes. Some merged over the centuries; a few thousand were created anew. Today, France has approximately <strong>34,800 communes</strong> in metropolitan territory and the overseas départements.</p>
+
+      <p>Germany, with a similar population, has around 11,000 municipalities. Italy: 7,900. Spain: 8,100. Poland: 2,500. France, alone, has more municipalities than all four of those countries combined — and has spent 230 years debating what to do about it.</p>
+
+      <div class="stat-row" id="stat-row">
+        <!-- filled by JS -->
+      </div>
+
+      <!-- ── Beat 2: the size distribution ────────────────────────────── -->
+      <p>The median French commune has <strong>456 residents</strong>. That's one village square, a mairie open two mornings a week, a church with a leaking roof, and a tabac that probably closed in 2012. Half of France's communes are smaller than this.</p>
+
+      <p>The distribution is extreme. Chart the communes by size and what you get is a graph that falls off a cliff — a huge mass of tiny places on one end and a thin tail of cities on the other.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-size"></div>
+        <figcaption>Communes grouped by population, metro France and overseas <em>départements</em> (34,788 communes, population base INSEE 2021 via DREES). Each bar shows the number of communes in that size bracket; the grey annotation shows what share of France's total population lives in them.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: the concentration paradox ────────────────────────── -->
+      <div class="pull-quote">
+        <p>52.6% of French communes have fewer than 500 residents. Together they hold 6.3% of the population. The other 93.7% live in the remaining 47.4% of communes.</p>
+      </div>
+
+      <p>The paradox runs the other way too. France has <strong>48 communes</strong> with more than 100,000 residents — cities like Toulouse, Nice, Nantes, Montpellier. These 48 communes, out of 34,788, contain 12.6% of the entire French population.</p>
+
+      <p>The municipal map and the population map are, in a meaningful sense, two different Frances. One is a patchwork of 35,000 villages. The other is a country where most people live in a few dozen urban agglomerations, surrounded by a vast hinterland of nearly-empty administrative units.</p>
+
+      <!-- ── Beat 4: emptiest départements ────────────────────────────── -->
+      <p>The emptiness isn't evenly spread. Some départements are overwhelmingly composed of tiny communes. In <strong>Haute-Marne</strong> — one of the great emptying-out stories of post-war France — 64.6% of the département's 426 communes have fewer than 200 residents. <strong>Meuse</strong>, its neighbour to the north-east, is at 60.7%.</p>
+
+      <p>These are the same départements that show up in the medical desert maps, in the bar desert maps, in every depopulation story about the <em>diagonale du vide</em>. The empty diagonal that runs from the Meuse to the Pyrenees isn't just a metaphor — it's a structural reality, visible from the population data of every single commune.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-dept"></div>
+        <figcaption>The ten <em>départements</em> where the highest share of communes have fewer than 200 residents, out of all communes with at least one registered resident. Source: DREES APL 2023 commune data (population base INSEE 2021).</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: ghost villages ─────────────────────────────────────── -->
+      <h2>Six communes where nobody lives</h2>
+
+      <p>Scattered through the data are communes with zero recorded residents. Many of these are technical artefacts — a recently-merged commune whose parent code now carries no population — but six of them are different. They sit in the Meuse, in the shadow of Verdun.</p>
+
+      <p>Between February and December 1916, the Battle of Verdun destroyed several villages completely. The French government chose not to rebuild them. Instead, it maintained them as official communes: each has a mayor (appointed rather than elected), a municipal council, an annual budget drawn partly from government subsidy. They have addresses, postal codes, and no inhabitants. They have been formally uninhabited for over a century.</p>
+
+      <table class="ghost-table" id="ghost-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Official name</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- filled by JS -->
+        </tbody>
+      </table>
+
+      <p>The names tell the story: <em>Mort-Homme</em> — Dead Man's Hill. These are not just communes without people; they are places that France decided to keep on the map, indefinitely, as the administrative equivalent of a cenotaph.</p>
+
+      <!-- ── Beat 6: so what ──────────────────────────────────────────── -->
+      <p>France has been trying to rationalize its commune structure since at least the 1970s. The <em>loi Marcellin</em> (1971) encouraged voluntary mergers; the <em>loi RCT</em> (2010) created <em>communes nouvelles</em> to make fusion easier. Progress has been slow. The number of communes has dropped from around 38,000 in 1960 to roughly 34,800 today — a reduction of about 9% in sixty years.</p>
+
+      <p>The resistance is cultural as much as administrative. French communes are where local identity lives. The mairie is the physical expression of the Republic in places that see a préfet perhaps once a decade. Merging Fleury-devant-Douaumont with a neighbouring village would save money; it would also erase something. France, on the whole, has decided the erasure costs more than the saving.</p>
+
+      <!-- ── Source note ────────────────────────────────────────────────── -->
+      <div class="source-note">
+        <strong>Sources:</strong> Population data from the DREES APL 2023 commune dataset (population base INSEE 2021), covering 34,788 communes in metropolitan France and the overseas <em>départements</em>. The three city codes for Paris (75056), Lyon (69123), and Marseille (13055) are excluded — these cities are subdivided into numbered arrondissements, each counted as a separate commune, so the parent code carries zero population. Overseas <em>collectivités</em> (code prefix 98) are excluded as their population data is not included in the DREES dataset. The "ghost communes" are those with zero recorded residents in the Meuse département (55) — the six WWI <em>villages morts pour la France</em> around Verdun. Population figures for these six communes are officially 0; some sources list one or two inhabitants (caretakers); none have had a regular resident population since 1918.
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>france-data</span>
+    <span><a href="../../index.html">← All stories</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawSizeChart, drawDeptChart } from './charts.js';
+
+    async function main() {
+      const stats = await fetch('./stats.json').then(r => r.json());
+
+      // ── Stat boxes ─────────────────────────────────────────────────
+      const statRow = document.getElementById('stat-row');
+      const statBoxes = [
+        { number: stats.total.toLocaleString('en'), label: 'communes (metro + DOM)' },
+        { number: stats.median.toLocaleString('en'), label: 'median population' },
+        { number: stats.pctUnder500 + '%', label: 'of communes under 500 people' },
+        { number: stats.count100kPlus, label: 'cities over 100,000' },
+      ];
+      statRow.innerHTML = statBoxes.map(b =>
+        `<div class="stat-box"><div class="number">${b.number}</div><div class="label">${b.label}</div></div>`
+      ).join('');
+
+      // ── Charts ─────────────────────────────────────────────────────
+      drawSizeChart('#chart-size', stats);
+      drawDeptChart('#chart-dept', stats);
+
+      // ── Ghost commune table ─────────────────────────────────────────
+      const tbody = document.querySelector('#ghost-table tbody');
+      const ghosts = stats.verdunGhosts || [];
+      const officialNames = {
+        '55039': 'Beaumont-en-Verdunois',
+        '55050': 'Bezonvaux',
+        '55139': 'Cumières-le-Mort-Homme',
+        '55189': 'Fleury-devant-Douaumont',
+        '55239': 'Haumont-près-Samogneux',
+        '55307': 'Louvemont-Côte-du-Poivre',
+      };
+      tbody.innerHTML = ghosts.map(g => `
+        <tr>
+          <td>${g.code}</td>
+          <td>${officialNames[g.code] || g.name}</td>
+          <td class="note">0 (since 1916)</td>
+        </tr>
+      `).join('');
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>

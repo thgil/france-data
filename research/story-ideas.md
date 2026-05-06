@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### village-republic: A republic of villages
+- Status: ✅ published
+- Published URL: /stories/village-republic/
+- Source question: [Q-042](questions.md#q-042-how-many-french-communes-have-fewer-than-200-residents-and-where-are-they-concentrated)
+- Hook: France has 35,000 communes. Half of them have fewer than 500 people. Together those half hold just 6% of the population. And six of them have had zero residents since 1916.
+- Data: DREES APL 2023 commune dataset ([DS-APL](datasets.md#ds-apl)) reused from Story 2 — 34,788 communes with population, department code, and commune name. No new downloads.
+- Angle: Two Observable Plot charts (size-bucket histogram, département ranking) plus a prose narrative about France's municipal structure and the WWI ghost villages of Verdun.
+- Draft X summary:
+  > France has 35,000 communes — more than Germany, Italy, Spain, and Poland combined. The median one has 456 residents. Six of them have had zero residents since 1916. Today on **france-data**: a republic of villages, and the six that refused to disappear. 🇫🇷
+

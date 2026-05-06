@@ -40,6 +40,13 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
 
+### Q-042: How many French communes have fewer than 200 residents, and where are they concentrated?
+- Status: ✅ answered
+- Topic: [demographics](topics/demographics.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Of 34,788 communes in metro France and overseas départements, 8,824 (25.4%) have fewer than 200 residents — together holding only 1.6% of the population. The median commune has 456 residents. Haute-Marne is the extreme case: 64.6% of its 426 communes have fewer than 200 residents. Six communes in Meuse have had zero registered residents since the Battle of Verdun in 1916 — the "villages morts pour la France" maintained as permanent memorials.
+- Story: [village-republic](/stories/village-republic/)
+
 ## Economy
 
 ### Q-007: Are there really more pharmacies than bakeries in France?
