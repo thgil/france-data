@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Les Deux Alpes has 202 bars per 10,000 permanent residents. The national average is 8.8. Ski resorts win the per-capita bar race by a mile — because the tourists go home but the licences don't. [Q-033]
+- 🔥 Lozère has 25.7 bars per 10,000 residents. Paris has 14.6. The most café-dense département in France, per capita, is a rural one in the heart of the diagonale du vide. [Q-033]
+- 🔥 Tournefeuille (Toulouse suburb, pop 29,000): exactly one bar. A ville nouvelle designed around cars and supermarkets — the neighbourhood café was never in the architectural plan. [Q-033]
+- 🔥 Two-thirds of French communes have zero bars. 11.3 million people live in communes with no licensed café at all. [Q-033]

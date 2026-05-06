@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café déserts — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Big number callouts ─────────────────────────────────────────── */
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 760px;
+    }
+    @media (max-width: 640px) {
+      .callouts { grid-template-columns: 1fr; }
+    }
+
+    .callout {
+      background: #f0ece4;
+      border-left: 3px solid #b32020;
+      padding: 20px 20px 18px;
+    }
+
+    .callout .big {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .callout .label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.35;
+    }
+
+    /* ── Department chart ────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+
+    .chart-canvas-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      padding: 16px 12px 8px;
+    }
+
+    .chart-canvas-wrap canvas {
+      display: block;
+    }
+
+    /* ── Two-column stats tables ─────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+    @media (max-width: 720px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .stats-table thead th {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #aaa;
+      text-align: right;
+      padding: 0 0 6px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table thead th:first-child,
+    .stats-table thead th:nth-child(2),
+    .stats-table thead th:nth-child(3) {
+      text-align: left;
+    }
+
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    .stats-table .rank {
+      font-size: 10px;
+      color: #bbb;
+      padding-right: 5px;
+      min-width: 1.5ch;
+    }
+
+    .stats-table .place {
+      font-family: Georgia, serif;
+      font-size: 13px;
+    }
+
+    .stats-table .dept-col {
+      font-size: 11px;
+      color: #777;
+      padding-right: 8px;
+    }
+
+    .stats-table .num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      padding-left: 8px;
+    }
+
+    .stats-table .num.muted {
+      color: #999;
+      font-size: 11px;
+    }
+
+    /* ── Wide commune table ──────────────────────────────────────────── */
+    .table-full {
+      margin: 48px 0;
+      overflow-x: auto;
+    }
+
+    .table-full h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .table-full .stats-table .place { font-size: 13px; }
+
+    .table-full .col-head-r {
+      text-align: right;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Café déserts</h1>
+        <p class="story-dek">The raw count puts Paris first. The per-capita story is stranger: ski resorts, rural Lozère, and a belt of 1970s new towns where the neighbourhood café simply never existed.</p>
+        <div class="story-meta">
+          <span>2026-05-06</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has <a href="../bars/">49,385 registered bars</a>. We mapped all of them. Paris led by total count, Bretagne punched above its weight, and the familiar <em>diagonale du vide</em> ran empty through the middle. But total count is a population story in disguise — a big département has more bars because it has more people. The more interesting question is: which commune has the <em>most bars for its residents</em>?</p>
+
+      <p>The answer, once you normalise for population, scrambles the leaderboard entirely.</p>
+
+      <!-- ── Beat 2: The void ──────────────────────────────────────────── -->
+      <h2>Two-thirds of communes have zero bars</h2>
+
+      <p>Before ranking the densest, consider the emptiest. Of France's 35,014 communes, 23,253 — two in three — have not a single registered <em>débit de boissons</em>. That's 11.3 million people living in a place with no licensed bar.</p>
+
+      <div class="callouts">
+        <div class="callout">
+          <span class="big">66%</span>
+          <span class="label">of communes have zero bars</span>
+        </div>
+        <div class="callout">
+          <span class="big">8.8</span>
+          <span class="label">bars per 10,000 residents nationally</span>
+        </div>
+        <div class="callout">
+          <span class="big">11.3M</span>
+          <span class="label">people in communes with no bar at all</span>
+        </div>
+      </div>
+
+      <p>This isn't surprising in itself — France has thousands of tiny rural communes where the last café closed a generation ago. What's surprising is where the per-capita extremes actually fall.</p>
+
+      <!-- ── Beat 3: Ski resorts ───────────────────────────────────────── -->
+      <h2>The ski resort effect</h2>
+
+      <p>The commune with the highest bar density in France — among those with a population of at least 500 — is <strong>Les Deux Alpes</strong> in Isère: 39 bars for 1,933 permanent residents. That's 201.8 bars per 10,000 people, or roughly one bar for every 50 residents. The national average is one for every 1,136.</p>
+
+      <p>The top 20 is dominated by ski stations and Corsican tourist villages. These are places where the registered <em>business population</em> — the number of bars serving an inflated tourist base — was captured at a moment when the permanent residential population was tiny. Every one of those bars stays registered year-round; only the customers leave in April.</p>
+
+      <!-- ── Top commune table ─────────────────────────────────────────── -->
+      <div class="table-full">
+        <h3>Most bar-dense communes (pop ≥ 500)</h3>
+        <table class="stats-table" style="width:100%">
+          <thead>
+            <tr>
+              <th style="text-align:left">#</th>
+              <th style="text-align:left">Commune</th>
+              <th style="text-align:left">Département</th>
+              <th class="col-head-r">Per 10k</th>
+              <th class="col-head-r">Bars</th>
+              <th class="col-head-r">Pop</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-top"></tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 4: Départements ──────────────────────────────────────── -->
+      <h2>Lozère beats Paris</h2>
+
+      <p>Zoom out to the département level, smooth away the tourist outliers, and a different pattern emerges. The most bar-dense departments per capita are not the Côte d'Azur or Bretagne. They're the rural interior: <strong>Lozère</strong> (25.7 per 10k), <strong>Haute-Corse</strong> (23.9), <strong>Cantal</strong> (22.6), <strong>Creuse</strong> (21.3).</p>
+
+      <p>Paris — with 3,121 bars for 2.1 million residents — comes in at 14.6 per 10k, ranking 18th. Lozère, with 135 bars for 52,000 people, beats it by 76%. The <em>diagonale du vide</em> that looked so empty on the raw-count map is, per capita, one of France's most café-rich regions. The village café culture that Lozère and Cantal preserved — or simply never lost to urban attrition — shows up clearly in the numbers.</p>
+
+      <!-- ── Chart ─────────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-canvas-wrap">
+          <canvas id="dept-chart"></canvas>
+        </div>
+        <figcaption style="font-family:'Helvetica Neue',sans-serif;font-size:12px;color:#666;margin-top:8px;">Bars per 10,000 residents by département. Population from INSEE 2021. Bar data: SIRENE March 2026. Dashed red line = national average (8.8).</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: IDF ───────────────────────────────────────────────── -->
+      <p>The starkest internal contrast is inside Île-de-France. Paris (14.6/10k) is well above average. But cross the périphérique: Hauts-de-Seine (3.3), Essonne (3.4), Yvelines (3.6). The same suburbs that form the ring of medical deserts around Paris are also bar-scarce. The geography of access — to doctors, to boulangeries, to neighbourhood cafés — follows the same arterial logic.</p>
+
+      <!-- ── Beat 6: New towns ─────────────────────────────────────────── -->
+      <h2>The new-town paradox</h2>
+
+      <p>The lowest-density communes in France — among those big enough to expect at least one bar — are not isolated rural hamlets. They are planned cities from the 1970s grands projets. <strong>Tournefeuille</strong> (Toulouse métropole), <strong>Élancourt</strong> (Yvelines), <strong>Torcy</strong> (Marne-la-Vallée): population 20,000–30,000, exactly one registered bar each.</p>
+
+      <p>These are villes nouvelles — built around car access, supermarkets, and residential blocks, not around a central square with a <em>tabac</em>. The neighbourhood café was absent from the architectural plan, and half a century later the numbers confirm it was never retrofitted in.</p>
+
+      <!-- ── Bottom commune table ──────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Driest communes (pop ≥ 500)</h3>
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th style="text-align:left">#</th>
+                <th style="text-align:left">Commune</th>
+                <th class="col-head-r">Per 10k</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-bottom"></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>IDF by bars per 10k</h3>
+          <table class="stats-table" id="table-idf">
+            <thead>
+              <tr>
+                <th style="text-align:left">#</th>
+                <th style="text-align:left">Département</th>
+                <th class="col-head-r">Per 10k</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-idf"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Closing ────────────────────────────────────────────────────── -->
+      <p>The café is a piece of infrastructure — regulated, registered, countable — just like the pharmacy or the <em>boulangerie</em>. Its absence is as legible in the data as its presence. Two-thirds of French communes have none. But in Lozère, where there are barely 52,000 people, there are 135 cafés. The metrics of density, access, and absence keep tracing the same underlying geography — and it's not always the map you'd expect.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z, active establishments, March 2026 snapshot) — the same dataset behind <a href="../bars/">Story 4 (bars)</a>. Population figures are from the INSEE 2021 census as distributed in the DREES APL commune dataset. The per-capita analysis covers communes where both a SIRENE commune code and an APL population figure could be matched (11,749 communes with ≥ 1 bar; 36 bars from 12 unmatched codes excluded). Communes with no bars in SIRENE are not omitted — their zero count is included in département and national totals.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> — active débits de boissons (NAF 56.30Z), March 2026</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population figures (INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, fillCommuneTable } from './charts.js';
+
+    async function main() {
+      try {
+        const stats = await fetch('./stats.json').then(r => r.json());
+
+        // Top communes table
+        fillCommuneTable('tbody-top', stats.topCommunes);
+
+        // Bottom communes table (simplified)
+        const tbodyBottom = document.getElementById('tbody-bottom');
+        if (tbodyBottom) {
+          tbodyBottom.innerHTML = stats.bottomCommunes.map((c, i) => `
+            <tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${c.name} <span style="color:#aaa;font-size:11px;">(${c.dept})</span></td>
+              <td class="num">${c.per10k.toFixed(2)}</td>
+            </tr>`).join('');
+        }
+
+        // IDF table — use pre-filtered idfDepts array from stats
+        const tbodyIdf = document.getElementById('tbody-idf');
+        if (tbodyIdf && stats.idfDepts) {
+          tbodyIdf.innerHTML = stats.idfDepts.map((d, i) => `
+            <tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${d.name}</td>
+              <td class="num">${d.per10k.toFixed(1)}</td>
+            </tr>`).join('');
+        }
+
+        // Draw department chart
+        drawDeptChart('dept-chart', stats.topDepts);
+
+      } catch (err) {
+        console.error('Failed to load café déserts data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
