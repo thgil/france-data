@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: The naming of France
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune named Y. One letter. It also has twelve communes named Sainte-Colombe. And 3,891 that begin with Saint. The map of France is the most compressed archive of French civilisation there is.
+- Data: 35,014 commune names extracted from communes-apl.geojson (DREES APL 2023 joined to Contours administratifs 2025). Centroids computed from polygon geometry. Stored as communes-index.json (3 MB).
+- Angle: Text-and-charts. Four narrative beats (Y, Saint-obsession, Sainte-Colombe duplicates, longest name) with two SVG charts (first-word frequency, name-length distribution) and a live commune name search.
+- Draft X summary:
+  > France has 35,014 communes. One is named Y. Twelve are named Sainte-Colombe. 3,891 begin with Saint. And one — Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — has 45 characters and 491 residents. Today on **france-data**: the naming of France. 🇫🇷
+
