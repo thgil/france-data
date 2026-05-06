@@ -89,6 +89,7 @@ datasets and the resulting story.
 - Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
 - Finding: 12,771 of 34,886 communes (36.6%) fall below the APL 2.5 threshold, home to 11.1 million people. The access gap is centre-vs-periphery, not urban-vs-rural: Paris (dept 75) has an average APL of 4.96 with zero desert communes, while the surrounding IDF suburbs (Seine-et-Marne, Val-d'Oise, Yvelines, Essonne) rank among the worst-served in France. Three Guyanese communes (Maripasoula, Grand-Santi, Papaichton) have APL = 0.00.
 - Story: [medical-deserts](/stories/medical-deserts/)
+- Follow-up: Ranked by headcount (not commune %), the top 4 départements are all IDF suburbs: Val-d'Oise (793k, 63%), Seine-et-Marne (793k, 55%), Essonne (674k, 51%), Yvelines (563k, 39%). The four together hold 2.82M desert residents — 26% of the national total. See [desert-ring](/stories/desert-ring/).
 
 ### Q-015: Which commune has the most doctors per capita?
 - Status: 🟢 open

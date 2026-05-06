@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### desert-ring: The desert at the gate
+- Status: ✅ published
+- Published URL: /stories/desert-ring/
+- Source question: [Q-014](questions.md#q-014-how-many-medical-deserts-are-there-in-france-and-where)
+- Hook: France has 11 million people in medical deserts. Sort by headcount and the top 4 départements are all Île-de-France suburbs. The desert is not far away.
+- Data: DREES APL 2023 commune-level data ([DS-APL](datasets.md#ds-apl)) reused from the medical-deserts story. Aggregated to département level, population-weighted. No new data needed.
+- Angle: Two canvas bar charts. Chart 1: top-20 départements by absolute desert population (IDF highlighted in red). Chart 2: the Paris-to-suburbs gradient — 0% in Paris, 12-17% in inner ring, 39-63% in outer ring. Prose in 4 beats: the expected story → the ranking surprise → the gradient through the périphérique → the scale comparison vs rural deserts.
+- Draft X summary:
+  > France has 11 million people in medical deserts. You'd expect them in Lozère, Creuse, the empty diagonal. Rank by headcount, though, and #1 is Val-d'Oise — Paris suburb, RER A, 30 minutes from the Louvre, 63% of its residents below the official threshold. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
