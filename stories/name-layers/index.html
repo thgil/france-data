@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five tongues, 35,014 names — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callout row ───────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 48px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Layer section ──────────────────────────────────────────────── */
+    .layer-section {
+      margin: 72px 0;
+      border-top: 2px solid var(--rule);
+      padding-top: 32px;
+    }
+    .layer-kicker {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+    .layer-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 24px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Layer body: text + map side by side on wide screens ───────── */
+    .layer-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 720px) {
+      .layer-body { grid-template-columns: 1fr; }
+    }
+    .layer-text p {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0 0 20px;
+    }
+    .layer-text p:last-child { margin-bottom: 0; }
+
+    /* ── Dot map canvas ─────────────────────────────────────────────── */
+    .map-wrap {
+      position: relative;
+    }
+    .map-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd8cc;
+      background: #faf7f2;
+    }
+    .map-caption {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .map-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+    }
+
+    /* ── Stats strip inside a layer ────────────────────────────────── */
+    .layer-stat-strip {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+      padding: 16px 0;
+      border-top: 1px solid #e8e0d4;
+      border-bottom: 1px solid #e8e0d4;
+    }
+    .layer-stat {
+      flex: 1 1 140px;
+    }
+    .layer-stat .n {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .layer-stat .l {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Name pills ─────────────────────────────────────────────────── */
+    .name-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .name-pill {
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 3px;
+      padding: 5px 12px;
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* ── Saint overlay section ──────────────────────────────────────── */
+    .saint-section {
+      margin: 72px 0;
+      padding: 32px 0;
+      border-top: 2px solid var(--rule);
+    }
+    .saint-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      margin: 0 0 24px;
+      letter-spacing: -0.3px;
+    }
+    .saint-bar-wrap {
+      max-width: 580px;
+      margin: 32px 0;
+    }
+    .saint-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .saint-bar-label {
+      font-family: var(--sans);
+      font-size: 13px;
+      width: 110px;
+      flex-shrink: 0;
+      text-align: right;
+      color: var(--ink-soft);
+    }
+    .saint-bar-track {
+      flex: 1;
+      height: 16px;
+      background: #e8e0d4;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .saint-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .saint-bar-n {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      width: 55px;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px 0 0;
+      padding-top: 24px;
+      border-top: 1px solid #d8d0c0;
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Five tongues, 35,014 names</h1>
+        <p class="story-dek">The commune names of France are linguistic fossils — Alsatian, Breton, Occitan, Frankish, Norse — each layer frozen in the map since the Middle Ages.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>6 min read</span>
+        </div>
+      </header>
+
+      <p>France has 35,014 communes — more than any other country in Europe. Each one has an official name, registered in the <em>Code officiel géographique</em> maintained by INSEE. Most names look unremarkable until you ask what language they're in. The answer, for several thousand of them, is not French.</p>
+
+      <p>Place names are the most conservative objects in a language. Rivers get their names from the first people to live alongside them and rarely change again. Villages take their names from Roman landowners, Frankish chieftains, Celtic holy springs, and Norse navigational markers — and keep them for fifteen centuries, through revolutions, annexations, and five republics. You can read France's history from its map, one suffix at a time.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">35,014</span>
+          <span class="stat-label">communes in France</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">3,879</span>
+          <span class="stat-label">begin with Saint- or Sainte-</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">1,988</span>
+          <span class="stat-label">contain "-sur-" (by the river/sea)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">5</span>
+          <span class="stat-label">distinct language layers identified</span>
+        </div>
+      </div>
+
+      <!-- ── LAYER 1: ALSATIAN ──────────────────────────────────── -->
+      <section class="layer-section" id="layer-alsatian">
+        <div class="layer-kicker" style="color: #c0392b">Layer 1 — The Germanic East</div>
+        <h2>-heim, -willer, -bach: Alsace's German names</h2>
+        <div class="layer-body">
+          <div class="layer-text">
+            <div class="layer-stat-strip">
+              <div class="layer-stat">
+                <span class="n" style="color:#c0392b">373</span>
+                <span class="l">communes</span>
+              </div>
+              <div class="layer-stat">
+                <span class="n" style="color:#c0392b">94%</span>
+                <span class="l">in Bas-Rhin + Haut-Rhin</span>
+              </div>
+            </div>
+            <p>Ribeauvillé, Obernai, Kientzheim, Kaysersberg — the communes of Alsace carry names that are unmistakably German. The suffixes <em>-heim</em> (home, settlement), <em>-willer</em> (farmstead, from Germanic <em>weiler</em>), and <em>-bach</em> (stream) make up 373 commune names, of which 94% are concentrated in just two departments: Bas-Rhin (63%) and Haut-Rhin (31%).</p>
+            <p>The concentration is the most geographically extreme of any linguistic pattern in France. Alsace changed hands between France and the Holy Roman Empire in 1648, then between France and Germany in 1871, 1918, 1940, and 1945. The borders moved repeatedly; the names never did. <em>-heim</em> communes remain in their medieval positions, indifferent to the treaties signed over them.</p>
+            <p>The pattern spills slightly into neighbouring Moselle — 20 communes, 5% of the total — where Frankish and Rhenish German influence overlapped. Beyond that boundary, the suffix effectively disappears.</p>
+            <div class="name-pills" id="pills-alsatian"></div>
+          </div>
+          <div class="map-wrap">
+            <canvas id="map-alsatian" class="map-canvas" width="560" height="450"></canvas>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:#c0392b"></span>
+              <span class="legend-label">-heim / -willer / -bach communes (373)</span>
+            </div>
+            <p class="map-caption">Each dot is one commune centroid. Gray: all 35,014 communes. Red: the 373 communes with Alsatian Germanic suffixes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LAYER 2: BRETON ───────────────────────────────────── -->
+      <section class="layer-section" id="layer-breton">
+        <div class="layer-kicker" style="color: #2980b9">Layer 2 — The Celtic West</div>
+        <h2>Ker-, Plou-, Lan-: the Breton names that refused to become French</h2>
+        <div class="layer-body">
+          <div class="layer-text">
+            <div class="layer-stat-strip">
+              <div class="layer-stat">
+                <span class="n" style="color:#2980b9">234</span>
+                <span class="l">communes</span>
+              </div>
+              <div class="layer-stat">
+                <span class="n" style="color:#2980b9">95%</span>
+                <span class="l">in core Brittany</span>
+              </div>
+            </div>
+            <p><em>Ker-</em> means "village" or "house" in Breton. <em>Plou-</em> (from Latin <em>plebs</em>) was the Breton word for a parish. <em>Lan-</em> means "hermitage" or holy enclosure. Together they appear in 234 commune names — 95% of which are in the three departments of Côtes-d'Armor, Finistère, and Morbihan.</p>
+            <p>Breton is a Celtic language, the closest surviving relative of the ancient Gaulish spoken across Gaul before Rome arrived. It was brought to Armorica (Brittany) by migrants from Britain in the 5th and 6th centuries CE — roughly contemporary with the Anglo-Saxon settlement of England — and has remained there ever since. Around 200,000 people still speak it today, mostly in Finistère.</p>
+            <p>The Revolution tried to standardise commune names into French and largely succeeded. Brittany's <em>Ker-</em> and <em>Plou-</em> names survived because there was no French equivalent that carried the same local meaning. <strong>Kerbors, Lannion, Plougastel-Daoulas</strong> remain as Celtic islands in an overwhelmingly Latin-derived landscape.</p>
+            <div class="name-pills" id="pills-breton"></div>
+          </div>
+          <div class="map-wrap">
+            <canvas id="map-breton" class="map-canvas" width="560" height="450"></canvas>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:#2980b9"></span>
+              <span class="legend-label">Breton Ker- / Plou- / Lan- communes (234)</span>
+            </div>
+            <p class="map-caption">The Celtic cluster sits at the tip of the Breton peninsula — geographically isolated, linguistically preserved.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LAYER 3: OCCITAN ──────────────────────────────────── -->
+      <section class="layer-section" id="layer-occitan">
+        <div class="layer-kicker" style="color: #27ae60">Layer 3 — The Occitan Southwest</div>
+        <h2>-ac: the suffix that gives us Cognac, Bergerac, and 870 other names</h2>
+        <div class="layer-body">
+          <div class="layer-text">
+            <div class="layer-stat-strip">
+              <div class="layer-stat">
+                <span class="n" style="color:#27ae60">872</span>
+                <span class="l">communes</span>
+              </div>
+              <div class="layer-stat">
+                <span class="n" style="color:#27ae60">27%</span>
+                <span class="l">in Gironde, Dordogne, Charente</span>
+              </div>
+            </div>
+            <p>The suffix <em>-ac</em> derives from the Latin <em>-acum</em>, meaning "estate of" or "property of." Roman landowners gave their names to their estates: <em>Cognacius</em> became <em>Cognac</em>, <em>Bergiracus</em> became <em>Bergerac</em>. When Latin evolved into Occitan — the language of the medieval south — the suffix became productive across the whole region, applied to hundreds of new settlements.</p>
+            <p>The 872 <em>-ac</em> communes form a dense belt across the southwest: Gironde (89 communes, 10%), Dordogne (78, 9%), Charente (69, 8%). The pattern thins rapidly north of the Loire, which historically marked the linguistic boundary between the <em>langue d'oïl</em> (northern French) and the <em>langue d'oc</em> (Occitan). North of the Loire, people said <em>oïl</em> for "yes"; south of it, <em>oc</em>. The names know where they are.</p>
+            <p>Cognac and Bergerac are the most famous <em>-ac</em> names in the world. Both are in the Charente/Dordogne corridor, both give their names to beverages with global reach, and both carry the ghost of a Roman landowner who has been dead for 1,500 years.</p>
+            <div class="name-pills" id="pills-occitan"></div>
+          </div>
+          <div class="map-wrap">
+            <canvas id="map-occitan" class="map-canvas" width="560" height="450"></canvas>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:#27ae60"></span>
+              <span class="legend-label">Occitan -ac communes (872)</span>
+            </div>
+            <p class="map-caption">The -ac belt tracks the medieval <em>langue d'oc</em> boundary, concentrated south and west of the Massif Central.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LAYER 4: FRANKISH ─────────────────────────────────── -->
+      <section class="layer-section" id="layer-court">
+        <div class="layer-kicker" style="color: #d35400">Layer 4 — The Frankish North</div>
+        <h2>-court: the Frankish naming habit, still visible in Picardy</h2>
+        <div class="layer-body">
+          <div class="layer-text">
+            <div class="layer-stat-strip">
+              <div class="layer-stat">
+                <span class="n" style="color:#d35400">698</span>
+                <span class="l">communes</span>
+              </div>
+              <div class="layer-stat">
+                <span class="n" style="color:#d35400">32%</span>
+                <span class="l">in Somme + Pas-de-Calais + Aisne</span>
+              </div>
+            </div>
+            <p>The suffix <em>-court</em> comes from the Frankish word for a farm or enclosed courtyard (<em>hof</em>, later <em>curia</em> in Latin). Frankish settlers — Germanic tribes who moved into northern Gaul from the Rhine after the fall of Rome — named their estates after their leaders: <em>Bellicourt</em> (Bellicus's farm), <em>Aguilcourt</em>, <em>Haraucourt</em>. The naming convention was systematic enough that its geographic footprint is still visible today.</p>
+            <p>Of 698 <em>-court</em> communes, the highest concentrations are in the Somme (95 communes, 14%), Pas-de-Calais (62, 9%), Oise (53, 8%), and Aisne (52, 7%) — a tight band across Picardy and Artois, exactly where the Frankish settlement was most intense in the 5th and 6th centuries CE. The Franks gave their name to France itself; <em>-court</em> is the signature they left in the northern soil.</p>
+            <p>The pattern also appears in the Vosges (63 communes, 9%) and eastward into Lorraine — a reminder that the Frankish zone extended east as well as north, following the rivers and Roman roads that carried settlers into the former Roman province of <em>Belgica</em>.</p>
+            <div class="name-pills" id="pills-court"></div>
+          </div>
+          <div class="map-wrap">
+            <canvas id="map-court" class="map-canvas" width="560" height="450"></canvas>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:#d35400"></span>
+              <span class="legend-label">Frankish -court communes (698)</span>
+            </div>
+            <p class="map-caption">The -court belt runs through Picardy and Artois — the heartland of Frankish settlement in Gaul.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LAYER 5: NORMAN -VILLE ────────────────────────────── -->
+      <section class="layer-section" id="layer-ville">
+        <div class="layer-kicker" style="color: #8e44ad">Layer 5 — The -ville Landscape</div>
+        <h2>-ville: from Roman villa to France's most common place-name suffix</h2>
+        <div class="layer-body">
+          <div class="layer-text">
+            <div class="layer-stat-strip">
+              <div class="layer-stat">
+                <span class="n" style="color:#8e44ad">949</span>
+                <span class="l">communes</span>
+              </div>
+              <div class="layer-stat">
+                <span class="n" style="color:#8e44ad">16%</span>
+                <span class="l">in Seine-Maritime alone</span>
+              </div>
+            </div>
+            <p>The suffix <em>-ville</em> is everywhere, but it is not evenly distributed. Of 949 communes ending in <em>-ville</em>, 156 (16%) are in Seine-Maritime — the heart of Normandy. The next-highest departments are Eure (84) and Manche (51), both also in Normandy. The three departments together account for 30% of all <em>-ville</em> communes in France.</p>
+            <p>The Latin <em>villa</em> (farmstead, estate) was the basic unit of Roman rural settlement. When Norse raiders settled Normandy in 911 CE under Rollo, they adopted the local Latin-derived naming convention — <em>Trouville, Deauville, Bénouville, Hérouville</em> — rather than importing Germanic suffixes. The result is an extraordinary concentration of <em>-ville</em> names across the old Duchy of Normandy, making the Seine-Maritime the most <em>-ville</em>-dense département in France by a wide margin.</p>
+            <p>The suffix spread beyond Normandy through French linguistic influence — it appears in Lorraine, the Alps, and elsewhere — but nowhere in France does it cluster as densely as in the Seine estuary, where Viking chieftains were naming their new estates in a language borrowed from the people they had just conquered.</p>
+            <div class="name-pills" id="pills-ville"></div>
+          </div>
+          <div class="map-wrap">
+            <canvas id="map-ville" class="map-canvas" width="560" height="450"></canvas>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:#8e44ad"></span>
+              <span class="legend-label">-ville communes (949)</span>
+            </div>
+            <p class="map-caption">-ville communes appear across much of France but peak sharply in Normandy (Seine-Maritime, Eure, Manche).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── THE SAINT OVERLAY ─────────────────────────────────── -->
+      <section class="saint-section">
+        <h2>The layer above all layers: 3,879 saints</h2>
+        <p>Each of the five layers above encodes a specific period, language, and region. One pattern cuts across all of them: the <em>Saint-</em> prefix, which appears in 3,879 communes — 11.1% of all of France. It is not regionally concentrated; every corner of the country has them. It is the Christian layer, applied over everything else between the 5th and 15th centuries, when parishes took the names of their patron saints.</p>
+        <p>The Revolution stripped the saints from street names and invented secular alternatives: <em>Saint-Tropez</em> became <em>Héraclée</em>, <em>Saint-Malo</em> became <em>Port-Malo</em>. Within a decade, most had taken their saints back. Secular France is built on top of a saintly substrate, and the commune names make it visible.</p>
+        <p>The top saint names concentrate on universal dedications rather than regional cults:</p>
+
+        <div class="saint-bar-wrap" id="saint-bar-wrap">
+          <!-- rendered by JS -->
+        </div>
+
+        <p>The <em>Saint-Colombe</em> cluster that holds the title of most-common commune name in France (12 communes, across 12 departments) is a perfect example: a saint too obscure to remember, a name too persistent to lose.</p>
+      </section>
+
+      <!-- ── CLOSING ───────────────────────────────────────────── -->
+      <h2>Reading the sediment</h2>
+
+      <p>The five layers don't sort neatly by date. The Occitan <em>-ac</em> names came from Roman landowners in the 1st century CE. The Breton <em>Ker-</em> and <em>Plou-</em> names came from Celtic migrants in the 5th century. The Frankish <em>-court</em> names came from Germanic settlers in the 5th and 6th centuries. The Norman <em>-ville</em> concentration in Seine-Maritime came from Norse settlers in the 10th century. The Alsatian <em>-heim</em> names are the longest-running experiment: they predate France entirely and have survived its every attempt at linguistic homogenisation.</p>
+
+      <p>Together they cover about 10% of France's communes — around 3,125 place names that are, in the strictest sense, not French at all. They are Gaulish, Breton, Occitan, Frankish, German. France absorbed the territories, standardised the administration, and made everyone carry identity documents in French. It never quite got around to renaming the villages.</p>
+
+      <div class="credits">
+        <h3>Sources</h3>
+        <p>Commune names and centroids from the DREES APL 2023 commune dataset (INSEE COG ~2023 vintage), supplemented by <a href="https://github.com/gregoiredavid/france-geojson">gregoiredavid/france-geojson</a>. Linguistic classifications based on well-attested etymological patterns (see Dauzat &amp; Rostaing, <em>Dictionnaire étymologique des noms de lieux en France</em>). Counts are conservative — only the clearest diagnostic suffixes/prefixes are included; names with ambiguous etymology are excluded.</p>
+        <h3>See also</h3>
+        <p>
+          <a href="../commune-names/">Y, Oô, and 35,226 Others</a> — the shape of France's commune names: shortest, longest, and most repeated.<br>
+          <a href="../medical-deserts/">Where the doctors aren't</a> — medical access across the same 35,014 communes.<br>
+          <a href="../../">All stories</a>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="charts.js" defer></script>
+</body>
+</html>

@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 94% of France's -heim, -willer, and -bach communes are in just two departments: Bas-Rhin and Haut-Rhin. Alsace changed hands between France and Germany four times; the commune names didn't move once. [Q-042]
+- 🔥 Cognac and Bergerac both end in -ac. So does almost every other commune in the Charente and Dordogne corridor. The suffix comes from Latin -acum — "estate of" — and there have been estates there since the 1st century CE. [Q-042]
+- 🔥 234 Breton commune names (Ker-, Plou-, Lan-) cluster at the tip of the Breton peninsula — 95% in the three core Breton departments. Celtic Breton survived everything the Republic threw at it, including the Revolution's attempt to rename all the saints. [Q-042]
+- 🔥 698 communes end in -court — a Frankish word for "farm" — and 32% of them are in the Somme, Pas-de-Calais, and Aisne. The Franks who gave France its name left their naming convention in the exact fields where they settled in the 5th century CE. [Q-042]

@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### name-layers: Five tongues, 35,014 names
+- Status: ✅ published
+- Published URL: /stories/name-layers/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: 94% of France's -heim and -willer communes are in two Alsatian departments. Cognac and Bergerac both end in a Latin suffix from the 1st century CE. The Frankish -court belt still follows the 5th-century settlement frontier. France's commune names are linguistic fossils — five layers deep.
+- Data: INSEE commune name corpus (35,014 communes, ~2023 COG vintage) reused from commune-names story. No new downloads. Pattern detection via Python regex; Canvas dot-maps in the browser.
+- Angle: Five mini dot-maps, one per language layer (Alsatian, Breton, Occitan, Frankish, Norman), each showing all 35K communes as gray background dots with the linguistic pattern in color. The geographic concentration of each layer is immediately visible.
+- Draft X summary:
+  > Cognac and Bergerac end in -ac because a Roman landowner called Cognacius had an estate there in the 1st century CE. 234 Breton communes start with Ker- or Plou- because Celtic migrants arrived in the 6th century and never really left. Today on **france-data**: five language layers, 35,014 names, one map. 🗺️🇫🇷
+

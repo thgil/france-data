@@ -181,16 +181,20 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Sainte-Colombe (12 communes, spread across 12 departments). Runner-up Saint-Sauveur (11). The top 30 most common names are almost entirely saints — the calendrier grégorien as a nationwide naming committee. 3,879 communes (11.1%) begin with Saint- or Sainte-.
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Y (Somme, code 80829) — one letter. The name derives from a Gaulish root for water (eo). France has 15 two-letter communes including Eu, Oz, Ur, Py, Oô.
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
@@ -201,3 +205,9 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: How do France's commune names map onto historical language areas?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: Five diagnostic suffixes/prefixes reveal distinct language layers: Alsatian (-heim/-willer/-bach, 373 communes, 94% in Bas-Rhin+Haut-Rhin); Breton (Ker-/Plou-/Lan-, 234 communes, 95% in core Brittany); Occitan (-ac, 872 communes in the southwest); Frankish (-court, 698 communes, concentrated in Picardy/Somme); Norman -ville (949 communes, densest in Seine-Maritime at 16%). The Saint- overlay (3,879 communes, 11.1%) cuts across all regions.
+- Story: [name-layers](/stories/name-layers/)
