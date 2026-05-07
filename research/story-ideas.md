@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### name-words: What France Is Named For
+- Status: ✅ published
+- Published URL: /stories/name-words/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france)
+- Hook: One in nine French communes is named after a saint. Saint-Martin leads with 203. Twelve different villages share the same name: Sainte-Colombe. The Loire and Seine are almost perfectly tied in the commune-naming league.
+- Data: DREES APL commune file (35,014 communes, communeName field) — no additional download needed, re-used from medical-deserts story.
+- Angle: Text-and-charts story. Two Chart.js horizontal bar charts (top saints, top rivers). Landscape vocabulary table. No map needed. Four narrative beats: the saint economy, water positioning, landscape vocabulary, the duplication problem.
+- Draft X summary:
+  > France has 35,014 communes. One in nine is named after a saint — and the most popular saint is Martin, with 203 villages. 100 communes are "sur-Mer" (on the sea). Twelve different places are called Sainte-Colombe. Today on **france-data**: what 35,000 medieval names say about the country that chose them. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

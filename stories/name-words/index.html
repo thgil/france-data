@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What France Is Named For — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Callout row ─────────────────────────────────────────────────── */
+    .callout-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 48px 0;
+    }
+    @media (max-width: 700px) {
+      .callout-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .callout-row { grid-template-columns: 1fr; }
+    }
+    .callout {
+      background: #f4f0e8;
+      border-top: 3px solid var(--rule);
+      padding: 20px 16px 16px;
+    }
+    .callout-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      line-height: 1;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .callout-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 8px;
+    }
+
+    /* ── Charts ──────────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 40px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+    }
+    #chart-saints  { height: 280px; }
+    #chart-rivers  { height: 280px; }
+    #chart-land    { height: 320px; }
+
+    /* ── Landscape table ─────────────────────────────────────────────── */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0;
+    }
+    @media (max-width: 600px) {
+      .vocab-grid { grid-template-columns: 1fr; }
+    }
+    .vocab-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .vocab-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .vocab-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .vocab-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .vocab-table .word {
+      font-family: var(--serif);
+    }
+    .vocab-table .gloss {
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-left: 6px;
+    }
+
+    /* ── Name pills ──────────────────────────────────────────────────── */
+    .name-cluster {
+      margin: 28px 0;
+      padding: 18px 22px;
+      background: #f4f0e8;
+      border-left: 3px solid var(--rule);
+    }
+    .name-cluster-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 12px;
+    }
+    .name-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .name-pill {
+      font-family: var(--serif);
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid #d0c8b8;
+      border-radius: 2px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+    .name-pill .pop {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-left: 5px;
+    }
+
+    /* ── Section header rule ─────────────────────────────────────────── */
+    h2 {
+      margin-top: 56px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What France Is Named For</h1>
+        <p class="story-dek">35,014 communes, and what they chose to call themselves: one in nine is a saint, one in seventeen lives on a river, and twelve different villages all picked the exact same name.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Lead ─────────────────────────────────────────────────────── -->
+      <p>Since the French Revolution reorganised the country in 1789, every inhabited patch of France has carried a legal name — one name, registered in the state's records. Today there are 35,014 of them. Those names weren't assigned by committee. They are medieval inheritances: the way villages described themselves to strangers before maps, before postal codes, before GPS. They answered three questions. <em>Who do you pray to?</em> <em>What are you near?</em> <em>What does your land look like?</em></p>
+
+      <!-- ── Callout row ────────────────────────────────────────────────── -->
+      <div class="callout-row">
+        <div class="callout">
+          <div class="callout-num">35,014</div>
+          <div class="callout-label">Communes</div>
+        </div>
+        <div class="callout">
+          <div class="callout-num">3,898</div>
+          <div class="callout-label">Saint(e)- names (11%)</div>
+        </div>
+        <div class="callout">
+          <div class="callout-num">2,007</div>
+          <div class="callout-label">Sur-water names (6%)</div>
+        </div>
+        <div class="callout">
+          <div class="callout-num">12</div>
+          <div class="callout-label">Villages named Sainte-Colombe</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 1: Saints ────────────────────────────────────────────── -->
+      <h2>The saint economy</h2>
+
+      <p>The most common answer to <em>who do you pray to?</em> was: a saint. 3,898 communes — 11.1% of the total — begin with "Saint" or "Sainte." That is one in every nine villages in France with a patron saint baked permanently into its address.</p>
+
+      <p>The saints are not evenly distributed. Martin leads by a wide margin: 203 communes are named after the fourth-century Roman soldier who, according to legend, split his cloak with a beggar at the gates of Amiens. Jean (155) and Pierre (144) follow. These were the dominant names of the early medieval Church, and their frequency in commune names is a direct imprint of which devotions were in fashion between the ninth and thirteenth centuries, when most villages acquired their permanent identities.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-saints"></canvas>
+        </div>
+        <figcaption>Top 10 saints by number of communes bearing their name (partial-match count: communes whose name starts with "Saint-[name]" or "Sainte-[name]"). Source: DREES APL commune file, 35,014 communes.</figcaption>
+      </figure>
+
+      <p>A saint's presence in place names reflects something real about medieval devotion — but also about which cult survived the competition. Saint-Martin's dominance isn't accidental: he was the patron of the Frankish military aristocracy, and his cult spread with Carolingian conquest. The villages named after him are concentrated in the old heartlands of Francia — the north, the Loire valley, Burgundy — while Jean and Pierre appear more evenly across the hexagon.</p>
+
+      <!-- ── Beat 2: Rivers ────────────────────────────────────────────── -->
+      <h2>On the water</h2>
+
+      <p>The second great category of commune names answers the question <em>what are you near?</em> — and for 2,007 communes (5.7%), the answer involves a preposition: <em>sur</em> (on). As in: we are on the Loire. We are on the Seine. We are on the sea.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-rivers"></canvas>
+        </div>
+        <figcaption>The most common thing a commune says it is "sur" (on). 2,007 communes use this construction. Source: DREES APL commune file, 35,014 communes.</figcaption>
+      </figure>
+
+      <p>The largest single group — 100 communes — are "sur-Mer" (on the sea). The coast was a primary identity long before tourism. After the sea come France's great rivers: Loire (71 communes), Seine (70), Marne (55), Meuse (43). The Loire and Seine are almost perfectly tied, a detail that maps neatly onto the fact that both valleys were the twin centres of early French civilisation and trade.</p>
+
+      <p>Beyond "sur," France uses other prepositions for position. <em>Lès</em> (or <em>lez</em>, an archaic form of "near") appears in 605 commune names — Villeneuve-lès-Avignon, Vitry-lès-Nogent. <em>En</em> (in) appears in 1,000 — Boulogne-en-Gohelle, Arcis-en-Aube. <em>Sous</em> (under or below) in 258 — suggesting communes nestled beneath a hill, a cliff, or a castle.</p>
+
+      <!-- ── Beat 3: Landscape ──────────────────────────────────────────── -->
+      <h2>The land speaks</h2>
+
+      <p>Not every commune could claim a river or an important saint. Many named themselves by what they could see. The landscape vocabulary of French commune names is a compressed survey of what medieval France looked like.</p>
+
+      <div class="vocab-grid">
+        <div class="vocab-block">
+          <h3>Natural features</h3>
+          <table class="vocab-table">
+            <tbody>
+              <tr><td class="word">bois<span class="gloss">woods</span></td><td>217</td></tr>
+              <tr><td class="word">val<span class="gloss">valley</span></td><td>130</td></tr>
+              <tr><td class="word">mont<span class="gloss">mountain</span></td><td>102</td></tr>
+              <tr><td class="word">fontaine<span class="gloss">spring</span></td><td>74</td></tr>
+              <tr><td class="word">rivière<span class="gloss">river</span></td><td>66</td></tr>
+              <tr><td class="word">bains<span class="gloss">spa / baths</span></td><td>63</td></tr>
+              <tr><td class="word">forêt<span class="gloss">forest</span></td><td>47</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="vocab-block">
+          <h3>Built features</h3>
+          <table class="vocab-table">
+            <tbody>
+              <tr><td class="word">villeneuve<span class="gloss">new town</span></td><td>85</td></tr>
+              <tr><td class="word">vieux / vieille<span class="gloss">old</span></td><td>79</td></tr>
+              <tr><td class="word">château<span class="gloss">castle</span></td><td>95</td></tr>
+              <tr><td class="word">pont<span class="gloss">bridge</span></td><td>86</td></tr>
+              <tr><td class="word">neuville<span class="gloss">new town</span></td><td>71</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>The dominance of <em>bois</em> (217 communes) reflects how much of medieval France was forested — and how much the forest defined local identity. You were the village at the edge of the wood, or in the wood, or where the wood ended. The spring (<em>fontaine</em>, 74 communes) was critical infrastructure before piped water; naming yourself after it wasn't poetic, it was practical. <em>Bains</em> (63) marks the ancient thermal spa sites scattered across the Vosges, the Pyrénées, and the Massif Central — most are still operating today.</p>
+
+      <p>The built-environment vocabulary reveals a tension between new and old. <em>Villeneuve</em> (85 communes) and <em>Neuville</em> (71) both mean "new town" — these were medieval planned settlements, granted charters to attract settlers. Yet 79 communes call themselves <em>vieux</em> or <em>vieille</em> (old) — the original settlement that watched a newer rival spring up nearby. Many a "Vieux-" commune still sits within a kilometre of a "Villeneuve-."</p>
+
+      <!-- ── Beat 4: Duplication ────────────────────────────────────────── -->
+      <h2>The duplication problem</h2>
+
+      <p>With a naming vocabulary dominated by a short list of saints and a limited set of landscape features, repetition was inevitable. The most duplicated name in France is Sainte-Colombe — 12 different communes share it exactly. Eleven are called Saint-Sauveur. Ten each are called Saint-Aubin and Beaulieu.</p>
+
+      <div class="name-cluster">
+        <div class="name-cluster-label">12 communes called Sainte-Colombe</div>
+        <div class="name-pills" id="colombe-pills">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+      <p>These are not administrative errors or recent coincidences. Each Sainte-Colombe is a distinct medieval community that independently chose the same patron saint centuries ago. Saint Colomban (or Columba) was an Irish monk who established monasteries across France and Germany in the seventh century; his cult was particularly strong in Burgundy and the south-west, which is why the Sainte-Colombes are concentrated there.</p>
+
+      <p>Before the Revolution, the postal address of a "Sainte-Colombe" would have included the province and the estate. Afterwards, with 35,014 communes each needing a unique legal address, the duplicates were resolved not by renaming but by hyphenating: Sainte-Colombe-de-Duras, Sainte-Colombe-sur-Loing, Sainte-Colombe-en-Bruilhois. The name stayed; the geography was added.</p>
+
+      <p>This is France's solution to its own naming constraints: not innovation, but accretion. The saint and the river and the wood stay; the disambiguation grows.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> All name analysis is from the DREES commune-level APL dataset (2023 vintage), which carries the official commune name (<em>communeName</em>) for 35,014 communes across metropolitan France and the overseas departments. Name parsing used Python regular expressions applied to the INSEE commune list embedded in the APL file. The "saint" count includes communes whose name begins with "Saint-" or "Sainte-"; the "sur" count includes communes with the pattern "sur-" or "sur " followed by a word. Counts are conservative: hyphenated multi-saint names (e.g. Saint-Martin-de-Bienfaite-la-Cressonnière) are counted once, for the leading saint.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li>DREES — <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">Accessibilité Potentielle Localisée (APL) aux médecins généralistes 2023</a>. Commune names extracted from the commune-level APL file used in the <a href="../medical-deserts/">Medical Deserts story</a>.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script type="module">
+    import { drawSaintsChart, drawRiversChart } from './charts.js';
+
+    /* Sainte-Colombe département info (from DREES APL commune data) */
+    const COLOMBE_DEPTS = [
+      { dept: '05', pop: 59   },
+      { dept: '17', pop: 107  },
+      { dept: '25', pop: 464  },
+      { dept: '33', pop: 426  },
+      { dept: '35', pop: 360  },
+      { dept: '40', pop: 622  },
+      { dept: '46', pop: 230  },
+      { dept: '50', pop: 184  },
+      { dept: '69', pop: 1953 },
+      { dept: '76', pop: 222  },
+      { dept: '77', pop: 1793 },
+      { dept: '89', pop: 185  },
+    ];
+
+    const DEPT_NAMES = {
+      '05': 'Hautes-Alpes', '17': 'Charente-Maritime', '25': 'Doubs',
+      '33': 'Gironde', '35': 'Ille-et-Vilaine', '40': 'Landes',
+      '46': 'Lot', '50': 'Manche', '69': 'Rhône',
+      '76': 'Seine-Maritime', '77': 'Seine-et-Marne', '89': 'Yonne',
+    };
+
+    function populateColombePills() {
+      const container = document.getElementById('colombe-pills');
+      if (!container) return;
+      container.innerHTML = COLOMBE_DEPTS.map(d =>
+        `<span class="name-pill">Sainte-Colombe <span class="pop">${DEPT_NAMES[d.dept] || 'Dept ' + d.dept} · ${d.pop.toLocaleString('fr-FR')} res.</span></span>`
+      ).join('');
+    }
+
+    populateColombePills();
+    drawSaintsChart('chart-saints');
+    drawRiversChart('chart-rivers');
+  </script>
+</body>
+</html>

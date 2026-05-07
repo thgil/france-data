@@ -181,8 +181,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Sainte-Colombe — 12 communes share the name exactly, spread across departments 05 to 89. Saint-Sauveur is second (11), Saint-Aubin third (10). But the most common naming *pattern* is the saint prefix: 3,898 communes (11.1%) begin with Saint(e)-, led by Saint-Martin (203), Saint-Jean (155), Saint-Pierre (144). A separate 2,007 communes use "sur" to locate themselves on a river or the sea (Loire: 71, Seine: 70, sur-Mer: 100).
+- Story: [name-words](/stories/name-words/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
