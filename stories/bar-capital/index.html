@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+
+    .chart-wrap {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Stats split ─────────────────────────────────────────────── */
+    .stats-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 56px 0;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 640px) {
+      .stats-split { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: #333;
+      white-space: nowrap;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .dept-badge {
+      display: inline-block;
+      font-size: 10px;
+      color: #888;
+      font-family: var(--sans);
+      margin-left: 4px;
+    }
+
+    /* ── Lede number ─────────────────────────────────────────────── */
+    .lede-stat {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      max-width: 680px;
+    }
+    .lede-stat-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+    }
+    .lede-stat-item .number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .lede-stat-item .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar capital</h1>
+        <p class="story-dek">France has 7.5 bars per 10,000 residents on average. Then there's Morzine — 192 per 10,000, and the top seven communes are all ski resorts.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ──────────────────────────────────────────────────── -->
+      <p>The bars story mapped where France drinks: 49,385 active <em>débits de boissons</em>, each dot at its real address. But raw counts favour big places. Paris has 3,120 bars — but Paris also has 2.1 million residents. The question Q-033 left open was: <em>per capita</em>, where does France actually drink most?</p>
+
+      <p>Joining the SIRENE bar data to the DREES commune-level population figures gives an answer for every commune in metropolitan France. The national average works out to <strong>7.5 bars per 10,000 residents</strong>. The range underneath that number is extraordinary.</p>
+
+      <div class="lede-stat">
+        <div class="lede-stat-item">
+          <div class="number" id="stat-national">7.5</div>
+          <div class="label">bars per 10,000 (national avg)</div>
+        </div>
+        <div class="lede-stat-item">
+          <div class="number" id="stat-top">192</div>
+          <div class="label">bars per 10,000 in Morzine</div>
+        </div>
+        <div class="lede-stat-item">
+          <div class="number" id="stat-zero">26%</div>
+          <div class="label">of communes with 1,000+ residents have zero bars</div>
+        </div>
+      </div>
+
+      <!-- ── Chart 1: Top communes ───────────────────────────────────── -->
+      <h2>The bar capitals are ski resorts</h2>
+
+      <p>Ranked by bars per 10,000 residents among communes with at least 1,000 residents, the top of the list reads like an Alps lift map. Les Deux Alpes, Morzine, Châtel, Val-d'Isère, Les Gets, Courchevel, Tignes — seven of the top ten are alpine ski stations. Each one runs 125–202 bars per 10,000, or roughly 17–27 times the national average.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-title">Bars per 10,000 residents — top 15 communes (population ≥ 1,000)</div>
+        <div class="chart-wrap">
+          <canvas id="chart-communes" width="780" height="460"></canvas>
+        </div>
+        <figcaption class="story figcaption">National average: 7.5 per 10,000. Among communes with at least 1,000 residents. Sources: INSEE SIRENE (bars, March 2026) + DREES APL 2023 (commune population).</figcaption>
+      </figure>
+
+      <p>The logic is simple: a ski resort's permanent population of 2,000 supports 50 bars for the 20,000 skiers who descend on it in February. Those bars hold their SIRENE registration year-round. Saint-Tropez (#8, 95/10k) and Saint-Florent in Haute-Corse (#10, 95/10k) follow the same tourism-amplified pattern. Deauville (#12, 90/10k) continues it with weekending Parisians instead of ski boots.</p>
+
+      <!-- ── Beat 3: Départements ────────────────────────────────────── -->
+      <h2>Corsica leads; the Île-de-France suburbs trail</h2>
+
+      <p>At the département level the resort effect is still visible — Savoie (12.2/10k) and Haute-Savoie (10.8/10k) appear in the top ten — but the picture is more nuanced. Haute-Corse tops the ranking at 21.1 per 10,000, followed by Lozère (17.6) and Corse-du-Sud (16.9). Corsica's bar density isn't skiing; it's an older café culture in sparse territory, where a village of 300 may have two bars and the denominator never gets big enough to dilute the ratio.</p>
+
+      <p>Cantal and the Hautes-Alpes fill out the top five. Then something striking: Paris itself (14.6/10k) ranks seventh nationally — the city punches well above the national mean, which is exactly what you'd expect from one of the world's great café cultures. But the suburbs immediately surrounding it are among the worst-served in the country.</p>
+
+      <!-- ── Stats tables: dept ──────────────────────────────────────── -->
+      <div class="stats-split">
+        <div class="stats-block">
+          <h3>Most bars per 10,000 (by département)</h3>
+          <table class="stats-table" id="table-top-dept">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per 10,000</h3>
+          <table class="stats-table" id="table-bottom-dept">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>Essonne (3.1/10k), Yvelines (3.3), and Hauts-de-Seine (3.3) cluster at the bottom of the metropolitan rankings. These are the grands ensembles and pavillonnaires of the outer Île-de-France — built at speed in the 1960s and 70s, optimised for car travel, without the ground-floor commercial life that breeds cafés. The same <em>banlieue</em> ring that showed up as a medical-access desert shows up here too, but as a bar desert.</p>
+
+      <!-- ── Beat 4: Zero-bar communes ──────────────────────────────── -->
+      <h2>The rural café has almost closed</h2>
+
+      <p>Among the 9,889 French communes with at least 1,000 residents, <strong>2,541 — 26% — have no registered bar at all</strong>. These aren't ghost towns; they include communes of 2,000, 3,000, sometimes more, in the rural interior where the last café fermed definitively sometime in the 1990s or 2000s.</p>
+
+      <p>The pattern repeats across the whole data set. The same geography that lacks doctors, lacks bread (outside Île-de-France), and lacks bus connections also lacks bars. The <em>diagonale du vide</em> — that persistent diagonal of sparse France running from the Meuse to the Pyrénées — shows up again as a bar desert. The infrastructure of daily life has retreated together.</p>
+
+      <p>The number 49,385 is often cited as evidence of France's vibrant café culture. Divided by population, it still puts France well above the EU average. But the distribution is wildly unequal — ski resorts and Corsican villages vastly overserved, suburban commuter belts and rural interiors underserved. France has plenty of bars. They're just not where everyone lives.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from the SIRENE bars dataset used in <a href="../bars/">Story 4</a> (49,385 active débits de boissons, NAF 56.30Z, March 2026 snapshot). Population figures come from the DREES APL commune file (commune-level population, 2021 base). Communes are matched by their 5-digit INSEE code. The analysis covers metropolitan France; overseas territories are excluded from département rankings. Communes below 1,000 residents are excluded from the commune-level ranking to avoid extreme ratios driven by very small denominators (e.g. a village of 120 with 1 bar = 83/10k).</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune population, 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawCommunesChart, populateDeptTables } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        // Update lede stats from data
+        document.getElementById('stat-national').textContent =
+          stats.national_per_10k.toFixed(1);
+        document.getElementById('stat-top').textContent =
+          Math.round(stats.top_communes[1].per_10k); // Morzine #2
+        document.getElementById('stat-zero').textContent =
+          Math.round(stats.zero_bar_communes / stats.total_communes_1k * 100) + '%';
+
+        drawCommunesChart('#chart-communes', stats.top_communes.slice(0, 15), stats.national_per_10k);
+        populateDeptTables(stats.top_depts, stats.bottom_depts);
+
+      } catch (err) {
+        console.error('bar-capital: failed to load data', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
