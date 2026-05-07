@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Centre-Val de Loire — Loire châteaux, good wine, "pure French" accent — is France's most medically underserved metropolitan region. 34% of its residents live in a medical desert. [Q-014]
+- 🔥 Provence-Alpes-Côte d'Azur has France's best medical access (APL 4.25). The reason: retirement migration built a GP market; ski stations added another. Only 4.3% of PACA residents are in a medical desert. [Q-014]
+- 🔥 Hauts-de-France (Nord, Pas-de-Calais, Picardie — the Rust Belt) is France's second-best region for medical access. Dense industrial towns sustain GP catchments that rural regions cannot match. [Q-014]
+- 🔥 Île-de-France has 3.47 million residents in medical deserts — more than any other region in absolute terms. Paris (APL 4.96) masks a suburban crisis the national map doesn't show clearly. [Q-014]

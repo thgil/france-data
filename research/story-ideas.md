@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### health-league: The Doctors' League Table
+- Status: ✅ published
+- Published URL: /stories/health-league/
+- Source question: [Q-014](questions.md#q-014) (regional aggregation)
+- Hook: Centre-Val de Loire — the Loire Valley, famous for châteaux and "pure French" — is France's most medically underserved region. Meanwhile the industrial north (Hauts-de-France) comes second.
+- Data: DREES APL 2023 commune scores aggregated to 13 metropolitan regions by population weighting. No new download — reuses communes-apl.geojson.
+- Angle: Horizontal bar chart of 13 regions ranked by population-weighted APL. Two charts: the league table + absolute desert-dwellers by region.
+- Draft X summary:
+  > France's medical desert map shows communes. But which REGIONS are worst served? Centre-Val de Loire — Loire châteaux, Chenin Blanc, the accent everyone calls "pure French" — has the worst medical access of any region. Île-de-France has 3.47 million desert-dwellers. The Rust Belt comes second. 🏥🇫🇷
+

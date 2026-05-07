@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Doctors' League Table — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 180px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box.stat-box--red { border-left-color: #c0392b; }
+    .stat-box.stat-box--green { border-left-color: #2a7a4f; }
+    .stat-box.stat-box--amber { border-left-color: #d4860a; }
+
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box--red .stat-num { color: #c0392b; }
+    .stat-box--green .stat-num { color: #2a7a4f; }
+    .stat-box--amber .stat-num { color: #d4860a; }
+
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .callout-block {
+      background: #f5f1ea;
+      border-left: 4px solid #c0392b;
+      padding: 16px 20px;
+      margin: 32px 0;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .callout-block--green { border-left-color: #2a7a4f; }
+    .callout-block--amber { border-left-color: #d4860a; }
+    .callout-block strong { color: #1a1a1a; }
+
+    .league-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin: 0 0 16px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The Doctors' League Table</h1>
+        <p class="story-dek">Thirteen French regions, ranked by access to a GP. The league leader is Provence. The bottom side is the Loire Valley. Île-de-France is in the relegation zone.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>France's <a href="../medical-deserts/">medical desert map</a> shows the problem at commune level: 12,771 of 34,886 communes fall below the official APL 2.5 threshold. But communes are unequal in size — a desert commune might hold 80 residents or 80,000. To see who actually bears the burden, you need to aggregate by population. Do that, and a sharply different picture emerges than the one on the commune-count map.</p>
+
+      <p>The APL (<em>accessibilité potentielle localisée</em>) score estimates how many standardised GP consultations a resident can access per year, accounting for distance, travel time, and local demand. A score below 2.5 is officially classified as a <em>zone sous-dense</em> — a medical desert. The national average is around 3.7. But the national average conceals a 46% spread between the best- and worst-served regions.</p>
+
+      <h2>The full table</h2>
+
+      <p>Ranked by population-weighted average APL score — meaning the figure reflects what an average resident of the region actually experiences, not just an arithmetic mean across communes.</p>
+
+      <div class="league-legend">
+        <span><span class="legend-swatch" style="background:#2a7a4f"></span> APL ≥ 4.0 — well served</span>
+        <span><span class="legend-swatch" style="background:#5aaa72"></span> APL 3.5–4.0</span>
+        <span><span class="legend-swatch" style="background:#d4860a"></span> APL 3.0–3.5</span>
+        <span><span class="legend-swatch" style="background:#c0392b"></span> APL &lt; 3.0 — struggling</span>
+        <span><span class="legend-swatch" style="background:#c0392b;opacity:0.3;border:1px dashed #c0392b"></span> dotted line = desert threshold (2.5)</span>
+      </div>
+
+      <figure class="chart-figure">
+        <div id="chart-league" class="chart-mount"></div>
+        <figcaption>Each bar shows the population-weighted average APL score for the region. The dashed red line marks the official medical-desert threshold (APL&nbsp;2.5). The right column shows what share of each region's population lives in a commune below that threshold. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <h2>The surprise at the bottom</h2>
+
+      <div class="callout-block">
+        <strong>Centre-Val de Loire — last place, APL 2.92.</strong> One in three residents (34%) lives in a medical desert. Nearly 60% of its 1,754 communes are under-dense. The Loire Valley — famous for its châteaux, its wine, its claim to "pure French" pronunciation — has the worst population-weighted medical access of any metropolitan region.
+      </div>
+
+      <p>Centre-Val de Loire is not France's most rural region. It contains large cities: Orléans (pop. 116,000), Tours (138,000), Chartres (40,000), Bourges (65,000). Those cities are well served, and their GPs pull the regional average up. But the region's interior — the Beauce plain (Eure-et-Loir, Loiret), the empty farmland of the Sologne (Loir-et-Cher), the declining towns of Berry (Indre, Cher) — is an almost unbroken medical desert. It is flat, fertile, sparsely populated country where villages can be 30km apart and the bus runs twice a day.</p>
+
+      <p>Eure-et-Loir (28) and Indre (36) are among the worst-served <em>départements</em> in metropolitan France. Together they contribute more than 350,000 desert-dwellers — a significant fraction of the region's 875,000 total — to France's 11-million-strong desert population.</p>
+
+      <h2>The surprise at the top</h2>
+
+      <div class="callout-block callout-block--green">
+        <strong>Provence-Alpes-Côte d'Azur — first place, APL 4.25.</strong> Just 4.3% of its 5.1 million residents are in a medical desert. PACA has a higher population-weighted APL score than Paris.
+      </div>
+
+      <p>PACA's top ranking is counterintuitive: southern France is not typically associated with healthcare efficiency. The region contains large areas of rugged <em>arrière-pays</em> (Alpes-de-Haute-Provence, Hautes-Alpes) where access should be poor. In fact both Alpine <em>départements</em> rank among the best-served in the country — the concentration of ski stations has produced an unusually dense network of GPs serving both residents and seasonal visitors.</p>
+
+      <p>But the bigger driver is the Côte d'Azur. Alpes-Maritimes (06) and Var (83) have extremely high GP densities driven by decades of retirement migration. Wealthy retirees with high healthcare demand created a market; French GPs followed. The Bouches-du-Rhône (13) — dominated by Marseille, France's second city — is similarly well served. The combination of retirement wealth on the coast and ski infrastructure in the Alps produces a region that simply has more doctors per resident than anywhere else.</p>
+
+      <h2>The industrial north's secret</h2>
+
+      <div class="callout-block callout-block--amber">
+        <strong>Hauts-de-France — second place, APL 4.13.</strong> Nord, Pas-de-Calais, Picardie. Often described as France's Rust Belt. Second in medical access.
+      </div>
+
+      <p>Hauts-de-France is France's most densely populated region outside Île-de-France. Its industrial history — coal, steel, textiles — built dense towns with functioning institutions: hospitals, social housing, GPs. The concentration of population in Lille, Douai, Valenciennes, Amiens, and the mining belt means the average resident is never far from a doctor. Only 9.4% of the region's 6 million residents are in a medical desert — the same rate as Bretagne, and lower than Occitanie.</p>
+
+      <h2>The Île-de-France paradox</h2>
+
+      <p>Île-de-France places twelfth out of thirteen — second to last, ahead of Centre-Val de Loire. Its population-weighted APL of 3.26 is pulled up by Paris itself (APL 4.96) and dragged down by the surrounding départements. Seine-et-Marne (77), Yvelines (78), Val-d'Oise (95), and Essonne (91) all sit near or below the desert threshold.</p>
+
+      <div class="stat-row">
+        <div class="stat-box stat-box--red">
+          <span class="stat-num" id="idf-desert-pop">3.47M</span>
+          <span class="stat-label">Île-de-France residents in a medical desert — more than any other region</span>
+        </div>
+        <div class="stat-box stat-box--green">
+          <span class="stat-num">4.3%</span>
+          <span class="stat-label">Share of PACA residents in a medical desert — lowest in France</span>
+        </div>
+        <div class="stat-box stat-box--amber">
+          <span class="stat-num">34%</span>
+          <span class="stat-label">Share of Centre-Val de Loire residents in a medical desert — highest in France</span>
+        </div>
+      </div>
+
+      <p>In absolute terms, Île-de-France's 3.47 million desert-dwellers dwarf every other region. The runner-up, Auvergne-Rhône-Alpes, has 1.2 million — barely a third. Paris grows its GP count slowly while the suburbs grow fast; the gap between the city proper and the banlieue is the structural story of IDF health access.</p>
+
+      <h2>Where most desert-dwellers live</h2>
+
+      <figure class="chart-figure">
+        <div id="chart-desert-pop" class="chart-mount"></div>
+        <figcaption>Total number of residents in a medical desert (commune APL below 2.5), by region. Île-de-France leads despite a middling average APL — Paris's high score obscures the suburban crisis. Source: DREES APL 2023 × INSEE population 2021.</figcaption>
+      </figure>
+
+      <h2>What drives the regional pattern</h2>
+
+      <p>Three forces shape the league table. First, <strong>retirement geography</strong>: where retirees move, GPs follow — PACA and Bretagne are both retirement magnets and both perform well. Second, <strong>population density</strong>: dense industrial towns (Hauts-de-France) sustain large GP catchment areas; dispersed farming country (Centre-Val de Loire) cannot. Third, <strong>the Paris effect</strong>: Île-de-France's enormous suburban population, sprawling across poorly-served <em>communes nouvelles</em> far from any city centre, is the single largest contributor to France's 11-million desert population.</p>
+
+      <p>The APL score itself is a flow model: it estimates consultations accessible within a realistic travel radius, adjusted for how many people are competing for the same GPs. A commune that gains a new GP sees its APL rise not only there but across a wide radius — the system is more interconnected than a simple per-resident ratio would suggest. What the regional table ultimately shows is that France's medical geography is not primarily an urban/rural split: it is a retirement-coast surplus, an industrial-town baseline, and a suburban-Paris deficit.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL scores are from DREES (Direction de la recherche, des études, de l'évaluation et des statistiques), 2023 vintage, covering 34,886 metropolitan French communes and overseas territories. This story uses metropolitan France only (excluding <em>départements</em> 97 and 98). Population figures are INSEE 2021 census estimates embedded in the same dataset. "Population-weighted APL" is computed by weighting each commune's APL by its population and summing within region; this gives the APL score that an average resident of the region experiences, as opposed to an arithmetic mean across communes (which would overweight small communes). The "desert threshold" of APL 2.5 is the DREES official <em>zone sous-dense</em> definition.</p>
+        <p>Regional boundaries follow the 2016 reform (13 metropolitan regions). Département-to-region mapping is based on the INSEE COG. Corse (2A + 2B) is included as a metropolitan region despite its island geography.</p>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawLeagueTable, drawDesertBubbles } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const regions = await loadJSON('./data.json');
+      drawLeagueTable('#chart-league', regions);
+      drawDesertBubbles('#chart-desert-pop', regions);
+    }
+
+    main().catch(err => console.error('health-league error:', err));
+  </script>
+</body>
+</html>
