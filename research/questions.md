@@ -90,6 +90,13 @@ datasets and the resulting story.
 - Finding: 12,771 of 34,886 communes (36.6%) fall below the APL 2.5 threshold, home to 11.1 million people. The access gap is centre-vs-periphery, not urban-vs-rural: Paris (dept 75) has an average APL of 4.96 with zero desert communes, while the surrounding IDF suburbs (Seine-et-Marne, Val-d'Oise, Yvelines, Essonne) rank among the worst-served in France. Three Guyanese communes (Maripasoula, Grand-Santi, Papaichton) have APL = 0.00.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
+### Q-042: How do France's overseas departments compare on healthcare access?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Réunion has zero medical deserts across 24 communes (avg APL 4.80, minimum 2.64). Martinique: 6.8% in desert. Guadeloupe: 16%. Guyane: 68.3% in desert, 9 APL=0 communes including Maripasoula (9K people) and Kourou — the European Space Centre — at APL=2.28. Mayotte is absent from the DREES APL dataset entirely.
+- Story: [outre-mer](/stories/outre-mer/)
+
 ### Q-015: Which commune has the most doctors per capita?
 - Status: 🟢 open
 - Topic: [health](topics/health.md)

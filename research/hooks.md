@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 La Réunion has 24 communes. Not one is a medical desert. Average APL: 4.80. A volcanic island in the Indian Ocean beats every metropolitan department outside Paris. [Q-042]
+- 🔥 Guyane: 68.3% of residents live in medical deserts. Nine communes have APL = 0.00. One of them is a suburb of Cayenne. Three are Maroni river towns reachable only by pirogue. [Q-042]
+- 🔥 Kourou is where Europe launches its rockets. It is also, officially, a medical desert. APL: 2.28. [Q-042]
+- 🔥 Mayotte — France's poorest department, poverty rate above 70% — is simply absent from the DREES APL dataset. When France maps its medical deserts, Mayotte is invisible. [Q-042]

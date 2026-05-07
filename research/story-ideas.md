@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### outre-mer: Five Frances
+- Status: ✅ published
+- Published URL: /stories/outre-mer/
+- Source question: [Q-042](questions.md#q-042-how-do-frances-overseas-departments-compare-on-healthcare-access)
+- Hook: La Réunion has no medical deserts — not one. Guyane has nine communes with APL=0. Kourou, where Europe launches its rockets, is officially a medical desert.
+- Data: DREES APL 2023 ([DS-APL](datasets.md#ds-apl)) — same data already in the repo for medical-deserts. Overseas territories distinguished by 3-digit commune code prefix (971=Guadeloupe, 972=Martinique, 973=Guyane, 974=Réunion).
+- Angle: Territory-comparison horizontal bar chart (% in desert, Observable Plot) + Guyane commune table. No new data download needed.
+- Draft X summary:
+  > La Réunion has 24 communes and zero medical deserts. Guyane has nine communes with no accessible GP at all — including Maripasoula (9K people) and Kourou, where Europe launches its rockets. Today on **france-data**: France's overseas health gap, in numbers. 🇫🇷
+
