@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café des Sports — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .name-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .name-pill {
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .name-pill .pill-meta {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--ink-mute);
+      display: block;
+      margin-top: 1px;
+      letter-spacing: 0.4px;
+    }
+    .name-pill-hero {
+      border-color: var(--accent);
+      background: #fdf0f0;
+    }
+    .name-pill-hero .pill-name {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .prefix-bar-wrap {
+      margin: 32px 0;
+      max-width: 580px;
+    }
+    .prefix-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .prefix-bar-label {
+      font-family: var(--serif);
+      font-size: 13px;
+      width: 130px;
+      flex-shrink: 0;
+      text-align: right;
+      color: var(--ink-soft);
+    }
+    .prefix-bar-track {
+      flex: 1;
+      height: 18px;
+      background: #e8e0d4;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .prefix-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .prefix-bar-count {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .name-example-block {
+      background: #f0ece4;
+      border-left: 3px solid #c8b89a;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-family: var(--serif);
+    }
+    .name-example-block .example-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .name-example-block .example-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <a href="../../" class="wordmark">France, by the numbers</a>
+    <span class="meta">Culture · May 2026</span>
+  </header>
+
+  <main class="page">
+    <article class="story">
+      <h1 class="story-title">Café des Sports</h1>
+      <p class="story-dek">Of France's 49,385 registered bars, 29,238 have a name. One name appears 133 times. The rest tell a whole other story.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">49,385</span>
+          <span class="stat-label">registered bars in France</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">59.2%</span>
+          <span class="stat-label">trade under a registered name</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">40.8%</span>
+          <span class="stat-label">have no official name at all</span>
+        </div>
+      </div>
+
+      <h2>The unnamed 41%</h2>
+
+      <p>Walk into a bar in France and it almost certainly has a name above the door. But in SIRENE — the national business register that tracks every active establishment — 20,147 of France's 49,385 bars carry no registered name at all. They have a business number, a SIRET, a tax classification, a physical address. They just never acquired an official name in the register.</p>
+
+      <p>This isn't the same as being nameless in practice. Many of these bars operate under the owner's name or a local nickname that never made it into the paperwork. Some are effectively micro-enterprises where the owner <em>is</em> the business. The gap between what a bar calls itself on its awning and what the state records tells you something about the elasticity of French bureaucratic informality — the register captures the legal minimum, not the social reality.</p>
+
+      <p>The share of unnamed bars varies by département in ways that aren't entirely obvious. Calvados (dept 14, heart of Normandy) and Loiret (dept 45, Loire valley) have the lowest rates — around 26–28% unnamed, meaning more than seven in ten bars there have formal names. Moselle (dept 57) and Meurthe-et-Moselle (dept 54) in Lorraine sit at 51–56% unnamed. The overseas departments (dept 97) match that high end. No clean theory fully explains the gradient, but Normandy's bar culture — dense, locally rooted, historically robust — may simply have produced a more formalised naming tradition.</p>
+
+      <h2>The taxonomy of French bar names</h2>
+
+      <p>Of the 29,238 named bars, the naming pattern is almost comically predictable. Nearly half start with <em>Le</em>, <em>La</em>, or <em>Les</em> — the definite article doing what French definite articles do, staking out territory. The next most common prefix is <em>Café</em>, followed by <em>Bar</em>. After that, <em>Au</em> and <em>Aux</em> (the contracted "at the"), <em>Chez</em> ("at so-and-so's place"), <em>Brasserie</em>, and a smattering of English-inflected <em>The</em> and <em>Pub</em>.</p>
+
+      <div class="prefix-bar-wrap" id="prefix-bars-container">
+        <!-- rendered by JS -->
+      </div>
+
+      <p>Together, these eight categories account for 65.8% of named bars. The remaining 34.2% — around 10,000 bars — resist easy classification: English names, numeric names, proper names, regional-language names, acronyms, and whatever possessed someone to register their bar as <strong>%ARABICA</strong>.</p>
+
+      <h2>The civic map embedded in bar names</h2>
+
+      <p>Pull on the <em>Café de la</em> thread and you find France's civic geography printed in its drinking habits. At least 1,245 bars are named after a local landmark — the town hall, the railway station, the post office, the market square. These aren't arbitrary choices:</p>
+
+      <div class="name-pills" id="civic-pills-container">
+        <!-- rendered by JS -->
+      </div>
+
+      <p>The pattern makes immediate social sense. When a bar opens across from the mairie, it becomes the place where the town council goes after meetings, where the mayor is informally accessible, where local governance bleeds into conversation. The name records this. <em>Café de la Gare</em> marks a bar that once served railway workers and travellers before the line closed or the trains got faster and stopped stopping. The landmark moved on; the name stayed.</p>
+
+      <p>These 1,245 bars are, in aggregate, an accidental map of French civic infrastructure, rendered in bar names. Every closed post office, every consolidated mairie, every decommissioned station — some fraction of them still exist as a <em>Café de la Poste</em> or <em>Café de la Gare</em>, the building long since demolished or repurposed, the bar still carrying the name.</p>
+
+      <h2>Café des Sports</h2>
+
+      <p>The single most common bar name in France — appearing 133 times, in 133 different communes — is <strong>Café des Sports</strong>. Run all sports-themed variants together (Bar des Sports, Le Bar des Sports, Le Café des Sports, Le Sporting) and the total reaches at least 385.</p>
+
+      <div class="name-example-block">
+        <div class="example-name">Café des Sports</div>
+        <div class="example-meta">133 locations across France — the most common bar name in the SIRENE register</div>
+      </div>
+
+      <p>This is not a chain. Each <em>Café des Sports</em> is an independent business, sharing only a name and, presumably, a television tuned to football. The French sports café is a genuine institution — a place whose social function (watching games, arguing about them, providing a warm room for the local running club's post-race debrief) is encoded right in the name. The name does not aspire to originality. It declares purpose.</p>
+
+      <p>The runner-up, <strong>Le Longchamp</strong> (96 locations), takes its name from the famous Paris racecourse, suggesting a second institution: the bar near the betting shop, the place where horse racing is followed, wagers placed, tickets torn. Number three is a tie: <strong>Café de la Mairie</strong> and <strong>Café du Centre</strong>, both at 89 — civic geography again. And at number five: <strong>Le Balto</strong> (89 locations), the one name on the list that requires a moment's explanation.</p>
+
+      <p><em>Le Balto</em> is a specifically Parisian-suburban name, a common shorthand for a corner café-tabac. The word is slang, probably derived from <em>Baltimore</em> via early 20th-century French jazz culture, though the etymology is genuinely disputed. Whatever the origin, it became a shorthand for a certain kind of neighbourhood café: small, functional, selling cigarettes and coffee and the occasional <em>demi</em>. That 89 bars across France still carry this name suggests the institution survived even if the meaning of the name drifted into obscurity.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-top-names" class="chart-mount"></div>
+        <figcaption>Top 20 most common bar names in the SIRENE register (active débits de boissons, NAF 56.30Z, March 2026). Each bar is an independent business. Source: INSEE SIRENE.</figcaption>
+      </figure>
+
+      <h2>The long tail</h2>
+
+      <p>Only one bar name appears 100 or more times. Twenty names appear 50 or more times. But the overwhelming reality of French bar names is singularity: of 20,431 unique names, <strong>17,831 appear exactly once</strong> — 87.3% of all unique names.</p>
+
+      <p>France's bars are, in aggregate, overwhelmingly individual. The common names are common because they describe function and location, not because anyone chose a brand. The unique names are unique because someone named a bar after themselves, after their street, after a local legend, after a mood.</p>
+
+      <p>At the far ends of the distribution:</p>
+
+      <div class="name-pills">
+        <div class="name-pill name-pill-hero">
+          <span class="pill-name">Le Dernier Bar Avant la Fin du Monde</span>
+          <span class="pill-meta">Nord (dept 59) · "The last bar before the end of the world"</span>
+        </div>
+        <div class="name-pill">
+          <strong>36.15 Café</strong>
+          <span class="pill-meta">A nod to France's Minitel era</span>
+        </div>
+        <div class="name-pill">
+          <strong>%ARABICA</strong>
+          <span class="pill-meta">Punctuation as branding</span>
+        </div>
+        <div class="name-pill">
+          <strong>G</strong>
+          <span class="pill-meta">One character. Registered, legal, active.</span>
+        </div>
+      </div>
+
+      <p>The shortest registered bar name is a single letter. The longest is a 100-character concatenation of hotel and restaurant names that appears to be the result of a business registration never quite cleaned up after a series of rebrands. Neither extreme is typical. The typical French bar is named after sport, a civic landmark, or a definite article followed by something unambiguous.</p>
+
+      <p>Which is, in its way, a portrait of a country: deeply attached to the ordinary, occasionally eccentric, rarely pretentious, and very interested in football.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts and names are drawn from the INSEE SIRENE national register, filtered to active establishments (état administratif = A) with NAF code 56.30Z (<em>débits de boissons</em> — licensed premises serving alcohol for on-site consumption), March 2026 snapshot. The "name" field captures the <em>denominationUniteLegale</em> or <em>enseigne</em> fields from the SIRENE unité légale and établissement records. Names are normalised to uppercase for counting; display uses title-case. Bars that register under an individual's name (rather than a company name) often show no business name in the register — this explains much of the 40.8% unnamed rate. The 133-location count for Café des Sports uses exact-match uppercase normalisation; minor spelling variants (Café Des Sports vs CAFE DES SPORTS) are counted as one.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE — Base SIRENE</a> — national register of all business establishments.</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE — SIRENE géolocalisation</a> — geocoded coordinates for SIRENE establishments.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawTopNamesChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const data = await loadJSON('./data.json');
+
+      // Render prefix breakdown bars
+      const prefixContainer = document.getElementById('prefix-bars-container');
+      if (prefixContainer) {
+        const maxCount = Math.max(...data.prefixes.map(p => p.count));
+        for (const row of data.prefixes) {
+          const pct = (row.count / maxCount * 100).toFixed(1);
+          const sharePct = (row.count / data.named * 100).toFixed(1);
+          const el = document.createElement('div');
+          el.className = 'prefix-bar-row';
+          el.innerHTML = `
+            <div class="prefix-bar-label">${row.label}</div>
+            <div class="prefix-bar-track">
+              <div class="prefix-bar-fill" style="width:${pct}%"></div>
+            </div>
+            <div class="prefix-bar-count">${row.count.toLocaleString()} <span style="color:#aaa">(${sharePct}%)</span></div>
+          `;
+          prefixContainer.appendChild(el);
+        }
+      }
+
+      // Render civic name pills
+      const civicContainer = document.getElementById('civic-pills-container');
+      if (civicContainer && data.civicBreakdown) {
+        for (const [name, count] of Object.entries(data.civicBreakdown)) {
+          const pill = document.createElement('div');
+          pill.className = 'name-pill';
+          pill.innerHTML = `<strong>${name}</strong><span class="pill-meta">${count} locations</span>`;
+          civicContainer.appendChild(pill);
+        }
+      }
+
+      // Draw top names chart
+      drawTopNamesChart('#chart-top-names', data);
+    }
+
+    main().catch(err => console.error('cafe-des-sports story error:', err));
+  </script>
+</body>
+</html>

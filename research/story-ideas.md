@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### cafe-des-sports: Café des Sports
+- Status: ✅ published
+- Published URL: /stories/cafe-des-sports/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: The most common bar name in France is "Café des Sports" — 133 independent businesses, same name. 40.8% of bars have no name at all.
+- Data: Same SIRENE dataset as Story 4 (bars.json, 49,385 bars). Analysis of name fields: denominationUniteLegale and enseigne. No new download needed.
+- Angle: Text-and-charts. The taxonomy of French bar names — prefix breakdown, civic landmark names, the hapax explosion. Observable Plot horizontal bar chart of top 20 names. No map.
+- Draft X summary:
+  > France has 49,385 bars. 40.8% of them have no registered name — a phone number, a SIRET, a front door, but nothing in the official record. Of the named ones: 133 are called "Café des Sports". 1,245 are named after a mairie, a gare, or a post office. Today on **france-data**: what French bar names actually tell you. 🇫🇷
+

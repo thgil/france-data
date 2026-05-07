@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 40.8% of France's 49,385 bars have no registered name. They exist in SIRENE with a business number and an address, but nothing above the door made it into the register. [Q-042]
+- 🔥 The most common bar name in France: "Café des Sports". 133 locations, 133 independent businesses, one shared name. Add all sports-themed variants and you get 385. [Q-042]
+- 🔥 1,245 French bars are named after civic landmarks — the mairie, the railway station, the post office, the main square. They are an accidental map of French civic infrastructure, rendered in bar names. [Q-042]
+- 🔥 87.3% of French bar names appear exactly once. The common names are common because they describe function. The unique ones are unique because someone named a bar after themselves, a street, a mood. [Q-042]

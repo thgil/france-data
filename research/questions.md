@@ -196,6 +196,12 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
+### Q-042: What are the most common bar names in France, and what do they reveal about bar culture?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: The most common bar name is "Café des Sports" (133 locations). Of 29,238 named bars, 45.8% start with Le/La/Les. 40.8% of all bars trade without any registered name. 1,245 bars are named after civic landmarks (Mairie, Gare, Poste, Place…). 87.3% of unique bar names appear only once — the bar scene is overwhelmingly individual beneath the common templates.
+- Story: [cafe-des-sports](/stories/cafe-des-sports/)
+
 ### Q-041: Where are IDF's bakeries densest?
 - Status: ✅ answered
 - Topic: [culture](topics/culture.md)
