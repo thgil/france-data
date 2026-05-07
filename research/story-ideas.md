@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### republic-of-saints: The Republic of Saints
+- Status: ✅ published
+- Published URL: /stories/republic-of-saints/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: France has 4,410 saint-named communes. The secular Republic never quite got around to renaming them. In Creuse, nearly 1 in 3 communes invokes a saint. In Paris: zero.
+- Data: Commune names parsed from DREES APL 2023 commune file (35,014 communes), reused from Story 2 (medical-deserts). No new download required.
+- Angle: Dot-density map (4,410 indigo dots, 3-second animation) + horizontal bar chart of top 15 saints + département stats tables (highest vs lowest saint-naming rates).
+- Draft X summary:
+  > France officially separated church and state in 1905. But 4,410 of its communes are still named after saints. Saint-Martin leads with 249 namesakes — more than Luxembourg has municipalities. In Creuse, 1 in 3 communes is a saint. In Paris: zero. The laïc Republic never finished the job. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

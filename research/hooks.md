@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 12.6% of French communes — 4,410 out of 35,014 — are named after a saint. France has been secular since 1905. The saints predate the Republic by about 1,200 years. [Q-042]
+- 🔥 Saint-Martin is France's most popular saint: 249 communes share the name (in some form). That's more than all the municipalities in Luxembourg. [Q-042]
+- 🔥 In Creuse, 30.6% of communes are saint-named — nearly 1 in 3. In Paris: zero. In Alsace (Bas-Rhin): 1.4%. The Reformation, the Revolution, and the Rhine all left a mark on French place names. [Q-042]
+- 🔥 France has 1,095 different saints commemorated in commune names. Many are completely obscure medieval local evangelists — Saint-Gengoux, Saint-Aquilin, Saint-Saud — remembered only by the village that bears their name. [Q-042]

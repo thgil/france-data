@@ -189,12 +189,20 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Y (Somme, pop ~100) is the only one-letter commune in France. Two-letter communes include Sy, By, Bû, Oô, Oz, Ri, Uz, Py, Ur, Gy, Eu, Ry, Us — 13 in total. Surfaced as a side finding while parsing commune names for Q-042.
+- Story: [republic-of-saints](/stories/republic-of-saints/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
+
+### Q-042: What share of French communes are named after saints, and where is the practice most and least common?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: 4,410 of 35,014 communes (12.6%) carry a saint's name. Saint-Martin leads with 249 name-share communes; the top 3 saints (Martin, Jean, Pierre) account for 580 communes. The practice is most common in the Massif Central (Creuse 30.6%, Ardèche 29.3%, Haute-Vienne 28.7%) and nearly absent in Alsace (Bas-Rhin 1.4%), Corsica (Haute-Corse 0.4%), and Paris (0%). Only 359 communes use the feminine Sainte- vs 4,051 Saint-. 1,095 distinct saint names survive in French commune names.
+- Story: [republic-of-saints](/stories/republic-of-saints/)
 
 ### Q-041: Where are IDF's bakeries densest?
 - Status: ✅ answered

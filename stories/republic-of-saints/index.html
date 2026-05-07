@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Republic of Saints — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls ───────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+    .ctrl-group { display: flex; align-items: center; gap: 6px; }
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+    .replay-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, color 0.1s;
+    }
+    .replay-btn:hover { background: #ece8e0; color: #1a1a1a; border-color: #999; }
+    .legend-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .legend-indigo { background: #5B4BD4; }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+
+    /* ── Saint chart ────────────────────────────────────────────────── */
+    .saint-chart { margin: 48px 0; }
+    .saint-chart h2 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .saint-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .saint-label {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+    .saint-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+    .saint-bar {
+      height: 14px;
+      background: #5B4BD4;
+      opacity: 0.75;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      min-width: 2px;
+    }
+    .saint-count {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* ── Stats grids ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .saint-label { min-width: 110px; }
+    }
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td { border-bottom: 1px solid #ede8e0; }
+    .stats-table .rank {
+      font-size: 10px; color: #aaa;
+      padding-right: 6px; min-width: 1.6ch;
+    }
+    .stats-table .place { font-family: Georgia, serif; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Republic of Saints</h1>
+        <p class="story-dek">4,410 French communes — one in eight — are named after a saint. Creuse is nearly one in three. Paris is zero.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France officially separated church and state in 1905. The law is called <em>laïcité</em>. But look at the map of commune names and you'll find 4,410 places — 12.6% of all 35,014 French communes — that still carry a saint's name. In the Creuse, the rate is nearly one in three. In Alsace, it barely registers. In Paris, it's zero.</p>
+
+      <p>This is hagiography written in cartography: a snapshot of medieval Christianity, the Reformation's uneven reach, and the administrative inertia of a country that has renamed everything except itself.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-saints" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-massif">Massif Central</button>
+            <button class="zoom-btn" id="btn-bretagne">Bretagne</button>
+            <button class="zoom-btn" id="btn-alsace">Alsace</button>
+            <button class="zoom-btn" id="btn-paris">Paris</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <span style="display:inline-flex;align-items:center;gap:4px;">
+              <span class="legend-dot legend-indigo"></span>
+              Saint commune
+            </span>
+            &nbsp;
+            <button class="replay-btn" id="btn-replay">Replay animation</button>
+          </div>
+        </div>
+        <figcaption>Each indigo dot is one saint-named commune at its centroid. 4,410 communes in total. Source: <a href="https://www.data.gouv.fr/datasets/accessibilite-potentielle-localisee-apl">DREES commune file 2023</a> — commune names parsed by the author.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>One king: Saint-Martin</h2>
+
+      <p>Of the 4,410 saint communes, 249 are called Saint-Martin — easily the most common. That's one Saint-Martin for roughly every 5,600 km² of France, or, to put it another way, more than Luxembourg has municipalities in total. Saint-Jean (168) and Saint-Pierre (163) come second and third. Together the top three saints account for 580 communes — more than the entire department of Gers has towns.</p>
+
+      <p>Across all saint communes, there are <strong>1,095 distinct saint names</strong> in use. Many are obscure enough to require a hagiography dictionary: Saint-Gengoux, Saint-Hippolyte, Saint-Cyr, Saint-Saud, Saint-Aquilin. These are medieval local saints, evangelists of small valleys, patrons of markets long since moved to larger towns. Their communes survive. The saints are forgotten except on road signs.</p>
+
+      <!-- ── Saint chart ───────────────────────────────────────────────── -->
+      <div class="saint-chart">
+        <h2>Most common saints (by number of communes)</h2>
+        <div id="saint-chart-root"></div>
+      </div>
+
+      <!-- ── Beat 4 ────────────────────────────────────────────────────── -->
+      <h2>A geography of persistence</h2>
+
+      <p>The distribution is not random. The Massif Central — Creuse (30.6%), Ardèche (29.3%), Haute-Vienne (28.7%), Dordogne (28.4%) — is the heartland. This is old Catholic France: rural, mountainous, slow to change. Communes here were named in the early Middle Ages and, unlike in the revolutionary north, rarely renamed.</p>
+
+      <p>Alsace is the sharpest counter-example. Bas-Rhin has a saint-commune rate of 1.4%. Haut-Rhin, 2.5%. The region only became French in 1648 (Westphalia) and again in 1919 (Versailles), and its naming traditions are Germanic and Alsatian rather than Latin Catholic. Corsica is similar: its communes follow a separate Genovese-influenced tradition, giving just 0.8% (Corse-du-Sud) and 0.4% (Haute-Corse).</p>
+
+      <p>Paris — 21 communes in its département — has zero. The capital's commune names are <em>arrondissements</em> by number, and its nearby satellites carry secular names: Montrouge, Vincennes, Pantin, Ivry. The Revolution renamed what the Middle Ages had consecrated.</p>
+
+      <!-- ── Stats tables ──────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest saint-commune rate (by département)</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest saint-commune rate</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <h2>Masculine and feminine</h2>
+
+      <p>Of the 4,410 saint communes, 4,051 use the masculine <em>Saint-</em> and just 359 use the feminine <em>Sainte-</em>. There are plenty of Sainte-Marie (50), Sainte-Colombe (33), Sainte-Croix (27) — but for every <em>Sainte</em> there are more than eleven <em>Saints</em>. This is not a quirk of the data; it reflects the medieval church's canon, which was overwhelmingly male. The Blessed Virgin gets special treatment — she appears in composite names like Notre-Dame or Mont-Saint-Michel — but in the plain naming convention, the saints are mostly men.</p>
+
+      <!-- ── Beat 6 ────────────────────────────────────────────────────── -->
+      <p>France has had 230 years to rename these communes. After 1789, the Revolutionary government tried: Saint-Martin-de-Ré became Port-de-Ré, Saint-Malo became Port-Malo, Saint-Nazaire became Port-Nazaire. Most reverted within a decade. In 1793, the Convention gave up. The saints, it turned out, were harder to dislodge than the kings.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and centroids come from the DREES APL 2023 commune file, which covers 35,014 communes. Saint communes were identified by matching names against the pattern <code>Saint(e)-</code> using a regular expression. Centroids are computed as the mean of each commune polygon's boundary vertices. The 4,410 figure may slightly overcount if a commune's name contains <em>Saint</em> as a geographic descriptor rather than a patron saint (e.g. Saint-Clair-sur-Epte), but no correction was applied; the pattern is robust at this scale.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) aux médecins généralistes 2023</a> — commune-level data with names and polygons, reused from <a href="../medical-deserts/">Story 2 (medical deserts)</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawSaintMap, drawSaintChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateTables(stats) {
+      const topTbody = document.querySelector('#table-top tbody');
+      if (topTbody && stats.deptStats) {
+        topTbody.innerHTML = stats.deptStats.slice(0, 8).map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.rate}% <span style="color:#aaa;font-size:11px">(${d.saints}/${d.total})</span></td>
+          </tr>`
+        ).join('');
+      }
+
+      const bottomTbody = document.querySelector('#table-bottom tbody');
+      if (bottomTbody && stats.deptBottom) {
+        // Show bottom entries excluding collectivités / overseas outliers
+        const realDepts = stats.deptBottom
+          .filter(d => /^\d+$/.test(d.dept) && parseInt(d.dept) < 96)
+          .slice(0, 6);
+        bottomTbody.innerHTML = realDepts.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.rate}% <span style="color:#aaa;font-size:11px">(${d.saints}/${d.total})</span></td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const [saints, stats] = await Promise.all([
+          loadJSON('./saints.json'),
+          loadJSON('./stats.json'),
+        ]);
+
+        populateTables(stats);
+        drawSaintChart('#saint-chart-root', stats.topSaints);
+
+        const mapAPI = drawSaintMap('#map-saints', { saints, stats });
+
+        document.getElementById('map-controls').style.display = '';
+        document.getElementById('btn-france').addEventListener('click',   () => mapAPI.flyToFrance());
+        document.getElementById('btn-massif').addEventListener('click',   () => mapAPI.flyToMassif());
+        document.getElementById('btn-bretagne').addEventListener('click', () => mapAPI.flyToBretagne());
+        document.getElementById('btn-alsace').addEventListener('click',   () => mapAPI.flyToAlsace());
+        document.getElementById('btn-paris').addEventListener('click',    () => mapAPI.flyToParis());
+        document.getElementById('btn-replay').addEventListener('click',   () => mapAPI.replay());
+
+      } catch (err) {
+        console.error('Failed to load republic-of-saints data:', err);
+        document.getElementById('map-saints').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
