@@ -1,0 +1,295 @@
+{
+  "totalCommunes": 35014,
+  "totalPop": 67329462,
+  "desertCount": 12771,
+  "desertPct": 36.5,
+  "desertPop": 11103526,
+  "desertPopPct": 16.5,
+  "aplZeroMetro": 527,
+  "maxApl": 40.03,
+  "maxAplCommune": "Montgenèvre",
+  "maxAplPop": 457,
+  "above4": 6363,
+  "above5": 2042,
+  "above10": 16,
+  "nationalMeanApl": 2.96,
+  "topCommunes": [
+    {
+      "name": "Montgenèvre",
+      "dept": "05",
+      "apl": 40.03,
+      "pop": 457,
+      "type": "mountain"
+    },
+    {
+      "name": "Île-de-Sein",
+      "dept": "29",
+      "apl": 27.68,
+      "pop": 273,
+      "type": "island"
+    },
+    {
+      "name": "Vars",
+      "dept": "05",
+      "apl": 21.64,
+      "pop": 573,
+      "type": "mountain"
+    },
+    {
+      "name": "Cargèse",
+      "dept": "2A",
+      "apl": 14.19,
+      "pop": 1237,
+      "type": "corsica"
+    },
+    {
+      "name": "Île-d'Houat",
+      "dept": "56",
+      "apl": 14.07,
+      "pop": 216,
+      "type": "island"
+    },
+    {
+      "name": "Île-d'Aix",
+      "dept": "17",
+      "apl": 14.01,
+      "pop": 207,
+      "type": "island"
+    },
+    {
+      "name": "Englos",
+      "dept": "59",
+      "apl": 11.37,
+      "pop": 614,
+      "type": "suburb"
+    },
+    {
+      "name": "Île-de-Bréhat",
+      "dept": "22",
+      "apl": 11.11,
+      "pop": 402,
+      "type": "island"
+    },
+    {
+      "name": "Saint-Étienne-Vallée-Française",
+      "dept": "48",
+      "apl": 10.8,
+      "pop": 496,
+      "type": "other"
+    },
+    {
+      "name": "Vendeville",
+      "dept": "59",
+      "apl": 10.65,
+      "pop": 1546,
+      "type": "suburb"
+    },
+    {
+      "name": "Groix",
+      "dept": "56",
+      "apl": 10.61,
+      "pop": 2282,
+      "type": "island"
+    },
+    {
+      "name": "Abriès-Ristolas",
+      "dept": "05",
+      "apl": 10.54,
+      "pop": 382,
+      "type": "mountain"
+    },
+    {
+      "name": "Aiguilles",
+      "dept": "05",
+      "apl": 10.54,
+      "pop": 377,
+      "type": "mountain"
+    },
+    {
+      "name": "Château-Ville-Vieille",
+      "dept": "05",
+      "apl": 10.54,
+      "pop": 306,
+      "type": "mountain"
+    },
+    {
+      "name": "Grézian",
+      "dept": "65",
+      "apl": 10.4,
+      "pop": 75,
+      "type": "mountain"
+    },
+    {
+      "name": "Ersa",
+      "dept": "2B",
+      "apl": 10.3,
+      "pop": 136,
+      "type": "corsica"
+    },
+    {
+      "name": "Rosiers-d'Égletons",
+      "dept": "19",
+      "apl": 10.0,
+      "pop": 1091,
+      "type": "other"
+    },
+    {
+      "name": "Hallennes-lez-Haubourdin",
+      "dept": "59",
+      "apl": 9.98,
+      "pop": 4718,
+      "type": "suburb"
+    },
+    {
+      "name": "Arreau",
+      "dept": "65",
+      "apl": 9.94,
+      "pop": 752,
+      "type": "mountain"
+    },
+    {
+      "name": "Ancizan",
+      "dept": "65",
+      "apl": 9.79,
+      "pop": 279,
+      "type": "mountain"
+    }
+  ],
+  "bottomMetroCommunes": [
+    {
+      "name": "Meymac",
+      "dept": "19",
+      "pop": 2279
+    },
+    {
+      "name": "Saugues",
+      "dept": "43",
+      "pop": 1681
+    },
+    {
+      "name": "Gorbio",
+      "dept": "06",
+      "pop": 1527
+    },
+    {
+      "name": "Sainte-Agnès",
+      "dept": "06",
+      "pop": 1351
+    },
+    {
+      "name": "Linguizzetta",
+      "dept": "2B",
+      "pop": 1103
+    },
+    {
+      "name": "Castellar",
+      "dept": "06",
+      "pop": 1087
+    },
+    {
+      "name": "Utelle",
+      "dept": "06",
+      "pop": 844
+    },
+    {
+      "name": "Mons",
+      "dept": "83",
+      "pop": 837
+    },
+    {
+      "name": "Échallon",
+      "dept": "01",
+      "pop": 765
+    },
+    {
+      "name": "Moltifao",
+      "dept": "2B",
+      "pop": 714
+    },
+    {
+      "name": "Clans",
+      "dept": "06",
+      "pop": 673
+    },
+    {
+      "name": "Monte",
+      "dept": "2B",
+      "pop": 630
+    }
+  ],
+  "histData": [
+    {
+      "label": "< 1",
+      "lo": 0,
+      "hi": 1,
+      "count": 1748,
+      "pop": 478895
+    },
+    {
+      "label": "1–2",
+      "lo": 1,
+      "hi": 2,
+      "count": 5796,
+      "pop": 4341535
+    },
+    {
+      "label": "2–2.5",
+      "lo": 2,
+      "hi": 2.5,
+      "count": 5227,
+      "pop": 6283096
+    },
+    {
+      "label": "2.5–3",
+      "lo": 2.5,
+      "hi": 3,
+      "count": 6012,
+      "pop": 9136927
+    },
+    {
+      "label": "3–4",
+      "lo": 3,
+      "hi": 4,
+      "count": 9740,
+      "pop": 20019551
+    },
+    {
+      "label": "4–5",
+      "lo": 4,
+      "hi": 5,
+      "count": 4294,
+      "pop": 16540919
+    },
+    {
+      "label": "5–6",
+      "lo": 5,
+      "hi": 6,
+      "count": 1380,
+      "pop": 6751216
+    },
+    {
+      "label": "6–8",
+      "lo": 6,
+      "hi": 8,
+      "count": 598,
+      "pop": 3497365
+    },
+    {
+      "label": "8–10",
+      "lo": 8,
+      "hi": 10,
+      "count": 74,
+      "pop": 269288
+    },
+    {
+      "label": "> 10",
+      "lo": 10,
+      "hi": 40,
+      "count": 16,
+      "pop": 10213
+    }
+  ],
+  "dept05PwApl": 5.02,
+  "parisPwApl": 4.96,
+  "dept05Above5Count": 52
+}

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Best-Served Village in France Has 457 Residents — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box.good { border-color: #16803a; }
+    .stat-box.bad  { border-color: #b32020; }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box.good .stat-num { color: #16803a; }
+    .stat-box.bad  .stat-num { color: #b32020; }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .type-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin: 16px 0 0;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .type-legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .type-legend .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .commune-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 13px;
+      margin: 28px 0;
+    }
+    .commune-table th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      border-bottom: 1px solid var(--rule, #d8d0c0);
+      padding: 6px 10px 6px 0;
+    }
+    .commune-table th:not(:first-child) { text-align: right; }
+    .commune-table td {
+      padding: 8px 10px 8px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: middle;
+    }
+    .commune-table td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+    .commune-table td:first-child { font-weight: 600; }
+    .commune-table .dept-badge {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--ink-mute);
+      background: #ede8e0;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    .commune-table .apl-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .commune-table .apl-bar {
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+      min-width: 2px;
+    }
+    .commune-table .apl-bar.mountain { background: #2563eb; }
+    .commune-table .apl-bar.island   { background: #16803a; }
+    .commune-table .apl-bar.suburb   { background: #d97706; }
+    .commune-table .apl-bar.corsica  { background: #7c3aed; }
+    .commune-table .apl-bar.other    { background: #6b7280; }
+    .commune-table .apl-num {
+      font-variant-numeric: tabular-nums;
+      min-width: 3ch;
+    }
+
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 40px 0;
+      padding: 4px 24px;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin: 0;
+    }
+
+    .source-note {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule, #d8d0c0);
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+    }
+    .source-note h3 {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 20px 0 6px;
+    }
+    .source-note a { color: inherit; }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The Best-Served Village in France Has 457 Residents</h1>
+        <p class="story-dek">France's official healthcare access metric ranks a ski station in the Alps above every major city. Here's why — and what it reveals about how medicine organises itself in space.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>France measures healthcare access at the commune level using a score called the APL — <em>Accessibilité Potentielle Localisée</em>. The metric estimates how many GP consultations per year each resident can plausibly reach, factoring in distance and the competing demand of surrounding populations. Below 2.5 is a medical desert. Above 4 is well-served. The national mean sits at 3.0.</p>
+
+      <p>The highest score in France: <strong>40.03</strong>. The commune holding it: <strong>Montgenèvre</strong>, Hautes-Alpes. Population: 457 permanent residents. Primary export: ski holidays.</p>
+
+      <p>Montgenèvre's APL is eight times the national average, and sixteen times the medical desert threshold. Paris scores 4.96. Lyon: somewhere around 4.5. The capital of French bread and pharmacy density can't come close to a mountain village that most Parisians know only as a departure board destination in February.</p>
+
+      <!-- ── Stat row ─────────────────────────────────────────────────────── -->
+      <div class="stat-row">
+        <div class="stat-box good">
+          <span class="stat-num">40.03</span>
+          <span class="stat-label">APL of Montgenèvre — France's highest</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" id="stat-above4">6,363</span>
+          <span class="stat-label">communes with APL ≥ 4 (well-served)</span>
+        </div>
+        <div class="stat-box bad">
+          <span class="stat-num" id="stat-desert">12,771</span>
+          <span class="stat-label">communes below APL 2.5 (medical deserts)</span>
+        </div>
+        <div class="stat-box bad">
+          <span class="stat-num" id="stat-zero">527</span>
+          <span class="stat-label">metropolitan communes with APL = 0</span>
+        </div>
+      </div>
+
+      <!-- ── Top 20 table ─────────────────────────────────────────────────── -->
+      <h2>The leaderboard</h2>
+
+      <p>Twenty communes in France have an APL score above 9. Here they are, with their population and the reason each one ends up at the top:</p>
+
+      <table class="commune-table" id="top-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Population</th>
+            <th>APL score</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="type-legend" id="type-legend">
+        <span><span class="swatch" style="background:#2563eb"></span>Mountain / ski (Hautes-Alpes, Savoie, Pyrénées)</span>
+        <span><span class="swatch" style="background:#16803a"></span>Island (fixed small population)</span>
+        <span><span class="swatch" style="background:#d97706"></span>Suburb (tiny commune, large city nearby)</span>
+        <span><span class="swatch" style="background:#7c3aed"></span>Corsica (small coastal village)</span>
+      </div>
+
+      <!-- ── Beat 1: Mountain effect ─────────────────────────────────────── -->
+      <h2>The Briançon effect</h2>
+
+      <p>Montgenèvre sits 12 kilometres from Briançon, a town of 12,000 in the Hautes-Alpes with a full regional hospital, a cluster of specialist consultants, and a GP density well above the national norm. The APL formula draws a 30-minute driving-time catchment around each commune and counts all the GPs accessible within it. For Montgenèvre's 457 permanent residents, the numerator — GPs in the Briançon catchment — is large. The denominator — permanent residents competing for those consultations — is tiny. The ratio climbs to 40.</p>
+
+      <p>This is not unique to Montgenèvre. Look at positions 3, 12, 13, and 14 on the leaderboard: <strong>Vars</strong> (APL 21.64), <strong>Abriès-Ristolas</strong> (10.54), <strong>Aiguilles</strong> (10.54), <strong>Château-Ville-Vieille</strong> (10.54). All are tiny Hautes-Alpes villages within the Briançon catchment. They share their APL, because they share their doctors. Département 05 has the highest population-weighted average APL in metropolitan France: <strong id="dept05-apl">5.02</strong>, against Paris's 4.96.</p>
+
+      <div class="pull-quote">
+        <p>Hautes-Alpes has a population-weighted APL of 5.02 — beating Paris. The department is mostly mountains, glaciers, and communes of under 500 people. The doctors are in Briançon.</p>
+      </div>
+
+      <p>This is a general feature of the APL formula wherever a large medical centre sits surrounded by low-density countryside. The small communes in the orbit of a well-staffed town inherit very high APL scores precisely because they have few people to share those resources with. The metric is measuring proximity to medicine, not ownership of it.</p>
+
+      <!-- ── Beat 2: Islands ──────────────────────────────────────────────── -->
+      <h2>Islands apart</h2>
+
+      <p>Four of the top twenty are islands: the <strong>Île-de-Sein</strong> (Finistère, APL 27.68, pop 273), <strong>Île-d'Houat</strong> (Morbihan, APL 14.07, pop 216), <strong>Île-d'Aix</strong> (Charente-Maritime, APL 14.01, pop 207), and <strong>Île-de-Bréhat</strong> (Côtes-d'Armor, APL 11.11, pop 402). <strong>Groix</strong>, Morbihan (APL 10.61, pop 2,282) is also an island, though large enough to feel less extreme.</p>
+
+      <p>French islands with year-round populations are typically assigned at least one GP by the public health system — a matter of basic necessity given that getting to the mainland for a routine appointment can mean a ferry and most of a day. That GP, serving a few hundred permanent residents, produces an APL number that looks extraordinary on paper. Île-de-Sein: one doctor, 273 permanent residents. The ratio is intrinsically high.</p>
+
+      <p>It is worth noting that these numbers reflect permanent population. Île-de-Bréhat receives around 400,000 visitors a year. In peak summer, the island's GP is not serving 402 people. The APL formula doesn't adjust for tourism. For islands where the economy is almost entirely built on summer visitors, the "best-served" label is a statistical artefact of seasonality.</p>
+
+      <!-- ── Beat 3: Lille suburbs ────────────────────────────────────────── -->
+      <h2>The Lille suburbs</h2>
+
+      <p>A less obvious cluster appears in Nord (département 59): <strong>Englos</strong> (APL 11.37, pop 614), <strong>Vendeville</strong> (APL 10.65, pop 1,546), <strong>Hallennes-lez-Haubourdin</strong> (APL 9.98, pop 4,718), <strong>Lezennes</strong> (APL 9.74, pop 3,019), <strong>Capinghem</strong> (APL 9.42, pop 2,474). These are all peri-urban communes in the southern and western fringe of the Lille metropolitan area — small enough to have relatively few residents, large enough to have Lille's medical infrastructure inside their APL catchment.</p>
+
+      <p>Lille is France's fourth-largest city and has one of the largest university hospitals in Europe (the CHU de Lille). Its GP density is high. The suburban villages around it — too small to support their own medical cabinets, but close enough to use Lille's — get APL scores that make them look medically exceptional. They are not: the GPs they're being credited with are in Lille, not in them. But the formula credits proximity, not presence.</p>
+
+      <p>This is essentially the same mechanism as the Briançon effect, just in a flat urban context rather than an Alpine one. Small commune + large medical centre nearby = high APL.</p>
+
+      <!-- ── Chart: Distribution ──────────────────────────────────────────── -->
+      <h2>The shape of healthcare access</h2>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-hist"></div>
+        <figcaption>Distribution of APL scores across all 34,886 French communes with valid scores. The x-axis shows score buckets; bars show commune count. The mass of French territory sits in the 2–4 range. The long right tail — a tiny number of communes with scores above 6 — is the leaderboard territory this story explores. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <p>The distribution is sharply right-skewed. More than 20,000 communes have APL between 2 and 4. Above 5, the numbers fall off a cliff: just 2,042 communes (5.8% of the total). Above 10: only 16. Above 20: two — Montgenèvre and Île-de-Sein. The leaderboard is not just unusual; it is structurally isolated from the rest of the country.</p>
+
+      <!-- ── Beat 4: The other end ────────────────────────────────────────── -->
+      <h2>The other end: APL = 0</h2>
+
+      <p>For completeness, 527 communes in metropolitan France have an APL of exactly zero. The formula finds no accessible GP within the relevant catchment: not because there are no doctors in France, but because the distance or demand calculation returns nothing viable within reach.</p>
+
+      <p>The most populous of these is <strong>Meymac</strong>, Corrèze (population 2,279), a small town in the Massif Central highlands that lost its last resident GP and now sits outside the effective catchment of any neighbouring practice. <strong>Saugues</strong>, Haute-Loire (pop 1,681) — another highland market town — follows. Several Alpes-Maritimes villages (<strong>Gorbio</strong>, <strong>Sainte-Agnès</strong>, <strong>Castellar</strong>, <strong>Utelle</strong>) sit at APL=0, isolated by the steep terrain between Nice and the Italian frontier.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-zero"></div>
+        <figcaption>The twelve most populous communes in metropolitan France with APL = 0. All are rural; most are in topographically difficult terrain (Massif Central, Alps, Corsica) or are islands far from mainland services. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <p>The gap between the two extremes — 0 to 40 within the same national health system — is a measure of how unevenly France's medical geography is distributed. The formula doesn't cause the inequality; it reveals it. Where doctors choose to practise, and where they don't, is the underlying story. The numbers just make it legible.</p>
+
+      <!-- ── Closing ──────────────────────────────────────────────────────── -->
+      <h2>What the metric does and doesn't measure</h2>
+
+      <p>The APL is not a measure of the quality of care, nor of waiting times, nor of whether you can actually get an appointment. It measures potential accessibility: a model of how much GP time, in theory, is reachable from where you live. The model has known limitations at extremes — small island populations, ski resorts where most visitors are uncounted, suburban villages that sit in the shadow of a major city. At the extremes, the number is less a reflection of lived experience than of geometric accident.</p>
+
+      <p>But the middle of the distribution — the 30 million or so French people in the APL 1.5–4 range — is where the metric is most honest. Those are the communes where doctor availability is genuinely tight, where the catchment actually fills up with competing demand, where the number reflects something real about whether you can get an appointment in the next two weeks. That's also the territory where France's <a href="../medical-deserts/">médecins déserts</a> problem lives — not in the anomalies at the tails, but in the vast, unremarkable middle.</p>
+
+      <div class="source-note">
+        <strong>Sources and methods.</strong> APL scores from the DREES <em>Accessibilité Potentielle Localisée</em> dataset, 2023 vintage, covering 35,014 communes including overseas territories. 128 communes have null APL scores (coded no-data). The APL model is a modified two-step floating catchment area method: for each commune, it sums the GP consultations accessible within a 30-minute driving-time catchment (metropolitan France), weighted by catchment-area population demand. A score of 2.5 is the official under-density threshold; 1.0 is severe under-density. Population base: INSEE 2021. The DREES dataset was also used in the earlier <a href="../medical-deserts/"><em>Where the doctors aren't</em></a> story, which focuses on the desert threshold rather than the upper tail.
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawHistogram, drawZeroChart } from './charts.js';
+
+    const TYPE_COLORS = {
+      mountain: '#2563eb',
+      island:   '#16803a',
+      suburb:   '#d97706',
+      corsica:  '#7c3aed',
+      other:    '#6b7280'
+    };
+
+    async function main() {
+      const stats = await fetch('./stats.json').then(r => r.json());
+
+      // Stat boxes
+      document.getElementById('stat-above4').textContent = stats.above4.toLocaleString('en');
+      document.getElementById('stat-desert').textContent = stats.desertCount.toLocaleString('en');
+      document.getElementById('stat-zero').textContent = stats.aplZeroMetro.toLocaleString('en');
+      document.getElementById('dept05-apl').textContent = stats.dept05PwApl.toFixed(2);
+
+      // Top table
+      const tbody = document.querySelector('#top-table tbody');
+      const maxApl = stats.topCommunes[0].apl;
+      tbody.innerHTML = stats.topCommunes.map((c, i) => {
+        const barW = Math.round(c.apl / maxApl * 120);
+        const color = TYPE_COLORS[c.type] || TYPE_COLORS.other;
+        return `<tr>
+          <td>${c.name}<span class="dept-badge">${c.dept}</span></td>
+          <td>${c.pop.toLocaleString('en')}</td>
+          <td>
+            <div class="apl-bar-wrap">
+              <div class="apl-bar ${c.type}" style="width:${barW}px;background:${color}"></div>
+              <span class="apl-num">${c.apl.toFixed(2)}</span>
+            </div>
+          </td>
+        </tr>`;
+      }).join('');
+
+      // Charts
+      drawHistogram('#chart-hist', stats);
+      drawZeroChart('#chart-zero', stats);
+    }
+
+    main().catch(err => console.error('top-apl error:', err));
+  </script>
+</body>
+</html>

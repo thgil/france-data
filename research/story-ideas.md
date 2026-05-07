@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### top-apl: The Best-Served Village in France Has 457 Residents
+- Status: ✅ published
+- Published URL: /stories/top-apl/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: France's official healthcare access metric ranks a ski station — Montgenèvre, pop 457, APL 40.03 — above Paris, Lyon, and every other major city. The formula rewards being small and near a hospital.
+- Data: DREES APL 2023 commune-level scores ([DS-APL](datasets.md#ds-apl)), reused from Story 2 (medical-deserts). 35,014 communes; no new download required.
+- Angle: Text-and-charts story. Table of top 20 APL communes (coloured by type: mountain, island, Lille suburb, Corsica). Histogram of APL distribution revealing the sharp right skew. Ranked chart of APL=0 communes in metropolitan France. No map — the narrative is statistical.
+- Draft X summary:
+  > France's official healthcare access formula ranks a ski station above Paris. Montgenèvre, Hautes-Alpes: 457 permanent residents, APL score of 40 — 8× the national mean. Islands, mountain villages, and tiny Lille suburbs make up the rest of the top 20. Today on **france-data**: the outliers at both ends of the scale, and what they reveal about how medicine organises itself in space. 🏥🇫🇷
+

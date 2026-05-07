@@ -91,8 +91,11 @@ datasets and the resulting story.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: By the APL metric (accessible GP consultations per standardised resident), Montgenèvre (Hautes-Alpes, pop 457) leads France with a score of 40.03 — eight times the national mean of 3.0. The top twenty are dominated by three types: tiny communes inside the Briançon catchment area (dept 05), small French islands with dedicated GPs (Île-de-Sein, Île-d'Houat, Île-d'Aix, Île-de-Bréhat), and peri-urban communes around Lille (dept 59). The APL formula rewards proximity to large medical centres combined with small permanent population. Hautes-Alpes has the highest population-weighted average APL in metropolitan France (5.02), beating Paris (4.96).
+- Story: [top-apl](/stories/top-apl/)
 
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open
