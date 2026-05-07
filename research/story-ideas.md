@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### city-doctors: The city that doctors forgot
+- Status: ✅ published
+- Published URL: /stories/city-doctors/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: Argenteuil has 107,000 residents and an APL of 1.74. It's bigger than Nancy. It's 20 minutes from Paris. It's a medical desert.
+- Data: DREES APL 2023 commune data ([DS-APL](datasets.md#ds-apl)) — already in repo from medical-deserts story. No new downloads.
+- Angle: Two horizontal bar charts. First: best 12 provincial cities (pop ≥ 50k) by APL — all well-served. Second: 15 worst IDF towns (pop ≥ 30k) — all medical deserts. Narrative covers three patterns: well-served provincial cities, IDF suburban sprawl, declining industrial towns.
+- Draft X summary:
+  > Strasbourg: APL 6.46, best GP access of any French city over 100k. Argenteuil, 20 min from Paris: APL 1.74, a medical desert with 107,000 residents. Among France's major provincial cities — not one is a medical desert. In the Paris suburbs: 29 towns, 3.5 million people, below the threshold. 🏥🇫🇷
+

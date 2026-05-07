@@ -91,8 +91,11 @@ datasets and the resulting story.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: The "most doctors" question is best measured by APL (Accessibilité Potentielle Localisée). Among cities of 100k+, Strasbourg leads at APL 6.46, followed by Bordeaux (6.35) and Lille (6.11). All major provincial cities (50k+) are above the 2.5 threshold. The outlier is Argenteuil (107k, APL 1.74) — France's largest medical-desert city. 29 IDF towns of 30k+ fall below the threshold.
+- Story: [city-doctors](/stories/city-doctors/)
 
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open

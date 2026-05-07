@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Argenteuil (107,000 residents) is France's largest medical desert. It's bigger than Nancy. The train to Paris takes 20 minutes. [Q-015]
+- 🔥 Among France's 50+ largest provincial cities, not one is a medical desert. Among IDF suburbs: 29 towns of 30k+ fall below the threshold. [Q-015]
+- 🔥 Strasbourg APL: 6.46. Argenteuil APL: 1.74. Both are French cities. Only one has adequate GP access. [Q-015]
+- 🔥 Vierzon (Cher, APL 1.64) and Le Creusot (APL 2.10) show that industrial decline is the other route to a large-town medical desert — not suburban sprawl. [Q-015]
