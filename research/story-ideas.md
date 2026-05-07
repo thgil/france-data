@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+
+### bread-gap: The Bread Gap
+- Status: ✅ published
+- Published URL: /stories/bread-gap/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: Paris 1er has one bakery per 480 residents. Jouy-le-Moutier, 30km away by RER, has 16,500 residents and one bakery. The bread gap is 35×.
+- Data: IDF BPE commune-level bakery + population data (1,300 communes) from communes.geojson — already in repo from the pharmacy-myth story. No new download needed.
+- Angle: Two Chart.js bar charts (department comparison + top 15 communes per-capita horizontal bar) plus inline stats cards and a table of urban bakery deserts. Text-heavy narrative, no map.
+- Draft X summary:
+  > 607 of 1,300 Île-de-France communes have zero bakeries. In Seine-et-Marne, it's 59%. The bread gap between Paris 1er (20.8/10k) and Jouy-le-Moutier (0.6/10k) is 35×. Today on **france-data**: the uneven geography of the baguette. 🥖🇫🇷

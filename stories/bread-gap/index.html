@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bread Gap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure canvas {
+      max-height: 360px;
+    }
+    .chart-figure.tall canvas {
+      max-height: 480px;
+    }
+
+    /* ── Stat callouts ───────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .stat-card {
+      border-top: 2px solid #c67c00;
+      padding-top: 12px;
+    }
+    .stat-card .stat-number {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: #1a1a1a;
+      margin: 0 0 6px;
+    }
+    .stat-card .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Desert table ────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .dept-tag {
+      font-size: 10px;
+      color: #aaa;
+      margin-left: 4px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Bread Gap</h1>
+        <p class="story-dek">Paris's 1st arrondissement has one bakery for every 480 residents. Twenty minutes away by RER, Jouy-le-Moutier has 16,500 residents and one bakery. Inside Île-de-France's baguette inequality.</p>
+        <div class="story-meta">
+          <span>2026-05-07</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────────── -->
+      <p>Île-de-France has 6,299 boulangeries spread across 1,300 communes and 12 million residents — about 5.3 per 10,000 people on average. That sounds reasonable. But averages hide a story. The distribution of those bakeries follows a sharp gradient from central Paris outward, and at the edges it drops away almost entirely.</p>
+
+      <p>The data below comes from the <em>Base Permanente des Équipements</em> (BPE), INSEE's annual census of public and commercial services by commune. Each commune in IDF appears with its bakery count and its population. The question isn't how many bakeries there are — it's where they aren't.</p>
+
+      <!-- ── Beat 2: Department chart ───────────────────────────────────── -->
+      <h2>Paris vs the rest</h2>
+
+      <p>Paris the city (département 75) sits at 8.0 bakeries per 10,000 residents — well above every surrounding département. Seine-Saint-Denis (93), the dense inner-ring suburb to the north-east, comes closest at 5.2/10k. Further out, Essonne (91) and Val-d'Oise (95) fall to 4.3–4.4. That gap looks modest in a bar chart. In lived experience, it's the difference between a boulangerie on your street and a ten-minute drive.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-dept" aria-label="Bakeries per 10,000 residents by IDF département"></canvas>
+        <figcaption>Bakeries per 10,000 residents, by IDF département. Source: INSEE BPE 2023, via <em>communes.geojson</em> from the <a href="../pharmacy-myth/">pharmacy-myth</a> dataset. Paris highlighted in amber.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Paris arrondissements ─────────────────────────────── -->
+      <h2>Inside Paris, the gradient continues</h2>
+
+      <p>Paris itself is not uniform. The historic core — 1st, 4th, 6th, 8th, 9th arrondissements — clusters around 13–21 bakeries per 10,000 residents. Paris 1er leads at 20.8/10k: 36 boulangeries for 17,300 people, or roughly one per 480 residents. These are the arrondissements where the tourist walks past three boulangeries before deciding which queue to join.</p>
+
+      <p>Beyond Paris, a few well-served small towns appear in the top 15. Rebais, a market town of 2,150 in Seine-et-Marne, ranks first overall at 23.2/10k — but with just 5 bakeries, it's a statistical quirk. Among communes with more than 10,000 residents, the Paris arrondissements hold every top spot.</p>
+
+      <figure class="chart-figure tall">
+        <canvas id="chart-communes" aria-label="Top 15 communes by bakeries per 10,000 residents"></canvas>
+        <figcaption>Top 15 IDF communes by bakeries per 10,000 residents (population &gt; 2,000). Paris arrondissements in amber, other communes in blue-grey. Hover for exact figures.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Zero-bakery communes ──────────────────────────────── -->
+      <h2>Nearly half of IDF communes have no bakery at all</h2>
+
+      <p>The most striking number isn't Paris's surplus — it's the periphery's absence. <strong>607 of 1,300 IDF communes (46.7%) have zero registered bakeries.</strong> Not one. In Seine-et-Marne, the region's largest département by area and the one furthest from central Paris, 301 of 514 communes — 59% — are bakery-free.</p>
+
+      <div class="stat-row" id="stat-row">
+        <div class="stat-card">
+          <div class="stat-number">607</div>
+          <div class="stat-label">IDF communes with zero bakeries<br>(46.7% of all 1,300)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">59%</div>
+          <div class="stat-label">Seine-et-Marne communes with zero bakeries<br>(301 of 514)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">35×</div>
+          <div class="stat-label">How many more bakeries per person Paris 1er has vs Jouy-le-Moutier</div>
+        </div>
+      </div>
+
+      <p>Many of these zero-bakery communes are small: a few hundred residents, no commercial centre, bread bought in the next town over or at the supermarket. But not all of them are small. Forty-six communes with populations above 3,000 have zero bakeries. Two top 5,000.</p>
+
+      <!-- ── Beat 5: Urban bakery deserts ─────────────────────────────── -->
+      <h2>Urban towns, nearly bread-free</h2>
+
+      <p>The hardest cases to explain away are the towns large enough to have a <em>mairie</em>, a school, a pharmacy — but not a boulangerie. Jouy-le-Moutier in Val-d'Oise has 16,589 residents and one bakery: 0.6 per 10,000, compared to Paris 1er's 20.8. Carrières-sur-Seine in Yvelines has 15,473 residents and two bakeries. These are postwar suburbs built around cars and supermarkets, where the <em>grande surface</em> absorbed bread-buying decades ago. The boulangerie, if it survived at all, became a single outlier.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Urban bakery deserts (pop &gt; 5,000)</h3>
+          <table class="stats-table" id="table-deserts">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>IDF totals by département</h3>
+          <table class="stats-table" id="table-depts">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Close ─────────────────────────────────────────────── -->
+      <h2>What the map of bread tells you about the map of everything</h2>
+
+      <p>The boulangerie was never purely commercial. It's infrastructure — the morning anchor, the reason to walk, the thing that makes a <em>quartier</em> feel like one. Its distribution across IDF maps almost perfectly onto the broader geography of urban investment: dense in the historic core, thinning fast at the périphérique, absent across wide swaths of outer Seine-et-Marne and Val-d'Oise.</p>
+
+      <p>The 607 zero-bakery communes are a different kind of map. They're not necessarily poor or failing — many are comfortable commuter towns. But they've traded the neighbourhood bakery for something else: a car, a supermarket aisle, a frozen baguette. The tradition hasn't died; it's just concentrated. The bread is still there. It's just that most of it is in Paris.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts and commune populations come from INSEE's Base Permanente des Équipements (BPE) 2023, preprocessed for IDF by this project's earlier <a href="../pharmacy-myth/">pharmacy-myth</a> story. The dataset covers 1,300 communes in Île-de-France. "Bakery" (boulangerie/pâtisserie) corresponds to the BPE equipment type D201. Paris is treated as 20 arrondissements (communes) rather than one unit, which gives the granular per-arrondissement breakdown.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.insee.fr/fr/statistiques/3568638">INSEE Base Permanente des Équipements 2023</a> — commune-level equipment counts for IDF, including bakeries (D201) and pharmacies (D301)</li>
+          <li>Data file: <code>stories/pharmacy-myth/communes.geojson</code> — 1,300 IDF communes with bakery count, pharmacy count, and population</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, drawCommuneChart } from './charts.js';
+
+    const DEPT_DATA = [
+      { dept: '75', name: 'Paris',             bakeries: 1800, population: 2246567, per10k: 8.0 },
+      { dept: '93', name: 'Seine-St-Denis',    bakeries: 786,  population: 1522663, per10k: 5.2 },
+      { dept: '77', name: 'Seine-et-Marne',    bakeries: 665,  population: 1320742, per10k: 5.0 },
+      { dept: '94', name: 'Val-de-Marne',      bakeries: 650,  population: 1330837, per10k: 4.9 },
+      { dept: '92', name: 'Hauts-de-Seine',    bakeries: 721,  population: 1575617, per10k: 4.6 },
+      { dept: '78', name: 'Yvelines',          bakeries: 637,  population: 1415912, per10k: 4.5 },
+      { dept: '95', name: "Val-d'Oise",        bakeries: 513,  population: 1176289, per10k: 4.4 },
+      { dept: '91', name: 'Essonne',           bakeries: 527,  population: 1217607, per10k: 4.3 },
+    ];
+
+    const COMMUNE_TOP15 = [
+      { name: 'Rebais',                    dept: '77', bakeries: 5,   population: 2151,  per10k: 23.2 },
+      { name: 'Paris 1er',                 dept: '75', bakeries: 36,  population: 17308, per10k: 20.8 },
+      { name: 'Paris 4e',                  dept: '75', bakeries: 45,  population: 28012, per10k: 16.1 },
+      { name: 'Houdan',                    dept: '78', bakeries: 5,   population: 3289,  per10k: 15.2 },
+      { name: 'Pontcarré',                 dept: '77', bakeries: 3,   population: 2001,  per10k: 15.0 },
+      { name: 'Paris 8e',                  dept: '75', bakeries: 61,  population: 41280, per10k: 14.8 },
+      { name: 'Bourron-Marlotte',          dept: '77', bakeries: 4,   population: 2712,  per10k: 14.8 },
+      { name: 'Paris 9e',                  dept: '75', bakeries: 78,  population: 60139, per10k: 13.0 },
+      { name: 'Paris 6e',                  dept: '75', bakeries: 56,  population: 43451, per10k: 12.9 },
+      { name: 'Paris 2e',                  dept: '75', bakeries: 29,  population: 23009, per10k: 12.6 },
+      { name: 'Annet-sur-Marne',           dept: '77', bakeries: 4,   population: 3239,  per10k: 12.3 },
+      { name: 'Paris 5e',                  dept: '75', bakeries: 73,  population: 60938, per10k: 12.0 },
+      { name: 'Varennes-sur-Seine',        dept: '77', bakeries: 4,   population: 3355,  per10k: 11.9 },
+      { name: 'Enghien-les-Bains',         dept: '95', bakeries: 14,  population: 11809, per10k: 11.9 },
+      { name: 'Le Raincy',                 dept: '93', bakeries: 16,  population: 13828, per10k: 11.6 },
+    ];
+
+    const DESERT_DATA = [
+      { name: 'Jouy-le-Moutier',          dept: '95', bakeries: 1, population: 16589, per10k: 0.60 },
+      { name: 'Méry-sur-Oise',            dept: '95', bakeries: 1, population: 9260,  per10k: 1.08 },
+      { name: 'Fleury-Mérogis',           dept: '91', bakeries: 1, population: 9121,  per10k: 1.10 },
+      { name: 'Carrières-sur-Seine',      dept: '78', bakeries: 2, population: 15473, per10k: 1.29 },
+      { name: 'Montmagny',                dept: '95', bakeries: 2, population: 14250, per10k: 1.40 },
+      { name: 'Itteville',                dept: '91', bakeries: 1, population: 6575,  per10k: 1.52 },
+      { name: 'Othis',                    dept: '77', bakeries: 1, population: 6471,  per10k: 1.55 },
+      { name: 'Saint-Thibault-des-Vignes',dept: '77', bakeries: 1, population: 6300,  per10k: 1.59 },
+    ];
+
+    const DEPT_SUMMARY = [
+      { name: 'Paris',          per10k: 8.0, zero_pct: 0  },
+      { name: 'Seine-St-Denis', per10k: 5.2, zero_pct: 0  },
+      { name: 'Val-de-Marne',   per10k: 4.9, zero_pct: 2  },
+      { name: 'Seine-et-Marne', per10k: 5.0, zero_pct: 59 },
+      { name: 'Hauts-de-Seine', per10k: 4.6, zero_pct: 3  },
+      { name: 'Yvelines',       per10k: 4.5, zero_pct: 52 },
+      { name: "Val-d'Oise",     per10k: 4.4, zero_pct: 46 },
+      { name: 'Essonne',        per10k: 4.3, zero_pct: 42 },
+    ];
+
+    function buildTable(tbodyId, rows) {
+      const tbody = document.querySelector(`#${tbodyId} tbody`);
+      if (!tbody) return;
+      tbody.innerHTML = rows.map(row => row).join('');
+    }
+
+    const desertRows = DESERT_DATA.map(d =>
+      `<tr>
+        <td class="place">${d.name}<span class="dept-tag">(${d.dept})</span></td>
+        <td>${d.per10k.toFixed(2)}/10k — ${d.bakeries} baker${d.bakeries === 1 ? 'y' : 'ies'}, ${d.population.toLocaleString('fr-FR')} residents</td>
+      </tr>`
+    );
+
+    const deptRows = DEPT_SUMMARY.sort((a, b) => b.zero_pct - a.zero_pct).map(d =>
+      `<tr>
+        <td class="place">${d.name}</td>
+        <td>${d.zero_pct}% zero-bakery communes</td>
+      </tr>`
+    );
+
+    buildTable('table-deserts', desertRows);
+    buildTable('table-depts', deptRows);
+
+    drawDeptChart('chart-dept', DEPT_DATA);
+    drawCommuneChart('chart-communes', COMMUNE_TOP15);
+  </script>
+</body>
+</html>
