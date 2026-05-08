@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has 35,014 communes. Six of them have had zero residents since 1916. They still have mayors, appointed by the Meuse prefect — because there's no one left to hold an election. [Q-042]
+- 🔥 Fleury-devant-Douaumont changed hands sixteen times during the Battle of Verdun. By December 1916 it had ceased to exist. Today it appears in the DREES medical access dataset with population = 0 and APL score = null. [Q-042]
+- 🔥 The land around Verdun still can't be farmed. Twelve million unexploded shells remain in the zone rouge — 110 years on, the Red Zone is permanent. The six ghost communes sit inside it. [Q-042]
+- 🔥 Ornes, the nearest inhabited commune to the Verdun ghost villages, has 7 residents. Blanzée has 13. Vauquois has 21. The wound in the Meuse landscape is wider than the six official zeros suggest. [Q-042]

@@ -201,3 +201,12 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+## History / Territory
+
+### Q-042: How many communes in France have had zero permanent residents for over a century, and why?
+- Status: ✅ answered
+- Topic: history
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: Six communes in the Meuse (dept 55) appear in the national census with population = 0 — not as data artifacts, but as genuine administrative ghosts. All six were destroyed during the Battle of Verdun in 1916 and legally designated *communes mortes pour la France* by laws in 1918–1919. Their borders are maintained in the IGN commune registry; each has a ceremonially appointed mayor (no residents to elect one). The nearest inhabited commune, Ornes, has 7 residents. The surrounding zone rouge (Red Zone) is classified as permanently uninhabitable due to unexploded WWI ordnance and toxic contamination. The six communes appear in every national dataset including the DREES APL index — with APL = null.
+- Story: [villages-of-verdun](/stories/villages-of-verdun/)

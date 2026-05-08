@@ -56,8 +56,8 @@ any caveats about quality.
 - Publisher: DREES (Direction de la recherche, des études, de l'évaluation et des statistiques)
 - Coverage: All communes in metropolitan France and overseas territories. APL scores for 2023, population base INSEE 2021. 34,886 communes.
 - Formats: CSV, XLS
-- Notes: APL = accessibilité potentielle localisée. Measures estimated GP consultations accessible per standardised resident per year, using a catchment-area model that accounts for distance and demand. Threshold: < 2.5 = sous-dense (medical desert); < 1.0 = severe. Some small communes have null scores. Vintage 2023 is the most recent as of April 2026.
-- Used by: Q-014
+- Notes: APL = accessibilité potentielle localisée. Measures estimated GP consultations accessible per standardised resident per year, using a catchment-area model that accounts for distance and demand. Threshold: < 2.5 = sous-dense (medical desert); < 1.0 = severe. Some small communes have null scores. Vintage 2023 is the most recent as of April 2026. The six communes mortes pour la France in the Meuse appear with pop = 0 and APL = null.
+- Used by: Q-014, Q-042
 
 ### DS-CONTOURS: Contours administratifs communes 2025 (data.gouv.fr)
 - URL: https://www.data.gouv.fr/datasets/contours-administratifs
@@ -65,7 +65,7 @@ any caveats about quality.
 - Coverage: All French communes including overseas territories. 2025 vintage, 1000m simplification level.
 - Formats: GeoJSON, TopoJSON, Shapefile
 - Notes: Used for commune polygon boundaries. The 1000m-simplified version is suitable for national-scale choropleth rendering (~10 MB GeoJSON). Joined to DREES APL data via INSEE commune code. Includes overseas territories (Guyane, Martinique, Guadeloupe, La Réunion, Mayotte) with their actual coordinates.
-- Used by: Q-014
+- Used by: Q-014, Q-042
 
 ### DS-003: Base Sirene des entreprises et de leurs établissements (national)
 - URL: https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret

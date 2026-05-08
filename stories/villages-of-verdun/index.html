@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Communes That Died for France — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+      height: 480px;
+      position: relative;
+      background: #edeae3;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .legend-ghost { background: #8b1520; }
+    .legend-meuse { background: #c8bfad; border: 1px solid #a09880; }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 11px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      color: #8b1520;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+    .map-tooltip .tt-ghost-tag {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 2px 6px;
+      background: #8b1520;
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    /* ── Named communes list ─────────────────────────────────────────── */
+    .communes-list {
+      max-width: 680px;
+      margin: 32px auto;
+      padding: 0;
+      list-style: none;
+    }
+    .communes-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-family: Georgia, serif;
+      font-size: 17px;
+    }
+    .communes-list li:last-child { border-bottom: none; }
+    .communes-list .cname {
+      flex: 1;
+    }
+    .communes-list .ccode {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.5px;
+    }
+    .communes-list .cpop {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #8b1520;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── Callout box ─────────────────────────────────────────────────── */
+    .callout {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 20px 24px;
+      background: #f5eeea;
+      border-left: 3px solid #8b1520;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .callout strong { color: #8b1520; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 480px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">History</div>
+        <h1 class="story-title">Six Communes That Died for France</h1>
+        <p class="story-dek">Near Verdun, six villages have had zero residents since 1916. They still have mayors. The French state still counts them.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France's national census counts 35,014 communes. Six of them have a population of exactly zero — not because they were merged into a neighbour, not because everyone quietly left, but because they were destroyed in a single year and the people who lived there never came back. The Battle of Verdun erased them in 1916. The French Republic has kept them alive on paper ever since.</p>
+
+      <!-- ── Beat 2: The six ───────────────────────────────────────────── -->
+      <h2>The six</h2>
+
+      <p>All six cluster within 20 kilometres of Verdun, in the Meuse. Their names alone carry the weight of the battlefield:</p>
+
+      <ul class="communes-list" id="communes-list">
+        <li>
+          <span class="cname">Fleury-devant-Douaumont</span>
+          <span class="ccode">55189</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+        <li>
+          <span class="cname">Cumières-le-Mort-Homme</span>
+          <span class="ccode">55139</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+        <li>
+          <span class="cname">Bezonvaux</span>
+          <span class="ccode">55050</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+        <li>
+          <span class="cname">Haumont-près-Samogneux</span>
+          <span class="ccode">55239</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+        <li>
+          <span class="cname">Louvemont-Côte-du-Poivre</span>
+          <span class="ccode">55307</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+        <li>
+          <span class="cname">Beaumont-en-Verdunois</span>
+          <span class="ccode">55039</span>
+          <span class="cpop">pop&nbsp;0</span>
+        </li>
+      </ul>
+
+      <p>Cumières carries the translation in its name: <em>le Mort-Homme</em> — Dead Man's Hill — was one of the most contested ridges of the entire war. Fleury-devant-Douaumont sits metres from the Douaumont Ossuary, where the bones of 130,000 unidentified soldiers are interred behind glass panels. The village changed hands sixteen times during the battle. By December 1916 it had ceased to exist.</p>
+
+      <!-- ── Beat 3: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-verdun" class="mount">
+          <div class="map-loading" id="map-loading">Loading map…</div>
+        </div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-verdun">Verdun battlefield</button>
+            <button class="zoom-btn" id="btn-meuse">Meuse region</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <span style="display:inline-flex;align-items:center;gap:5px;">
+              <span class="legend-swatch legend-ghost"></span>
+              Commune morte pour la France
+            </span>
+            &ensp;
+            <span style="display:inline-flex;align-items:center;gap:5px;">
+              <span class="legend-swatch legend-meuse"></span>
+              Meuse (context)
+            </span>
+          </div>
+        </div>
+        <figcaption>Red polygons mark the six communes mortes pour la France near Verdun. Each boundary is maintained in the official INSEE commune registry. Population: 0. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> joined to <a href="https://www.data.gouv.fr/datasets/contours-administratifs">contours administratifs 2025</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: The law ───────────────────────────────────────────── -->
+      <h2>The law of permanent memory</h2>
+
+      <p>France created the legal category <em>commune morte pour la France</em> — commune that died for France — by laws passed in 1918 and 1919. The designation is permanent. Each of the six retains a full administrative existence: a INSEE commune code, a boundary surveyed and maintained by the IGN, and a mayor. The mayor is not elected. There are no residents to hold an election. The Meuse prefect appoints a ceremonial administrator instead.</p>
+
+      <p>The communes receive no tax revenue. They provide no municipal services. They appear in every national statistical dataset — including the DREES index of medical access that underpins the <a href="../medical-deserts/">medical deserts story</a> on this site. Their APL score is listed as null: there are no residents to serve, and therefore no score to calculate.</p>
+
+      <div class="callout">
+        <strong>Zone rouge.</strong> The land around Verdun is still classified as zone rouge — the Red Zone — contaminated by a century of unexploded shells, toxic residues, and battlefield debris buried metres deep. Estimates place 12 million unexploded shells remaining in the sector. The land cannot be farmed. Forests grow, but the trees absorb so much arsenic that the timber cannot be sold. The zone rouge covers roughly 100 km² and is maintained in perpetuity by the French state.
+      </div>
+
+      <!-- ── Beat 5: The neighbours ────────────────────────────────────── -->
+      <h2>The neighbours</h2>
+
+      <p>The nearest inhabited commune to the ghost zone is Ornes — population seven. Blanzée has thirteen residents. Vauquois, twenty-one. The depopulation of the Verdun zone extends far beyond the official ghost communes themselves. More than 150 communes in the Meuse have fewer than 100 residents. The département averages 29 inhabitants per square kilometre, one of the lowest densities in metropolitan France, against a national metropolitan average of roughly 120.</p>
+
+      <p>These are not ghost communes in a legal sense. They are simply places that did not recover — from the war, from the rural exodus, from a century of young people leaving. The administrative record reflects the slow erasure: populations of 19, 21, 30, 37. Numbers that round, informally, toward zero.</p>
+
+      <!-- ── Beat 6: Closing ────────────────────────────────────────────── -->
+      <h2>What the census carries</h2>
+
+      <p>Every two years, INSEE runs France's rolling census. The six communes participate. Statisticians dutifully update their records. Population: 0. Medical access score: null. Number of registered voters: 0. Number of births, deaths, marriages recorded in the commune since 1916: a handful of ceremonial entries, and then silence.</p>
+
+      <p>France has always been a state that writes things down. The communes mortes pour la France are an extreme expression of that instinct: a decision, made in the shadow of the war, that forgetting is worse than carrying the weight of an empty entry in a database. The six are still there. They always will be.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> The six communes were identified from the DREES APL 2023 commune-level dataset, joined to the IGN contours administratifs 2025 (1000m simplification). All six appear with population = 0 and APL = null. The polygon boundaries shown on the map are from the official commune registry. The context layer shows Meuse communes within the Verdun area bounding box. Population figures for surrounding communes (Ornes: 7, Blanzée: 13, Vauquois: 21) are from the same DREES/INSEE dataset.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs des communes 2025</a></li>
+          <li>Loi du 25 juin 1919 sur les réparations aux communes dévastées (establishing commune morte pour la France status)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawVerdunMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const loadingEl = document.getElementById('map-loading');
+      try {
+        const [ghostData, contextData] = await Promise.all([
+          loadJSON('./ghost-communes.geojson'),
+          loadJSON('./verdun-context.geojson'),
+        ]);
+
+        if (loadingEl) loadingEl.remove();
+
+        const mapAPI = drawVerdunMap('#map-verdun', { ghostData, contextData });
+
+        document.getElementById('map-controls').style.display = '';
+
+        document.getElementById('btn-verdun').addEventListener('click',
+          () => mapAPI.flyToVerdun());
+        document.getElementById('btn-meuse').addEventListener('click',
+          () => mapAPI.flyToMeuse());
+
+      } catch (err) {
+        console.error('Failed to load Verdun map data:', err);
+        if (loadingEl) loadingEl.textContent = 'Failed to load map data.';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

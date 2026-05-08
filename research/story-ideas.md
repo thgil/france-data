@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### villages-of-verdun: Six Communes That Died for France
+- Status: ✅ published
+- Published URL: /stories/villages-of-verdun/
+- Source question: [Q-042](questions.md#q-042-how-many-communes-in-france-have-had-zero-permanent-residents-for-over-a-century-and-why)
+- Hook: France's census counts 35,014 communes. Six of them have zero residents — not because everyone left, but because the Battle of Verdun destroyed them in 1916. They still have mayors. The state still counts them.
+- Data: DREES APL 2023 commune data (pop = 0, APL = null for all six) + IGN contours administratifs 2025 polygon boundaries. Six Meuse communes: Beaumont-en-Verdunois, Bezonvaux, Cumières-le-Mort-Homme, Fleury-devant-Douaumont, Haumont-près-Samogneux, Louvemont-Côte-du-Poivre. All within 20km of Verdun.
+- Angle: Focused regional choropleth map of the Verdun battlefield zone. Ghost communes in dark red against a light Meuse context layer. Narrative-driven with 5 beats: the six, the law (communes mortes pour la France), the zone rouge, the neighbours, what the census carries.
+- Draft X summary:
+  > France has 35,014 communes. Six of them haven't had a single resident since 1916. The Battle of Verdun erased them. They still have mayors. Today on **france-data**: the six ghost communes of the Meuse, and what it means to be an empty entry in a national database. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
