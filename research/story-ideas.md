@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### barless: The bar-less town
+- Status: ✅ published
+- Published URL: /stories/barless/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: Two-thirds of France's 35,000 communes have no registered bar. For a 19,000-person planned town in Isère, that's not a rounding error — it's a design decision.
+- Data: SIRENE NAF 56.30Z bars joined to DREES APL commune population. No new downloads needed — both datasets were already in the repo.
+- Angle: Static chart (% barless by population tier) + table of largest barless communes. Text-driven story about post-war urban planning and what the absence of a bar tells you about a place.
+- Draft X summary:
+  > France has 49,385 bars. It also has 23,265 communes with zero. Two-thirds of France has no registered café — and one town of 19,000 people made the list. Today on **france-data**: the bar-less towns, and what they tell you about post-war planning. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

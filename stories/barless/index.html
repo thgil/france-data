@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar-less town — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Tier chart ─────────────────────────────────────────────────── */
+    .chart-section {
+      margin: 48px 0;
+    }
+    .chart-section h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .tier-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tier-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 52px 110px;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+
+    .tier-label {
+      color: var(--ink-soft);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .tier-bar-wrap {
+      background: #ede8e0;
+      height: 18px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .tier-bar {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    .tier-pct {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      text-align: right;
+      color: var(--ink);
+    }
+
+    .tier-count {
+      font-size: 11px;
+      color: var(--ink-mute);
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 600px) {
+      .tier-row {
+        grid-template-columns: 90px 1fr 48px;
+      }
+      .tier-count { display: none; }
+    }
+
+    /* ── Stats panel ─────────────────────────────────────────────────── */
+    .stats-block {
+      margin: 48px 0;
+    }
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 4px;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .note-col {
+      font-size: 11px;
+      color: var(--ink-mute);
+      padding-left: 8px;
+    }
+
+    /* ── Pull quote ─────────────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 40px 0;
+      padding: 12px 24px;
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar-less town</h1>
+        <p class="story-dek">Two-thirds of France's 35,000 communes have no registered bar. For tiny hamlets, that's expected. For a town of 19,000 people, it's a puzzle.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 registered <em>débits de boissons</em> — the licensed premises (bars, cafés, brasseries) that can legally serve alcohol for consumption on site. Every one of them is in the national SIRENE business registry with a geocoded address. The previous story mapped them all.</p>
+
+      <p>Now turn the question around. Where <em>aren't</em> the bars?</p>
+
+      <p>Of France's 35,014 communes, exactly <strong>23,265 — 66.4% — have no registered bar at all.</strong> Two in three. The café is France's defining public institution, and two-thirds of its communes don't have one.</p>
+
+      <!-- ── Beat 2: Chart ─────────────────────────────────────────────── -->
+      <h2>The threshold</h2>
+
+      <p>For tiny villages, the absence makes sense. A hamlet of forty souls barely supports a <em>tabac</em>, let alone a licensed café. What's striking is how far up the population scale the bar desert extends.</p>
+
+      <!-- Chart: % barless by population tier -->
+      <div class="chart-section">
+        <h3>% of communes with zero registered bars — by population</h3>
+        <div id="tier-chart"></div>
+      </div>
+
+      <p>Among communes of 500–999 residents — proper villages, many with a primary school, a mayor, a post office — <strong>two-thirds still have no bar</strong>. Even in the 1,000–1,999 tier, where you'd expect at least a café-tabac, it's a coin flip: 42% have none.</p>
+
+      <p>The threshold arrives sharply at 20,000 people. Above that level, every single commune in France has at least one registered bar. Below 10,000, the numbers drop fast.</p>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>The surprising cases</h2>
+
+      <p>What about the middle? France has 1,728 communes with populations between 5,000 and 20,000 — mid-sized towns, most of them with supermarkets, pharmacies, and secondary schools. Of those, <strong>73 have zero registered bars.</strong></p>
+
+      <div class="pull-quote">Villefontaine, pop. 19,083. Bars: zero.</div>
+
+      <p>The largest, in metropolitan France, is Villefontaine in Isère — a town of 19,083 people in the Grenoble conurbation. It was built in the early 1970s as one of several <em>villes nouvelles</em> planned by the French state to absorb the baby boom. The master plan provided for housing blocks, a supermarket, a church, and a sports complex. It did not provide for a café. Today, forty years on, SIRENE lists no active <em>débit de boissons</em> in the commune.</p>
+
+      <!-- ── Beat 4: Table ─────────────────────────────────────────────── -->
+      <div class="stats-block">
+        <h3>Largest bar-less communes (metropolitan France, 5 000+ residents)</h3>
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <td class="rank"></td>
+              <td><strong>Commune</strong></td>
+              <td class="note-col"></td>
+              <td style="text-align:right"><strong>Population</strong></td>
+            </tr>
+          </thead>
+          <tbody id="barless-table">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <h2>The dormitory effect — and the Alsace puzzle</h2>
+
+      <p>The pattern in the table is hard to miss. Most of the largest bar-less communes are satellites of major cities built in the post-war decades: four suburbs of Toulouse in the top ten, two near Bordeaux, two near Grenoble, one Paris suburb, one Dijon suburb. These are <em>communes dortoirs</em> — dormitory towns designed for sleeping and commuting, not for lingering over a <em>pression</em>.</p>
+
+      <p>The second cluster is Alsace. Bas-Rhin (67) and Haut-Rhin (68) together account for eleven of the 65 metropolitan communes over 5,000 with no bar. This is likely an artefact of the <em>droit local d'Alsace-Moselle</em>, the regional legal framework inherited from the period of German administration, which governs licensing and business registration differently from the rest of France. Establishments that would be classified as <em>débits de boissons</em> elsewhere may operate under different legal categories in Alsace — which would not show up in SIRENE's NAF 56.30Z count. The Alsace communes almost certainly have places to drink; they just don't show up in this dataset.</p>
+
+      <p>The dormitory communes are a different story. The bar's absence is real. The infrastructure of spontaneous social life — the counter, the terrace, the half-nine regular — never arrived because nothing in the planning process required it.</p>
+
+      <!-- ── Closing ───────────────────────────────────────────────────── -->
+      <h2>The bar as last institution</h2>
+
+      <p>When rural France talks about services disappearing — schools consolidated, post offices closed, gendarmeries merged — the café is usually the last to go. It holds on because it's privately funded, because it adapts (adding a tabac licence here, a PMU counter there, a pizza oven out back), and because people still need somewhere to sit. When the bar closes, the village notices.</p>
+
+      <p>Two-thirds of communes never had one to lose. For the other third, the SIRENE registry is a quiet record of what's still standing.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> This story uses the same SIRENE national snapshot as the <a href="../bars/">bars story</a>: active establishments with NAF code 56.30Z (<em>débits de boissons</em>), geocoded by INSEE's statistical geolocation file, March 2026. Of 35,014 communes in the DREES 2023 APL dataset (which provides population figures), 23,265 have no matching active 56.30Z establishment. Establishments serving alcohol under other NAF codes (restaurants: 56.10A, hotels: 55.10Z) are not counted — the figure undercounts places where you can get a drink, but it is consistent across the country, except possibly in Alsace-Moselle where droit local may affect registration categories.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée 2023</a> (commune population figures)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTierChart, drawBarlessTable } from './charts.js';
+    drawTierChart('#tier-chart');
+    drawBarlessTable('#barless-table');
+  </script>
+</body>
+</html>

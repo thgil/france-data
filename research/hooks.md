@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Two-thirds of France's 35,000 communes have no registered bar. 23,265 communes, zero débits de boissons. The café is France's defining institution — and most of France doesn't have one. [Q-042]
+- 🔥 Villefontaine, Isère: 19,083 people, zero bars. Built in the 1970s as a planned new town. The master plan didn't include a café. [Q-042]
+- 🔥 Even in towns of 1,000–2,000 people, 42% have no registered bar. The coin flip for a café doesn't resolve until you hit 20,000 residents — above that, every commune in France has at least one. [Q-042]
+- 🔥 Four suburbs of Toulouse in the top ten bar-less towns over 5,000 people. The dormitory town effect: built for commuting, not for staying. [Q-042]
