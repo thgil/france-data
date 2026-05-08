@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Paris 11e arrondissement: 142,583 people in 3.36 km². That's 42,000 per km² — more than four times New York City. [Q-044]
+- 🔥 Vincennes (Val-de-Marne) is denser than Paris 18e, 19e, and 20e — at 35,600 people per km², the leafy suburb next to the Bois de Vincennes outpacks most of Paris proper. [Q-044]
+- 🔥 Maripasoula is a French commune larger than Kuwait. 18,716 km², 9,177 people, 0.49/km². It's also a medical desert (APL 0.00). [Q-044]
+- 🔥 Saint-Élie (Guyane) has 241 people across 5,806 km² — 0.042 per km². The Sahara averages ~1.2/km². Saint-Élie is 28× emptier. [Q-044]

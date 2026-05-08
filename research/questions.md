@@ -201,3 +201,12 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+## Geography
+
+### Q-044: Which commune in France has the highest and lowest population density?
+- Status: ✅ answered
+- Topic: geography
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: Densest commune (area ≥ 1 km²): Paris 11e Arrondissement at ~42,494 people/km² — 4× Manhattan. Vincennes (Val-de-Marne) comes second at 35,592/km², edging out Paris 18e, 19e, 20e. Sparsest: Saint-Élie (Guyane) at 0.042/km² — 28× less dense than the Sahara. Maripasoula (Guyane) is the largest commune by area at 18,716 km², bigger than Kuwait, with just 9,177 residents (0.49/km²). National median density: ~49/km². Paris département vs Guyane: 20,177 vs ~3/km² — a ~7,000× ratio within the same republic.
+- Story: [density-extremes](/stories/density-extremes/)

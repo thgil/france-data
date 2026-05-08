@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packed and empty — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callouts ───────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 180px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box.green  { border-left-color: #2a7a4f; }
+    .stat-box.blue   { border-left-color: #2a5a8a; }
+    .stat-box.amber  { border-left-color: #d4860a; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box.green  .stat-num { color: #2a7a4f; }
+    .stat-box.blue   .stat-num { color: #2a5a8a; }
+    .stat-box.amber  .stat-num { color: #d4860a; }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      line-height: 1.4;
+    }
+
+    /* ── Callout block ───────────────────────────────────────────────── */
+    .callout-block {
+      background: #f5f1ea;
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 32px 0;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+    .callout-block.green { border-left-color: #2a7a4f; }
+    .callout-block.amber { border-left-color: #d4860a; }
+    .callout-block strong { color: #1a1a1a; }
+
+    /* ── Chart figure ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    /* ── Stats table ─────────────────────────────────────────────────── */
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 32px 0;
+    }
+    .stats-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 0 10px;
+      border-bottom: 1px solid #e0d8cc;
+      text-align: left;
+    }
+    .stats-table td {
+      padding: 6px 4px;
+      vertical-align: baseline;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .dept-tag {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #999;
+      font-style: normal;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+    .credits ul { margin: 0; padding-left: 1.2em; }
+    .credits li { margin-bottom: 4px; }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Geography</div>
+        <h1 class="story-title">Packed and empty</h1>
+        <p class="story-dek">Paris 11e has 42,000 people per km² — four times Manhattan. A single commune in French Guiana is larger than Kuwait. Both are French.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 35,000 communes — and they are not alike. Most people imagine France as a country of modest villages and mid-size provincial cities, with Paris as the conspicuous exception. The population density data tells a more extreme story: a republic of outliers, where some places are among the most crowded on Earth and others approach the emptiness of the Sahara.</p>
+
+      <p>The most densely populated commune in France (among those with at least 1 km² of area) is <strong>Paris 11e Arrondissement</strong>: 142,583 people in 3.36 km². That works out to <strong id="stat-paris-11e">42,494</strong> people per km² — more than four times the density of New York City (approximately 10,900/km²), and roughly twice Barcelona (15,970/km²). The 11e is not the grandest arrondissement — no Opéra, no Louvre — but it is one of the most alive, with its markets, its <em>bistrots</em>, and its impossibly dense street grid.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num" id="val-paris11e">42,494</span>
+          <span class="stat-label">People per km² in Paris 11e — densest commune in France</span>
+        </div>
+        <div class="stat-box blue">
+          <span class="stat-num" id="val-vincennes">35,592</span>
+          <span class="stat-label">People per km² in Vincennes (Val-de-Marne) — #2, denser than Paris 18e</span>
+        </div>
+        <div class="stat-box green">
+          <span class="stat-num" id="val-median">49</span>
+          <span class="stat-label">Median density across 31,000 French communes (people per km²)</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2 ────────────────────────────────────────────────────── -->
+      <h2>The suburbs give Paris a run</h2>
+
+      <p>The 15 densest communes include 9 Paris arrondissements — but also <strong>Vincennes</strong> (Val-de-Marne, 35,592/km²), <strong>Levallois-Perret</strong> (Hauts-de-Seine, 28,265/km²), <strong>Montrouge</strong> (Hauts-de-Seine, 27,289/km²), <strong>Boulogne-Billancourt</strong> (Hauts-de-Seine, 23,313/km²), and <strong>Lyon 1er</strong> (Rhône, 23,043/km²). Dense urban France is not confined to the <em>périphérique</em>.</p>
+
+      <div class="callout-block">
+        <strong>Vincennes: 35,592 people/km².</strong> The commune sits adjacent to the Bois de Vincennes — France's largest urban park, 995 hectares of forest and lakes. Yet Vincennes itself packs 48,798 people into 1.37 km² and edges out Paris 18e, Paris 19e, and Paris 20e. The Château de Vincennes is at one end of the commune; the rest is dense Haussmann-style residential fabric.
+      </div>
+
+      <p>The chart below ranks the 15 densest communes. Areas for very small communes (under 1 km²) are excluded to avoid polygon simplification artifacts in the underlying data — which means a handful of tiny Côte d'Azur communes near Monaco likely belong in the top 20 but cannot be reliably measured here.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-dense" class="chart-mount"></div>
+        <figcaption>Top 15 communes by population density (area ≥ 1 km², population ≥ 100). Areas are approximate, derived from simplified polygon boundaries at 1000 m resolution. Source: DREES APL 2023 commune file (population) × Etalab administrative boundaries (geometry).</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>And then there is Guyane</h2>
+
+      <p>At the other end of the distribution sits French Guiana — the overseas territory grouped as département 97 in France's administrative system. Here, the word "commune" takes on an entirely different meaning.</p>
+
+      <div class="callout-block">
+        <strong>Maripasoula: 18,716 km², population 9,177.</strong> That is 0.49 people per km². For comparison, Kuwait covers 17,818 km² and has 4.3 million inhabitants. Maripasoula is a single French commune, larger in area than an OECD member state, with fewer people than a modest French market town. It is also a medical desert (APL 0.00).
+      </div>
+
+      <p><strong>Saint-Élie</strong> holds the density record for the least crowded: 241 people spread across 5,806 km² — 0.042 people per km². The Sahara Desert averages roughly 1.2 per km². Saint-Élie is 28 times emptier than the Sahara.</p>
+
+      <p><strong>Régina</strong> (Guyane): 1,655 people, 11,361 km². Larger than Jamaica (10,991 km²). Its population would fill roughly a quarter of a Paris arrondissement.</p>
+
+      <p>Outside Guyane, the emptiest metropolitan communes are in the high Alps. <strong>Saint-Christophe-en-Oisans</strong> (Isère) covers 239 km² of mountains and glaciers with 102 people — 0.43/km². <strong>Saint-Paul-sur-Ubaye</strong> (Alpes-de-Haute-Provence) has 176 people across 209 km² of the Ubaye valley.</p>
+
+      <!-- ── Table: sparse ─────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div id="table-sparse"></div>
+        <figcaption>Ten least densely populated communes (population ≥ 100). The Guyane communes are overseas French territory; the Alpines are metropolitan France. Source: DREES APL 2023 × Etalab boundaries.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4 ────────────────────────────────────────────────────── -->
+      <h2>One republic, a million-to-one ratio</h2>
+
+      <p>Within the French Republic, the extremes of population density span roughly <strong>1,000,000 to 1</strong>: from Paris 11e at ~42,000/km² to Saint-Élie at 0.042/km². No other country of comparable size contains such a range within a single national territory — a consequence of France's colonial geography, which extended its administrative borders deep into equatorial rainforest.</p>
+
+      <p>The median French commune has about <strong>49 people per km²</strong> — roughly the density of rural Ireland or the Scottish Highlands. That median feels intuitive if you drive through the Massif Central, the Sologne, or the Champagne plains. Paris, by contrast, is not just a city — it is a statistical outlier so extreme it barely belongs on the same chart as the rest of the country.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">20,177</span>
+          <span class="stat-label">People per km² in Paris (département 75) — densest département</span>
+        </div>
+        <div class="stat-box amber">
+          <span class="stat-num">~3</span>
+          <span class="stat-label">People per km² in Guyane — least dense territory of the republic</span>
+        </div>
+        <div class="stat-box green">
+          <span class="stat-num">9,391</span>
+          <span class="stat-label">People per km² in Hauts-de-Seine (92) — second densest département</span>
+        </div>
+      </div>
+
+      <p>Lozère, the least dense metropolitan département, has 16.3 people per km² — four times the density of Guyane. The <em>diagonale du vide</em> — the empty diagonal from the Meuse to the Pyrenees — is well-documented, but it looks almost crowded next to the Guyane communes that bookend France's density distribution.</p>
+
+      <p>The numbers above are approximate: commune polygon boundaries in this dataset are simplified at 1000 m resolution, which means computed areas for very small or intricate geometries (Côte d'Azur coastal communes, complex Alpine boundaries) carry some error. The rankings for large communes — Paris arrondissements, the Guyane giants — are robust. The precise figures for sub-km² communes are not.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Population figures are from DREES APL 2023, drawing on INSEE 2021 census estimates embedded in the commune file. Polygon geometries are from Etalab's <em>Contours administratifs communes 2025</em> at 1000 m simplification. Areas are computed as signed spherical areas using the WGS84 ellipsoid (approximate). Communes with computed area below 1 km² are excluded from the dense ranking to avoid inflated density values caused by polygon simplification; they remain in the sparse ranking where the direction of error does not affect the result. All 35,014 communes with non-zero population are included in the underlying dataset; this story filters to population ≥ 100 for legibility.</p>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune population, INSEE 2021 base)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs communes 2025</a> (polygon boundaries, 1000 m simplification)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDenseChart, drawSparseTable } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const data = await loadJSON('./data.json');
+
+      // Fill in stat callouts from data
+      const p11 = data.topDense.find(c => c.name.includes('Paris 11'));
+      const vinc = data.topDense.find(c => c.name.includes('Vincennes'));
+      if (p11)  document.getElementById('val-paris11e').textContent = p11.density.toLocaleString('fr-FR');
+      if (vinc) document.getElementById('val-vincennes').textContent = vinc.density.toLocaleString('fr-FR');
+      document.getElementById('val-median').textContent = data.national.medianDensity.toLocaleString('fr-FR');
+
+      drawDenseChart('#chart-dense', data.topDense);
+      drawSparseTable('#table-sparse', data.topSparse);
+    }
+
+    main().catch(err => {
+      console.error('density-extremes error:', err);
+    });
+  </script>
+</body>
+</html>

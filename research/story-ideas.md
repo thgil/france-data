@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### density-extremes: Packed and empty
+- Status: ✅ published
+- Published URL: /stories/density-extremes/
+- Source question: [Q-044](questions.md#q-044-which-commune-in-france-has-the-highest-and-lowest-population-density)
+- Hook: Paris 11e has 42,000 people per km² — four times Manhattan. Maripasoula (Guyane) covers 18,716 km² (bigger than Kuwait) with 9,177 people. Saint-Élie has 241 people and is 28× less dense than the Sahara. Both are French communes.
+- Data: DREES APL 2023 commune file (population) × Etalab Contours administratifs 2025 (polygon geometry, 1000 m simplification). Polygon areas computed via spherical shoelace formula. No new downloads — reuses data already in repo from medical-deserts story.
+- Angle: Text-and-charts. SVG horizontal bar chart of 15 densest communes (area ≥ 1 km²). HTML table of 10 sparsest communes. Three stat callouts. Four narrative beats: density champion → suburb contenders → Guyane's emptiness → republic-wide ratio.
+- Draft X summary:
+  > France's densest commune packs 42,000 people per km² — more than four times Manhattan. Its emptiest covers 18,716 km² (bigger than Kuwait) with 9,177 residents. In between: 35,000 communes, a median density of 49/km², and a ratio of 1,000,000 to 1 within a single republic. 🇫🇷
+
