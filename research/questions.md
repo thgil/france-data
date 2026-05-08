@@ -40,6 +40,13 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
 
+### Q-043: How concentrated is France's population across its 35,000 communes?
+- Status: ✅ answered
+- Topic: [demographics](topics/demographics.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: The median French commune has 459 residents. Half of all French people live in just 1,021 communes (2.9% of the total). The bottom 50% of communes by size hold only 5.5% of France's population. The commune population Gini coefficient is 0.78 — more concentrated than income inequality in most countries. Rochefourchat (Drôme) has 1 resident; Toulouse has 504,078. Paris, split across 28 arrondissements, totals 2.18 million.
+- Story: [population-split](/stories/population-split/)
+
 ## Economy
 
 ### Q-007: Are there really more pharmacies than bakeries in France?

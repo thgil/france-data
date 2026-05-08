@@ -84,3 +84,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > Cognac and Bergerac end in -ac because a Roman landowner called Cognacius had an estate there in the 1st century CE. 234 Breton communes start with Ker- or Plou- because Celtic migrants arrived in the 6th century and never really left. Today on **france-data**: five language layers, 35,014 names, one map. 🗺️🇫🇷
 
+### population-split: Half Nation
+- Status: ✅ published
+- Published URL: /stories/population-split/
+- Source question: [Q-043](questions.md#q-043)
+- Hook: France has 34,883 communes. Half of all French people live in just 1,021 of them — under 3% of the total. The median commune has 459 residents. One commune has one resident. He has a mayor.
+- Data: DREES APL 2023 dataset, population base INSEE 2021 (reused from medical-deserts story). 34,883 usable commune entries after excluding zero-population city-level entries for Paris/Lyon/Marseille arrondissement cities.
+- Angle: Two charts — a bar chart showing population by size bracket, and a Lorenz curve showing the extreme inequality of France's commune size distribution (Gini 0.78). Text-driven narrative with stat callouts.
+- Draft X summary:
+  > France has 35,000 communes. Half the country lives in fewer than 1,100 of them. The median French municipality has 459 people. One has 1, and French law requires it to have a mayor. Today on **france-data**: the Lorenz curve of French communal life. 🇫🇷
+

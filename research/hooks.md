@@ -31,3 +31,7 @@ that surfaced it.
 - 🔥 Cognac and Bergerac both end in -ac. So does almost every other commune in the Charente and Dordogne corridor. The suffix comes from Latin -acum — "estate of" — and there have been estates there since the 1st century CE. [Q-042]
 - 🔥 234 Breton commune names (Ker-, Plou-, Lan-) cluster at the tip of the Breton peninsula — 95% in the three core Breton departments. Celtic Breton survived everything the Republic threw at it, including the Revolution's attempt to rename all the saints. [Q-042]
 - 🔥 698 communes end in -court — a Frankish word for "farm" — and 32% of them are in the Somme, Pas-de-Calais, and Aisne. The Franks who gave France its name left their naming convention in the exact fields where they settled in the 5th century CE. [Q-042]
+- 🔥 The median French commune has 459 residents. Half of France's 34,883 municipalities are smaller than a mid-size office building. [Q-043]
+- 🔥 Half of all French people live in just 1,021 communes — 2.9% of the total. The remaining 33,862 communes share the other half. [Q-043]
+- 🔥 France's commune population Gini coefficient is 0.78 — more concentrated than income inequality in Brazil. A statistical comparison that makes the commune system's extreme fragmentation visible. [Q-043]
+- 🔥 Rochefourchat (Drôme) has one resident. It has a mayor. French law requires it. [Q-043]
