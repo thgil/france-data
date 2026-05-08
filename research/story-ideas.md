@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### city-floor: The city floor
+- Status: ✅ published
+- Published URL: /stories/city-floor/
+- Source question: [Q-014](questions.md#q-014-how-many-medical-deserts-are-there-in-france-and-where) (extension)
+- Hook: Half of France's tiniest communes are medical deserts. So are 7.1% of its largest cities — including Argenteuil (107,000 people, APL 1.74), which scores the same as a 12-person hamlet in the Pyrenees.
+- Data: DREES APL 2023 commune-level scores reused from medical-deserts story. 34,349 communes with valid APL scores and population figures.
+- Angle: Two SVG charts — (1) horizontal bar chart showing desert rate by population bucket (< 100 to 50K+); (2) dot plot of all 154 cities with 50K+ residents, APL on x-axis, population on y-axis (log scale). Paired with ranked tables of worst large-city deserts and best-served major cities.
+- Draft X summary:
+  > Argenteuil has 107,000 people. It's 12 km from the Arc de Triomphe. Its APL score is 1.74 — the same as a 12-person hamlet in the Pyrenees. Today on **france-data**: city size sets a floor for medical access, not a ceiling. Nine of France's eleven large-city deserts are in the Paris suburbs. 🏙️🇫🇷
+

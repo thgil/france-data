@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The city floor — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-mount svg {
+      display: block;
+    }
+
+    /* ── Stats tables ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .apl-bad { color: #b32020; font-weight: 600; }
+    .stats-table .apl-good { color: #2c7bb6; font-weight: 600; }
+
+    /* ── Big number callout ───────────────────────────────────────────── */
+    .callout {
+      background: #f4f0e8;
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      margin: 32px 0;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .callout strong { color: var(--ink); }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The city floor</h1>
+        <p class="story-dek">Medical deserts are a rural problem — except when they aren't. Argenteuil has 107,000 people, a direct RER line to Paris, and an APL of 1.74.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France's medical desert map is a geography lesson about rural decline. The <em>diagonale du vide</em> — the empty diagonal from the Meuse to the Pyrenees — shows up on every APL choropleth. Small towns, scattered hamlets, the deep countryside. The story writes itself.</p>
+
+      <p>Except size isn't destiny. The relationship between how many people a commune has and how well-served it is medically turns out to be messier, and more surprising, than the map implies.</p>
+
+      <!-- ── Chart 1: Desert rate by population bucket ─────────────────── -->
+      <h2>Bigger towns fare better — mostly</h2>
+
+      <p>Among France's 34,349 communes with an APL score, the desert rate drops steadily as population grows. Half of the smallest communes — those with under 100 residents — sit below the 2.5 threshold. For towns of 500 to 2,000 people, it's still nearly one in three. By the time you reach cities of 50,000 or more, the rate falls to 7.1%.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-buckets"></div>
+        <figcaption>Share of communes classified as medical deserts (APL &lt; 2.5), by commune population. Source: DREES APL 2023, 34,349 communes with valid scores.</figcaption>
+      </figure>
+
+      <p>The improvement is real but uneven. The sharpest drop happens in the transition from small villages (under 2,000) to market towns (2,000–10,000). After that, the rate doesn't fall much as cities get bigger — towns of 10,000 and towns of 50,000 both hover near 14%. Something structural keeps mid-sized French cities persistently underserved relative to their population.</p>
+
+      <!-- ── Beat 2: The large-city surprise ──────────────────────────── -->
+      <h2>The cities that didn't get the memo</h2>
+
+      <p>Eleven communes with more than 50,000 inhabitants are officially medical deserts. That's 7.1% of France's large cities — a small share, but the cities in question are not small. Their combined population is nearly 700,000 people.</p>
+
+      <div class="callout">
+        <strong>Argenteuil</strong> has 107,221 residents and an APL of 1.74. That puts it in the same medical-access bracket as <em>Ardengost</em> — a village of 12 people in the Pyrenees. The RER C runs through Argenteuil. It is twelve kilometres from the Arc de Triomphe. It is, by official measure, a medical desert.
+      </div>
+
+      <!-- ── Chart 2: Dot plot of 50K+ cities ──────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-dots"></div>
+        <figcaption>Each circle is one of France's 154 communes with 50,000+ residents, sized by population. Red = medical desert (APL &lt; 2.5). The vertical dashed line marks the official threshold. Hover for details. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: The geography ─────────────────────────────────────── -->
+      <h2>The ring strikes again</h2>
+
+      <p>Look at where the large-city deserts cluster and a familiar pattern emerges. Of the eleven communes with over 50,000 people below the APL threshold, nine are in Île-de-France. Not Paris itself — Paris's arrondissements score between 3.9 and 6.5 — but the inner and outer suburbs that ring it: Val-d'Oise, Seine-et-Marne, Yvelines, Essonne, Seine-Saint-Denis, Hauts-de-Seine, Val-de-Marne.</p>
+
+      <p>The medical desert story has always had two faces: the rural diagonale du vide, and the invisible ring around Paris. At large-city scale, the ring is essentially the only story. Argenteuil, Sarcelles, Villejuif, Bobigny, Chelles, Corbeil-Essonnes, Sartrouville, Sevran, Clamart, Antony — all suburban Paris, all medical deserts despite their size.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Large-city deserts (50K+, APL &lt; 2.5)</h3>
+          <table class="stats-table" id="table-deserts">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Best-served cities (100K+, highest APL)</h3>
+          <table class="stats-table" id="table-best">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: The leaders ───────────────────────────────────────── -->
+      <h2>Where the big cities get it right</h2>
+
+      <p>On the other end of the scale, France's great regional capitals dominate the top of the access rankings. Saint-Paul on Réunion scores 6.88 — likely boosted by its status as the island's largest city with concentrated health infrastructure. Among metropolitan France, Strasbourg (6.46), Bordeaux (6.35), and Lille (6.11) lead. Amiens, Angers, Caen, Metz — France's mid-tier provincial capitals cluster near the 5.5–6.0 range. These are cities that have retained their function as service hubs for a wider hinterland: universities, hospitals, specialist practices, all concentrated in one place.</p>
+
+      <p>Paris itself is split. The city's APL isn't a single number — it breaks down by arrondissement, ranging from 3.89 (16e, wealthy but GP-light) to 6.54 (1er). The inner Paris average sits comfortably above 4.0. The city is not a desert. Its suburbs often are.</p>
+
+      <!-- ── Beat 5: Closing ────────────────────────────────────────────── -->
+      <h2>The floor, not the ceiling</h2>
+
+      <p>City size sets a floor for medical access — not a ceiling. The gradient is real: France's tiniest communes suffer the most. But being large doesn't guarantee being well-served. The Paris ring demonstrates that you can have 100,000 residents, a motorway bypass, and an APL that puts you in the rural desert bracket.</p>
+
+      <p>Across all communes, 16.4% of the French population with an APL score — about 11 million people — lives below the 2.5 threshold. 1,211 communes score below 1.0, the severe desert level. Those are rural. The suburban ones don't make the headlines, but they add up.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL scores (Accessibilité Potentielle Localisée) come from DREES's 2023 commune-level release — 34,886 communes, of which 34,349 carry a numeric score. Population figures are from the INSEE 2021 census base embedded in the APL dataset. The APL threshold for official <em>sous-densité médicale</em> designation is 2.5 standardised consultations per resident per year. The analysis uses the same geojson source as the <a href="../medical-deserts/">medical deserts story</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBucketChart, drawCityDots } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./data.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const d = await res.json();
+
+        drawBucketChart('#chart-buckets', d.buckets);
+        drawCityDots('#chart-dots', d.cities50k);
+
+        // Desert table
+        const desertTbody = document.querySelector('#table-deserts tbody');
+        if (desertTbody) {
+          const deserts = d.cities50k.filter(c => c.desert);
+          desertTbody.innerHTML = deserts.map((c, i) =>
+            `<tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${c.name}</td>
+              <td class="apl-bad">${c.apl.toFixed(2)}</td>
+            </tr>`
+          ).join('');
+        }
+
+        // Best cities table (100K+, sorted by APL desc)
+        const bestTbody = document.querySelector('#table-best tbody');
+        if (bestTbody) {
+          const big = d.cities50k
+            .filter(c => c.pop >= 100000)
+            .sort((a, b) => b.apl - a.apl)
+            .slice(0, 8);
+          bestTbody.innerHTML = big.map((c, i) =>
+            `<tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${c.name}</td>
+              <td class="apl-good">${c.apl.toFixed(2)}</td>
+            </tr>`
+          ).join('');
+        }
+
+      } catch (err) {
+        console.error('Failed to load city-floor data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
