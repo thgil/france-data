@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### last-bar: The last bar standing
+- Status: ✅ published
+- Published URL: /stories/last-bar/
+- Source question: [Q-033](questions.md#q-033) cross [Q-014](questions.md#q-014)
+- Hook: In France's medical deserts, the café often outlasts the surgery. The correlation between bar density and medical access across départements is 0.19 — barely above nothing.
+- Data: bars.json (SIRENE, 49,385 bars with commune codes) joined to communes-apl.geojson (DREES APL 2023, 35K communes with population). Join on INSEE commune code. Computed: 2x2 matrix of bar presence vs medical access; département-level scatter; rural and urban desert examples.
+- Angle: Scatter plot of bars/10k vs APL by département (96 dots, color-coded by desert %). 2x2 matrix showing commune counts. Key numbers: 2,950 communes have a bar but are in a medical desert (7.4M people); 5,370 have neither (3.2M people). Headline outliers: Cher (bars above average, worst APL in mainland France), Val-d'Oise (fewest bars AND worst desert ring), Bas-Rhin (few bars, excellent doctors).
+- Draft X summary:
+  > France has 49,385 bars and 12,771 medical deserts. Cross the two maps: 35% of desert communes still have a bar. The Cher has more bars per capita than the national average — and the worst medical access of any mainland département. Today on **france-data**: when the doctor left, the bar stayed open. 🍺🩺🇫🇷
+

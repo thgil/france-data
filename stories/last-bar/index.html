@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The last bar standing — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── 2x2 matrix ─────────────────────────────────────────────────── */
+    .matrix-wrap {
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .matrix-cell {
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 20px 20px 16px;
+      position: relative;
+    }
+    .matrix-cell.highlight {
+      border-color: #c67c00;
+      background: #fff8ec;
+    }
+    .matrix-cell .cell-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .matrix-cell .cell-count {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .matrix-cell .cell-pop {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+    .matrix-cell .cell-desc {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #555;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+    .matrix-cell.highlight .cell-count { color: #8b5500; }
+
+    /* ── Scatter chart ───────────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 48px 0;
+    }
+    .chart-wrap h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 8px;
+    }
+    #scatter-svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ── Stats tables ────────────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+      .matrix-grid { grid-template-columns: 1fr; }
+    }
+    .stat-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stat-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stat-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stat-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stat-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stat-table .place {
+      font-family: Georgia, serif;
+    }
+    .stat-table .sub {
+      font-size: 11px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Key number callouts ─────────────────────────────────────────── */
+    .callout-row {
+      display: flex;
+      gap: 24px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .callout {
+      flex: 1;
+      min-width: 160px;
+      border-left: 3px solid #c67c00;
+      padding-left: 16px;
+    }
+    .callout .num {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .callout .label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health &amp; Culture</div>
+        <h1 class="story-title">The last bar standing</h1>
+        <p class="story-dek">Bars and doctors are barely correlated across France. In the rural heartland, the café often outlasts the surgery. 7.4 million people live in a commune with a bar but no GP.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>We've mapped France's 49,385 bars. We've mapped its 12,771 medical deserts. Now cross the two datasets and something unexpected appears: knowing whether a commune has a bar tells you almost nothing about whether it has a doctor.</p>
+
+      <p>At the département level, the correlation between bar density and medical access is 0.19 — barely above zero. The <em>zinc counter</em> and the <em>cabinet médical</em> are governed by entirely different logics.</p>
+
+      <!-- ── Beat 2: The 2x2 ───────────────────────────────────────────── -->
+      <h2>Four kinds of commune</h2>
+
+      <p>Cross the two maps at commune level (population ≥ 200) and France sorts into four groups:</p>
+
+      <div class="matrix-wrap">
+        <div class="matrix-grid">
+          <div class="matrix-cell">
+            <div class="cell-label">Bar ✓ · Doctors ✓</div>
+            <div class="cell-count" id="cell-bg-c">—</div>
+            <div class="cell-pop" id="cell-bg-p">— million people</div>
+            <div class="cell-desc">Good access, at least one bar. Most of urban France and its well-served hinterland.</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="cell-label">No bar · Doctors ✓</div>
+            <div class="cell-count" id="cell-ng-c">—</div>
+            <div class="cell-pop" id="cell-ng-p">— million people</div>
+            <div class="cell-desc">Good medical access but no bar. Often planned suburbs or dormitory towns with shopping centres but no traditional <em>café</em>.</div>
+          </div>
+          <div class="matrix-cell highlight">
+            <div class="cell-label">Bar ✓ · Desert ⚠</div>
+            <div class="cell-count" id="cell-bd-c">—</div>
+            <div class="cell-pop" id="cell-bd-p">— million people</div>
+            <div class="cell-desc">Medical desert with at least one bar still open. The café outlasts the surgery.</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="cell-label">No bar · Desert ⚠</div>
+            <div class="cell-count" id="cell-nd-c">—</div>
+            <div class="cell-pop" id="cell-nd-p">— million people</div>
+            <div class="cell-desc">Neither bar nor doctor. The deepest deserts — often tiny rural communes or the far overseas territories.</div>
+          </div>
+        </div>
+      </div>
+
+      <p>Of the 8,320 medical desert communes (pop ≥ 200), <strong id="desert-bar-pct">35</strong>% — some 2,950 places — still have at least one registered bar. Their 7.4 million residents can order a <em>demi</em> but wait weeks for a GP appointment.</p>
+
+      <!-- ── Beat 3: rural type ────────────────────────────────────────── -->
+      <h2>The rural kind: the café stays when everything else goes</h2>
+
+      <p>In the French countryside, the bar closes last. The post office merged, the primary school consolidated with the next village, the baker retired and nobody took over. But the café — the last place to have a coffee, a game of cards, sometimes an informal community bulletin board — holds on.</p>
+
+      <p>Châteauneuf-de-Randon, in Lozère: 523 residents, two bars, APL score of 0.00. Meymac, in Corrèze: 2,279 residents, three bars, APL of 0.00. Saugues, in Haute-Loire: 1,681 residents, four bars, APL of 0.00. The APL model has no GP consultations to count here. But the bars are still open.</p>
+
+      <div class="two-col">
+        <div class="stat-block">
+          <h3>Rural deserts with bars (APL &lt; 0.5, pop 400–3,000)</h3>
+          <table class="stat-table" id="rural-table">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stat-block">
+          <h3>Urban deserts with bars (pop &gt; 50,000)</h3>
+          <table class="stat-table" id="urban-table">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: suburban type ─────────────────────────────────────── -->
+      <h2>The suburban kind: bars stayed, doctors never came</h2>
+
+      <p>Argenteuil, in Val-d'Oise: 107,000 people, 46 bars, APL of 1.74. A major city — France's 20th largest commune — with a functioning urban culture, restaurants, transport. And officially a medical desert.</p>
+
+      <p>The outer ring of Paris dominates this list: Sarcelles, Villejuif, Bobigny, Sartrouville. These are not empty villages — they are dense, functioning towns that grew faster than the medical infrastructure that was supposed to serve them. The bars came with the population boom. The GPs did not.</p>
+
+      <!-- ── Beat 5: dept scatter ───────────────────────────────────────── -->
+      <h2>At département level: almost no relationship</h2>
+
+      <p>Zoom out to the 96 metropolitan and Corsican départements and plot bars per capita against medical access. The correlation is 0.19: knowing how many bars a département has tells you almost nothing about its APL score.</p>
+
+      <div class="chart-wrap">
+        <h3>Bars per 10,000 residents vs medical access score, by département</h3>
+        <svg id="scatter-svg" viewBox="0 0 700 440" role="img" aria-label="Scatter plot: bars per 10,000 vs APL by département"></svg>
+      </div>
+
+      <p>A few outliers tell the real story. <strong>Cher (18)</strong>: 8.5 bars per 10,000 residents — above the national average. APL of 2.25 — the worst in mainland France, with 60% of its residents in a medical desert. The bars stayed. The doctors left. <strong>Bas-Rhin (67)</strong>: 3.9 bars per 10,000 — among the lowest in France. APL of 4.91 — 4th best. Alsace's Protestant heritage and proximity to the Strasbourg teaching hospital give it excellent medical infrastructure and a relatively dry bar culture. The two infrastructure networks are genuinely independent.</p>
+
+      <!-- ── Beat 6: the key stats ──────────────────────────────────────── -->
+      <div class="callout-row">
+        <div class="callout">
+          <div class="num">0.19</div>
+          <div class="label">Pearson correlation between bars per 10k and APL score across metropolitan départements</div>
+        </div>
+        <div class="callout">
+          <div class="num">7.4M</div>
+          <div class="label">people living in communes that have a bar but are in a medical desert</div>
+        </div>
+        <div class="callout">
+          <div class="num">3.2M</div>
+          <div class="label">people in communes with neither a bar nor adequate medical access</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 7: the Cher story ─────────────────────────────────────── -->
+      <h2>Cher: a department that kept its bars and lost its doctors</h2>
+
+      <p>The Cher is a useful lens. At 8.5 bars per 10,000, it sits above the national average of 7.3. But at APL 2.25 — the worst population-weighted average of any mainland département — it is also a place where 60% of residents cannot get reasonable access to a GP. The village café and the village surgery tracked the same rural decline, but at different speeds. The café, cheaper to run and embedded in social life, often outlasted the medical practice by years.</p>
+
+      <p>Now compare two Paris suburbs. <strong>Paris itself (75)</strong>: 14.6 bars per 10,000, APL of 4.96, zero desert communes. The capital wins on both. <strong>Val-d'Oise (95)</strong>: 3.7 bars per 10,000, APL of 2.41, 63% of residents in a medical desert. The suburb loses on both. The outer ring of Paris is simultaneously France's least bar-dense territory and one of its worst medical deserts. A different kind of emptying — not the slow rural retreat of the countryside, but a suburban gap that grew as fast as the population did.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar locations come from the SIRENE business registry (active establishments, NAF code 56.30Z, March 2026 snapshot) — the same dataset used in <a href="../bars/">Where France drinks</a>. Medical access scores are DREES APL 2023, the same data underpinning <a href="../medical-deserts/">Where the doctors aren't</a>. The join uses the INSEE commune code present in both datasets. Commune population comes from APL data (INSEE 2021 base). The 2x2 analysis covers communes with population ≥ 200 to exclude near-uninhabited hamlets.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée aux médecins généralistes 2023</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawScatter } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./data.json');
+      const data = await res.json();
+
+      const { meta, matrix, departments, ruralExamples, largeBarDesert } = data;
+
+      // 2x2 matrix
+      const fmt = n => n.toLocaleString('fr-FR');
+      const fmtM = n => (n / 1e6).toLocaleString('fr-FR', { maximumFractionDigits: 1 }) + ' million';
+
+      document.getElementById('cell-bg-c').textContent = fmt(matrix.hasBarGoodAccess.communes) + ' communes';
+      document.getElementById('cell-bg-p').textContent = fmtM(matrix.hasBarGoodAccess.pop) + ' people';
+      document.getElementById('cell-ng-c').textContent = fmt(matrix.noBarGoodAccess.communes) + ' communes';
+      document.getElementById('cell-ng-p').textContent = fmtM(matrix.noBarGoodAccess.pop) + ' people';
+      document.getElementById('cell-bd-c').textContent = fmt(matrix.hasBarDesert.communes) + ' communes';
+      document.getElementById('cell-bd-p').textContent = fmtM(matrix.hasBarDesert.pop) + ' people';
+      document.getElementById('cell-nd-c').textContent = fmt(matrix.noBarDesert.communes) + ' communes';
+      document.getElementById('cell-nd-p').textContent = fmtM(matrix.noBarDesert.pop) + ' people';
+      document.getElementById('desert-bar-pct').textContent = meta.desertCommunesWithBarPct.toFixed(1);
+
+      // Rural table
+      const ruralTbody = document.querySelector('#rural-table tbody');
+      ruralTbody.innerHTML = ruralExamples.slice(0, 6).map(c =>
+        `<tr>
+          <td class="place">${c.name} <span class="sub">${deptName(c.dept)}</span></td>
+          <td>${c.bars} bar${c.bars > 1 ? 's' : ''}<span class="sub">APL ${c.apl.toFixed(2)}</span></td>
+        </tr>`
+      ).join('');
+
+      // Urban table
+      const urbanTbody = document.querySelector('#urban-table tbody');
+      urbanTbody.innerHTML = largeBarDesert.slice(0, 5).map(c =>
+        `<tr>
+          <td class="place">${c.name} <span class="sub">${deptName(c.dept)}</span></td>
+          <td>${c.bars} bars<span class="sub">APL ${c.apl.toFixed(2)}</span></td>
+        </tr>`
+      ).join('');
+
+      // Scatter
+      drawScatter('#scatter-svg', departments);
+    }
+
+    function deptName(code) {
+      const NAMES = {
+        '01':'Ain','06':'Alpes-Maritimes','07':'Ardèche','09':'Ariège','11':'Aude',
+        '12':'Aveyron','14':'Calvados','15':'Cantal','17':'Charente-Maritime','18':'Cher',
+        '19':'Corrèze','2A':'Corse-du-Sud','2B':'Haute-Corse','22':"Côtes-d'Armor",
+        '23':'Creuse','24':'Dordogne','25':'Doubs','26':'Drôme','27':'Eure',
+        '28':'Eure-et-Loir','29':'Finistère','30':'Gard','31':'Haute-Garonne',
+        '32':'Gers','33':'Gironde','34':'Hérault','36':'Indre','38':'Isère',
+        '39':'Jura','40':'Landes','41':'Loir-et-Cher','42':'Loire','43':'Haute-Loire',
+        '44':'Loire-Atlantique','45':'Loiret','46':'Lot','47':'Lot-et-Garonne',
+        '48':'Lozère','50':'Manche','53':'Mayenne','56':'Morbihan','57':'Moselle',
+        '58':'Nièvre','59':'Nord','60':'Oise','61':'Orne','62':'Pas-de-Calais',
+        '63':'Puy-de-Dôme','64':'Pyrénées-Atl.','65':'Hautes-Pyrénées',
+        '66':'Pyrénées-Or.','67':'Bas-Rhin','68':'Haut-Rhin','69':'Rhône',
+        '70':'Haute-Saône','71':'Saône-et-Loire','72':'Sarthe','73':'Savoie',
+        '74':'Haute-Savoie','75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne',
+        '78':'Yvelines','79':'Deux-Sèvres','80':'Somme','81':'Tarn',
+        '82':'Tarn-et-Garonne','83':'Var','84':'Vaucluse','85':'Vendée',
+        '86':'Vienne','87':'Haute-Vienne','88':'Vosges','89':'Yonne',
+        '90':'T. de Belfort','91':'Essonne','92':'Hauts-de-Seine',
+        '93':'Seine-Saint-Denis','94':'Val-de-Marne','95':"Val-d'Oise"
+      };
+      return NAMES[code] || `Dept ${code}`;
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>
