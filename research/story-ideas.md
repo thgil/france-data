@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### dry-suburbs: The dry suburbs
+- Status: ✅ published
+- Published URL: /stories/dry-suburbs/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: France has 7.5 bars per 10,000 residents. Haute-Corse has 21. Essonne has 3. The bar desert isn't in the countryside — it's the Paris commuter belt.
+- Data: bars.json (49,385 national bars with dept codes) joined to INSEE 2021 population from communes-apl.geojson. Département-level per-capita rankings across 96 units.
+- Angle: Ranked horizontal bar chart. Color-codes Corsica, Paris, IDF ring. Narrative: the bar desert reflects post-war planning logic, not rural emptiness.
+- Draft X summary:
+  > France has 49,385 bars. Haute-Corse: 21 per 10k. Essonne: 3. Six of the ten worst-served départements are Paris suburbs — built around commuting, not street-level cafés. Today on france-data: the dry suburbs. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The dry suburbs — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart container ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+
+    .chart-scroll {
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chart-mount {
+      min-height: 400px;
+    }
+
+    /* ── Legend ───────────────────────────────────────────────────────── */
+    #chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-top: 12px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #555;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Stats grid ───────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 8px;
+      min-width: 2.2ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 10px;
+      color: #999;
+      display: block;
+    }
+
+    /* ── Big stat ─────────────────────────────────────────────────────── */
+    .big-stat {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .big-stat-block {
+      flex: 1;
+      min-width: 140px;
+    }
+    .big-stat-number {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+    .big-stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The dry suburbs</h1>
+        <p class="story-dek">France has 7.5 bars per 10,000 residents. Haute-Corse has 21. Essonne has 3. The bar desert isn't where you think it is.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The previous story in this series mapped 49,385 French bars by location. The obvious question was where you find the <em>most</em> — and the count clearly favoured Paris (3,120), Nord (1,961), and the big Mediterranean départements. But raw counts reward size. The more revealing question is: where do you find a bar <em>per resident</em>?</p>
+
+      <p>The answer inverts almost everything you'd expect.</p>
+
+      <!-- ── Big stats ─────────────────────────────────────────────────── -->
+      <div class="big-stat">
+        <div class="big-stat-block">
+          <div class="big-stat-number" id="stat-national">7.5</div>
+          <div class="big-stat-label">bars per 10k residents (national avg)</div>
+        </div>
+        <div class="big-stat-block">
+          <div class="big-stat-number" id="stat-top">21.1</div>
+          <div class="big-stat-label">bars per 10k — <span style="font-style:italic">Haute-Corse</span> (1st)</div>
+        </div>
+        <div class="big-stat-block">
+          <div class="big-stat-number" id="stat-bottom">3.1</div>
+          <div class="big-stat-label">bars per 10k — <span style="font-style:italic">Essonne</span> (last)</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Chart ─────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-scroll">
+          <div id="chart-mount" class="chart-mount"></div>
+        </div>
+        <div id="chart-legend"></div>
+        <figcaption>Bars per 10,000 residents, by département. Source: INSEE SIRENE (NAF 56.30Z, March 2026) joined to INSEE population 2021 via DREES APL commune data.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Corsica ───────────────────────────────────────────── -->
+      <h2>Corsica at the top — and it's not close</h2>
+
+      <p>Haute-Corse leads the table at 21.1 bars per 10,000 residents — one bar for every 474 people. Corse-du-Sud follows in third at 16.9. Together, the island accounts for two of the top three slots nationally, ahead of Lozère (17.6, second), Cantal (16.6, fourth), and Hautes-Alpes (15.6, fifth).</p>
+
+      <p>None of these départements are densely urban. What they share is a combination of dispersed rural settlement, strong café culture as a form of civic infrastructure, and — in Corsica's case — a year-round tourism economy that both generates and sustains bar licences. The village café in rural France isn't just a bar: it can double as the post-office relay, the only hot meal within fifteen kilometres, and the place where the commune's social life happens. Small populations keep the numbers low in absolute terms, but those few establishments are doing real work per resident.</p>
+
+      <!-- ── Beat 4: Paris ─────────────────────────────────────────────── -->
+      <h2>Paris: comfortably above average, but not first</h2>
+
+      <p>Paris (75) ranks 7th nationally, at 14.6 per 10,000 — double the national average and roughly tied with Alpes-de-Haute-Provence (04). This tracks: the inner city has an extraordinary density of licensed premises along its boulevards and in its <em>arrondissement</em> centres. But it's not the leader. Corsica and four small mountain départements beat it, partly because those areas have fewer "bar substitutes" (restaurants, cinemas, department stores) competing for the same social function.</p>
+
+      <!-- ── Beat 5: Stats tables ──────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars per 10k — top 10</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per 10k — bottom 10</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Suburbs ───────────────────────────────────────────── -->
+      <h2>The suburban paradox</h2>
+
+      <p>Look at the bottom of the table. Essonne (91) is last: 3.07 bars per 10,000, one bar for every 3,259 residents. Above it: Yvelines (3.3), Hauts-de-Seine (3.3), Val-d'Oise (3.7), Seine-et-Marne (3.8), Val-de-Marne (4.0). Six of the ten least-served départements in France are Île-de-France suburbs. Seine-Saint-Denis (5.3) is the exception that proves the rule — its denser older urban fabric means more neighbourhood bars.</p>
+
+      <p>This is the suburban paradox. The Paris suburbs are among the most populous, most connected, and most economically productive territories in France. They are not bar deserts because they are poor or remote. They are bar deserts because of how they were built.</p>
+
+      <p>The <em>lotissements pavillonnaires</em> and grands ensembles constructed from the 1950s to the 1980s were designed around the car and the commute, not around the street-level café. Commercial zones were segregated from residential ones. A neighbourhood that was designed as a dormitory for Paris workers had no organic need for a licensed premises on the ground floor. Decades later, the licensing numbers reflect that planning logic exactly.</p>
+
+      <!-- ── Beat 7: The pattern ────────────────────────────────────────── -->
+      <h2>The same geography, again</h2>
+
+      <p>The <em>diagonale du vide</em> — the low-density band cutting from Meuse to the Pyrenees — appears in the bars-per-capita ranking too, but here it scores <em>better</em> than average, not worse. Rural France is not a bar desert. The Gers (14th), Creuse (13th), Nièvre (12th) all sit comfortably above the national rate. The places that are genuinely thin on bars per resident are, almost without exception, either the urbanised IDF ring or the highly suburbanised areas around major cities like Toulouse (Haute-Garonne, ranked 88th at 4.2 per 10k) and Strasbourg (Bas-Rhin, 89th at 3.9).</p>
+
+      <p>The pattern that keeps surfacing in this data — medical deserts, bakery deserts, bar deserts — is fundamentally a story about planning models and their long aftermath. The map of bars per capita in 2026 is, in large part, a map of how France built housing in 1970.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z — débits de boissons, active establishments, March 2026). Population figures are INSEE 2021 commune-level counts aggregated to département, sourced from the DREES APL commune dataset used in <a href="../medical-deserts/">Story 2</a>. 96 départements are included (metropolitan France plus all five overseas départements; the aggregate "97" bucket in SIRENE is excluded). The national average is population-weighted across these 96 units.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune population, INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawRankChart } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./dept-bars.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Update big stats
+        const nat = data.national.per10k;
+        document.getElementById('stat-national').textContent = nat.toFixed(1);
+        document.getElementById('stat-top').textContent = data.depts[0].per10k.toFixed(1);
+        document.getElementById('stat-bottom').textContent = data.depts[data.depts.length - 1].per10k.toFixed(1);
+
+        // Draw chart
+        drawRankChart('#chart-mount', data);
+
+        // Populate tables
+        const topTbody = document.querySelector('#table-top tbody');
+        data.depts.slice(0, 10).forEach((d, i) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}<span class="sub">${d.bars.toLocaleString('fr-FR')} bars · ${d.pop.toLocaleString('fr-FR')} pop</span></td>
+            <td>${d.per10k.toFixed(1)}</td>`;
+          topTbody.appendChild(tr);
+        });
+
+        const bottomTbody = document.querySelector('#table-bottom tbody');
+        const bottom10 = data.depts.slice(-10).reverse();
+        bottom10.forEach((d, i) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="rank">${data.depts.length - i}</td>
+            <td class="place">${d.name}<span class="sub">${d.bars.toLocaleString('fr-FR')} bars · ${d.pop.toLocaleString('fr-FR')} pop</span></td>
+            <td>${d.per10k.toFixed(1)}</td>`;
+          bottomTbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        console.error('Failed to load dry-suburbs data:', err);
+        document.getElementById('chart-mount').textContent = 'Failed to load chart data.';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
