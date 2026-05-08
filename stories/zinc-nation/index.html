@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar capital of France is a ski resort — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Bar chart ────────────────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 48px 0;
+      overflow-x: auto;
+    }
+
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 64px;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0;
+    }
+
+    @media (max-width: 560px) {
+      .bar-row { grid-template-columns: 120px 1fr 56px; }
+    }
+
+    .bar-label {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-label .dept-tag {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #999;
+      margin-left: 4px;
+    }
+
+    .bar-track {
+      background: #ede8e0;
+      height: 14px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    .bar-fill.ski    { background: #2a6099; }
+    .bar-fill.sea    { background: #2a9962; }
+    .bar-fill.city   { background: #c67c00; }
+    .bar-fill.other  { background: #9e5b9e; }
+
+    .bar-value {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+      text-align: right;
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 16px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #555;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .leg-ski  { background: #2a6099; }
+    .leg-sea  { background: #2a9962; }
+    .leg-city { background: #c67c00; }
+    .leg-other { background: #9e5b9e; }
+
+    /* ── Stats grid ───────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 8px;
+      min-width: 1.8ch;
+    }
+
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Big number ───────────────────────────────────────────────────── */
+    .big-number-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+      margin: 48px 0;
+      padding: 28px 0;
+      border-top: 1px solid #e0d8cc;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .big-number-block {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .big-number {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -1px;
+    }
+
+    .big-number-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+
+    .credits a { color: inherit; }
+
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar capital of France is a ski resort</h1>
+        <p class="story-dek">When you divide France's 49,385 bars by the people who actually live nearby, a very specific pattern emerges — and Paris doesn't win.</p>
+        <div class="story-meta">
+          <span>2026-05-08</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 registered bars — <em>débits de boissons</em>, all of them geocoded, all of them mapped in <a href="../bars/">Story 4</a>. The <em>where</em> was the easy part: Nord + Pas-de-Calais together edge out Paris, Bretagne punches above its weight, the <em>diagonale du vide</em> shows up again. But raw counts favour big places. The more interesting question is: which commune has the most bars relative to the people who live there?</p>
+
+      <p>To answer that, I joined the bar locations to the INSEE commune population data used in the <a href="../medical-deserts/">medical deserts</a> story — 35,000 communes, each with its population and INSEE code. The match was near-perfect: 49,348 of 49,385 bars linked to a known commune. Then I computed bars per 1,000 residents for every commune in France.</p>
+
+      <p>The result is not what you might expect.</p>
+
+      <!-- ── Beat 2 ────────────────────────────────────────────────────── -->
+      <h2>The tourist town effect</h2>
+
+      <div class="big-number-row">
+        <div class="big-number-block">
+          <div class="big-number" id="stat-top-per1k">—</div>
+          <div class="big-number-label">bars per 1,000 residents<br>in Les Deux Alpes</div>
+        </div>
+        <div class="big-number-block">
+          <div class="big-number" id="stat-multiplier">—</div>
+          <div class="big-number-label">times the national average<br>(0.73 bars per 1,000)</div>
+        </div>
+        <div class="big-number-block">
+          <div class="big-number" id="stat-zero-pct">66%</div>
+          <div class="big-number-label">of French communes<br>have zero registered bars</div>
+        </div>
+      </div>
+
+      <p>Les Deux Alpes (<em>Isère, 38</em>) registers 39 bars against a permanent population of 1,933 — the highest bar-per-capita ratio in France for any commune with at least 500 residents. That's <strong>20.2 bars per 1,000</strong>, or 28 times the national average of 0.73. Morzine, in Haute-Savoie, is right behind at 19.2 per thousand with 51 bars and 2,660 residents.</p>
+
+      <p>The pattern holds right through the top of the table. Eight of the ten highest-ranked communes (pop ≥ 500) are Alpine ski resorts. The mechanism is straightforward: the INSEE population census counts permanent residents — the people who live in these mountain villages year-round, a few thousand at most. The bars are licensed to serve the winter and summer tourist peaks, which can multiply that population tenfold. The residents-per-bar ratio looks extreme because you're comparing two very different seasons.</p>
+
+      <!-- ── Chart: top communes ───────────────────────────────────────── -->
+      <div class="chart-wrap">
+        <div class="chart-title">Bars per 1,000 residents — top communes (population ≥ 500)</div>
+        <div id="chart-communes"></div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot leg-ski"></span> Alpine ski resort</span>
+          <span class="legend-item"><span class="legend-dot leg-sea"></span> Coastal / island resort</span>
+          <span class="legend-item"><span class="legend-dot leg-city"></span> Urban / city centre</span>
+          <span class="legend-item"><span class="legend-dot leg-other"></span> Other</span>
+        </div>
+      </div>
+
+      <p>The coastal resorts follow: Saint-Tropez (9.5/1k), Deauville (9.0/1k), Hossegor (6.8/1k), Le Touquet (6.4/1k). Then, starting around position 7, the Paris arrondissements begin to appear — the 1st arrondissement at 7.7/1k, the 2nd at 6.1/1k. Among communes with more than 2,000 residents, Paris's centre is the most bar-dense genuinely inhabited territory in France — just not the most bar-dense territory overall.</p>
+
+      <!-- ── Beat 3: Departments ───────────────────────────────────────── -->
+      <h2>Corsica and the Massif Central lead; the suburbs of Paris sit last</h2>
+
+      <p>At the département level, the outlier is <strong>Haute-Corse</strong> (2B): 390 bars for 184,655 residents, or 2.11 per thousand — nearly three times the national average, and the highest rate of any mainland département. Corse-du-Sud (2A) is third. Lozère — a rural département of 76,000 people and 135 bars (1.76/1k) — comes second. Cantal, Hautes-Alpes, and Alpes-de-Haute-Provence fill out the top six: mountainous, sparsely populated, and historically strong on the local café economy.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars per 1,000 (by département)</h3>
+          <table class="stats-table" id="table-top-depts"><tbody></tbody></table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per 1,000 (by département)</h3>
+          <table class="stats-table" id="table-bottom-depts"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <p>At the other end: Essonne (91), Yvelines (78), Hauts-de-Seine (92), Val-d'Oise (95). The four départements of the outer Parisian ring, already flagged in <a href="../medical-deserts/">the medical deserts story</a> as among the worst-served for GPs in France, turn out to sit at the bottom of the bars-per-capita table too. Hauts-de-Seine — 1.6 million people, 546 bars — records just 0.33 per thousand. Three times denser than Paris in population, one-quarter as dense in bars. The suburban ring is, by this measure, the driest territory in metropolitan France.</p>
+
+      <!-- ── Beat 4: Big cities ─────────────────────────────────────────── -->
+      <h2>Among major cities, Rouen outranks Bordeaux</h2>
+
+      <p>Filter to communes with more than 50,000 residents — France's real cities — and the ranking reshuffles interestingly. Paris's central arrondissements dominate (the 9th, 11th, 10th, and 5th all exceed 2.5 bars per thousand). But among non-Parisian big cities, <strong>Rouen</strong> sits at 2.08/1k with 237 bars — ahead of Bordeaux (1.30/1k), Lyon (data is split across arrondissements), and well ahead of Marseille, whose large area dilutes the count. Lille, Grenoble, and Bayonne also outperform the national average by a wide margin. Évry-Courcouronnes, deep in Essonne, records just 0.12/1k — 120 bars per million, in a city of 66,000 people.</p>
+
+      <!-- ── Beat 5: The 66% ────────────────────────────────────────────── -->
+      <h2>Two-thirds of communes: no bar at all</h2>
+
+      <p>The headline that surprised me most: <strong>23,135 of France's 34,883 communes — 66.3% — have no registered bar</strong>. That's not an artifact of very tiny villages; plenty of communes with 1,000 or 2,000 residents appear on the zero list. What it reflects is the long generational retreat of the village café, especially in the rural interior. The <em>diagonale du vide</em> is not just a medical desert and a baguette desert — it's a bar desert. The same arc from Meuse to the Pyrenees that shows up without doctors and without bakeries shows up, consistently, without a débit de boissons either.</p>
+
+      <p>Those 23,135 communes contain 11.3 million people — 16.8% of the national population. They are served by bars in neighbouring communes, by the occasional restaurant, by the <em>tabac</em> that doubles as a café counter. But they have no licence on the books. By the most literal measure, the question "where does France drink?" has a simple answer: mostly not in two-thirds of its territory.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z, active establishments, March 2026 snapshot) geocoded via SIRENE Géolocalisation — the same dataset as <a href="../bars/">Story 4</a>. Population figures are the INSEE 2021 population base attached to each commune in the DREES APL 2023 dataset (<a href="../medical-deserts/">Story 2</a>). Of 49,385 geocoded bars, 49,348 matched a known commune code; 37 fell in communes not represented in the APL file (likely overseas territories with non-standard codes). Bars in the Bouches-du-Rhône (Marseille arrondissements) are treated as belonging to a single large commune; this suppresses Marseille's appearance in per-capita rankings.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> — national business registry, NAF 56.30Z, March 2026</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded establishment coordinates</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population base (INSEE 2021 census)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { renderCharts } from './charts.js';
+    fetch('./stats.json')
+      .then(r => r.json())
+      .then(stats => renderCharts(stats))
+      .catch(err => console.error('Failed to load stats:', err));
+  </script>
+</body>
+</html>

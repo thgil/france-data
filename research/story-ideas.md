@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### zinc-nation: The bar capital of France is a ski resort
+- Status: ✅ published
+- Published URL: /stories/zinc-nation/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Les Deux Alpes: 39 bars, 1,933 permanent residents, 20 bars per 1,000 people. That's 28× the national average. The bar capital of France is a ski resort.
+- Data: SIRENE bars.json (49,385 national bar points from Story 4) joined to DREES APL 2023 commune population data (from Story 2). Population join produces per-capita rankings for all 35K communes.
+- Angle: Data analysis story — no map. Horizontal bar chart of top 20 communes (coloured by type: ski, sea, city, other). Dual dept table (top/bottom). Three headline numbers.
+- Draft X summary:
+  > France's most bar-dense commune isn't Paris. It's Les Deux Alpes — a ski resort with 20 bars per 1,000 permanent residents, 28× the national average. 66% of French communes have zero bars. The suburban ring around Paris is both a medical desert and a bar desert. Today on **france-data**: 49,348 bars, 35,000 communes, one very specific pattern. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
