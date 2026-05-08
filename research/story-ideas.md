@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### shortest-names: Y is a Commune
+- Status: ✅ published
+- Published URL: /stories/shortest-names/
+- Source question: [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune named Y. One letter. It's not a typo. 89 residents, département Somme, medieval origin. Below it: 13 two-letter communes from Bretagne to the Pyrénées.
+- Data: communeName field from communes-apl.geojson (35,014 communes), no new data download required.
+- Angle: Text-and-charts story. Large typographic hero letter "Y". Table of shortest (1–2 letter) communes with population and département. Table of longest (top 10). SVG histogram of name length distribution, annotating the mode at 7 and the fusion plateau at 15–22.
+- Draft X summary:
+  > France has a commune named Y. One letter. 89 residents. In Somme. It's not a typo. Below it: 13 two-letter communes, from Eu (6,591 people) to Uz (36). And at the other end: Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — 45 characters. Today on **france-data**: the full spectrum of French commune names. 🇫🇷
+

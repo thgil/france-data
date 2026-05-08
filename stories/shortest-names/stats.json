@@ -1,0 +1,340 @@
+{
+  "totalCommunes": 35014,
+  "meanLength": 11.8,
+  "medianLength": 10,
+  "modeLength": 7,
+  "minLength": 1,
+  "maxLength": 45,
+  "saintCount": 3898,
+  "saintPct": 11.1,
+  "twoLetterCount": 13,
+  "over30Count": 79,
+  "shortest": [
+    {
+      "name": "Y",
+      "length": 1,
+      "pop": 89,
+      "dept": "80",
+      "code": "80829",
+      "apl": 2.78
+    },
+    {
+      "name": "Sy",
+      "length": 2,
+      "pop": 54,
+      "dept": "08",
+      "code": "08434",
+      "apl": 1.86
+    },
+    {
+      "name": "By",
+      "length": 2,
+      "pop": 86,
+      "dept": "25",
+      "code": "25104",
+      "apl": 1.48
+    },
+    {
+      "name": "Bû",
+      "length": 2,
+      "pop": 2022,
+      "dept": "28",
+      "code": "28064",
+      "apl": 1.81
+    },
+    {
+      "name": "Oô",
+      "length": 2,
+      "pop": 103,
+      "dept": "31",
+      "code": "31404",
+      "apl": 4.91
+    },
+    {
+      "name": "Oz",
+      "length": 2,
+      "pop": 213,
+      "dept": "38",
+      "code": "38289",
+      "apl": 4.24
+    },
+    {
+      "name": "Ri",
+      "length": 2,
+      "pop": 156,
+      "dept": "61",
+      "code": "61349",
+      "apl": 3.91
+    },
+    {
+      "name": "Uz",
+      "length": 2,
+      "pop": 36,
+      "dept": "65",
+      "code": "65458",
+      "apl": 2.1
+    },
+    {
+      "name": "Py",
+      "length": 2,
+      "pop": 79,
+      "dept": "66",
+      "code": "66155",
+      "apl": 0.16
+    },
+    {
+      "name": "Ur",
+      "length": 2,
+      "pop": 348,
+      "dept": "66",
+      "code": "66218",
+      "apl": 5.8
+    },
+    {
+      "name": "Gy",
+      "length": 2,
+      "pop": 1001,
+      "dept": "70",
+      "code": "70282",
+      "apl": 3.13
+    },
+    {
+      "name": "Eu",
+      "length": 2,
+      "pop": 6591,
+      "dept": "76",
+      "code": "76255",
+      "apl": 4.37
+    },
+    {
+      "name": "Ry",
+      "length": 2,
+      "pop": 775,
+      "dept": "76",
+      "code": "76548",
+      "apl": 3.97
+    },
+    {
+      "name": "Us",
+      "length": 2,
+      "pop": 1338,
+      "dept": "95",
+      "code": "95625",
+      "apl": 2.01
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "length": 45,
+      "pop": 491,
+      "dept": "51",
+      "code": "51513"
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "length": 43,
+      "pop": 923,
+      "dept": "70",
+      "code": "70058"
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "length": 41,
+      "pop": 499,
+      "dept": "14",
+      "code": "14621"
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "length": 40,
+      "pop": 64,
+      "dept": "70",
+      "code": "70449"
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "length": 40,
+      "pop": 195,
+      "dept": "34",
+      "code": "34317"
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "length": 40,
+      "pop": 381,
+      "dept": "21",
+      "code": "21433"
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "length": 39,
+      "pop": 180,
+      "dept": "07",
+      "code": "07262"
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "length": 38,
+      "pop": 1270,
+      "dept": "80",
+      "code": "80714"
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "length": 38,
+      "pop": 309,
+      "dept": "24",
+      "code": "24048"
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "length": 38,
+      "pop": 142,
+      "dept": "11",
+      "code": "11128"
+    }
+  ],
+  "histogram": [
+    {
+      "l": 1,
+      "n": 1
+    },
+    {
+      "l": 2,
+      "n": 13
+    },
+    {
+      "l": 3,
+      "n": 154
+    },
+    {
+      "l": 4,
+      "n": 720
+    },
+    {
+      "l": 5,
+      "n": 1969
+    },
+    {
+      "l": 6,
+      "n": 3223
+    },
+    {
+      "l": 7,
+      "n": 3695
+    },
+    {
+      "l": 8,
+      "n": 3695
+    },
+    {
+      "l": 9,
+      "n": 3000
+    },
+    {
+      "l": 10,
+      "n": 2522
+    },
+    {
+      "l": 11,
+      "n": 1884
+    },
+    {
+      "l": 12,
+      "n": 1435
+    },
+    {
+      "l": 13,
+      "n": 1167
+    },
+    {
+      "l": 14,
+      "n": 1018
+    },
+    {
+      "l": 15,
+      "n": 1095
+    },
+    {
+      "l": 16,
+      "n": 1177
+    },
+    {
+      "l": 17,
+      "n": 1186
+    },
+    {
+      "l": 18,
+      "n": 1202
+    },
+    {
+      "l": 19,
+      "n": 1117
+    },
+    {
+      "l": 20,
+      "n": 1028
+    },
+    {
+      "l": 21,
+      "n": 923
+    },
+    {
+      "l": 22,
+      "n": 819
+    },
+    {
+      "l": 23,
+      "n": 649
+    },
+    {
+      "l": 24,
+      "n": 501
+    },
+    {
+      "l": 25,
+      "n": 329
+    },
+    {
+      "l": 26,
+      "n": 200
+    },
+    {
+      "l": 27,
+      "n": 105
+    },
+    {
+      "l": 28,
+      "n": 55
+    },
+    {
+      "l": 29,
+      "n": 53
+    },
+    {
+      "l": 30,
+      "n": 29
+    },
+    {
+      "l": 31,
+      "n": 12
+    },
+    {
+      "l": 32,
+      "n": 8
+    },
+    {
+      "l": 33,
+      "n": 2
+    },
+    {
+      "l": 34,
+      "n": 6
+    },
+    {
+      "l": 35,
+      "n": 7
+    }
+  ]
+}
