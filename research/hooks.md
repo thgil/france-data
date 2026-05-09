@@ -31,3 +31,7 @@ that surfaced it.
 - 🔥 12 different French villages are all called Sainte-Colombe, in 12 different départements. If your GPS asks which one, the answer depends on which département you're already in. [Q-037]
 - 🔥 Nearly 1 in 8 French communes has Saint or Sainte in its name — 4,437 out of 35,014. France is officially secular; its map is not. [Q-037]
 - 🔥 1,991 communes have -sur- in their name, tracing France's river network from the directory. The grammar of place names is also a hydrological map. [Q-037]
+- 🔥 The westernmost bar in mainland France is on Ouessant island — accessible only by ferry, pop 838, APL 7.19. It has better GP access than most of the Paris suburbs. [Q-042]
+- 🔥 The southernmost bar in mainland France is in Lamanère: a Catalan mountain village of 55 people, APL = 0.00, no accessible doctor. But there is a bar. [Q-042]
+- 🔥 Bray-Dunes, France's northernmost commune with bars, has a place called THE BELGIAN'S — named after the country just over the fence. It's also a medical desert (APL 1.45). [Q-042]
+- 🔥 Three of the four geographic corners of mainland France are medical deserts. The sole exception is the most remote: Ouessant island, which has no choice but to keep its own doctor. [Q-042]

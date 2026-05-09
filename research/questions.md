@@ -180,6 +180,13 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
+### Q-042: What's at the geographic extremes of France — northernmost, southernmost, easternmost, westernmost bar?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Datasets: [DS-SIRENE-BARS](datasets.md#ds-sirene-bars), [DS-APL](datasets.md#ds-apl)
+- Finding: **North**: Bray-Dunes (Dept 59) — 9 bars at 51.085°N, APL 1.45 (medical desert). **West**: Ouessant island (Dept 29) — 2 bars at 5.10°W, APL 7.19 (one of France's highest outside ski resorts). **South**: Lamanère (Dept 66) — 1 bar at 42.360°N, pop 55, APL 0.0. **East**: Lauterbourg (Dept 67) — 1 bar at 8.179°E on the Rhine, APL 1.56 (medical desert). Three of four corners are medical deserts; the sole exception is the most physically remote (the island, which must maintain its own doctor).
+- Story: [four-corners](/stories/four-corners/)
+
 ### Q-037: What is the single most common commune name in France?
 - Status: ✅ answered
 - Topic: [culture](topics/culture.md)

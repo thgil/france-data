@@ -74,6 +74,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### four-corners: The Four Corners
+- Status: ✅ published
+- Published URL: /stories/four-corners/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: France has 49,385 bars. At the northernmost point, someone opened THE BELGIAN'S. At the southernmost — a village of 55 people with APL=0 — there's still a bar. Wherever there are people, there is a bar.
+- Data: INSEE SIRENE bars.json (49,385 points), DREES APL 2023 for medical access scores. Computed geographic extremes from latitude/longitude.
+- Angle: Four narrative beats (N/W/S/E) + a simple MapLibre map with four corner markers + the doctor-access paradox (3 corners are medical deserts; the remote island isn't).
+- Draft X summary:
+  > France has 49,385 bars. We mapped every one. Then we asked: what's at the very edge? North: Bray-Dunes, 9 bars, medical desert, one called THE BELGIAN'S. West: Ouessant island — 2 bars, better doctor access than most of Paris. South: a village of 55. East: the Rhine. 🇫🇷
+
 ### commune-names: What's in a name?
 - Status: ✅ published
 - Published URL: /stories/commune-names/

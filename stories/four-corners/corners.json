@@ -1,0 +1,68 @@
+[
+  {
+    "id": "north",
+    "direction": "North",
+    "commune": "Bray-Dunes",
+    "dept": "59",
+    "deptName": "Nord",
+    "lat": 51.08515,
+    "lng": 2.5465,
+    "pop": 4380,
+    "apl": 1.45,
+    "aplCategory": "desert",
+    "barCount": 9,
+    "namedBars": [
+      "THE BELGIAN'S",
+      "LE GREEN",
+      "LA MAISON DE LA CIVETTE",
+      "LA PETITE FRINGALE CHEZ SAM",
+      "LE KASAC CAFE"
+    ],
+    "note": "The northernmost bars in mainland France — a Dunkirk beach resort where 300,000 Allied troops were evacuated in 1940. Nine bars for 4,380 people. One of them is called THE BELGIAN'S."
+  },
+  {
+    "id": "west",
+    "direction": "West",
+    "commune": "Ouessant",
+    "dept": "29",
+    "deptName": "Finistère",
+    "lat": 48.45737,
+    "lng": -5.09733,
+    "pop": 838,
+    "apl": 7.19,
+    "aplCategory": "well-served",
+    "barCount": 2,
+    "namedBars": [],
+    "note": "An island 20 km off the Breton coast, accessible only by ferry or light aircraft. \"Qui voit Ouessant voit son sang\" — the old sailor's warning. Two bars for 838 islanders. APL 7.19: one of the best doctor-access scores in France."
+  },
+  {
+    "id": "south",
+    "direction": "South",
+    "commune": "Lamanère",
+    "dept": "66",
+    "deptName": "Pyrénées-Orientales",
+    "lat": 42.36027,
+    "lng": 2.51948,
+    "pop": 55,
+    "apl": 0.0,
+    "aplCategory": "severe",
+    "barCount": 1,
+    "namedBars": [],
+    "note": "A Catalan mountain village of 55 people at 42.36°N. The southernmost bar in mainland France is also one of the most medically isolated: APL = 0.0. No doctor accessible. But there is a bar."
+  },
+  {
+    "id": "east",
+    "direction": "East",
+    "commune": "Lauterbourg",
+    "dept": "67",
+    "deptName": "Bas-Rhin",
+    "lat": 48.97489,
+    "lng": 8.17934,
+    "pop": 2339,
+    "apl": 1.56,
+    "aplCategory": "desert",
+    "barCount": 1,
+    "namedBars": [],
+    "note": "Where France ends at the Rhine. Lauterbourg sits at 8.18°E, the easternmost point of mainland France before Germany begins. One bar at the river's edge."
+  }
+]
