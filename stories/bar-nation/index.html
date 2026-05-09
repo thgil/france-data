@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bar League — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+      height: 1150px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      padding: 16px 8px 16px 4px;
+    }
+
+    .chart-wrap canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      padding: 10px 12px;
+      background: #f5f1ea;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #555;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Stat callout ────────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    .stat-block {
+      border-top: 2px solid var(--rule);
+      padding-top: 14px;
+    }
+
+    .stat-num {
+      font-family: var(--serif, Georgia, serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute, #666);
+      line-height: 1.4;
+    }
+
+    .stat-num.corsica { color: #c67c00; }
+    .stat-num.paris   { color: #1a5c8f; }
+    .stat-num.suburb  { color: #7a2252; }
+
+    /* ── Ranking table ───────────────────────────────────────────────── */
+    .rank-table-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    @media (max-width: 600px) {
+      .rank-table-wrap { grid-template-columns: 1fr; }
+    }
+
+    .rank-table-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .rank-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+
+    .rank-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .rank-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    .rank-num {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 2ch;
+    }
+
+    .rank-name {
+      font-family: Georgia, serif;
+    }
+
+    .rank-corsica { color: #c67c00; font-weight: 600; }
+    .rank-paris   { color: #1a5c8f; font-weight: 600; }
+    .rank-suburb  { color: #7a2252; font-weight: 600; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute, #666);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #ccc;
+    }
+
+    .credits a { color: inherit; }
+
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Bar League</h1>
+        <p class="story-dek">France has 49,385 bars. Count by département and Nord wins. Count per resident and you get a very different map.</p>
+        <div class="story-meta">
+          <span>2026-05-09</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Everybody knows France drinks. The official tally: 49,385 active <em>débits de boissons</em> — bars, cafés, brasseries — each registered in the national SIRENE directory with a NAF code (56.30Z) and a geocoded address. By raw count, Paris leads with 3,120, followed by Nord (1,961) and Bouches-du-Rhône (1,632). That headline is accurate. It's also misleading.</p>
+
+      <p>Count matters less than rate. Once you divide by the number of residents, the ranking inverts completely. The national average is 7.3 bars per 10,000 people. The chart below shows all 96 metropolitan départements sorted by that measure.</p>
+
+      <!-- ── Chart ─────────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-league"></canvas>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-swatch" style="background:#c67c00"></span>Corse</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#1a5c8f"></span>Paris</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#7a2252"></span>Banlieue parisienne</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#a0a0a0"></span>Other</span>
+          <span class="legend-item" style="margin-left:auto; color:#888;">— — national average (7.3)</span>
+        </div>
+        <figcaption>All 96 metropolitan départements ranked by bars per 10,000 residents. Source: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> (NAF 56.30Z, March 2026) · population from <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: Corsica ────────────────────────────────────────────── -->
+      <h2>Corsica leads — by a wide margin</h2>
+
+      <p>Haute-Corse (2B) tops the ranking at 21.1 bars per 10,000 residents: nearly three times the national average of 7.3. Corse-du-Sud (2A) follows at 16.9. Together, the island's two départements sit far above the next group.</p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num corsica">21.1</div>
+          <div class="stat-label">Haute-Corse (2B)<br>bars per 10,000 — #1 in France</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num corsica">16.9</div>
+          <div class="stat-label">Corse-du-Sud (2A)<br>bars per 10,000 — #3 in France</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" style="color:#555">7.3</div>
+          <div class="stat-label">National average<br>across 96 départements</div>
+        </div>
+      </div>
+
+      <p>Anyone who has spent a summer afternoon in Bastia, Corte, or Sartène won't be shocked. The Corsican café culture is intense — a <em>café</em> is an anchoring institution in most villages, not just a business. But the sheer magnitude of the gap is striking.</p>
+
+      <!-- ── Beat 3: Mountain highlands ────────────────────────────────── -->
+      <h2>The mountain café effect</h2>
+
+      <p>Between Corsica and Paris, the ranking is dominated by rural, sparsely-populated highlands. Lozère (17.6 per 10k), Cantal (16.6), Hautes-Alpes (15.6), Alpes-de-Haute-Provence (14.6). France's thinnest departments — Lozère has 76,000 people spread across 5,167 km² — are among its most bar-dense per capita.</p>
+
+      <p>The logic is social geometry. In communities without a cinema, a mall, or sometimes a second restaurant, the café on the <em>place du village</em> is the only gathering place. One bar serves the social needs that a dozen institutions cover in the city. Scarcity of alternatives drives the rate up.</p>
+
+      <!-- ── Beat 4: Paris ──────────────────────────────────────────────── -->
+      <h2>Paris: real café culture, #7 in the ranking</h2>
+
+      <p>Paris lands at #7 with 14.6 bars per 10,000 — easily the highest of any large city in France. Marseille (13), Lyon (69), and Bordeaux (33) all score much lower. The Hausmannian café-de-coin model works: a corner café every 300 metres is not mythology, it's what the numbers show.</p>
+
+      <p>But Paris is beaten by six smaller departments, four of them mountain or rural. Café culture is real in Paris. It's also real in Lozère. The capital doesn't own the concept.</p>
+
+      <!-- ── Beat 5: Nord ────────────────────────────────────────────────── -->
+      <h2>Nord: the count story isn't the rate story</h2>
+
+      <p>Nord (59) has France's second-largest bar total in absolute terms: 1,961 establishments, just behind Paris. It also has 2.6 million residents. Per 10,000 people, Nord scores 7.5 — essentially national average, ranking #54 out of 96.</p>
+
+      <p>The "drinking north" narrative is real in absolute terms. In relative terms, Nord is unremarkable. This is the count trap: a large, densely-populated département will always look impressive in raw totals. Per capita is the honest comparison.</p>
+
+      <!-- ── Beat 6: Dry suburbs ─────────────────────────────────────────── -->
+      <h2>The dry suburbs</h2>
+
+      <p>The bottom of the table belongs almost entirely to the <em>banlieue parisienne</em>. Five IDF suburbs sit in the bottom ten:</p>
+
+      <div class="rank-table-wrap">
+        <div class="rank-table-block">
+          <h3>Top 10 — most bars per capita</h3>
+          <table class="rank-table"><tbody id="table-top"></tbody></table>
+        </div>
+        <div class="rank-table-block">
+          <h3>Bottom 10 — fewest bars per capita</h3>
+          <table class="rank-table"><tbody id="table-bottom"></tbody></table>
+        </div>
+      </div>
+
+      <p>Essonne (3.1 per 10k) is the driest département in metropolitan France. Hauts-de-Seine and Yvelines (both 3.3) follow. These are prosperous, car-dependent commuter territories where commercial zoning favours retail parks over corner cafés, where pavements are designed for cars rather than people, and where the resident who leaves at 7am and returns at 8pm has limited opportunity for a <em>verre au zinc</em>.</p>
+
+      <p>Note also that Seine-Saint-Denis (93), the poorest of the IDF suburbs, scores 5.3 per 10k — better than most of its wealthier neighbours. The pattern isn't about income. It's about density and walkability.</p>
+
+      <!-- ── Closing ────────────────────────────────────────────────────── -->
+      <h2>What the ranking reveals</h2>
+
+      <p>The bar-per-capita map is a map of social infrastructure. High ratios cluster in places that are either intensely urban (Paris) or intensely rural (Lozère, Corse) — places where density of human interaction, whether on Haussmann's boulevards or in alpine villages, creates demand for a dedicated meeting place. The commuter suburbs in the middle — wealthy, sprawling, car-oriented — score worst of all. They haven't built the social geography that makes bars viable.</p>
+
+      <p>The <em>diagonale du vide</em>, which has appeared in this site's medical-deserts and bars stories, shows up again in partial form. Rural central France (Creuse, Haute-Marne, Meuse) tends to rank in the 6–8 per 10k range — at or near the national average, not at the extremes in either direction. The extremes are the islands, the mountains, and the Parisian commuter belt.</p>
+
+    </article>
+
+    <!-- ── Credits ───────────────────────────────────────────────────── -->
+    <aside class="credits">
+      <h3>Data &amp; methods</h3>
+      <p>Bar counts by département: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> national snapshot (NAF 56.30Z, active establishments, March 2026). 49,380 valid geocoded records after excluding 5 records with malformed département codes.</p>
+      <p>Population by département: summed from commune-level populations in the <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> dataset (population base INSEE 2021), covering 35,014 communes across all metropolitan départements. Overseas territories (DOM-TOM, combined under code 97) are excluded from this ranking due to incomplete bar coding in the source data.</p>
+      <p>Bars per 10,000 = (bar count ÷ population) × 10,000, rounded to one decimal place.</p>
+      <h3>Previous stories</h3>
+      <p>The bar total (49,385 national bars, dot-mapped) is from <a href="../bars/">Where France drinks</a>. Medical desert geography referenced from <a href="../medical-deserts/">Where the doctors aren't</a>.</p>
+    </aside>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawBarLeague } from './charts.js';
+
+    const TAG_CLASS = {
+      corsica: 'rank-corsica',
+      paris:   'rank-paris',
+      'idf-suburb': 'rank-suburb',
+      other: ''
+    };
+
+    fetch('./stats.json')
+      .then(r => r.json())
+      .then(stats => {
+        drawBarLeague('chart-league', stats);
+
+        const depts = stats.departments;
+
+        function renderTable(tbodyId, rows) {
+          const el = document.getElementById(tbodyId);
+          if (!el) return;
+          el.innerHTML = rows.map(d => {
+            const cls = TAG_CLASS[d.tag] || '';
+            return `<tr>
+              <td class="rank-num">#${d.rank}</td>
+              <td class="rank-name ${cls}">${d.name}</td>
+              <td>${d.per10k}</td>
+            </tr>`;
+          }).join('');
+        }
+
+        renderTable('table-top',    depts.slice(0, 10));
+        renderTable('table-bottom', depts.slice(-10).reverse());
+      });
+  </script>
+</body>
+</html>

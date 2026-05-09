@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-nation: The Bar League
+- Status: ✅ published
+- Published URL: /stories/bar-nation/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Nord has France's 2nd-most bars. Per resident, it ranks #54. Haute-Corse (#1 at 21.1 per 10k) beats everything. The IDF suburbs are the driest territory in metropolitan France.
+- Data: bars.json (49,380 points from bars story, aggregated by dept code) joined to département populations summed from DREES APL 2023 commune data. 96 metropolitan départements ranked.
+- Angle: Ranked horizontal bar chart (Chart.js 4, all 96 depts, color-coded by category). Top-10 / bottom-10 tables. Six narrative beats: the count illusion, Corsica leads, mountain café effect, Paris #7, Nord's surprise, dry suburbs.
+- Draft X summary:
+  > France's "drinking north" reputation is a count story, not a rate story. Nord ranks #54 per capita — basically average. Haute-Corse tops the table at 21 bars per 10,000. Essonne has fewer bars per resident than any metropolitan département. Today on **france-data**: the full league table. 🍺🗺️🇫🇷
+
