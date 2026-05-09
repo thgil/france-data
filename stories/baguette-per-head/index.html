@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The baguette capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .replay-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, color 0.1s;
+    }
+    .replay-btn:hover { background: #ece8e0; color: #1a1a1a; border-color: #999; }
+
+    /* ── Legend swatches ────────────────────────────────────────────── */
+    .legend-swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label {
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    /* ── Stats panel ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Number callout ─────────────────────────────────────────────── */
+    .callout-number {
+      font-family: Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: #b87800;
+      line-height: 1;
+      margin: 0;
+    }
+    .callout-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 4px 0 0;
+    }
+    .callout-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .callout-item { min-width: 120px; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The baguette capital</h1>
+        <p class="story-dek">Which commune in Île-de-France has the most bakeries per resident? The answer is not where you think — and the map tells a richer story than the ranking.</p>
+        <div class="story-meta">
+          <span>2026-05-09</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>There are 6,299 bakeries in Île-de-France, spread across 693 of its 1,300 communes. But which commune packs the most bread per resident? Counting total bakeries rewards the biggest cities. The more honest question is per capita — and the answer flips the map.</p>
+
+      <div class="callout-row">
+        <div class="callout-item">
+          <p class="callout-number">6,299</p>
+          <p class="callout-label">IDF bakeries</p>
+        </div>
+        <div class="callout-item">
+          <p class="callout-number">693</p>
+          <p class="callout-label">communes with at least one</p>
+        </div>
+        <div class="callout-item">
+          <p class="callout-number">607</p>
+          <p class="callout-label">communes with none</p>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-baguette" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-idf">Île-de-France</button>
+            <button class="zoom-btn" id="btn-paris">Inner Paris</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto; gap: 10px;">
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;">
+              <span class="legend-swatch" style="background:#d8d0c0;"></span> 0
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;">
+              <span class="legend-swatch" style="background:#e8cb78;"></span> 1–6
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;">
+              <span class="legend-swatch" style="background:#d4a020;"></span> 6–10
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;">
+              <span class="legend-swatch" style="background:#8b5a00;"></span> 15+
+            </span>
+            <span style="font-size:11px;color:#888;">bakeries per 10,000 residents</span>
+            &nbsp;
+            <button class="replay-btn" id="btn-replay">Replay</button>
+          </div>
+        </div>
+        <figcaption>Each commune filled by its bakery density: bakeries per 10,000 residents. Grey = zero bakeries recorded. Zoom to Inner Paris to see arrondissement detail. Source: <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE via Région Île-de-France</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>The small-commune paradox</h2>
+
+      <p>Raw per-capita rankings are dominated by the smallest communes. Châtenoy, a village of 149 in Seine-et-Marne, has one bakery — giving it a theoretical density of 67 bakeries per 10,000 residents. That single bakery feeds half a dozen surrounding hamlets and almost certainly closes on Mondays. The number is real; the comparison to Paris is not meaningful.</p>
+
+      <p>Restrict the ranking to communes with at least 2,000 residents and the picture sharpens. At that threshold, the winner is <strong>Rebais</strong> — a market town of 2,151 in Seine-et-Marne — with five bakeries and a score of 23.2 per 10,000. One boulangerie for every 430 people.</p>
+
+      <!-- ── Beat 4: Stats ─────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bakeries per 10,000 (pop ≥ 2,000)</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Least (among communes with a bakery, pop ≥ 5,000)</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <h2>Paris, arrondissement by arrondissement</h2>
+
+      <p>Among the large communes, Paris dominates the top of the ranking — and the inner arrondissements more so than the outer ones. The <strong>Paris 1er</strong> leads with 20.8 per 10,000: 36 bakeries for 17,308 residents, or one boulangerie for every 481 people. The 4e and 8e follow. The gradient is steep: by the time you reach the outer arrondissements (19e, 20e), the density has halved.</p>
+
+      <p>But Paris's real competitor on the ranking isn't another city — it's the small historic market towns of the outer départements: <em>Houdan</em> (Yvelines), <em>Fontainebleau</em> (Seine-et-Marne), <em>Enghien-les-Bains</em> (Val-d'Oise). These are places where the local boulangerie still anchors the town centre the way it has for a century.</p>
+
+      <!-- ── Beat 6 ────────────────────────────────────────────────────── -->
+      <h2>The 607 communes with nothing</h2>
+
+      <p>Nearly half of IDF's communes — 607 of 1,300 — have no recorded bakery at all. Most are small villages where the count is expected. But some are surprisingly large: <strong>Saint-Germain-lès-Arpajon</strong> (Essonne, 9,338 residents) and <strong>Nandy</strong> (Seine-et-Marne, 5,814 residents) both appear with a zero. For residents there, the nearest baguette is in another town.</p>
+
+      <p>Even among communes that do have a bakery, the range is vast. <strong>Jouy-le-Moutier</strong> (Val-d'Oise, 16,589 residents) has exactly one — a score of 0.6 per 10,000, 35× less dense than the Paris 1er. The suburb is reachable by RER in under an hour. The bread isn't.</p>
+
+      <!-- ── Beat 7 ────────────────────────────────────────────────────── -->
+      <h2>What the map tells you</h2>
+
+      <p>Zoom into Inner Paris and the map glows: the historic centre is dark amber, the ring of grands boulevards still gold, the outer arrondissements fading toward pale cream. Pan out to the whole of IDF and the pattern reverses: the dense suburbs turn grey as bakery coverage thins. What looks like a Paris story is actually a density-of-density story — the same streets that produce the highest foot traffic produce the highest bakery counts, and foot traffic drops faster than population as you move outward.</p>
+
+      <p>The <em>boulangerie</em> isn't just a cultural symbol. It is a piece of commercial infrastructure that depends on pedestrian density, the same way pharmacies and cafés do. The golden core of the map is golden for the same reason in all three cases.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts and population figures are from the INSEE Base Permanente des Équipements (BPE), published via Région Île-de-France. The BPE counts (circa 2014 vintage) cover 1,300 communes and Paris arrondissements in Île-de-France. Population figures are from the 2010 census. Commune boundaries are from the same dataset. The <code>bakeriesPer10k</code> field is pre-computed as <code>(bakeries / population) × 10,000</code>. This story uses the same commune boundary file as <a href="../pharmacy-myth/">Story 1 (pharmacy myth)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Commerces par commune (Île-de-France)</a></li>
+          <li><a href="https://data.iledefrance.fr/explore/dataset/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements/">Région Île-de-France open data portal</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBaguetteMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function buildTables(geojson) {
+      const props = geojson.features.map(f => f.properties);
+
+      // Top per-capita (pop >= 2000)
+      const large = props
+        .filter(p => (p.population || 0) >= 2000 && (p.bakeries || 0) > 0)
+        .sort((a, b) => b.bakeriesPer10k - a.bakeriesPer10k);
+
+      const topTbody = document.querySelector('#table-top tbody');
+      if (topTbody) {
+        topTbody.innerHTML = large.slice(0, 10).map((p, i) => `
+          <tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${p.name}</td>
+            <td>${p.bakeriesPer10k.toFixed(1)}</td>
+          </tr>`).join('');
+      }
+
+      // Bottom (pop >= 5000, has bakery)
+      const big = props
+        .filter(p => (p.population || 0) >= 5000 && (p.bakeries || 0) > 0)
+        .sort((a, b) => a.bakeriesPer10k - b.bakeriesPer10k);
+
+      const bottomTbody = document.querySelector('#table-bottom tbody');
+      if (bottomTbody) {
+        bottomTbody.innerHTML = big.slice(0, 8).map((p, i) => `
+          <tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${p.name}</td>
+            <td>${p.bakeriesPer10k.toFixed(1)}</td>
+          </tr>`).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const geojson = await loadJSON('../pharmacy-myth/communes.geojson');
+
+        buildTables(geojson);
+
+        const mapAPI = drawBaguetteMap('#map-baguette', { geojson });
+
+        document.getElementById('map-controls').style.display = '';
+        document.getElementById('btn-idf').addEventListener('click',    () => mapAPI.flyToIDF());
+        document.getElementById('btn-paris').addEventListener('click',  () => mapAPI.flyToParis());
+        document.getElementById('btn-replay').addEventListener('click', () => mapAPI.replay());
+
+      } catch (err) {
+        console.error('Failed to load baguette story data:', err);
+        document.getElementById('map-baguette').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

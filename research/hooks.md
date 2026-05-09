@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Paris 1er has 36 bakeries for 17,308 residents — one boulangerie per 481 people. That's the densest bread supply in Île-de-France among any large commune. [Q-034]
+- 🔥 Rebais, a market town of 2,151 in Seine-et-Marne, is the per-capita baguette capital of Île-de-France: 5 bakeries, one for every 430 residents. [Q-034]
+- 🔥 Jouy-le-Moutier has 16,589 residents and exactly one bakery. That's 0.6 per 10,000 — 35× less dense than the Paris 1er. It's 45 minutes from central Paris. [Q-034]
+- 🔥 607 of Île-de-France's 1,300 communes have no bakery at all. Some of those communes have thousands of residents. [Q-034]

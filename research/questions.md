@@ -173,8 +173,10 @@ datasets and the resulting story.
 - Story: [bars](/stories/bars/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Among IDF communes with at least 2,000 residents, **Rebais** (Seine-et-Marne, 2,151 pop) tops the per-capita ranking at 23.2 per 10,000 — one bakery per 430 residents. Among large communes, Paris 1er leads with 20.8 per 10,000 (36 bakeries, 17,308 residents: one per 481). The historic central arrondissements (1er, 4e, 8e, 9e, 6e) dominate. At the other extreme, Jouy-le-Moutier (16,589 residents) has exactly one bakery (0.6/10k), and 607 of 1,300 IDF communes have none at all. The per-capita map is essentially the same as the pharmacy-density map — foot-traffic density drives both.
+- Story: [baguette-per-head](/stories/baguette-per-head/)
 
 ### Q-035: How many communes have a public library, and how many don't?
 - Status: 🟢 open
