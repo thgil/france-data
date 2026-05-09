@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### alpine-paradox: The alpine paradox
+- Status: ✅ published
+- Published URL: /stories/alpine-paradox/
+- Source question: [Q-013b](questions.md#q-013b-which-département-has-the-best-gp-access-and-what-explains-it)
+- Hook: France's best-served département for healthcare isn't Paris. It's Hautes-Alpes — ski resorts, 141,000 permanent residents, APL 5.02.
+- Data: DREES APL 2023 ([DS-APL](datasets.md#ds-apl)) — same source as medical-deserts. Population-weighted averages computed across 97 metropolitan departments.
+- Angle: Full département-level league table (97 bars), sorted best to worst. Hautes-Alpes at top in blue; IDF suburbs at bottom in red. National average and desert threshold lines. Annotations on key outliers.
+- Draft X summary:
+  > France's best-served département for GP access isn't Paris. It's Hautes-Alpes — ski resorts, 141,000 residents, APL 5.02 vs Paris's 4.96. Meanwhile, Val-d'Oise (30 min by RER from the Gare du Nord) has 63% of residents in a medical desert. Today on **france-data**: all 97 departments, ranked. 🏔️🇫🇷
+

@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France's best-served département for GP access isn't Paris. It's Hautes-Alpes — 141,000 residents, ski resorts, and an APL of 5.02. Paris scores 4.96. [Q-013b]
+- 🔥 Val-d'Oise is 30 minutes from the Gare du Nord by RER. 63.2% of its residents live in a medical desert — the highest desert rate in metropolitan France. [Q-013b]
+- 🔥 The gap between Hautes-Alpes (APL 5.02) and Cher (APL 2.25) is 2.77 points. Same country, same national health system, same carte vitale. The average Cher resident can access roughly half the GP consultations of the average Hautes-Alpes resident. [Q-013b]
+- 🔥 Four of France's ten worst-served départements are IDF suburbs: Val-d'Oise, Seine-et-Marne, Essonne, Yvelines. The ring around Paris shows up at département level just as it does on the commune choropleth. [Q-013b]

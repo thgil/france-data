@@ -83,6 +83,13 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [health](topics/health.md)
 
+### Q-013b: Which département has the best GP access, and what explains it?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Hautes-Alpes (dept 05) has France's highest population-weighted APL at 5.02 — narrowly beating Paris (4.96). The explanation is geographical: tiny ski-resort communes near Briançon (which has a full regional hospital) have a small permanent population relative to the GPs available in their catchment area, producing very high APL ratios. The four worst-served departments in metro France are all IDF outer suburbs: Val-d'Oise (2.41, 63% desert), Seine-et-Marne (2.38, 55%), Eure-et-Loir (2.41, 56%), Essonne (2.52, 51%). The gap from best (5.02) to worst (Cher 2.25) is 2.77 points — a factor of ~2× in accessible consultations per year.
+- Story: [alpine-paradox](/stories/alpine-paradox/)
+
 ### Q-014: How many "medical deserts" are there in France, and where?
 - Status: ✅ answered
 - Topic: [health](topics/health.md)
