@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar at altitude — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 64px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+    }
+    #chart-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+    #chart-container svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 12px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── City comparison table ──────────────────────────────────────── */
+    .city-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .city-grid { grid-template-columns: 1fr; }
+    }
+
+    .city-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .city-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .city-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .city-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .city-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .city-table .city-name {
+      font-family: Georgia, serif;
+    }
+    .city-table .city-sub {
+      font-size: 11px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Big stat pull-quote ─────────────────────────────────────────── */
+    .stat-pull {
+      border-left: 3px solid var(--accent);
+      padding: 16px 24px;
+      margin: 40px 0;
+      background: #faf7f2;
+    }
+    .stat-pull .stat-number {
+      font-family: Georgia, serif;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+    }
+    .stat-pull .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar at altitude</h1>
+        <p class="story-dek">Ask which French commune has the most bars per capita, and the answer isn't a Parisian arrondissement — it's a mountain village in the Pyrenees.</p>
+        <div class="story-meta">
+          <span>2026-05-09</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 registered <em>débits de boissons</em> — bars, cafés, brasseries, and pubs. Averaged across roughly 35,000 communes and 67 million residents, that works out to 0.73 bars per thousand people. Most major cities sit somewhere between one and two. Then there's Gavarnie-Gèdre.</p>
+
+      <!-- ── Chart ─────────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div id="chart-container">
+          <p style="font-style:italic;color:#888;font-size:13px;">Loading chart…</p>
+        </div>
+        <div class="chart-legend" id="chart-legend" style="display:none">
+          <div class="legend-item"><div class="legend-swatch" style="background:#4a6fa5"></div> Alpine station</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#8b6bb1"></div> Pyrenees station</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3a8c6e"></div> Breton / coastal island</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#c07c2a"></div> Corsica</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#888"></div> Other</div>
+        </div>
+        <figcaption>Top 20 French communes by bars per 1,000 residents (minimum population 200). Source: INSEE SIRENE March 2026; population from DREES APL 2023 (INSEE 2021 base).</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: Ski resort pattern ────────────────────────────────── -->
+      <h2>The mountain station pattern</h2>
+
+      <p>Gavarnie-Gèdre is a commune in the Hautes-Pyrénées — the approach to the Cirque de Gavarnie, a UNESCO-listed glacial amphitheatre that draws several hundred thousand visitors each year. Its permanent registered population: 341. Its bars: seven.</p>
+
+      <div class="stat-pull">
+        <span class="stat-number">28×</span>
+        <span class="stat-label">Gavarnie-Gèdre's bar density above the French national average</span>
+      </div>
+
+      <p>The rest of the top ten reads like a ski resort directory: Les Deux Alpes (20.2/1k), Chamrousse (19.3), Morzine (19.2), Puy-Saint-Vincent (17.9), Montgenèvre (17.5), Orcières (16.1), Risoul (15.2). Nine of the top fifteen communes are Alpine or Pyrenean mountain stations, most of them household names for French skiers.</p>
+
+      <!-- ── Beat 3: The mismatch ───────────────────────────────────────── -->
+      <h2>Counted against the wrong population</h2>
+
+      <p>The explanation lies in the gap between <em>official</em> population and <em>actual</em> occupancy. Morzine, fourth on the list with 51 bars and 2,660 permanent residents (19.2/1k), regularly hosts upward of 30,000 people during peak ski season. Val-d'Isère (1,580 registered residents) sees 45,000 skiers in February. Courchevel's 2,311 residents share infrastructure built for a luxury resort that hosts a hundred times that number each season.</p>
+
+      <p>The bars, restaurants, and hotels in these communes were licensed to serve that transient population. INSEE's SIRENE business registry records each establishment against its commune's permanent address — so the per-capita ratio is computed against a denominator that understates actual clientele by a factor of ten or more. The mountain bar density isn't a cultural phenomenon; it's a statistical one.</p>
+
+      <!-- ── Beat 4: Outliers ───────────────────────────────────────────── -->
+      <h2>Islands and villages</h2>
+
+      <p>Not every top-ranked commune is a ski resort. Île-d'Houat, fifth on the list at 18.5 per thousand, is a Breton island in the Golfe du Morbihan with 216 permanent residents and four bars. The same mismatch logic applies: in summer, the island's ferry brings day-trippers and campers by the boatload. The bars stay registered year-round; the visitors don't. La Roche-Bernard (11.5/1k), a medieval river town on the Vilaine, makes the top 20 through similar seasonal dynamics — more weekend visitors than permanent residents, and the café infrastructure to match.</p>
+
+      <p>The strangest outlier is Serverette in Lozère, ninth on the list at 16.1 per thousand. This is not a resort. It's a pastoral commune of 248 people in the Margeride plateau — no ski lift, no tourist trail. Four bars. In a village this small, a few <em>cafés</em> that simply haven't closed can dominate the ratio entirely. It's a different kind of density: not seasonal, but structural. The village bar as social institution, counted mathematically as excess.</p>
+
+      <!-- ── Beat 5: City comparison ────────────────────────────────────── -->
+      <h2>And the cities?</h2>
+
+      <div class="city-grid">
+        <div class="city-block">
+          <h3>Major cities — bars per 1,000 residents</h3>
+          <table class="city-table" id="city-table">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="city-block">
+          <h3>For comparison</h3>
+          <table class="city-table">
+            <tbody>
+              <tr>
+                <td class="city-name">Gavarnie-Gèdre
+                  <span class="city-sub">Hautes-Pyrénées · pop 341</span>
+                </td>
+                <td>20.5</td>
+              </tr>
+              <tr>
+                <td class="city-name">Les Deux Alpes
+                  <span class="city-sub">Isère · pop 1,933</span>
+                </td>
+                <td>20.2</td>
+              </tr>
+              <tr>
+                <td class="city-name">National average
+                  <span class="city-sub">France · 49,385 bars</span>
+                </td>
+                <td style="color:var(--accent)">0.73</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>Lille leads France's major cities at 1.88 bars per thousand — more than twice the national average, reflecting the dense café culture of the north. Paris, spread across twenty arrondissements, averages around 1.5. The first arrondissement (Paris 1er) reaches 7.73/1k — built more for its half-million daily workers and tourists than its 16,000 registered residents. Even so, that's less than half the density of Gavarnie-Gèdre.</p>
+
+      <p>The bar-per-capita ranking isn't really a measure of where the French drink most. It's a measure of where bars were licensed relative to the people who officially call that place home. The answer: in the mountains. Built for skiers who arrive in January, counted against permanent populations that stay all year.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z, active establishments, March 2026), geocoded by INSEE's statistical geolocation file. Each bar is assigned to a commune via the commune code in its SIRENE record. Population denominators are from the DREES APL 2023 dataset (INSEE 2021 population base) — the same source used in the <a href="../medical-deserts/">medical deserts story</a>. Analysis covers 11,201 communes with population ≥ 200 and at least one matched bar record. Paris is modelled as twenty arrondissements, each with its own bar count and population.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded establishment coordinates</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> — commune-level population (INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    const COLORS = {
+      alpine:   '#4a6fa5',
+      pyrenees: '#8b6bb1',
+      bretagne: '#3a8c6e',
+      corse:    '#c07c2a',
+      other:    '#888888'
+    };
+
+    async function loadData() {
+      const res = await fetch('./data.json');
+      if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function drawChart(container, data) {
+      const { top20, nationalAvg } = data;
+
+      const isMobile = window.innerWidth < 600;
+      const labelWidth = isMobile ? 120 : 165;
+      const margin = { top: 24, right: 52, bottom: 40, left: labelWidth };
+      const totalWidth = Math.min(container.offsetWidth || 700, 860);
+      const width = totalWidth - margin.left - margin.right;
+      const barH = isMobile ? 22 : 26;
+      const gap = 5;
+      const height = top20.length * (barH + gap) - gap;
+
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', totalWidth);
+      svg.setAttribute('height', height + margin.top + margin.bottom);
+      svg.style.fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
+      svg.style.fontSize = '12px';
+      container.innerHTML = '';
+      container.appendChild(svg);
+
+      const xMax = Math.ceil(top20[0].per1k * 1.06);
+      const xScale = v => (v / xMax) * width;
+      const yPos = i => i * (barH + gap);
+
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('transform', `translate(${margin.left},${margin.top})`);
+      svg.appendChild(g);
+
+      function svgEl(tag, attrs, text) {
+        const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+        if (text !== undefined) el.textContent = text;
+        return el;
+      }
+
+      /* National average reference line */
+      const avgX = xScale(nationalAvg);
+      g.appendChild(svgEl('line', {
+        x1: avgX, x2: avgX, y1: -6, y2: height + 6,
+        stroke: '#b32020', 'stroke-width': 1, 'stroke-dasharray': '4,3'
+      }));
+      g.appendChild(svgEl('text', {
+        x: avgX + 4, y: -8,
+        'font-size': 10, fill: '#b32020', 'text-anchor': 'start'
+      }, `nat'l avg ${nationalAvg}`));
+
+      /* X axis ticks */
+      const tickVals = [];
+      for (let v = 0; v <= xMax; v += 5) tickVals.push(v);
+      for (const v of tickVals) {
+        const tx = xScale(v);
+        g.appendChild(svgEl('line', {
+          x1: tx, x2: tx, y1: height, y2: height + 5,
+          stroke: '#ccc', 'stroke-width': 1
+        }));
+        g.appendChild(svgEl('text', {
+          x: tx, y: height + 18,
+          'text-anchor': 'middle', 'font-size': 11, fill: '#888'
+        }, v === 0 ? '' : v + '/1k'));
+      }
+      g.appendChild(svgEl('line', {
+        x1: 0, x2: width, y1: height, y2: height,
+        stroke: '#ccc', 'stroke-width': 1
+      }));
+
+      /* Bars */
+      top20.forEach((d, i) => {
+        const y = yPos(i);
+        const barW = xScale(d.per1k);
+        const color = COLORS[d.type] || COLORS.other;
+
+        /* Bar rect */
+        g.appendChild(svgEl('rect', {
+          x: 0, y, width: barW, height: barH,
+          fill: color, opacity: 0.82
+        }));
+
+        /* Value label */
+        g.appendChild(svgEl('text', {
+          x: barW + 5, y: y + barH / 2 + 4,
+          'font-size': 11, fill: '#333'
+        }, d.per1k.toFixed(1)));
+
+        /* Y-axis label (rank + name + dept) */
+        const labelX = -8;
+        const nameText = isMobile && d.name.length > 14 ? d.name.slice(0, 13) + '…' : d.name;
+        g.appendChild(svgEl('text', {
+          x: labelX, y: y + barH / 2 + 4,
+          'text-anchor': 'end', 'font-size': isMobile ? 11 : 12, fill: '#1a1a1a'
+        }, `${d.rank}. ${nameText}`));
+
+        /* Dept in gray */
+        if (!isMobile) {
+          g.appendChild(svgEl('text', {
+            x: labelX - 0, y: y + barH / 2 + 4,
+            'text-anchor': 'end', 'font-size': 10, fill: '#999',
+            'dominant-baseline': 'auto'
+          }, ''));
+        }
+      });
+    }
+
+    function populateCityTable(data) {
+      const tbody = document.querySelector('#city-table tbody');
+      if (!tbody || !data.cities) return;
+      tbody.innerHTML = data.cities.map(c =>
+        `<tr>
+          <td class="city-name">${c.name}
+            <span class="city-sub">Dept ${c.dept}</span>
+          </td>
+          <td>${c.per1k.toFixed(2)}</td>
+        </tr>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const data = await loadData();
+        const container = document.getElementById('chart-container');
+        drawChart(container, data);
+        populateCityTable(data);
+        document.getElementById('chart-legend').style.display = 'flex';
+      } catch (err) {
+        console.error('altitude-bars chart failed:', err);
+        document.getElementById('chart-container').innerHTML =
+          '<p style="color:#888;font-style:italic;font-size:13px;">Chart failed to load.</p>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

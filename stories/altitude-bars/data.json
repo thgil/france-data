@@ -1,0 +1,42 @@
+{
+  "nationalAvg": 0.73,
+  "totalBars": 49385,
+  "communesAnalyzed": 11201,
+  "top20": [
+    {"rank": 1,  "name": "Gavarnie-Gèdre",    "dept": "65", "pop": 341,    "bars": 7,  "per1k": 20.5, "type": "pyrenees"},
+    {"rank": 2,  "name": "Les Deux Alpes",     "dept": "38", "pop": 1933,   "bars": 39, "per1k": 20.2, "type": "alpine"},
+    {"rank": 3,  "name": "Chamrousse",          "dept": "38", "pop": 414,    "bars": 8,  "per1k": 19.3, "type": "alpine"},
+    {"rank": 4,  "name": "Morzine",             "dept": "74", "pop": 2660,   "bars": 51, "per1k": 19.2, "type": "alpine"},
+    {"rank": 5,  "name": "Île-d'Houat",         "dept": "56", "pop": 216,    "bars": 4,  "per1k": 18.5, "type": "bretagne"},
+    {"rank": 6,  "name": "Puy-Saint-Vincent",   "dept": "05", "pop": 280,    "bars": 5,  "per1k": 17.9, "type": "alpine"},
+    {"rank": 7,  "name": "Montgenèvre",          "dept": "05", "pop": 457,    "bars": 8,  "per1k": 17.5, "type": "alpine"},
+    {"rank": 8,  "name": "Orcières",             "dept": "05", "pop": 683,    "bars": 11, "per1k": 16.1, "type": "alpine"},
+    {"rank": 9,  "name": "Serverette",           "dept": "48", "pop": 248,    "bars": 4,  "per1k": 16.1, "type": "other"},
+    {"rank": 10, "name": "Risoul",               "dept": "05", "pop": 660,    "bars": 10, "per1k": 15.2, "type": "alpine"},
+    {"rank": 11, "name": "Vaujany",              "dept": "38", "pop": 348,    "bars": 5,  "per1k": 14.4, "type": "alpine"},
+    {"rank": 12, "name": "Oz",                   "dept": "38", "pop": 213,    "bars": 3,  "per1k": 14.1, "type": "alpine"},
+    {"rank": 13, "name": "Châtel",               "dept": "74", "pop": 1193,   "bars": 16, "per1k": 13.4, "type": "alpine"},
+    {"rank": 14, "name": "Val-d'Isère",          "dept": "73", "pop": 1580,   "bars": 21, "per1k": 13.3, "type": "alpine"},
+    {"rank": 15, "name": "Les Gets",             "dept": "74", "pop": 1223,   "bars": 16, "per1k": 13.1, "type": "alpine"},
+    {"rank": 16, "name": "Courchevel",           "dept": "73", "pop": 2311,   "bars": 30, "per1k": 13.0, "type": "alpine"},
+    {"rank": 17, "name": "Rogliano",             "dept": "2B", "pop": 540,    "bars": 7,  "per1k": 13.0, "type": "corse"},
+    {"rank": 18, "name": "Tignes",               "dept": "73", "pop": 2005,   "bars": 25, "per1k": 12.5, "type": "alpine"},
+    {"rank": 19, "name": "Laveissière",          "dept": "15", "pop": 516,    "bars": 6,  "per1k": 11.6, "type": "other"},
+    {"rank": 20, "name": "La Roche-Bernard",     "dept": "56", "pop": 695,    "bars": 8,  "per1k": 11.5, "type": "bretagne"}
+  ],
+  "cities": [
+    {"name": "Lille",       "dept": "59", "pop": 236710, "bars": 444, "per1k": 1.88},
+    {"name": "Bordeaux",    "dept": "33", "pop": 261804, "bars": 341, "per1k": 1.30},
+    {"name": "Nantes",      "dept": "44", "pop": 323204, "bars": 341, "per1k": 1.06},
+    {"name": "Nice",        "dept": "06", "pop": 348085, "bars": 364, "per1k": 1.05},
+    {"name": "Rennes",      "dept": "35", "pop": 225081, "bars": 226, "per1k": 1.00},
+    {"name": "Montpellier", "dept": "34", "pop": 302454, "bars": 258, "per1k": 0.85},
+    {"name": "Strasbourg",  "dept": "67", "pop": 291313, "bars": 201, "per1k": 0.69},
+    {"name": "Toulouse",    "dept": "31", "pop": 504078, "bars": 323, "per1k": 0.64}
+  ],
+  "parisArrondissements": {
+    "total_bars": 3121,
+    "best": {"name": "Paris 1er", "per1k": 7.73},
+    "most_bars": {"name": "Paris 11e", "bars": 386}
+  }
+}
