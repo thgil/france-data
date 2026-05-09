@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The drinking league — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .callout {
+      background: #f0ece4;
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      margin: 40px 0;
+      max-width: 640px;
+    }
+    .callout p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .callout p strong { color: var(--accent); }
+
+    .podium {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .podium-card {
+      flex: 1 1 160px;
+      max-width: 200px;
+      border: 1px solid #d8d0c0;
+      padding: 14px 16px;
+      background: #faf7f2;
+    }
+    .podium-rank {
+      font-family: var(--sans);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .podium-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .podium-score {
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .podium-score span {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-mute);
+    }
+    .podium-detail {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The drinking league</h1>
+        <p class="story-dek">96 French départements, ranked by bars per person. The winner isn't Paris — or even Brittany.</p>
+        <div class="story-meta">
+          <span>2026-05-09</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <p>France has 49,385 registered bars — every <em>débit de boissons</em>, from the corner <em>tabac-brasserie</em> in a Breton fishing village to the sleek cocktail bar in a Toulouse side street. An earlier story mapped them all as dots. But raw counts flatter large populations. Paris has more bars than anywhere else, obviously — it also has 2.1 million residents. A more honest question: where do people actually have the most bars within reach?</p>
+
+      <p>To answer it, we joined the national bar register to the INSEE population data for all 96 metropolitan départements — 48,785 bars matched to 65.4 million residents — and ranked the result. The answer is surprising enough to be worth dwelling on.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">7.46</span>
+          <span class="stat-label">national avg (bars per 10,000 residents)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">21.1</span>
+          <span class="stat-label">bars/10k in Haute-Corse (#1)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">3.07</span>
+          <span class="stat-label">bars/10k in Essonne (#96)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">6.9×</span>
+          <span class="stat-label">ratio between #1 and #96</span>
+        </div>
+      </div>
+
+      <h2>The island that drinks</h2>
+
+      <p>Haute-Corse leads the table, convincingly. With 390 bars for just 184,000 residents, it records <strong>21.1 bars per 10,000 people</strong> — nearly three times the national average. Corse-du-Sud is third, at 16.9. Together, the island places two départements in the top three, and the gap between Corse and the next comparable territory is substantial.</p>
+
+      <p>The explanation is partly structural. Corse has a very small permanent population supporting infrastructure — hotels, restaurants, bars — calibrated partly for tourism. The island receives roughly three million visitors a year, about 16 times its resident count. But that's not the whole story. Corsican café culture is deeply embedded in the social fabric in a way that goes beyond seasonal headcount. The <em>café du village</em> in a Corsican commune isn't a tourism amenity; it's the village square.</p>
+
+      <p>Lozère, at number two (17.6/10k), tells a similar story from the opposite geography: not an island but the most sparsely populated département in mainland France, where tiny permanent communities maintain a bar count that was built for a larger rural population and hasn't fully contracted. Cantal (16.6, #4) follows the same logic.</p>
+
+      <div class="podium">
+        <div class="podium-card">
+          <div class="podium-rank">#1</div>
+          <div class="podium-name">Haute-Corse</div>
+          <div class="podium-score">21.1 <span>/ 10k</span></div>
+          <div class="podium-detail">390 bars · 184k residents</div>
+        </div>
+        <div class="podium-card">
+          <div class="podium-rank">#2</div>
+          <div class="podium-name">Lozère</div>
+          <div class="podium-score">17.6 <span>/ 10k</span></div>
+          <div class="podium-detail">135 bars · 76k residents</div>
+        </div>
+        <div class="podium-card">
+          <div class="podium-rank">#3</div>
+          <div class="podium-name">Corse-du-Sud</div>
+          <div class="podium-score">16.9 <span>/ 10k</span></div>
+          <div class="podium-detail">276 bars · 163k residents</div>
+        </div>
+        <div class="podium-card">
+          <div class="podium-rank">#4</div>
+          <div class="podium-name">Cantal</div>
+          <div class="podium-score">16.6 <span>/ 10k</span></div>
+          <div class="podium-detail">239 bars · 144k residents</div>
+        </div>
+        <div class="podium-card">
+          <div class="podium-rank">#5</div>
+          <div class="podium-name">Hautes-Alpes</div>
+          <div class="podium-score">15.6 <span>/ 10k</span></div>
+          <div class="podium-detail">220 bars · 141k residents</div>
+        </div>
+      </div>
+
+      <h2>The Paris anomaly</h2>
+
+      <p>You might expect Paris to rank somewhere in the middle: too large for the per-capita math to work, too expensive for independent bars to survive. Instead, Paris proper (the <em>commune de Paris</em>, département 75) ranks <strong>#7</strong>, at 14.6 bars per 10,000 residents. That puts it ahead of 89 other départements. The 3,120 bars crammed into 105 square kilometres give central Paris a commercial bar density that most of provincial France can't match.</p>
+
+      <p>This is in part an artefact of the city's geography: Paris intra-muros is a small place. The département boundary cuts off the suburbs — which, as we'll see, are a different universe entirely. But it's also real. The density of commercial street life in Paris's arrondissements — the tabacs, brasseries, wine bars, and neighbourhood bistros layered into nearly every block — is a genuine phenomenon that the per-capita figure reflects.</p>
+
+      <div class="callout">
+        <p>Paris ranks <strong>#7</strong> nationally for bars per person — ahead of Finistère, ahead of Normandie, ahead of almost everywhere. Its suburbs sit at the very bottom of the table.</p>
+      </div>
+
+      <h2>Brittany, punching hard</h2>
+
+      <p>For the bar with the longest popular reputation, Brittany's numbers are strong — just not as strong as Corse or the rural Massif Central. Côtes-d'Armor ranks eighth (13.1/10k), Morbihan tenth (12.1), and Finistère fourteenth (11.0). Ille-et-Vilaine — the most urban of the four Breton départements, home to Rennes — comes in at 8.3, above the national average but well behind its western neighbours.</p>
+
+      <p>The Breton pattern reflects a genuine café culture and a strong tradition of <em>bistrots</em> in fishing and farming communities. But geography matters too: these are not small-population départements in the Corse or Lozère sense. Finistère has over 900,000 residents. Its 1,014 bars are numerous; they're just spread across a large population base. If bar density is your measure, the west of Brittany wins within its own region, but cedes the national podium to the island and the Massif.</p>
+
+      <h2>The IDF drought</h2>
+
+      <p>The bottom of the table is nearly as striking as the top. Six of the bottom eight positions are held by Île-de-France's suburban départements: Essonne (#96, 3.1/10k), Yvelines (#95, 3.3), Hauts-de-Seine (#94, 3.3), Val-d'Oise (#93, 3.7), Seine-et-Marne (#92, 3.8), and Val-de-Marne (#90, 4.0). Seine-Saint-Denis, typically associated with density, manages only 5.3 — well below average.</p>
+
+      <p>The pattern is consistent with how these territories were built. The post-war expansion of IDF's suburbs prioritised housing volume over commercial infrastructure; the <em>grande banlieue</em> was designed around commuting, not neighbourhood life. The few cafés that existed in village centres were often absorbed into urban sprawl without replacement. The result is a ring of suburbs with among the highest property prices in France and some of the lowest bar densities — a measure, if you want to take it that way, of what the metropolitan expansion cost in terms of daily social infrastructure.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-region" class="chart-mount"></div>
+        <figcaption>Average bars per 10,000 residents by région. The dashed line marks the national average (7.46). Corse is included as its own région. Source: INSEE SIRENE (bars, March 2026), DREES APL 2023 (population base INSEE 2021).</figcaption>
+      </figure>
+
+      <h2>All 96 départements</h2>
+
+      <p>The full ranking below shows every métropolitain département. Hover any bar for the exact figure, bar count, and population. The dashed line marks the national average (7.46/10k). Amber bars sit above it; grey below. Corse is red; Paris blue.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-league" class="chart-mount" style="height: auto; max-height: none;"></div>
+        <figcaption>All 96 metropolitan French départements ranked by bars per 10,000 residents. 600 bars with unresolvable département codes excluded. Source: INSEE SIRENE (March 2026) · DREES APL 2023.</figcaption>
+      </figure>
+
+      <div class="credits">
+        <h3>Data &amp; methods</h3>
+        <p>Bar counts come from the INSEE SIRENE national establishment register, filtered to NAF code 56.30Z (<em>débits de boissons</em>), March 2026 snapshot — the same dataset used in the <a href="../bars/">Where France drinks</a> story. 600 bars with malformed département codes were excluded.</p>
+        <p>Population figures are the INSEE 2021 communal population base published alongside the DREES APL 2023 dataset, aggregated to département level. The total covered is 65.4 million residents across 96 métropolitain départements (overseas territories excluded: their bar data is not consistently geocoded in SIRENE).</p>
+        <p>Code and data: <a href="https://github.com/thgil/france-data">github.com/thgil/france-data</a></p>
+      </div>
+    </article>
+  </main>
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawLeagueChart, drawRegionChart } from './charts.js';
+
+    const resp = await fetch('./dept-bars.json');
+    const data = await resp.json();
+
+    drawRegionChart('#chart-region', data);
+    drawLeagueChart('#chart-league', data);
+  </script>
+</body>
+</html>

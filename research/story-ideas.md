@@ -94,3 +94,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 communes. Half the country lives in fewer than 1,100 of them. The median French municipality has 459 people. One has 1, and French law requires it to have a mayor. Today on **france-data**: the Lorenz curve of French communal life. 🇫🇷
 
+### drinking-league: The drinking league
+- Status: ✅ published
+- Published URL: /stories/drinking-league/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Paris has 3,120 bars but it's not France's thirstiest département. Neither is Finistère. It's Haute-Corse, at 21 bars per 10,000 residents — nearly three times the national average. The six IDF suburbs sit at the very bottom.
+- Data: INSEE SIRENE (49,385 bars, March 2026, NAF 56.30Z) joined to DREES APL 2023 commune populations (aggregated to département level). All existing data — no new downloads.
+- Angle: Two Observable Plot horizontal bar charts — a regional summary and a full 96-département league table. Amber/grey colour split at the national average (7.46/10k). Corse in red, Paris in blue.
+- Draft X summary:
+  > France has 49,385 bars. Paris has the most in total — but it's only #7 per capita. Haute-Corse wins the league at 21/10k. The IDF suburbs come last. Today on **france-data**: all 96 French départements, ranked by who actually has a bar within reach. 🍺🇫🇷
+

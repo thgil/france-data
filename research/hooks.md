@@ -35,3 +35,7 @@ that surfaced it.
 - 🔥 Half of all French people live in just 1,021 communes — 2.9% of the total. The remaining 33,862 communes share the other half. [Q-043]
 - 🔥 France's commune population Gini coefficient is 0.78 — more concentrated than income inequality in Brazil. A statistical comparison that makes the commune system's extreme fragmentation visible. [Q-043]
 - 🔥 Rochefourchat (Drôme) has one resident. It has a mayor. French law requires it. [Q-043]
+- 🔥 Haute-Corse has 21 bars per 10,000 residents — nearly three times the national average of 7.46. An island of 184,000 people supports more bars per person than anywhere else in metropolitan France. [Q-033]
+- 🔥 Paris ranks #7 in France for bars per capita at 14.6/10k — ahead of Finistère, Brittany, and Normandie combined. Its six suburban départements sit at the very bottom of the table. [Q-033]
+- 🔥 Lozère: officially a medical desert, with the fewest doctors per capita in France. Also #2 for bars per capita, at 17.6/10k. The café is the social infrastructure the hospital isn't. [Q-033]
+- 🔥 Essonne, Yvelines, Hauts-de-Seine: among the most expensive places to live in France. Also among the lowest bar densities at 3–3.3/10k. The post-war suburbs optimised for commuters, not café culture. [Q-033]
