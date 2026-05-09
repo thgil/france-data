@@ -1,0 +1,44 @@
+{
+  "totals": {
+    "communes": 537,
+    "population": 110880,
+    "medianPop": 101,
+    "under100": 263,
+    "under50": 121,
+    "over1000": 13,
+    "corsicaCount": 146,
+    "corsicaPop": 20482,
+    "metroCount": 527,
+    "metroPop": 79269
+  },
+  "topDepts": [
+    { "dept": "2B", "name": "Haute-Corse",              "count": 116, "pop": 15341 },
+    { "dept": "11", "name": "Aude",                      "count": 38,  "pop": 2428  },
+    { "dept": "06", "name": "Alpes-Maritimes",           "count": 36,  "pop": 10836 },
+    { "dept": "2A", "name": "Corse-du-Sud",              "count": 30,  "pop": 5141  },
+    { "dept": "26", "name": "Drôme",                     "count": 26,  "pop": 1801  },
+    { "dept": "07", "name": "Ardèche",                   "count": 25,  "pop": 4494  },
+    { "dept": "66", "name": "Pyrénées-Orientales",       "count": 25,  "pop": 1468  },
+    { "dept": "04", "name": "Alpes-de-Haute-Provence",   "count": 19,  "pop": 2228  },
+    { "dept": "48", "name": "Lozère",                    "count": 19,  "pop": 3273  },
+    { "dept": "43", "name": "Haute-Loire",               "count": 17,  "pop": 3873  },
+    { "dept": "30", "name": "Gard",                      "count": 15,  "pop": 2555  },
+    { "dept": "12", "name": "Aveyron",                   "count": 14,  "pop": 2273  },
+    { "dept": "09", "name": "Ariège",                    "count": 13,  "pop": 750   },
+    { "dept": "15", "name": "Cantal",                    "count": 12,  "pop": 1211  },
+    { "dept": "38", "name": "Isère",                     "count": 12,  "pop": 1469  }
+  ],
+  "notableCommunes": [
+    { "name": "Maripasoula",   "dept": "97", "deptName": "Guyane",            "pop": 9177 },
+    { "name": "Grand-Santi",   "dept": "97", "deptName": "Guyane",            "pop": 9120 },
+    { "name": "Papaichton",    "dept": "97", "deptName": "Guyane",            "pop": 5606 },
+    { "name": "Meymac",        "dept": "19", "deptName": "Corrèze",           "pop": 2279 },
+    { "name": "Saugues",       "dept": "43", "deptName": "Haute-Loire",       "pop": 1681 },
+    { "name": "Gorbio",        "dept": "06", "deptName": "Alpes-Maritimes",   "pop": 1527 },
+    { "name": "Sainte-Agnès",  "dept": "06", "deptName": "Alpes-Maritimes",   "pop": 1351 },
+    { "name": "Linguizzetta",  "dept": "2B", "deptName": "Haute-Corse",       "pop": 1103 },
+    { "name": "Castellar",     "dept": "06", "deptName": "Alpes-Maritimes",   "pop": 1087 },
+    { "name": "Utelle",        "dept": "06", "deptName": "Alpes-Maritimes",   "pop": 844  },
+    { "name": "Mons",          "dept": "83", "deptName": "Var",               "pop": 837  }
+  ]
+}

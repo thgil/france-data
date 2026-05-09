@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absolute zero — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-mount {
+      width: 100%;
+      height: 520px;
+      position: relative;
+      background: #f2ede6;
+    }
+
+    /* ── Map controls ───────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      display: inline-block;
+      background: #c0392b;
+      flex-shrink: 0;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      display: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.55;
+      max-width: 230px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .map-tooltip .tt-row { font-size: 11px; color: #444; display: block; white-space: nowrap; }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure { margin: 56px 0; }
+    .chart-wrap {
+      position: relative;
+      height: 440px;
+      border: 1px solid #d8d0c0;
+      background: #faf7f2;
+      padding: 16px;
+    }
+
+    /* ── Notable table ──────────────────────────────────────────────── */
+    .notable-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      margin: 32px 0;
+    }
+    .notable-table th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 2px solid #d0c8b8;
+      padding: 4px 8px 6px;
+    }
+    .notable-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #e8e0d0;
+      color: #222;
+    }
+    .notable-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+    .notable-table tr:last-child td { border-bottom: none; }
+    .notable-table .dept-badge {
+      display: inline-block;
+      background: #f0ebe2;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 11px;
+      color: #666;
+      margin-left: 4px;
+    }
+
+    /* ── Stat callouts ──────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .stat-box {
+      flex: 1 1 140px;
+      padding: 18px 20px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-left: 4px solid #c0392b;
+    }
+    .stat-box .stat-number {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: #c0392b;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="../../">France, by the numbers</a>
+    <nav class="site-nav" id="site-nav"></nav>
+  </header>
+
+  <main>
+    <article class="story">
+      <header class="story-header">
+        <div class="story-topic">Health</div>
+        <h1 class="story-title">Absolute zero</h1>
+        <p class="story-dek">537 communes where the official GP accessibility score is not low, not scarce — it is exactly 0.00. Corsica holds 146 of them.</p>
+        <div class="story-meta">
+          <span>May 2026</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>France's official measure of GP access is the <em>accessibilité potentielle localisée</em>, or APL. A score of 2.5 is the government's threshold for a "medical desert." A score of 1.0 defines severe underservice. Both figures imply that something is there — just not enough. Below 1.0, the supply exists but is barely reachable.</p>
+
+      <p>And then there is 0.00. Not rounding down. Not a data artefact. The APL model, which weights catchment distance and standardised demand, outputs zero when it finds no accessible GP supply at all. France has 537 communes where this is the case — not 537 communes with low access, but 537 where the number is literally zero.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-number">537</div>
+          <div class="stat-label">communes with APL = 0.00</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">110,880</div>
+          <div class="stat-label">residents living in them</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">146</div>
+          <div class="stat-label">are in Corsica</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">101</div>
+          <div class="stat-label">median population per commune</div>
+        </div>
+      </div>
+
+      <h2>The island</h2>
+
+      <p>If you mapped every APL=0 commune in France and counted them by département, the answer at the top of the list would not be Guyane, or Lozère, or any corner of the Massif Central. It would be Haute-Corse. Département 2B holds 116 APL=0 communes — more than a fifth of the national total, from a territory of 236 municipalities. Add Corse-du-Sud (2A, 30 communes) and the island as a whole accounts for 146, or 27% of every commune in France where official GP access is zero.</p>
+
+      <p>The reason is geography. Corsica's interior is a landscape of mountain villages on limestone ridges, connected by single-lane roads that become impassable in heavy winter snow. Many of these communes are tiny: Érone, in the Castagniccia, has 12 residents. Tarrano has 15. Piedipartino, 16. Piobetta, 17. They elect mayors, maintain registries, hold communal elections — but the nearest GP practice may require an hour through mountain switchbacks. The APL model, which measures what a standardised resident can reach, finds nothing.</p>
+
+      <figure class="map-figure">
+        <div class="map-mount" id="map-zero">
+          <div class="map-tooltip" id="map-tooltip"></div>
+        </div>
+        <div class="map-controls">
+          <span class="ctrl-label">Zoom to</span>
+          <button class="zoom-btn" id="btn-france">All France</button>
+          <button class="zoom-btn" id="btn-corsica">Corsica</button>
+          <button class="zoom-btn" id="btn-alpes-maritimes">Alpes-Maritimes</button>
+          <button class="zoom-btn" id="btn-massif">Massif Central</button>
+          <span style="margin-left:auto; display:flex; align-items:center; gap:6px;">
+            <span class="legend-dot"></span>
+            <span style="font-size:11px; color:#555;">APL = 0.00</span>
+          </span>
+        </div>
+        <figcaption>Every commune in France where the official APL score is exactly 0.00 (n = 537). Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>; <a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab contours 2025</a>.</figcaption>
+      </figure>
+
+      <h2>The southern arc</h2>
+
+      <p>Outside Corsica, the zeros trace a consistent geographic logic: mountains and southern margins. Aude (38 communes) sweeps from the Pyrenean foothills to the Languedoc plateau. Drôme and Ardèche — the pre-Alpine corridor east of the Rhône — contribute 51 between them. Pyrénées-Orientales, Gard, and Aveyron add another 54. The Massif Central heartland (Lozère, Haute-Loire, Cantal, Ariège) brings 61 more.</p>
+
+      <p>Alpes-Maritimes is the most surprising entry at third place nationally: 36 APL=0 communes in a département famous for the Côte d'Azur, Nice, and Monaco. The explanation is its back-country. Zoom to the map's Alpes-Maritimes preset and you'll find the zeroes in the hills above Menton — Gorbio (1,527 residents), Sainte-Agnès (1,351), Castellar (1,087), Utelle (844). These are postcard villages with panoramic views of the Mediterranean. They don't have a GP.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-depts"></canvas>
+        </div>
+        <figcaption>Départements with the most communes where APL = 0.00. Corsican départements (2A, 2B) in darker red. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <h2>The surprises</h2>
+
+      <p>The median APL=0 commune has 101 residents, and 263 of the 537 have under 100. But not all APL=0 communes are mountain hamlets. Meymac, in Corrèze (Limousin), has 2,279 residents — a small town with a covered market, a medieval tower, and a weekly newspaper. Saugues in Haute-Loire (1,681 residents) is a stop on the GR65, the pilgrimage route to Santiago. These are not micro-villages where the population shrank away: they are functioning small towns whose last GP has retired and not been replaced. The APL model, indifferent to the town's self-image, duly outputs zero.</p>
+
+      <p>Globally, the 13 APL=0 communes with more than 1,000 residents hold a combined 44,521 people. Add the Guyane communes — Maripasoula (9,177), Grand-Santi (9,120), Papaichton (5,606), accessible primarily by river pirogue or light aircraft — and the scale of the "absolute zero" population is clearer: 110,880 people, roughly the size of Poitiers, with no calculable GP access at all.</p>
+
+      <table class="notable-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Département</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Maripasoula</td><td>Guyane</td><td>9,177</td></tr>
+          <tr><td>Grand-Santi</td><td>Guyane</td><td>9,120</td></tr>
+          <tr><td>Papaichton</td><td>Guyane</td><td>5,606</td></tr>
+          <tr><td>Meymac</td><td>Corrèze <span class="dept-badge">19</span></td><td>2,279</td></tr>
+          <tr><td>Saugues</td><td>Haute-Loire <span class="dept-badge">43</span></td><td>1,681</td></tr>
+          <tr><td>Gorbio</td><td>Alpes-Maritimes <span class="dept-badge">06</span></td><td>1,527</td></tr>
+          <tr><td>Sainte-Agnès</td><td>Alpes-Maritimes <span class="dept-badge">06</span></td><td>1,351</td></tr>
+          <tr><td>Linguizzetta</td><td>Haute-Corse <span class="dept-badge">2B</span></td><td>1,103</td></tr>
+          <tr><td>Castellar</td><td>Alpes-Maritimes <span class="dept-badge">06</span></td><td>1,087</td></tr>
+          <tr><td>Utelle</td><td>Alpes-Maritimes <span class="dept-badge">06</span></td><td>844</td></tr>
+          <tr><td>Mons</td><td>Var <span class="dept-badge">83</span></td><td>837</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What zero means</h2>
+
+      <p>The APL is a statistical model, not a direct count. A score of zero doesn't mean a commune has literally never seen a doctor — it means the weighted supply, accounting for distance and competing demand from neighbouring communes, is mathematically zero within the catchment model's parameters. Residents in APL=0 communes still see doctors: they drive further, they rely more heavily on emergency services, they wait longer. The number is abstract. The consequences aren't.</p>
+
+      <p>France's 1,748 "severe" communes (APL under 1.0) hold 478,895 people. The 537 APL=0 communes are a subset of that, the innermost ring of the access deficit. They appear across every kind of French territory — Corsican ridge villages, back-country Côte d'Azur, Massif Central market towns, equatorial forest settlements — bound by a single fact: the model that France uses to measure its own healthcare access can find no supply at all.</p>
+
+      <p>Whether a score of 0.00 is the same problem as a score of 0.1 or 0.8 is a question for clinicians and policymakers. What the data confirms is that the official system has named 537 places and assigned them the same number: zero. They are not the same as each other. They share a threshold.</p>
+
+      <div class="credits">
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a>. Commune-level APL scores, 35,014 communes including overseas territories. Population base: INSEE 2021.</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs communes 2025</a>. Commune boundary polygons (1000m simplified) used for the map, filtered here to APL=0 communes only.</li>
+        </ul>
+        <h3>Method</h3>
+        <p>APL=0 communes were identified by filtering the DREES dataset for an exact value of 0.00. The 537 communes include both metropolitan France and overseas territories (grouped as département 97 in this data release). Corsica (2A, 2B) is counted as part of France's metropolitan scope. Map geometry is a 192 KB subset of the full Etalab commune boundaries, filtered to APL=0 communes only to reduce load time.</p>
+        <h3>Related stories</h3>
+        <ul>
+          <li><a href="../medical-deserts/">Where the doctors aren't</a> — the full-France APL choropleth, all 34,886 communes, all categories.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <script type="module">
+    import { drawDeptChart, drawMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const [data, geojson] = await Promise.all([
+          loadJSON('./data.json'),
+          loadJSON('./apl-zero.geojson'),
+        ]);
+
+        drawDeptChart('#chart-depts', data.topDepts);
+        drawMap('#map-zero', geojson);
+      } catch (err) {
+        console.error('Failed to load absolute-zero data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

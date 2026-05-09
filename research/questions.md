@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-045: How many communes have an APL score of literally zero — and where are they?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: 537 communes in France have an APL score of exactly 0.00 — not low, not "below threshold", but zero. They hold 110,880 residents (median commune: 101 people). Corsica accounts for 146 of the 537 (Haute-Corse alone: 116). The remaining zeros trace a southern arc: Aude (38), Alpes-Maritimes (36), Drôme + Ardèche (51 combined), plus the Massif Central and overseas Guyane territories. Notable large communes: Meymac (Corrèze, 2,279 pop), Saugues (Haute-Loire, 1,681), and three Alpes-Maritimes back-country villages above Menton.
+- Story: [absolute-zero](/stories/absolute-zero/)

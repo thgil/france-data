@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France's medical access scale goes below 1.0. It goes below 0.5. It hits 0.00 — in 537 communes, home to 110,880 people. [Q-045]
+- 🔥 Haute-Corse (2B) has 116 communes where official GP access is exactly zero. That's more than a fifth of every APL=0 commune in France — from one island. [Q-045]
+- 🔥 Meymac, Corrèze: population 2,279, covered market, medieval tower, weekly newspaper. Official APL score: 0.00. The doctor left. [Q-045]
+- 🔥 Gorbio, Sainte-Agnès, Castellar — three villages above Menton with panoramic views of the Mediterranean. Combined population: 3,965. Combined APL: 0.00. [Q-045]

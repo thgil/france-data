@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### absolute-zero: Absolute zero
+- Status: ✅ published
+- Published URL: /stories/absolute-zero/
+- Source question: [Q-045](questions.md#q-045-how-many-communes-have-an-apl-score-of-literally-zero--and-where-are-they)
+- Hook: 537 communes where the official GP access score is literally 0.00. Corsica holds 146 of them.
+- Data: DREES APL 2023 filtered to APL=0 communes; Etalab commune contours 2025. No new data needed — reuses communes-apl.geojson from medical-deserts.
+- Angle: Map of just the 537 APL=0 communes on a clean basemap (192 KB filtered GeoJSON). Horizontal bar chart of top 15 depts. Notable-communes table. Five prose beats: the threshold, the island (Corsica), the southern arc, the surprises, the statistics of zero.
+- Draft X summary:
+  > France's medical access scale goes from 0 to well above 4. Paris sits at 4.96. Haute-Corse has 116 communes where it's exactly 0.00. In total, 537 places, 110,880 people. Today on **france-data**: the very bottom of the APL scale. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
