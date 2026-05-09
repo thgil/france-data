@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The mountain pours — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Loading overlay ────────────────────────────────────────────── */
+    .ab-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f5f0;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 14px;
+      color: #888;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ── Map controls ───────────────────────────────────────────────── */
+    .ab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      padding: 9px 13px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ab-controls-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .ab-preset-pill {
+      background: #f0ece4;
+      border: 1px solid #c8c0b0;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+      white-space: nowrap;
+    }
+    .ab-preset-pill:hover {
+      background: #e4ddd4;
+      border-color: #8b2000;
+      color: #8b2000;
+    }
+    .ab-preset-active {
+      background: #8b2000;
+      border-color: #8b2000;
+      color: #fff;
+    }
+    .ab-preset-active:hover {
+      background: #6b1200;
+      border-color: #6b1200;
+      color: #fff;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .ab-legend {
+      padding: 12px 14px 10px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+
+    .ab-legend-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .ab-legend-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 480px;
+      margin-bottom: 6px;
+    }
+
+    .ab-legend-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ab-swatch {
+      width: 100%;
+      height: 12px;
+      border-radius: 1px;
+    }
+
+    .ab-swatch-label {
+      font-size: 9px;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .ab-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 4px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    .ab-swatch-sm {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* ── Stats row ──────────────────────────────────────────────────── */
+    .ab-stats-row {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 48px;
+      padding: 10px 0;
+      border-top: 1px solid #e0dbd2;
+      border-bottom: 1px solid #e0dbd2;
+      line-height: 1.8;
+    }
+    .ab-stats-row strong {
+      color: #8b2000;
+      font-weight: 700;
+    }
+
+    /* ── Ranking table ──────────────────────────────────────────────── */
+    .ab-table {
+      width: 100%;
+      max-width: 640px;
+      border-collapse: collapse;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      margin: 32px 0 48px;
+    }
+    .ab-table th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 6px 0;
+      border-bottom: 1px solid #d8d0c0;
+    }
+    .ab-table th:last-child, .ab-table td:last-child {
+      text-align: right;
+      padding-right: 0;
+    }
+    .ab-table td {
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid #ede8e0;
+      color: #333;
+      line-height: 1.4;
+    }
+    .ab-table td.ab-rank {
+      color: #aaa;
+      font-size: 11px;
+      width: 24px;
+    }
+    .ab-table td.ab-commune {
+      font-family: Georgia, serif;
+      font-size: 13px;
+    }
+    .ab-table td.ab-dept {
+      color: #777;
+      font-size: 11px;
+    }
+    .ab-table td.ab-val {
+      font-weight: 600;
+      color: #8b2000;
+      font-variant-numeric: tabular-nums;
+    }
+    .ab-table tr:hover td {
+      background: #faf7f2;
+    }
+
+    /* ── Tooltip ─────────────────────────────────────────────────────── */
+    .ab-popup .maplibregl-popup-content {
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 11px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .ab-popup .maplibregl-popup-tip {
+      border-top-color: #b8b0a0;
+    }
+    .ab-popup .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .ab-popup .tt-code {
+      font-size: 11px;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .ab-popup .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+      white-space: nowrap;
+    }
+    .ab-popup .tt-label {
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .ab-controls { gap: 6px; }
+      .ab-table { font-size: 11px; }
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The mountain pours</h1>
+        <p class="story-dek">Rank France's 35,000 communes by bars per resident and the familiar map dissolves. The top spot isn't Paris — it's the foot of the Pyrenees.</p>
+        <div class="story-meta">
+          <span>2026-05-09</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <p>France has 49,385 bars. Story 4 showed every one of them — a gold dot on a dark basemap, the amber silhouette of France appearing in seconds. That map answers one question: <em>where are the bars?</em> This story answers another: <em>where are the bars for the people who live there?</em> When you divide bar count by permanent population and rank France's 35,014 communes, the picture changes completely.</p>
+
+      <p>The top commune isn't Paris. It isn't on the Côte d'Azur. It's Gavarnie-Gèdre, a merged village of 341 residents at the foot of the Cirque de Gavarnie — a UNESCO World Heritage waterfall in the Hautes-Pyrénées. Seven bars. 341 people. <strong>205 bars per 10,000 residents</strong> — fourteen times Paris's ratio of 14.6.</p>
+
+      <h2>The mountain pattern</h2>
+
+      <p>Run down the top twenty and the pattern holds. Les Deux Alpes: 39 bars, 1,933 residents, 201 per 10,000. Chamrousse: 8 bars, 414 residents, 193. Morzine: 51 bars, 2,660 residents, 191. Puy-Saint-Vincent, Montgenèvre, Orcières, Risoul, Châtel, Val-d'Isère, Courchevel, Tignes — all between 120 and 160 per 10,000. France's per-capita bar ranking is a tour of its mountain resorts.</p>
+
+      <p>The statistic is technically correct and structurally misleading, in an instructive way. These communes have populations measured in the hundreds. Their bar counts — dozens each — are built to serve the hundreds of thousands of skiers who arrive each winter. Courchevel is home to 2,311 permanent residents but receives roughly 300,000 ski-season visitors. The bars existed before the permanent-resident count made them look extraordinary.</p>
+
+      <div class="ab-stats-row">
+        <strong>205/10k</strong> — Gavarnie-Gèdre (Pyrenees) ·
+        <strong>201/10k</strong> — Les Deux Alpes (Isère) ·
+        <strong>191/10k</strong> — Morzine (Haute-Savoie) ·
+        <strong>14.6/10k</strong> — Paris (75) ·
+        <strong>1.2/10k</strong> — Évry-Courcouronnes (Essonne)
+      </div>
+
+      <h2>Beyond the Alps — islands and summer towns</h2>
+
+      <p>Not every outlier is a ski resort. Île-d'Houat, a car-free Atlantic island fifteen kilometres off the Quiberon peninsula in Morbihan, reaches 185 per 10,000: four bars for 216 permanent residents. In summer, ferries bring three hundred visitors a day to its one village. The same logic applies: infrastructure built for a floating population, measured against the handful who winter there.</p>
+
+      <p>Saint-Tropez, with 95 per 10,000, appears for the same reason. So does Rogliano, a Cap Corse hilltop village in Haute-Corse, at 129. These are places that France's tourism economy has loaded with serving capacity — catering to the millions who pass through — while the permanent-resident count stays modest.</p>
+
+      <div class="map-figure">
+        <div id="map-altitude-bars" class="mount"></div>
+        <div class="ab-controls">
+          <span class="ab-controls-label">View</span>
+          <button class="ab-preset-pill" data-preset="0">France</button>
+          <button class="ab-preset-pill" data-preset="1">Alps</button>
+          <button class="ab-preset-pill" data-preset="2">Pyrenees</button>
+          <button class="ab-preset-pill" data-preset="3">Île-de-France</button>
+          <button class="ab-preset-pill" data-preset="4">Bretagne</button>
+        </div>
+        <div class="ab-legend">
+          <div class="ab-legend-title">Bars per 10,000 residents</div>
+          <div class="ab-legend-steps">
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#f5f1eb;"></div>
+              <span class="ab-swatch-label">0</span>
+            </div>
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#fde8b5;"></div>
+              <span class="ab-swatch-label">&lt;5</span>
+            </div>
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#f8c355;"></div>
+              <span class="ab-swatch-label">5–10</span>
+            </div>
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#e8952a;"></div>
+              <span class="ab-swatch-label">10–20</span>
+            </div>
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#c85018;"></div>
+              <span class="ab-swatch-label">20–40</span>
+            </div>
+            <div class="ab-legend-step">
+              <div class="ab-swatch" style="background:#8b2000;"></div>
+              <span class="ab-swatch-label">40+</span>
+            </div>
+          </div>
+          <div class="ab-legend-notes">
+            <span><span class="ab-swatch-sm" style="background:#dedbd4;border:1px solid #bbb;"></span>No data (pop. &lt;100 or missing)</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Among the large cities</h2>
+
+      <p>The ski-resort effect makes the raw top-20 an interesting anomaly, not a useful ranking. Filter to communes with at least 50,000 residents and the picture normalises. Paris's 9th arrondissement leads at 33.4 per 10,000 — 197 bars in a commune of 58,951. Rouen comes second at 20.8, Cannes at 19.4, Lille at 18.8, Bayonne at 18.2, Grenoble at 16.1. Historic city centres with old café cultures, dense street networks, and universities all cluster in this band.</p>
+
+      <p>Paris overall has 3,120 bars for 2.1 million residents: 14.6 per 10,000. That sounds modest next to the arrondissement breakdown — but the overall figure is pulled down by the outer arrondissements, which are far more residential. The 9th's 33.4 is concentrated near the grands boulevards. The 20th, by contrast, has a ratio closer to a provincial suburb.</p>
+
+      <h2>The other end: suburban bar deserts</h2>
+
+      <p>At the bottom of the large-commune ranking, the names are familiar from a different map. Vénissieux, a Lyon suburb: 8 bars for 66,363 residents, 1.2 per 10,000. Évry-Courcouronnes, in Essonne: 8 bars, 66,177 residents, 1.2 per 10,000. Vaulx-en-Velin, another Lyon suburb: 9 bars, 52,139 residents, 1.7. Massy: 1.8. Créteil: 1.8.</p>
+
+      <p>These are post-war residential communes built at speed and scale — grands ensembles designed for housing density, not for street life. They never got the corner café that older France built over centuries. The same zone that the medical-desert map lit up in amber — the suburban ring around France's major cities — turns out to be a bar desert too. Two different kinds of infrastructure shortage, same geography.</p>
+
+      <h2>Top communes by bars per 10,000 residents</h2>
+      <p style="font-family: var(--sans); font-size:13px; color:#666; margin: -16px 0 8px;">Communes with at least 200 permanent residents.</p>
+
+      <table class="ab-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Commune</th>
+            <th>Département</th>
+            <th>Bars</th>
+            <th>Pop.</th>
+            <th>Per 10k</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="ab-rank">1</td><td class="ab-commune">Gavarnie-Gèdre</td><td class="ab-dept">Hautes-Pyrénées (65)</td><td>7</td><td>341</td><td class="ab-val">205.3</td></tr>
+          <tr><td class="ab-rank">2</td><td class="ab-commune">Les Deux Alpes</td><td class="ab-dept">Isère (38)</td><td>39</td><td>1,933</td><td class="ab-val">201.8</td></tr>
+          <tr><td class="ab-rank">3</td><td class="ab-commune">Chamrousse</td><td class="ab-dept">Isère (38)</td><td>8</td><td>414</td><td class="ab-val">193.2</td></tr>
+          <tr><td class="ab-rank">4</td><td class="ab-commune">Morzine</td><td class="ab-dept">Haute-Savoie (74)</td><td>51</td><td>2,660</td><td class="ab-val">191.7</td></tr>
+          <tr><td class="ab-rank">5</td><td class="ab-commune">Île-d'Houat</td><td class="ab-dept">Morbihan (56)</td><td>4</td><td>216</td><td class="ab-val">185.2</td></tr>
+          <tr><td class="ab-rank">6</td><td class="ab-commune">Puy-Saint-Vincent</td><td class="ab-dept">Hautes-Alpes (05)</td><td>5</td><td>280</td><td class="ab-val">178.6</td></tr>
+          <tr><td class="ab-rank">7</td><td class="ab-commune">Montgenèvre</td><td class="ab-dept">Hautes-Alpes (05)</td><td>8</td><td>457</td><td class="ab-val">175.1</td></tr>
+          <tr><td class="ab-rank">8</td><td class="ab-commune">Orcières</td><td class="ab-dept">Hautes-Alpes (05)</td><td>11</td><td>683</td><td class="ab-val">161.1</td></tr>
+          <tr><td class="ab-rank">9</td><td class="ab-commune">Risoul</td><td class="ab-dept">Hautes-Alpes (05)</td><td>10</td><td>660</td><td class="ab-val">151.5</td></tr>
+          <tr><td class="ab-rank">10</td><td class="ab-commune">Vaujany</td><td class="ab-dept">Isère (38)</td><td>5</td><td>348</td><td class="ab-val">143.7</td></tr>
+          <tr><td class="ab-rank">11</td><td class="ab-commune">Châtel</td><td class="ab-dept">Haute-Savoie (74)</td><td>16</td><td>1,193</td><td class="ab-val">134.1</td></tr>
+          <tr><td class="ab-rank">12</td><td class="ab-commune">Val-d'Isère</td><td class="ab-dept">Savoie (73)</td><td>21</td><td>1,580</td><td class="ab-val">132.9</td></tr>
+          <tr><td class="ab-rank">13</td><td class="ab-commune">Les Gets</td><td class="ab-dept">Haute-Savoie (74)</td><td>16</td><td>1,223</td><td class="ab-val">130.8</td></tr>
+          <tr><td class="ab-rank">14</td><td class="ab-commune">Courchevel</td><td class="ab-dept">Savoie (73)</td><td>30</td><td>2,311</td><td class="ab-val">129.8</td></tr>
+          <tr><td class="ab-rank">15</td><td class="ab-commune">Rogliano</td><td class="ab-dept">Haute-Corse (2B)</td><td>7</td><td>540</td><td class="ab-val">129.6</td></tr>
+          <tr><td class="ab-rank">16</td><td class="ab-commune">Tignes</td><td class="ab-dept">Savoie (73)</td><td>25</td><td>2,005</td><td class="ab-val">124.7</td></tr>
+        </tbody>
+      </table>
+
+      <div class="credits">
+        <h3>Data &amp; methods</h3>
+        <p>Bar locations from INSEE SIRENE (NAF 56.30Z — <em>débits de boissons</em>), March 2026 snapshot, as used in <a href="../bars/">Story 4</a>. 49,385 active geocoded establishments.</p>
+        <p>Population from DREES APL 2023 commune-level dataset (INSEE 2021 population estimates), as used in <a href="../medical-deserts/">Story 2</a>. 35,014 communes across metropolitan France and overseas territories.</p>
+        <p>Bar count divided by commune population, multiplied by 10,000. Communes with population below 100 are shown as "no data" to avoid extreme small-number distortions. All counts reflect registered businesses with active SIRET records — bars that have closed since March 2026 are not excluded.</p>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">Base SIRENE — INSEE</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">APL 2023 — DREES</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs 2025 — Etalab</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawAltitudeBarsMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const [geojson, barsLookup] = await Promise.all([
+          loadJSON('../medical-deserts/communes-apl.geojson'),
+          loadJSON('./bars-lookup.json'),
+        ]);
+        drawAltitudeBarsMap('#map-altitude-bars', geojson, barsLookup);
+      } catch (err) {
+        console.error('Failed to load altitude bars data:', err);
+        const mount = document.getElementById('map-altitude-bars');
+        if (mount) {
+          mount.style.height = '120px';
+          mount.style.display = 'flex';
+          mount.style.alignItems = 'center';
+          mount.style.justifyContent = 'center';
+          mount.style.background = '#f8f5f0';
+          mount.style.color = '#888';
+          mount.style.fontFamily = 'sans-serif';
+          mount.style.fontSize = '13px';
+          mount.textContent = 'Map failed to load. Check browser console for details.';
+        }
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
