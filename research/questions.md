@@ -169,8 +169,14 @@ datasets and the resulting story.
 ### Q-033: Which commune has the most bars per capita?
 - Status: ✅ answered
 - Topic: [culture](topics/culture.md)
-- Finding: Answered nationally rather than at commune level. Finistère (1,014 bars, under 1M residents) and tourism-heavy Mediterranean départements (Var 1,042, Hérault 1,013) punch clearly above their weight per capita. Exact commune-level per-capita rankings require a population join we don't have in this dataset. The overall picture — 49,385 active débits de boissons (NAF 56.30Z), with Nord+Pas-de-Calais (3,226 combined) edging Paris (3,120) for first place — is mapped in Story 4.
+- Finding: Answered nationally rather than at commune level. Finistère (1,014 bars, under 1M residents) and tourism-heavy Mediterranean départements (Var 1,042, Hérault 1,013) punch clearly above their weight per capita. Exact commune-level per-capita rankings require a population join we don't have in this dataset. The overall picture — 49,385 active débits de boissons (NAF 56.30Z), with Nord+Pas-de-Calais (3,226 combined) edging Paris (3,120) for first place — is mapped in Story 4. City-level (pop ≥ 40K) per-capita analysis answered in Q-042.
 - Story: [bars](/stories/bars/)
+
+### Q-042: Which large French cities have the most (and fewest) bars per capita?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: Among 193 cities with population ≥ 40,000, bar density spans 21× — from Bastia (215 per 100K) to Colomiers (10 per 100K). The top is dominated by old maritime and historic city centres (Bastia, Boulogne-sur-Mer, Rouen, Bayonne, Lorient). The bottom is almost exclusively post-war grands ensembles and villes nouvelles (Colomiers, Évry-Courcouronnes, Vénissieux, Vaulx-en-Velin, Créteil). The northern estaminet tradition shows: Cambrai (197), Valenciennes (154), Arras (169) all outrank Paris (146, 22nd). National average is 73 bars per 100K. Data: bars.json joined to DREES APL commune populations.
+- Story: [bistrot-gap](/stories/bistrot-gap/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
 - Status: 🟢 open

@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bistrot-gap: The bistrot gap
+- Status: ✅ published
+- Published URL: /stories/bistrot-gap/
+- Source question: [Q-042](questions.md#q-042-which-large-french-cities-have-the-most-and-fewest-bars-per-capita)
+- Hook: Among France's 193 largest cities, bar density spans a 21-to-1 range. The driest are almost all post-war grands ensembles. The reason is in the blueprints.
+- Data: bars.json (SIRENE, already in repo) joined to DREES APL commune populations (already in repo). Pure computation, no new downloads. 193 cities with pop ≥ 40,000.
+- Angle: Ranked horizontal bar chart (top 30 / bottom 30 / all 193 toggle). Editorial focus on the urban planning story: old city centres vs villes nouvelles and grands ensembles.
+- Draft X summary:
+  > Bastia: 215 bars per 100K. Colomiers (Toulouse suburb): 10. That's a 21× gap. Today on **france-data**: which large French cities have the most — and fewest — bistrots per capita, and why the bottom of the table reads like a 1970s urban planning manual. 🍺🇫🇷
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bistrot gap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart container ─────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      max-width: 680px;
+    }
+
+    /* ── Chart canvas wrapper ────────────────────────────────────── */
+    #chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+    #chart-canvas {
+      display: block;
+    }
+
+    /* ── Toggle controls ─────────────────────────────────────────── */
+    .chart-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .ctrl-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-family: var(--sans);
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .ctrl-btn:hover { background: #ece8e0; border-color: #999; }
+    .ctrl-btn.active { background: #1a1a1a; color: #faf7f2; border-color: #1a1a1a; }
+
+    /* ── Stats callout grid ──────────────────────────────────────── */
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    @media (max-width: 520px) {
+      .callout-grid { grid-template-columns: 1fr; }
+    }
+    .callout {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+    .callout .num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .callout .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+
+    /* ── Rankings panels ─────────────────────────────────────────── */
+    .rankings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    @media (max-width: 600px) {
+      .rankings-grid { grid-template-columns: 1fr; }
+    }
+    .rankings-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .rank-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .rank-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+    }
+    .rank-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .rank-table .rk {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .rank-table .place {
+      font-family: var(--serif);
+    }
+    .rank-table .dept-badge {
+      font-size: 10px;
+      color: #999;
+      padding-left: 4px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bistrot gap</h1>
+        <p class="story-dek">Among France's 193 largest cities, bar density spans a 21-to-1 range. The driest are almost all post-war grands ensembles. The reason is in the blueprints.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ──────────────────────────────────────────────── -->
+      <p>France has 49,385 active <em>débits de boissons</em>. That works out to about 73 bars per 100,000 residents nationally — but that average hides an extraordinary range. Among the 193 French cities with at least 40,000 people, the ratio between the most and least bar-dense is 21 to 1.</p>
+
+      <p>Bastia, the Corsican capital, leads with 215 bars per 100,000 residents. Colomiers — a purpose-built suburb of Toulouse — has 10.</p>
+
+      <!-- ── Callout numbers ─────────────────────────────────────── -->
+      <div class="callout-grid">
+        <div class="callout">
+          <span class="num">215</span>
+          <span class="label">bars per 100K in Bastia, the most bar-dense large city in France</span>
+        </div>
+        <div class="callout">
+          <span class="num">10</span>
+          <span class="label">bars per 100K in Colomiers, the least — 21× fewer than Bastia</span>
+        </div>
+        <div class="callout">
+          <span class="num">73</span>
+          <span class="label">bars per 100K nationally, the average that hides everything</span>
+        </div>
+      </div>
+
+      <!-- ── Chart ──────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-controls">
+          <button class="ctrl-btn active" id="btn-top">Top 30 — most bar-dense</button>
+          <button class="ctrl-btn" id="btn-bottom">Bottom 30 — least bar-dense</button>
+          <button class="ctrl-btn" id="btn-all">All 193 cities</button>
+        </div>
+        <div id="chart-wrap">
+          <canvas id="chart-canvas"></canvas>
+        </div>
+        <figcaption>Bars per 100,000 residents. Cities with population ≥ 40,000. Paris, Marseille, and Lyon aggregated from their arrondissements. Source: INSEE SIRENE (March 2026) + DREES APL 2023 populations.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2 ──────────────────────────────────────────────── -->
+      <h2>The old cities drink</h2>
+
+      <p>The top of the list reads like a tourism brochure crossed with a history exam. Bastia (215) is a Genoese port city whose labyrinthine <em>Terra Vecchia</em> quarter has been organized around cafés since the eighteenth century. Boulogne-sur-Mer (208) and Rouen (208) are medieval fishing and trading ports where street-level commerce predates the car by several centuries. Bayonne (182) has its famous Basque <em>talo</em> bars. Lorient (168) has a strong maritime tradition. The pattern is consistent: the most bar-dense cities have old street grids, dense pedestrian centres, and a café culture that predates planning.</p>
+
+      <p>The north is notably bibulous. Lille (188), Valenciennes (154), Cambrai (197), Arras (169), and Boulogne-sur-Mer all outrank Paris (146 — a respectable 22nd place). The <em>estaminet</em> tradition of northern France — the neighbourhood pub-café that doubles as a community hall — shows up clearly in the data.</p>
+
+      <!-- ── Rankings ───────────────────────────────────────────── -->
+      <div class="rankings-grid">
+        <div class="rankings-block">
+          <h3>Most bar-dense cities</h3>
+          <table class="rank-table" id="table-top"></table>
+        </div>
+        <div class="rankings-block">
+          <h3>Least bar-dense cities</h3>
+          <table class="rank-table" id="table-bottom"></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 3 ──────────────────────────────────────────────── -->
+      <h2>The grands ensembles were not designed for bistrots</h2>
+
+      <p>The bottom of the table is dominated by cities built — or dramatically expanded — between the 1960s and the 1980s. Évry-Courcouronnes (12 bars per 100K, pop. 66,000) was one of France's five <em>villes nouvelles</em>, designed in 1969 to relieve pressure on Paris. The blueprint called for housing blocks, a bus network, and a regional express rail stop. A café on every corner was not in the spec.</p>
+
+      <p>Three Lyon suburbs — Vénissieux (12), Saint-Priest (14), and Vaulx-en-Velin (17) — cluster together in the bottom ten. Each was rapidly expanded through grand-ensemble housing projects in the 1960s–70s. Vaulx-en-Velin's <em>Mas du Taureau</em> estate, home to 9,000 people in 1990, had one café. Colomiers, the Airbus-adjacent suburb of Toulouse, was a village of 3,000 before the aviation industry arrived; it is now 40,000 people and 4 bars.</p>
+
+      <p>Créteil (18 bars per 100K), Massy (18), Bagneux (18), Clamart (18) — all are outer-ring Paris suburbs built up in the same era. The architecture of the <em>trente glorieuses</em> separated residence from commerce at the planning stage. The bistrot simply wasn't zoned in.</p>
+
+      <!-- ── Beat 4 ──────────────────────────────────────────────── -->
+      <h2>A service pattern that repeats</h2>
+
+      <p>The post-war suburbs that lack bars also, frequently, lack doctors. The same Yvelines and Essonne communes that are medical deserts — Houilles (APL 1.23), Brétigny-sur-Orge (APL 1.52) — are also well below the national bar average. The geography of the service gap is remarkably consistent across trades: bakeries, bars, GPs. The <em>diagonale du vide</em> and the Paris suburban ring appear in every dataset for the same structural reason. Density of service follows density of street life, and street life was designed out of post-war urbanism.</p>
+
+      <p>France's bistrot deficit isn't a mystery. It was planned.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE's SIRENE business registry (active establishments, NAF code 56.30Z — débits de boissons), geocoded to commune level via SIRENE Géolocalisation, March 2026 snapshot. Population figures are from DREES APL 2023 commune data (INSEE 2021 population base). Paris, Marseille, and Lyon are aggregated from their arrondissement records; other cities are single communes. Cities with population below 40,000 are excluded to avoid small-number noise. 193 cities qualify. The national average (73.3 per 100K) is computed across all 67 million residents in the commune dataset.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — bars.json</a> reused from <a href="../bars/">Story 4: Where France drinks</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune populations, reused from <a href="../medical-deserts/">Story 2: Where the doctors aren't</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawChart, populateTables } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./data.json');
+        if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
+        const data = await res.json();
+
+        populateTables(data);
+
+        const chartEl = document.getElementById('chart-canvas');
+        let currentMode = 'top';
+
+        function render(mode) {
+          currentMode = mode;
+          drawChart(chartEl, data, mode);
+          ['btn-top', 'btn-bottom', 'btn-all'].forEach(id => {
+            document.getElementById(id).classList.remove('active');
+          });
+          const modeMap = { top: 'btn-top', bottom: 'btn-bottom', all: 'btn-all' };
+          document.getElementById(modeMap[mode]).classList.add('active');
+        }
+
+        render('top');
+
+        document.getElementById('btn-top').addEventListener('click', () => render('top'));
+        document.getElementById('btn-bottom').addEventListener('click', () => render('bottom'));
+        document.getElementById('btn-all').addEventListener('click', () => render('all'));
+
+      } catch (err) {
+        console.error('Failed to load bistrot-gap data:', err);
+        document.getElementById('chart-wrap').innerHTML =
+          '<p style="color:#888;font-size:13px;font-style:italic;">Chart unavailable.</p>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

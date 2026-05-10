@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Bastia has 215 bars per 100,000 residents. Colomiers, a Toulouse suburb, has 10. That's a 21× gap — both are French cities of over 40,000 people. [Q-042]
+- 🔥 The 10 driest large French cities (fewest bars per capita) are almost all post-war grands ensembles or villes nouvelles. Évry-Courcouronnes was blueprinted in 1969 and has 12 bars per 100K. The bistrot wasn't in the spec. [Q-042]
+- 🔥 Paris (146 bars per 100K) ranks 22nd out of 193 large French cities — behind Bastia, Boulogne-sur-Mer, Rouen, Cannes, Lille, Bayonne, Lorient, and Grenoble. [Q-042]
+- 🔥 Three Lyon suburbs — Vénissieux (12), Saint-Priest (14), Vaulx-en-Velin (17) — cluster in France's bottom 10 for bar density. All were built through grands ensembles in the 1960s–70s. [Q-042]
