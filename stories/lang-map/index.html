@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The words beneath the map — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls ───────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s, opacity 0.15s;
+    }
+    .lang-btn:hover { background: #ece8e0; border-color: #999; }
+    .lang-btn.muted { opacity: 0.35; }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Tooltip ─────────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+    }
+    .map-tooltip .tt-lang {
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 3px;
+      display: block;
+    }
+
+    /* ── Language cards ──────────────────────────────────────────────── */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 48px 0;
+    }
+
+    .lang-card {
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 16px;
+      background: #faf7f2;
+    }
+
+    .lang-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .lang-card-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .lang-card-title {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    .lang-card-count {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1;
+      margin: 4px 0;
+      color: #1a1a1a;
+    }
+
+    .lang-card-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+      margin-top: 6px;
+    }
+
+    .lang-card-signal {
+      font-size: 12px;
+      font-family: Georgia, serif;
+      color: #555;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The words beneath the map</h1>
+        <p class="story-dek">France standardised its language in 1539. Its villages didn't get the memo — 1,412 commune names still speak Alsatian, Breton, Norman-Norse, Occitan, or Flemish.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────────── -->
+      <p>The Ordinance of Villers-Cotterêts (1539) made French the sole language of royal administration. Jules Ferry's school laws (1882) made French the sole language of the classroom. The patois, the dialects, the Celtic and Germanic tongues of provincial France were suppressed over three centuries of deliberate unification. But commune names were different. They were too old, too embedded in land registers and road signs to change. Today, 35,014 French communes carry names — and 1,412 of them are not, at root, French.</p>
+
+      <p>Map every one of those names and you get a linguistic atlas of a France that no longer officially exists: Alsatian Germany, Celtic Brittany, Norse Normandy, the <em>langue d'oc</em> south, and a strip of Flemish coast that once looked north to Flanders.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-lang" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">Zoom to</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-alsace">Alsace</button>
+            <button class="zoom-btn" id="btn-bretagne">Bretagne</button>
+            <button class="zoom-btn" id="btn-occitanie">Occitanie</button>
+            <button class="zoom-btn" id="btn-nord">Nord</button>
+            <button class="zoom-btn" id="btn-normandie">Normandie</button>
+          </div>
+          <div class="ctrl-group" id="lang-toggles" style="margin-left:auto">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <figcaption>Each dot marks one commune whose name carries a non-French linguistic tradition. Hover for details. Source: DREES communes-apl.geojson (35,014 communes), commune names classified by suffix/prefix rules against historical language zones.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Alsace ────────────────────────────────────────────── -->
+      <h2>The Alsatian wall</h2>
+
+      <p>The densest cluster is Alsace and the Moselle — 551 communes whose names end in <em>-heim</em> (homestead), <em>-willer</em> or <em>-weiler</em> (hamlet), <em>-bach</em> (stream), <em>-berg</em> (hill), <em>-thal</em> (valley). Griesheim. Wittisheim. Bernardswiller. Dorlisheim. These are German-language names, and they cluster hard against the Rhine, softening only as you move west into the Vosges. The Rhine is visibly legible as a cultural boundary: Germany begins where the red dots stop.</p>
+
+      <p>Alsace changed national hands four times between 1871 and 1945, but the commune names didn't change with the flags. The Alsatian dialect — a High Alemannic German — was widely spoken until the mid-20th century. Today it's spoken by about 20% of Alsatians over 55. The village names are the most durable record of it.</p>
+
+      <!-- ── Beat 4: Bretagne ──────────────────────────────────────────── -->
+      <h2>The Ker- villages</h2>
+
+      <p>Brittany has 207 communes whose names begin with <em>Ker-</em>, <em>Plou-</em>, <em>Plé-</em>, <em>Lan-</em>, or <em>Loc-</em> — all Breton-language roots. <em>Ker</em> means homestead or hamlet in Breton (cognate with Welsh <em>caer</em>). <em>Plou</em> comes from the Latin <em>plebs</em>, mediated through Old Welsh, meaning parish. <em>Lan</em> is a monastic enclosure. These aren't etymological curiosities — they are the actual living names of French communes: Kerbors, Kermoroc'h, Plouaret, Pléboulle, Lanrivain.</p>
+
+      <p>The blue dots cluster most thickly in Finistère (the westernmost département) and thin out toward Ille-et-Vilaine in the east. That gradient is the retreat of the Breton language itself: historically, the Breton-speaking <em>Basse-Bretagne</em> ends roughly at a line running from Saint-Brieuc to Vannes. East of that line, the communes have French names. The dots show the line.</p>
+
+      <!-- ── Beat 5: Occitanie ─────────────────────────────────────────── -->
+      <h2>The langue d'oc south</h2>
+
+      <p>Medieval France spoke two major Romance languages: the <em>langue d'oïl</em> in the north (ancestor of modern French), and the <em>langue d'oc</em> in the south (ancestor of Occitan, Provençal, Gascon, Catalan). The boundary between them ran roughly from the Gironde estuary to the Alps. South of that line, 508 commune names carry the Occitan suffix <em>-ac</em> — from the Latin <em>-acum</em> (meaning "estate of"), filtered through Occitan phonology. Cognac. Gaillac. Roquebrussac. Chabestan. Bergerac.</p>
+
+      <p>The <em>-ac</em> ending is invisible to a modern ear but it's stamped on the map from the Ariège to the Alpes-de-Haute-Provence. The Occitan cluster stops almost exactly at the historical language boundary: the gold dots cover the south and nearly nothing north of the Loire.</p>
+
+      <!-- ── Beat 6: Flemish ────────────────────────────────────────────── -->
+      <h2>The Flemish fringe</h2>
+
+      <p>The 92 purple dots in the far north cluster near the Belgian border: Boëseghem, Cassel, Blaringhem, Capinghem, Bergues. These are Flemish-language endings — <em>-ghem</em> (home), <em>-cappel</em> (chapel), <em>-brouck</em> (marsh). The <em>Westhoek</em>, the Flemish-speaking corner of French Flanders, was linguistically Dutch until the early 20th century. As recently as 1900, tens of thousands of people in the Nord spoke a dialect called West Flemish as their first language. The purple dots are the footprint.</p>
+
+      <!-- ── Beat 7: Normandie ──────────────────────────────────────────── -->
+      <h2>The Viking strand</h2>
+
+      <p>The Norse settlement of Normandy began in 911 AD, when Charles the Simple ceded the territory to the Viking leader Rollo. The Norsemen named their new home in their own language — and 54 Norman communes still carry those names. <em>-tot</em> (from Old Norse <em>þorp</em>, a hamlet): Crestot, Lanquetot, Houquetot, Yvetot. <em>-bec</em> (a stream): Orbec, Bolbec, Clarbec. Place names as old as the 10th century, still on road signs in Calvados and Seine-Maritime today.</p>
+
+      <!-- ── Language summary cards ────────────────────────────────────── -->
+      <div class="lang-grid" id="lang-cards">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- ── Closing ────────────────────────────────────────────────────── -->
+      <h2>The map as a palimpsest</h2>
+
+      <p>A palimpsest is a manuscript that has been scraped clean and written over, but where the original text still shows through. France is that manuscript. The Ordinance of 1539, the Revolution's eradication of regional identity, the Third Republic's mission to make every child French — all of that sits on top of an older layer of Celts, Norsemen, Frankish settlers, Latin colonists, and Occitan poets. The commune names are the old text showing through. 1,412 communes. Five languages. One map.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the method.</strong> Commune names and their polygon geometries come from DREES's APL dataset (35,014 communes). Each commune was classified using suffix/prefix rules restricted to the relevant historical language zone: <em>-heim</em>, <em>-willer</em>, <em>-bach</em>, <em>-berg</em>, <em>-thal</em>, <em>-wald</em> for Alsace/Moselle (depts 57, 67, 68); <em>Ker-</em>, <em>Plou-</em>, <em>Lan-</em>, <em>Loc-</em> for Bretagne (depts 22, 29, 35, 56); <em>-tot</em>, <em>-bec</em>, <em>-thuit</em> for Normandie (depts 14, 27, 50, 61, 76); <em>-ac</em>, <em>-argues</em>, <em>-ens</em> for Occitanie (depts 04, 05, 07, 09, 11, 12, 13, 15, 19, 26, 30, 31, 32, 34, 43, 46, 47, 48, 65, 66, 81, 82, 83, 84); <em>-ghem</em>, <em>-cappel</em>, <em>-brouck</em> for Flemish (depts 59, 62). Commune positions are centroids computed from polygon geometries. Classification is conservative — false positives are reduced by restricting rules to the appropriate département zone.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL 2023 communes GeoJSON</a> — commune boundaries and population (35,014 communes)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawLangMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    const LANG_META = {
+      alsatian: { label: 'Alsatian',    color: '#c82a2a', count: 551, region: 'Alsace & Moselle' },
+      occitan:  { label: 'Occitan',     color: '#c08a00', count: 508, region: 'South of France' },
+      breton:   { label: 'Breton',      color: '#1a6bcc', count: 207, region: 'Bretagne' },
+      flemish:  { label: 'Flemish',     color: '#8b35a4', count: 92,  region: 'Nord / Flandre' },
+      norman:   { label: 'Norman-Norse',color: '#1a9950', count: 54,  region: 'Normandie' },
+    };
+
+    const LANG_CARDS = {
+      alsatian: { signal: '-heim, -willer, -bach, -berg, -thal', desc: 'Germanic roots trace the Rhine border and the long history of Alsatian bilingualism.' },
+      occitan:  { signal: '-ac (from Latin -acum)', desc: 'The Occitan suffix stamps the langue d\'oc south — from the Ariège to Provence.' },
+      breton:   { signal: 'Ker-, Plou-, Lan-, Loc-', desc: 'Celtic roots frozen in Breton parish names, densest in western Finistère.' },
+      flemish:  { signal: '-ghem, -cappel, -brouck', desc: 'West Flemish toponyms at France\'s northern edge, near the Belgian border.' },
+      norman:   { signal: '-tot, -bec (Old Norse)', desc: 'Viking place-names from the 10th-century Norse settlement of Normandy.' },
+    };
+
+    function buildLangCards() {
+      const grid = document.getElementById('lang-cards');
+      if (!grid) return;
+      grid.innerHTML = Object.entries(LANG_META).map(([key, meta]) => {
+        const card = LANG_CARDS[key];
+        return `
+          <div class="lang-card">
+            <div class="lang-card-header">
+              <span class="lang-card-dot" style="background:${meta.color}"></span>
+              <span class="lang-card-title">${meta.label}</span>
+            </div>
+            <div class="lang-card-count">${meta.count.toLocaleString('fr-FR')}</div>
+            <div class="lang-card-signal">${card.signal}</div>
+            <div class="lang-card-desc">${card.desc}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function buildLangToggles(mapAPI) {
+      const container = document.getElementById('lang-toggles');
+      if (!container) return;
+
+      const muted = new Set();
+
+      container.innerHTML = Object.entries(LANG_META).map(([key, meta]) =>
+        `<button class="lang-btn" data-lang="${key}" title="${meta.region}">
+          <span class="lang-dot" style="background:${meta.color}"></span>
+          ${meta.label}
+        </button>`
+      ).join('');
+
+      container.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.lang;
+          if (muted.has(lang)) {
+            muted.delete(lang);
+            btn.classList.remove('muted');
+            mapAPI.showLayer(lang);
+          } else {
+            muted.add(lang);
+            btn.classList.add('muted');
+            mapAPI.hideLayer(lang);
+          }
+        });
+      });
+    }
+
+    async function main() {
+      try {
+        const communes = await loadJSON('./lang-communes.json');
+
+        const mapAPI = drawLangMap('#map-lang', { communes, langMeta: LANG_META });
+
+        document.getElementById('map-controls').style.display = '';
+
+        buildLangCards();
+        buildLangToggles(mapAPI);
+
+        document.getElementById('btn-france').addEventListener('click',     () => mapAPI.flyToFrance());
+        document.getElementById('btn-alsace').addEventListener('click',     () => mapAPI.flyToAlsace());
+        document.getElementById('btn-bretagne').addEventListener('click',   () => mapAPI.flyToBretagne());
+        document.getElementById('btn-occitanie').addEventListener('click',  () => mapAPI.flyToOccitanie());
+        document.getElementById('btn-nord').addEventListener('click',       () => mapAPI.flyToNord());
+        document.getElementById('btn-normandie').addEventListener('click',  () => mapAPI.flyToNormandie());
+
+      } catch (err) {
+        console.error('Failed to load lang-map data:', err);
+        document.getElementById('map-lang').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

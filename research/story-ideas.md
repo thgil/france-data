@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### lang-map: The words beneath the map
+- Status: ✅ published
+- Published URL: /stories/lang-map/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: France has one official language. But 1,412 of its 35,014 commune names are Alsatian, Breton, Norman-Norse, Occitan, or Flemish — and their dots on a map trace the exact boundaries of languages that haven't been official since the 19th century.
+- Data: DREES APL 2023 communes GeoJSON (35,014 communes) — commune names classified by suffix/prefix rules restricted to historical language zones. Centroids computed from polygon geometries.
+- Angle: Multi-layer dot map with 5 colors (one per linguistic tradition). Toggle each language on/off. Zoom presets for each region. Language cards with name counts and signature patterns. Five prose beats, one per tradition.
+- Draft X summary:
+  > France standardised its language in 1539. Its villages didn't get the memo. Today on **france-data**: 1,412 commune names that still speak Alsatian (-heim, -willer), Breton (Ker-, Plou-), Occitan (-ac), Flemish (-ghem), or Norse (-tot, -bec). Each dot marks a place named before the Republic. 🇫🇷
+

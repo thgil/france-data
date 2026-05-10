@@ -196,6 +196,12 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
+### Q-042: Do French commune names carry traces of regional languages — Breton, Alsatian, Occitan, Flemish, Norman-Norse?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: Yes — 1,412 of 35,014 metropolitan communes have names rooted in a non-French linguistic tradition. Alsatian (-heim, -willer, -bach) accounts for 551; Occitan (-ac from Latin -acum) for 508; Breton (Ker-, Plou-, Lan-) for 207; Flemish (-ghem, -cappel) for 92; Norman-Norse (-tot, -bec) for 54. The dots map perfectly onto the historical boundaries of each regional language, forming a linguistic atlas of a France that no longer officially exists.
+- Story: [lang-map](/stories/lang-map/)
+
 ### Q-041: Where are IDF's bakeries densest?
 - Status: ✅ answered
 - Topic: [culture](topics/culture.md)

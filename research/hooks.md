@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has one official language. 551 communes in Alsace still have -heim, -willer, -bach names — German. The Rhine is a linguistic boundary you can see on a dot map. [Q-042]
+- 🔥 1,412 commune names in France aren't French. They speak Alsatian, Breton, Occitan, Flemish, or Norse — and their locations perfectly trace the boundaries of languages that haven't been official since the 19th century. [Q-042]
+- 🔥 The Ker- villages of Bretagne: 207 communes beginning with Ker-, Plou-, or Lan- — Breton Celtic roots frozen in the register before Jules Ferry's French-language schools were built. [Q-042]
+- 🔥 Viking Normandy left 54 French communes with -tot or -bec in their names (Old Norse for hamlet and stream). The place names are 1,100 years old and still on road signs. [Q-042]
