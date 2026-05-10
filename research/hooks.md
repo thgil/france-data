@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 IDF has 7,378 bakeries and 6,993 bars. Nearly dead level — except Paris (75) alone has 3,120 bars vs 1,962 bakeries. Every other département has more bakeries than bars. [pain-zinc]
+- 🔥 Paris 11e: 386 bars, 147 bakeries. Paris 2e: 129 bars, 30 bakeries. The inner core of Paris is a bar city, not a bread city. [pain-zinc]
+- 🔥 Élancourt, a new town in Yvelines: 8 bakeries, 1 bar. Torcy: 6 bakeries, 1 bar. The postwar suburbs were designed for morning routines, not evening drinks. [pain-zinc]
+- 🔥 The bakery/bar ratio is a map of how Paris was built. Paris ratio: 0.63. Yvelines: 1.55. Hauts-de-Seine: 1.60. The number tells you whether a place was planned for families or nightlife. [pain-zinc]

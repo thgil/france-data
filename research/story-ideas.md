@@ -64,6 +64,15 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### pain-zinc: Pain and zinc
+- Status: 💡 idea (draft committed 2026-05-10)
+- Source question: extends [Q-041](questions.md#q-041-where-are-idfs-bakeries-densest) / [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: IDF has 7,378 bakeries and 6,993 bars — essentially equal. Except Paris alone has 1.6 bars per bakery. The suburbs have 1.5 bakeries per bar. The ratio maps how France built its banlieue.
+- Data: SIRENE NAF 1071C (bakeries.json) + SIRENE NAF 56.30Z filtered to IDF (bars.json). All existing in-repo data, no new download needed.
+- Angle: Stat display + grouped bar chart by IDF département + Paris arrondissement chart + bread-heavy vs bar-heavy communes table.
+- Draft X summary:
+  > Île-de-France has 7,378 bakeries and 6,993 bars — a gap of just 385. But the city of Paris has 3,120 bars and 1,962 bakeries. Its suburbs flip it: 6–8 bakeries per bar in new towns like Élancourt and Torcy. Pain and zinc: the ratio maps urbanism. 🥖🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

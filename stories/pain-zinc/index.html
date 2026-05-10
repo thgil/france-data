@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pain and zinc — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure { margin: 48px 0; }
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+      background: #fdf9f3;
+      border: 1px solid #d8d0c0;
+    }
+    .chart-wrap canvas { display: block; }
+
+    /* ── Stat row ────────────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 0;
+      margin: 48px 0;
+      border: 1px solid #d8d0c0;
+    }
+    .stat-cell {
+      flex: 1;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .stat-cell + .stat-cell { border-left: 1px solid #d8d0c0; }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-number.bread { color: #c67c00; }
+    .stat-number.bar   { color: #b32020; }
+    .stat-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+    @media (max-width: 500px) {
+      .stat-row { flex-direction: column; }
+      .stat-cell + .stat-cell { border-left: none; border-top: 1px solid #d8d0c0; }
+    }
+
+    /* ── Two-column tables ───────────────────────────────────────────── */
+    .tables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .tables-grid { grid-template-columns: 1fr; }
+    }
+    .table-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .ratio-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .ratio-table td { padding: 5px 0; vertical-align: baseline; }
+    .ratio-table tr:not(:last-child) td { border-bottom: 1px solid #ede8e0; }
+    .ratio-table .rank { font-size: 10px; color: #bbb; padding-right: 6px; min-width: 1.8ch; }
+    .ratio-table .place { font-family: Georgia, serif; }
+    .ratio-table .pop { font-size: 11px; color: #999; display: block; }
+    .ratio-table .val { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .ratio-table .val .bak { color: #c67c00; font-weight: 600; }
+    .ratio-table .val .sep { color: #bbb; margin: 0 2px; }
+    .ratio-table .val .br  { color: #b32020; font-weight: 600; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Pain and zinc</h1>
+        <p class="story-dek">Île-de-France has 7,378 bakeries and 6,993 bars — nearly equal. But the city of Paris alone has 3,120 bars and just 1,962 bakeries. Its suburbs think differently.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Two things define the French street corner: a boulangerie and a zinc counter. The smell of bread in the morning, the sound of espresso cups at noon. They are, in some sense, the same infrastructure — small, independent, foot-traffic-dependent, neighbourhood-scale. And they're nearly equally common in Île-de-France.</p>
+
+      <p>The SIRENE national business registry records 7,378 active bakeries (NAF 1071C) and 6,993 active bars and cafés (NAF 56.30Z) across the eight IDF départements, as of early 2026. A gap of just 385 — barely 5%. If you were designing France from scratch, you might call that balance intentional.</p>
+
+      <!-- ── Beat 2: Stat row ──────────────────────────────────────────── -->
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-label">IDF Bakeries</div>
+          <div class="stat-number bread" id="stat-bak">7,378</div>
+          <div class="stat-sub">boulangeries-pâtisseries</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">IDF Bars &amp; Cafés</div>
+          <div class="stat-number bar" id="stat-bar">6,993</div>
+          <div class="stat-sub">débits de boissons</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Ratio</div>
+          <div class="stat-number" style="color:#3a3a3a" id="stat-ratio">1.06</div>
+          <div class="stat-sub">bakeries per bar, IDF-wide</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: Dept chart ────────────────────────────────────────── -->
+      <h2>Paris inverts the rule</h2>
+
+      <p>Zoom into the eight IDF départements and the balance shatters. Seven of them have more bakeries than bars — Yvelines leads at 1.55 bakeries per bar, Hauts-de-Seine at 1.60. But the city of Paris, département 75, runs opposite: 3,120 bars against just 1,962 bakeries. For every boulangerie in Paris, there are 1.6 bars.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height:320px">
+          <canvas id="chart-dept"></canvas>
+        </div>
+        <figcaption>Bakeries (amber) vs bars (red) by IDF département. Paris is the only département where bars outnumber bakeries. Source: INSEE SIRENE, active establishments, early 2026.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Paris arrondissements ────────────────────────────── -->
+      <h2>Inside Paris: the 11<sup>e</sup> and its 386 bars</h2>
+
+      <p>Within Paris, the gap runs widest in the inner districts. The 11<sup>e</sup> arrondissement — Bastille, Oberkampf, République — has 386 bars and 147 bakeries: one bakery for every 2.6 bars. The 2<sup>e</sup> (Bourse, Sentier) runs to 4.3 bars per bakery, the most lopsided ratio in the city. The 1<sup>er</sup> is not far behind at 3.6.</p>
+
+      <p>Only three arrondissements flip back to bread-heavy: the 13<sup>e</sup>, the 15<sup>e</sup>, and the 16<sup>e</sup>. These are residential, relatively quiet, with morning commuter bakery runs. The others are all bars.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height:300px">
+          <canvas id="chart-arr"></canvas>
+        </div>
+        <figcaption>Bakeries (amber) vs bars (red) by Paris arrondissement, sorted by bar count. Three arrondissements (13e, 15e, 16e) have more bakeries than bars; the rest are bar-heavy. Source: INSEE SIRENE.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Extremes ──────────────────────────────────────────── -->
+      <h2>The bread towns and the bar towns</h2>
+
+      <p>Move to the suburbs and the pattern reverses sharply. Élancourt — a new town in Yvelines, built from the 1960s — has 8 bakeries and 1 bar. Torcy, another new town in Seine-et-Marne, has 6 and 1. Noisiel, Vaujours, Garches: the same story. These were planned communities, built for young families and commuters, not for evening drinking. Their commercial strips were designed around morning routines: the bakery, the supermarket, the school.</p>
+
+      <div class="tables-grid" id="tables-container">
+        <div class="table-block">
+          <h3>Most bread-heavy <span style="font-weight:400;color:#bbb">(pop ≥ 5,000)</span></h3>
+          <table class="ratio-table" id="table-bread"><tbody></tbody></table>
+        </div>
+        <div class="table-block">
+          <h3>Most bar-heavy <span style="font-weight:400;color:#bbb">(pop ≥ 5,000)</span></h3>
+          <table class="ratio-table" id="table-bar"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Punchline ─────────────────────────────────────────── -->
+      <h2>The same streets, different decisions</h2>
+
+      <p>The <em>zinc</em> — the traditional name for the tin or zinc bar counter of a Parisian café — appears throughout French history as the democratic meeting place, the place where workers ate standing up, where news travelled. The boulangerie is the other pillar: the daily bread queue, the morning ritual.</p>
+
+      <p>In dense urban Paris, the zinc won. Bar licences cluster where foot traffic is highest and evenings longest — the nightlife arrondissements, the tourist corridors. In the banlieue, bread won, because the banlieue was built for mornings and families, not for evenings and tourists.</p>
+
+      <p>Both are infrastructure. Both are maps of how a place was built and who it was built for. The ratio — 0.63 in Paris, 1.55 in Yvelines — is a number about urbanism.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts use INSEE SIRENE active establishments with NAF code 1071C (boulangeries-pâtisseries), geocoded via the SIRENE Géolocalisation file — the same dataset used in <a href="../baguettes/">Story 3 (baguettes)</a>. Bar counts use NAF code 56.30Z (débits de boissons), the same as <a href="../bars/">Story 4 (bars)</a>. Both are filtered to active IDF establishments from the early 2026 snapshot. Bakeries in bakeries.json: 7,378 points; bars filtered to IDF (depts 75, 77, 78, 91–95) from bars.json: 6,993 points. Commune population from the IDF BPE file.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 1071C bakeries; NAF 56.30Z bars, active establishments, early 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded establishment coordinates</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, drawArrChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function fmtBakBar(bak, bar) {
+      return `<span class="bak">${bak}</span><span class="sep">/</span><span class="br">${bar}</span>`;
+    }
+
+    function populateTables(data) {
+      const breadTbody = document.querySelector('#table-bread tbody');
+      const barTbody   = document.querySelector('#table-bar tbody');
+
+      if (breadTbody) {
+        breadTbody.innerHTML = data.breadHeavy.map((c, i) => `
+          <tr>
+            <td class="rank">${i+1}</td>
+            <td class="place">
+              ${c.name}
+              <span class="pop">${c.dept !== '75' ? 'pop ' + c.pop.toLocaleString('fr-FR') : ''}</span>
+            </td>
+            <td class="val">${fmtBakBar(c.bakeries, c.bars)}</td>
+          </tr>`).join('');
+      }
+      if (barTbody) {
+        barTbody.innerHTML = data.barHeavy.map((c, i) => `
+          <tr>
+            <td class="rank">${i+1}</td>
+            <td class="place">
+              ${c.name}
+              <span class="pop">${c.dept !== '75' ? 'pop ' + c.pop.toLocaleString('fr-FR') : ''}</span>
+            </td>
+            <td class="val">${fmtBakBar(c.bakeries, c.bars)}</td>
+          </tr>`).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+        drawDeptChart('#chart-dept', data);
+        drawArrChart('#chart-arr', data);
+        populateTables(data);
+      } catch (err) {
+        console.error('Failed to load pain-zinc data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
