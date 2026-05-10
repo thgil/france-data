@@ -1,0 +1,403 @@
+{
+  "total": 35014,
+  "unique": 32764,
+  "duplicated": 2250,
+  "saintCount": 3898,
+  "saintPct": 11.1,
+  "hyphenCount": 13410,
+  "hyphenPct": 38.3,
+  "shortest": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "pop": 89,
+      "dept": "80",
+      "length": 1
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "pop": 54,
+      "dept": "08",
+      "length": 2
+    },
+    {
+      "name": "By",
+      "code": "25104",
+      "pop": 86,
+      "dept": "25",
+      "length": 2
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "pop": 2022,
+      "dept": "28",
+      "length": 2
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "pop": 103,
+      "dept": "31",
+      "length": 2
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "pop": 213,
+      "dept": "38",
+      "length": 2
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "pop": 156,
+      "dept": "61",
+      "length": 2
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "pop": 36,
+      "dept": "65",
+      "length": 2
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "pop": 79,
+      "dept": "66",
+      "length": 2
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "pop": 348,
+      "dept": "66",
+      "length": 2
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "pop": 1001,
+      "dept": "70",
+      "length": 2
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "pop": 6591,
+      "dept": "76",
+      "length": 2
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "pop": 775,
+      "dept": "76",
+      "length": 2
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "pop": 1338,
+      "dept": "95",
+      "length": 2
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "pop": 491,
+      "dept": "51",
+      "length": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "pop": 923,
+      "dept": "70",
+      "length": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "pop": 499,
+      "dept": "14",
+      "length": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "pop": 381,
+      "dept": "21",
+      "length": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "pop": 195,
+      "dept": "34",
+      "length": 40
+    }
+  ],
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "lengthDistribution": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ],
+  "medianLength": 10
+}
