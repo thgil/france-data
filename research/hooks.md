@@ -15,3 +15,7 @@ that surfaced it.
 - 🔥 Every Paris arrondissement has more bakeries than pharmacies — but the ratio swings from 1.05× in the 8e to 2.57× in the 19e. [Q-007]
 - 🔥 Paris's 19e has 118 bakeries and 46 pharmacies. The 19e really likes bread. [Q-007]
 - 🔥 The bakery–pharmacy ratio is a commercial-density story in disguise. The same arrondissements top both lists, in the same order. [Q-007]
+- 🔥 Six French communes near Verdun have had zero permanent inhabitants since 1916 — yet they still have mayors, councils, and file annual budgets. [Q-041]
+- 🔥 Cumières-le-Mort-Homme: a commune destroyed in WWI, never rebuilt, still legally maintained. Its name means "Dead Man's Hill." Population: 0, for 108 years. [Q-041]
+- 🔥 France's smallest inhabited commune is Rochefourchat (Drôme), population 1. It has a mayor, a municipal council, and all the paperwork of any French municipality. [Q-041]
+- 🔥 More than half of metropolitan France's 34,800 communes have fewer than 500 inhabitants — yet France has repeatedly failed to consolidate them. The villages stay. [Q-041]

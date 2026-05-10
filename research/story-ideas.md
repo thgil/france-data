@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### dead-villages: The communes that died for France
+- Status: ✅ published
+- Published URL: /stories/dead-villages/
+- Source question: [Q-041](questions.md#q-041)
+- Hook: Six French communes near Verdun have zero permanent inhabitants — erased in WWI and never rebuilt — yet they still hold official mayors and municipal councils over a century later.
+- Data: INSEE Code Officiel Géographique 2023 (commune names, populations, coordinates) sourced from draft branch communes-index.json. 35,014 total communes analysed for metropolitan France distribution.
+- Angle: Lead with the dead-village paradox → zoom into the Verdun six → explain the legal framework → contrast with France's smallest *inhabited* commune (Rochefourchat, pop=1) → show France's commune size distribution.
+- Draft summary:
+  > Six French communes near Verdun have had zero inhabitants since 1916 — but they still have mayors, hold council meetings, and appear in every census. France's response to its most devastating battle wasn't to erase the villages. It was to keep them forever on the books. 🇫🇷
+
 ### pharmacy-myth: The pharmacy myth (and what's actually weird about French pharmacies)
 - Status: ✅ published
 - Published URL: /stories/pharmacy-myth/

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The communes that died for France — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .village-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 14px;
+    }
+    .village-table th {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .village-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e0d8cc;
+      color: var(--ink-soft);
+    }
+    .village-table tr:last-child td { border-bottom: none; }
+    .village-table td.village-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .village-table td.pop-zero {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .tiny-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 14px;
+    }
+    .tiny-table th {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .tiny-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .tiny-table tr:last-child td { border-bottom: none; }
+    .tiny-table td.commune-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      max-width: 680px;
+      margin: 32px auto;
+      flex-wrap: wrap;
+    }
+    .stat-block {
+      flex: 1;
+      min-width: 160px;
+    }
+    .stat-block .number {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .stat-block .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+
+    .chart-mount {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      background: #f5f0e8;
+      border: 1px solid #e0d8cc;
+      padding: 16px;
+    }
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin: 0 0 12px;
+    }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #e0d8cc;
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 20px 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <article class="story">
+
+      <header class="story-header">
+        <div class="story-kicker">History · Demographics</div>
+        <h1 class="story-title">The communes that died for France</h1>
+        <p class="story-dek">Six municipalities near Verdun have had zero permanent inhabitants since 1916 — yet they still have mayors, councils, and budgets.</p>
+        <div class="story-meta">
+          <span>May 2026</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>
+        France is the most commune-dense country in Europe. Metropolitan France has roughly 34,800 municipalities — more than Germany, Italy, and Spain combined. The median French commune counts around 400 inhabitants. Some hold fewer than a dozen.
+      </p>
+
+      <p>
+        And then there are six that have none at all.
+      </p>
+
+      <h2>The battlefield that never emptied</h2>
+
+      <p>
+        The Battle of Verdun lasted ten months in 1916. By the time it ended, it had consumed roughly 300,000 lives and churned a 20-kilometre stretch of the Meuse valley into a moonscape of shell craters, unexploded ordnance, and pulverised stone. Six villages in its path — Beaumont-en-Verdunois, Bezonvaux, Cumières-le-Mort-Homme, Fleury-devant-Douaumont, Haumont-près-Samogneux, and Louvemont-Côte-du-Poivre — were evacuated, then shelled so thoroughly that nothing above ground remained. Their populations never came back. The land was too contaminated, too dangerous, and too sacred.
+      </p>
+
+      <p>
+        The map below shows the six villages clustered in a tight arc northeast and northwest of Verdun. They are separated by only a few kilometres of forest that has regrown over the old trenches — a forest the locals call the <em>Zone Rouge</em>, the Red Zone, still off-limits in places because the soil is saturated with arsenic, lead, and unexploded shells.
+      </p>
+
+      <figure>
+        <div class="chart-mount" id="verdun-map"></div>
+        <figcaption>The six communes mortes pour la France, plotted by coordinates from INSEE. Verdun shown for reference. The tight cluster reflects the scale of the battle's front.</figcaption>
+      </figure>
+
+      <table class="village-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Dept.</th>
+            <th>Population</th>
+            <th>Named after</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="village-name">Fleury-devant-Douaumont</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>The nearby Douaumont ossuary, the largest WWI memorial in France</td>
+          </tr>
+          <tr>
+            <td class="village-name">Bezonvaux</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>Pre-war settlement of unknown medieval origin</td>
+          </tr>
+          <tr>
+            <td class="village-name">Beaumont-en-Verdunois</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>"Beautiful hill" — ironic by 1916</td>
+          </tr>
+          <tr>
+            <td class="village-name">Cumières-le-Mort-Homme</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>Le Mort-Homme: "Dead Man's Hill," a ridge that changed hands 8 times</td>
+          </tr>
+          <tr>
+            <td class="village-name">Haumont-près-Samogneux</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>The pre-war hamlet of Haumont, erased in February 1916</td>
+          </tr>
+          <tr>
+            <td class="village-name">Louvemont-Côte-du-Poivre</td>
+            <td>55</td>
+            <td class="pop-zero">0</td>
+            <td>"Pepper Hill," a strategic ridge overlooking Verdun</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Legally alive, permanently empty</h2>
+
+      <p>
+        France could have simply dissolved these communes. Instead, in 1918, a <em>décret-loi</em> created a special status: <em>commune morte pour la France</em>. Each village was reconstituted as a full legal municipality. The prefect of the Meuse appoints a <em>délégué du gouvernement</em> — a government delegate who serves as mayor. A municipal council is named, not elected. The commune files an annual budget, owns land, and maintains roads through the forest.
+      </p>
+
+      <p>
+        The rationale was both practical and moral. Land ownership had to go somewhere. Memorial ceremonies needed an official host. And France felt, viscerally, that erasing these places from the map would be a second, quieter atrocity. The villages died for France; France would keep them on its books.
+      </p>
+
+      <p>
+        Each year, delegations visit. The mayor of Fleury-devant-Douaumont presides over a ceremony at the memorial chapel. The mayors of the six dead communes attend official functions. A census is conducted. The count is always zero.
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="number">6</div>
+          <div class="label">communes mortes pour la France in metropolitan France</div>
+        </div>
+        <div class="stat-block">
+          <div class="number">0</div>
+          <div class="label">permanent residents — in every census since 1918</div>
+        </div>
+        <div class="stat-block">
+          <div class="number">108</div>
+          <div class="label">years since Fleury-devant-Douaumont last had an inhabitant</div>
+        </div>
+      </div>
+
+      <h2>France's tiniest inhabited communes</h2>
+
+      <p>
+        At the other end of the spectrum: Rochefourchat. A commune in the Drôme, in the pre-Alps foothills south of Valence. Population: 1. The data says one person lives there. That one person is, presumably, also the mayor — French law requires each commune to elect a mayor, and in Rochefourchat the democratic process is uncomplicated.
+      </p>
+
+      <p>
+        Eighteen other communes have populations in single digits. Each holds municipal elections every six years. Each is legally required to convene a full council at least four times a year. Each submits an annual budget, maintains roads, and files paperwork with the prefecture. France's administrative machinery does not scale down.
+      </p>
+
+      <table class="tiny-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Dept.</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="commune-name">Rochefourchat</td><td>Drôme (26)</td><td>1</td></tr>
+          <tr><td class="commune-name">La Bâtie-des-Fonds</td><td>Drôme (26)</td><td>2</td></tr>
+          <tr><td class="commune-name">Leménil-Mitry</td><td>Meurthe-et-Moselle (54)</td><td>2</td></tr>
+          <tr><td class="commune-name">Rouvroy-Ripont</td><td>Marne (51)</td><td>3</td></tr>
+          <tr><td class="commune-name">Caubous</td><td>Haute-Garonne (31)</td><td>4</td></tr>
+          <tr><td class="commune-name">Majastres</td><td>Alpes-de-Haute-Provence (04)</td><td>5</td></tr>
+          <tr><td class="commune-name">Fontanès-de-Sault</td><td>Aude (11)</td><td>5</td></tr>
+          <tr><td class="commune-name">Pommerol</td><td>Drôme (26)</td><td>5</td></tr>
+          <tr><td class="commune-name">Charmes-en-l'Angle</td><td>Haute-Marne (52)</td><td>6</td></tr>
+          <tr><td class="commune-name">Épécamps</td><td>Somme (80)</td><td>6</td></tr>
+        </tbody>
+      </table>
+
+      <h2>A country of small villages</h2>
+
+      <p>
+        The dead villages and the Rochefourchat of the world are the extreme ends of a very particular French phenomenon. Of metropolitan France's roughly 34,800 communes, more than half have fewer than 500 inhabitants. Nearly a third have fewer than 200. This is not a relic waiting to be rationalised — France has tried repeatedly to consolidate communes, most recently with the <em>loi de réforme des collectivités territoriales</em> of 2010, which created the <em>commune nouvelle</em> status. Some communes merged. Most did not.
+      </p>
+
+      <p>
+        The chart below shows where France's communes cluster by population. The mode is the 200–499 band, home to 9,488 municipalities — little villages that have held their own against 200 years of urbanisation, wars, and administrative reform. They elect mayors, fix potholes, and ring church bells. Some of them have been doing this since before Napoleon.
+      </p>
+
+      <figure>
+        <div class="chart-mount" id="distribution-chart">
+          <p class="chart-title">Metropolitan France communes by population</p>
+        </div>
+        <figcaption>Each bar shows the count of communes in that population range, for metropolitan France (excluding Paris, Lyon and Marseille municipality entries which are subdivided into arrondissements). Source: INSEE commune reference data, 2023 vintage.</figcaption>
+      </figure>
+
+      <p>
+        The 6 dead villages are not on this chart — they exist in a category of their own, a legal fiction maintained by the Republic as a form of mourning. Other countries might have dissolved them. France gave them mayors.
+      </p>
+
+      <div class="credits">
+        <h3>Sources</h3>
+        <p>
+          Population data from INSEE's <em>Code Officiel Géographique</em> 2023 release, covering 35,014 communes across metropolitan France and overseas territories. Population figures are from the 2020 census. The six communes mortes pour la France (Meuse, dept. 55) are officially designated under French law and report zero inhabitants in all censuses since 1918.
+        </p>
+        <h3>Notes</h3>
+        <p>
+          The 108-year figure counts from 1916 (the year the last inhabitants left Fleury-devant-Douaumont) to 2024. The population of 1 for Rochefourchat is per the 2020 census. Populations for small communes can fluctuate — any figure below 10 should be treated as approximate.
+        </p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a> &amp; INSEE</span>
+    <span><a href="/">← All stories</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawVerdunMap, drawDistribution } from './charts.js';
+
+    drawVerdunMap('#verdun-map');
+    drawDistribution('#distribution-chart');
+  </script>
+</body>
+</html>

@@ -36,6 +36,12 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
 
+### Q-041: How many French communes have zero permanent inhabitants, and why do they still exist?
+- Status: ✅ answered
+- Topic: [demographics](topics/demographics.md)
+- Finding: Six communes near Verdun (dept. 55) have had exactly 0 permanent inhabitants since the Battle of Verdun in 1916. They hold "commune morte pour la France" status under a 1918 décret-loi — each has a government-appointed mayor and council, files budgets, and reports a census count of zero. An additional 11 metropolitan communes show pop=0 due to commune nouvelle restructuring data artifacts. France's smallest inhabited commune is Rochefourchat (Drôme), pop=1; 19 metro communes have 1–9 residents.
+- Story: [dead-villages](/stories/dead-villages/)
+
 ### Q-006: Where are the "centenarian capitals" — communes with the most residents over 100?
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
