@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The city deserts — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ─────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+    #chart-canvas {
+      display: block;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+    }
+    .chart-figure figcaption a { color: inherit; }
+
+    /* ── Legend ──────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 14px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #444;
+      flex-wrap: wrap;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .swatch-idf { background: #b84030; }
+    .swatch-other { background: #6b8fa8; }
+
+    /* ── Big-number callout ───────────────────────────────────────── */
+    .callout-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      border-top: 2px solid #1a1a1a;
+      border-bottom: 1px solid #d8d0c0;
+      padding: 28px 0;
+    }
+    @media (max-width: 600px) {
+      .callout-row { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .callout-block {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+    .callout-num {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+    }
+    .callout-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The city deserts</h1>
+        <p class="story-dek">Medical deserts aren't just a rural problem. Argenteuil has 107,000 people and an APL of 1.74. Across France, 3.1 million city-dwellers have no GP nearby.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────── -->
+      <p>When people picture a <em>désert médical</em>, they tend to imagine a stone village in the Creuse with a closed post office and one aging doctor who retired in 2019. The mental model is rural, remote, depopulated. France's <a href="../medical-deserts/">12,771 medical desert communes</a> fit that picture often enough. But it obscures something less comfortable: some of those communes have 100,000 residents and a metro line to the capital.</p>
+
+      <p>The official threshold is an APL score below 2.5 — meaning residents can access fewer than 2.5 standardised GP consultations per person per year. Anywhere below that line is a <em>zone sous-dense</em>. Using the DREES 2023 data, 135 communes in France that cross the 10,000-resident mark fall below it. Together, they hold 3.1 million people.</p>
+
+      <!-- ── Callout numbers ───────────────────────────────────────── -->
+      <div class="callout-row">
+        <div class="callout-block">
+          <div class="callout-num">135</div>
+          <div class="callout-label">communes with 10,000+ residents that are official medical deserts (APL &lt; 2.5)</div>
+        </div>
+        <div class="callout-block">
+          <div class="callout-num">3.1M</div>
+          <div class="callout-label">people living in a large-town medical desert</div>
+        </div>
+        <div class="callout-block">
+          <div class="callout-num">68%</div>
+          <div class="callout-label">of those people are in Paris's outer suburbs — the grande couronne</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Chart ─────────────────────────────────────────── -->
+      <h2>Argenteuil leads the list</h2>
+
+      <p>The chart below ranks the 25 most populous communes that qualify as medical deserts. The population bars are coloured by location: red for Paris suburbs (Île-de-France, excluding Paris itself), slate blue for the rest of France.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-legend">
+          <span><span class="legend-swatch swatch-idf"></span>Paris suburbs (Île-de-France)</span>
+          <span><span class="legend-swatch swatch-other"></span>Rest of France</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="chart-canvas"></canvas>
+        </div>
+        <figcaption>Top 25 communes (population ≥ 10,000) with APL &lt; 2.5 (official medical desert threshold), ranked by population. APL score shown at end of each bar. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ─────────────────────────────────────────────────── -->
+      <h2>The ring around Paris</h2>
+
+      <p>Of the 135 large-town deserts, 92 are in Île-de-France — but outside Paris. The capital itself scores 5.41, the highest average APL of any département in France, with zero medical desert communes. One ring out — Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94) — the picture is uneven: between 12% and 17% of residents live in deserts. But in the outer ring — Seine-et-Marne (77), Yvelines (78), Essonne (91), Val-d'Oise (95) — it gets severe.</p>
+
+      <p>Val-d'Oise has 1.26 million residents, 63% of whom live in a medical desert. Seine-et-Marne, 1.44 million residents, 55% in deserts. These are not regions of shepherds and ageing populations. They are commuter territory — bedroom communities for the capital, served by the RER and the Transilien, underserved by primary care.</p>
+
+      <p>Houilles sits on the RER A, 20 minutes from the Louvre. Its APL is 1.23 — well below the desert threshold, and among the worst for a town of 33,000. Sartrouville, next station down the line: APL 2.00. Corbeil-Essonnes, 52,000 people, préfecture of its arrondissement: APL 1.98. These are not forgotten places in any cultural sense. They just don't have enough GPs.</p>
+
+      <!-- ── Beat 4 ─────────────────────────────────────────────────── -->
+      <h2>The exceptions beyond the Périphérique</h2>
+
+      <p>Forty-three of the 135 large-town deserts lie outside Île-de-France. Their geography is more scattered but the pattern is consistent: deindustrialising mid-sized cities where population has stabilised or fallen faster than the medical workforce has contracted.</p>
+
+      <p>Vierzon, in the Cher, has 25,000 residents and an APL of 1.64 — below even Argenteuil. Once a major centre for ceramics and metalwork, it has lost a fifth of its population since the 1970s. The GPs who served that larger population retired; fewer came to replace them. Fougères, in Ille-et-Vilaine — historically a shoe-manufacturing city — has 21,000 people and an APL of 2.08. Le Creusot, in Saône-et-Loire, built around the Schneider steelworks, is at 2.10.</p>
+
+      <p>The outermost case is Saint-Laurent-du-Maroni in Guyane: 50,000 people on the Maroni river, APL 1.59. It is the worst large-town desert in France by that score. Its geography is unique — it borders Suriname, it is far from any French metropole, and its population has grown fast without the health infrastructure to match. But the mechanism is the same: too many people, too few doctors, and a system that calculates access by distance without fully accounting for supply.</p>
+
+      <!-- ── Beat 5 (close) ────────────────────────────────────────── -->
+      <h2>Size doesn't protect you</h2>
+
+      <p>The assumption embedded in how France thinks about medical deserts — that they are a rural problem, solvable by attracting doctors to isolated villages — is contradicted by this data. The commune-by-commune APL scores reveal a secondary crisis: population density and proximity to a major city do not correlate reliably with GP access. Argenteuil is not isolated. Neither is Sarcelles, or Bobigny, or Chelles. They have buses and trains and shopping centres and schools. What they don't have, in sufficient numbers, is a general practitioner who will accept new patients.</p>
+
+      <p>The <a href="../medical-deserts/">full national map</a> shows where the deserts are. This list shows that some of them are hiding in plain sight, inside metropolitan France, with postcodes that no one thinks of as remote.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL (Accessibilité Potentielle Localisée) scores come from the DREES 2023 release — the most recent vintage as of this writing. APL measures estimated standardised GP consultations accessible per resident per year, using a catchment-area model that accounts for travel distance and population demand. The official under-dense threshold is APL &lt; 2.5. This analysis uses the same commune-level dataset as the <a href="../medical-deserts/">medical deserts</a> story (34,886 communes). The 135 large-town deserts identified here are all communes with population ≥ 10,000 and APL &lt; 2.5. Population figures are INSEE 2021 base.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée aux médecins généralistes 2023</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
+    const CITY_DESERTS = [
+      { name: "Argenteuil",            dept: "Val-d'Oise",          pop: 107221, apl: 1.74, idf: true  },
+      { name: "Antony",                dept: "Hauts-de-Seine",       pop: 63232,  apl: 2.45, idf: true  },
+      { name: "Sarcelles",             dept: "Val-d'Oise",          pop: 58424,  apl: 2.30, idf: true  },
+      { name: "Villejuif",             dept: "Val-de-Marne",        pop: 57753,  apl: 2.12, idf: true  },
+      { name: "Bobigny",               dept: "Seine-Saint-Denis",   pop: 55056,  apl: 2.43, idf: true  },
+      { name: "Clamart",               dept: "Hauts-de-Seine",      pop: 54491,  apl: 2.43, idf: true  },
+      { name: "Chelles",               dept: "Seine-et-Marne",      pop: 54309,  apl: 2.04, idf: true  },
+      { name: "Corbeil-Essonnes",      dept: "Essonne",             pop: 52683,  apl: 1.98, idf: true  },
+      { name: "Sevran",                dept: "Seine-Saint-Denis",   pop: 51845,  apl: 2.38, idf: true  },
+      { name: "Sartrouville",          dept: "Yvelines",            pop: 51220,  apl: 2.00, idf: true  },
+      { name: "Saint-Laurent-du-Maroni", dept: "Guyane",           pop: 50250,  apl: 1.59, idf: false },
+      { name: "Meudon",                dept: "Hauts-de-Seine",      pop: 46342,  apl: 2.38, idf: true  },
+      { name: "Garges-lès-Gonesse",    dept: "Val-d'Oise",          pop: 42841,  apl: 2.15, idf: true  },
+      { name: "Melun",                 dept: "Seine-et-Marne",      pop: 42367,  apl: 2.18, idf: true  },
+      { name: "Villepinte",            dept: "Seine-Saint-Denis",   pop: 38725,  apl: 2.12, idf: true  },
+      { name: "Savigny-sur-Orge",      dept: "Essonne",             pop: 37371,  apl: 1.69, idf: true  },
+      { name: "Tremblay-en-France",    dept: "Seine-Saint-Denis",   pop: 37271,  apl: 2.06, idf: true  },
+      { name: "Athis-Mons",            dept: "Essonne",             pop: 36222,  apl: 2.25, idf: true  },
+      { name: "Châtenay-Malabry",      dept: "Hauts-de-Seine",      pop: 34898,  apl: 1.98, idf: true  },
+      { name: "Palaiseau",             dept: "Essonne",             pop: 34893,  apl: 2.34, idf: true  },
+      { name: "Matoury",               dept: "Guyane",              pop: 34810,  apl: 2.22, idf: false },
+      { name: "Les Mureaux",           dept: "Yvelines",            pop: 33977,  apl: 2.33, idf: true  },
+      { name: "Houilles",              dept: "Yvelines",            pop: 33449,  apl: 1.23, idf: true  },
+      { name: "Bezons",                dept: "Val-d'Oise",          pop: 32017,  apl: 2.07, idf: true  },
+      { name: "Herblay-sur-Seine",     dept: "Val-d'Oise",          pop: 31605,  apl: 2.27, idf: true  },
+    ];
+
+    (function buildChart() {
+      const canvas = document.getElementById('chart-canvas');
+      const N = CITY_DESERTS.length;
+      const ROW_H = 28;
+      const PAD_TOP = 10;
+      const PAD_BOTTOM = 30;
+      canvas.height = PAD_TOP + N * ROW_H + PAD_BOTTOM;
+
+      const labels = CITY_DESERTS.map(d => `${d.name} (${d.dept})`);
+      const populations = CITY_DESERTS.map(d => d.pop);
+      const colors = CITY_DESERTS.map(d =>
+        d.idf ? 'rgba(184,64,48,0.82)' : 'rgba(107,143,168,0.82)'
+      );
+      const borders = CITY_DESERTS.map(d =>
+        d.idf ? 'rgba(184,64,48,1)' : 'rgba(107,143,168,1)'
+      );
+
+      new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data: populations,
+            backgroundColor: colors,
+            borderColor: borders,
+            borderWidth: 1,
+            borderRadius: 2,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label(ctx) {
+                  const d = CITY_DESERTS[ctx.dataIndex];
+                  return [
+                    `Population: ${d.pop.toLocaleString('fr-FR')}`,
+                    `APL score: ${d.apl.toFixed(2)} (threshold 2.50)`,
+                  ];
+                }
+              }
+            },
+            /* APL labels at end of each bar */
+            afterDraw: null,
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              ticks: {
+                font: { size: 11, family: "'Helvetica Neue', sans-serif" },
+                color: '#666',
+                callback: v => v >= 1000 ? (v / 1000).toFixed(0) + 'k' : v,
+              },
+              grid: { color: '#e8e2d8' },
+              title: {
+                display: true,
+                text: 'Population (INSEE 2021)',
+                font: { size: 11, family: "'Helvetica Neue', sans-serif" },
+                color: '#888',
+              }
+            },
+            y: {
+              ticks: {
+                font: { size: 11, family: "'Helvetica Neue', sans-serif" },
+                color: '#222',
+              },
+              grid: { display: false },
+            }
+          },
+          animation: { duration: 600, easing: 'easeOutQuart' },
+        },
+        plugins: [{
+          id: 'aplLabels',
+          afterDatasetsDraw(chart) {
+            const { ctx } = chart;
+            chart.data.datasets[0].data.forEach((val, i) => {
+              const d = CITY_DESERTS[i];
+              const meta = chart.getDatasetMeta(0);
+              const bar = meta.data[i];
+              ctx.save();
+              ctx.font = '10px "Helvetica Neue", sans-serif';
+              ctx.fillStyle = '#555';
+              ctx.textAlign = 'left';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(`APL ${d.apl.toFixed(2)}`, bar.x + 5, bar.y);
+              ctx.restore();
+            });
+          }
+        }]
+      });
+    })();
+  </script>
+</body>
+</html>

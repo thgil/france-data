@@ -91,8 +91,10 @@ datasets and the resulting story.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Finding: APL scores (DREES 2023) identify the best-served communes. Top commune with pop > 100: Montgenèvre (Hautes-Alpes, pop 457) at APL=40.03 — a ski resort with a dedicated GP serving a tiny year-round population swamped by seasonal visitors. The more important finding is the flip side: 135 communes with 10,000+ residents are medical deserts, holding 3.1 million people. 92 of those 135 are in Paris's outer suburbs. See also the city-deserts story for the suburban angle.
+- Story: [city-deserts](/stories/city-deserts/)
 
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open

@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### city-deserts: The city deserts
+- Status: ✅ published
+- Published URL: /stories/city-deserts/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: Medical deserts aren't just abandoned villages. Argenteuil has 107,000 people and an APL of 1.74. Three million city-dwellers are in the same situation.
+- Data: DREES APL 2023 commune-level scores ([DS-APL](datasets.md#ds-apl)), reused from medical-deserts story. No new downloads required.
+- Angle: Ranked horizontal bar chart of the 25 most populous medical-desert communes, coloured by IDF (red) vs rest of France (slate). Prose narrative covering the Paris ring effect, deindustrialising mid-sized cities, and Guyane.
+- Draft X summary:
+  > "Medical desert" sounds like a remote village. Argenteuil has 107,000 people and a metro line. Today on **france-data**: 135 communes with 10,000+ residents are official medical deserts. 3.1 million people. 68% of them are in Paris's outer suburbs. 🇫🇷
+
