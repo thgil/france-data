@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Montgenèvre (Hautes-Alpes, pop. 457) has an APL of 40.03 — the highest in France, 10× the national average, 8× Paris. It's a ski resort. The doctors are there for the skiers. [Q-015]
+- 🔥 Île-de-Sein: 273 permanent residents, APL 27.68. The island can't always evacuate patients by boat. So it keeps a doctor. The ratio is extraordinary. [Q-015]
+- 🔥 51.7% of the 5.5M people in the four IDF outer suburbs (77, 78, 91, 95) live in a medical desert. Paris's APL is 4.96. The ring around the capital doesn't heal. [Q-015]
+- 🔥 Seven small communes around Lille (dept 59) are in France's top 50 for doctor access. Group practices in residential suburbs create local APL spikes visible from space. [Q-015]

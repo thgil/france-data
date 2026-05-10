@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### doctor-oasis: The Doctor Surplus
+- Status: ✅ published
+- Published URL: /stories/doctor-oasis/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: France's highest doctor-to-resident ratio isn't in Paris or any hospital town. It's a 457-person ski resort in the Alps with an APL of 40 — 10× the national average.
+- Data: DREES APL 2023 commune-level scores, same source as Story 2 (medical-deserts). No new download needed.
+- Angle: Text-and-charts. Observable Plot horizontal bar (top 20 by APL, color-coded by category: ski/island/suburb/other) + distribution histogram. Five narrative beats: the paradox, the ski effect, the island logic, the Lille cluster, the IDF irony.
+- Draft X summary:
+  > France's most doctor-rich commune isn't in Paris. It's Montgenèvre — a 457-person ski resort in the Alps with an APL of 40, 10× the national average. Flip the medical desert map and the winners are a ski resort, five Atlantic islands, and seven Lille suburbs. Today on **france-data**: the doctor surplus. 🏔️🇫🇷
+

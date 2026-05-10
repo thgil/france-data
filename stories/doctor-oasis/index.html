@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Doctor Surplus — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    /* Stat callout boxes */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Category legend */
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 20px 0 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Commune ranking table */
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 32px 0;
+    }
+    .ranking-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 6px 8px;
+      border-bottom: 2px solid #e0d8cc;
+      text-align: left;
+    }
+    .ranking-table th:not(:first-child) { text-align: right; }
+    .ranking-table td {
+      padding: 5px 8px;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .ranking-table td.rank {
+      font-size: 10px;
+      color: #aaa;
+      font-variant-numeric: tabular-nums;
+    }
+    .ranking-table td.name-cell {
+      font-family: var(--serif);
+    }
+    .ranking-table td.dept-cell {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #888;
+    }
+    .ranking-table td.num-cell {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .ranking-table td.apl-cell {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    .cat-badge {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+    }
+    .cat-ski     { background: #deeaf9; color: #2470be; }
+    .cat-island  { background: #d4f2e6; color: #1f8a5a; }
+    .cat-mountain{ background: #ede4f9; color: #6040a8; }
+    .cat-suburb  { background: #fde9d9; color: #b55210; }
+    .cat-other   { background: #eee; color: #555; }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The Doctor Surplus</h1>
+        <p class="story-dek">France has 12,770 medical deserts. Flip the scale and the oases are stranger: a ski resort in the Alps with 10× Paris's doctor density, five Atlantic islands, and a cluster of small Lille suburbs.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The paradox ────────────────────────────────────────── -->
+      <p>The <em>accessibilité potentielle localisée</em> (APL) is the metric France uses to define medical deserts. It measures how many GP consultations a resident can realistically access per year, accounting for distance, the GP's patient load, and population density. An APL below 2.5 puts you in a desert. Below 1.0 and you're in a severe one.</p>
+
+      <p>France's national average is <strong>3.75</strong>. Paris sits at <strong>4.96</strong>, well above the threshold. Thirty-six percent of communes fall below it. But look the other way — at the very top — and the picture gets strange. Sixteen communes in France have an APL above 10, more than twice Paris's score. Ninety-one exceed 8. These aren't wealthy arrondissements or university hospital towns. Almost all of them are either ski resorts, Atlantic islands, or small suburban communes around Lille.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">40.0</span>
+          <span class="stat-label">APL of Montgenèvre — France's highest</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" id="stat-factor">10.7×</span>
+          <span class="stat-label">Multiple of the national average</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">16</span>
+          <span class="stat-label">Communes with APL above 10</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">457</span>
+          <span class="stat-label">Permanent residents of Montgenèvre</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The chart ──────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="legend-row">
+          <div class="legend-item"><div class="legend-swatch" style="background:#4a90d9"></div> Ski resort</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3aab7b"></div> Island</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#8b6fc0"></div> Mountain valley</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#e07b39"></div> Lille suburb</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#999"></div> Other</div>
+        </div>
+        <div id="chart-top" class="chart-mount"></div>
+        <figcaption>Top 20 communes by APL score (2023). The vertical dashed lines mark the national average (3.75, grey) and Paris (4.96, amber). Source: DREES APL 2023, population INSEE 2021.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: The ski resort effect ─────────────────────────────── -->
+      <h2>The ski resort effect</h2>
+
+      <p><strong>Montgenèvre</strong> (Hautes-Alpes, département 05) sits at 1,860 metres, on the Italian border in the southern Alps. It has 457 permanent residents. Its APL is 40.03 — the highest in France, more than ten times the national average, eight times Paris.</p>
+
+      <p>Why? APL uses permanent census population as its denominator. But Montgenèvre is a ski resort. In winter it hosts 20,000 skiers. Ski resorts need on-site doctors — broken legs, altitude sickness, emergency care. The infrastructure is built for the peak tourist season. But the formula attributes all those consultations to the 457 people who actually live there year-round, making the ratio astronomical.</p>
+
+      <p>Vars (APL 21.64, pop. 573), also in Hautes-Alpes, works the same way. So do the Isère resorts — Chamrousse (19.3) and Les Deux Alpes (20.2). Val-d'Isère in Savoie (APL 9.73, pop. 1,580) is barely an exception: still 2.6× Paris. The alpine counties of Hautes-Alpes (05) and Isère (38) place six communes in the top 25. The Hautes-Pyrénées (65) place nine — a dense cluster of Pyrenean ski and mountain valley communes with similarly skewed ratios.</p>
+
+      <!-- ── Beat 4: The island effect ──────────────────────────────────── -->
+      <h2>The island story</h2>
+
+      <p>Five communes in the top 16 are Atlantic islands: <strong>Île-de-Sein</strong> (Finistère, APL 27.68), <strong>Île-d'Houat</strong> (Morbihan, 14.07), <strong>Île-d'Aix</strong> (Charente-Maritime, 14.01), <strong>Île-de-Bréhat</strong> (Côtes-d'Armor, 11.11), and <strong>Groix</strong> (Morbihan, 10.61). Their logic is the reverse of the ski resort's.</p>
+
+      <p>Islands can't evacuate patients on demand. A storm can close the ferry for days. The French state requires a permanent resident doctor — sometimes two. Île-de-Sein has 273 permanent residents and consistently carries a doctor who is also effectively a one-person emergency room. The APL score reflects this: the ratio of consultations to permanent population is very high because the doctor serves the island's full-time residents plus summer visitors, all from a small, isolated practice.</p>
+
+      <p>The irony is that the metric designed to identify places that lack doctors also identifies places where geographic isolation has forced a surfeit of them. The same model, inverted.</p>
+
+      <!-- ── Beat 5: The Lille mystery ──────────────────────────────────── -->
+      <h2>The Lille cluster</h2>
+
+      <p>The third pattern in the top 50 is harder to explain intuitively. Seven small communes in Nord (département 59) — <strong>Englos</strong> (APL 11.37), <strong>Vendeville</strong> (10.65), <strong>Hallennes-lez-Haubourdin</strong> (9.98), <strong>Lezennes</strong> (9.74), <strong>Capinghem</strong> (9.42), <strong>Ennetières-en-Weppes</strong> (9.41), and <strong>Lesquin</strong> (8.91) — cluster in the top 50. None are resorts or islands. Englos has 614 residents. Lesquin has 9,241.</p>
+
+      <p>The explanation is geographic: these are residential communes in the Lille metropolitan area where large group medical practices have established themselves. A practice of ten or fifteen GPs in a commune of a few thousand residents produces very high per-capita APL scores, especially when the practice draws patients from a wider suburban catchment. APL accounts for travel distances and weights by population — but the geography of a polyclinic in a small commune creates a strong local spike.</p>
+
+      <p>Nord as a whole ranks 7th best of all departments by average APL (4.56). These suburban communes represent its medical overperformers, even as the broader departmental average masks significant variation between urban, suburban, and rural communes in the region.</p>
+
+      <!-- ── Beat 6: The distribution ───────────────────────────────────── -->
+      <h2>What the full distribution looks like</h2>
+
+      <figure class="chart-figure">
+        <div id="chart-buckets" class="chart-mount"></div>
+        <figcaption>Distribution of communes by APL band. Desert threshold is 2.5. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <p>Of France's <span id="total-communes">34,883</span> communes with positive population, 12,770 fall below the 2.5 desert threshold (36.6%). Most of the country sits in the middle band — APL between 2.5 and 5 — which covers both modest rural access and solid urban coverage. The high end (above 5) holds just over 2,000 communes, many of them small university or hospital towns. Above 10: 16. Above 8: 91.</p>
+
+      <!-- ── Beat 7: The IDF irony ───────────────────────────────────────── -->
+      <h2>The donut that never heals</h2>
+
+      <p>France's worst-served regions by average APL are the four outer Île-de-France departments — Seine-et-Marne (77), Yvelines (78), Essonne (91), and Val-d'Oise (95). Together they hold 5.5 million people, and 51.7% of them — nearly 2.8 million — live in communes below the desert threshold. Val-d'Oise's average APL is 2.41; Seine-et-Marne's is 2.38. Both are below the threshold at département level, meaning the average resident is already in a desert before you break the figure down to their commune.</p>
+
+      <p>Paris (APL 4.96) sits in the middle of this ring. The gap is startling: Montgenèvre, a ski resort smaller than many Paris apartment buildings, has a doctor-to-resident ratio more than 8× higher than the average for the departments immediately surrounding the capital. The oases and the deserts exist on the same map. The logic that created each is completely different — tourist infrastructure, island necessity, suburban clustering, historical distribution of GPs. The metric captures all of it, and the pattern it reveals is genuinely strange.</p>
+
+      <!-- ── Ranking table ───────────────────────────────────────────────── -->
+      <h2>Top 20 communes by APL score</h2>
+
+      <table class="ranking-table" id="ranking-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Commune</th>
+            <th>Dept</th>
+            <th>Pop.</th>
+            <th>APL</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- ── Credits ─────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL (Accessibilité Potentielle Localisée) scores are from the DREES 2023 release, the most recent national vintage. APL is a model-based measure, not a raw count — it uses a catchment-area method that weights GPs by their patient load and residents by their distance from each GP. The permanent population denominator is from INSEE's 2021 census. For ski resorts and tourist islands, the APL score as reported here is calculated against permanent residents only; the seasonal population is not in the denominator. This is a known limitation of the metric for highly seasonal communes.</p>
+        <p>This story reuses the <em>communes-apl.geojson</em> dataset from <a href="../medical-deserts/">Story 2 (medical deserts)</a> — the same source, the same vintage, the same 34,883 communes.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) aux médecins généralistes, 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs des communes 2025</a> — commune geometries (Etalab)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopCommunesChart, drawBucketChart } from './charts.js';
+
+    const CAT_LABELS = {
+      ski:      'Ski resort',
+      island:   'Island',
+      mountain: 'Mountain valley',
+      suburb:   'Lille suburb',
+      other:    'Other',
+    };
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function buildRankingTable(data) {
+      const tbody = document.querySelector('#ranking-table tbody');
+      if (!tbody) return;
+      const top20 = data.top25.slice(0, 20);
+      tbody.innerHTML = top20.map((c, i) => `
+        <tr>
+          <td class="rank">${i + 1}</td>
+          <td class="name-cell">${c.name}</td>
+          <td class="dept-cell">${c.dept}</td>
+          <td class="num-cell">${c.pop.toLocaleString('fr-FR')}</td>
+          <td class="apl-cell">${c.apl.toFixed(2)}</td>
+          <td><span class="cat-badge cat-${c.category}">${CAT_LABELS[c.category] || c.category}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+
+        // Update inline stats
+        const factorEl = document.getElementById('stat-factor');
+        if (factorEl) factorEl.textContent = data.stats.montgenevreFactor + '×';
+
+        const totalEl = document.getElementById('total-communes');
+        if (totalEl) totalEl.textContent = data.stats.totalCommunes.toLocaleString('fr-FR');
+
+        buildRankingTable(data);
+        drawTopCommunesChart('#chart-top', data);
+        drawBucketChart('#chart-buckets', data);
+      } catch (err) {
+        console.error('doctor-oasis story error:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
