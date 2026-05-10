@@ -201,3 +201,9 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: How does Corsica's unusual bar density relate to its healthcare access gaps?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: Haute-Corse (2B) has the highest bars per 1,000 residents of any metropolitan French department (2.11/1000), yet 116 of its 236 communes (49%) have APL = 0.00 — no accessible GP. The paradox resolves geographically: coastal tourist towns (Calvi, Porto-Vecchio, Saint-Florent) have both high bar density and strong APL scores, driven by seasonal tourism. Remote interior communes have no doctors and sometimes no bars at all. Corse-du-Sud (2A) ranks third nationally in bars/1000 (1.69), with 30 of 124 communes at APL=0. The bar map and the healthcare map are genuinely different maps.
+- Story: [corse-paradox](/stories/corse-paradox/)

@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Haute-Corse has more bars per capita (2.11/1,000) than any French department — and 49% of its communes with APL = 0.00. The same island holds both records. [Q-042]
+- 🔥 Saint-Florent, Corsica: pop. 1,689, 16 bars (9.5/1,000), APL 7.42. Thirty kilometres away, Linguizzetta: pop. 1,103, 1 bar, APL 0.0. Two Corsicas. [Q-042]
+- 🔥 France's bottom five departments for bars per capita are all in the Paris suburbs — Essonne at 0.31/1,000, Yvelines at 0.33. The same suburbs are among the worst for GP access. [Q-042]
+- 🔥 Cargèse, Corsica: APL 14.19 — the fifth-highest commune score in France. Pop. 1,237. A small coastal town with more doctors per resident than any Paris arrondissement. [Q-042]

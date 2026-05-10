@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Corsica paradox — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart containers ───────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    /* ── Stats row ──────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid #d4640a;
+      padding: 14px 16px;
+    }
+    .stat-box--red { border-left-color: #c0392b; }
+    .stat-box--blue { border-left-color: #4a6ea8; }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 700;
+      color: #d4640a;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box--red .stat-num { color: #c0392b; }
+    .stat-box--blue .stat-num { color: #4a6ea8; }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      line-height: 1.4;
+    }
+
+    /* ── Callout blocks ─────────────────────────────────────────── */
+    .callout {
+      background: #f5f1ea;
+      border-left: 4px solid #d4640a;
+      padding: 14px 18px;
+      margin: 28px 0;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .callout--red { border-left-color: #c0392b; }
+    .callout strong { color: #1a1a1a; }
+
+    /* ── Commune table ──────────────────────────────────────────── */
+    .commune-table {
+      width: 100%;
+      max-width: 680px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 13px;
+      margin: 20px 0;
+    }
+    .commune-table th {
+      text-align: left;
+      padding: 6px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 1px solid #ddd;
+    }
+    .commune-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
+    }
+    .commune-table tr:hover td { background: #f0ece4; }
+    .commune-table .td-name { font-weight: 500; }
+    .commune-table .td-num { text-align: right; font-variant-numeric: tabular-nums; }
+    .td-apl-zero { color: #c0392b; font-weight: 700; }
+    .td-apl-good { color: #2a7a4f; }
+
+    /* ── Credits ────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Culture / Health</div>
+        <h1 class="story-title">The Corsica paradox</h1>
+        <p class="story-dek">Haute-Corse has more bars per capita than any French department. It also has 49% of its communes with no accessible GP. The same island holds both records.</p>
+        <div class="story-meta">
+          <span>2026-05-10</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>If you rank France's 96 metropolitan departments by bars per 1,000 residents, the winner is not Paris, not Bretagne, not the Nord — it's Haute-Corse. The island department has 2.11 bars for every thousand people it officially records. Paris sits seventh on the same list, at 1.46. The Paris suburbs — Essonne, Yvelines, Hauts-de-Seine — sit at the very bottom, below 0.35.</p>
+
+      <p>Bars are a proxy for a certain kind of social life: the café as village institution, the <em>zinc</em> as the place where everything happens. By that measure, Corsica seems abundantly alive. But look at the same island through the lens of healthcare access, and a different picture emerges. Haute-Corse has the highest share of communes with an APL score of exactly zero — 116 of its 236 communes, or 49%. In half the island's communes, the official estimate of GP accessibility is not low, not scarce: it is nothing.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">2.11</span>
+          <span class="stat-label">Bars per 1,000 residents in Haute-Corse — highest of any metropolitan department</span>
+        </div>
+        <div class="stat-box stat-box--red">
+          <span class="stat-num">49%</span>
+          <span class="stat-label">Share of Haute-Corse communes with APL = 0.00 — no measurable GP access</span>
+        </div>
+        <div class="stat-box stat-box--blue">
+          <span class="stat-num">360</span>
+          <span class="stat-label">Total Corsican communes, spanning two departments and about 347,000 residents</span>
+        </div>
+      </div>
+
+      <h2>All 96 departments, ranked</h2>
+
+      <p>The full ranking by bars per 1,000 residents reveals a clear pattern: rural and mountain departments lead; the Paris suburbs trail. Corsica takes the top two spots. Lozère (1.76) and Cantal (1.66) round out the top five — sparsely populated highland departments where the café has historically served as the town's only meeting place. At the other end, the IDF departments cluster: dense, suburban, commuter-oriented, with the lowest bar density in France.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-ranking" class="chart-mount"></div>
+        <figcaption>All 96 metropolitan departments sorted by bars per 1,000 residents. Orange bars = Corsica (2A and 2B). Right column = % of population in a medical desert (APL below 2.5). Source: INSEE SIRENE March 2026 × DREES APL 2023.</figcaption>
+      </figure>
+
+      <h2>The tourist coast and the interior</h2>
+
+      <p>The paradox resolves when you look at where, on the island, both the bars and the APL=0 communes are. Corsica is not uniformly bar-rich. Its bars are heavily concentrated along the tourist coast — the resort towns of Calvi, Porto-Vecchio, Bonifacio, and Saint-Florent — and in the two cities of Bastia and Ajaccio. These coastal centres have both high bar densities and high APL scores, because the same concentration of seasonal visitors that fills the terraces in July also sustains a year-round population of doctors serving a large catchment area.</p>
+
+      <div class="callout">
+        <strong>Saint-Florent (Haute-Corse), pop. 1,689.</strong> Sixteen bars — 9.5 per 1,000 residents. APL score: 7.42, nearly three times the desert threshold. A small coastal town with summer tourism and year-round GP access. Both records belong to the same town type.
+      </div>
+
+      <p>Inland, the picture changes sharply. The mountainous interior of Corsica — the Castagniccia, the Niolo, the Sartenais — contains hundreds of hamlets with fewer than 500 residents, no resident GP, and often just one bar (or none). The bar, where it exists, is the social hub; but it cannot replace the absent clinic.</p>
+
+      <table class="commune-table" aria-label="Selected Corsican communes">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Dept</th>
+            <th class="td-num">Population</th>
+            <th class="td-num">Bars</th>
+            <th class="td-num">Bars/1,000</th>
+            <th class="td-num">APL score</th>
+          </tr>
+        </thead>
+        <tbody id="commune-table-body">
+          <!-- filled by JS -->
+        </tbody>
+      </table>
+
+      <h2>What the scatter shows</h2>
+
+      <p>Plot each Corsican commune as a dot — bars per 1,000 on the horizontal axis, APL score on the vertical, dot size proportional to population — and the tourist coast / remote interior split becomes visible. The orange dots (APL above 4.0) cluster in the middle range of bar density: Bastia, Ajaccio, the coastal resorts. The red dots at the bottom (APL = 0.00) are scattered everywhere on the bar axis: some have bars, some don't. Doctor access and bar access are not the same thing, and they follow different geographies.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-scatter" class="chart-mount"></div>
+        <figcaption>Each dot is a Corsican commune (pop > 0). X-axis: bars per 1,000 residents. Y-axis: APL score. Dot size scales with log(population). Red dashed line = medical desert threshold (APL 2.5). Many communes with bars have APL = 0. Source: same as above.</figcaption>
+      </figure>
+
+      <h2>Why both records co-exist</h2>
+
+      <p>France's APL score measures something specific: the estimated number of GP consultations available per resident per year, computed using a catchment-area model that accounts for travel time. For a commune to have APL = 0, there must be no GP within a reasonable travel band — or more precisely, no GP whose catchment this commune falls into. In the Corsican interior, where the nearest town with a doctor can be 30–40 minutes of mountain road away, this condition is easily met.</p>
+
+      <p>The bars, meanwhile, measure something else: the historic density of <em>débits de boissons</em>, alcohol-licensed premises, recorded in the SIRENE business register. Corsica's high count reflects both genuine café culture (the island has a strong tradition of the local <em>bar-tabac</em> as civic institution) and the island's unusual economic geography: a large seasonal tourist population generates commercial density that the permanent population alone would not sustain.</p>
+
+      <div class="callout callout--red">
+        <strong>Linguizzetta (Haute-Corse), pop. 1,103.</strong> One bar. APL score: 0.00. The bar exists; the doctor does not. The two maps — bars and GP access — do not overlay neatly.
+      </div>
+
+      <p>The result is an island that scores paradoxically on national rankings: first in bars per capita, in the top tier for APL=0 communes. France's bar map and France's healthcare map are both real. They just describe different things — and in Corsica, the gap between them is most visible.</p>
+
+      <section class="credits">
+        <h3>Data</h3>
+        <p>Bar counts: INSEE <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">SIRENE national snapshot</a>, March 2026, filtered to NAF 56.30Z (débits de boissons), geocoded via SIRENE Géolocalisation. 49,385 active establishments. Department-level bar-per-capita computed by joining SIRENE bar commune codes to DREES commune populations.</p>
+        <p>Healthcare access: DREES <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">APL aux médecins généralistes 2023</a>, commune-level scores, joined to administrative boundaries. APL = 0.00 means the catchment-area model found no accessible GP for that commune's residents.</p>
+        <h3>Method</h3>
+        <p>Bars per 1,000 residents = total SIRENE-registered bars in a department ÷ total DREES population in that department × 1,000. Metropolitan departments only (excluding overseas 97x codes). Small departments (pop below 50,000) excluded from ranking. The APL=0 count covers communes where the 2023 score is literally 0.00, not just below the 2.5 desert threshold.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawDeptRanking, drawCorseScatter } from './charts.js';
+
+    const NOTABLE = [
+      // coastal / high-bar
+      { name: 'Saint-Florent',   dept: '2B', pop: 1689,  bars: 16, bars_r: 9.5,  apl: 7.42, type: 'coast' },
+      { name: 'Calvi',           dept: '2B', pop: 5746,  bars: 25, bars_r: 4.3,  apl: 4.71, type: 'coast' },
+      { name: 'Porto-Vecchio',   dept: '2A', pop: 11229, bars: 35, bars_r: 3.1,  apl: 6.55, type: 'coast' },
+      { name: 'Cargèse',         dept: '2A', pop: 1237,  bars: 5,  bars_r: 4.0,  apl: 14.19,type: 'coast' },
+      { name: 'Corte',           dept: '2B', pop: 7654,  bars: 26, bars_r: 3.4,  apl: 5.04, type: 'coast' },
+      { name: 'Bastia',          dept: '2B', pop: 48768, bars: 105,bars_r: 2.2,  apl: 4.02, type: 'city'  },
+      { name: 'Ajaccio',         dept: '2A', pop: 73822, bars: 83, bars_r: 1.1,  apl: 3.90, type: 'city'  },
+      // interior / APL=0
+      { name: 'Linguizzetta',    dept: '2B', pop: 1103,  bars: 1,  bars_r: 0.9,  apl: 0.0,  type: 'interior' },
+      { name: 'Moltifao',        dept: '2B', pop: 714,   bars: 1,  bars_r: 1.4,  apl: 0.0,  type: 'interior' },
+      { name: 'Tavera',          dept: '2A', pop: 413,   bars: 0,  bars_r: 0.0,  apl: 0.0,  type: 'interior' },
+      { name: 'Monte',           dept: '2B', pop: 630,   bars: 1,  bars_r: 1.6,  apl: 0.0,  type: 'interior' },
+      { name: 'Antisanti',       dept: '2B', pop: 568,   bars: 1,  bars_r: 1.8,  apl: 0.0,  type: 'interior' },
+    ];
+
+    const tbody = document.getElementById('commune-table-body');
+    if (tbody) {
+      NOTABLE.forEach(c => {
+        const aplClass = c.apl === 0 ? 'td-apl-zero' : c.apl >= 4 ? 'td-apl-good' : '';
+        const aplLabel = c.apl === 0 ? '0.00' : c.apl.toFixed(2);
+        tbody.insertAdjacentHTML('beforeend', `
+          <tr>
+            <td class="td-name">${c.name}</td>
+            <td style="color:#888">${c.dept}</td>
+            <td class="td-num">${c.pop.toLocaleString('en-GB')}</td>
+            <td class="td-num">${c.bars}</td>
+            <td class="td-num">${c.bars_r.toFixed(1)}</td>
+            <td class="td-num ${aplClass}">${aplLabel}</td>
+          </tr>
+        `);
+      });
+    }
+
+    drawDeptRanking('#chart-ranking');
+    drawCorseScatter('#chart-scatter');
+  </script>
+</body>
+</html>

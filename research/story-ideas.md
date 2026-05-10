@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### corse-paradox: The Corsica paradox
+- Status: ✅ published
+- Published URL: /stories/corse-paradox/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: Haute-Corse leads all French departments in bars per capita. It also holds the record for most communes with APL = 0.00. How can both be true?
+- Data: SIRENE bars data (bars.json, 49,385 points) joined to APL communes (communes-apl.geojson, 35,014 communes). Department-level aggregation + commune-level Corsica scatter. All data already in repo.
+- Angle: Two SVG charts (department ranking bar chart, Corsican commune scatter by bars/1000 vs APL) + notable commune table + prose analysis of the coastal/interior geographic split.
+- Draft X summary:
+  > Haute-Corse has more bars per capita than any French department — 2.11 per 1,000. It also has 49% of its communes with APL = 0.00: no accessible GP. Today on **france-data**: how the same island can hold both records, and what tourist geography has to do with it. 🇫🇷
+
