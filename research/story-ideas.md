@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-league: The Bar League
+- Status: ✅ published
+- Published URL: /stories/bar-league/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: France's most bar-dense département is not Paris — it's Corsica (21 bars per 10,000). And the most bar-dense commune of all is a 341-person Pyrenean village at the foot of a UNESCO heritage site.
+- Data: INSEE SIRENE bars.json (49,385 points) joined to DREES APL commune populations (35K communes). No new data required.
+- Angle: Ranked bar chart of all 96 departments + top communes table. Charts-only story, no map, differentiating it from the dot-density bars story.
+- Draft X summary:
+  > France has 49,385 bars. At 21/10k, Corsica is the country's bar capital. The most bar-dense commune of all — 205 bars per 10,000 residents — is a 341-person Pyrenean village at a UNESCO World Heritage site. Today on **france-data**: the full 96-département ranking, from Corsica to Essonne (3.1). 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

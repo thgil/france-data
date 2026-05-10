@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France's most bar-dense commune isn't Paris or Lyon — it's Gavarnie-Gèdre, a Pyrenean village of 341 people with 7 bars (205 per 10k). It sits at the foot of a UNESCO World Heritage cirque. [Q-033]
+- 🔥 Corsica leads France's bar-per-capita ranking: Haute-Corse at 21.1/10k, Corse-du-Sud at 16.9. The village café-tabac is as cultural as it is commercial. [Q-033]
+- 🔥 Essonne has 3.1 bars per 10,000 residents. Haute-Corse has 21.1. The same 6.9× gap that shows up in medical access, bakery density, and service coverage — now in bars too. [Q-033]
+- 🔥 23,265 of France's 35,014 communes — two thirds — have no registered bar at all. The bar desert and the medical desert trace identical maps. [Q-033]
