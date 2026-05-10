@@ -1,0 +1,777 @@
+{
+  "meta": {
+    "total_communes": 35014,
+    "total_with_name": 35014,
+    "unique_names": 32764,
+    "names_appearing_once": 31314,
+    "names_shared_2plus": 1450,
+    "communes_sharing_a_name": 3700,
+    "pct_sharing": 10.6,
+    "mean_length": 11.8,
+    "min_length": 1,
+    "max_length": 45,
+    "saint_communes": 3898,
+    "unique_saint_names": 3392,
+    "pct_saints": 11.1
+  },
+  "histogram": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ],
+  "shortest": [
+    {
+      "name": "Y",
+      "pop": 89,
+      "dept": "80",
+      "apl": 2.78,
+      "code": "80829",
+      "lon": 2.985,
+      "lat": 49.8064,
+      "nchars": 1
+    },
+    {
+      "name": "By",
+      "pop": 86,
+      "dept": "25",
+      "apl": 1.48,
+      "code": "25104",
+      "lon": 5.8936,
+      "lat": 47.0158,
+      "nchars": 2
+    },
+    {
+      "name": "Bû",
+      "pop": 2022,
+      "dept": "28",
+      "apl": 1.81,
+      "code": "28064",
+      "lon": 1.489,
+      "lat": 48.8033,
+      "nchars": 2
+    },
+    {
+      "name": "Eu",
+      "pop": 6591,
+      "dept": "76",
+      "apl": 4.37,
+      "code": "76255",
+      "lon": 1.4312,
+      "lat": 50.0416,
+      "nchars": 2
+    },
+    {
+      "name": "Gy",
+      "pop": 1001,
+      "dept": "70",
+      "apl": 3.13,
+      "code": "70282",
+      "lon": 5.8182,
+      "lat": 47.3972,
+      "nchars": 2
+    },
+    {
+      "name": "Oz",
+      "pop": 213,
+      "dept": "38",
+      "apl": 4.24,
+      "code": "38289",
+      "lon": 6.0648,
+      "lat": 45.1205,
+      "nchars": 2
+    },
+    {
+      "name": "Oô",
+      "pop": 103,
+      "dept": "31",
+      "apl": 4.91,
+      "code": "31404",
+      "lon": 0.494,
+      "lat": 42.7453,
+      "nchars": 2
+    },
+    {
+      "name": "Py",
+      "pop": 79,
+      "dept": "66",
+      "apl": 0.16,
+      "code": "66155",
+      "lon": 2.3634,
+      "lat": 42.4723,
+      "nchars": 2
+    },
+    {
+      "name": "Ri",
+      "pop": 156,
+      "dept": "61",
+      "apl": 3.91,
+      "code": "61349",
+      "lon": -0.1388,
+      "lat": 48.7922,
+      "nchars": 2
+    },
+    {
+      "name": "Ry",
+      "pop": 775,
+      "dept": "76",
+      "apl": 3.97,
+      "code": "76548",
+      "lon": 1.3255,
+      "lat": 49.477,
+      "nchars": 2
+    },
+    {
+      "name": "Sy",
+      "pop": 54,
+      "dept": "08",
+      "apl": 1.86,
+      "code": "08434",
+      "lon": 4.8751,
+      "lat": 49.51,
+      "nchars": 2
+    },
+    {
+      "name": "Ur",
+      "pop": 348,
+      "dept": "66",
+      "apl": 5.8,
+      "code": "66218",
+      "lon": 1.9409,
+      "lat": 42.463,
+      "nchars": 2
+    },
+    {
+      "name": "Us",
+      "pop": 1338,
+      "dept": "95",
+      "apl": 2.01,
+      "code": "95625",
+      "lon": 1.9519,
+      "lat": 49.108,
+      "nchars": 2
+    },
+    {
+      "name": "Uz",
+      "pop": 36,
+      "dept": "65",
+      "apl": 2.1,
+      "code": "65458",
+      "lon": -0.0874,
+      "lat": 42.9574,
+      "nchars": 2
+    },
+    {
+      "name": "Acq",
+      "pop": 797,
+      "dept": "62",
+      "apl": 3.8,
+      "code": "62007",
+      "lon": 2.6513,
+      "lat": 50.3493,
+      "nchars": 3
+    },
+    {
+      "name": "Acy",
+      "pop": 1016,
+      "dept": "02",
+      "apl": 2.13,
+      "code": "02003",
+      "lon": 3.4212,
+      "lat": 49.3476,
+      "nchars": 3
+    },
+    {
+      "name": "Adé",
+      "pop": 828,
+      "dept": "65",
+      "apl": 3.26,
+      "code": "65002",
+      "lon": -0.0233,
+      "lat": 43.142,
+      "nchars": 3
+    },
+    {
+      "name": "Afa",
+      "pop": 3336,
+      "dept": "2A",
+      "apl": 1.78,
+      "code": "2A001",
+      "lon": 8.7963,
+      "lat": 41.9831,
+      "nchars": 3
+    },
+    {
+      "name": "Agy",
+      "pop": 313,
+      "dept": "14",
+      "apl": 3.98,
+      "code": "14003",
+      "lon": -0.7817,
+      "lat": 49.2357,
+      "nchars": 3
+    },
+    {
+      "name": "Aix",
+      "pop": 382,
+      "dept": "19",
+      "apl": 2.31,
+      "code": "19002",
+      "lon": 2.3817,
+      "lat": 45.6167,
+      "nchars": 3
+    },
+    {
+      "name": "Alo",
+      "pop": 0,
+      "dept": "98",
+      "apl": null,
+      "code": "98611",
+      "lon": -178.0912,
+      "lat": -14.3053,
+      "nchars": 3
+    },
+    {
+      "name": "Amy",
+      "pop": 416,
+      "dept": "60",
+      "apl": 2.81,
+      "code": "60011",
+      "lon": 2.833,
+      "lat": 49.6383,
+      "nchars": 3
+    },
+    {
+      "name": "Apt",
+      "pop": 10536,
+      "dept": "84",
+      "apl": 4.21,
+      "code": "84003",
+      "lon": 5.3925,
+      "lat": 43.8807,
+      "nchars": 3
+    },
+    {
+      "name": "Ars",
+      "pop": 699,
+      "dept": "16",
+      "apl": 4.2,
+      "code": "16018",
+      "lon": -0.398,
+      "lat": 45.6379,
+      "nchars": 3
+    },
+    {
+      "name": "Ars",
+      "pop": 232,
+      "dept": "23",
+      "apl": 3.49,
+      "code": "23007",
+      "lon": 2.0776,
+      "lat": 46.0051,
+      "nchars": 3
+    },
+    {
+      "name": "Arx",
+      "pop": 44,
+      "dept": "40",
+      "apl": 0.0,
+      "code": "40015",
+      "lon": 0.079,
+      "lat": 44.1136,
+      "nchars": 3
+    },
+    {
+      "name": "Avy",
+      "pop": 472,
+      "dept": "17",
+      "apl": 4.14,
+      "code": "17027",
+      "lon": -0.4983,
+      "lat": 45.5478,
+      "nchars": 3
+    },
+    {
+      "name": "Ayn",
+      "pop": 387,
+      "dept": "73",
+      "apl": 1.38,
+      "code": "73027",
+      "lon": 5.7428,
+      "lat": 45.5737,
+      "nchars": 3
+    },
+    {
+      "name": "Azy",
+      "pop": 450,
+      "dept": "18",
+      "apl": 0.95,
+      "code": "18019",
+      "lon": 2.7174,
+      "lat": 47.1929,
+      "nchars": 3
+    },
+    {
+      "name": "Azé",
+      "pop": 1002,
+      "dept": "41",
+      "apl": 1.16,
+      "code": "41010",
+      "lon": 1.006,
+      "lat": 47.8514,
+      "nchars": 3
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "nchars": 45,
+      "pop": 491,
+      "dept": "51",
+      "code": "51513"
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "nchars": 43,
+      "pop": 923,
+      "dept": "70",
+      "code": "70058"
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "nchars": 41,
+      "pop": 499,
+      "dept": "14",
+      "code": "14621"
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "nchars": 40,
+      "pop": 381,
+      "dept": "21",
+      "code": "21433"
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "nchars": 40,
+      "pop": 64,
+      "dept": "70",
+      "code": "70449"
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "nchars": 40,
+      "pop": 195,
+      "dept": "34",
+      "code": "34317"
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "nchars": 39,
+      "pop": 180,
+      "dept": "07",
+      "code": "07262"
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "nchars": 38,
+      "pop": 309,
+      "dept": "24",
+      "code": "24048"
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "nchars": 38,
+      "pop": 1270,
+      "dept": "80",
+      "code": "80714"
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "nchars": 38,
+      "pop": 142,
+      "dept": "11",
+      "code": "11128"
+    }
+  ],
+  "most_common": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    },
+    {
+      "name": "Saint-Sulpice",
+      "count": 7
+    },
+    {
+      "name": "Caumont",
+      "count": 7
+    },
+    {
+      "name": "Fleury",
+      "count": 7
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 7
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 7
+    }
+  ],
+  "top_name_instances": [
+    {
+      "name": "Sainte-Colombe",
+      "pop": 59,
+      "dept": "05",
+      "code": "05135",
+      "lon": 5.6614,
+      "lat": 44.2908,
+      "apl": 0.0
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 107,
+      "dept": "17",
+      "code": "17319",
+      "lon": -0.2794,
+      "lat": 45.277,
+      "apl": 3.04
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 464,
+      "dept": "25",
+      "code": "25515",
+      "lon": 6.271,
+      "lat": 46.8778,
+      "apl": 2.72
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 426,
+      "dept": "33",
+      "code": "33390",
+      "lon": -0.061,
+      "lat": 44.8822,
+      "apl": 2.73
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 360,
+      "dept": "35",
+      "code": "35262",
+      "lon": -1.4592,
+      "lat": 47.8978,
+      "apl": 2.67
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 622,
+      "dept": "40",
+      "code": "40252",
+      "lon": -0.5561,
+      "lat": 43.6894,
+      "apl": 3.42
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 230,
+      "dept": "46",
+      "code": "46260",
+      "lon": 2.0164,
+      "lat": 44.7216,
+      "apl": 1.95
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 184,
+      "dept": "50",
+      "code": "50457",
+      "lon": -1.5062,
+      "lat": 49.4169,
+      "apl": 2.69
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 1953,
+      "dept": "69",
+      "code": "69189",
+      "lon": 4.8625,
+      "lat": 45.5238,
+      "apl": 3.31
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 222,
+      "dept": "76",
+      "code": "76569",
+      "lon": 0.7659,
+      "lat": 49.7953,
+      "apl": 3.77
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 1793,
+      "dept": "77",
+      "code": "77404",
+      "lon": 3.2593,
+      "lat": 48.5306,
+      "apl": 2.57
+    },
+    {
+      "name": "Sainte-Colombe",
+      "pop": 185,
+      "dept": "89",
+      "code": "89339",
+      "lon": 3.9564,
+      "lat": 47.5721,
+      "apl": 2.46
+    }
+  ]
+}
