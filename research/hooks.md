@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 36.5% of communes are medical deserts, but only 16.5% of people live in them. Counting communes equally treats a hamlet of 47 the same as Paris. [Q-015]
+- 🔥 Argenteuil: 107,000 residents, 15 minutes from Gare Saint-Lazare on the RER, APL score of 1.74 — France's largest medical desert by population. [Q-015]
+- 🔥 Val-d'Oise has 793,798 residents in medical deserts — more than any other département in France, and 63% of its total population. [Q-015]
+- 🔥 France's 10 largest medical-desert communes are all Paris suburbs. The rural image of desert France is incomplete — the urban-suburban ring holds more desert residents than all the remote hamlets combined. [Q-015]

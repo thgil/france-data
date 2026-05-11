@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### desert-math: The desert maths
+- Status: ✅ published
+- Published URL: /stories/desert-math/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: 36.5% of communes are medical deserts — but they hold just 16.5% of the French population. The rural image of desert France is real, but the suburban ring around Paris holds more desert residents than all remote hamlets combined.
+- Data: DREES APL 2023 commune-level scores (DS-APL) reused from Story 2. 35,014 communes, pre-computed breakdown by APL category and population size bucket.
+- Angle: Text-heavy explainer with three charts: a dual stacked bar (% communes vs % population by APL category), a size-vs-desert-rate bar chart, and a ranked table of the 10 most populous desert communes. No map needed — the numbers do the work.
+- Draft X summary:
+  > "One in three French communes is a medical desert." True. But those communes hold just 1 in 6 French people. France's 10 largest medical-desert communes are Paris suburbs — Argenteuil alone has 107,000 residents. Today on **france-data**: the maths behind the headline. 🇫🇷
+

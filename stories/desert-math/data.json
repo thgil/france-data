@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "totalCommunes": 35014,
+    "totalPop": 67329462,
+    "desertCommunes": 12771,
+    "desertPop": 11103526,
+    "desertCommunePct": 36.5,
+    "desertPopPct": 16.5
+  },
+  "categories": [
+    {
+      "cat": "severe",
+      "label": "APL < 1",
+      "color": "#a31a00",
+      "communes": 1748,
+      "communePct": 5.0,
+      "pop": 478895,
+      "popPct": 0.7
+    },
+    {
+      "cat": "desert",
+      "label": "APL 1–2.5",
+      "color": "#c75000",
+      "communes": 11023,
+      "communePct": 31.5,
+      "pop": 10624631,
+      "popPct": 15.8
+    },
+    {
+      "cat": "adequate",
+      "label": "APL 2.5–4",
+      "color": "#5f7d40",
+      "communes": 15752,
+      "communePct": 45.0,
+      "pop": 29156478,
+      "popPct": 43.3
+    },
+    {
+      "cat": "well-served",
+      "label": "APL > 4",
+      "color": "#2a5c18",
+      "communes": 6363,
+      "communePct": 18.2,
+      "pop": 27069458,
+      "popPct": 40.2
+    }
+  ],
+  "sizes": [
+    {
+      "label": "< 100",
+      "communes": 3513,
+      "desertPct": 53.3,
+      "totalPop": 219336,
+      "desertPop": 117334,
+      "desertPopPct": 53.5
+    },
+    {
+      "label": "100–499",
+      "communes": 14913,
+      "desertPct": 43.7,
+      "totalPop": 3888753,
+      "desertPop": 1638237,
+      "desertPopPct": 42.1
+    },
+    {
+      "label": "500–999",
+      "communes": 6593,
+      "desertPct": 34.0,
+      "totalPop": 4649538,
+      "desertPop": 1573188,
+      "desertPopPct": 33.8
+    },
+    {
+      "label": "1,000–4,999",
+      "communes": 7747,
+      "desertPct": 23.9,
+      "totalPop": 16267836,
+      "desertPop": 3597333,
+      "desertPopPct": 22.1
+    },
+    {
+      "label": "5,000–19,999",
+      "communes": 1728,
+      "desertPct": 12.8,
+      "totalPop": 15602501,
+      "desertPop": 1982676,
+      "desertPopPct": 12.7
+    },
+    {
+      "label": "20,000–99,999",
+      "communes": 470,
+      "desertPct": 13.6,
+      "totalPop": 18183641,
+      "desertPop": 2087537,
+      "desertPopPct": 11.5
+    },
+    {
+      "label": "100,000+",
+      "communes": 50,
+      "desertPct": 2.0,
+      "totalPop": 8517857,
+      "desertPop": 107221,
+      "desertPopPct": 1.3
+    }
+  ],
+  "topDesertCommunes": [
+    {
+      "name": "Argenteuil",
+      "dept": "95",
+      "pop": 107221,
+      "apl": 1.74
+    },
+    {
+      "name": "Antony",
+      "dept": "92",
+      "pop": 63232,
+      "apl": 2.45
+    },
+    {
+      "name": "Sarcelles",
+      "dept": "95",
+      "pop": 58424,
+      "apl": 2.3
+    },
+    {
+      "name": "Villejuif",
+      "dept": "94",
+      "pop": 57753,
+      "apl": 2.12
+    },
+    {
+      "name": "Bobigny",
+      "dept": "93",
+      "pop": 55056,
+      "apl": 2.43
+    },
+    {
+      "name": "Clamart",
+      "dept": "92",
+      "pop": 54491,
+      "apl": 2.43
+    },
+    {
+      "name": "Chelles",
+      "dept": "77",
+      "pop": 54309,
+      "apl": 2.04
+    },
+    {
+      "name": "Corbeil-Essonnes",
+      "dept": "91",
+      "pop": 52683,
+      "apl": 1.98
+    },
+    {
+      "name": "Sevran",
+      "dept": "93",
+      "pop": 51845,
+      "apl": 2.38
+    },
+    {
+      "name": "Sartrouville",
+      "dept": "78",
+      "pop": 51220,
+      "apl": 2.0
+    },
+    {
+      "name": "Saint-Laurent-du-Maroni",
+      "dept": "97",
+      "pop": 50250,
+      "apl": 1.59
+    },
+    {
+      "name": "Meudon",
+      "dept": "92",
+      "pop": 46342,
+      "apl": 2.38
+    }
+  ],
+  "topDeptByDesertPop": [
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "desertPop": 793798,
+      "totalPop": 1256607,
+      "pct": 63.2
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "desertPop": 792589,
+      "totalPop": 1438100,
+      "pct": 55.1
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "desertPop": 673703,
+      "totalPop": 1313768,
+      "pct": 51.3
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "desertPop": 563020,
+      "totalPop": 1456365,
+      "pct": 38.7
+    },
+    {
+      "dept": "01",
+      "name": "Ain",
+      "desertPop": 293134,
+      "totalPop": 663025,
+      "pct": 44.2
+    },
+    {
+      "dept": "97",
+      "name": "97",
+      "desertPop": 282125,
+      "totalPop": 1902839,
+      "pct": 14.8
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "desertPop": 280536,
+      "totalPop": 1635291,
+      "pct": 17.2
+    },
+    {
+      "dept": "45",
+      "name": "Loiret",
+      "desertPop": 276684,
+      "totalPop": 684561,
+      "pct": 40.4
+    },
+    {
+      "dept": "27",
+      "name": "Eure",
+      "desertPop": 272734,
+      "totalPop": 598934,
+      "pct": 45.5
+    },
+    {
+      "dept": "60",
+      "name": "Oise",
+      "desertPop": 246253,
+      "totalPop": 828838,
+      "pct": 29.7
+    }
+  ]
+}

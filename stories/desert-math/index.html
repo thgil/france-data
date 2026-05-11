@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The desert maths — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      max-width: 680px;
+    }
+    .chart-figure figcaption a { color: inherit; }
+
+    .chart-mount {
+      min-height: 60px;
+    }
+
+    /* ── Pull stat ───────────────────────────────────────────────────── */
+    .pull-stat {
+      margin: 48px auto;
+      max-width: 560px;
+      padding: 28px 32px;
+      border-left: 4px solid #c75000;
+      background: #faf7f2;
+    }
+    .pull-stat .ps-number {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1;
+      color: #c75000;
+      letter-spacing: -1px;
+    }
+    .pull-stat .ps-label {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: #444;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ── Two-number comparison ───────────────────────────────────────── */
+    .two-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    @media (max-width: 520px) {
+      .two-numbers { grid-template-columns: 1fr; }
+    }
+    .two-num-block {
+      padding: 24px 20px;
+      border-top: 3px solid;
+    }
+    .two-num-block.communes { border-color: #c75000; }
+    .two-num-block.population { border-color: #2a5c18; }
+    .two-num-block .big {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -1px;
+    }
+    .two-num-block.communes .big { color: #c75000; }
+    .two-num-block.population .big { color: #2a5c18; }
+    .two-num-block .sub {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* ── Data table ──────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      max-width: 680px;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 0;
+    }
+    .data-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 0 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .data-table th.num, .data-table td.num,
+    .data-table th.apl, .data-table td.apl,
+    .data-table th.dept, .data-table td.dept {
+      text-align: right;
+    }
+    .data-table td {
+      padding: 6px 0;
+      vertical-align: middle;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .data-table td.rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .data-table td.place {
+      font-family: Georgia, serif;
+    }
+    .data-table td.dept {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #888;
+      padding-right: 12px;
+    }
+    .data-table td.num {
+      font-variant-numeric: tabular-nums;
+      padding-right: 12px;
+    }
+    .data-table td.apl {
+      white-space: nowrap;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The desert maths</h1>
+        <p class="story-dek">36.5% of French communes are officially medical deserts. But those communes hold just 16.5% of the population — and the numbers tell a different story than the headline.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Two numbers ──────────────────────────────────────── -->
+      <p>There are two ways to measure a medical desert. You can count communes — the official statistical units that France uses to track public services. Or you can count people. The numbers you get are very different.</p>
+
+      <div class="two-numbers">
+        <div class="two-num-block communes">
+          <div class="big">36.5%</div>
+          <div class="sub">of France's 35,014 communes are officially medical deserts (APL below 2.5)</div>
+        </div>
+        <div class="two-num-block population">
+          <div class="big">16.5%</div>
+          <div class="sub">of France's 67.3 million people live in those communes</div>
+        </div>
+      </div>
+
+      <p>The gap — 36.5% versus 16.5% — is not a rounding error. It reflects something structural about France's geography: medical deserts cluster in the places where almost nobody lives. And the places where many people live are, for the most part, well-served.</p>
+
+      <!-- ── Beat 2: Comparison chart ────────────────────────────────── -->
+      <h2>A tale of two measures</h2>
+
+      <p>The chart below shows the full distribution. Each row is a stacked bar, showing the share of communes (top) and the share of population (bottom) that fall into each APL category. The orange and red zones are the deserts; the greens are adequate or well-served.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-comparison"></div>
+        <figcaption>APL = Accessibilité Potentielle Localisée. Score below 2.5 is officially classified as a medical desert (<em>zone sous-dense</em>); below 1.0 is severe. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>, 35,014 communes.</figcaption>
+      </figure>
+
+      <p>Look at the well-served end (APL above 4): it accounts for just 18.2% of communes, but 40.2% of the population. France's well-served communes are its big cities — and big cities hold a lot of people. The severe deserts (APL below 1) run in the opposite direction: 5% of communes, 0.7% of people.</p>
+
+      <!-- ── Beat 3: Why the gap ──────────────────────────────────────── -->
+      <h2>Why small communes dominate the count</h2>
+
+      <p>France has 35,014 communes — and most of them are tiny. A commune of 47 people gets the same weight in a commune-count as Paris's 2.1 million. The desert rate climbs steeply as population falls.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-size"></div>
+        <figcaption>Share of communes classified as medical deserts (APL &lt; 2.5) by population size, 2023. Each bar shows the desert rate for communes in that population range.</figcaption>
+      </figure>
+
+      <p>Among the 3,513 communes with fewer than 100 residents, 53% are medical deserts. But together those communes hold just 219,000 people — less than a third of the population of Bordeaux. Their desert status is real, but they barely move the population needle.</p>
+
+      <p>The 1,000–5,000 resident band — France's largest by commune count, with 7,747 entries — still runs at a 24% desert rate. These are the small market towns and rural villages that feel the squeeze most. Each has thousands of residents who genuinely struggle to see a GP; collectively they account for 3.6 million people in desert conditions.</p>
+
+      <!-- ── Beat 4: The real face ────────────────────────────────────── -->
+      <h2>The largest desert communes are Paris suburbs</h2>
+
+      <p>When people imagine a medical desert, they often picture an isolated hamlet in the <em>diagonale du vide</em> — the depopulated diagonal running southwest to northeast through France. That image isn't wrong, exactly. But the biggest medical deserts by population are something else entirely: Paris suburbs.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Commune</th>
+                <th class="dept">Dept.</th>
+                <th class="num">Population</th>
+                <th class="apl">APL score</th>
+              </tr>
+            </thead>
+            <tbody id="table-deserts"></tbody>
+          </table>
+        </div>
+        <figcaption>Ten most populous communes officially classified as medical deserts (APL &lt; 2.5). All but one are in the Île-de-France ring.</figcaption>
+      </figure>
+
+      <p>Argenteuil is France's largest medical desert by population: 107,221 residents, APL of 1.74. It sits on the RER C, fifteen minutes from Gare Saint-Lazare. It is a real city, with more people than Le Mans or Limoges. Its residents are not isolated — they just can't see a doctor.</p>
+
+      <p>Nine of the ten largest desert communes are in the Île-de-France ring: the banlieues of Val-d'Oise, Seine-et-Marne, Essonne, Yvelines, Hauts-de-Seine, Val-de-Marne, and Seine-Saint-Denis that grew up in the postwar decades as dormitory suburbs. They have transit, roads, and schools. The doctors never came.</p>
+
+      <!-- ── Beat 5: The ring ─────────────────────────────────────────── -->
+      <h2>Val-d'Oise: France's most populous medical desert</h2>
+
+      <div class="pull-stat">
+        <div class="ps-number" id="stat-pop">793,798</div>
+        <div class="ps-label">people in Val-d'Oise live in a medical desert — more than any other département in France. That's 63% of the département's total population.</div>
+      </div>
+
+      <p>The full top ten for desert population by département reads like a map of the Paris periphery: Val-d'Oise (794k), Seine-et-Marne (793k), Essonne (674k), Yvelines (563k). These four outer IDF suburbs alone account for 2.8 million people in medical deserts — a quarter of the entire national total of 11.1 million.</p>
+
+      <p>The phenomenon is visible in the <a href="../medical-deserts/">medical-deserts story map</a>: a ring of orange and red surrounds a green Paris core. The capital (APL 4.96, zero desert communes) is one of France's best-served places. Its ring is one of the worst.</p>
+
+      <!-- ── Beat 6: Coda ────────────────────────────────────────────── -->
+      <h2>What the commune count misses</h2>
+
+      <p>France tracks its medical deserts by communes partly for good reason: communes are the unit of local government, and it is communes that must act, recruit, and fund medical infrastructure. Counting them matters for policy. But the commune count, reported without population weights, overstates the scale of the remote-rural problem and understates the urban-suburban one.</p>
+
+      <p>The 479,000 people in <em>severe</em> medical deserts (APL below 1) — the communities with essentially zero realistic access to a GP — are scattered across hundreds of tiny alpine, Pyrenean, and Corsican villages. Their situation is dire and getting worse as older GPs retire. But in terms of raw population impact, the 2.8 million people in the IDF suburban ring represent a larger, denser, and arguably more tractable challenge. The ring is connected. It just needs doctors.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL (Accessibilité Potentielle Localisée) scores are published annually by DREES for all French communes, including overseas territories. The 2023 edition covers 35,014 communes. APL measures the estimated number of GP consultations accessible per standardised resident per year, using a catchment-area demand model. Communes below 2.5 are officially classified as <em>zones sous-denses</em>; below 1.0 is severe. Population figures are from the 2021 INSEE census. This story extends the analysis in <a href="../medical-deserts/">Story 2: Where the doctors aren't</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs des communes 2025</a> (Etalab / data.gouv.fr)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawComparisonChart, drawSizeChart, populateLargestDeserts } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+
+        drawComparisonChart('#chart-comparison', data);
+        drawSizeChart('#chart-size', data);
+        populateLargestDeserts('#table-deserts', data);
+
+        // Animate pull stat
+        const statEl = document.getElementById('stat-pop');
+        if (statEl && data.topDeptByDesertPop && data.topDeptByDesertPop[0]) {
+          const val = data.topDeptByDesertPop[0].desertPop;
+          statEl.textContent = val.toLocaleString('fr-FR');
+        }
+
+      } catch (err) {
+        console.error('Failed to load desert-math data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

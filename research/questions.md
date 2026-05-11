@@ -91,8 +91,11 @@ datasets and the resulting story.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Reframed as a population-weighted analysis of desert distribution. 36.5% of communes are officially medical deserts but they hold only 16.5% of the population — desert communes are overwhelmingly tiny. Val-d'Oise has the most desert residents of any département (793,798 people, 63% of its population). France's 10 largest medical-desert communes are all Paris suburbs, led by Argenteuil (107,221 people, APL=1.74). The rural image of medical deserts is real but incomplete: the suburban ring around Paris holds more people in deserts than all remote villages combined.
+- Story: [desert-math](/stories/desert-math/)
 
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open
