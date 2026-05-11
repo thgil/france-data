@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centre of gravity — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls bar ───────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+    .ctrl-group { display: flex; align-items: center; gap: 6px; }
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    /* ── Map legend ─────────────────────────────────────────────────── */
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+    }
+    .legend-dot-red {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #c8430a;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px #c8430a;
+      flex-shrink: 0;
+    }
+    .legend-dot-grey {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: #bbb;
+      border: 1.5px solid #888;
+      flex-shrink: 0;
+    }
+    .legend-dash-green {
+      width: 18px;
+      height: 2px;
+      background: repeating-linear-gradient(to right, #3a6b3c 0 5px, transparent 5px 9px);
+      flex-shrink: 0;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+      display: none;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Radius chart ───────────────────────────────────────────────── */
+    .radius-chart {
+      margin: 40px 0;
+      max-width: 600px;
+    }
+    .radius-chart h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .radius-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 48px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .radius-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .radius-bar-track {
+      height: 14px;
+      background: #ede8e0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .radius-bar-fill {
+      height: 100%;
+      background: #3a6b3c;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .radius-bar-fill.highlight { background: #c8430a; }
+    .radius-pct {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+
+    /* ── Key numbers ────────────────────────────────────────────────── */
+    .key-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .key-numbers { grid-template-columns: 1fr 1fr; }
+    }
+    .kn-block {
+      border-top: 2px solid #e0d8cc;
+      padding-top: 12px;
+    }
+    .kn-block.accent { border-top-color: #c8430a; }
+    .kn-value {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: #1a1a1a;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .kn-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Demographics</div>
+        <h1 class="story-title">Centre of gravity</h1>
+        <p class="story-dek">Weight every French commune by its residents, and the centre of 65 million mainland lives falls in a village of 1,004 in the Cher — 201 km from Paris.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 34,791 mainland communes, from Paris (2.1 million residents) to Rochefourchat in the Drôme (one resident, officially). Assign each commune its geographic centroid, weight it by population, and sum. The result — the <em>population centroid</em>, the point that minimises the total travel distance for every French person — falls at 47.06°N, 2.64°E.</p>
+
+      <p>The nearest commune to that coordinate is <strong>Farges-en-Septaine</strong>, a quiet agricultural village of 1,004 people in the Cher département (18), 19 km south-east of Bourges. Most French people have never heard of it. France's geographical soul lives there anyway.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-center" class="mount" style="height: 520px;"></div>
+        <div id="map-tooltip" class="map-tooltip"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-center">Centre</button>
+            <button class="zoom-btn" id="btn-paris">Paris</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto; gap: 12px;">
+            <span class="legend-item"><span class="legend-dot-red"></span> Population centroid</span>
+            <span class="legend-item"><span class="legend-dot-grey"></span> Geographic centroid</span>
+            <span class="legend-item"><span class="legend-dash-green"></span> 301 km — half of France</span>
+          </div>
+        </div>
+        <figcaption>The red dot marks France's population centroid (47.06°N, 2.64°E). The grey dot is the unweighted geographic centroid of commune positions — 18 km apart. The dashed circle has a 301 km radius: half of France's mainland population lives inside it. Hover either centroid for details.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>Paris is 201 km away</h2>
+
+      <p>The usual story about France is that everything flows through Paris — the railways, the roads, the cultural gravity. And Paris does pull: without its 2.1 million residents (and the 12.2 million in Île-de-France), the centroid would sit about 13 km further south and east. The capital tugs the nation's demographic centre of mass slightly north-northwest. But only slightly. At 201 km, Paris is not the centre of France — it is a heavy weight on one end of a long beam.</p>
+
+      <p>Bourges, the capital of the Cher, is 19 km from the centroid. The nearest large city is either Paris or Lyon (both about 200 km), and the centroid sits almost exactly between them on a north-south axis. That is not an accident: France's two biggest cities roughly balance each other out in the calculation.</p>
+
+      <!-- ── Key numbers ───────────────────────────────────────────────── -->
+      <div class="key-numbers">
+        <div class="kn-block accent">
+          <div class="kn-value">1,004</div>
+          <div class="kn-label">Residents of Farges-en-Septaine, the commune nearest the centroid</div>
+        </div>
+        <div class="kn-block">
+          <div class="kn-value">201 km</div>
+          <div class="kn-label">Distance from the population centroid to Paris</div>
+        </div>
+        <div class="kn-block">
+          <div class="kn-value">18 km</div>
+          <div class="kn-label">Gap between the population centroid and the pure geographic centroid</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 4 ────────────────────────────────────────────────────── -->
+      <h2>A surprisingly even country</h2>
+
+      <p>The 18 km offset between the population centroid and the unweighted geographic centroid (the average commune position, regardless of residents) is the most striking number in this calculation. In many countries, the two centroids are hundreds of kilometres apart — because population clusters tightly in one corner of the country while the rest is nearly empty. France is not like that.</p>
+
+      <p>This isn't because France is uniformly dense. Paris, Lyon, Marseille, Lille, and Bordeaux all stand out sharply on any population map. But they roughly balance each other across the country's area. The <em>diagonale du vide</em> — the low-density diagonal running from Meuse to the Pyrenees — is countered by population on every side. The result is a country whose demographic centre of gravity stays close to its geographic centre.</p>
+
+      <!-- ── Beat 5: Radius chart ──────────────────────────────────────── -->
+      <h2>The 301 km circle</h2>
+
+      <p>Draw a circle of 301 km radius around Farges-en-Septaine. Half of mainland France's population lives inside it. That circle reaches Paris to the north, Lyon to the south-east, Nantes to the west, and into Alsace to the east. Widen it to 400 km — four hours by car — and it catches 80% of France.</p>
+
+      <div class="radius-chart">
+        <h3>Share of mainland population within radius of the centroid</h3>
+        <div id="radius-bars"></div>
+      </div>
+
+      <p>The numbers make the sparseness of France's geographic interior legible. At 50 km from the centroid, only 0.6% of French people live — the centre is genuinely rural. At 200 km, still only one in five. The population is not <em>in</em> the centre; it is <em>around</em> it, distributed in a rough ring of cities. That ring, and its centre of gravity, is Farges-en-Septaine.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the method.</strong> Commune positions are the arithmetic mean of each commune polygon's outer-ring vertices (a centroid approximation). The population centroid is the population-weighted mean of those positions across 34,791 mainland communes (excluding overseas territories). Population figures are from the DREES APL 2023 dataset, which uses an INSEE 2021 population base. The "geographic centroid" computed here is the unweighted mean of all commune positions — not an area-weighted polygon centroid — which explains why it differs from monument-based claims in Bruères-Allichamps or Nassigny. The 301 km half-population radius is computed by sorting communes by distance from the centroid and finding where the cumulative population crosses 50%.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune population base, INSEE 2021; 34,886 communes including overseas territories)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs communes 2025</a> (commune polygon geometry, 1000m simplification)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawCenterMap } from './charts.js';
+
+    const RADIUS_DATA = [
+      { km: 50,  pct: 0.6 },
+      { km: 100, pct: 1.8 },
+      { km: 150, pct: 5.5 },
+      { km: 200, pct: 19.2 },
+      { km: 250, pct: 39.3 },
+      { km: 300, pct: 49.6 },
+      { km: 400, pct: 80.1 },
+      { km: 500, pct: 94.6 },
+    ];
+
+    function buildRadiusChart() {
+      const container = document.getElementById('radius-bars');
+      if (!container) return;
+      container.innerHTML = RADIUS_DATA.map(d => `
+        <div class="radius-row">
+          <div class="radius-label">${d.km} km</div>
+          <div class="radius-bar-track">
+            <div class="radius-bar-fill${d.km === 300 || d.km === 400 ? '' : ''}" style="width:${d.pct}%"></div>
+          </div>
+          <div class="radius-pct">${d.pct}%</div>
+        </div>
+      `).join('');
+    }
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      buildRadiusChart();
+
+      try {
+        const data = await loadJSON('./data.json');
+        const mapAPI = drawCenterMap('#map-center', data);
+
+        document.getElementById('btn-france').addEventListener('click', () => mapAPI.flyToFrance());
+        document.getElementById('btn-center').addEventListener('click', () => mapAPI.flyToCenter());
+        document.getElementById('btn-paris').addEventListener('click',  () => mapAPI.flyToParis());
+      } catch (err) {
+        console.error('Failed to load centre-of-gravity data:', err);
+        document.getElementById('map-center').innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:center;height:300px;font-family:sans-serif;font-size:13px;color:#888;font-style:italic;">Map failed to load.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

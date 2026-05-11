@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: Where is France's population centre of gravity?
+- Status: ✅ answered
+- Topic: [demographics](topics/demographics.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: The population-weighted centroid of 34,791 mainland communes falls at 47.06°N, 2.64°E — 1 km from Farges-en-Septaine (Cher, dept 18, pop 1,004), 19 km south-east of Bourges. It sits only 18 km from the unweighted geographic centroid of commune positions, meaning France's population is remarkably evenly spread relative to its land area. Paris (201 km away) tugs the centroid ~13 km north-northwest, but no more — Lyon (221 km) pulls the opposite way. Half of mainland France's population lives within 301 km of this point.
+- Story: [population-center](/stories/population-center/)

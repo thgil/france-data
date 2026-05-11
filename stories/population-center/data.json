@@ -1,0 +1,162 @@
+{
+  "popCenter": {
+    "lat": 47.061325884237654,
+    "lng": 2.643768184255319
+  },
+  "geoCenter": {
+    "lat": 46.94789293431067,
+    "lng": 2.8161207972468927
+  },
+  "offsetKm": 18,
+  "totalPopulation": 65426623,
+  "totalMainlandCommunes": 34791,
+  "nearestCommune": {
+    "name": "Farges-en-Septaine",
+    "dept": "18",
+    "pop": 1004,
+    "km": 1
+  },
+  "halfRadiusKm": 301,
+  "radiusData": [
+    {
+      "km": 50,
+      "pop": 405828,
+      "pct": 0.6
+    },
+    {
+      "km": 100,
+      "pop": 1162831,
+      "pct": 1.8
+    },
+    {
+      "km": 150,
+      "pop": 3593561,
+      "pct": 5.5
+    },
+    {
+      "km": 200,
+      "pop": 12586604,
+      "pct": 19.2
+    },
+    {
+      "km": 250,
+      "pop": 25683140,
+      "pct": 39.3
+    },
+    {
+      "km": 300,
+      "pop": 32468776,
+      "pct": 49.6
+    },
+    {
+      "km": 400,
+      "pop": 52399614,
+      "pct": 80.1
+    },
+    {
+      "km": 500,
+      "pop": 61911543,
+      "pct": 94.6
+    }
+  ],
+  "nearbyBig": [
+    {
+      "name": "Bourges",
+      "dept": "18",
+      "pop": 63702,
+      "km": 19
+    },
+    {
+      "name": "Saint-Doulchard",
+      "dept": "18",
+      "pop": 9645,
+      "km": 23
+    },
+    {
+      "name": "Saint-Florent-sur-Cher",
+      "dept": "18",
+      "pop": 6419,
+      "km": 30
+    },
+    {
+      "name": "Mehun-sur-Yèvre",
+      "dept": "18",
+      "pop": 6448,
+      "km": 33
+    },
+    {
+      "name": "Varennes-Vauzelles",
+      "dept": "58",
+      "pop": 9180,
+      "km": 37
+    },
+    {
+      "name": "Saint-Amand-Montrond",
+      "dept": "18",
+      "pop": 9459,
+      "km": 39
+    },
+    {
+      "name": "Nevers",
+      "dept": "58",
+      "pop": 32830,
+      "km": 40
+    },
+    {
+      "name": "Cosne-Cours-sur-Loire",
+      "dept": "58",
+      "pop": 9437,
+      "km": 46
+    }
+  ],
+  "cityDistances": [
+    {
+      "name": "Paris",
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "km": 201
+    },
+    {
+      "name": "Lyon",
+      "lat": 45.764,
+      "lng": 4.8357,
+      "km": 221
+    },
+    {
+      "name": "Marseille",
+      "lat": 43.2965,
+      "lng": 5.3698,
+      "km": 470
+    },
+    {
+      "name": "Toulouse",
+      "lat": 43.6047,
+      "lng": 1.4442,
+      "km": 396
+    },
+    {
+      "name": "Nantes",
+      "lat": 47.2184,
+      "lng": -1.5536,
+      "km": 318
+    },
+    {
+      "name": "Bordeaux",
+      "lat": 44.8378,
+      "lng": -0.5792,
+      "km": 351
+    },
+    {
+      "name": "Lille",
+      "lat": 50.6292,
+      "lng": 3.0573,
+      "km": 398
+    },
+    {
+      "name": "Bourges",
+      "lat": 47.0833,
+      "lng": 2.4,
+      "km": 19
+    }
+  ]
+}

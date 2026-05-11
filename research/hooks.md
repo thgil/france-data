@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France's population centre of gravity is Farges-en-Septaine, Cher. Population: 1,004. Distance from Paris: 201 km. [Q-042]
+- 🔥 The population centroid and the geographic centroid of mainland France are only 18 km apart — France is one of the most evenly populated large countries in Europe, relative to its area. [Q-042]
+- 🔥 Draw a 301 km circle around a village of 1,004 people in the Cher. Half of France lives inside it. [Q-042]
+- 🔥 Paris (2.1 M residents) and Lyon (520 K) nearly cancel each other out in France's population centroid calculation — they sit on roughly opposite sides of the balance point, 201 km and 221 km away respectively. [Q-042]

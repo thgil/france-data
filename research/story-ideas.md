@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### population-center: Centre of gravity
+- Status: ✅ published
+- Published URL: /stories/population-center/
+- Source question: [Q-042](questions.md#q-042-where-is-frances-population-centre-of-gravity)
+- Hook: France's population centre of gravity is a village of 1,004 people in the Cher — 201 km from Paris, 19 km from Bourges, 18 km from the geographic centre.
+- Data: DREES APL 2023 commune-level population data (34,791 mainland communes) joined to Etalab commune polygon geometry for centroids. Pure computation — no new data needed.
+- Angle: Maplibre map showing population centroid (red dot), geographic centroid (grey dot), and 301 km half-population circle. Three narrative beats: the village, the Paris distance, the evenness surprise. Radius bar chart showing population concentration by distance.
+- Draft X summary:
+  > France's demographic centre of gravity is Farges-en-Septaine, Cher. Population: 1,004. Distance from Paris: 201 km. The population centroid and the geographic centroid are 18 km apart — France is more evenly populated than you think. Half the country lives within a 301 km circle. 🇫🇷
+
