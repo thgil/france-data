@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Hautes-Alpes (05): 15.6 bars per 10,000 AND APL 5.02 — France's joint leader on both healthcare access and bar density. The Alps somehow do everything right. [Q-042]
+- 🔥 Val-d'Oise (95): 3.7 bars/10k, 63% of residents in medical deserts. The Paris suburbs have fewer bars than rural France — and worse healthcare than the city centre they serve. [Q-042]
+- 🔥 Cher (18) is the lone "drinks but no doctor" département: 8.5 bars/10k, APL 2.25, 58% of residents in medical deserts. The café is still there. The doctor is not. [Q-042]
+- 🔥 Bar density and GP access correlate across France's 95 metropolitan départements. The village bar and the village doctor share the same fate. [Q-042]

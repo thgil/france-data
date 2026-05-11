@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bars and doctors — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Scatter chart ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 64px 0;
+    }
+
+    #scatter-container {
+      width: 100%;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      overflow: visible;
+    }
+
+    #scatter-container svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Quadrant legend ────────────────────────────────────────────── */
+    .quadrant-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      padding: 10px 14px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #1a1a1a;
+    }
+
+    .ql-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ql-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────── */
+    #scatter-tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 11px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.55;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      z-index: 200;
+      display: none;
+    }
+    #scatter-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    #scatter-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+    }
+    #scatter-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Stats table ────────────────────────────────────────────────── */
+    .league-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 0;
+    }
+    .league-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 4px 8px 8px 0;
+      border-bottom: 1px solid #d8d0c0;
+      text-align: left;
+    }
+    .league-table th:not(:first-child) {
+      text-align: right;
+    }
+    .league-table td {
+      padding: 5px 8px 5px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .league-table td:not(:first-child) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .league-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .league-table .place {
+      font-family: Georgia, serif;
+    }
+    .league-table .dept-code {
+      font-size: 10px;
+      color: #999;
+    }
+
+    .tables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .tables-grid { grid-template-columns: 1fr; }
+    }
+
+    .table-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    /* ── Callout block ──────────────────────────────────────────────── */
+    .callout {
+      background: #f4f0e8;
+      border-left: 3px solid #c67c00;
+      padding: 16px 20px;
+      margin: 32px 0;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #1a1a1a;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health &amp; Culture</div>
+        <h1 class="story-title">Bars and doctors</h1>
+        <p class="story-dek">Two datasets, 95 départements, one uncomfortable pattern: the places with the most bars also tend to have the best doctors — and Paris's suburbs have neither.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────────── -->
+      <p>The two stories we've told about France — <a href="../bars/">49,385 bars</a>, <a href="../medical-deserts/">12,771 medical deserts</a> — use completely different data from completely different government agencies. One tracks licenced alcohol establishments via the SIRENE business registry. The other measures GP accessibility via a public health model. They have nothing to do with each other.</p>
+
+      <p>Except they do. Plot every <em>département</em> by its bar density (bars per 10,000 residents) against its population-weighted APL score (average GP accessibility), and a pattern appears that neither dataset was designed to reveal.</p>
+
+      <!-- ── Scatter plot ──────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div id="scatter-container">
+          <div id="scatter-loading" style="display:flex;align-items:center;justify-content:center;height:300px;font-family:var(--sans);font-size:13px;color:#888;font-style:italic;">Loading chart…</div>
+        </div>
+        <div class="quadrant-legend" id="ql" style="display:none">
+          <div class="ql-item"><div class="ql-dot" style="background:#4a7c59"></div> High bars + high APL</div>
+          <div class="ql-item"><div class="ql-dot" style="background:#b8860b"></div> High bars + low APL (under 2.5)</div>
+          <div class="ql-item"><div class="ql-dot" style="background:#5b7fa6"></div> Low bars + high APL</div>
+          <div class="ql-item"><div class="ql-dot" style="background:#888"></div> Low bars + low APL</div>
+        </div>
+        <figcaption>Each dot is one metropolitan département. X axis: bars per 10,000 residents (SIRENE 56.30Z, March 2026). Y axis: population-weighted APL score (DREES 2023). Dashed line at APL 2.5 — the official medical-desert threshold. Hover or tap a dot to see details.</figcaption>
+      </figure>
+
+      <div id="scatter-tooltip"></div>
+
+      <!-- ── Beat 2: The Alpine champion ──────────────────────────────── -->
+      <h2>The Alpine double champion</h2>
+
+      <p>The dot in the upper right — furthest along both axes — is <strong>Hautes-Alpes (05)</strong>: 15.6 bars per 10,000, APL 5.02. It's France's smallest département by population (140,000 residents), but it scores first in the country on GP accessibility and near-first on bar density. Tourism does a lot of this work: ski stations need après-ski infrastructure and draw professionals from across the country, including doctors.</p>
+
+      <p>Paris (75) is just behind: 14.6 bars/10k, APL 4.96. The capital is the only place in France where zero per cent of the population lives in a medical desert, and it's in the top ten for bars. These are not coincidences — they're both symptoms of the same thing: infrastructure density, money, and foot traffic.</p>
+
+      <div class="callout">
+        Bretagne fills the high-APL, high-bar corner: Finistère at 11 bars/10k with APL 4.27; Morbihan at 12.1 bars/10k with APL 4.18; Côtes-d'Armor at 13.1 bars/10k with APL 3.26. The Atlantic coast takes care of its people — in every sense.
+      </div>
+
+      <!-- ── Beat 3: Suburban void ──────────────────────────────────── -->
+      <h2>The suburban void</h2>
+
+      <p>The cluster in the lower left is the Île-de-France ring: <strong>Val-d'Oise (95)</strong> and <strong>Seine-et-Marne (77)</strong>, each with under 4 bars per 10,000 residents, each with over half their population living in a medical desert. These are the most densely populated suburban departments in France — and yet by both our metrics, they are among the most neglected.</p>
+
+      <p>Val-d'Oise has 63% of its residents in medical deserts. Seine-et-Marne has 54%. Both are served by fewer bars per head than the <em>diagonale du vide</em> — that famously empty diagonal stripe across the country from Meuse to the Pyrenees. The suburbs around Paris are, on these two measures, worse off than rural France.</p>
+
+      <!-- ── Beat 4: Stats tables ──────────────────────────────────── -->
+      <div class="tables-grid">
+        <div class="table-block">
+          <h3>Most bars per 10,000 residents</h3>
+          <table class="league-table" id="table-bars-top">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Département</th>
+                <th>Bars/10k</th>
+                <th>APL</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="table-block">
+          <h3>Fewest bars per 10,000 residents</h3>
+          <table class="league-table" id="table-bars-bottom">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Département</th>
+                <th>Bars/10k</th>
+                <th>APL</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5: The lone outlier ─────────────────────────────── -->
+      <h2>The lone outlier</h2>
+
+      <p>One département breaks the pattern cleanly: <strong>Cher (18)</strong>. It has 8.5 bars per 10,000 — above average nationally — but an APL of 2.25 and 57.7% of its residents in a medical desert. Cher is rural central France: a farming country with many small towns, each historically anchored by a café, but without the demographic density to retain doctors. The bar is still there. The doctor is not.</p>
+
+      <p>The reverse outlier — high APL, few bars — doesn't really exist. Bas-Rhin (Strasbourg) has France's fourth-best APL score (4.91) but only 3.9 bars per 10,000, well below average. Strasbourg is an outlier by French standards on the bar metric because Germany is right there; drinking culture there spills into brasseries and restaurants rather than standalone <em>débits de boissons</em>. The APL captures a genuine health infrastructure story; the NAF code reflects a cultural one.</p>
+
+      <!-- ── Beat 6: Conclusion ────────────────────────────────────── -->
+      <h2>The social fabric pattern</h2>
+
+      <p>France's bar network and its GP network weren't built together, aren't funded together, and aren't regulated by the same ministry. But they track each other because they're both expressions of the same underlying variable: whether a place has enough people, enough money, and enough institutional investment for local services to survive. The village bar and the village doctor share the same fate. Correlation is not causation — but it is a clue.</p>
+
+      <p>What's sitting in the lower left of the chart isn't some remote corner of the country. It's Cergy, Pontoise, Meaux, Melun. It's the suburbs built for car culture and a commuter economy, that got neither the social life of the capital they feed nor the tight-knit community of the countryside they replaced. The data says what the map says what the architecture says: these places were designed to sleep, not to live in.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z — débits de boissons, active establishments, March 2026 snapshot). APL scores come from DREES's 2023 commune-level accessibility dataset, aggregated to département using a population-weighted mean. Population figures are from the APL dataset (INSEE 2021 base). Overseas territories (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte) are excluded from the scatter — their scales differ too sharply from metropolitan France. 95 metropolitan départements are plotted, including Corsica (2A, 2B).</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune-level scores)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawScatter } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./dept_stats.json');
+        if (!res.ok) throw new Error('Failed to load dept_stats.json');
+        const depts = await res.json();
+
+        drawScatter('#scatter-container', depts);
+        document.getElementById('ql').style.display = '';
+
+        const metro = depts.filter(d => !['971','972','973','974','976'].includes(d.dept));
+        populateTables(metro);
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('scatter-loading').textContent = 'Failed to load chart data.';
+      }
+    }
+
+    function populateTables(depts) {
+      const sorted = [...depts].sort((a, b) => b.bars_per_10k - a.bars_per_10k);
+
+      const topBody = document.querySelector('#table-bars-top tbody');
+      topBody.innerHTML = sorted.slice(0, 10).map((d, i) => `
+        <tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${d.name} <span class="dept-code">(${d.dept})</span></td>
+          <td>${d.bars_per_10k.toFixed(1)}</td>
+          <td>${d.apl.toFixed(2)}</td>
+        </tr>`).join('');
+
+      const bottomBody = document.querySelector('#table-bars-bottom tbody');
+      bottomBody.innerHTML = sorted.slice(-10).reverse().map((d, i) => `
+        <tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${d.name} <span class="dept-code">(${d.dept})</span></td>
+          <td>${d.bars_per_10k.toFixed(1)}</td>
+          <td>${d.apl.toFixed(2)}</td>
+        </tr>`).join('');
+    }
+
+    main();
+  </script>
+</body>
+</html>

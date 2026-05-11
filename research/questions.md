@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: Is there a relationship between bar density and GP accessibility across French départements?
+- Status: ✅ answered
+- Topic: [health](topics/health.md), [culture](topics/culture.md)
+- Datasets: [DS-SIRENE-BARS](datasets.md#ds-sirene-bars), [DS-APL](datasets.md#ds-apl)
+- Finding: Yes — a clear positive correlation at département level. Most departments cluster in either "high bars + good healthcare" or "few bars + medical desert" quadrants. Key outliers: Hautes-Alpes (05) leads France on both metrics (15.6 bars/10k, APL 5.02). The Paris inner-suburb ring (77, 95) scores low on both — fewer bars than rural France, more than half the population in medical deserts. Cher (18) is the lone "high bars, low APL" outlier: 8.5 bars/10k but APL 2.25 with 58% desert pop. The correlation reflects shared underlying infrastructure: both services require foot traffic, commercial density, and institutional investment.
+- Story: [social-fabric](/stories/social-fabric/)

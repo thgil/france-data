@@ -1,0 +1,866 @@
+[
+  {
+    "dept": "01",
+    "name": "Ain",
+    "pop": 663025,
+    "bars": 329,
+    "bars_per_10k": 4.96,
+    "apl": 2.64,
+    "desert_pct": 41.8
+  },
+  {
+    "dept": "02",
+    "name": "Aisne",
+    "pop": 527349,
+    "bars": 378,
+    "bars_per_10k": 7.17,
+    "apl": 3.17,
+    "desert_pct": 27.2
+  },
+  {
+    "dept": "03",
+    "name": "Allier",
+    "pop": 334872,
+    "bars": 294,
+    "bars_per_10k": 8.78,
+    "apl": 3.18,
+    "desert_pct": 20.8
+  },
+  {
+    "dept": "04",
+    "name": "Alpes-de-Haute-Provence",
+    "pop": 166077,
+    "bars": 243,
+    "bars_per_10k": 14.63,
+    "apl": 3.59,
+    "desert_pct": 10.9
+  },
+  {
+    "dept": "05",
+    "name": "Hautes-Alpes",
+    "pop": 140976,
+    "bars": 220,
+    "bars_per_10k": 15.61,
+    "apl": 5.02,
+    "desert_pct": 7.8
+  },
+  {
+    "dept": "06",
+    "name": "Alpes-Maritimes",
+    "pop": 1103941,
+    "bars": 1004,
+    "bars_per_10k": 9.09,
+    "apl": 4.37,
+    "desert_pct": 3.6
+  },
+  {
+    "dept": "07",
+    "name": "Ardèche",
+    "pop": 331415,
+    "bars": 352,
+    "bars_per_10k": 10.62,
+    "apl": 2.98,
+    "desert_pct": 27.4
+  },
+  {
+    "dept": "08",
+    "name": "Ardennes",
+    "pop": 268847,
+    "bars": 259,
+    "bars_per_10k": 9.63,
+    "apl": 3.53,
+    "desert_pct": 14.5
+  },
+  {
+    "dept": "09",
+    "name": "Ariège",
+    "pop": 154588,
+    "bars": 112,
+    "bars_per_10k": 7.25,
+    "apl": 3.82,
+    "desert_pct": 9.8
+  },
+  {
+    "dept": "10",
+    "name": "Aube",
+    "pop": 311329,
+    "bars": 184,
+    "bars_per_10k": 5.91,
+    "apl": 3.22,
+    "desert_pct": 28.8
+  },
+  {
+    "dept": "11",
+    "name": "Aude",
+    "pop": 376028,
+    "bars": 311,
+    "bars_per_10k": 8.27,
+    "apl": 3.52,
+    "desert_pct": 13.1
+  },
+  {
+    "dept": "12",
+    "name": "Aveyron",
+    "pop": 278076,
+    "bars": 298,
+    "bars_per_10k": 10.72,
+    "apl": 3.44,
+    "desert_pct": 13.7
+  },
+  {
+    "dept": "13",
+    "name": "Bouches-du-Rhône",
+    "pop": 2056943,
+    "bars": 1632,
+    "bars_per_10k": 7.93,
+    "apl": 4.59,
+    "desert_pct": 1.5
+  },
+  {
+    "dept": "14",
+    "name": "Calvados",
+    "pop": 696164,
+    "bars": 670,
+    "bars_per_10k": 9.62,
+    "apl": 4.28,
+    "desert_pct": 7.0
+  },
+  {
+    "dept": "15",
+    "name": "Cantal",
+    "pop": 144226,
+    "bars": 239,
+    "bars_per_10k": 16.57,
+    "apl": 3.8,
+    "desert_pct": 10.8
+  },
+  {
+    "dept": "16",
+    "name": "Charente",
+    "pop": 349796,
+    "bars": 212,
+    "bars_per_10k": 6.06,
+    "apl": 3.2,
+    "desert_pct": 14.0
+  },
+  {
+    "dept": "17",
+    "name": "Charente-Maritime",
+    "pop": 661173,
+    "bars": 601,
+    "bars_per_10k": 9.09,
+    "apl": 4.18,
+    "desert_pct": 7.7
+  },
+  {
+    "dept": "18",
+    "name": "Cher",
+    "pop": 299573,
+    "bars": 255,
+    "bars_per_10k": 8.51,
+    "apl": 2.25,
+    "desert_pct": 57.7
+  },
+  {
+    "dept": "19",
+    "name": "Corrèze",
+    "pop": 239129,
+    "bars": 239,
+    "bars_per_10k": 9.99,
+    "apl": 3.23,
+    "desert_pct": 17.6
+  },
+  {
+    "dept": "21",
+    "name": "Côte-d'Or",
+    "pop": 535503,
+    "bars": 320,
+    "bars_per_10k": 5.98,
+    "apl": 4.04,
+    "desert_pct": 9.8
+  },
+  {
+    "dept": "22",
+    "name": "Côtes-d'Armor",
+    "pop": 604489,
+    "bars": 789,
+    "bars_per_10k": 13.05,
+    "apl": 3.26,
+    "desert_pct": 16.9
+  },
+  {
+    "dept": "23",
+    "name": "Creuse",
+    "pop": 115596,
+    "bars": 128,
+    "bars_per_10k": 11.07,
+    "apl": 2.98,
+    "desert_pct": 26.7
+  },
+  {
+    "dept": "24",
+    "name": "Dordogne",
+    "pop": 413730,
+    "bars": 397,
+    "bars_per_10k": 9.6,
+    "apl": 3.12,
+    "desert_pct": 21.0
+  },
+  {
+    "dept": "25",
+    "name": "Doubs",
+    "pop": 545409,
+    "bars": 308,
+    "bars_per_10k": 5.65,
+    "apl": 4.14,
+    "desert_pct": 8.2
+  },
+  {
+    "dept": "26",
+    "name": "Drôme",
+    "pop": 519417,
+    "bars": 436,
+    "bars_per_10k": 8.39,
+    "apl": 3.45,
+    "desert_pct": 9.2
+  },
+  {
+    "dept": "27",
+    "name": "Eure",
+    "pop": 598934,
+    "bars": 441,
+    "bars_per_10k": 7.36,
+    "apl": 2.59,
+    "desert_pct": 45.4
+  },
+  {
+    "dept": "28",
+    "name": "Eure-et-Loir",
+    "pop": 430976,
+    "bars": 259,
+    "bars_per_10k": 6.01,
+    "apl": 2.41,
+    "desert_pct": 55.6
+  },
+  {
+    "dept": "29",
+    "name": "Finistère",
+    "pop": 921638,
+    "bars": 1014,
+    "bars_per_10k": 11.0,
+    "apl": 4.27,
+    "desert_pct": 5.2
+  },
+  {
+    "dept": "2A",
+    "name": "Corse-du-Sud",
+    "pop": 162942,
+    "bars": 276,
+    "bars_per_10k": 16.94,
+    "apl": 3.88,
+    "desert_pct": 12.3
+  },
+  {
+    "dept": "2B",
+    "name": "Haute-Corse",
+    "pop": 184655,
+    "bars": 390,
+    "bars_per_10k": 21.12,
+    "apl": 3.73,
+    "desert_pct": 11.6
+  },
+  {
+    "dept": "30",
+    "name": "Gard",
+    "pop": 756394,
+    "bars": 578,
+    "bars_per_10k": 7.64,
+    "apl": 3.54,
+    "desert_pct": 9.2
+  },
+  {
+    "dept": "31",
+    "name": "Haute-Garonne",
+    "pop": 1434367,
+    "bars": 601,
+    "bars_per_10k": 4.19,
+    "apl": 4.39,
+    "desert_pct": 2.6
+  },
+  {
+    "dept": "32",
+    "name": "Gers",
+    "pop": 192235,
+    "bars": 144,
+    "bars_per_10k": 7.49,
+    "apl": 3.43,
+    "desert_pct": 16.1
+  },
+  {
+    "dept": "33",
+    "name": "Gironde",
+    "pop": 1654884,
+    "bars": 921,
+    "bars_per_10k": 5.57,
+    "apl": 4.94,
+    "desert_pct": 3.5
+  },
+  {
+    "dept": "34",
+    "name": "Hérault",
+    "pop": 1201734,
+    "bars": 1013,
+    "bars_per_10k": 8.43,
+    "apl": 4.48,
+    "desert_pct": 4.0
+  },
+  {
+    "dept": "35",
+    "name": "Ille-et-Vilaine",
+    "pop": 1098325,
+    "bars": 914,
+    "bars_per_10k": 8.32,
+    "apl": 4.01,
+    "desert_pct": 10.3
+  },
+  {
+    "dept": "36",
+    "name": "Indre",
+    "pop": 217228,
+    "bars": 213,
+    "bars_per_10k": 9.81,
+    "apl": 2.67,
+    "desert_pct": 37.3
+  },
+  {
+    "dept": "37",
+    "name": "Indre-et-Loire",
+    "pop": 612160,
+    "bars": 448,
+    "bars_per_10k": 7.32,
+    "apl": 4.11,
+    "desert_pct": 2.6
+  },
+  {
+    "dept": "38",
+    "name": "Isère",
+    "pop": 1284948,
+    "bars": 914,
+    "bars_per_10k": 7.11,
+    "apl": 3.82,
+    "desert_pct": 11.8
+  },
+  {
+    "dept": "39",
+    "name": "Jura",
+    "pop": 258118,
+    "bars": 199,
+    "bars_per_10k": 7.71,
+    "apl": 3.68,
+    "desert_pct": 12.4
+  },
+  {
+    "dept": "40",
+    "name": "Landes",
+    "pop": 422976,
+    "bars": 353,
+    "bars_per_10k": 8.35,
+    "apl": 4.33,
+    "desert_pct": 3.4
+  },
+  {
+    "dept": "41",
+    "name": "Loir-et-Cher",
+    "pop": 328504,
+    "bars": 262,
+    "bars_per_10k": 7.98,
+    "apl": 2.77,
+    "desert_pct": 30.5
+  },
+  {
+    "dept": "42",
+    "name": "Loire",
+    "pop": 768608,
+    "bars": 784,
+    "bars_per_10k": 10.2,
+    "apl": 3.53,
+    "desert_pct": 12.7
+  },
+  {
+    "dept": "43",
+    "name": "Haute-Loire",
+    "pop": 227284,
+    "bars": 273,
+    "bars_per_10k": 12.01,
+    "apl": 3.54,
+    "desert_pct": 16.0
+  },
+  {
+    "dept": "44",
+    "name": "Loire-Atlantique",
+    "pop": 1457806,
+    "bars": 988,
+    "bars_per_10k": 6.78,
+    "apl": 3.99,
+    "desert_pct": 8.9
+  },
+  {
+    "dept": "45",
+    "name": "Loiret",
+    "pop": 684561,
+    "bars": 379,
+    "bars_per_10k": 5.54,
+    "apl": 2.63,
+    "desert_pct": 38.8
+  },
+  {
+    "dept": "46",
+    "name": "Lot",
+    "pop": 174515,
+    "bars": 136,
+    "bars_per_10k": 7.79,
+    "apl": 3.14,
+    "desert_pct": 17.4
+  },
+  {
+    "dept": "47",
+    "name": "Lot-et-Garonne",
+    "pop": 331229,
+    "bars": 213,
+    "bars_per_10k": 6.43,
+    "apl": 3.04,
+    "desert_pct": 25.9
+  },
+  {
+    "dept": "48",
+    "name": "Lozère",
+    "pop": 76519,
+    "bars": 135,
+    "bars_per_10k": 17.64,
+    "apl": 2.9,
+    "desert_pct": 33.5
+  },
+  {
+    "dept": "49",
+    "name": "Maine-et-Loire",
+    "pop": 808034,
+    "bars": 581,
+    "bars_per_10k": 7.19,
+    "apl": 4.04,
+    "desert_pct": 7.5
+  },
+  {
+    "dept": "50",
+    "name": "Manche",
+    "pop": 495508,
+    "bars": 504,
+    "bars_per_10k": 10.17,
+    "apl": 3.09,
+    "desert_pct": 24.9
+  },
+  {
+    "dept": "51",
+    "name": "Marne",
+    "pop": 565021,
+    "bars": 360,
+    "bars_per_10k": 6.37,
+    "apl": 4.2,
+    "desert_pct": 7.5
+  },
+  {
+    "dept": "52",
+    "name": "Haute-Marne",
+    "pop": 171042,
+    "bars": 90,
+    "bars_per_10k": 5.26,
+    "apl": 2.96,
+    "desert_pct": 21.4
+  },
+  {
+    "dept": "53",
+    "name": "Mayenne",
+    "pop": 305933,
+    "bars": 246,
+    "bars_per_10k": 8.04,
+    "apl": 2.9,
+    "desert_pct": 38.5
+  },
+  {
+    "dept": "54",
+    "name": "Meurthe-et-Moselle",
+    "pop": 732486,
+    "bars": 403,
+    "bars_per_10k": 5.5,
+    "apl": 4.24,
+    "desert_pct": 11.0
+  },
+  {
+    "dept": "55",
+    "name": "Meuse",
+    "pop": 181919,
+    "bars": 116,
+    "bars_per_10k": 6.38,
+    "apl": 3.48,
+    "desert_pct": 15.1
+  },
+  {
+    "dept": "56",
+    "name": "Morbihan",
+    "pop": 768687,
+    "bars": 931,
+    "bars_per_10k": 12.11,
+    "apl": 4.18,
+    "desert_pct": 7.1
+  },
+  {
+    "dept": "57",
+    "name": "Moselle",
+    "pop": 1049942,
+    "bars": 765,
+    "bars_per_10k": 7.29,
+    "apl": 3.84,
+    "desert_pct": 15.5
+  },
+  {
+    "dept": "58",
+    "name": "Nièvre",
+    "pop": 202417,
+    "bars": 245,
+    "bars_per_10k": 12.1,
+    "apl": 2.68,
+    "desert_pct": 37.2
+  },
+  {
+    "dept": "59",
+    "name": "Nord",
+    "pop": 2610915,
+    "bars": 1961,
+    "bars_per_10k": 7.51,
+    "apl": 4.56,
+    "desert_pct": 2.9
+  },
+  {
+    "dept": "60",
+    "name": "Oise",
+    "pop": 828838,
+    "bars": 507,
+    "bars_per_10k": 6.12,
+    "apl": 2.99,
+    "desert_pct": 28.6
+  },
+  {
+    "dept": "61",
+    "name": "Orne",
+    "pop": 276283,
+    "bars": 210,
+    "bars_per_10k": 7.6,
+    "apl": 2.85,
+    "desert_pct": 29.6
+  },
+  {
+    "dept": "62",
+    "name": "Pas-de-Calais",
+    "pop": 1459154,
+    "bars": 1265,
+    "bars_per_10k": 8.67,
+    "apl": 4.19,
+    "desert_pct": 5.8
+  },
+  {
+    "dept": "63",
+    "name": "Puy-de-Dôme",
+    "pop": 661940,
+    "bars": 581,
+    "bars_per_10k": 8.78,
+    "apl": 3.93,
+    "desert_pct": 9.3
+  },
+  {
+    "dept": "64",
+    "name": "Pyrénées-Atlantiques",
+    "pop": 693027,
+    "bars": 652,
+    "bars_per_10k": 9.41,
+    "apl": 4.58,
+    "desert_pct": 5.5
+  },
+  {
+    "dept": "65",
+    "name": "Hautes-Pyrénées",
+    "pop": 230956,
+    "bars": 207,
+    "bars_per_10k": 8.96,
+    "apl": 3.78,
+    "desert_pct": 12.2
+  },
+  {
+    "dept": "66",
+    "name": "Pyrénées-Orientales",
+    "pop": 487307,
+    "bars": 389,
+    "bars_per_10k": 7.98,
+    "apl": 4.09,
+    "desert_pct": 6.2
+  },
+  {
+    "dept": "67",
+    "name": "Bas-Rhin",
+    "pop": 1152662,
+    "bars": 450,
+    "bars_per_10k": 3.9,
+    "apl": 4.91,
+    "desert_pct": 3.4
+  },
+  {
+    "dept": "68",
+    "name": "Haut-Rhin",
+    "pop": 767083,
+    "bars": 414,
+    "bars_per_10k": 5.4,
+    "apl": 3.53,
+    "desert_pct": 12.3
+  },
+  {
+    "dept": "69",
+    "name": "Rhône",
+    "pop": 1889717,
+    "bars": 1239,
+    "bars_per_10k": 6.56,
+    "apl": 4.02,
+    "desert_pct": 5.8
+  },
+  {
+    "dept": "70",
+    "name": "Haute-Saône",
+    "pop": 234010,
+    "bars": 126,
+    "bars_per_10k": 5.38,
+    "apl": 3.76,
+    "desert_pct": 11.2
+  },
+  {
+    "dept": "71",
+    "name": "Saône-et-Loire",
+    "pop": 548407,
+    "bars": 389,
+    "bars_per_10k": 7.09,
+    "apl": 2.86,
+    "desert_pct": 35.8
+  },
+  {
+    "dept": "72",
+    "name": "Sarthe",
+    "pop": 563497,
+    "bars": 387,
+    "bars_per_10k": 6.87,
+    "apl": 2.76,
+    "desert_pct": 35.0
+  },
+  {
+    "dept": "73",
+    "name": "Savoie",
+    "pop": 442468,
+    "bars": 538,
+    "bars_per_10k": 12.16,
+    "apl": 4.25,
+    "desert_pct": 8.7
+  },
+  {
+    "dept": "74",
+    "name": "Haute-Savoie",
+    "pop": 841482,
+    "bars": 788,
+    "bars_per_10k": 9.36,
+    "apl": 3.53,
+    "desert_pct": 24.0
+  },
+  {
+    "dept": "75",
+    "name": "Paris",
+    "pop": 2133111,
+    "bars": 3120,
+    "bars_per_10k": 14.63,
+    "apl": 4.96,
+    "desert_pct": 0.0
+  },
+  {
+    "dept": "76",
+    "name": "Seine-Maritime",
+    "pop": 1255669,
+    "bars": 1017,
+    "bars_per_10k": 8.1,
+    "apl": 3.89,
+    "desert_pct": 7.4
+  },
+  {
+    "dept": "77",
+    "name": "Seine-et-Marne",
+    "pop": 1438100,
+    "bars": 547,
+    "bars_per_10k": 3.8,
+    "apl": 2.38,
+    "desert_pct": 54.1
+  },
+  {
+    "dept": "78",
+    "name": "Yvelines",
+    "pop": 1456365,
+    "bars": 478,
+    "bars_per_10k": 3.28,
+    "apl": 2.58,
+    "desert_pct": 38.1
+  },
+  {
+    "dept": "79",
+    "name": "Deux-Sèvres",
+    "pop": 373820,
+    "bars": 257,
+    "bars_per_10k": 6.87,
+    "apl": 3.1,
+    "desert_pct": 29.0
+  },
+  {
+    "dept": "80",
+    "name": "Somme",
+    "pop": 566005,
+    "bars": 473,
+    "bars_per_10k": 8.36,
+    "apl": 4.54,
+    "desert_pct": 4.0
+  },
+  {
+    "dept": "81",
+    "name": "Tarn",
+    "pop": 393572,
+    "bars": 218,
+    "bars_per_10k": 5.54,
+    "apl": 3.32,
+    "desert_pct": 17.2
+  },
+  {
+    "dept": "82",
+    "name": "Tarn-et-Garonne",
+    "pop": 263377,
+    "bars": 159,
+    "bars_per_10k": 6.04,
+    "apl": 3.38,
+    "desert_pct": 19.9
+  },
+  {
+    "dept": "83",
+    "name": "Var",
+    "pop": 1095337,
+    "bars": 1042,
+    "bars_per_10k": 9.51,
+    "apl": 3.79,
+    "desert_pct": 8.1
+  },
+  {
+    "dept": "84",
+    "name": "Vaucluse",
+    "pop": 564566,
+    "bars": 452,
+    "bars_per_10k": 8.01,
+    "apl": 3.64,
+    "desert_pct": 6.0
+  },
+  {
+    "dept": "85",
+    "name": "Vendée",
+    "pop": 696957,
+    "bars": 591,
+    "bars_per_10k": 8.48,
+    "apl": 2.97,
+    "desert_pct": 29.4
+  },
+  {
+    "dept": "86",
+    "name": "Vienne",
+    "pop": 439385,
+    "bars": 274,
+    "bars_per_10k": 6.24,
+    "apl": 4.08,
+    "desert_pct": 6.5
+  },
+  {
+    "dept": "87",
+    "name": "Haute-Vienne",
+    "pop": 371691,
+    "bars": 261,
+    "bars_per_10k": 7.02,
+    "apl": 4.11,
+    "desert_pct": 5.9
+  },
+  {
+    "dept": "88",
+    "name": "Vosges",
+    "pop": 360359,
+    "bars": 325,
+    "bars_per_10k": 9.02,
+    "apl": 3.76,
+    "desert_pct": 11.2
+  },
+  {
+    "dept": "89",
+    "name": "Yonne",
+    "pop": 333385,
+    "bars": 256,
+    "bars_per_10k": 7.68,
+    "apl": 2.63,
+    "desert_pct": 39.9
+  },
+  {
+    "dept": "90",
+    "name": "Territoire de Belfort",
+    "pop": 139654,
+    "bars": 65,
+    "bars_per_10k": 4.65,
+    "apl": 3.34,
+    "desert_pct": 20.0
+  },
+  {
+    "dept": "91",
+    "name": "Essonne",
+    "pop": 1313768,
+    "bars": 403,
+    "bars_per_10k": 3.07,
+    "apl": 2.52,
+    "desert_pct": 51.3
+  },
+  {
+    "dept": "92",
+    "name": "Hauts-de-Seine",
+    "pop": 1635291,
+    "bars": 546,
+    "bars_per_10k": 3.34,
+    "apl": 3.15,
+    "desert_pct": 17.2
+  },
+  {
+    "dept": "93",
+    "name": "Seine-Saint-Denis",
+    "pop": 1636291,
+    "bars": 871,
+    "bars_per_10k": 5.32,
+    "apl": 3.26,
+    "desert_pct": 12.9
+  },
+  {
+    "dept": "94",
+    "name": "Val-de-Marne",
+    "pop": 1415367,
+    "bars": 565,
+    "bars_per_10k": 3.99,
+    "apl": 3.89,
+    "desert_pct": 12.2
+  },
+  {
+    "dept": "95",
+    "name": "Val-d'Oise",
+    "pop": 1256607,
+    "bars": 463,
+    "bars_per_10k": 3.68,
+    "apl": 2.41,
+    "desert_pct": 63.2
+  }
+]

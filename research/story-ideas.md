@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### social-fabric: Bars and doctors
+- Status: ✅ published
+- Published URL: /stories/social-fabric/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: The places with the most bars also tend to have the best doctors. Paris's suburbs have neither.
+- Data: SIRENE bars (NAF 56.30Z, 49,385 points) aggregated by département; DREES APL 2023 commune scores aggregated to département with population weighting. 95 metropolitan départements plotted.
+- Angle: Scatter plot — bars/10k on x-axis, pop-weighted APL on y-axis. Quadrant colouring highlights four clusters. Named outliers: 05, 75, 2B, 18, 77, 95. Prose drives the narrative; chart is the payoff.
+- Draft X summary:
+  > France's bar network and its GP network weren't built together. But they track each other. Today on **france-data**: plot every département by bars per 10,000 vs average GP access, and a pattern appears. Hautes-Alpes leads on both. The suburbs around Paris trail on both. One lonely outlier drinks but has no doctor. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
