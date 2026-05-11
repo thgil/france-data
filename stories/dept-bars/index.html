@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Which département drinks the most? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart container ────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-size: 13px;
+      color: #666;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── Filter / sort controls ─────────────────────────────────────── */
+    .chart-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-bottom: none;
+      font-size: 12px;
+      color: #1a1a1a;
+    }
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .filter-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+      color: #fff;
+    }
+
+    /* ── Rank chart ─────────────────────────────────────────────────── */
+    #chart-wrap {
+      border: 1px solid #d8d0c0;
+      background: #fff;
+      overflow-x: auto;
+    }
+    #rank-chart {
+      display: block;
+      width: 100%;
+      font-family: var(--mono, 'Courier New', monospace);
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────── */
+    #tooltip {
+      position: fixed;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      border-radius: 3px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      max-width: 220px;
+      line-height: 1.5;
+      z-index: 100;
+    }
+
+    /* ── Stats grid (top/bottom) ────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stats-block h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      border-bottom: 1px solid #ece8e0;
+      vertical-align: top;
+    }
+    .stats-table td:first-child { width: 50%; }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .dept-num {
+      color: #888;
+      font-size: 11px;
+      font-family: var(--mono, 'Courier New', monospace);
+      margin-right: 4px;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 2px solid #1a1a1a;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .credits h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 20px 0 8px;
+    }
+    .credits ul { padding-left: 20px; }
+    .credits li { margin-bottom: 4px; }
+    .credits a { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <div id="masthead"></div>
+  <div id="tooltip"></div>
+
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Which département drinks the most?</h1>
+        <p class="story-dek">49,385 bars divided by 67 million people — and the ranking that emerges is not what anyone expects.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 registered bars — every <em>débit de boissons</em>, every <em>café du coin</em>, every midnight brasserie. The previous story mapped all of them. The headline number: Paris leads with 3,120 bars, just ahead of Nord and Pas-de-Calais combined (3,226). The north drinks more than the capital. Right?</p>
+
+      <p>Not quite. Raw counts are a function of population, and Nord has 2.6 million residents. Divide the bars by the people, and the geography looks completely different.</p>
+
+      <!-- ── Beat 2: Main chart ─────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-controls">
+          <span class="ctrl-label">Show</span>
+          <button class="filter-btn active" data-filter="all">All 96 départements</button>
+          <button class="filter-btn" data-filter="metro">Metropolitan only</button>
+        </div>
+        <div id="chart-wrap">
+          <canvas id="rank-chart"></canvas>
+        </div>
+        <figcaption>Bars per 1,000 residents, all French départements. Population from INSEE APL 2023 data; bar counts from SIRENE March 2026 (NAF 56.30Z). Bars in the overseas territories reflect registered establishments; tourism-adjusted figures would differ.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Corsica reveal ───────────────────────────────────── -->
+      <h2>Corsica, by a country mile</h2>
+
+      <p>Haute-Corse (2B) leads France at <strong>2.11 bars per 1,000 residents</strong> — nearly three times the national average of 0.73. Corse-du-Sud (2A) sits third at 1.69. Together, Corsica runs at <strong>1.92 per 1,000</strong> — the highest of any French region, well clear of Bretagne (1.08) and Hauts-de-France (0.76).</p>
+
+      <p>Part of the explanation is tourism: Corsica's summer population swells dramatically, but permanent residents are the denominator. A bar that serves beachgoers in August still holds its licence in November. The island's café culture — deeply rooted, anchored in village life, resistant to the suburban drift that hollowed out mainland rural cafés — does the rest.</p>
+
+      <!-- ── Stats grids ────────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars per 1,000</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per 1,000</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: The surprises ──────────────────────────────────────── -->
+      <h2>Nord is average. Paris is good. The suburbs are dry.</h2>
+
+      <p>The reputational north — the home of <em>bières Ch'ti</em> and <em>bistrots du coin</em> — lands at 0.75 per 1,000 for Nord, essentially the national average. Pas-de-Calais is marginally better at 0.87. The stereotype of the hard-drinking, café-dense north is real in absolute numbers (the region has a lot of bars) but largely a function of having a lot of people.</p>
+
+      <p>Paris proper (75) ranks <strong>7th</strong> at 1.46 per 1,000 — a genuine outlier among dense urban areas. Between the arrondissements, the <em>zinc</em> is a cultural institution, and the tourist base bolsters it further. It is one of the few dense cities that holds its own against rural and island départements in the per-capita ranking.</p>
+
+      <p>The bottom of the chart tells the starkest story. The IDF suburbs — Essonne (0.31), Yvelines (0.33), Hauts-de-Seine (0.33), Val-d'Oise (0.37) — are France's driest territory. These are commuter départements built around residential estates, train lines, and retail parks. The village café never took root, and the suburban bar never replaced it. Between the outer ring of Paris and the rest of France, there is a clear amenity gap — one that maps almost exactly to the medical desert data and the bakery-density data from previous stories. The <em>diagonale du vide</em> gets most of the press; the <em>couronne stérile</em> around Paris is equally real.</p>
+
+      <!-- ── Beat 5: Mountain effect ────────────────────────────────────── -->
+      <h2>The mountain effect</h2>
+
+      <p>After Corsica, the ranking is dominated by mountain and rural départements: Lozère (1.76), Cantal (1.66), Hautes-Alpes (1.56), Savoie (1.22), Ardèche (1.06). These are territories with small resident populations and significant tourism draw, the same combination that pushed ski-resort communes to the top of the APL doctor-access rankings. A bar in Mende or Aurillac serves a thousand locals plus several thousand seasonal visitors — the denominator stays small while the bar count accumulates.</p>
+
+      <p>Lozère is, by population, France's smallest département: 76,500 residents. It has 135 bars. That works out to roughly one bar for every 566 people — compared to one bar for every 3,260 residents in Essonne. The gap between the most and least bar-dense parts of France is a factor of nearly six.</p>
+
+      <!-- ── Beat 6: Close ──────────────────────────────────────────────── -->
+      <p>The previous story noted that the <em>diagonale du vide</em> shows up in bar density: the sparsely populated diagonal from Meuse to the Pyrenees has fewer bars in absolute terms. But the per-capita ranking scrambles that picture. Lozère and Cantal — squarely in the empty diagonal — rank among the densest for bars per head, because their permanent populations are so small that even a modest bar network produces high density. The empty diagonal, it turns out, has a thriving café life. There just aren't many people to share it.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE's SIRENE registry (NAF 56.30Z, active establishments, March 2026 snapshot) — the same data used in <a href="../bars/">Story 4 (bars)</a>. Population figures are the commune-level totals from the DREES APL 2023 dataset (INSEE 2021 population base), aggregated to département. The overseas aggregate "Dept 97" in SIRENE data is excluded from the chart as it conflates multiple territories with distinct bar cultures. Corsica's two départements are shown separately.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023 — Accessibilité potentielle localisée</a> (population base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../../">← All stories</a></p>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="charts.js" defer></script>
+</body>
+</html>

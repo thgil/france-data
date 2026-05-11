@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+
+### dept-bars: Which département drinks the most?
+- Status: ✅ published
+- Published URL: /stories/dept-bars/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: France's thirstiest territory isn't Bretagne or the north. It's Corsica — 1.92 bars per 1,000 residents, nearly 3× the national average. And the driest? The Paris suburbs.
+- Data: INSEE SIRENE bars.json (49,385 points, NAF 56.30Z, reused from Story 4) + DREES APL population base (communes-apl.geojson). Aggregated to département level.
+- Angle: Ranked horizontal bar chart of all 96 metropolitan + overseas departments. Interactive canvas rendering, filter button for metro-only, tooltip on hover. Prose covers four beats: Corsica's dominance, the north's surprising mediocrity per-capita, Paris's position, the IDF dry suburbs.
+- Draft X summary:
+  > France has 49,385 bars. Nord beats Paris in raw numbers. But per resident, the north is average. The real winner? Corsica, at nearly 3× the national rate. And the driest territory in France? The Paris suburbs. Today on **france-data**: 96 départements, ranked by thirst. 🍺🇫🇷
