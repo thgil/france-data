@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### name-game: The Name Game
+- Status: ✅ published
+- Published URL: /stories/name-game/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune called Y. It also has a commune with a 45-character name. In between: 3,882 saints, 13,410 hyphens, and 32,764 genuinely unique names.
+- Data: Derived entirely from the DREES APL 2023 commune dataset already in the repo (communes-apl.geojson). No new downloads. 35,014 commune names analysed for frequency, length, and patterns.
+- Angle: Text-and-charts story. Two Chart.js visuals: (1) horizontal bar chart of the 15 most-repeated names; (2) histogram of name lengths. Four narrative beats: scale, saint dominance, hyphen habit, the extremes.
+- Draft X summary:
+  > France has a commune called Y. One letter. 89 residents. It also has Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — 45 characters, two saints, born from a 1972 merger where neither village would give up its name. Today on **france-data**: what 35,000 commune names reveal about a country. 🇫🇷
+
