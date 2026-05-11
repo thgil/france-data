@@ -201,3 +201,9 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: What are the most common bar names in France, and what do they reveal about French culture?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: "Café des Sports" leads with 133 bars across 56 departments; combined sports variants reach 448. 1,344 bars name themselves after civic landmarks (Place, Gare, Mairie, Poste, Commerce, Marché). Nine "mystery classiques" — Le Longchamp (96), Le Balto (89), Le Marigny (71), La Civette (67) and others — spread nationally by imitation from Parisian originals. 87.3% of 20,431 distinct names appear exactly once; 61% of all named bars carry a name that exists nowhere else in France.
+- Story: [bar-names](/stories/bar-names/)

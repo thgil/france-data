@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-names: What France Calls Its Bars
+- Status: ✅ published
+- Published URL: /stories/bar-names/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: "Café des Sports" — 133 of them. Le Balto — Parisian argot, 89 bars across 38 departments. 1,344 bars named after the mairie, the gare, the poste. And 17,831 that exist nowhere else in France.
+- Data: INSEE SIRENE bars.json (already in repo from Story 4 — same 49,385 bar dataset, name fields extracted and counted).
+- Angle: Text + horizontal bar chart (Observable Plot). Four narrative beats: the sport archetype, the civic shadow institution, the mystery classiques (Longchamp, Balto, Narval, Brazza), the 61% who went their own way.
+- Draft X summary:
+  > France's most common bar name is "Café des Sports" — 133 of them, zero big screens. 1,344 French bars named themselves after the gare, the mairie, the poste. And 61% of named bars carry a name found nowhere else in France. Today on **france-data**: the cultural archive inside the SIRENE registry. 🇫🇷
+

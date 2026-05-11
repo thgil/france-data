@@ -1,0 +1,180 @@
+{
+  "total": 49385,
+  "named": 29238,
+  "namedPct": 59.2,
+  "distinctNames": 20431,
+  "uniqueNames": 17831,
+  "uniqueNamesPct": 87.3,
+  "barsWithUniqueNames": 17831,
+  "barsWithUniqueNamesPct": 61.0,
+  "categories": {
+    "sport": 425,
+    "civic": 1344,
+    "nature": 1010,
+    "animal": 422
+  },
+  "top20": [
+    {
+      "name": "Cafe des Sports",
+      "count": 133
+    },
+    {
+      "name": "Le Longchamp",
+      "count": 96
+    },
+    {
+      "name": "Cafe de la Mairie",
+      "count": 89
+    },
+    {
+      "name": "Cafe du Centre",
+      "count": 89
+    },
+    {
+      "name": "Le Balto",
+      "count": 89
+    },
+    {
+      "name": "Cafe de la Place",
+      "count": 87
+    },
+    {
+      "name": "Bar des Sports",
+      "count": 83
+    },
+    {
+      "name": "Le Marigny",
+      "count": 71
+    },
+    {
+      "name": "La Civette",
+      "count": 67
+    },
+    {
+      "name": "Cafe de la Poste",
+      "count": 66
+    },
+    {
+      "name": "Cafe du Commerce",
+      "count": 66
+    },
+    {
+      "name": "Le Narval",
+      "count": 65
+    },
+    {
+      "name": "Cafe de la Gare",
+      "count": 65
+    },
+    {
+      "name": "Le Central",
+      "count": 61
+    },
+    {
+      "name": "Le Brazza",
+      "count": 60
+    },
+    {
+      "name": "Le Fontenoy",
+      "count": 57
+    },
+    {
+      "name": "L'Escale",
+      "count": 56
+    },
+    {
+      "name": "Le Chiquito",
+      "count": 56
+    },
+    {
+      "name": "Cafe de la Paix",
+      "count": 53
+    },
+    {
+      "name": "Le Rallye",
+      "count": 50
+    }
+  ],
+  "civicBreakdown": [
+    {
+      "label": "la Place",
+      "kw": "PLACE",
+      "count": 218
+    },
+    {
+      "label": "la Mairie",
+      "kw": "MAIRIE",
+      "count": 184
+    },
+    {
+      "label": "la Gare",
+      "kw": "GARE",
+      "count": 195
+    },
+    {
+      "label": "le Commerce",
+      "kw": "COMMERCE",
+      "count": 161
+    },
+    {
+      "label": "la Poste",
+      "kw": "POSTE",
+      "count": 151
+    },
+    {
+      "label": "le Marché",
+      "kw": "MARCHE",
+      "count": 143
+    }
+  ],
+  "classiques": [
+    {
+      "name": "Le Longchamp",
+      "count": 96,
+      "note": "named after the Bois de Boulogne racecourse (1857)"
+    },
+    {
+      "name": "Le Balto",
+      "count": 89,
+      "note": "Parisian argot for the neighbourhood bar"
+    },
+    {
+      "name": "Le Marigny",
+      "count": 71,
+      "note": "after the Théâtre Marigny on the Champs-Élysées"
+    },
+    {
+      "name": "La Civette",
+      "count": 67,
+      "note": "the old tobacconist-café, now just the café"
+    },
+    {
+      "name": "Le Narval",
+      "count": 65,
+      "note": "the narwhal — a maritime name that went inland"
+    },
+    {
+      "name": "Le Brazza",
+      "count": 60,
+      "note": "after the French explorer Pierre de Brazza (†1905)"
+    },
+    {
+      "name": "Le Fontenoy",
+      "count": 57,
+      "note": "after the 1745 battle — a favoured café name"
+    },
+    {
+      "name": "Le Chiquito",
+      "count": 56,
+      "note": "from the Spanish small — via Paris jai alai arenas"
+    },
+    {
+      "name": "Le Rallye",
+      "count": 50,
+      "note": "mid-century motor-sport enthusiasm, spread nationally"
+    }
+  ],
+  "sportTotal": 425,
+  "cafeDesSports": 133,
+  "barDesSports": 83
+}
