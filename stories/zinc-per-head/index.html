@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zinc per head — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Dept chart ──────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+
+    .dc-wrap {
+      position: relative;
+      font-family: var(--sans);
+    }
+
+    .dc-meta {
+      position: relative;
+      height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .dc-avg-label {
+      position: absolute;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      color: #888;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .dc-rows {
+      position: relative;
+    }
+
+    .dc-avg-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: #aaa;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .dr {
+      display: grid;
+      grid-template-columns: 26px 170px 1fr 44px;
+      align-items: center;
+      gap: 6px;
+      padding: 1px 0;
+      border-bottom: 1px solid #f0ece4;
+    }
+
+    .dr.spot {
+      background: #fdf8f0;
+    }
+
+    .dr-rank {
+      font-size: 10px;
+      color: #bbb;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dr-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dr.spot .dr-name {
+      font-weight: bold;
+    }
+
+    .dr-track {
+      height: 13px;
+      background: #ede8e0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dr-fill {
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+
+    .fill-hi { background: #c67c00; }
+    .fill-lo { background: #b0aaa0; }
+
+    .dr-val {
+      font-size: 11px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .dr {
+        grid-template-columns: 22px 110px 1fr 36px;
+        gap: 4px;
+      }
+      .dr-name { font-size: 11px; }
+    }
+
+    /* ── Stats tables ─────────────────────────────────────────────── */
+    .stats-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-pair { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #bbb;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .place-sub {
+      font-size: 11px;
+      color: #888;
+      padding-left: 4px;
+    }
+
+    /* ── Number callouts ──────────────────────────────────────────── */
+    .callout-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .callout {
+      flex: 1;
+      min-width: 140px;
+      border-left: 3px solid #c67c00;
+      padding: 6px 16px;
+    }
+    .callout .num {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+    .callout .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 20px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Zinc per head</h1>
+        <p class="story-dek">Divide France's 49,385 bars by population and the ranking inverts: Corsican villages and alpine ski towns float to the top, while the Paris suburbs barely register.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────── -->
+      <p>The previous story mapped 49,385 bars as amber dots — France at a glance. But raw counts favour big places. Paris has 3,120 bars; Lozère has 135. Of course Paris wins. The more interesting question: which France drinks most <em>per person?</em></p>
+
+      <p>Divide each département's bar count by its resident population, and a different country appears. The national average is 7.5 bars per 10,000 residents. Below is every metropolitan département, ranked.</p>
+
+      <!-- ── Chart ─────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="dc-wrap" id="dept-chart">
+          <div style="padding:40px;text-align:center;color:#888;font-style:italic">Loading chart…</div>
+        </div>
+        <figcaption>All 96 metropolitan départements ranked by bars per 10,000 residents. Amber = above national average (7.5/10k); grey = below. Sources: INSEE SIRENE bars (NAF 56.30Z, March 2026) + INSEE APL 2023 population figures.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: Corse + rural highlands ──────────────────────── -->
+      <h2>The island that drinks, and the highlands that held on</h2>
+
+      <p>Haute-Corse leads with 21.1 bars per 10,000 — nearly three times the national average. Corse-du-Sud is third at 16.9. The island's bar culture is dense: small villages where the café is still the social centre, tourist flows that sustain licences year-round, and a tradition of the <em>épicerie-bar</em> that blurs the category entirely.</p>
+
+      <p>Between the two Corsican departments sits Lozère — the least-populated département in metropolitan France, at 17.6/10k. Cantal follows (16.6), then Hautes-Alpes (15.6). These are the rural highlands: thin population, long memories, and a café that the next village over lost ten years ago. Lozère's 135 bars serve 76,519 people. They are not going anywhere.</p>
+
+      <div class="callout-row">
+        <div class="callout">
+          <div class="num">21.1</div>
+          <div class="label">Haute-Corse — bars per 10k, France's highest</div>
+        </div>
+        <div class="callout">
+          <div class="num">7.5</div>
+          <div class="label">National average for metropolitan France</div>
+        </div>
+        <div class="callout">
+          <div class="num">3.1</div>
+          <div class="label">Essonne — France's lowest among metropolitan départements</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: Paris ─────────────────────────────────────────── -->
+      <h2>Paris ranks 7th, and that's not a surprise</h2>
+
+      <p>Paris (75) sits at 14.6/10k — seventh in the national ranking, well above average. The capital's 3,120 bars serve 2.1 million residents. The cliché of Paris as a café city holds up numerically. What surprises is the gap to its neighbours: Seine-et-Marne (3.8/10k), Val-d'Oise (3.7/10k), Yvelines (3.3/10k), Hauts-de-Seine (3.3/10k), Essonne (3.1/10k). The wealthiest, most densely planned ring around the capital has the fewest bars, per head, in metropolitan France.</p>
+
+      <!-- ── Beat 4: IDF suburbs ─────────────────────────────────── -->
+      <h2>The suburbs that forgot to build a café</h2>
+
+      <p>The bottom six métro départements are all Île-de-France: Essonne, Yvelines, Hauts-de-Seine, Seine-et-Marne, Val-d'Oise, Val-de-Marne. These are the grands ensembles and pavillonnaire towns of the 1960s–80s. Urban plans included schools, RER stations, and car parks. The café was rarely in the programme. A town like Tournefeuille (29,439 residents, Haute-Garonne) has one bar in SIRENE: 0.3 per 10,000. Élancourt (Yvelines, 26,082 residents) has one. Some communes of 10,000–20,000 have none at all.</p>
+
+      <!-- ── Beat 5: Commune extremes ───────────────────────────── -->
+      <h2>The ski resort effect — and the commune below it</h2>
+
+      <p>At commune level, the ranking goes further. Alpine ski resorts dominate the top — Les Deux Alpes (Isère) clocks 201.8 bars per 10,000, Morzine (Haute-Savoie) 191.7. Their resident populations are counted in the thousands; their bar counts are calibrated for tens of thousands of winter visitors. These are not really outliers — they are a different use case entirely.</p>
+
+      <p>Below the resorts, the picture is more grounded. Rogliano (Haute-Corse, 540 residents, 7 bars) at 129.6. Deauville (Calvados, 3,565 residents, 32 bars) at 89.8. Saint-Tropez (Var, 3,578 residents, 34 bars) at 95.0. Tourism-driven coastal towns where the bar licence is a year-round economic anchor, even in January.</p>
+
+      <!-- ── Stats tables ──────────────────────────────────────── -->
+      <div class="stats-pair">
+        <div class="stats-block">
+          <h3>Top communes — bars per 10k (pop ≥ 500)</h3>
+          <table class="stats-table">
+            <tbody id="table-top"></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest density — communes with pop ≥ 10,000</h3>
+          <table class="stats-table">
+            <tbody id="table-desert"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: closing ───────────────────────────────────── -->
+      <h2>200,000 to 49,385</h2>
+
+      <p>France had roughly 200,000 cafés and bars at its peak in the 1960s. Today's SIRENE count is 49,385. The long decline is real — driven by supermarkets, car culture, changing habits, and the slow attrition of the village café that couldn't find a buyer when the owner retired. But the decline is not uniform. Corse, Lozère, Cantal, the alpine valleys: places with strong local identity and seasonal tourism still carry dense networks. The zinc counter didn't vanish from France. It concentrated.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z, active establishments, March 2026), with coordinates from the SIRENE Géolocalisation file — the same 49,385 points as the previous bars story. Population figures are from the DREES APL 2023 dataset (INSEE 2021 census base), used here for its commune-level population coverage across all 35,000 French communes. The join is on the 5-digit INSEE commune code. Overseas territories (97x) are excluded from département rankings. Commune-level rankings use a minimum population of 500 to limit small-denominator distortions.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et établissements</a> (NAF 56.30Z, active, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune populations (INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { renderDeptChart, renderTopTable, renderDesertTable } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        renderDeptChart(document.getElementById('dept-chart'), stats);
+        renderTopTable(document.querySelector('#table-top'), stats.topCommunes);
+        renderDesertTable(document.querySelector('#table-desert'), stats.desertCommunes);
+
+      } catch (err) {
+        console.error('zinc-per-head: failed to load data', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

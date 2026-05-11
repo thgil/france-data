@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### zinc-per-head: Zinc per head
+- Status: ✅ published
+- Published URL: /stories/zinc-per-head/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: France's bar deserts aren't in the countryside — they're in the Paris suburbs. Essonne: 3.1 bars per 10k. Haute-Corse: 21.1. Divide by population and the map inverts.
+- Data: bars.json (49,385 national bar points, SIRENE NAF 56.30Z) joined to commune populations from DREES APL 2023 dataset (35,000 communes). No new data downloads — pure join of existing repo files.
+- Angle: Department league table (all 96 metro depts as a ranked horizontal bar chart), plus top communes (alpine ski resorts) and bottom communes (suburban new-towns). Three callout numbers: 21.1 (Haute-Corse), 7.5 (national avg), 3.1 (Essonne).
+- Draft X summary:
+  > 49,385 bars. Divide by population and France looks completely different. Haute-Corse: 21 per 10k. Paris: 14.6 (7th in the ranking). Essonne: 3.1 — France's driest département. Les Deux Alpes: 201 per 10k (because the residents are skiers and the bars aren't for them). Today on **france-data**: zinc per head. 🍺🇫🇷
+
