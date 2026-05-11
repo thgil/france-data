@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-extremes: The 170× bar gap
+- Status: ✅ published
+- Published URL: /stories/bar-extremes/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Gavarnie-Gèdre has 20 bars per 1,000 permanent residents. Évry-Courcouronnes has 0.12. The gap is 170-fold — and it says more about French urban planning than about French drinking habits.
+- Data: INSEE SIRENE bars.json (49,385 bars) joined to DREES APL commune population data (35,014 communes). Computed bars per 1,000 at commune level; filtered to ≥ 200 residents for top ranking, ≥ 50k for bottom ranking.
+- Angle: Text + CSS horizontal charts. Top 15 bar-dense communes (mostly ski resorts), bottom 12 large cities (mostly IDF grands-ensembles). Comparison card pair. Key stat boxes.
+- Draft X summary:
+  > 66% of French communes have no bar. But the extremes are stranger: ski resorts run 20 bars per 1,000 residents; grands-ensembles suburbs manage 0.12. Today on **france-data**: the 170× gap, explained. 🏔️🍺
+

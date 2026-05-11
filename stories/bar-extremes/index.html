@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 170× bar gap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callout boxes ───────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Horizontal ranking charts ───────────────────────────────────── */
+    .rank-chart {
+      margin: 48px 0;
+    }
+    .rank-chart h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .rank-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .rank-label {
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--ink);
+      width: 200px;
+      flex-shrink: 0;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rank-track {
+      flex: 1;
+      height: 16px;
+      background: #e8e0d8;
+      border-radius: 2px;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .rank-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .rank-fill-low {
+      background: #7a9cc0;
+    }
+    .rank-value {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      width: 80px;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .rank-dept {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #aaa;
+      margin-left: 2px;
+    }
+
+    /* ── Pair comparison box ─────────────────────────────────────────── */
+    .comparison {
+      display: flex;
+      gap: 24px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+    .comparison-card {
+      flex: 1 1 260px;
+      padding: 20px 22px;
+      background: #f0ece4;
+      border-top: 3px solid var(--accent);
+    }
+    .comparison-card.blue {
+      border-top-color: #7a9cc0;
+    }
+    .comparison-card .cmp-rate {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .comparison-card.blue .cmp-rate { color: #5a7ca0; }
+    .comparison-card .cmp-unit {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .comparison-card .cmp-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .comparison-card .cmp-detail {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.5;
+    }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The 170× bar gap</h1>
+        <p class="story-dek">Gavarnie-Gèdre has 20 bars per 1,000 residents. Évry-Courcouronnes has 0.12. The distance between those two numbers is the story of French urbanism in one dataset.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>France's 49,385 registered bars average out to 0.73 per 1,000 residents — a clean national figure that happens to describe almost no actual French commune. At the top of the distribution sit ski resorts and mountain villages with 15–20 bars per 1,000 permanent residents. At the bottom sit the post-war <em>grands ensembles</em> suburbs of the Paris basin, where the ratio dips below 0.15. The gap between those two extremes is 170-fold. And it tells a cleaner story about French urban planning than almost any other single metric.</p>
+
+      <h2>Two-thirds of communes have no bar at all</h2>
+
+      <p>Start with the barless. Of France's 35,014 communes, <strong>23,265</strong> — exactly 66.4% — have no registered bar within their boundaries. Walk into two out of three French communes and there is no licensed <em>débit de boissons</em>, no counter, no patron. The French café, for all its cultural weight, is absent from most of the country's map.</p>
+
+      <p>The qualification matters: those 23,265 communes are mostly tiny. Together they house 11.3 million people — just 16.8% of France's total population. The barless villages tend to have a few hundred residents, often fewer. Their absence doesn't mean drought at scale; it means that most of the 19th-century rural café network never survived the 20th century.</p>
+
+      <div class="stat-row" id="stat-row">
+        <!-- rendered by JS -->
+      </div>
+
+      <p>Another 6,191 communes have exactly one bar. The last establishment standing — the café that outlasted the postal agency, the primary school, sometimes even the mairie. In these communes the bar is often the only commercial venue, the social centre, and the polling station rolled into one. <em>Acheux-en-Vimeu</em> (Somme, 499 residents), <em>Loiré</em> (Maine-et-Loire, 885 residents), <em>Idaux-Mendy</em> (Pyrénées-Atlantiques, 276 residents): all single-bar communes, each a microcosm of rural France's shrinking commercial infrastructure.</p>
+
+      <h2>The top: mountains and tourists</h2>
+
+      <p>Now the other end. Filter to communes with at least 200 registered residents — enough to give the per-capita rate some statistical meaning — and rank by bars per 1,000. The top of the list is almost entirely ski resorts and mountain tourism communes.</p>
+
+      <div class="rank-chart" id="chart-top">
+        <h3>Highest bar density — communes with ≥ 200 residents (bars per 1,000)</h3>
+      </div>
+
+      <p><strong>Gavarnie-Gèdre</strong> leads with 20.5 bars per 1,000 permanent residents — 7 bars for 341 people. Gavarnie is the gateway to the Cirque de Gavarnie, a UNESCO World Heritage site in the Hautes-Pyrénées. In summer, the cirque draws hundreds of thousands of hikers. In winter, a ski station. The 341 registered residents are not who the bars serve. The same logic applies to <strong>Les Deux Alpes</strong> (39 bars, 1,933 residents, 20.2/1,000), <strong>Chamrousse</strong> (8 bars, 414 residents), <strong>Morzine</strong> (51 bars, 2,660 residents) — all Alpine winter destinations.</p>
+
+      <p>The outlier in the top 15 is <strong>Île-d'Houat</strong> in Morbihan (56) — a Breton island with 216 permanent residents and 4 bars. Houat is reachable only by ferry from Quiberon and draws tens of thousands of summer visitors to its beaches. Again, the permanent population figure is nearly irrelevant to the bar count.</p>
+
+      <p>There are a few rural non-tourist communes in the list — Serverette (Lozère), Soulages-Bonneval and Thérondels (Aveyron) — where very small populations and intact village café traditions produce elevated ratios. The Massif Central, Lozère in particular, has maintained a higher density of village cafés than the national average, partly because extreme rural isolation kept bar licences viable when market forces would otherwise have closed them.</p>
+
+      <h2>The bottom: the grand ensemble gap</h2>
+
+      <p>Now flip the table. Filter to communes with at least 50,000 residents and rank by bars per 1,000 ascending. The bottom of that list is a roll-call of post-war planned cities in and around Paris.</p>
+
+      <div class="rank-chart" id="chart-bottom">
+        <h3>Lowest bar density — large communes (≥ 50,000 residents, metropolitan France)</h3>
+      </div>
+
+      <p><strong>Évry-Courcouronnes</strong> (Essonne, 91) comes last: 8 bars for 66,177 residents — 0.12 per 1,000. Évry was built from scratch in the late 1960s as a <em>ville nouvelle</em>, part of France's urban policy to relieve Paris. The urban plan was good at providing housing, schools, and transport links. It was less good at producing the dense, fine-grained street network where traditional café culture takes root. The corner café is not easily retrofitted into a residential superblock.</p>
+
+      <p>The pattern repeats across the bottom dozen: <strong>Massy</strong> (91), <strong>Créteil</strong> (94), <strong>Clamart</strong> (92), <strong>Vaulx-en-Velin</strong> (69), <strong>Vénissieux</strong> (69). With a few exceptions, these are postwar grands-ensembles developments or edge cities where the commercial layer of the traditional French town — baker, butcher, café — was never built in. Where it exists at all, it was added later, often in purpose-built commercial strips that do not generate the street-level foot traffic that sustains a bar.</p>
+
+      <p>Paris itself averages 1.46 bars per 1,000 residents — already twice the national rate. But the 11th arrondissement, with 386 bars for 143,000 residents, runs at 2.7/1,000. Marseille's 1st arrondissement reaches 5.2/1,000. The gradient from dense historic centre to postwar periphery is visible in a single number: a Paris-area bar density that falls from 2.7 to 0.12 as you move 30 kilometres southeast.</p>
+
+      <div class="comparison" id="comparison">
+        <!-- rendered by JS -->
+      </div>
+
+      <h2>What the number actually measures</h2>
+
+      <p>The per-capita bar rate is a peculiar metric. At the top end, it measures tourism infrastructure more than residential culture: the bars of Les Deux Alpes exist because 30,000 skiers need somewhere to apéro, not because 1,933 permanent residents are especially thirsty. At the bottom end, it measures urban planning philosophy — or more precisely, its absence. The grands-ensembles suburbs were built with a theory of the good city that didn't include the corner café.</p>
+
+      <p>The national average of 0.73 per 1,000 is falling — steadily, every decade. France had around 500,000 cafés in 1900; it has fewer than 50,000 today. The decline is continuous and geographically uneven. Rural villages that once had three cafés now have one, or none. New suburbs that never had any still don't. The only places actively adding bars per capita are the mountain resorts, where the ski economy sustains licences that residential logic would have closed long ago.</p>
+
+      <p>The 170× gap between Gavarnie-Gèdre and Évry-Courcouronnes is not really about drinking. It's about which kind of place was built to have bars, and which kind wasn't.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts are from INSEE SIRENE (March 2026 snapshot, NAF code 56.30Z — débits de boissons), geocoded using the SIRENE Géolocalisation file. The same dataset underpins the <a href="../bars/">Where France drinks</a> story. Population figures are from INSEE's 2021 census base as used in the DREES APL 2023 file; some communes show 2021 population that differs from current estimates. The per-capita rate uses registered permanent residents as the denominator, which systematically undercounts the true population base for tourist communes and overcounts isolation in very small villages. The 66.4% "barless" figure counts communes with no active establishment in SIRENE with code 56.30Z; some communes may have licences under adjacent categories not captured here.</p>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — population figures by commune</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function renderRankChart(containerId, rows, isLow) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const maxRate = Math.max(...rows.map(r => r.rate));
+      const fillClass = isLow ? 'rank-fill rank-fill-low' : 'rank-fill';
+      const html = rows.map(r => {
+        const pct = (r.rate / maxRate * 100).toFixed(1);
+        const valueLabel = isLow
+          ? `${r.rate.toFixed(2)}/1,000`
+          : `${r.rate.toFixed(1)}/1,000`;
+        return `
+          <div class="rank-row">
+            <div class="rank-label">${r.name} <span class="rank-dept">(${r.dept})</span></div>
+            <div class="rank-track">
+              <div class="${fillClass}" style="width:${pct}%"></div>
+            </div>
+            <div class="rank-value">${valueLabel}</div>
+          </div>`;
+      }).join('');
+      container.insertAdjacentHTML('beforeend', html);
+    }
+
+    function renderStatRow(stats) {
+      const container = document.getElementById('stat-row');
+      if (!container) return;
+      const boxes = [
+        { num: '23,265', label: 'communes with no bar (66.4%)' },
+        { num: '16.8%',  label: 'of France's population in barless communes' },
+        { num: '6,191',  label: 'communes with exactly one bar' },
+        { num: '0.73',   label: 'bars per 1,000 residents (national average)' },
+      ];
+      container.innerHTML = boxes.map(b =>
+        `<div class="stat-box">
+          <span class="stat-num">${b.num}</span>
+          <span class="stat-label">${b.label}</span>
+        </div>`
+      ).join('');
+    }
+
+    function renderComparison(data) {
+      const container = document.getElementById('comparison');
+      if (!container) return;
+      const top = data.topCommunes[0];
+      const bot = data.bottomLarge[0];
+      container.innerHTML = `
+        <div class="comparison-card">
+          <div class="cmp-rate">${top.rate}</div>
+          <span class="cmp-unit">bars per 1,000 residents</span>
+          <div class="cmp-name">${top.name}</div>
+          <div class="cmp-detail">${top.bars} bars &middot; ${top.pop.toLocaleString('fr-FR')} registered residents &middot; Hautes-Pyrénées<br>Tourism gateway to the Cirque de Gavarnie</div>
+        </div>
+        <div class="comparison-card blue">
+          <div class="cmp-rate">${bot.rate.toFixed(2)}</div>
+          <span class="cmp-unit">bars per 1,000 residents</span>
+          <div class="cmp-name">${bot.name}</div>
+          <div class="cmp-detail">${bot.bars} bars &middot; ${bot.pop.toLocaleString('fr-FR')} residents &middot; Essonne<br>Ville nouvelle built from scratch in the 1960s</div>
+        </div>`;
+    }
+
+    async function main() {
+      const data = await loadJSON('./bar-extremes.json');
+      renderStatRow(data.stats);
+      renderRankChart('chart-top', data.topCommunes, false);
+      renderRankChart('chart-bottom', data.bottomLarge, true);
+      renderComparison(data);
+    }
+
+    main().catch(err => console.error('bar-extremes story error:', err));
+  </script>
+</body>
+</html>

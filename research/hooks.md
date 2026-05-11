@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Gavarnie-Gèdre (Hautes-Pyrénées): 7 bars for 341 permanent residents — 20.5 per 1,000. The Cirque de Gavarnie draws hundreds of thousands of visitors. The bar count is for them, not the 341. [Q-033]
+- 🔥 Évry-Courcouronnes was built from scratch in the 1960s as a ville nouvelle. 8 bars for 66,177 residents. 0.12/1,000. The corner café was never part of the plan. [Q-033]
+- 🔥 66.4% of French communes have no registered bar. But they only house 16.8% of the population — they're tiny villages where the café closed one decade at a time. [Q-033]
+- 🔥 The ratio between France's most bar-dense commune and its most bar-sparse large city is 170-to-1. Both extremes are explained by urban planning, not drinking habits. [Q-033]
