@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: The naming of France
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune called "Y". One letter. 89 people. And 3,882 other communes are saints.
+- Data: Derived from the communes-apl.geojson already in the repo (DREES APL 2023 + INSEE commune boundaries). No new downloads required. 35,014 communes with names, populations, département codes. Generated communes-index.json (centroids + names) and stats.json (name frequency, length distribution, shortest/longest lists).
+- Angle: Text-and-charts story. Three narrative threads: (1) the extremes — "Y" and the 45-character merger monster; (2) the saint factory — 11.1% of communes carry a saint's name, "Sainte-Colombe" exists in 12 departments; (3) the name length distribution, which peaks at 7–8 characters. Two SVG charts (bar chart of top 20 names, histogram of lengths), two comparison tables (shortest/longest).
+- Draft X summary:
+  > France has 35,014 communes. One of them is called "Y." It has 89 residents, sits in the Somme, and does not apologise for the brevity. Today on **france-data**: the naming of France — from Y (1 character) to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters), and the 3,882 communes in between that are saints. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
