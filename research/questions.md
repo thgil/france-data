@@ -91,8 +91,11 @@ datasets and the resulting story.
 - Story: [medical-deserts](/stories/medical-deserts/)
 
 ### Q-015: Which commune has the most doctors per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Montgenèvre (Hautes-Alpes) has France's highest APL score among communes with 200+ residents: 40.03, more than 10× the national average of 3.75. The top 20 are dominated by ski resorts (Vars, APL 21.6; several Queyras communes at APL 10.5) and Atlantic islands (Île-de-Sein, APL 27.7; Île-d'Houat, APL 14.1; Île-d'Aix, APL 14.0; Île-de-Bréhat, APL 11.1; Groix, APL 10.6). At département level, Hautes-Alpes (pop-weighted APL 5.02) edges out Paris (4.96) due to the ski-resort effect. The worst-served are Cher (2.25), Seine-et-Marne (2.38), Eure-et-Loir (2.41), and the IDF ring suburbs.
+- Story: [apl-peaks](/stories/apl-peaks/)
 
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open

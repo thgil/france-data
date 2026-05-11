@@ -1,0 +1,631 @@
+{
+  "national": {
+    "totalCommunes": 34883,
+    "totalPop": 67329462,
+    "popWeightedMeanApl": 3.75,
+    "simpleMeanApl": 2.96,
+    "desertCommunes": 12770,
+    "desertPop": 11103526,
+    "over5Communes": 2042,
+    "over5Pop": 10389112,
+    "over10Communes": 16
+  },
+  "top20communes": [
+    {
+      "name": "Montgenèvre",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "apl": 40.03,
+      "pop": 457,
+      "type": "ski resort"
+    },
+    {
+      "name": "Île-de-Sein",
+      "dept": "29",
+      "deptName": "Finistère",
+      "apl": 27.68,
+      "pop": 273,
+      "type": "island"
+    },
+    {
+      "name": "Vars",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "apl": 21.64,
+      "pop": 573,
+      "type": "ski resort"
+    },
+    {
+      "name": "Cargèse",
+      "dept": "2A",
+      "deptName": "Corse-du-Sud",
+      "apl": 14.19,
+      "pop": 1237,
+      "type": "commune"
+    },
+    {
+      "name": "Île-d'Houat",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "apl": 14.07,
+      "pop": 216,
+      "type": "island"
+    },
+    {
+      "name": "Île-d'Aix",
+      "dept": "17",
+      "deptName": "Charente-Maritime",
+      "apl": 14.01,
+      "pop": 207,
+      "type": "island"
+    },
+    {
+      "name": "Englos",
+      "dept": "59",
+      "deptName": "Nord",
+      "apl": 11.37,
+      "pop": 614,
+      "type": "commune"
+    },
+    {
+      "name": "Île-de-Bréhat",
+      "dept": "22",
+      "deptName": "Côtes-d'Armor",
+      "apl": 11.11,
+      "pop": 402,
+      "type": "island"
+    },
+    {
+      "name": "Saint-Étienne-Vallée-Française",
+      "dept": "48",
+      "deptName": "Lozère",
+      "apl": 10.8,
+      "pop": 496,
+      "type": "commune"
+    },
+    {
+      "name": "Vendeville",
+      "dept": "59",
+      "deptName": "Nord",
+      "apl": 10.65,
+      "pop": 1546,
+      "type": "commune"
+    },
+    {
+      "name": "Groix",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "apl": 10.61,
+      "pop": 2282,
+      "type": "island"
+    },
+    {
+      "name": "Abriès-Ristolas",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "apl": 10.54,
+      "pop": 382,
+      "type": "ski resort"
+    },
+    {
+      "name": "Aiguilles",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "apl": 10.54,
+      "pop": 377,
+      "type": "ski resort"
+    },
+    {
+      "name": "Château-Ville-Vieille",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "apl": 10.54,
+      "pop": 306,
+      "type": "ski resort"
+    },
+    {
+      "name": "Rosiers-d'Égletons",
+      "dept": "19",
+      "deptName": "Corrèze",
+      "apl": 10.0,
+      "pop": 1091,
+      "type": "commune"
+    },
+    {
+      "name": "Hallennes-lez-Haubourdin",
+      "dept": "59",
+      "deptName": "Nord",
+      "apl": 9.98,
+      "pop": 4718,
+      "type": "commune"
+    },
+    {
+      "name": "Arreau",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "apl": 9.94,
+      "pop": 752,
+      "type": "commune"
+    },
+    {
+      "name": "Ancizan",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "apl": 9.79,
+      "pop": 279,
+      "type": "commune"
+    },
+    {
+      "name": "Guchen",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "apl": 9.79,
+      "pop": 325,
+      "type": "commune"
+    },
+    {
+      "name": "Lezennes",
+      "dept": "59",
+      "deptName": "Nord",
+      "apl": 9.74,
+      "pop": 3019,
+      "type": "commune"
+    }
+  ],
+  "topDepts": [
+    {
+      "dept": "05",
+      "name": "Hautes-Alpes",
+      "meanApl": 4.26,
+      "popWeightedApl": 5.02,
+      "communes": 162,
+      "pop": 140976,
+      "desertPop": 13265,
+      "desertCommunes": 42,
+      "desertPct": 9.4
+    },
+    {
+      "dept": "75",
+      "name": "Paris",
+      "meanApl": 5.41,
+      "popWeightedApl": 4.96,
+      "communes": 20,
+      "pop": 2133111,
+      "desertPop": 0,
+      "desertCommunes": 0,
+      "desertPct": 0.0
+    },
+    {
+      "dept": "33",
+      "name": "Gironde",
+      "meanApl": 3.76,
+      "popWeightedApl": 4.94,
+      "communes": 534,
+      "pop": 1654884,
+      "desertPop": 58048,
+      "desertCommunes": 45,
+      "desertPct": 3.5
+    },
+    {
+      "dept": "67",
+      "name": "Bas-Rhin",
+      "meanApl": 3.91,
+      "popWeightedApl": 4.91,
+      "communes": 514,
+      "pop": 1152662,
+      "desertPop": 39886,
+      "desertCommunes": 50,
+      "desertPct": 3.5
+    },
+    {
+      "dept": "13",
+      "name": "Bouches-du-Rhône",
+      "meanApl": 4.17,
+      "popWeightedApl": 4.59,
+      "communes": 134,
+      "pop": 2056943,
+      "desertPop": 30085,
+      "desertCommunes": 8,
+      "desertPct": 1.5
+    },
+    {
+      "dept": "64",
+      "name": "Pyrénées-Atlantiques",
+      "meanApl": 3.41,
+      "popWeightedApl": 4.58,
+      "communes": 545,
+      "pop": 693027,
+      "desertPop": 40163,
+      "desertCommunes": 137,
+      "desertPct": 5.8
+    },
+    {
+      "dept": "59",
+      "name": "Nord",
+      "meanApl": 3.9,
+      "popWeightedApl": 4.56,
+      "communes": 647,
+      "pop": 2610915,
+      "desertPop": 76310,
+      "desertCommunes": 58,
+      "desertPct": 2.9
+    },
+    {
+      "dept": "80",
+      "name": "Somme",
+      "meanApl": 3.68,
+      "popWeightedApl": 4.54,
+      "communes": 771,
+      "pop": 566005,
+      "desertPop": 22514,
+      "desertCommunes": 88,
+      "desertPct": 4.0
+    },
+    {
+      "dept": "34",
+      "name": "Hérault",
+      "meanApl": 3.25,
+      "popWeightedApl": 4.48,
+      "communes": 341,
+      "pop": 1201734,
+      "desertPop": 53990,
+      "desertCommunes": 108,
+      "desertPct": 4.5
+    },
+    {
+      "dept": "31",
+      "name": "Haute-Garonne",
+      "meanApl": 3.35,
+      "popWeightedApl": 4.39,
+      "communes": 586,
+      "pop": 1434367,
+      "desertPop": 40291,
+      "desertCommunes": 154,
+      "desertPct": 2.8
+    },
+    {
+      "dept": "06",
+      "name": "Alpes-Maritimes",
+      "meanApl": 2.89,
+      "popWeightedApl": 4.37,
+      "communes": 163,
+      "pop": 1103941,
+      "desertPop": 56962,
+      "desertCommunes": 71,
+      "desertPct": 5.2
+    },
+    {
+      "dept": "40",
+      "name": "Landes",
+      "meanApl": 3.54,
+      "popWeightedApl": 4.33,
+      "communes": 327,
+      "pop": 422976,
+      "desertPop": 15014,
+      "desertCommunes": 40,
+      "desertPct": 3.5
+    },
+    {
+      "dept": "14",
+      "name": "Calvados",
+      "meanApl": 3.52,
+      "popWeightedApl": 4.28,
+      "communes": 525,
+      "pop": 696164,
+      "desertPop": 49065,
+      "desertCommunes": 86,
+      "desertPct": 7.0
+    },
+    {
+      "dept": "29",
+      "name": "Finistère",
+      "meanApl": 3.76,
+      "popWeightedApl": 4.27,
+      "communes": 277,
+      "pop": 921638,
+      "desertPop": 52775,
+      "desertCommunes": 43,
+      "desertPct": 5.7
+    },
+    {
+      "dept": "73",
+      "name": "Savoie",
+      "meanApl": 3.27,
+      "popWeightedApl": 4.25,
+      "communes": 273,
+      "pop": 442468,
+      "desertPop": 45582,
+      "desertCommunes": 90,
+      "desertPct": 10.3
+    }
+  ],
+  "bottomDepts": [
+    {
+      "dept": "18",
+      "name": "Cher",
+      "meanApl": 1.82,
+      "popWeightedApl": 2.25,
+      "communes": 286,
+      "pop": 299573,
+      "desertPop": 181154,
+      "desertCommunes": 231,
+      "desertPct": 60.5
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "meanApl": 2.11,
+      "popWeightedApl": 2.38,
+      "communes": 507,
+      "pop": 1438100,
+      "desertPop": 792589,
+      "desertCommunes": 368,
+      "desertPct": 55.1
+    },
+    {
+      "dept": "28",
+      "name": "Eure-et-Loir",
+      "meanApl": 2.17,
+      "popWeightedApl": 2.41,
+      "communes": 363,
+      "pop": 430976,
+      "desertPop": 240293,
+      "desertCommunes": 261,
+      "desertPct": 55.8
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "meanApl": 2.31,
+      "popWeightedApl": 2.41,
+      "communes": 183,
+      "pop": 1256607,
+      "desertPop": 793798,
+      "desertCommunes": 121,
+      "desertPct": 63.2
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "meanApl": 2.46,
+      "popWeightedApl": 2.52,
+      "communes": 194,
+      "pop": 1313768,
+      "desertPop": 673703,
+      "desertCommunes": 117,
+      "desertPct": 51.3
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "meanApl": 2.34,
+      "popWeightedApl": 2.58,
+      "communes": 259,
+      "pop": 1456365,
+      "desertPop": 563020,
+      "desertCommunes": 153,
+      "desertPct": 38.7
+    },
+    {
+      "dept": "27",
+      "name": "Eure",
+      "meanApl": 2.4,
+      "popWeightedApl": 2.59,
+      "communes": 585,
+      "pop": 598934,
+      "desertPop": 272734,
+      "desertCommunes": 341,
+      "desertPct": 45.5
+    },
+    {
+      "dept": "45",
+      "name": "Loiret",
+      "meanApl": 1.92,
+      "popWeightedApl": 2.63,
+      "communes": 325,
+      "pop": 684561,
+      "desertPop": 276684,
+      "desertCommunes": 261,
+      "desertPct": 40.4
+    },
+    {
+      "dept": "89",
+      "name": "Yonne",
+      "meanApl": 2.42,
+      "popWeightedApl": 2.63,
+      "communes": 423,
+      "pop": 333385,
+      "desertPop": 151197,
+      "desertCommunes": 239,
+      "desertPct": 45.4
+    },
+    {
+      "dept": "01",
+      "name": "Ain",
+      "meanApl": 2.33,
+      "popWeightedApl": 2.64,
+      "communes": 391,
+      "pop": 663025,
+      "desertPop": 293134,
+      "desertCommunes": 224,
+      "desertPct": 44.2
+    },
+    {
+      "dept": "36",
+      "name": "Indre",
+      "meanApl": 2.37,
+      "popWeightedApl": 2.67,
+      "communes": 241,
+      "pop": 217228,
+      "desertPop": 84416,
+      "desertCommunes": 148,
+      "desertPct": 38.9
+    },
+    {
+      "dept": "58",
+      "name": "Nièvre",
+      "meanApl": 2.34,
+      "popWeightedApl": 2.68,
+      "communes": 309,
+      "pop": 202417,
+      "desertPop": 84009,
+      "desertCommunes": 178,
+      "desertPct": 41.5
+    },
+    {
+      "dept": "72",
+      "name": "Sarthe",
+      "meanApl": 2.49,
+      "popWeightedApl": 2.76,
+      "communes": 352,
+      "pop": 563497,
+      "desertPop": 198647,
+      "desertCommunes": 196,
+      "desertPct": 35.3
+    },
+    {
+      "dept": "41",
+      "name": "Loir-et-Cher",
+      "meanApl": 2.3,
+      "popWeightedApl": 2.77,
+      "communes": 267,
+      "pop": 328504,
+      "desertPop": 106236,
+      "desertCommunes": 157,
+      "desertPct": 32.3
+    },
+    {
+      "dept": "61",
+      "name": "Orne",
+      "meanApl": 2.72,
+      "popWeightedApl": 2.85,
+      "communes": 381,
+      "pop": 276283,
+      "desertPop": 81805,
+      "desertCommunes": 149,
+      "desertPct": 29.6
+    }
+  ],
+  "distribution": [
+    {
+      "aplMin": 0.0,
+      "aplMax": 0.5,
+      "communes": 829,
+      "pop": 188183
+    },
+    {
+      "aplMin": 0.5,
+      "aplMax": 1.5,
+      "communes": 919,
+      "pop": 290712
+    },
+    {
+      "aplMin": 1.0,
+      "aplMax": 2.5,
+      "communes": 2103,
+      "pop": 1062146
+    },
+    {
+      "aplMin": 1.5,
+      "aplMax": 3.5,
+      "communes": 3692,
+      "pop": 3279389
+    },
+    {
+      "aplMin": 2.0,
+      "aplMax": 4.5,
+      "communes": 5227,
+      "pop": 6283096
+    },
+    {
+      "aplMin": 2.5,
+      "aplMax": 5.5,
+      "communes": 6011,
+      "pop": 9136927
+    },
+    {
+      "aplMin": 3.0,
+      "aplMax": 6.5,
+      "communes": 5398,
+      "pop": 9814228
+    },
+    {
+      "aplMin": 3.5,
+      "aplMax": 7.5,
+      "communes": 4341,
+      "pop": 10205323
+    },
+    {
+      "aplMin": 4.0,
+      "aplMax": 8.5,
+      "communes": 2758,
+      "pop": 8332035
+    },
+    {
+      "aplMin": 4.5,
+      "aplMax": 9.5,
+      "communes": 1536,
+      "pop": 8208884
+    },
+    {
+      "aplMin": 5.0,
+      "aplMax": 10.5,
+      "communes": 928,
+      "pop": 4819016
+    },
+    {
+      "aplMin": 5.5,
+      "aplMax": 11.5,
+      "communes": 452,
+      "pop": 1932200
+    },
+    {
+      "aplMin": 6.0,
+      "aplMax": 12.5,
+      "communes": 295,
+      "pop": 2109978
+    },
+    {
+      "aplMin": 6.5,
+      "aplMax": 13.5,
+      "communes": 157,
+      "pop": 838703
+    },
+    {
+      "aplMin": 7.0,
+      "aplMax": 14.5,
+      "communes": 100,
+      "pop": 355724
+    },
+    {
+      "aplMin": 7.5,
+      "aplMax": 15.5,
+      "communes": 46,
+      "pop": 192960
+    },
+    {
+      "aplMin": 8.0,
+      "aplMax": 16.5,
+      "communes": 37,
+      "pop": 112372
+    },
+    {
+      "aplMin": 8.5,
+      "aplMax": 17.5,
+      "communes": 20,
+      "pop": 95017
+    },
+    {
+      "aplMin": 9.0,
+      "aplMax": 18.5,
+      "communes": 7,
+      "pop": 50374
+    },
+    {
+      "aplMin": 9.5,
+      "aplMax": 99,
+      "communes": 27,
+      "pop": 22195
+    }
+  ]
+}

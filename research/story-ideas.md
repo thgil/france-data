@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### apl-peaks: Where the doctors gather
+- Status: ✅ published
+- Published URL: /stories/apl-peaks/
+- Source question: [Q-015](questions.md#q-015-which-commune-has-the-most-doctors-per-capita)
+- Hook: France's most medically over-served commune is a ski resort — Montgenèvre, APL=40, ten times the national average, because mountain medical staffing is sized for the slopes, not the 457 permanent residents.
+- Data: DREES APL 2023 commune-level scores ([DS-APL](datasets.md#ds-apl)), reusing communes-apl.geojson already in the repo from the medical-deserts story. No new download needed.
+- Angle: Companion piece to medical-deserts, flipping to the positive tail. D3 horizontal bar chart of top 20 communes (colour-coded by APL band) and a department ranking chart showing Hautes-Alpes edging out Paris. Three insight boxes with the key population numbers.
+- Draft X summary:
+  > France's medical desert map has a flip side. Montgenèvre (pop 457) has an APL score of 40 — ten times the national average. Île-de-Sein, Île-d'Aix, Île-de-Bréhat, Groix: islands need stationed doctors. Ski resorts need them for the slopes. Today on **france-data**: the communes where the doctors actually gather. 🏔️🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

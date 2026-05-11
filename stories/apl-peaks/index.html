@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where the doctors gather — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      max-width: 680px;
+    }
+    .chart-figure figcaption a { color: inherit; }
+
+    .chart-mount {
+      min-height: 80px;
+    }
+
+    /* ── Pull stat ───────────────────────────────────────────────────── */
+    .pull-stat {
+      margin: 48px auto;
+      max-width: 560px;
+      padding: 28px 32px;
+      border-left: 3px solid var(--accent);
+      background: #f5f0e8;
+    }
+    .pull-stat .number {
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+    .pull-stat .label {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: 6px;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Insight boxes ───────────────────────────────────────────────── */
+    .insight-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .insight-row { grid-template-columns: 1fr; }
+    }
+    .insight-box {
+      padding: 20px;
+      border: 1px solid #d8d0c0;
+      background: #faf7f2;
+    }
+    .insight-box .ib-value {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .insight-box .ib-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+    .insight-box .ib-note {
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 8px;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-bottom: 12px;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">Where the doctors gather</h1>
+        <p class="story-dek">France's most medically over-served communes — and why they're almost all ski resorts or Atlantic islands.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────── -->
+      <p>The <a href="../medical-deserts/">medical deserts story</a> mapped 12,771 communes where official doctor access falls below the national minimum. But APL — <em>accessibilité potentielle localisée</em>, the DREES measure of GP consultations accessible per resident — runs in both directions. At the other end of the distribution sits Montgenèvre, a mountain village of 457 permanent residents in the Hautes-Alpes, with an APL score of <strong>40.03</strong>.</p>
+
+      <p>Forty consultations per resident per year. The national population-weighted average is 3.75. Montgenèvre's permanent population has access to a doctor ten times more accessible than the average French resident — not because Montgenèvre is wealthy or well-connected, but because it sits at 1,860 metres altitude and has a ski resort. The doctors are there because the mountain requires it.</p>
+
+      <div class="pull-stat">
+        <span class="number">40.03</span>
+        <span class="label">APL score, Montgenèvre (Hautes-Alpes) — France's highest for communes with 200+ residents. The national average is 3.75.</span>
+      </div>
+
+      <!-- ── Beat 2: Top communes chart ──────────────────────────── -->
+      <h2>The top 20: resorts and islands</h2>
+
+      <p>Look at the top 20 communes by APL score — any commune with at least 200 permanent residents — and a pattern emerges immediately. Ski resorts and Atlantic islands dominate. Vars (APL 21.6), in the same Hautes-Alpes ski zone as Montgenèvre. Île-de-Sein (APL 27.7), a speck of granite off the Finistère coast with 273 permanent residents and a doctor stationed year-round. Île-d'Houat (APL 14.1). Île-d'Aix (APL 14.0). Île-de-Bréhat (APL 11.1). Groix (APL 10.6).</p>
+
+      <p>These aren't flukes. Islands need a stationed doctor: evacuation by sea takes hours in bad weather, and the French health system mandates medical coverage for year-round communities. Ski resorts need doctors for accident response on the slopes. In both cases, the required medical staffing is sized for a seasonal or peak population far larger than the permanent one — so the APL ratio, which divides consultations available by permanent residents, goes stratospheric.</p>
+
+      <div class="chart-legend">
+        <span><span class="legend-swatch" style="background:#1a6b3c"></span>APL ≥ 10</span>
+        <span><span class="legend-swatch" style="background:#2d9a5a"></span>APL ≥ 5</span>
+        <span><span class="legend-swatch" style="background:#7bbf9a"></span>APL ≥ 2.5 (above desert threshold)</span>
+      </div>
+
+      <figure class="chart-figure">
+        <div id="chart-communes" class="chart-mount"></div>
+        <figcaption>Top 20 communes by APL score, restricted to communes with at least 200 permanent residents. The dashed line marks the national population-weighted average (3.75). Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ─────────────────────────────────────────────── -->
+      <h2>The suburbs of Lille</h2>
+
+      <p>Not all the high-APL outliers are remote. Four communes in Nord (dept 59) appear in the top 20: Englos (APL 11.4, pop 614), Vendeville (APL 10.7, pop 1,546), Hallennes-lez-Haubourdin (APL 10.0, pop 4,718), and Lezennes (APL 9.7, pop 3,019). These are Lille's southern and western suburbs — small communes that sit directly adjacent to a major hospital cluster (CHU de Lille, Hôpital Saint-Philibert) and attract private practices because land is cheaper than in Lille itself. The permanent population stays modest while the medical network grows dense.</p>
+
+      <p>Cargèse (APL 14.2, pop 1,237) is a Corsican coastal village with a large summer population but a full-time medical team. Saint-Étienne-Vallée-Française (APL 10.8, pop 496) is a Lozère commune at the edge of the Cévennes national park — small, mountainous, and probably served by a single doctor whose practice covers a wide rural catchment.</p>
+
+      <!-- ── Beat 4: Dept chart ─────────────────────────────────── -->
+      <h2>Hautes-Alpes beats Paris</h2>
+
+      <p>At département level the same ski-resort logic reappears. Hautes-Alpes (dept 05) ranks first nationally with a population-weighted APL of 5.02, edging out Paris (4.96) by the thinnest of margins. This is because the département's permanent population is small (140,000 residents) while its medical infrastructure is calibrated for a winter peak of several times that. Paris ranks second for a different reason: sheer density of specialist practices and clinics relative to even its large population.</p>
+
+      <p>Gironde (4.94) and Bas-Rhin (4.91) come next — both university cities with major teaching hospitals (Bordeaux, Strasbourg) pulling the département average up. Bouches-du-Rhône (4.59) benefits from Marseille's AP-HM hospital system, France's second-largest. The bottom of the table reads like a map of the <em>diagonale du vide</em> that already appeared in the medical deserts story: Cher (2.25), Seine-et-Marne (2.38), Eure-et-Loir (2.41), Val-d'Oise (2.41).</p>
+
+      <figure class="chart-figure">
+        <div id="chart-depts" class="chart-mount"></div>
+        <figcaption>Population-weighted mean APL by département. Top 12 (green) and bottom 10 (orange), separated by a dashed line. The orange dashed line marks the desert threshold (2.5); the grey dashed line marks the national average (3.75). Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5 (the paradox) ───────────────────────────────── -->
+      <h2>The same small-population paradox, both ways</h2>
+
+      <div class="insight-row">
+        <div class="insight-box">
+          <div class="ib-value">16</div>
+          <div class="ib-label">Communes with APL > 10</div>
+          <div class="ib-note">Total permanent population: ~9,600 people — a small city block in statistical terms.</div>
+        </div>
+        <div class="insight-box">
+          <div class="ib-value">2,042</div>
+          <div class="ib-label">Communes with APL > 5</div>
+          <div class="ib-note">10.4 million residents — about 16% of the French population — live in these well-served communes.</div>
+        </div>
+        <div class="insight-box">
+          <div class="ib-value">12,771</div>
+          <div class="ib-label">Communes below APL 2.5</div>
+          <div class="ib-note">11.1 million people in official medical deserts — roughly the same share of the population, at the opposite end.</div>
+        </div>
+      </div>
+
+      <p>The medical desert story and this one share a structural explanation. The APL formula divides estimated accessible consultations by the standardised demand of permanent residents. A small commune near a hospital town has many consultations accessible and few permanent residents demanding them — so APL spikes. A small rural commune in the Nièvre or the Cher has neither nearby practices nor a large enough population base to attract new ones — so APL collapses.</p>
+
+      <p>The result is a distribution with fat tails in both directions. France doesn't have a doctor shortage at the national level — it has roughly 113,000 active GPs (DREES 2023). It has a distribution problem. The same geographic logic that leaves Maripasoula in Guyane at APL 0.00 leaves Montgenèvre at 40.03. The map is lopsided, and it has been for decades.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> APL scores come from DREES's 2023 annual release of the <em>accessibilité potentielle localisée</em> indicator, covering 34,886 communes including overseas territories. The population figures used in this story are from INSEE's 2021 estimates, as included in the DREES release. The APL indicator is a modelled access measure — it uses a two-step floating catchment area method, accounting for the distance residents must travel and the workload of each GP practice. It is not a simple doctor-to-population ratio: a commune can have no GP located within it but still score highly if practices in adjacent communes are easily reachable. Conversely, a commune with a single overworked GP serving a large rural catchment can score poorly despite having a practice on site. Top-commune rankings are limited to communes with at least 200 permanent residents to avoid single-household artefacts.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) 2023</a>. APL scores at commune level for all France.</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025 (data.gouv.fr / Etalab)</a>. Commune polygons used in the companion <a href="../medical-deserts/">medical deserts</a> story.</li>
+        </ul>
+
+        <h3>Related</h3>
+        <ul>
+          <li><a href="../medical-deserts/">Medical deserts — where the doctors aren't</a> — the other side of this map.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopCommunesChart, drawDeptChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        drawTopCommunesChart('#chart-communes', stats);
+        drawDeptChart('#chart-depts', stats);
+      } catch (err) {
+        console.error('Failed to load APL peaks story data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
