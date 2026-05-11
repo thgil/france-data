@@ -35,6 +35,7 @@ datasets and the resulting story.
 ### Q-005: What share of communes lose population every year?
 - Status: 🟢 open
 - Topic: [demographics](topics/demographics.md)
+- Context: The static size distribution is covered in [median-france](/stories/median-france/): 52% of communes have under 500 residents; the median is 459. Answering the *change* question requires multi-year census data not yet in repo.
 
 ### Q-006: Where are the "centenarian capitals" — communes with the most residents over 100?
 - Status: 🟢 open

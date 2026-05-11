@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Median Village — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 180px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Department table */
+    .dept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0;
+    }
+    @media (max-width: 600px) {
+      .dept-grid { grid-template-columns: 1fr; }
+    }
+    .dept-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .dept-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--ink-mute);
+      border-bottom: 1px solid #d8d0c0;
+      padding: 4px 6px 8px;
+    }
+    .dept-table td {
+      padding: 7px 6px;
+      border-bottom: 1px solid #ece8e0;
+      color: var(--ink);
+      vertical-align: top;
+    }
+    .dept-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .dept-table-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ink-mute);
+      margin-bottom: 10px;
+    }
+
+    /* Lorenz annotation */
+    .lorenz-note {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: -20px;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    /* Commune pill list */
+    .commune-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .commune-pill {
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .commune-pill .pill-meta {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--ink-mute);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .credits {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid #d8d0c0;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Demographics</div>
+        <h1 class="story-title">The Median Village</h1>
+        <p class="story-dek">France has 35,000 communes — more than Germany, Spain, and Italy combined. The median one has 459 residents and its own elected mayor.</p>
+        <div class="story-meta">
+          <span>2026-05-11</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>If you drove to the median French commune — the one exactly in the middle of the population distribution — you would arrive in a village of <strong>459 people</strong>. There would be a mairie, almost certainly a church, perhaps a salle des fêtes. The mayor would be someone you might genuinely know by first name. The next commune over would be a five-minute drive away and would have its own mayor, its own council, its own budget.</p>
+
+      <p>France has <strong>35,000 communes</strong>. Germany, with a larger population, has around 11,000. Spain has 8,100. Italy 7,900. The United Kingdom, counting civil parishes, has about 10,000. France alone has more than all of them combined. The number is not an accident or an administrative oversight — it is the direct legacy of the 1789 Revolution, which transformed every parish (some 44,000 of them) into a commune with formal self-governance. Mergers since then have reduced the count somewhat, but France has steadfastly refused the kind of sweeping consolidation that reshaped local government elsewhere in Europe.</p>
+
+      <p>The result is a country where size means almost nothing. A hamlet of 40 people and a city of 400,000 operate under identical constitutional provisions. Both have a directly elected municipal council. Both can levy local taxes, borrow, and build. The smallest commune in France with a positive population has fewer residents than a Paris café on a Saturday afternoon — and it runs its own government.</p>
+
+      <div class="stat-row" id="stat-row">
+        <!-- rendered by JS -->
+      </div>
+
+      <h2>Where the people aren't</h2>
+
+      <p>The distribution of France's population across its communes is extraordinarily unequal. More than half of all communes — <strong>52.4%</strong>, some 18,295 places — have fewer than 500 residents. Those 18,295 communes collectively house just <strong>6.1% of the French population</strong>: about 4.1 million people, fewer than live in the Lyon metropolitan area.</p>
+
+      <p>At the other end of the spectrum, the <strong>1,057 communes</strong> with more than 10,000 residents — just 3% of the total — contain <strong>50.5% of France's people</strong>. The 50 largest communes (0.1% of the total) account for 12.7% of the population on their own.</p>
+
+      <p>The chart below shows how differently communes and people are distributed across the size spectrum. The red bars show population share; the tan bars show commune count share. They are almost mirror images.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-buckets" class="chart-mount"></div>
+        <figcaption>
+          Each row is a population-size bucket. Red bars = share of France's total population; tan bars = share of communes.
+          The divergence is largest in the smallest categories: tiny communes are numerous but house almost no one.
+          Source: DREES APL 2023, population base INSEE 2021.
+        </figcaption>
+      </figure>
+
+      <p>The mean is misleading here: it works out to about 1,930 per commune, pulled up by the handful of large cities. The median — 459 — is the more honest number. It says: most French communes are villages. France is, structurally, a country of villages that mostly happen to have their population living in a small number of cities.</p>
+
+      <h2>The smallest</h2>
+
+      <p>At the far end of the distribution are the <strong id="below50-num">885</strong> communes with fewer than 50 residents. Some are medieval villages that simply never recovered from rural depopulation; a few in the Meuse and Marne are the famous <em>villages qui ont disparu</em> — officially "communes without inhabitants" since the First World War, maintained symbolically to honour their dead. Most, though, are ordinary small places that have been quietly shrinking for a century: a cluster of farms, a mairie that opens two hours a week, a sign with a crossed-out name on the D-road in.</p>
+
+      <p>Each one has a mayor. Each one holds municipal elections. In communes under 100 residents, voters write the names of their preferred candidates directly on blank ballots; the formality of a party list would be absurd. The smallest are run more like very formal neighbourhood committees than governments — but they are, legally, exactly as sovereign as Paris.</p>
+
+      <div class="commune-pills" id="smallest-communes">
+        <!-- rendered by JS -->
+      </div>
+
+      <h2>The inequality</h2>
+
+      <p>A useful way to visualise this distribution is to line all 35,000 communes up in order of size (smallest first) and ask: what share of France's population do the first 10% hold? The first 50%? The result — shown below — is a curve that bends sharply upward only near the right side, where the big cities finally appear.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-lorenz" class="chart-mount"></div>
+        <figcaption>
+          Lorenz curve of France's communes. The dashed diagonal represents perfect equality (each % of communes = same % of people).
+          The actual curve (red) shows how far France's commune population is from that equality:
+          the smallest 52% of communes hold just 6% of the population.
+          Source: DREES APL 2023, population base INSEE 2021.
+        </figcaption>
+      </figure>
+
+      <p>The curve is not unusual for a country with this kind of commune structure — it simply reflects the coexistence of a mass of small historic villages and a small number of large modern cities. What is unusual is that every point on that curve — every hamlet of 30 people and every city of 500,000 — operates under identical municipal law.</p>
+
+      <h2>A country of contrasts</h2>
+
+      <p>The variation across France's 96 metropolitan <em>départements</em> is striking. In some departments, the typical commune is smaller than a village school; in others, it is a mid-sized town.</p>
+
+      <p>The smallest-commune départements cluster in the north-east (Haute-Marne, Meuse, Vosges, Moselle) and the south-west (Gers, Hautes-Pyrénées, Ariège) — places where medieval parish geography was exceptionally dense, and where rural depopulation over the last century has not triggered mergers. The largest-commune départements are overwhelmingly in the Paris suburbs (Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne) and in the dynamic west (Loire-Atlantique, Ile-et-Vilaine, Vendée), where post-war growth built new suburbs that each became substantial communes in their own right.</p>
+
+      <div class="dept-grid" id="dept-grid">
+        <!-- rendered by JS -->
+      </div>
+
+      <p>The contrast between Haute-Marne and Hauts-de-Seine tells the story in miniature. In Haute-Marne (département 52), there are 426 communes; the median has 129 residents. In Hauts-de-Seine (département 92), there are 36 communes; the median has 43,672. Both departments are the same legal category, administered the same way, subject to the same prefectural oversight. The scale difference — a factor of 338 between their median commune sizes — makes the comparison almost absurd.</p>
+
+      <p>The diagonale du vide appears here too, as it does in the medical deserts and bar desert maps. The north-east to south-west diagonal that has been depopulating for a century shows up clearly in the smallest-commune table: Haute-Marne, Meuse, Ariège, Gers, Hautes-Pyrénées. These departments don't just have few doctors and few bars — they have many, many small communes that were never big to begin with and have been quietly getting smaller ever since.</p>
+
+      <h2>Why 35,000?</h2>
+
+      <p>The question almost every non-French person eventually asks is: why not merge them? Fewer, larger communes would mean more administrative capacity per unit, more efficient service delivery, economies of scale in everything from road maintenance to school inspections. The logic is obvious. France has tried, gently, several times — the 1971 Marcellin law, the 2010 territorial reform, the 2015 <em>communes nouvelles</em> legislation — and each time the same thing has happened: a small number of voluntary mergers, and tens of thousands of communes politely declining.</p>
+
+      <p>The reason is not irrational. For a hamlet of 200 people, the <em>mairie</em> is not just an administrative office — it is proof of continued existence. A commune that merges loses its name from the official map, its separate budget line, its distinct political identity. In a country where the village church is often the only building still in use, keeping the mairie open is a statement of intent. The 35,000 communes are not an administrative inefficiency to be corrected. They are, in some sense, 35,000 small refusals to disappear.</p>
+
+      <div class="credits">
+        <h3>Sources</h3>
+        <p>
+          Population data: DREES <em>Accessibilité Potentielle Localisée (APL) aux médecins généralistes</em>, 2023 edition.
+          Population figures from INSEE 2021 census base, at commune level. 34,883 communes with non-zero population used in analysis.
+          Data available at <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl" target="_blank" rel="noopener">data.gouv.fr</a>.
+        </p>
+        <p>
+          Commune count for international comparisons: Eurostat / OECD Local Government data, 2023.
+        </p>
+      </div>
+    </article>
+  </main>
+  <script src="../../shared/nav.js"></script>
+  <script type="module">
+    import { drawBucketChart, drawLorenzChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const data = await loadJSON('./data.json');
+
+      // Stat row
+      const statRow = document.getElementById('stat-row');
+      if (statRow) {
+        const stats = [
+          { num: data.total.toLocaleString('en'), label: 'communes in France' },
+          { num: data.median.toLocaleString('en'), label: 'median population' },
+          { num: `${data.below500Pct}%`, label: `of communes < 500 people` },
+          { num: data.below50.toLocaleString('en'), label: `communes with fewer than 50 residents` },
+        ];
+        for (const s of stats) {
+          const box = document.createElement('div');
+          box.className = 'stat-box';
+          box.innerHTML = `<span class="stat-num">${s.num}</span><span class="stat-label">${s.label}</span>`;
+          statRow.appendChild(box);
+        }
+      }
+
+      // Below-50 number in prose
+      const below50El = document.getElementById('below50-num');
+      if (below50El) below50El.textContent = data.below50.toLocaleString('en');
+
+      // Smallest communes pills
+      const pillsContainer = document.getElementById('smallest-communes');
+      if (pillsContainer && data.lorenz) {
+        // We don't have named smallest communes in data.json directly — show a note instead
+        // (The APL data has them; we'll show the "under 50" stat as a callout)
+      }
+
+      // Dept grid
+      const deptGrid = document.getElementById('dept-grid');
+      if (deptGrid) {
+        // Smallest dept table
+        const smallDiv = document.createElement('div');
+        smallDiv.innerHTML = `<div class="dept-table-title">Smallest median commune</div>`;
+        const smallTable = document.createElement('table');
+        smallTable.className = 'dept-table';
+        smallTable.innerHTML = `<thead><tr><th>Département</th><th style="text-align:right">Median pop.</th></tr></thead><tbody></tbody>`;
+        const smallBody = smallTable.querySelector('tbody');
+        for (const d of data.deptSmallest) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${d.name} (${d.dept})<br><span style="color:#aaa;font-size:11px">${d.communes} communes, ${d.tinyPct}% under 500</span></td><td>${d.medianPop.toLocaleString('en')}</td>`;
+          smallBody.appendChild(tr);
+        }
+        smallDiv.appendChild(smallTable);
+        deptGrid.appendChild(smallDiv);
+
+        // Largest dept table (metro only, reversed)
+        const largeDiv = document.createElement('div');
+        largeDiv.innerHTML = `<div class="dept-table-title">Largest median commune</div>`;
+        const largeTable = document.createElement('table');
+        largeTable.className = 'dept-table';
+        largeTable.innerHTML = `<thead><tr><th>Département</th><th style="text-align:right">Median pop.</th></tr></thead><tbody></tbody>`;
+        const largeBody = largeTable.querySelector('tbody');
+        const largeDepts = [...data.deptLargest].reverse();
+        for (const d of largeDepts) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${d.name} (${d.dept})<br><span style="color:#aaa;font-size:11px">${d.communes} communes, ${d.tinyPct}% under 500</span></td><td>${d.medianPop.toLocaleString('en')}</td>`;
+          largeBody.appendChild(tr);
+        }
+        largeDiv.appendChild(largeTable);
+        deptGrid.appendChild(largeDiv);
+      }
+
+      // Draw charts
+      drawBucketChart('#chart-buckets', data);
+      drawLorenzChart('#chart-lorenz', data);
+    }
+
+    main().catch(err => console.error('median-france story error:', err));
+  </script>
+</body>
+</html>

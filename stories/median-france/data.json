@@ -1,0 +1,555 @@
+{
+  "total": 34883,
+  "totalPop": 67329462,
+  "median": 459,
+  "mean": 1930,
+  "below500": 18295,
+  "below500Pct": 52.4,
+  "below500Pop": 4108089,
+  "below500PopPct": 6.1,
+  "above10k": 1057,
+  "above10kPct": 3.0,
+  "above10kPop": 34034107,
+  "above10kPopPct": 50.5,
+  "below50": 885,
+  "buckets": [
+    {
+      "label": "under 50",
+      "communes": 885,
+      "population": 30395,
+      "communesPct": 2.5,
+      "populationPct": 0.0
+    },
+    {
+      "label": "50–99",
+      "communes": 2497,
+      "population": 188941,
+      "communesPct": 7.2,
+      "populationPct": 0.3
+    },
+    {
+      "label": "100–199",
+      "communes": 5422,
+      "population": 798768,
+      "communesPct": 15.5,
+      "populationPct": 1.2
+    },
+    {
+      "label": "200–499",
+      "communes": 9491,
+      "population": 3089985,
+      "communesPct": 27.2,
+      "populationPct": 4.6
+    },
+    {
+      "label": "500–999",
+      "communes": 6593,
+      "population": 4649538,
+      "communesPct": 18.9,
+      "populationPct": 6.9
+    },
+    {
+      "label": "1,000–1,999",
+      "communes": 4519,
+      "population": 6304687,
+      "communesPct": 13.0,
+      "populationPct": 9.4
+    },
+    {
+      "label": "2,000–4,999",
+      "communes": 3228,
+      "population": 9963149,
+      "communesPct": 9.3,
+      "populationPct": 14.8
+    },
+    {
+      "label": "5,000–9,999",
+      "communes": 1191,
+      "population": 8269892,
+      "communesPct": 3.4,
+      "populationPct": 12.3
+    },
+    {
+      "label": "10,000–49,999",
+      "communes": 903,
+      "population": 18529277,
+      "communesPct": 2.6,
+      "populationPct": 27.5
+    },
+    {
+      "label": "50,000–99,999",
+      "communes": 104,
+      "population": 6986973,
+      "communesPct": 0.3,
+      "populationPct": 10.4
+    },
+    {
+      "label": "100,000+",
+      "communes": 50,
+      "population": 8517857,
+      "communesPct": 0.1,
+      "populationPct": 12.7
+    }
+  ],
+  "lorenz": [
+    {
+      "communePct": 0.0,
+      "popPct": 0.0
+    },
+    {
+      "communePct": 1.4,
+      "popPct": 0.0
+    },
+    {
+      "communePct": 2.9,
+      "popPct": 0.1
+    },
+    {
+      "communePct": 4.3,
+      "popPct": 0.1
+    },
+    {
+      "communePct": 5.7,
+      "popPct": 0.1
+    },
+    {
+      "communePct": 7.2,
+      "popPct": 0.2
+    },
+    {
+      "communePct": 8.6,
+      "popPct": 0.3
+    },
+    {
+      "communePct": 10.0,
+      "popPct": 0.3
+    },
+    {
+      "communePct": 11.5,
+      "popPct": 0.4
+    },
+    {
+      "communePct": 12.9,
+      "popPct": 0.5
+    },
+    {
+      "communePct": 14.3,
+      "popPct": 0.6
+    },
+    {
+      "communePct": 15.8,
+      "popPct": 0.7
+    },
+    {
+      "communePct": 17.2,
+      "popPct": 0.8
+    },
+    {
+      "communePct": 18.6,
+      "popPct": 0.9
+    },
+    {
+      "communePct": 20.1,
+      "popPct": 1.0
+    },
+    {
+      "communePct": 21.5,
+      "popPct": 1.2
+    },
+    {
+      "communePct": 22.9,
+      "popPct": 1.3
+    },
+    {
+      "communePct": 24.4,
+      "popPct": 1.4
+    },
+    {
+      "communePct": 25.8,
+      "popPct": 1.6
+    },
+    {
+      "communePct": 27.2,
+      "popPct": 1.7
+    },
+    {
+      "communePct": 28.7,
+      "popPct": 1.9
+    },
+    {
+      "communePct": 30.1,
+      "popPct": 2.1
+    },
+    {
+      "communePct": 31.5,
+      "popPct": 2.2
+    },
+    {
+      "communePct": 33.0,
+      "popPct": 2.4
+    },
+    {
+      "communePct": 34.4,
+      "popPct": 2.6
+    },
+    {
+      "communePct": 35.8,
+      "popPct": 2.8
+    },
+    {
+      "communePct": 37.3,
+      "popPct": 3.0
+    },
+    {
+      "communePct": 38.7,
+      "popPct": 3.3
+    },
+    {
+      "communePct": 40.1,
+      "popPct": 3.5
+    },
+    {
+      "communePct": 41.6,
+      "popPct": 3.8
+    },
+    {
+      "communePct": 43.0,
+      "popPct": 4.0
+    },
+    {
+      "communePct": 44.4,
+      "popPct": 4.3
+    },
+    {
+      "communePct": 45.9,
+      "popPct": 4.6
+    },
+    {
+      "communePct": 47.3,
+      "popPct": 4.9
+    },
+    {
+      "communePct": 48.7,
+      "popPct": 5.2
+    },
+    {
+      "communePct": 50.2,
+      "popPct": 5.5
+    },
+    {
+      "communePct": 51.6,
+      "popPct": 5.9
+    },
+    {
+      "communePct": 53.0,
+      "popPct": 6.3
+    },
+    {
+      "communePct": 54.5,
+      "popPct": 6.6
+    },
+    {
+      "communePct": 55.9,
+      "popPct": 7.0
+    },
+    {
+      "communePct": 57.3,
+      "popPct": 7.5
+    },
+    {
+      "communePct": 58.8,
+      "popPct": 7.9
+    },
+    {
+      "communePct": 60.2,
+      "popPct": 8.4
+    },
+    {
+      "communePct": 61.6,
+      "popPct": 8.9
+    },
+    {
+      "communePct": 63.1,
+      "popPct": 9.4
+    },
+    {
+      "communePct": 64.5,
+      "popPct": 9.9
+    },
+    {
+      "communePct": 65.9,
+      "popPct": 10.5
+    },
+    {
+      "communePct": 67.4,
+      "popPct": 11.1
+    },
+    {
+      "communePct": 68.8,
+      "popPct": 11.8
+    },
+    {
+      "communePct": 70.2,
+      "popPct": 12.4
+    },
+    {
+      "communePct": 71.7,
+      "popPct": 13.2
+    },
+    {
+      "communePct": 73.1,
+      "popPct": 14.0
+    },
+    {
+      "communePct": 74.5,
+      "popPct": 14.8
+    },
+    {
+      "communePct": 76.0,
+      "popPct": 15.7
+    },
+    {
+      "communePct": 77.4,
+      "popPct": 16.6
+    },
+    {
+      "communePct": 78.8,
+      "popPct": 17.6
+    },
+    {
+      "communePct": 80.3,
+      "popPct": 18.7
+    },
+    {
+      "communePct": 81.7,
+      "popPct": 19.9
+    },
+    {
+      "communePct": 83.1,
+      "popPct": 21.2
+    },
+    {
+      "communePct": 84.6,
+      "popPct": 22.7
+    },
+    {
+      "communePct": 86.0,
+      "popPct": 24.2
+    },
+    {
+      "communePct": 87.4,
+      "popPct": 26.0
+    },
+    {
+      "communePct": 88.9,
+      "popPct": 28.0
+    },
+    {
+      "communePct": 90.3,
+      "popPct": 30.3
+    },
+    {
+      "communePct": 91.7,
+      "popPct": 33.0
+    },
+    {
+      "communePct": 93.2,
+      "popPct": 36.2
+    },
+    {
+      "communePct": 94.6,
+      "popPct": 40.1
+    },
+    {
+      "communePct": 96.0,
+      "popPct": 45.2
+    },
+    {
+      "communePct": 97.5,
+      "popPct": 52.3
+    },
+    {
+      "communePct": 98.9,
+      "popPct": 64.9
+    },
+    {
+      "communePct": 100.0,
+      "popPct": 100.0
+    }
+  ],
+  "deptSmallest": [
+    {
+      "dept": "52",
+      "name": "Haute-Marne",
+      "communes": 426,
+      "totalPop": 171042,
+      "medianPop": 129,
+      "avgPop": 402,
+      "tinyPct": 85
+    },
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "communes": 236,
+      "totalPop": 184655,
+      "medianPop": 140,
+      "avgPop": 782,
+      "tinyPct": 77
+    },
+    {
+      "dept": "55",
+      "name": "Meuse",
+      "communes": 493,
+      "totalPop": 181919,
+      "medianPop": 147,
+      "avgPop": 369,
+      "tinyPct": 86
+    },
+    {
+      "dept": "65",
+      "name": "Hautes-Pyrénées",
+      "communes": 469,
+      "totalPop": 230956,
+      "medianPop": 155,
+      "avgPop": 492,
+      "tinyPct": 85
+    },
+    {
+      "dept": "09",
+      "name": "Ariège",
+      "communes": 325,
+      "totalPop": 154588,
+      "medianPop": 173,
+      "avgPop": 476,
+      "tinyPct": 80
+    },
+    {
+      "dept": "32",
+      "name": "Gers",
+      "communes": 458,
+      "totalPop": 192235,
+      "medianPop": 179,
+      "avgPop": 420,
+      "tinyPct": 85
+    },
+    {
+      "dept": "21",
+      "name": "Côte-d'Or",
+      "communes": 698,
+      "totalPop": 535503,
+      "medianPop": 196,
+      "avgPop": 767,
+      "tinyPct": 78
+    },
+    {
+      "dept": "08",
+      "name": "Ardennes",
+      "communes": 447,
+      "totalPop": 268847,
+      "medianPop": 196,
+      "avgPop": 601,
+      "tinyPct": 77
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "communes": 124,
+      "totalPop": 162942,
+      "medianPop": 198,
+      "avgPop": 1314,
+      "tinyPct": 67
+    },
+    {
+      "dept": "70",
+      "name": "Haute-Saône",
+      "communes": 536,
+      "totalPop": 234010,
+      "medianPop": 203,
+      "avgPop": 437,
+      "tinyPct": 82
+    }
+  ],
+  "deptLargest": [
+    {
+      "dept": "69",
+      "name": "Rhône",
+      "communes": 273,
+      "totalPop": 1889717,
+      "medianPop": 1914,
+      "avgPop": 6922,
+      "tinyPct": 10
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "communes": 194,
+      "totalPop": 1313768,
+      "medianPop": 2297,
+      "avgPop": 6772,
+      "tinyPct": 19
+    },
+    {
+      "dept": "83",
+      "name": "Var",
+      "communes": 153,
+      "totalPop": 1095337,
+      "medianPop": 2763,
+      "avgPop": 7159,
+      "tinyPct": 15
+    },
+    {
+      "dept": "44",
+      "name": "Loire-Atlantique",
+      "communes": 207,
+      "totalPop": 1457806,
+      "medianPop": 3279,
+      "avgPop": 7043,
+      "tinyPct": 2
+    },
+    {
+      "dept": "13",
+      "name": "Bouches-du-Rhône",
+      "communes": 134,
+      "totalPop": 2056943,
+      "medianPop": 5935,
+      "avgPop": 15350,
+      "tinyPct": 3
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "communes": 47,
+      "totalPop": 1415367,
+      "medianPop": 24380,
+      "avgPop": 30114,
+      "tinyPct": 0
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "communes": 39,
+      "totalPop": 1636291,
+      "medianPop": 39366,
+      "avgPop": 41956,
+      "tinyPct": 0
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "communes": 36,
+      "totalPop": 1635291,
+      "medianPop": 43672,
+      "avgPop": 45425,
+      "tinyPct": 0
+    },
+    {
+      "dept": "75",
+      "name": "Paris",
+      "communes": 20,
+      "totalPop": 2133111,
+      "medianPop": 136368,
+      "avgPop": 106656,
+      "tinyPct": 0
+    }
+  ]
+}

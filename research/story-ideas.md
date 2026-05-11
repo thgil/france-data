@@ -74,3 +74,23 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: Y, Oô, and 35,226 Others
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: One commune is named "Y". One has a 45-character name born of a merger no one wanted to lose. Between them lie 35,226 others.
+- Data: INSEE Code officiel géographique (COG) via gregoiredavid/france-geojson. 35,228 commune names analysed for length, prefix patterns, and uniqueness.
+- Angle: Text + two charts (horizontal bar for top 25 names, histogram for name-length distribution). Prose covers shortest, most common, saint-prefix dominance, geographic connectors (sur/en/sous), and longest.
+- Draft X summary:
+  > The shortest commune name in France is one letter: **Y**. The longest is 45 characters (a 1972 merger where both villages refused to yield their name). Between them: 35,228 communes, 3,980 saints, 1,996 *-sur-* connectors. Today on **france-data**: the linguistics of French geography. 🇫🇷
+
+### median-france: The Median Village
+- Status: ✅ published
+- Published URL: /stories/median-france/
+- Source question: [Q-005](questions.md#q-005-what-share-of-communes-lose-population-every-year)
+- Hook: The median French commune has 459 residents. France has more communes than Germany, Spain, and Italy combined. Each one has its own elected mayor.
+- Data: DREES APL 2023, population base INSEE 2021. 34,883 communes with non-zero population. No new data required — reuses communes-apl.geojson from medical-deserts story.
+- Angle: Two charts (population bucket dual-bar + Lorenz curve) + department comparison table. Prose covers the commune count context, population concentration, the smallest communes, the geographic split (Haute-Marne vs Hauts-de-Seine), and the political economy of why 35,000 communes persist.
+- Draft X summary:
+  > The median French commune has 459 residents — smaller than most secondary schools. France has 35,000 of them, more than Germany, Spain, and Italy combined. 885 have fewer than 50 people. Each one has its own mayor. Today on **france-data**: what it means to be the median village. 🇫🇷
+
