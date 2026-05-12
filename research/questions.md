@@ -94,6 +94,13 @@ datasets and the resulting story.
 - Status: 🟢 open
 - Topic: [health](topics/health.md)
 
+### Q-015b: Which département leaves the most people in a medical desert, and is the pattern urban or rural?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: Val-d'Oise (dept 95, 1.26M residents) is France's worst department for medical access: 63.2% of its people live in a medical desert — more than any rural department. Three of the five worst departments (95, 77, 91) are Paris outer suburbs. The IDF outer ring (77+78+91+95, 5.46M residents) has 2.8M people in deserts (51%). Paris itself has zero. The pattern contradicts the "rural = desert" narrative: suburban growth in the 1960s–70s built housing without the commercial density that sustains medical practices. Best-served: Bouches-du-Rhône (1.5%), Haute-Garonne (2.6%), Nord (2.9%).
+- Story: [suburb-trap](/stories/suburb-trap/)
+
 ### Q-016: How has hospital access (distance to nearest hospital) changed in the last 10 years?
 - Status: 🟢 open
 - Topic: [health](topics/health.md)

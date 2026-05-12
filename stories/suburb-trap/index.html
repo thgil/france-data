@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The suburban trap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+
+    .chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    #dept-chart {
+      display: block;
+      width: 100%;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+
+    /* ── IDF spotlight ──────────────────────────────────────────────── */
+    .idf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 40px 0;
+    }
+
+    .idf-card {
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      padding: 14px 16px;
+    }
+
+    .idf-card.idf-worst {
+      border-color: #b32020;
+      background: #fff5f5;
+    }
+
+    .idf-card.idf-best {
+      border-color: #2a7a2a;
+      background: #f5fff5;
+    }
+
+    .idf-card-dept {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+
+    .idf-card-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .idf-card-pct {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .idf-card-pct.desert { color: #b32020; }
+    .idf-card-pct.good { color: #2a7a2a; }
+    .idf-card-pct.zero { color: #2a7a2a; }
+
+    .idf-card-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────── */
+    .chart-tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 11px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.5;
+      z-index: 100;
+      display: none;
+      max-width: 240px;
+    }
+
+    .chart-tooltip strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Callout ────────────────────────────────────────────────────── */
+    .callout {
+      background: #fff5f5;
+      border-left: 3px solid #b32020;
+      padding: 16px 20px;
+      margin: 32px auto;
+      max-width: 680px;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="masthead"></div>
+
+  <main>
+    <div class="page">
+      <article class="story">
+
+        <!-- ── Header ───────────────────────────────────────────────── -->
+        <header class="story-header">
+          <p class="story-kicker">Health · Île-de-France</p>
+          <h1 class="story-title">The suburban trap</h1>
+          <p class="story-dek">France's worst department for doctor access isn't in rural Creuse — it's Val-d'Oise, population 1.26 million, 40 minutes from Paris on the RER.</p>
+          <div class="story-meta">
+            <span>May 2026</span>
+            <span>5 min read</span>
+          </div>
+        </header>
+
+        <!-- ── Beat 1 ───────────────────────────────────────────────── -->
+        <p>Val-d'Oise feels like Paris's back garden. The A15 motorway, the RER D, the Transilien H: half-a-dozen lines thread its towns back to the capital. Cergy is 35 minutes from Gare du Nord. Argenteuil is practically Seine-Saint-Denis. By the logic of commuter geography, Val-d'Oise is urban — part of the dense, well-served Île-de-France machine.</p>
+
+        <p>By the logic of French healthcare access, Val-d'Oise is a disaster zone. According to DREES's 2023 APL (accessibilité potentielle localisée) scores, <strong>63.2% of its 1.26 million residents live in a medical desert</strong> — the highest share of any département in metropolitan France. Not Creuse (26.7%). Not Haute-Corse (11.6%). Not Guyane. Val-d'Oise.</p>
+
+        <div class="callout">
+          Three of the five worst-served departments in France are Paris suburbs.
+        </div>
+
+        <!-- ── Chart ────────────────────────────────────────────────── -->
+        <h2>All 96 departments, ranked</h2>
+
+        <p>The chart below ranks every metropolitan department by the share of its population living below the APL 2.5 threshold — the official "medical desert" line. Each bar is one department. The eight Île-de-France departments are highlighted in deeper colour.</p>
+
+        <figure class="chart-figure">
+          <div class="chart-wrap">
+            <svg id="dept-chart" aria-label="Bar chart ranking French departments by medical desert population share"></svg>
+          </div>
+          <div class="chart-legend" id="chart-legend"></div>
+          <figcaption>Share of population in a medical desert (APL &lt; 2.5), by département, 2023. Île-de-France departments are darkened. Hover a bar for details. Source: DREES APL 2023.</figcaption>
+        </figure>
+
+        <!-- ── Beat 2 ───────────────────────────────────────────────── -->
+        <h2>Eight departments, one region, wildly different results</h2>
+
+        <p>Île-de-France is one administrative region. Its eight departments share the same métro lines, the same préfecture, the same economic fate. But when it comes to doctor access, they might as well be different countries.</p>
+
+        <div class="idf-grid" id="idf-grid"></div>
+
+        <p>The pattern divides neatly along the périphérique. The four inner departments — Paris itself, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne — perform reasonably or well. Paris (dept 75) is, with an average APL of 5.41 and zero medical deserts, the single best-served department in France. Its inner ring (92, 93, 94) manages between 12% and 17% desert population.</p>
+
+        <p>Then the outer ring: Val-d'Oise, Seine-et-Marne, Essonne, Yvelines. Together, they are home to 5.46 million people — and <strong>2.8 million of them live in a medical desert</strong>. That's 51%. For comparison, all of Bretagne (4.5 million people) has only 48,000 residents in deserts.</p>
+
+        <!-- ── Beat 3 ───────────────────────────────────────────────── -->
+        <h2>The rural story is not the same story</h2>
+
+        <p>Medical deserts are usually discussed as a rural problem. And there are genuine rural deserts: Cher (57.7% in desert, 300,000 people), Eure-et-Loir (55.6%), Eure (45.4%). These are the landscapes of the <em>diagonale du vide</em> — the diagonal swath of emptying countryside that appears on every map of French demographic decline. Doctors leave when young people leave. The pattern is self-reinforcing and long-standing.</p>
+
+        <p>But 300,000 people in Cher, spread across 286 communes, is a different political problem than 1.26 million people in Val-d'Oise, most of them in post-war housing estates with fast rail links to central Paris. The suburban deserts are not the product of rural decline — they are the product of rapid suburban growth in the 1960s and 1970s, when planners built apartments and roads and almost nothing else. Medical services require commercial density to survive: foot traffic, daytime population, nearby services. The <em>grands ensembles</em> never had that. Doctors settled where their colleagues settled — in established commercial streets, inner-city neighbourhoods, prosperous suburb centres. The new periphery, for all its population, was left behind.</p>
+
+        <!-- ── Beat 4 ───────────────────────────────────────────────── -->
+        <h2>What good access looks like</h2>
+
+        <p>At the other end of the ranking: Bouches-du-Rhône (1.5% in desert), with Marseille's dense Mediterranean urban fabric anchoring access across the department. Haute-Garonne (2.6%), where Toulouse's position as a major university and hospital city pulls up scores across a wide catchment. And — perhaps most counterintuitively — Nord (2.9%). Nord, with its legacy of coal-mining closures, its post-industrial landscape, its reputation for hardship: only 76,000 of its 2.6 million residents are in a medical desert. The coal-era hospital infrastructure stayed. The mine-community health networks persisted. The doctors — for now — remain.</p>
+
+        <p>Finistère, which leads France in bars per capita (over 1,000 bars for under a million residents), also manages a respectable 5.2% desert rate. Doctor access and café density are, it turns out, not entirely unrelated: both thrive in communities with strong local institutions and dense social fabric.</p>
+
+        <!-- ── Beat 5 (closing) ─────────────────────────────────────── -->
+        <p>The APL is a model, not a count. It measures estimated consultations accessible per standardised resident, accounting for distance and travel time. It doesn't capture the full texture of healthcare access — informal networks, private clinics, telemedicine. But its spatial pattern is clear and durable: the suburbs that grew fastest in the postwar decades are the places most likely to find themselves, today, without a doctor within easy reach. The commuter train brings you to Paris in 40 minutes. It can't bring you a GP.</p>
+
+        <!-- ── Credits ──────────────────────────────────────────────── -->
+        <div class="credits">
+          <p><strong>A note on the data.</strong> Medical desert status is defined as APL (accessibilité potentielle localisée) below 2.5 consultations per standardised resident per year — the official DREES threshold for sous-densité médicale. APL scores are calculated at commune level. Department-level statistics here aggregate commune scores and populations. Overseas territories (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte) are excluded from the chart; their scores vary widely and involve different structural contexts. Population figures are from the INSEE 2021 base used in the DREES APL calculation.</p>
+
+          <h3>Sources</h3>
+          <ul>
+            <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) aux médecins généralistes, 2023</a></li>
+            <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025 — Etalab / data.gouv.fr</a></li>
+          </ul>
+
+          <p>See also: <a href="../medical-deserts/">Where the doctors aren't</a> — the commune-level choropleth map that started this thread.</p>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <!-- ── Tooltip ─────────────────────────────────────────────────────── -->
+  <div class="chart-tooltip" id="tooltip"></div>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script>
+  (async function () {
+
+    // ── Data ──────────────────────────────────────────────────────────
+    const resp = await fetch('./dept-apl.json');
+    const data = await resp.json();
+
+    // Sort worst → best
+    data.sort((a, b) => b.desertPct - a.desertPct);
+
+    // ── Colour scale ──────────────────────────────────────────────────
+    // Each tier has a base colour and an IDF variant (slightly darker/stronger)
+    function tierColor(pct, isIDF) {
+      if (pct >= 50)  return isIDF ? '#8b0000' : '#c0392b';   // deep red
+      if (pct >= 35)  return isIDF ? '#c0390a' : '#e05a20';   // red-orange
+      if (pct >= 20)  return isIDF ? '#c07800' : '#d4920a';   // amber
+      if (pct >= 10)  return isIDF ? '#6a8a20' : '#8aaa30';   // yellow-green
+      return isIDF ? '#1a6a1a' : '#2e9e2e';                    // green
+    }
+
+    const TIERS = [
+      { label: '50 %+ in desert', color: '#c0392b' },
+      { label: '35–50 %',         color: '#e05a20' },
+      { label: '20–35 %',         color: '#d4920a' },
+      { label: '10–20 %',         color: '#8aaa30' },
+      { label: '< 10 %',          color: '#2e9e2e' },
+    ];
+
+    // ── Legend ────────────────────────────────────────────────────────
+    const legendEl = document.getElementById('chart-legend');
+    TIERS.forEach(t => {
+      const item = document.createElement('div');
+      item.className = 'legend-item';
+      item.innerHTML = `<span class="legend-swatch" style="background:${t.color}"></span>${t.label}`;
+      legendEl.appendChild(item);
+    });
+    const idfLegend = document.createElement('div');
+    idfLegend.className = 'legend-item';
+    idfLegend.innerHTML = `<span class="legend-swatch" style="background:#8b0000; opacity:0.9; outline: 2px solid #8b0000;"></span>Île-de-France (darker shade)`;
+    legendEl.appendChild(idfLegend);
+
+    // ── IDF grid ──────────────────────────────────────────────────────
+    const IDF_ORDER = ['75','92','93','94','78','91','77','95'];
+    const idfGrid = document.getElementById('idf-grid');
+    IDF_ORDER.forEach(deptCode => {
+      const d = data.find(x => x.dept === deptCode);
+      if (!d) return;
+      const isWorst = deptCode === '95';
+      const isBest  = deptCode === '75';
+      const pctClass = d.desertPct >= 35 ? 'desert' : (d.desertPct < 10 ? 'good' : '');
+      const zeroClass = d.desertPct === 0 ? 'zero' : '';
+      const card = document.createElement('div');
+      card.className = 'idf-card' + (isWorst ? ' idf-worst' : '') + (isBest ? ' idf-best' : '');
+      card.innerHTML = `
+        <div class="idf-card-dept">Dept. ${deptCode}</div>
+        <div class="idf-card-name">${d.name}</div>
+        <div class="idf-card-pct ${pctClass} ${zeroClass}">${d.desertPct}%</div>
+        <div class="idf-card-sub">in medical desert</div>
+        <div class="idf-card-sub" style="margin-top:4px">${(d.totalPop/1e6).toFixed(2)}M residents</div>
+      `;
+      idfGrid.appendChild(card);
+    });
+
+    // ── SVG chart ─────────────────────────────────────────────────────
+    const svg = document.getElementById('dept-chart');
+    const tooltip = document.getElementById('tooltip');
+
+    const N = data.length; // 96
+    const BAR_H = 13;
+    const BAR_GAP = 3;
+    const ROW_H = BAR_H + BAR_GAP;
+    const MARGIN = { top: 24, right: 60, bottom: 32, left: 130 };
+
+    const totalH = N * ROW_H + MARGIN.top + MARGIN.bottom;
+    const CHART_LABEL_W = MARGIN.left;
+
+    // We'll set width dynamically
+    function render() {
+      svg.innerHTML = '';
+      const containerW = svg.parentElement.clientWidth || 800;
+      const W = containerW;
+      const innerW = W - MARGIN.left - MARGIN.right;
+      const maxPct = 65;  // fixed scale to 65%
+
+      svg.setAttribute('width', W);
+      svg.setAttribute('height', totalH);
+      svg.setAttribute('viewBox', `0 0 ${W} ${totalH}`);
+
+      // ── defs (clip path) ──────────────────────────────────────────
+      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      svg.appendChild(defs);
+
+      // ── Background ────────────────────────────────────────────────
+      const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bg.setAttribute('x', 0); bg.setAttribute('y', 0);
+      bg.setAttribute('width', W); bg.setAttribute('height', totalH);
+      bg.setAttribute('fill', '#faf7f2');
+      svg.appendChild(bg);
+
+      // ── Grid lines ────────────────────────────────────────────────
+      const gridGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      svg.appendChild(gridGroup);
+      [0, 10, 20, 30, 40, 50, 60].forEach(pct => {
+        if (pct > maxPct) return;
+        const x = MARGIN.left + (pct / maxPct) * innerW;
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', x); line.setAttribute('x2', x);
+        line.setAttribute('y1', MARGIN.top - 8);
+        line.setAttribute('y2', totalH - MARGIN.bottom + 4);
+        line.setAttribute('stroke', pct === 0 ? '#1a1a1a' : '#d8d0c0');
+        line.setAttribute('stroke-width', pct === 0 ? 1.5 : 1);
+        gridGroup.appendChild(line);
+
+        // Axis label
+        const lbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        lbl.setAttribute('x', x);
+        lbl.setAttribute('y', MARGIN.top - 12);
+        lbl.setAttribute('text-anchor', 'middle');
+        lbl.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+        lbl.setAttribute('font-size', '11');
+        lbl.setAttribute('fill', '#888');
+        lbl.textContent = pct + '%';
+        gridGroup.appendChild(lbl);
+      });
+
+      // ── Bars ──────────────────────────────────────────────────────
+      const barGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      svg.appendChild(barGroup);
+
+      data.forEach((d, i) => {
+        const y = MARGIN.top + i * ROW_H;
+        const barW = Math.max(1, (d.desertPct / maxPct) * innerW);
+        const color = tierColor(d.desertPct, d.isIDF);
+
+        // Row background (alternate)
+        if (i % 2 === 0) {
+          const rowBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          rowBg.setAttribute('x', 0);
+          rowBg.setAttribute('y', y);
+          rowBg.setAttribute('width', W);
+          rowBg.setAttribute('height', ROW_H);
+          rowBg.setAttribute('fill', '#f5f2ec');
+          barGroup.appendChild(rowBg);
+        }
+
+        // Department label
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', MARGIN.left - 6);
+        label.setAttribute('y', y + BAR_H - 2);
+        label.setAttribute('text-anchor', 'end');
+        label.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+        label.setAttribute('font-size', '10');
+        label.setAttribute('fill', d.isIDF ? '#1a1a1a' : '#555');
+        label.setAttribute('font-weight', d.isIDF ? '700' : '400');
+        label.textContent = d.name;
+        barGroup.appendChild(label);
+
+        // Bar
+        const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bar.setAttribute('x', MARGIN.left);
+        bar.setAttribute('y', y + 1);
+        bar.setAttribute('width', barW);
+        bar.setAttribute('height', BAR_H - 2);
+        bar.setAttribute('fill', color);
+        bar.setAttribute('rx', 1);
+        bar.style.cursor = 'pointer';
+        barGroup.appendChild(bar);
+
+        // IDF badge
+        if (d.isIDF) {
+          const badge = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          badge.setAttribute('x', MARGIN.left + barW + 3);
+          badge.setAttribute('y', y + 2);
+          badge.setAttribute('width', 22);
+          badge.setAttribute('height', BAR_H - 4);
+          badge.setAttribute('fill', 'none');
+          badge.setAttribute('stroke', color);
+          badge.setAttribute('stroke-width', 1);
+          badge.setAttribute('rx', 2);
+          barGroup.appendChild(badge);
+          const badgeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          badgeTxt.setAttribute('x', MARGIN.left + barW + 14);
+          badgeTxt.setAttribute('y', y + BAR_H - 2);
+          badgeTxt.setAttribute('text-anchor', 'middle');
+          badgeTxt.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+          badgeTxt.setAttribute('font-size', '8');
+          badgeTxt.setAttribute('font-weight', '700');
+          badgeTxt.setAttribute('fill', color);
+          badgeTxt.textContent = 'IDF';
+          barGroup.appendChild(badgeTxt);
+        }
+
+        // Value label (only if bar wide enough)
+        if (barW > 28) {
+          const valLbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          valLbl.setAttribute('x', MARGIN.left + barW - 4);
+          valLbl.setAttribute('y', y + BAR_H - 2);
+          valLbl.setAttribute('text-anchor', 'end');
+          valLbl.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+          valLbl.setAttribute('font-size', '9');
+          valLbl.setAttribute('fill', 'white');
+          valLbl.setAttribute('font-weight', '600');
+          valLbl.textContent = d.desertPct + '%';
+          barGroup.appendChild(valLbl);
+        }
+
+        // Dept code in small text at right margin
+        const deptLbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        deptLbl.setAttribute('x', W - 4);
+        deptLbl.setAttribute('y', y + BAR_H - 2);
+        deptLbl.setAttribute('text-anchor', 'end');
+        deptLbl.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+        deptLbl.setAttribute('font-size', '9');
+        deptLbl.setAttribute('fill', '#bbb');
+        deptLbl.textContent = d.dept;
+        barGroup.appendChild(deptLbl);
+
+        // Hit area for tooltip
+        const hit = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        hit.setAttribute('x', 0);
+        hit.setAttribute('y', y);
+        hit.setAttribute('width', W);
+        hit.setAttribute('height', ROW_H);
+        hit.setAttribute('fill', 'transparent');
+        hit.style.cursor = 'pointer';
+        hit.addEventListener('mouseenter', (e) => showTooltip(e, d));
+        hit.addEventListener('mousemove',  (e) => moveTooltip(e));
+        hit.addEventListener('mouseleave', hideTooltip);
+        barGroup.appendChild(hit);
+      });
+
+      // ── Bottom axis ───────────────────────────────────────────────
+      const axisLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      axisLine.setAttribute('x1', MARGIN.left);
+      axisLine.setAttribute('x2', MARGIN.left + innerW);
+      axisLine.setAttribute('y1', totalH - MARGIN.bottom);
+      axisLine.setAttribute('y2', totalH - MARGIN.bottom);
+      axisLine.setAttribute('stroke', '#1a1a1a');
+      axisLine.setAttribute('stroke-width', 1);
+      svg.appendChild(axisLine);
+
+      // ── Axis title ────────────────────────────────────────────────
+      const axisTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      axisTitle.setAttribute('x', MARGIN.left + innerW / 2);
+      axisTitle.setAttribute('y', totalH - 6);
+      axisTitle.setAttribute('text-anchor', 'middle');
+      axisTitle.setAttribute('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif');
+      axisTitle.setAttribute('font-size', '11');
+      axisTitle.setAttribute('fill', '#888');
+      axisTitle.textContent = '% of department population in medical desert (APL < 2.5)';
+      svg.appendChild(axisTitle);
+    }
+
+    // ── Tooltip handlers ──────────────────────────────────────────────
+    function showTooltip(e, d) {
+      const desertK = (d.desertPop / 1000).toFixed(0);
+      const totalK  = (d.totalPop  / 1000).toFixed(0);
+      tooltip.innerHTML = `
+        <strong>${d.name} (${d.dept})</strong>
+        ${d.desertPct}% in medical desert<br>
+        ${desertK}k of ${totalK}k residents<br>
+        Avg. APL: ${d.avgApl ?? 'n/a'}${d.isIDF ? '<br><em>Île-de-France</em>' : ''}
+      `;
+      tooltip.style.display = 'block';
+      moveTooltip(e);
+    }
+
+    function moveTooltip(e) {
+      const ttW = tooltip.offsetWidth  || 200;
+      const ttH = tooltip.offsetHeight || 80;
+      let left = e.clientX + 14;
+      let top  = e.clientY - ttH / 2;
+      if (left + ttW > window.innerWidth - 12)  left = e.clientX - ttW - 14;
+      if (top < 8)                               top  = 8;
+      if (top + ttH > window.innerHeight - 8)   top  = window.innerHeight - ttH - 8;
+      tooltip.style.left = left + 'px';
+      tooltip.style.top  = top  + 'px';
+    }
+
+    function hideTooltip() {
+      tooltip.style.display = 'none';
+    }
+
+    // ── Initial render + resize ───────────────────────────────────────
+    render();
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 150);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### suburb-trap: The suburban trap
+- Status: ✅ published
+- Published URL: /stories/suburb-trap/
+- Source question: [Q-015b](questions.md#q-015b-which-département-leaves-the-most-people-in-a-medical-desert)
+- Hook: France's worst department for doctor access isn't rural — it's Val-d'Oise, 1.26 million people, 40 minutes from Paris on the RER.
+- Data: DREES APL 2023 commune-level scores ([DS-APL](datasets.md#ds-apl)) aggregated to department level. All 96 metropolitan departments.
+- Angle: Ranked horizontal bar chart of all 96 departments by % of population in medical desert, with IDF departments highlighted. No map — the chart form is the story, since the surprise is that suburban departments outrank rural ones.
+- Draft X summary:
+  > France's worst department for doctor access? Not Creuse. Not Guyane. It's Val-d'Oise — 1.26 million people, commuter trains to Paris, and 63% of residents in a medical desert. Three of the five worst departments are Paris suburbs. Today on **france-data**: every department ranked. 🇫🇷
+
