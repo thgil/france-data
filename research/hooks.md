@@ -27,3 +27,8 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 The suburbs of Paris (77, 78, 91, 95) have France's lowest bar density (0.31–0.38/1,000) AND APL scores at or below the desert threshold. 5.5 million people in a zone with neither city density nor village resilience. [Q-033, Q-014]
+- 🔥 Essonne (91): 0.31 bars per 1,000 — the lowest of any mainland French department. APL 2.52: borderline desert. The outer suburbs have lost both the café and the doctor. [Q-033, Q-014]
+- 🔥 Lozère: 1.76 bars per 1,000, France's most bar-dense mainland department. APL 2.90 — just above the desert line, but 62% of its communes individually score below it. The café outlasted the doctor. [Q-033, Q-014]
+- 🔥 Bas-Rhin (Strasbourg) has APL 4.91 — second-best healthcare in France — with only 0.39 bars per 1,000, among the five lowest nationally. Alsace drinks via Bierstube and winstub, not café-tabac. [Q-033, Q-014]
+- 🔥 Hautes-Alpes leads France in both healthcare (APL 5.02) and bar density (1.56/1,000) among mountain departments. Ski resorts attract doctors and bars together. [Q-014, Q-033]

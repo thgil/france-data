@@ -74,3 +74,12 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### service-gap: Neither Café nor Doctor
+- Status: 💡 idea (auto-drafted 2026-05-12)
+- Source questions: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita) × [Q-014](questions.md#q-014-how-many-medical-deserts-are-there-in-france-and-where)
+- Hook: The suburbs of Paris have France's fewest bars per capita AND some of its worst healthcare scores. Neither city density nor village resilience. 5.5 million people in the worst corner of both axes.
+- Data: Reuses bars.json (SIRENE, 49,385 bars) and communes-apl.geojson (DREES APL 2023). No new downloads. Aggregated to 96 metropolitan departments.
+- Angle: Scatter plot — 96 dots, two axes, quadrant reference lines. Highlights the IDF suburb cluster (red) vs the well-served alpine/Paris cluster (gold/green). Key labeled departments: Paris, Hautes-Alpes, Essonne, Yvelines, Lozère, Bas-Rhin, Cher. Story beats: ski mountains have both; Alsace has great healthcare but few bars; IDF suburbs have neither; Lozère's café has outlasted its doctor.
+- Draft X summary:
+  > France has 49,385 bars and APL scores for 35,000 communes. Put them on the same axes, by département. The suburbs of Paris — Yvelines, Essonne, Val-d'Oise, Seine-et-Marne — land in the bottom-left corner of both. 5.5 million people who have neither the city's cafés nor the village's doctor. 🇫🇷
+
