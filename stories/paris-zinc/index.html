@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paris au zinc — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure figcaption {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--ink-mute);
+      font-family: var(--sans);
+    }
+
+    /* ── Bar chart ──────────────────────────────────────────────────── */
+    .bar-chart {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+    .bar-label {
+      width: 28px;
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-mute);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .bar-track {
+      flex: 1;
+      height: 22px;
+      background: #ede8e0;
+      border-radius: 2px;
+      position: relative;
+      overflow: visible;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      position: relative;
+      transition: width 0.6s ease;
+    }
+    .bar-fill.zone-center  { background: #b32020; }
+    .bar-fill.zone-east    { background: #c67c00; }
+    .bar-fill.zone-west    { background: #4a7a9b; }
+    .bar-fill.zone-south   { background: #5a8a5a; }
+    .bar-value {
+      position: absolute;
+      right: -46px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: var(--ink-mute);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Chart legend ───────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin: 20px 0 12px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .swatch-center { background: #b32020; }
+    .swatch-east   { background: #c67c00; }
+    .swatch-west   { background: #4a7a9b; }
+    .swatch-south  { background: #5a8a5a; }
+
+    /* ── X-axis ticks ───────────────────────────────────────────────── */
+    .chart-xaxis {
+      display: flex;
+      margin-left: 38px;
+      font-size: 11px;
+      color: var(--ink-mute);
+      font-family: var(--sans);
+      margin-top: 4px;
+    }
+
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .arr-name {
+      font-family: Georgia, serif;
+    }
+    .stats-table .arr-detail {
+      font-size: 11px;
+      color: var(--ink-mute);
+    }
+
+    /* ── Inline number callouts ─────────────────────────────────────── */
+    .callout-number {
+      font-size: 2.4em;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .callout-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .callout-block {
+      padding: 20px 16px;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+    }
+    .callout-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 6px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Paris au zinc</h1>
+        <p class="story-dek">3,120 bars, 20 arrondissements, a 15× gap. The bar map of Paris is the social map of Paris.</p>
+        <div class="story-meta">
+          <span>2026-05-12</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: the setup ─────────────────────────────────────── -->
+      <p>Paris has 3,120 registered <em>débits de boissons</em> — bars, cafés, and brasseries licensed to serve alcohol on the premises. That's 14.6 per 10,000 residents, roughly twice France's national average. But Paris is not one city; it's twenty. And the distribution of those 3,120 bars is anything but even.</p>
+
+      <!-- ── Callout numbers ────────────────────────────────────────── -->
+      <div class="callout-grid" id="callout-grid">
+        <div class="callout-block">
+          <span class="callout-number" id="c-total">—</span>
+          <div class="callout-label">bars in Paris</div>
+        </div>
+        <div class="callout-block">
+          <span class="callout-number" id="c-max">—</span>
+          <div class="callout-label">bars/10k in the 1<sup>er</sup></div>
+        </div>
+        <div class="callout-block">
+          <span class="callout-number" id="c-min">—</span>
+          <div class="callout-label">bars/10k in the 16<sup>e</sup></div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: the chart ──────────────────────────────────────── -->
+      <h2>Bars per 10,000 residents, by arrondissement</h2>
+
+      <p>Ranked by density — bars relative to the resident population of each arrondissement.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-swatch swatch-center"></span>Historic centre</span>
+          <span class="legend-item"><span class="legend-swatch swatch-east"></span>Eastern Paris</span>
+          <span class="legend-item"><span class="legend-swatch swatch-west"></span>Western Paris</span>
+          <span class="legend-item"><span class="legend-swatch swatch-south"></span>Southern Paris</span>
+        </div>
+        <div class="bar-chart" id="bar-chart"></div>
+        <figcaption>Bars = active débits de boissons (NAF 56.30Z), INSEE SIRENE March 2026. Population: DREES commune data 2023. Sorted highest to lowest bars per 10,000 residents.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: the 1er ───────────────────────────────────────── -->
+      <h2>The smallest arrondissement is the loudest</h2>
+
+      <p>The 1<sup>er</sup> arrondissement has 15,919 permanent residents — fewer than many a suburban commune. It also has 123 bars: <strong>77 per 10,000 residents</strong>, the highest density in Paris and ten times the national average. Châtelet, Les Halles, the Marais fringe — these streets were never designed for quiet mornings. Each day the population multiplies several times over with workers, shoppers, and tourists. The <em>zinc</em> follows the footfall, not the census.</p>
+
+      <p>The 2<sup>e</sup> (61/10k) and the 8<sup>e</sup> (44/10k) share the same logic: small residential footprints, enormous commercial traffic. The 8<sup>e</sup> adds a further distinction — it also has the highest pharmacy density in Paris (16.5 per 10,000), a finding that echoes the pharmacy-myth story's observation about the Champs-Élysées district.</p>
+
+      <!-- ── Beat 4: the 11e ───────────────────────────────────────── -->
+      <h2>The 11e: absolute champion</h2>
+
+      <p>By raw count, no arrondissement comes close to the 11<sup>e</sup>: <strong>386 bars</strong>. Bastille, Oberkampf, Faubourg Saint-Antoine, the Canal Saint-Martin fringe. This is the arrondissement that gave the world <em>rue Oberkampf</em> as a synonym for late-night Paris. With 142,583 residents, it's large enough that the density figure — 27 per 10,000 — is moderate by central Paris standards. But the absolute number is the story: one bar for every 369 residents. No other arrondissement concentrates that much socialising infrastructure.</p>
+
+      <!-- ── Stats tables ────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest bar density</h3>
+          <table class="stats-table" id="table-top"></table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest bar density</h3>
+          <table class="stats-table" id="table-bottom"></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5: the 16e and east-west ────────────────────────── -->
+      <h2>Passy stays home</h2>
+
+      <p>The <strong>16<sup>e</sup> arrondissement</strong> has 162,061 residents, 83 bars, and the lowest density in Paris: <strong>5.1 bars per 10,000</strong>. That is below the national French average of roughly 7.3 per 10,000 residents. The wealthiest arrondissement of the French capital has fewer bars per resident than the average département in the provinces.</p>
+
+      <p>The 7<sup>e</sup> has the fewest bars by absolute count — just 63 — despite being home to the Eiffel Tower, the Musée d'Orsay, the National Assembly, and dozens of foreign embassies. The 7<sup>e</sup> is a place of government and monuments, not neighbourhood bistros.</p>
+
+      <p>The pattern is stable and old. Haussmann's mid-19th-century renovation of Paris displaced the working class eastward, concentrating industry, density, and daily commerce in the arrondissements east of République. The bar map hasn't forgotten. The 13<sup>e</sup>, 14<sup>e</sup>, 15<sup>e</sup>, and 16<sup>e</sup> — the bourgeois south and west — all sit in the bottom half of the chart, below 8 bars per 10,000. The 10<sup>e</sup>, 11<sup>e</sup>, 18<sup>e</sup>, and 20<sup>e</sup> all sit above the Paris average.</p>
+
+      <!-- ── Beat 6: the 19e ─────────────────────────────────────── -->
+      <h2>The café outlasts the doctor</h2>
+
+      <p>The 19<sup>e</sup> arrondissement sits near the bottom of the bar-density chart (7.8/10k), but it occupies a more significant position in one other ranking: it has the <strong>fewest pharmacies per resident of any Paris arrondissement</strong>, at 2.5 per 10,000. La Villette, Belleville, Jaurès — the 19<sup>e</sup> has been identified in earlier stories as one of Paris's patches of medical under-service. The bars persist; the doctors are scarcer. It is the same pattern as the national one: in France's most stretched communities, the <em>zinc</em> tends to outlast the surgery.</p>
+
+      <!-- ── Beat 7: national context ──────────────────────────────── -->
+      <h2>Paris in context</h2>
+
+      <p>France's most bar-dense département is Haute-Corse, at around 21 bars per 10,000 residents — a figure shaped by tourism, a culture of village squares, and a small permanent population. Paris overall (14.6/10k) sits comfortably above the national average but well below Corsica. Within Paris, the 1<sup>er</sup> (77/10k) would rank among France's most bar-dense ski resort communes. The 16<sup>e</sup> (5.1/10k) would rank among the quieter rural départements of the interior.</p>
+
+      <p>That 15× spread — from 5.1 to 77 bars per 10,000 residents — inside a single city tells you something that no département-level map can: Paris is the most unequal city in France, and the bar is one of the few places where you can still see the seams.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <h3>Data</h3>
+        <p>Bar locations: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> (NAF 56.30Z — débits de boissons), March 2026 snapshot, geocoded via <a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">SIRENE Géolocalisation</a>. 3,120 active Paris establishments. Population by arrondissement: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> commune data. Pharmacy and bakery counts for cross-reference: INSEE Base Permanente des Équipements (IDF, via Région Île-de-France).</p>
+        <h3>Notes</h3>
+        <p>Population figures are the arrondissement resident population (recensement 2023 estimate). Bar density per 10,000 is bars ÷ resident population × 10,000. The 1<sup>er</sup>, 2<sup>e</sup>, 8<sup>e</sup>, and to a lesser degree the 9<sup>e</sup> have large daytime populations from commuters and tourists not counted in the resident figure; their density ratios are thus inflated relative to true daily usage.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script>
+    const ZONE = {
+      1:  'center', 2: 'center', 3: 'center', 4: 'center',
+      5:  'center', 6: 'center', 7: 'west',   8: 'center',
+      9:  'center', 10: 'east', 11: 'east',   12: 'south',
+      13: 'south',  14: 'south', 15: 'south', 16: 'west',
+      17: 'west',   18: 'east', 19: 'east',   20: 'east',
+    };
+
+    async function loadJSON(url) {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
+      return r.json();
+    }
+
+    function renderChart(arrondissements) {
+      const sorted = [...arrondissements].sort((a, b) => b.barsPer10k - a.barsPer10k);
+      const maxVal = sorted[0].barsPer10k;
+
+      const chart = document.getElementById('bar-chart');
+      chart.innerHTML = sorted.map(arr => {
+        const zone = ZONE[arr.num] || 'center';
+        const pct = (arr.barsPer10k / maxVal * 100).toFixed(1);
+        return `
+          <div class="bar-row">
+            <div class="bar-label">${arr.shortName}</div>
+            <div class="bar-track">
+              <div class="bar-fill zone-${zone}" style="width:${pct}%">
+                <span class="bar-value">${arr.barsPer10k}</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderStats(arrondissements) {
+      const byDensity = [...arrondissements].sort((a, b) => b.barsPer10k - a.barsPer10k);
+
+      const top = byDensity.slice(0, 5);
+      const bottom = byDensity.slice(-5).reverse();
+
+      document.getElementById('table-top').innerHTML = top.map((arr, i) => `
+        <tr>
+          <td class="arr-name">${arr.name.replace(' Arrondissement','')}</td>
+          <td><strong>${arr.barsPer10k}</strong> /10k<br><span class="arr-detail">${arr.bars.toLocaleString()} bars · ${arr.pop.toLocaleString()} residents</span></td>
+        </tr>`).join('');
+
+      document.getElementById('table-bottom').innerHTML = bottom.map((arr, i) => `
+        <tr>
+          <td class="arr-name">${arr.name.replace(' Arrondissement','')}</td>
+          <td><strong>${arr.barsPer10k}</strong> /10k<br><span class="arr-detail">${arr.bars.toLocaleString()} bars · ${arr.pop.toLocaleString()} residents</span></td>
+        </tr>`).join('');
+    }
+
+    function renderCallouts(data) {
+      document.getElementById('c-total').textContent = data.totalBars.toLocaleString();
+      const maxArr = data.arrondissements.reduce((a, b) => a.barsPer10k > b.barsPer10k ? a : b);
+      const minArr = data.arrondissements.reduce((a, b) => a.barsPer10k < b.barsPer10k ? a : b);
+      document.getElementById('c-max').textContent = maxArr.barsPer10k;
+      document.getElementById('c-min').textContent = minArr.barsPer10k;
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+        renderCallouts(data);
+        renderChart(data.arrondissements);
+        renderStats(data.arrondissements);
+      } catch (err) {
+        console.error('Failed to load paris-zinc data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

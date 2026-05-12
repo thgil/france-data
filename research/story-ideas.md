@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### paris-zinc: Paris au zinc
+- Status: ✏️ drafting
+- Published URL: /stories/paris-zinc/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: The 1er arrondissement of Paris has 77 bars per 10,000 residents. The 16e has 5.1. One city, a 15× gap, and a social map hiding in plain sight.
+- Data: INSEE SIRENE bars.json (in-repo, 3,120 Paris bars) + DREES APL commune population (in-repo) + IDF BPE pharmacy/bakery counts (in-repo). No new downloads.
+- Angle: Bar chart of 20 arrondissements by bars/10k density. Color-coded by zone (centre/east/west/south). Text narrative on the 1er (tourist core), the 11e (absolute champion), the 7e (fewest by count), and the 16e (below national average). Closing comparison to national bar density.
+- Draft X summary:
+  > Paris has 3,120 bars — but they're not evenly distributed. The 1er arrondissement: 77 per 10,000 residents. The 16e: 5.1 — below the national French average. Today on **france-data**: 20 arrondissements, a 15× gap, and the Haussmann class map hiding in the bar chart. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

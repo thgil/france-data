@@ -201,3 +201,9 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: Which Paris arrondissement has the most bars per capita, and does the distribution reveal a social pattern?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: The 1er arrondissement leads at 77.3 bars per 10,000 residents — 15× higher than the 16e (5.1/10k), the lowest in Paris. The 1er and 2e skew high because their tiny resident populations (15k–21k) are dwarfed by tourist and commuter traffic. The 11e is the absolute champion by count (386 bars). The east-west class divide is legible in bar density: western/southern arrondissements (7e, 16e, 13e-15e) cluster below 8/10k; eastern arrondissements (10e-11e, 18e-20e) sit above the Paris average. The 16e (5.1/10k) falls below the national French average of ~7.3/10k.
+- Story: [paris-zinc](/stories/paris-zinc/)

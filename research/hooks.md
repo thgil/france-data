@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 The 1er arrondissement of Paris has 77 bars per 10,000 residents. The 16e has 5.1. A 15× gap, inside the same city, in 20 minutes by metro. [Q-042]
+- 🔥 The 16e arrondissement of Paris — the city's wealthiest — has fewer bars per resident than the national French average. The richest part of the capital drinks more quietly than the provinces. [Q-042]
+- 🔥 The 11e arrondissement has 386 bars — the most in Paris — one for every 369 residents. Bastille, Oberkampf, Saint-Maur: the street plan is the bar guide. [Q-042]
+- 🔥 Paris's bar map is Haussmann's class map. The displacement of the working class to the eastern arrondissements in the 1860s is still legible in where people go for a drink. [Q-042]
