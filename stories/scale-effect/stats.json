@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "totalCommunes": 34883,
+    "totalDeserts": 12770,
+    "pctDesert": 36.6,
+    "totalPop": 67329462,
+    "totalDesertPop": 11103526,
+    "pctPopInDesert": 16.5
+  },
+  "brackets": [
+    {
+      "label": "< 100",
+      "lo": 0,
+      "hi": 100,
+      "communes": 3382,
+      "deserts": 1871,
+      "pctDesert": 55.3,
+      "avgAPL": 2.35,
+      "totalPop": 219336,
+      "desertPop": 117334
+    },
+    {
+      "label": "100–199",
+      "lo": 100,
+      "hi": 200,
+      "communes": 5422,
+      "deserts": 2579,
+      "pctDesert": 47.6,
+      "avgAPL": 2.6,
+      "totalPop": 798768,
+      "desertPop": 375647
+    },
+    {
+      "label": "200–499",
+      "lo": 200,
+      "hi": 500,
+      "communes": 9491,
+      "deserts": 3938,
+      "pctDesert": 41.5,
+      "avgAPL": 2.81,
+      "totalPop": 3089985,
+      "desertPop": 1262590
+    },
+    {
+      "label": "500–999",
+      "lo": 500,
+      "hi": 1000,
+      "communes": 6593,
+      "deserts": 2242,
+      "pctDesert": 34.0,
+      "avgAPL": 3.03,
+      "totalPop": 4649538,
+      "desertPop": 1573188
+    },
+    {
+      "label": "1,000–1,999",
+      "lo": 1000,
+      "hi": 2000,
+      "communes": 4519,
+      "deserts": 1196,
+      "pctDesert": 26.5,
+      "avgAPL": 3.23,
+      "totalPop": 6304687,
+      "desertPop": 1646613
+    },
+    {
+      "label": "2,000–4,999",
+      "lo": 2000,
+      "hi": 5000,
+      "communes": 3228,
+      "deserts": 657,
+      "pctDesert": 20.4,
+      "avgAPL": 3.49,
+      "totalPop": 9963149,
+      "desertPop": 1950720
+    },
+    {
+      "label": "5,000–9,999",
+      "lo": 5000,
+      "hi": 10000,
+      "communes": 1191,
+      "deserts": 152,
+      "pctDesert": 12.8,
+      "avgAPL": 3.78,
+      "totalPop": 8269892,
+      "desertPop": 1044794
+    },
+    {
+      "label": "10,000–49,999",
+      "lo": 10000,
+      "hi": 50000,
+      "communes": 903,
+      "deserts": 124,
+      "pctDesert": 13.7,
+      "avgAPL": 3.81,
+      "totalPop": 18529277,
+      "desertPop": 2476156
+    },
+    {
+      "label": "50,000+",
+      "lo": 50000,
+      "hi": 999999999,
+      "communes": 154,
+      "deserts": 11,
+      "pctDesert": 7.1,
+      "avgAPL": 4.34,
+      "totalPop": 15504830,
+      "desertPop": 656484
+    }
+  ],
+  "smallHighAPL": [
+    { "name": "Montgenèvre", "dept": "05", "pop": 457, "apl": 40.03 },
+    { "name": "Île-de-Sein", "dept": "29", "pop": 273, "apl": 27.68 },
+    { "name": "Vars", "dept": "05", "pop": 573, "apl": 21.64 },
+    { "name": "Île-d'Houat", "dept": "56", "pop": 216, "apl": 14.07 },
+    { "name": "Île-d'Aix", "dept": "17", "pop": 207, "apl": 14.01 },
+    { "name": "Île-de-Bréhat", "dept": "22", "pop": 402, "apl": 11.11 },
+    { "name": "Saint-Étienne-Vallée-Française", "dept": "48", "pop": 496, "apl": 10.80 },
+    { "name": "Abriès-Ristolas", "dept": "05", "pop": 382, "apl": 10.54 }
+  ],
+  "largeDeserts": [
+    { "name": "Argenteuil", "dept": "95", "pop": 107221, "apl": 1.74 },
+    { "name": "Antony", "dept": "92", "pop": 63232, "apl": 2.45 },
+    { "name": "Sarcelles", "dept": "95", "pop": 58424, "apl": 2.30 },
+    { "name": "Villejuif", "dept": "94", "pop": 57753, "apl": 2.12 },
+    { "name": "Bobigny", "dept": "93", "pop": 55056, "apl": 2.43 },
+    { "name": "Clamart", "dept": "92", "pop": 54491, "apl": 2.43 },
+    { "name": "Chelles", "dept": "77", "pop": 54309, "apl": 2.04 },
+    { "name": "Corbeil-Essonnes", "dept": "91", "pop": 52683, "apl": 1.98 },
+    { "name": "Sevran", "dept": "93", "pop": 51845, "apl": 2.38 },
+    { "name": "Sartrouville", "dept": "78", "pop": 51220, "apl": 2.00 }
+  ]
+}

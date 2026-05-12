@@ -218,3 +218,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Five diagnostic suffixes/prefixes reveal distinct language layers: Alsatian (-heim/-willer/-bach, 373 communes, 94% in Bas-Rhin+Haut-Rhin); Breton (Ker-/Plou-/Lan-, 234 communes, 95% in core Brittany); Occitan (-ac, 872 communes in the southwest); Frankish (-court, 698 communes, concentrated in Picardy/Somme); Norman -ville (949 communes, densest in Seine-Maritime at 16%). The Saint- overlay (3,879 communes, 11.1%) cuts across all regions.
 - Story: [name-layers](/stories/name-layers/)
+
+### Q-044: Does commune size predict healthcare access?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Strong but imperfect gradient. 55.3% of communes under 100 residents are medical deserts; only 7.1% of those over 50,000 are. However, the 10,000–49,999 bracket (13.7% desert) is slightly worse than the 5,000–9,999 bracket (12.8%), driven by underserved Île-de-France suburbs. Argenteuil (107k residents) has an APL of 1.74 — deeper desert than the average tiny village. At the other extreme, Montgenèvre (457 residents) has APL=40.03 due to ski-resort sports-medicine infrastructure. Offshore islands (Île-de-Sein APL=27.68) show isolation can force investment in local healthcare.
+- Story: [scale-effect](/stories/scale-effect/)

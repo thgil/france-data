@@ -35,3 +35,7 @@ that surfaced it.
 - 🔥 Half of all French people live in just 1,021 communes — 2.9% of the total. The remaining 33,862 communes share the other half. [Q-043]
 - 🔥 France's commune population Gini coefficient is 0.78 — more concentrated than income inequality in Brazil. A statistical comparison that makes the commune system's extreme fragmentation visible. [Q-043]
 - 🔥 Rochefourchat (Drôme) has one resident. It has a mayor. French law requires it. [Q-043]
+- 🔥 55% of France's communes with fewer than 100 residents are medical deserts. For cities over 50,000, the number is 7%. Population is your healthcare's best predictor — except when it isn't. [Q-044]
+- 🔥 Argenteuil has 107,000 residents and an APL of 1.74 — a deeper medical desert than the average tiny village. The suburbs fail the gradient. [Q-044]
+- 🔥 Montgenèvre (457 residents) has an APL of 40.03 — eight times Paris's score. A ski resort's sports-medicine infrastructure turns a tiny village into France's best-served commune. [Q-044]
+- 🔥 Île-de-Sein (273 residents, APL 27.68): when you're stranded on an island with no mainland ferry in a storm, your commune can't afford not to have a doctor. Isolation forces investment. [Q-044]

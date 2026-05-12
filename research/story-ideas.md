@@ -94,3 +94,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 communes. Half the country lives in fewer than 1,100 of them. The median French municipality has 459 people. One has 1, and French law requires it to have a mayor. Today on **france-data**: the Lorenz curve of French communal life. 🇫🇷
 
+### scale-effect: The scale effect
+- Status: ✅ published
+- Published URL: /stories/scale-effect/
+- Source question: [Q-044](questions.md#q-044)
+- Hook: 55% of France's tiniest communes are medical deserts. For its biggest cities, the number is 7%. But Argenteuil — 107,000 people — is a deeper desert than most tiny villages. And a ski resort of 457 has an APL of 40.
+- Data: DREES APL 2023 dataset reused from medical-deserts story. No new downloads.
+- Angle: Bar chart of desert % by population bracket, with a callout on the paradox flip at 10,000–49,999. Paired exception tables: small communes with extraordinary access (islands, ski resorts) vs large communes still stuck in the desert (Paris suburbs).
+- Draft X summary:
+  > As a rule, bigger French communes have better healthcare. 55% of communes under 100 people are medical deserts; only 7% of cities over 50k are. But Argenteuil (107,000 residents) has a worse access score than the average tiny village. And Île-de-Sein (273 residents) outperforms Paris. Today on **france-data**: the scale effect, and its exceptions. 🇫🇷
+

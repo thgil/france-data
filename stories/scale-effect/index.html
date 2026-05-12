@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The scale effect — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 680px;
+    }
+
+    /* Stat callout boxes */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .stat-box {
+      flex: 1 1 160px;
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+    }
+    .stat-box .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Bracket bar chart */
+    .bracket-table {
+      width: 100%;
+      max-width: 640px;
+      margin: 0;
+    }
+    .bracket-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .bracket-row--paradox .bracket-bar {
+      background: #e67e22;
+    }
+    .bracket-row--paradox .bracket-bar-pct {
+      color: #c0580a;
+    }
+    .bracket-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-soft);
+      width: 96px;
+      flex-shrink: 0;
+      padding-top: 3px;
+      text-align: right;
+    }
+    .bracket-bars {
+      flex: 1;
+    }
+    .bracket-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 20px;
+    }
+    .bracket-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--accent);
+      min-width: 2px;
+    }
+    .bracket-bar-pct {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+    .bracket-tag {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #c0580a;
+      background: #fdebd0;
+      border: 1px solid #f0a070;
+      border-radius: 3px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    .bracket-subtext {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+
+    /* Callout block */
+    .callout {
+      background: #f0ece4;
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      margin: 40px 0;
+      max-width: 640px;
+    }
+    .callout p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .callout p strong { color: var(--accent); }
+
+    /* Exceptions grid */
+    .exceptions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .exceptions-grid { grid-template-columns: 1fr; }
+    }
+
+    .exc-heading {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .exc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .exc-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #999;
+      text-align: left;
+      padding: 0 0 6px;
+      border-bottom: 1px solid #e8e0d4;
+    }
+    .exc-table th:last-child { text-align: right; }
+    .exc-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #f0ebe0;
+    }
+    .exc-table td:nth-child(2),
+    .exc-table td:nth-child(3) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .exc-table tr:last-child td { border-bottom: none; }
+
+    .dept-badge {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #999;
+      background: #f0ebe0;
+      border-radius: 2px;
+      padding: 1px 4px;
+      margin-left: 4px;
+    }
+    .apl-good {
+      font-weight: 700;
+      color: #27ae60;
+    }
+    .apl-bad {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The scale effect</h1>
+        <p class="story-dek">55% of France's tiniest communes are medical deserts. For its biggest cities, the number is 7%. Population is your healthcare's best predictor — except when it isn't.</p>
+        <div class="story-meta">
+          <span>2026-05-12</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>In the previous story about medical deserts, the striking finding was geographic: a ring of underserved suburbs around Paris, a diagonale du vide cutting across the centre of France. But there's another way to read the same data — not by location, but by size. If you sort France's 34,883 communes by population and look at what fraction of each bracket falls below the official access threshold, a different pattern emerges. And it mostly makes sense. Mostly.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">55%</span>
+          <span class="stat-label">of communes under 100 residents are deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">7%</span>
+          <span class="stat-label">of communes over 50,000 residents are deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">135</span>
+          <span class="stat-label">communes with 10,000+ residents still classified as deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">2.5M</span>
+          <span class="stat-label">people living in large-commune deserts</span>
+        </div>
+      </div>
+
+      <h2>As you grow, the desert recedes</h2>
+
+      <p>The relationship between population and healthcare access is strong and consistent across most of the size range. In the smallest communes — those with fewer than 100 residents — more than half (55.3%) fall below the APL 2.5 threshold that the French government uses to define a medical desert. Move to the 100–199 bracket and the rate drops to 47.6%. At 500–999 residents, it's 34%. By the time you reach 2,000–4,999, it's down to 20.4%. The gradient is steady.</p>
+
+      <p>This makes intuitive sense. A GP looking to establish a practice will tend to locate where there are enough patients to sustain a business. Towns have more patients. Towns have more GPs. Towns have better APL scores. The logic is almost circular — but it shows up clearly in the data.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-desert" class="chart-mount"></div>
+        <figcaption>Share of communes classified as medical deserts (APL &lt; 2.5) by population bracket, 2023. The 10,000–49,999 bracket is highlighted: it is marginally worse than the 5,000–9,999 bracket below it. Source: DREES APL 2023, population base INSEE 2021.</figcaption>
+      </figure>
+
+      <h2>The paradox bracket</h2>
+
+      <p>Look closely at the chart and something odd happens in the 10,000–49,999 range. Communes in this bracket have a desert rate of <strong>13.7%</strong> — fractionally worse than the 5,000–9,999 bracket below them at 12.8%. By the logic of the gradient, bigger should be better. Here it isn't.</p>
+
+      <p>The culprit is the Île-de-France suburbs. The 10,000–49,999 bracket is where a significant number of Paris's outer ring communes sit — communes that are large enough to count as proper towns but that have consistently struggled to attract GP practices, partly because the cost of living and commercial rents make it hard for independents to operate there. The result is a structural hole in the bracket. The suburbs are pulling the average down.</p>
+
+      <div class="callout">
+        <p>Argenteuil (Val-d'Oise) has <strong>107,000 residents</strong> and an APL score of <strong>1.74</strong> — a deeper medical desert than the average commune with fewer than 100 people.</p>
+      </div>
+
+      <p>Argenteuil is the extreme case. France's eighth-largest suburban commune, home to 107,000 people, is classified as a severe medical desert. It is not alone. <strong>135 communes with more than 10,000 residents</strong> are officially underserved — between them housing 2.5 million people in places where the population size should, by the gradient logic, almost guarantee good access.</p>
+
+      <h2>The exceptions at the bottom</h2>
+
+      <p>If large communes can fall below the threshold, small communes can rise above it. And some do — spectacularly. The commune of Montgenèvre in the Hautes-Alpes (population: 457) has an APL score of 40.03. That is not a typo. It is roughly eight times the score of Paris, which sits at around 5. Montgenèvre is a ski resort. It maintains extensive sports medicine, physiotherapy, and general practice facilities to serve the hundreds of thousands of winter visitors who pass through each season. The resident population benefits from infrastructure built for an entirely different kind of user.</p>
+
+      <p>The offshore islands show a different logic. Île-de-Sein (273 residents, APL 27.68), Île-d'Houat (216, APL 14.07), Île-d'Aix (207, APL 14.01), and Île-de-Bréhat (402, APL 11.11) all land near the top of the small-commune APL rankings. On islands, access is not optional. A commune that cannot get its residents to a mainland doctor quickly enough must maintain a resident doctor. Isolation, in these cases, forces investment.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-exceptions" class="chart-mount"></div>
+        <figcaption>Left: small communes (under 1,000 residents) with the highest APL scores — ski resorts and offshore islands dominate. Right: the ten largest communes (by population) still classified as medical deserts. APL threshold for desert classification: 2.5. Source: DREES APL 2023.</figcaption>
+      </figure>
+
+      <h2>Why the gradient has holes</h2>
+
+      <p>The scale effect is real. It accounts for a significant fraction of the variation in medical access across France's communes. But it is not fate. The islands prove that geography can trump size — in both directions. Small island communes sustain excellent access because their isolation makes it non-negotiable. Large suburban communes fall into deserts because their geography — close enough to Paris for residents to theoretically travel, far enough that GPs don't feel compelled to locate there — makes it all too negotiable.</p>
+
+      <p>The APL model measures access using a catchment-area calculation that accounts for both available GP capacity and the distance residents need to travel. For suburban communes on the RER network, the model implicitly assumes residents can reach GPs in other communes, which depresses the local APL score. In practice, residents who work long hours, have children to collect, or lack reliable transport don't always make that trip. The model may understate the access deficit in commuter suburbs.</p>
+
+      <p>France's total desert population — 11.1 million people, or 16.5% of the country — is distributed across all size brackets. But while small-commune deserts are the most numerous (the <100 bracket alone has 1,871 desert communes), the people-in-deserts problem is concentrated in medium and large communes. The 10,000–49,999 bracket alone holds 2.5 million desert residents — more than any other single bracket, in a category that should, by rights, be doing better.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">1,871</span>
+          <span class="stat-label">communes under 100 residents are deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">117k</span>
+          <span class="stat-label">people in those tiny-commune deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">124</span>
+          <span class="stat-label">communes of 10,000–49,999 are deserts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">2.5M</span>
+          <span class="stat-label">people in those mid-size-commune deserts</span>
+        </div>
+      </div>
+
+      <p>Two ways of being underserved. In the village, the desert is almost expected — there are not enough people to sustain a practice, and the surrounding countryside is sparse enough that alternatives are far away. In the suburb, the desert is a policy failure. The people are there. The infrastructure is there. The GPs, for a complex set of reasons involving property costs, workload expectations, and the administrative burden of independent practice, are not.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Healthcare access figures are the DREES APL (Accessibilité Potentielle Localisée) 2023 scores, which measure estimated GP consultations accessible per standardised resident per year using a catchment-area model. The official desert threshold is APL &lt; 2.5. Population figures are from the same dataset (INSEE 2021 census base). 34,883 communes with non-zero population are included; 131 zero-population entries (primarily the city-level aggregates for Paris, Lyon, and Marseille, whose populations are recorded at arrondissement level) are excluded. Communes with null APL scores are excluded from desert rate calculations.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune-level healthcare access scores and population.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawDesertChart, drawExceptionsTable } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      const stats = await loadJSON('./stats.json');
+      drawDesertChart('#chart-desert', stats);
+      drawExceptionsTable('#chart-exceptions', stats);
+    }
+
+    main().catch(err => console.error('scale-effect story error:', err));
+  </script>
+</body>
+</html>
