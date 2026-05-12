@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Spectrum display ───────────────────────────────────────────── */
+    .name-spectrum {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 48px 0 16px;
+      overflow: hidden;
+    }
+    .spectrum-end {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .spectrum-arrow {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #c67c00, #b32020);
+      margin: 0 12px;
+      min-width: 40px;
+    }
+    .spectrum-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    /* ── Notable names display ──────────────────────────────────────── */
+    .name-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .name-card {
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+      padding: 16px 18px;
+    }
+    .name-card .card-name {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.25;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 6px;
+      word-break: break-word;
+    }
+    .name-card .card-name.long {
+      font-size: 13px;
+    }
+    .name-card .card-meta {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Chart containers ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .chart-mount {
+      overflow: visible;
+    }
+    figcaption {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    /* ── Big stat callout ───────────────────────────────────────────── */
+    .stat-callout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+      margin: 40px 0;
+      overflow: hidden;
+    }
+    .stat-cell {
+      padding: 20px 20px;
+      border-right: 1px solid #e0d8cc;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell .stat-num {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      line-height: 1;
+      color: #b32020;
+      display: block;
+    }
+    .stat-cell .stat-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ── Saint dept table ───────────────────────────────────────────── */
+    .saint-table-wrap {
+      margin: 32px 0;
+      overflow-x: auto;
+    }
+    .saint-table {
+      width: 100%;
+      max-width: 480px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .saint-table th {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 0 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .saint-table td {
+      padding: 5px 0;
+      border-bottom: 1px solid #f0ece4;
+      vertical-align: baseline;
+    }
+    .saint-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .saint-table .rank {
+      font-size: 10px;
+      color: #bbb;
+      padding-right: 8px;
+      min-width: 1.6ch;
+    }
+    .saint-table .dept-name {
+      font-family: Georgia, serif;
+    }
+    .pct-bar-cell {
+      width: 120px;
+      padding-right: 8px;
+    }
+    .pct-bar-bg {
+      height: 6px;
+      background: #ede8e0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .pct-bar-fill {
+      height: 6px;
+      background: #c67c00;
+      border-radius: 3px;
+    }
+
+    /* ── Two-char list ──────────────────────────────────────────────── */
+    .twochar-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin: 24px 0;
+      list-style: none;
+      padding: 0;
+    }
+    .twochar-list li {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: #1a1a1a;
+    }
+    .twochar-list li span {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      color: #888;
+      margin-left: 3px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    @media (max-width: 640px) {
+      .stat-callout { grid-template-columns: 1fr 1fr; }
+      .stat-cell { border-bottom: 1px solid #e0d8cc; }
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">From Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</h1>
+        <p class="story-dek">France has 34,969 communes. One is named Y. Eleven percent begin with "Saint." Twelve of them are called Sainte-Colombe. A census of names.</p>
+        <div class="story-meta">
+          <span>2026-05-12</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The Spectrum ──────────────────────────────────────── -->
+      <p>France carves its territory into 34,969 communes — the smallest administrative unit, each one a name on an official register. Those names run from a single letter to a 45-character chain of hyphenated saints and rivers. Between those extremes, there is a grammar: rivers (<em>-sur-</em>, <em>-sous-</em>), forests (<em>-en-</em>), saints (so many saints), merger scars (two village names joined by <em>-et-</em>), and the occasional monumental brevity of a name that is simply, stubbornly, <em>Y</em>.</p>
+
+      <div class="name-spectrum" aria-hidden="true">
+        <span class="spectrum-end" style="font-size:22px;font-weight:bold;color:#b32020">Y</span>
+        <span class="spectrum-arrow"></span>
+        <span class="spectrum-end" style="font-size:11px;max-width:280px;text-align:right;color:#c67c00">Saint-Remy-en-Bouzemont-<br>Saint-Genest-et-Isson</span>
+      </div>
+
+      <!-- ── Beat 2: Y ─────────────────────────────────────────────────── -->
+      <h2>One letter: Y</h2>
+
+      <p><em>Y</em> is a village of 89 people in the Somme, roughly equidistant between Amiens and Saint-Quentin. It has its own mairie, its own INSEE code (80829), and the shortest official commune name in France. The name is ancient — likely from a Celtic root — and has survived every administrative reform since the Revolution. No prefect has ever successfully renamed it something more legible.</p>
+
+      <p>Thirteen communes manage two letters. Most end in a vowel sound that suggests deep regional roots — Breton <em>By</em>, Norman <em>Ry</em>, Béarnais <em>Uz</em>, Catalan <em>Py</em> and <em>Ur</em>. The exception is <em>Eu</em> (Seine-Maritime, pop 6,591), a Norman city whose two letters conceal a 1,000-year history and a château where Queen Victoria once stayed.</p>
+
+      <ul class="twochar-list" id="twochar-list"></ul>
+
+      <!-- ── Beat 3: Histogram ─────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <p class="chart-title">Name length distribution — all 34,969 communes</p>
+        <div class="chart-mount" id="hist-mount"></div>
+        <figcaption>Red bars mark the 1- and 2-character communes. The distribution peaks around 7–8 characters and has a long tail beyond 20 — the merger communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Saints ────────────────────────────────────────────── -->
+      <h2>The Saint empire: 1 in 9 communes</h2>
+
+      <div class="stat-callout" id="stat-callout">
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-saint-count">3,898</span>
+          <span class="stat-label">communes begin with Saint or Sainte</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-saint-pct">11.1%</span>
+          <span class="stat-label">of all communes — 1 in 9</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-sur-count">1,991</span>
+          <span class="stat-label">communes include "-sur-" (a river)</span>
+        </div>
+      </div>
+
+      <p>The Christian naming reflex runs deepest in the old rural heartlands. Ardèche (département 07) leads: 29% of its communes invoke a saint. Creuse, Loire, and Haute-Vienne aren't far behind. Northern France — with its larger communes, its Flemish and Germanic naming traditions — uses saints far less. Paris has none: its arrondissements have numbers.</p>
+
+      <div class="saint-table-wrap">
+        <table class="saint-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Département</th>
+              <th class="pct-bar-cell"></th>
+              <th>% saint names</th>
+            </tr>
+          </thead>
+          <tbody id="saint-tbody"></tbody>
+        </table>
+      </div>
+
+      <p>The saints themselves have favourites: <em>Martin</em> appears in 304 commune names (the most popular patron, unsurprisingly). <em>Pierre</em> (180), <em>Jean</em> (170), <em>Germain</em> (120), and <em>Julien</em> (88) follow. The Virgin — via <em>Marie</em> — appears in hundreds more, often without the Saint prefix.</p>
+
+      <!-- ── Beat 5: Most common names ────────────────────────────────── -->
+      <h2>Sainte-Colombe: twelve communes, one name</h2>
+
+      <p>France has no system for preventing duplicate commune names. Two communes can — and 1,450 names do — exist simultaneously in different départements with the exact same official name. In total, 3,700 communes share their name with at least one other. Type <em>Sainte-Colombe</em> into a French postal system and you will be asked to pick from twelve options spread across Ain, Charente-Maritime, Gironde, Haute-Garonne, and seven other départements.</p>
+
+      <figure class="chart-figure">
+        <p class="chart-title">Most repeated commune names — top 10</p>
+        <div class="chart-mount" id="topnames-mount"></div>
+        <figcaption>Each bar shows how many separate communes share that exact name.</figcaption>
+      </figure>
+
+      <p>Saint-Aubin (10 communes), Saint-Marcel (9), Saint-Michel (9), Le Pin (9). The pattern is the same: generic enough to be chosen independently by medieval parishes across the country, specific enough that nobody ever bothered to disambiguate them.</p>
+
+      <!-- ── Beat 6: The long tail ─────────────────────────────────────── -->
+      <h2>Seven hyphens: the marathon commune</h2>
+
+      <div class="name-cards">
+        <div class="name-card">
+          <span class="card-name" style="font-size:22px;color:#b32020">Y</span>
+          <span class="card-meta">1 character · Somme · pop. 89</span>
+        </div>
+        <div class="name-card">
+          <span class="card-name">Sainte-Colombe</span>
+          <span class="card-meta">× 12 communes · most common name</span>
+        </div>
+        <div class="name-card">
+          <span class="card-name long">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>
+          <span class="card-meta">45 characters · 7 hyphens · Marne · pop. 491</span>
+        </div>
+      </div>
+
+      <p><em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> is a commune in the Marne — 491 residents, born in 1972 from the merger of three medieval villages. Its name is the physical record of that merger: the hyphens are seams. The Bouzemont lake (a reservoir created by the same 1960s infrastructure project that prompted the merger) is now a leisure destination. The name, which requires seven hyphens and 45 characters to type in full, appears on every official document the 491 residents receive.</p>
+
+      <p>Names are not random. They are accumulated history — religious, geographic, political — compressed into a string of letters that fits on a postage stamp and stands in for centuries. France has 34,969 of them. One is <em>Y</em>.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and INSEE codes come from the <em>communes-apl.geojson</em> dataset built for the <a href="../medical-deserts/">medical deserts</a> story — 35,014 features including overseas territories and arrondissement-level subdivisions. This analysis uses 34,969 non-arrondissement communes. Name-length analysis, duplicate detection, and saint-prefix counts were computed from the communeName field of that file.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li>DREES APL 2023 commune boundaries — <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">data.gouv.fr</a></li>
+          <li>INSEE Code Officiel Géographique (COG) — commune-name authority</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawLengthHistogram, drawTopNames } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      let stats;
+      try {
+        stats = await loadJSON('./stats.json');
+      } catch (err) {
+        console.error('Failed to load commune-names stats:', err);
+        return;
+      }
+
+      // Update stat callout
+      const saintCount = document.getElementById('stat-saint-count');
+      const saintPct   = document.getElementById('stat-saint-pct');
+      const surCount   = document.getElementById('stat-sur-count');
+      if (saintCount) saintCount.textContent = stats.saintTotal.toLocaleString('fr-FR');
+      if (saintPct)   saintPct.textContent   = stats.saintPct + '%';
+      if (surCount)   surCount.textContent   = stats.surCount.toLocaleString('fr-FR');
+
+      // 2-char list
+      const list = document.getElementById('twochar-list');
+      if (list && stats.twoCharCommunes) {
+        list.innerHTML = stats.twoCharCommunes.map(c =>
+          `<li><em>${c.name}</em><span>${c.deptName} · pop. ${c.pop.toLocaleString('fr-FR')}</span></li>`
+        ).join('');
+      }
+
+      // Saint table
+      const tbody = document.getElementById('saint-tbody');
+      if (tbody && stats.saintPctByDept) {
+        const maxPct = stats.saintPctByDept[0].pct;
+        tbody.innerHTML = stats.saintPctByDept.slice(0, 8).map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="dept-name">${d.name}</td>
+            <td class="pct-bar-cell">
+              <div class="pct-bar-bg">
+                <div class="pct-bar-fill" style="width:${(d.pct / maxPct * 100).toFixed(1)}%"></div>
+              </div>
+            </td>
+            <td>${d.pct}%</td>
+          </tr>`
+        ).join('');
+      }
+
+      // Charts
+      drawLengthHistogram('#hist-mount', stats);
+      drawTopNames('#topnames-mount', stats);
+    }
+
+    main();
+  </script>
+</body>
+</html>
