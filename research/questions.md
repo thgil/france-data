@@ -181,16 +181,22 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: *Sainte-Colombe* is the single most common exact commune name with 12 occurrences; *Saint-Sauveur* follows with 11. But the most common first two words in a commune name are *Saint-Martin* (202 communes), followed by *Saint-Jean* (155) and *Saint-Pierre* (144). Across all 35,014 communes, 3,882 (11.1%) begin with Saint- or Sainte-. In total, 3,700 communes share their exact name with at least one other — 10.6% of all communes.
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-APL](datasets.md#ds-apl), [DS-CONTOURS](datasets.md#ds-contours)
+- Finding: The shortest commune name is *Y* (1 letter), in the Somme (dept 80), population 89. The name appears in records from 1136 and likely derives from a Picard word for water. 13 communes have two-letter names: By, Bû, Eu, Gy, Oz, Oô, Py, Ri, Ry, Sy, Ur, Us, Uz. The longest name is *Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson* (45 characters, Marne dept 51).
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
