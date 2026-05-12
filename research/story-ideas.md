@@ -44,3 +44,15 @@ When adding a new pitch, use this shape:
   > "More pharmacies than bakeries" is one of those facts about France that everyone repeats and almost no one checks. Today on **france-data**: the actual numbers, why people get them wrong, and the one Paris neighbourhood with a pharmacy for every 712 residents. 🇫🇷
 - X summary (final):
 
+---
+
+### pain-desert: Pain désert
+- Status: ✅ published
+- Published URL: /stories/pain-desert/
+- Source question: [Q-041](questions.md#q-041)
+- Hook: Nearly half of Île-de-France's communes have no bakery. France's bread heartland has a bread desert problem hiding in plain sight.
+- Data: INSEE BPE (IDF edition), Région Île-de-France — same dataset used for pharmacy-myth. 1,300 communes with bakery and pharmacy counts + population.
+- Angle: Stat trio (607 / 690 / 587), horizontal bar chart by département, bar chart of largest bread-desert communes. Text-and-charts format, no map.
+- Draft X summary:
+  > Nearly half of Île-de-France's 1,300 communes have no bakery. Zero. While Paris has one boulangerie for every 700 people, a town of 9,000 in Essonne can't get a fresh baguette without a car. 🥖 france-data: Pain désert
+

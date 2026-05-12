@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pain désert — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat trio ──────────────────────────────────────────────────────────── */
+    .stat-trio {
+      display: flex;
+      gap: 0;
+      max-width: 680px;
+      margin: 48px auto;
+      border: 1px solid var(--rule);
+    }
+    .stat-box {
+      flex: 1;
+      padding: 28px 20px 24px;
+      text-align: center;
+      border-right: 1px solid var(--rule);
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+
+    /* ── Charts ─────────────────────────────────────────────────────────────── */
+    .chart-wrap {
+      max-width: 760px;
+      margin: 0 auto 8px;
+      overflow-x: auto;
+    }
+    .chart-wrap svg { display: block; width: 100%; }
+
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      max-width: 680px;
+      margin: 48px auto 6px;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────────────── */
+    .legend {
+      display: flex;
+      gap: 20px;
+      max-width: 680px;
+      margin: 8px auto 0;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Highlight box ──────────────────────────────────────────────────────── */
+    .highlight-box {
+      border-left: 3px solid var(--accent);
+      padding: 12px 20px;
+      max-width: 680px;
+      margin: 32px auto;
+      background: rgba(179, 32, 32, 0.04);
+    }
+    .highlight-box p {
+      margin: 0 !important;
+      font-size: 16px !important;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Tooltip ─────────────────────────────────────────────────────────────── */
+    #tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 80ms;
+      max-width: 220px;
+      z-index: 100;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="tooltip"></div>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <header class="story-header">
+      <div class="story-kicker">Culture · Geography</div>
+      <h1 class="story-title">Pain désert</h1>
+      <p class="story-dek">Half of Île-de-France's communes have no bakery. While Paris holds some of the world's highest boulangerie densities, 607 of the region's 1,300 communes are baguette-free zones.</p>
+      <div class="story-meta">
+        <span>May 2026</span>
+        <span>4 min read</span>
+        <span>Data: INSEE BPE (IDF)</span>
+      </div>
+    </header>
+
+    <article class="story">
+
+      <p>Île-de-France is, on paper, one of the great bread regions of the world. Paris's 20 arrondissements average 10 bakeries per 10,000 residents. The city's 8th arrondissement has more than 14 — one boulangerie for roughly every 700 people. In central Paris, fresh bread is never more than a short walk away.</p>
+
+      <p>But Île-de-France is not only Paris. The same administrative region stretches far into the Brie plateau and the Vexin, encompassing 1,300 communes ranging from tightly packed inner suburbs to quiet Seine-et-Marne villages of 200 souls. And in nearly half of those communes, the nearest baguette requires getting in a car.</p>
+
+      <div class="stat-trio">
+        <div class="stat-box">
+          <span class="stat-number" id="stat-bread">607</span>
+          <span class="stat-label">communes with<br>no bakery</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="stat-pharma">690</span>
+          <span class="stat-label">communes with<br>no pharmacy</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="stat-double">587</span>
+          <span class="stat-label">communes with<br>neither</span>
+        </div>
+      </div>
+
+      <h2>The outer ring goes without</h2>
+
+      <p>The bread deserts are not spread evenly. Paris itself — all 20 arrondissements — has a bakery in every one. So does Seine-Saint-Denis (93), the densely urban département just north of the périphérique. The deserts begin where the density drops.</p>
+
+      <p>Seine-et-Marne (77) — France's largest département by area, covering most of the eastern half of the IDF region — tops the list. Nearly three in five of its 514 communes have no bakery at all. Val-d'Oise and Yvelines are not far behind.</p>
+
+      <p class="chart-title" style="max-width:760px">Communes with no bakery, by département</p>
+      <div class="chart-wrap" id="chart-dept"></div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#b32020"></div>
+          <span>No bakery (bread desert)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#d8d0c0"></div>
+          <span>At least one bakery</span>
+        </div>
+      </div>
+      <figure>
+        <figcaption>Each bar represents one département. Percentage = share of communes in that département with zero bakeries. Source: INSEE BPE (IDF vintage, ~2014 counts).</figcaption>
+      </figure>
+
+      <h2>Population is no guarantee</h2>
+
+      <p>A natural assumption is that towns big enough to generate demand will attract a baker. The data is less reassuring. Saint-Germain-lès-Arpajon, in Essonne, has 9,338 residents — it has three pharmacies — and zero bakeries. Nandy (Seine-et-Marne) counts 5,814 people and no boulangerie. Le Port-Marly (Yvelines, 4,803 residents) is the same story.</p>
+
+      <div class="highlight-box">
+        <p>A commune of 9,000 people with no bakery is not a quirk. In Île-de-France, it is a pattern.</p>
+      </div>
+
+      <p>The chart below shows the twelve largest communes where the bakery count is exactly zero — each has more than 2,000 residents, and several have pharmacies, a supermarket, and a mairie. Just no baker.</p>
+
+      <p class="chart-title" style="max-width:760px">Largest communes with no bakery</p>
+      <div class="chart-wrap" id="chart-big-deserts"></div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#b32020"></div>
+          <span>No bakery, no pharmacy</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#e0845a"></div>
+          <span>No bakery, has pharmacy</span>
+        </div>
+      </div>
+      <figure>
+        <figcaption>Population from INSEE (2010 census). Bakery and pharmacy counts from the BPE. All communes shown have zero bakeries.</figcaption>
+      </figure>
+
+      <h2>The medicine desert is even larger</h2>
+
+      <p>Bread is one metric. Medicine is another. Of IDF's 1,300 communes, 690 — 53 percent — have no pharmacy. In 587 of those communes, there is neither a bakery nor a pharmacy. That is nearly half the entire region.</p>
+
+      <p>The contrast with Paris is sharp. The 8th arrondissement has 58 pharmacies for 41,000 residents — one per 712 people, among the highest densities in Europe. Meanwhile, 690 IDF communes have none.</p>
+
+      <p>This is the shape of the region behind the postcard. Île-de-France contains some of the most service-dense urban geography in the world, and some of the most quietly under-served rural territory in northern France. These are not isolated Alpine villages — they sit within an hour of Notre-Dame. They are simply the other side of a very large and very unequal region.</p>
+
+      <div class="credits">
+        <h3>Data sources</h3>
+        <p>Bakery and pharmacy counts from the <a href="https://www.data.gouv.fr/fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf/">INSEE Base Permanente des Équipements</a> (BPE), Île-de-France edition, republished by Région Île-de-France. Equipment counts circa 2014 vintage; population from 2010 census. The national BPE release would extend this analysis to all 35,000 French communes.</p>
+        <h3>Notes</h3>
+        <p>A commune with zero bakeries in the BPE may still have a supermarket with an in-store boulangerie, or residents may travel to a neighbouring commune. The BPE counts standalone <em>boulangeries</em> only. "Bread desert" is our framing, not an official designation.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+    <span>Built with care, one story at a time.</span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module" src="./charts.js"></script>
+</body>
+</html>

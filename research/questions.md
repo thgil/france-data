@@ -190,3 +190,9 @@ datasets and the resulting story.
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
+
+### Q-041: How many Île-de-France communes have no bakery at all?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Finding: 607 of 1,300 IDF communes (46.7%) have zero bakeries. The problem is concentrated in Seine-et-Marne (59% of communes), Yvelines (52%), and Val-d'Oise (46%). Meanwhile Paris has no bread deserts at all. Even large towns of 5,000–9,000 residents can be baguette-free. The pharmacy situation is worse: 690 communes (53%) have no pharmacy; 587 (45%) have neither.
+- Story: [pain-desert](/stories/pain-desert/)

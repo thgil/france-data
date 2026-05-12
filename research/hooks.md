@@ -15,3 +15,7 @@ that surfaced it.
 - 🔥 Every Paris arrondissement has more bakeries than pharmacies — but the ratio swings from 1.05× in the 8e to 2.57× in the 19e. [Q-007]
 - 🔥 Paris's 19e has 118 bakeries and 46 pharmacies. The 19e really likes bread. [Q-007]
 - 🔥 The bakery–pharmacy ratio is a commercial-density story in disguise. The same arrondissements top both lists, in the same order. [Q-007]
+- 🔥 607 of Île-de-France's 1,300 communes have zero bakeries. Nearly half the region is a baguette-free zone. [Q-041]
+- 🔥 Seine-et-Marne — the largest département in IDF — has no bakery in 59% of its communes. Paris: 0%. [Q-041]
+- 🔥 Saint-Germain-lès-Arpajon has 9,338 residents and three pharmacies. It has zero bakeries. [Q-041]
+- 🔥 In 587 IDF communes — nearly half — there is no bakery AND no pharmacy. They are within an hour of Notre-Dame. [Q-041]
