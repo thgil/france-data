@@ -1,0 +1,344 @@
+{
+  "nationalAvg": 7.3,
+  "totalBars": 49385,
+  "totalPop": 67329462,
+  "zeroBarCommunes": 23265,
+  "zeroBarPop": 11281151,
+  "largeZeroBarCommunes": 2562,
+  "topCommunes": [
+    {
+      "code": "38253",
+      "name": "Les Deux Alpes",
+      "dept": "38",
+      "pop": 1933,
+      "bars": 39,
+      "per10k": 201.8
+    },
+    {
+      "code": "74191",
+      "name": "Morzine",
+      "dept": "74",
+      "pop": 2660,
+      "bars": 51,
+      "per10k": 191.7
+    },
+    {
+      "code": "05096",
+      "name": "Orcières",
+      "dept": "05",
+      "pop": 683,
+      "bars": 11,
+      "per10k": 161.1
+    },
+    {
+      "code": "05119",
+      "name": "Risoul",
+      "dept": "05",
+      "pop": 660,
+      "bars": 10,
+      "per10k": 151.5
+    },
+    {
+      "code": "74063",
+      "name": "Châtel",
+      "dept": "74",
+      "pop": 1193,
+      "bars": 16,
+      "per10k": 134.1
+    },
+    {
+      "code": "73304",
+      "name": "Val-d'Isère",
+      "dept": "73",
+      "pop": 1580,
+      "bars": 21,
+      "per10k": 132.9
+    },
+    {
+      "code": "74134",
+      "name": "Les Gets",
+      "dept": "74",
+      "pop": 1223,
+      "bars": 16,
+      "per10k": 130.8
+    },
+    {
+      "code": "73227",
+      "name": "Courchevel",
+      "dept": "73",
+      "pop": 2311,
+      "bars": 30,
+      "per10k": 129.8
+    },
+    {
+      "code": "2B261",
+      "name": "Rogliano",
+      "dept": "2B",
+      "pop": 540,
+      "bars": 7,
+      "per10k": 129.6
+    },
+    {
+      "code": "73296",
+      "name": "Tignes",
+      "dept": "73",
+      "pop": 2005,
+      "bars": 25,
+      "per10k": 124.7
+    },
+    {
+      "code": "15101",
+      "name": "Laveissière",
+      "dept": "15",
+      "pop": 516,
+      "bars": 6,
+      "per10k": 116.3
+    },
+    {
+      "code": "56195",
+      "name": "La Roche-Bernard",
+      "dept": "56",
+      "pop": 695,
+      "bars": 8,
+      "per10k": 115.1
+    },
+    {
+      "code": "56087",
+      "name": "Île-aux-Moines",
+      "dept": "56",
+      "pop": 628,
+      "bars": 7,
+      "per10k": 111.5
+    },
+    {
+      "code": "73071",
+      "name": "Champagny-en-Vanoise",
+      "dept": "73",
+      "pop": 552,
+      "bars": 6,
+      "per10k": 108.7
+    },
+    {
+      "code": "05161",
+      "name": "La Salle-les-Alpes",
+      "dept": "05",
+      "pop": 924,
+      "bars": 10,
+      "per10k": 108.2
+    }
+  ],
+  "topDepts": [
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "bars": 390,
+      "pop": 184655,
+      "per10k": 21.1
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "bars": 135,
+      "pop": 76519,
+      "per10k": 17.6
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "bars": 276,
+      "pop": 162942,
+      "per10k": 16.9
+    },
+    {
+      "dept": "15",
+      "name": "Cantal",
+      "bars": 239,
+      "pop": 144226,
+      "per10k": 16.6
+    },
+    {
+      "dept": "05",
+      "name": "Hautes-Alpes",
+      "bars": 220,
+      "pop": 140976,
+      "per10k": 15.6
+    },
+    {
+      "dept": "04",
+      "name": "Alpes-de-Haute-Provence",
+      "bars": 243,
+      "pop": 166077,
+      "per10k": 14.6
+    },
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bars": 3120,
+      "pop": 2133111,
+      "per10k": 14.6
+    },
+    {
+      "dept": "22",
+      "name": "Côtes-d'Armor",
+      "bars": 789,
+      "pop": 604489,
+      "per10k": 13.1
+    },
+    {
+      "dept": "73",
+      "name": "Savoie",
+      "bars": 538,
+      "pop": 442468,
+      "per10k": 12.2
+    },
+    {
+      "dept": "56",
+      "name": "Morbihan",
+      "bars": 931,
+      "pop": 768687,
+      "per10k": 12.1
+    },
+    {
+      "dept": "58",
+      "name": "Nièvre",
+      "bars": 245,
+      "pop": 202417,
+      "per10k": 12.1
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "bars": 273,
+      "pop": 227284,
+      "per10k": 12.0
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "bars": 128,
+      "pop": 115596,
+      "per10k": 11.1
+    },
+    {
+      "dept": "29",
+      "name": "Finistère",
+      "bars": 1014,
+      "pop": 921638,
+      "per10k": 11.0
+    },
+    {
+      "dept": "12",
+      "name": "Aveyron",
+      "bars": 298,
+      "pop": 278076,
+      "per10k": 10.7
+    }
+  ],
+  "bottomDepts": [
+    {
+      "dept": "81",
+      "name": "Tarn",
+      "bars": 218,
+      "pop": 393572,
+      "per10k": 5.5
+    },
+    {
+      "dept": "68",
+      "name": "Haut-Rhin",
+      "bars": 414,
+      "pop": 767083,
+      "per10k": 5.4
+    },
+    {
+      "dept": "70",
+      "name": "Haute-Saône",
+      "bars": 126,
+      "pop": 234010,
+      "per10k": 5.4
+    },
+    {
+      "dept": "52",
+      "name": "Haute-Marne",
+      "bars": 90,
+      "pop": 171042,
+      "per10k": 5.3
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bars": 871,
+      "pop": 1636291,
+      "per10k": 5.3
+    },
+    {
+      "dept": "01",
+      "name": "Ain",
+      "bars": 329,
+      "pop": 663025,
+      "per10k": 5.0
+    },
+    {
+      "dept": "90",
+      "name": "Territoire de Belfort",
+      "bars": 65,
+      "pop": 139654,
+      "per10k": 4.7
+    },
+    {
+      "dept": "31",
+      "name": "Haute-Garonne",
+      "bars": 601,
+      "pop": 1434367,
+      "per10k": 4.2
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bars": 565,
+      "pop": 1415367,
+      "per10k": 4.0
+    },
+    {
+      "dept": "67",
+      "name": "Bas-Rhin",
+      "bars": 450,
+      "pop": 1152662,
+      "per10k": 3.9
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bars": 547,
+      "pop": 1438100,
+      "per10k": 3.8
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bars": 463,
+      "pop": 1256607,
+      "per10k": 3.7
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bars": 478,
+      "pop": 1456365,
+      "per10k": 3.3
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bars": 546,
+      "pop": 1635291,
+      "per10k": 3.3
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bars": 403,
+      "pop": 1313768,
+      "per10k": 3.1
+    }
+  ]
+}

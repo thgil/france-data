@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Les Deux Alpes has 202 bars per 10,000 residents — 28× the national average of 7.3. France's bar capital isn't Paris; it's a ski resort. [Q-033]
+- 🔥 Haute-Corse leads every French département at 21.1 bars per 10,000 residents. Paris is mid-table at 14.6. Essonne, adjacent to Paris, is last-but-one at 3.1. The ring around the capital shows up in bars too. [Q-033]
+- 🔥 23,265 French communes have zero registered bars — home to 11.3 million people. 2,562 of them have more than 1,000 residents. [Q-033]
+- 🔥 Of the 15 French communes (pop ≥ 500) with the most bars per capita, 11 are ski resorts. SIRENE records licences, not footfall — ski towns carry peak-season density all year. [Q-033]

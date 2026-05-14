@@ -171,6 +171,8 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Answered nationally rather than at commune level. Finistère (1,014 bars, under 1M residents) and tourism-heavy Mediterranean départements (Var 1,042, Hérault 1,013) punch clearly above their weight per capita. Exact commune-level per-capita rankings require a population join we don't have in this dataset. The overall picture — 49,385 active débits de boissons (NAF 56.30Z), with Nord+Pas-de-Calais (3,226 combined) edging Paris (3,120) for first place — is mapped in Story 4.
 - Story: [bars](/stories/bars/)
+- Follow-up (bar-capitals): Commune-level per-capita rankings now done by joining bars.json to DREES APL population data. Ski resorts dominate: Les Deux Alpes (202/10k), Morzine (192/10k) — 28× the national avg of 7.3/10k. At dept level, Haute-Corse leads (21.1/10k); IDF suburbs trail (Essonne 3.1/10k). 23,265 communes have zero bars (16.8% of French population).
+- Story: [bar-capitals](/stories/bar-capitals/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
 - Status: 🟢 open

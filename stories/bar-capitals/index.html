@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France's bar capitals — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callouts ───────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr; }
+    }
+    .stat-block {
+      border-top: 2px solid var(--rule);
+      padding-top: 12px;
+    }
+    .stat-block .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+
+    /* ── Horizontal bar chart ────────────────────────────────────────── */
+    .bar-chart {
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    .bar-chart-title {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 52px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+    @media (max-width: 560px) {
+      .bar-row { grid-template-columns: 120px 1fr 48px; }
+    }
+    .bar-row .bar-label {
+      font-family: var(--serif);
+      font-size: 13px;
+      line-height: 1.2;
+      text-align: right;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bar-row .bar-label small {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--ink-mute);
+      display: block;
+    }
+    .bar-track {
+      background: #ede8e0;
+      border-radius: 2px;
+      height: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: #c67c00;
+      transition: width 0.4s ease;
+    }
+    .bar-fill.is-highlight { background: var(--accent); }
+    .bar-value {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+    .bar-chart-note {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+    .national-avg-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 0 24px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .avg-bar-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 52px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 560px) {
+      .avg-bar-row { grid-template-columns: 120px 1fr 48px; }
+    }
+    .avg-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      text-align: right;
+      color: var(--ink-mute);
+      font-style: italic;
+    }
+    .avg-track {
+      position: relative;
+      height: 22px;
+    }
+    .avg-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #888;
+      left: 3.62%; /* 7.3 / 201.8 */
+    }
+    .avg-line::after {
+      content: 'avg 7.3';
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    /* ── Rankings tables ─────────────────────────────────────────────── */
+    .ranks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    @media (max-width: 640px) {
+      .ranks-grid { grid-template-columns: 1fr; }
+    }
+    .ranks-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .ranks-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .ranks-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .ranks-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+    .ranks-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .ranks-table .rank {
+      font-size: 10px;
+      color: #bbb;
+      padding-right: 8px;
+      min-width: 1.6ch;
+    }
+    .ranks-table .place {
+      font-family: var(--serif);
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">France's bar capitals</h1>
+        <p class="story-dek">The national average is 7.3 bars per 10,000 residents. Then there's Morzine.</p>
+        <div class="story-meta">
+          <span>2026-05-14</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Setup ─────────────────────────────────────────────── -->
+      <p>France's <a href="../bars/">49,385 registered bars</a> tell different stories depending on how you count them. By raw numbers, Paris leads — 3,120 débits de boissons in a single département. But raw counts favour dense cities. Per capita, the map inverts, and a different France comes into view.</p>
+
+      <p>The national figure works out to 7.3 bars per 10,000 residents. That's the average across 35,000 communes, 67 million people, and a country that runs from the Arctic Circle to the tropics. The range around that average is extreme.</p>
+
+      <div class="stat-row" id="stat-row">
+        <div class="stat-block">
+          <span class="stat-num">7.3</span>
+          <span class="stat-label">bars per 10,000 residents, nationally</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num" id="stat-top-per10k">202</span>
+          <span class="stat-label">per 10,000 in Les Deux Alpes — the highest commune with 500+ residents</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num" id="stat-zero-pct">16.8%</span>
+          <span class="stat-label">of the French population lives in a commune with zero registered bars</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Ski resort story ──────────────────────────────────── -->
+      <h2>The ski resort anomaly</h2>
+
+      <p>Among communes with at least 500 residents, the per-capita bar rankings read like a lift-pass catalogue. Les Deux Alpes (Isère) leads with 39 bars for 1,933 inhabitants — 202 per 10,000, or 28 times the national average. Morzine (Haute-Savoie) is second at 192. Val-d'Isère, Courchevel, Tignes, Châtel, Les Gets follow. Of the 15 densest communes in France, 11 are ski resorts.</p>
+
+      <p>The mechanism is simple: resort infrastructure inflates the permanent bar count for a population that swells 10-to-1 in winter. A commune of 2,000 permanent residents may host 20,000 seasonal visitors. The SIRENE registry records licences, not footfall — so ski towns carry a permanent bar density calibrated to peak season, all year round.</p>
+
+      <!-- ── Horizontal bar chart ───────────────────────────────────────── -->
+      <div class="bar-chart">
+        <div class="bar-chart-title">Bars per 10,000 residents — top communes (pop ≥ 500)</div>
+        <div id="commune-chart"></div>
+        <p class="bar-chart-note">National average: 7.3/10k. Only communes with at least 500 registered residents shown. Source: INSEE SIRENE (bars) + DREES APL data (population).</p>
+      </div>
+
+      <!-- ── Beat 3: Department map ────────────────────────────────────── -->
+      <h2>Corsica leads; the IDF suburbs trail</h2>
+
+      <p>At the département level, the picture is steadier — ski-resort outliers average out, and a clear regional logic appears. Haute-Corse (2B) tops the table at 21.1 bars per 10,000, with Corse-du-Sud (2A) third at 16.9. Corsica's café tradition — the terrace as a daily institution, not a leisure choice — shows up directly in the counts.</p>
+
+      <p>Lozère comes second (17.6/10k), Cantal fourth (16.6/10k). The rural, mountainous south-central departments — places where the village café is often the only public venue — carry surprisingly high per-capita densities. The diagonale du vide that marks France's low-density diagonal shows fewer bars by absolute count, but not by residents served.</p>
+
+      <p>At the bottom sits a familiar geography: the suburbs of Paris. Essonne (3.1/10k), Hauts-de-Seine (3.3/10k), Yvelines (3.3/10k), Seine-et-Marne (3.8/10k). This is the same ring we traced in <a href="../medical-deserts/">medical deserts</a> and <a href="../baguettes/">bakery density</a>. Paris proper registers 14.6/10k — well above its surrounding departments, and mid-table nationally. The capital is bar-rich; its suburbs are bar-dry.</p>
+
+      <div class="ranks-grid" id="ranks-grid">
+        <div class="ranks-block">
+          <h3>Most bars per 10k (by département)</h3>
+          <table class="ranks-table" id="table-top-dept"><tbody></tbody></table>
+        </div>
+        <div class="ranks-block">
+          <h3>Fewest bars per 10k (by département)</h3>
+          <table class="ranks-table" id="table-bottom-dept"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: Bar deserts ───────────────────────────────────────── -->
+      <h2>Bar deserts</h2>
+
+      <p>23,265 communes — nearly two in three — have no registered bar at all. They're home to 11.3 million people, about 16.8% of the French population. Most are small rural communes where the village café closed a generation ago. But size doesn't guarantee access: 2,562 communes with more than 1,000 residents also have zero bars.</p>
+
+      <p>The picture echoes what we've seen for doctors and bakeries. Commercial amenities — bars, pharmacies, boulangeries — cluster by the same logic: foot traffic, purchasing power, road access. Rural France loses them together, and gains them back together, if it gains them back at all. The bar-per-capita map turns out to be a surprisingly faithful proxy for how much of everyday French life a commune can sustain.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from the national SIRENE business registry (NAF 56.30Z, active establishments, March 2026 snapshot), geocoded by INSEE's statistical geolocation file. Population figures are from the DREES APL 2023 dataset (base INSEE 2021 census). The per-capita calculation joins bars to communes by the 5-digit INSEE commune code. Of 49,385 total bars, 49,349 matched a commune in the population dataset. Communes are counted at their registered permanent population; seasonal tourism populations are not included.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population base</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { renderCommuneChart, renderDeptTables } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./stats.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const stats = await res.json();
+        renderCommuneChart('#commune-chart', stats);
+        renderDeptTables(stats);
+      } catch (err) {
+        console.error('Failed to load bar-capitals data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
