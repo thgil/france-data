@@ -83,3 +83,11 @@ any caveats about quality.
 - Formats: Extracted as CSV from the national SIRENE parquet, joined to SIRENE Géolocalisation for lat/lng. Output: bars.json (3.8 MB) with fields lat, lng, commune, name, dept.
 - Notes: NAF 56.30Z covers all licensed premises serving alcohol for on-site consumption. 59% of establishments carry a registered business name (denominationUniteLegale or enseigne fields); the rest trade anonymously. Same pipeline as DS-003 / baguettes story — filter parquet by NAF, join geocoords, export to JSON. Département field derived from commune code prefix.
 - Used by: Q-033, Story 4 (bars)
+
+### DS-COMMUNES-INDEX: communes-index.json — 35,014 commune names with centroids
+- URL: (derived from DS-APL + DS-CONTOURS; no external download needed)
+- Publisher: Processed in-repo from DREES APL 2023 joined to Etalab commune boundaries
+- Coverage: All 35,014 communes in metropolitan France and overseas territories. INSEE codes, official commune names, département codes, 2021 population, and bounding-box centroid coordinates.
+- Formats: JSON (2.9 MB). File: `stories/commune-names/communes-index.json`
+- Notes: Each entry: `{code, name, dept, pop, lat, lon}`. Centroid is the midpoint of the commune's bounding box — sufficient for label placement and lightweight proximity queries. Not suitable for precise geographic analysis (use DS-CONTOURS polygons for that). Population from INSEE 2021 census base.
+- Used by: Q-037, Q-039, Story 5 (commune-names)
