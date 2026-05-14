@@ -1,0 +1,446 @@
+{
+  "total": 35014,
+  "unique_names": 32764,
+  "communes_unique_name": 31314,
+  "communes_shared_name": 3700,
+  "names_shared_2plus": 1450,
+  "names_shared_5plus": 93,
+  "saint_commune_count": 3898,
+  "saint_unique_names": 3392,
+  "top30": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    },
+    {
+      "name": "Saint-Sulpice",
+      "count": 7
+    },
+    {
+      "name": "Caumont",
+      "count": 7
+    },
+    {
+      "name": "Fleury",
+      "count": 7
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 7
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 7
+    },
+    {
+      "name": "Montaut",
+      "count": 7
+    },
+    {
+      "name": "Saint-Saturnin",
+      "count": 7
+    },
+    {
+      "name": "Mons",
+      "count": 7
+    },
+    {
+      "name": "Saint-Christophe",
+      "count": 7
+    },
+    {
+      "name": "Sainte-Gemme",
+      "count": 7
+    }
+  ],
+  "shortest": [
+    {
+      "name": "Y",
+      "len": 1,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "80"
+      ]
+    },
+    {
+      "name": "By",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "25"
+      ]
+    },
+    {
+      "name": "Bû",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "28"
+      ]
+    },
+    {
+      "name": "Eu",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "76"
+      ]
+    },
+    {
+      "name": "Gy",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "70"
+      ]
+    },
+    {
+      "name": "Oz",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "38"
+      ]
+    },
+    {
+      "name": "Oô",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "31"
+      ]
+    },
+    {
+      "name": "Py",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "66"
+      ]
+    },
+    {
+      "name": "Ri",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "61"
+      ]
+    },
+    {
+      "name": "Ry",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "76"
+      ]
+    },
+    {
+      "name": "Sy",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "08"
+      ]
+    },
+    {
+      "name": "Ur",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "66"
+      ]
+    },
+    {
+      "name": "Us",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "95"
+      ]
+    },
+    {
+      "name": "Uz",
+      "len": 2,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "65"
+      ]
+    },
+    {
+      "name": "Acq",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "62"
+      ]
+    },
+    {
+      "name": "Acy",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "02"
+      ]
+    },
+    {
+      "name": "Adé",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "65"
+      ]
+    },
+    {
+      "name": "Afa",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "2A"
+      ]
+    },
+    {
+      "name": "Agy",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "14"
+      ]
+    },
+    {
+      "name": "Aix",
+      "len": 3,
+      "count": 1,
+      "dept": null,
+      "depts": [
+        "19"
+      ]
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "len": 45,
+      "count": 1,
+      "depts": [
+        "51"
+      ]
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "len": 43,
+      "count": 1,
+      "depts": [
+        "70"
+      ]
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "len": 41,
+      "count": 1,
+      "depts": [
+        "14"
+      ]
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "len": 40,
+      "count": 1,
+      "depts": [
+        "21"
+      ]
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "len": 40,
+      "count": 1,
+      "depts": [
+        "34"
+      ]
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "len": 40,
+      "count": 1,
+      "depts": [
+        "70"
+      ]
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "len": 39,
+      "count": 1,
+      "depts": [
+        "07"
+      ]
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "len": 38,
+      "count": 1,
+      "depts": [
+        "11"
+      ]
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "len": 38,
+      "count": 1,
+      "depts": [
+        "24"
+      ]
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "len": 38,
+      "count": 1,
+      "depts": [
+        "80"
+      ]
+    }
+  ],
+  "freq_dist": [
+    [
+      12,
+      1
+    ],
+    [
+      11,
+      1
+    ],
+    [
+      10,
+      2
+    ],
+    [
+      9,
+      5
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      7,
+      14
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      5,
+      42
+    ],
+    [
+      4,
+      93
+    ],
+    [
+      3,
+      216
+    ],
+    [
+      2,
+      1048
+    ],
+    [
+      1,
+      31314
+    ]
+  ]
+}
