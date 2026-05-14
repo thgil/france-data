@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### saints-republic: The Saints' Republic
+- Status: ✅ published
+- Published URL: /stories/saints-republic/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y (1 letter, pop. 89). It also has a commune whose name is 45 characters long. And 11.1% of communes are named after saints.
+- Data: Commune names and populations reused from the DREES APL dataset already in the repo (35,014 communes). No new download needed.
+- Angle: Text-and-charts story. Two SVG charts: (1) top 15 most duplicated names — dominated by saints; (2) name-length histogram showing the bimodal distribution. Stat cards for Y, the saint count, and the 45-char record.
+- Draft X summary:
+  > France has a commune called Y. Population: 89. At the other extreme, Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson stretches to 45 characters. In between: 35,014 communes, 3,898 named after saints, 13,410 hyphenated. Today on **france-data**: the full naming atlas of France. 🇫🇷
+

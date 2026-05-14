@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Saints' Republic — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat cards ──────────────────────────────────────────────────── */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stat-cards { grid-template-columns: 1fr; }
+    }
+
+    .stat-card {
+      border: 1px solid #d8d0c0;
+      padding: 20px 20px 16px;
+      background: #faf7f2;
+    }
+
+    .stat-card .stat-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .stat-card .stat-value {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card .stat-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Chart figure ─────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+      max-width: 680px;
+    }
+
+    .chart-figure .chart-title {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+
+    /* ── Names table ─────────────────────────────────────────────────── */
+    .names-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .names-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 0 10px;
+      border-bottom: 1px solid #e0d8cc;
+      text-align: left;
+    }
+
+    .names-table td {
+      padding: 7px 8px 7px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+
+    .names-table .col-rank {
+      color: #bbb;
+      font-size: 11px;
+      width: 2ch;
+      padding-right: 12px;
+    }
+
+    .names-table .col-name {
+      font-family: var(--serif);
+      font-size: 15px;
+    }
+
+    .names-table .col-count {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+    }
+
+    /* ── Short names list ─────────────────────────────────────────────── */
+    .short-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+    }
+
+    .short-name-pill {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border: 1px solid #d8d0c0;
+      color: var(--ink);
+      background: #faf7f2;
+      white-space: nowrap;
+    }
+
+    .short-name-pill .pill-dept {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      color: #999;
+      margin-left: 4px;
+    }
+
+    /* ── Long name highlight ──────────────────────────────────────────── */
+    .long-name-box {
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      margin: 32px 0;
+      background: #f5f1eb;
+      max-width: 680px;
+    }
+
+    .long-name-box .lnb-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+
+    .long-name-box .lnb-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Saints' Republic</h1>
+        <p class="story-dek">One commune is called Y. Another's name runs to 45 characters. Between them lie 35,014 names — a 1,000-year record of faith, geography, and the French gift for bureaucratic creativity.</p>
+        <div class="story-meta">
+          <span>2026-05-14</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ─────────────────────────────────────────────────── -->
+      <p>France has a commune called Y. Not <em>Ys</em>, the legendary sunken city of Breton myth — just <em>Y</em>. One letter. It sits in the Somme (département 80), has a population of 89, and has been a separate administrative unit since long before the Revolution. The postal code is 80190. The mayor presumably signs letters with a single character for "commune name".</p>
+
+      <p>Y is an extreme, but it isn't alone. France's 35,014 communes carry names ranging from one letter to 45. The distribution below shows the full range — and why both ends of it are worth examining.</p>
+
+      <!-- ── Key stats ─────────────────────────────────────────────────── -->
+      <div class="stat-cards" id="stat-cards">
+        <div class="stat-card">
+          <div class="stat-label">Shortest commune name</div>
+          <div class="stat-value">Y</div>
+          <div class="stat-sub">1 letter · Somme (80) · pop. 89</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Communes starting with Saint</div>
+          <div class="stat-value" id="saint-pct">—</div>
+          <div class="stat-sub" id="saint-sub">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Longest commune name</div>
+          <div class="stat-value" id="longest-len">—</div>
+          <div class="stat-sub" id="longest-sub">—</div>
+        </div>
+      </div>
+
+      <!-- ── Chart: length distribution ────────────────────────────────── -->
+      <figure class="chart-figure">
+        <p class="chart-title">Name length distribution — all 35,014 communes</p>
+        <div id="chart-histogram"></div>
+        <figcaption>Number of communes by character count of their official name (lengths > 35 omitted for readability — 36 communes have names of 36–45 characters). The peak sits at 7–8 characters.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: two-letter names ───────────────────────────────────── -->
+      <h2>The two-letter clubs</h2>
+
+      <p>Below Y are 13 communes with two-letter names. They are scattered across France, without obvious geographic clustering — these are ancient place names that happen to survive in compressed form, often from Gallo-Roman or Germanic roots contracted by centuries of phonetic wear:</p>
+
+      <div class="short-names" id="short-names-list"></div>
+
+      <p>Most are tiny. Sy (Ardennes) has 54 people. Py (Pyrénées-Orientales) has 79. But Eu (Seine-Maritime) is a market town of 6,591 — its name is ancient Norman, possibly from the Latin <em>Augium</em>. Bû (Eure-et-Loir) has 2,022 residents and a boulangerie.</p>
+
+      <!-- ── Beat 3: saint republic ──────────────────────────────────────── -->
+      <h2>One in nine communes is a saint</h2>
+
+      <p>France is officially a secular republic — but you wouldn't know it from the commune register. Of 35,014 communes, <span id="saint-count-inline">3,898</span> begin with "Saint" or "Sainte": 11.1% of the country's administrative map is named after a Christian holy figure.</p>
+
+      <p>The concentration is highest in the Massif Central and the west. In Ardèche (07), 29% of communes carry a saint's name. In Creuse (23) and Loire (42), it approaches 28%. These are old territories where the parish was the first unit of local identity, and the saint was the parish.</p>
+
+      <p>The most common name in all of France is <strong>Sainte-Colombe</strong> — 12 different communes share it, in 12 different départements. Saint-Sauveur follows with 11. Saint-Aubin, Saint-Marcel, Saint-Michel, Saint-Pierre, and Sainte-Marie each appear nine times. If you are standing in a French village called Sainte-Colombe, there are 11 others just like it.</p>
+
+      <!-- ── Chart: top names ───────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <p class="chart-title">Most duplicated commune names</p>
+        <div id="chart-top-names"></div>
+        <figcaption>Top 15 most common exact commune names in France. Source: DREES APL 2023 dataset, 35,014 communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: hyphenated names ───────────────────────────────────── -->
+      <h2>The hyphen as history</h2>
+
+      <p>38.3% of French communes — 13,410 of them — contain a hyphen. Many are ancient compound toponyms: <em>Pont-sur-Seine</em> (bridge on the Seine), <em>Villers-lès-Nancy</em> (Villers near Nancy), <em>Fontaine-sous-Jouy</em> (spring below Jouy). The hyphen was standardised in the 19th century as part of the administrative rationalisation that froze place names in their modern form.</p>
+
+      <p>But a new wave of long hyphenated names arrived after 2015, when the <em>loi NOTRe</em> pushed municipalities to merge into <em>communes nouvelles</em>. The resulting names often concatenate all the constituent villages, preserving everyone's identity in one unwieldy official title. The extreme result:</p>
+
+      <div class="long-name-box" id="longest-name-box">
+        <div class="lnb-name" id="longest-name-text">Loading…</div>
+        <div class="lnb-meta" id="longest-name-meta"></div>
+      </div>
+
+      <p>45 characters. The Marne (51). Three former villages — Saint-Rémy, Bouzemont, and the combined Saint-Genest-et-Isson — merged into a single commune with a name that barely fits on a road sign. Its 491 residents presumably abbreviate.</p>
+
+      <!-- ── Beat 5: geography → culture ────────────────────────────────── -->
+      <h2>What a name says</h2>
+
+      <p>French commune names encode geography (<em>Rocher</em>, <em>Val</em>, <em>Pont</em>, <em>Mont</em>), religion (3,898 saints), feudal origin (<em>Villers</em>, <em>Villeneuve</em>, <em>Beaumont</em>), and linguistic layers — Latin, Frankish, Breton, Basque, Alsatian, Occitan — deposited in the order that cultures arrived and left. The name Y doesn't tell you any of this, which is perhaps why it feels so strange. It is a place that somehow escaped being described.</p>
+
+      <p>The longest name tells the opposite story: a name that tried to describe everything at once, and nearly succeeded.</p>
+
+      <!-- ── Credits ──────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset, which covers 35,014 communes across metropolitan France and overseas territories. Population figures are from the INSEE 2021 base. A small number of communes have null populations and were excluded from population-specific statistics; commune names are complete for all 35,014.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée aux médecins généralistes 2023</a> (commune names and populations reused from the medical-deserts dataset)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopNamesChart, drawLengthHistogram } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./data.json');
+      const d = await res.json();
+
+      // Stat cards
+      document.getElementById('saint-pct').textContent = d.saintPct + '%';
+      document.getElementById('saint-sub').textContent =
+        `${d.saintCount.toLocaleString('fr-FR')} of ${d.total.toLocaleString('fr-FR')} communes`;
+      document.getElementById('longest-len').textContent = d.longestCommune.length;
+      document.getElementById('longest-sub').textContent =
+        `characters · ${d.longestCommune.name.slice(0, 28)}…`;
+
+      // Saint count inline
+      document.getElementById('saint-count-inline').textContent =
+        d.saintCount.toLocaleString('fr-FR');
+
+      // Short names pills
+      const list = document.getElementById('short-names-list');
+      d.twoLetterCommunes.forEach(c => {
+        const pill = document.createElement('span');
+        pill.className = 'short-name-pill';
+        pill.innerHTML = `${c.name}<span class="pill-dept">dept ${c.dept}</span>`;
+        list.appendChild(pill);
+      });
+
+      // Longest name box
+      document.getElementById('longest-name-text').textContent = d.longestCommune.name;
+      document.getElementById('longest-name-meta').textContent =
+        `${d.longestCommune.length} characters · département ${d.longestCommune.dept} · pop. ${d.longestCommune.pop.toLocaleString('fr-FR')}`;
+
+      // Charts
+      drawTopNamesChart('#chart-top-names', d.topNames);
+      drawLengthHistogram('#chart-histogram', d.lengthDistribution);
+    }
+
+    main().catch(err => console.error('saints-republic load error:', err));
+  </script>
+</body>
+</html>
