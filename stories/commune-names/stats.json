@@ -1,0 +1,496 @@
+{
+  "total": 35014,
+  "saintTotal": 3898,
+  "articleTotal": 2220,
+  "dupDistinctNames": 1450,
+  "dupTotalCommunes": 3700,
+  "etFusions": 358,
+  "mostCommon": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    }
+  ],
+  "shortNames1": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "dept": "80",
+      "deptName": "Somme",
+      "pop": 89
+    }
+  ],
+  "shortNames2": [
+    {
+      "name": "By",
+      "code": "25104",
+      "dept": "25",
+      "deptName": "Doubs",
+      "pop": 86
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "dept": "28",
+      "deptName": "Eure-et-Loir",
+      "pop": 2022
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 6591
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "dept": "70",
+      "deptName": "Haute-Saône",
+      "pop": 1001
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "dept": "38",
+      "deptName": "Isère",
+      "pop": 213
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "pop": 103
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 79
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "dept": "61",
+      "deptName": "Orne",
+      "pop": 156
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 775
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "dept": "08",
+      "deptName": "Ardennes",
+      "pop": 54
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 348
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1338
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "pop": 36
+    }
+  ],
+  "longNames": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "dept": "51",
+      "chars": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "dept": "70",
+      "chars": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "dept": "14",
+      "chars": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "dept": "21",
+      "chars": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "dept": "34",
+      "chars": 40
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "code": "70449",
+      "dept": "70",
+      "chars": 40
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "code": "07262",
+      "dept": "07",
+      "chars": 39
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "code": "11128",
+      "dept": "11",
+      "chars": 38
+    }
+  ],
+  "lengthHist": [
+    {
+      "l": 1,
+      "n": 1
+    },
+    {
+      "l": 2,
+      "n": 13
+    },
+    {
+      "l": 3,
+      "n": 154
+    },
+    {
+      "l": 4,
+      "n": 720
+    },
+    {
+      "l": 5,
+      "n": 1969
+    },
+    {
+      "l": 6,
+      "n": 3223
+    },
+    {
+      "l": 7,
+      "n": 3695
+    },
+    {
+      "l": 8,
+      "n": 3695
+    },
+    {
+      "l": 9,
+      "n": 3000
+    },
+    {
+      "l": 10,
+      "n": 2522
+    },
+    {
+      "l": 11,
+      "n": 1884
+    },
+    {
+      "l": 12,
+      "n": 1435
+    },
+    {
+      "l": 13,
+      "n": 1167
+    },
+    {
+      "l": 14,
+      "n": 1018
+    },
+    {
+      "l": 15,
+      "n": 1095
+    },
+    {
+      "l": "16-20",
+      "n": 5710
+    },
+    {
+      "l": "21-30",
+      "n": 3663
+    },
+    {
+      "l": "31+",
+      "n": 50
+    }
+  ],
+  "topComponents": [
+    {
+      "word": "saint",
+      "count": 4074
+    },
+    {
+      "word": "sainte",
+      "count": 360
+    },
+    {
+      "word": "sous",
+      "count": 258
+    },
+    {
+      "word": "martin",
+      "count": 254
+    },
+    {
+      "word": "bois",
+      "count": 212
+    },
+    {
+      "word": "pierre",
+      "count": 179
+    },
+    {
+      "word": "jean",
+      "count": 169
+    },
+    {
+      "word": "la chapelle",
+      "count": 151
+    },
+    {
+      "word": "germain",
+      "count": 120
+    },
+    {
+      "word": "villers",
+      "count": 108
+    }
+  ],
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12,
+      "depts": [
+        "Hautes-Alpes",
+        "Charente-Maritime",
+        "Doubs",
+        "Gironde",
+        "Ille-et-Vilaine",
+        "Landes",
+        "Lot",
+        "Manche",
+        "Rhône",
+        "Seine-Maritime",
+        "Seine-et-Marne",
+        "Yonne"
+      ]
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11,
+      "depts": [
+        "Hautes-Alpes",
+        "Côte-d'Or",
+        "Dordogne",
+        "Finistère",
+        "Haute-Garonne",
+        "Gironde",
+        "Isère",
+        "Meurthe-et-Moselle",
+        "Oise",
+        "Haute-Saône",
+        "Somme"
+      ]
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10,
+      "depts": [
+        "Aisne",
+        "Aube",
+        "Côte-d'Or",
+        "Indre",
+        "Jura",
+        "Landes",
+        "Lot-et-Garonne",
+        "Nord",
+        "Pas-de-Calais",
+        "Essonne"
+      ]
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10,
+      "depts": [
+        "Ardèche",
+        "Cantal",
+        "Côte-d'Or",
+        "Hérault",
+        "Indre",
+        "Isère",
+        "Haute-Loire",
+        "Nièvre",
+        "Orne",
+        "Puy-de-Dôme"
+      ]
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9,
+      "depts": [
+        "Ain",
+        "Ardennes",
+        "Eure",
+        "Indre",
+        "Meurthe-et-Moselle",
+        "Morbihan",
+        "Haute-Saône",
+        "Saône-et-Loire",
+        "Savoie"
+      ]
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9,
+      "depts": [
+        "Aisne",
+        "Ariège",
+        "Charente",
+        "Haute-Garonne",
+        "Gers",
+        "Hérault",
+        "Loiret",
+        "Pyrénées-Atlantiques",
+        "Tarn-et-Garonne"
+      ]
+    },
+    {
+      "name": "Le Pin",
+      "count": 9,
+      "depts": [
+        "Allier",
+        "Calvados",
+        "Charente-Maritime",
+        "Gard",
+        "Jura",
+        "Loire-Atlantique",
+        "Seine-et-Marne",
+        "Deux-Sèvres",
+        "Tarn-et-Garonne"
+      ]
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9,
+      "depts": [
+        "Alpes-de-Haute-Provence",
+        "Cantal",
+        "Haute-Garonne",
+        "Jura",
+        "Marne",
+        "Bas-Rhin",
+        "Overseas",
+        "Overseas",
+        "Overseas"
+      ]
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9,
+      "depts": [
+        "Ardennes",
+        "Cantal",
+        "Doubs",
+        "Gers",
+        "Ille-et-Vilaine",
+        "Nièvre",
+        "Hautes-Pyrénées",
+        "Overseas",
+        "Overseas"
+      ]
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8,
+      "depts": [
+        "Ain",
+        "Aveyron",
+        "Calvados",
+        "Corrèze",
+        "Côte-d'Or",
+        "Dordogne",
+        "Saône-et-Loire",
+        "Deux-Sèvres"
+      ]
+    }
+  ]
+}
