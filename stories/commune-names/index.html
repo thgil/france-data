@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>35,014 names — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px auto;
+      max-width: 700px;
+    }
+    .chart-figure canvas {
+      width: 100% !important;
+    }
+
+    /* ── Name list tables ─────────────────────────────────────────── */
+    .name-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 56px auto;
+      max-width: 700px;
+    }
+    @media (max-width: 600px) {
+      .name-cols { grid-template-columns: 1fr; }
+    }
+
+    .name-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .name-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .name-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .name-table td.rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 8px;
+      min-width: 1.8ch;
+    }
+    .name-table td.place {
+      font-family: Georgia, serif;
+    }
+    .name-table td.dept {
+      font-size: 11px;
+      color: #888;
+      padding: 0 8px;
+    }
+    .name-table td.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+      white-space: nowrap;
+    }
+    .name-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    /* ── Notable communes callout ─────────────────────────────────── */
+    .notable-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 40px auto;
+      max-width: 700px;
+    }
+    .notable-card {
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 14px 16px;
+    }
+    .notable-card .nc-name {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .notable-card .nc-meta {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* ── Stat callouts ────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px auto;
+      max-width: 700px;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-item .si-num {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .stat-item .si-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">35,014 names</h1>
+        <p class="story-dek">France's communes run from Y (one letter, 89 people, Somme) to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson. In between: 3,882 saints, twelve Sainte-Colombes, and a place called Montcuq.</p>
+        <div class="story-meta">
+          <span>2026-05-15</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────── -->
+      <p>France has 35,014 communes. That's more communes than any other country in the EU — a legacy of the 1789 Revolution, which turned every parish into its own municipality and gave each one the right to keep its own name. The result is a national gazetteer unlike anything else: 32,764 distinct place names, many of them centuries old, a few of them magnificently strange.</p>
+
+      <div class="stat-row" id="stat-row">
+        <div class="stat-item">
+          <span class="si-num" id="stat-total">—</span>
+          <span class="si-label">communes</span>
+        </div>
+        <div class="stat-item">
+          <span class="si-num" id="stat-unique">—</span>
+          <span class="si-label">unique names</span>
+        </div>
+        <div class="stat-item">
+          <span class="si-num" id="stat-saints">—</span>
+          <span class="si-label">communes named after a saint</span>
+        </div>
+        <div class="stat-item">
+          <span class="si-num" id="stat-sharing">—</span>
+          <span class="si-label">share their name with at least one other commune</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: saints ──────────────────────────────────────── -->
+      <h2>One republic, under the saints</h2>
+
+      <p>Eleven percent of all French communes — 3,882 of them — begin with <em>Saint-</em> or <em>Sainte-</em>. France is famously secular, but its geography is devotional. The most popular patron is Saint-Martin (202 communes), followed by Saint-Jean (155) and Saint-Pierre (144). Saint-Martin's appeal makes historical sense: he was a 4th-century soldier-bishop who split his cloak with a beggar outside Amiens and became the patron of France itself. The country named a lot of real estate after him.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-saints" height="340"></canvas>
+        <figcaption>Top 12 patron saints by number of communes bearing their name (Saint- or Sainte- combined). Source: DREES / INSEE 2023 commune reference.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: duplicates ──────────────────────────────────── -->
+      <h2>Twelve places called Sainte-Colombe</h2>
+
+      <p>Of the 35,014 communes, 32,764 have a name no other commune shares. The remaining 2,250 share a name with at least one neighbour — across the country, not necessarily next door. The most duplicated name is <em>Sainte-Colombe</em>, which appears 12 times in 10 different départements. Colombe was a 3rd-century martyr from Córdoba; her name spread slowly across Gaul and kept multiplying. If you write a letter to Sainte-Colombe, France, you need to know your postal code.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-dupes" height="360"></canvas>
+        <figcaption>Most-duplicated commune names — same name, different département. <em>Saint-Aubin</em> and <em>Beaulieu</em> each appear in 10 départements.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: short and long ──────────────────────────────── -->
+      <h2>Y, and the art of the short name</h2>
+
+      <p>The shortest commune name in France is simply <em>Y</em>. It sits in the Somme, département 80, with 89 inhabitants. The postman delivers to streets in Y. The administrative address forms have a field for commune name; it says Y. It is, objectively, perfect.</p>
+
+      <p>Thirteen communes have two-letter names. <em>Oô</em> in the Haute-Garonne sits in the Pyrenees and sounds like surprise. <em>Eu</em>, in Seine-Maritime, is the largest two-letter commune (6,591 people) and was a favourite royal residence of Louis-Philippe. <em>Ur</em> (Pyrénées-Orientales) shares its two letters with one of the oldest cities in human history; it has 348 people and is near Bourg-Madame.</p>
+
+      <div class="name-cols">
+        <div class="name-block">
+          <h3>Shortest names</h3>
+          <table class="name-table" id="table-shortest">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="name-block">
+          <h3>Longest names</h3>
+          <table class="name-table" id="table-longest">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>At the other end: <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, 45 characters, in the Marne. Like many of the longest names, it's the result of a commune merger — what France calls a <em>fusion de communes</em>. When two villages join administratively but neither wants to disappear from the map, their names get hyphenated together. The longer the name, the more likely it is to be a love letter to a compromise.</p>
+
+      <!-- ── Beat 5: notable ─────────────────────────────────────── -->
+      <h2>The ones that made people look twice</h2>
+
+      <p>France's historical naming conventions were set centuries before anyone worried about how a town name sounds in a different language, or in a different era. Some results are memorable. <em>Montcuq-en-Quercy-Blanc</em> (Lot département, ~1,200 residents) became a national punchline in 1976 when a French TV presenter had to say its name on air — <em>montcuq</em> is a plausible Occitan derivation of <em>mons cucus</em>, meaning "hill of the cuckoo," but it sounds like <em>mon cul</em>, "my arse." It now leans into the joke. <em>Condom</em>, in the Gers, gave its name to the bishop Bertrand de Got before he became Pope Clement V; it was not named after its most famous modern homonym. <em>Brest</em> is a perfectly dignified Breton city. The name means "promontory."</p>
+
+      <div class="notable-grid" id="notable-grid"></div>
+
+      <!-- ── Beat 6 ───────────────────────────────────────────────── -->
+      <p>Behind every one of these 35,014 names is a millennium of local history: a patron saint's day, a river's old name, a hill, a forest, a Roman camp, a Frankish lord. The naming archive is open and searchable because it's public infrastructure — every commune's code, name, and administrative record is maintained by INSEE and published under an open licence. France treats its own geography as a dataset. That's what makes it fun to map.</p>
+
+      <!-- ── Credits ─────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset, which is built on the INSEE commune reference and population figures from the 2021 census. Total commune count (35,014) reflects the 2023 administrative perimeter. Commune counts and name analysis by this project.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune reference with INSEE codes and population</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs des communes 2025</a> — administrative boundaries</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function fmt(n) { return n.toLocaleString('fr-FR'); }
+
+    function fillStats(s) {
+      document.getElementById('stat-total').textContent = fmt(s.total);
+      document.getElementById('stat-unique').textContent = fmt(s.unique);
+      document.getElementById('stat-saints').textContent = fmt(s.saintCount);
+      document.getElementById('stat-sharing').textContent = fmt(s.sharingName);
+    }
+
+    function buildSaintsChart(s) {
+      const labels = s.topSaints.map(x => x.name);
+      const values = s.topSaints.map(x => x.count);
+      const ctx = document.getElementById('chart-saints').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data: values,
+            backgroundColor: '#b32020cc',
+            borderColor: '#b32020',
+            borderWidth: 1,
+            borderRadius: 2,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => ` ${ctx.parsed.x} communes`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: '#e0d8cc' },
+              ticks: { font: { family: 'Helvetica Neue, sans-serif', size: 11 } },
+            },
+            y: {
+              grid: { display: false },
+              ticks: { font: { family: 'Georgia, serif', size: 13 } },
+            },
+          },
+        },
+      });
+    }
+
+    function buildDupesChart(s) {
+      const labels = s.topDuplicated.map(x => x.name);
+      const values = s.topDuplicated.map(x => x.count);
+      const ctx = document.getElementById('chart-dupes').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data: values,
+            backgroundColor: '#2a5298cc',
+            borderColor: '#2a5298',
+            borderWidth: 1,
+            borderRadius: 2,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => ` ${ctx.parsed.x} communes with this name`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: '#e0d8cc' },
+              ticks: { stepSize: 2, font: { family: 'Helvetica Neue, sans-serif', size: 11 } },
+            },
+            y: {
+              grid: { display: false },
+              ticks: { font: { family: 'Georgia, serif', size: 13 } },
+            },
+          },
+        },
+      });
+    }
+
+    function fillShortLong(s) {
+      const shortBody = document.querySelector('#table-shortest tbody');
+      shortBody.innerHTML = s.shortest.slice(0, 12).map((c, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${c.name}</td>
+          <td class="dept">${c.dept}</td>
+          <td class="num">${c.len} letter${c.len === 1 ? '' : 's'}</td>
+        </tr>`
+      ).join('');
+
+      const longBody = document.querySelector('#table-longest tbody');
+      longBody.innerHTML = s.longest.map((c, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${c.name}</td>
+          <td class="dept">${c.dept}</td>
+          <td class="num">${c.len}</td>
+        </tr>`
+      ).join('');
+    }
+
+    const DEPT_NAMES = {
+      '80': 'Somme', '25': 'Doubs', '28': 'Eure-et-Loir',
+      '76': 'Seine-Maritime', '70': 'Haute-Saône', '95': 'Val-d\'Oise',
+      '38': 'Isère', '61': 'Orne', '66': 'Pyrénées-Or.', '08': 'Ardennes',
+      '46': 'Lot', '32': 'Gers', '29': 'Finistère',
+    };
+
+    function fillNotable(s) {
+      const notableData = [
+        { name: 'Montcuq-en-Quercy-Blanc', dept: '46', note: 'Sounds like "mon cul" (my arse)' },
+        { name: 'Condom', dept: '32', note: 'Named for a bishop, not a prophylactic' },
+        { name: 'Brest', dept: '29', note: 'Breton for "promontory" — nothing else' },
+        { name: 'Y', dept: '80', note: 'France\'s only one-letter commune' },
+        { name: 'Eu', dept: '76', note: 'Two letters; one royal palace' },
+        { name: 'Cumières-le-Mort-Homme', dept: '51', note: '"Dead Man\'s Knoll" — WWI battlefield' },
+      ];
+
+      const grid = document.getElementById('notable-grid');
+      grid.innerHTML = notableData.map(c =>
+        `<div class="notable-card">
+          <span class="nc-name">${c.name}</span>
+          <span class="nc-meta">Dept. ${c.dept} · ${c.note}</span>
+        </div>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        fillStats(stats);
+        buildSaintsChart(stats);
+        buildDupesChart(stats);
+        fillShortLong(stats);
+        fillNotable(stats);
+      } catch (err) {
+        console.error('Failed to load commune-names data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
