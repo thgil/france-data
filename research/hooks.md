@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has 12 communes named Sainte-Colombe, scattered from Manche to Hautes-Alpes. The post office needs a 2-digit code to tell them apart. [Q-037]
+- 🔥 10.6% of French communes share their name with at least one other. Send a letter to "Saint-Marcel, France" and the post office picks from 9 different villages. [Q-037]
+- 🔥 Sainte-Colombe (Hautes-Alpes, pop. 59, APL = 0.00): the smallest and most medically isolated of France's twelve identically named communes. [Q-037]
+- 🔥 19 of France's 25 most-duplicated commune names invoke a saint. Medieval communities independently chose the same patron saints — then never got around to comparing notes. [Q-037]

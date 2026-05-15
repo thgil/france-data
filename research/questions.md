@@ -181,8 +181,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: The most-duplicated exact commune name is **Sainte-Colombe** (12 occurrences), followed by Saint-Sauveur (11), Saint-Aubin (10), and Beaulieu (10). Overall, 1,450 distinct names appear more than once, accounting for 3,700 communes (10.6% of France's 35,014). The pattern is overwhelmingly saint-based: 19 of the 25 most-duplicated names invoke a saint. Saint-Martin appears only 5 times as an exact name, but "Saint-Martin-de-X" variants inflate the broader Martin family considerably.
+- Story: [name-twins](/stories/name-twins/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open

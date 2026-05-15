@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France has twelve Sainte-Colombes — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Duplicate chart ──────────────────────────────────────────────── */
+    #chart-dupes {
+      margin: 40px 0;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+    .dc-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .dc-label {
+      width: 220px;
+      flex-shrink: 0;
+      font-size: 13px;
+      text-align: right;
+      font-family: Georgia, serif;
+      color: #333;
+      white-space: nowrap;
+    }
+    .dc-bar-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .dc-bar {
+      height: 16px;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .dc-val {
+      font-size: 12px;
+      color: #555;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .dc-label { width: 130px; font-size: 11px; }
+      .dc-bar { height: 13px; }
+    }
+
+    /* ── Chart legend ─────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 14px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* ── Map figure ───────────────────────────────────────────────────── */
+    .map-figure { margin: 48px 0; }
+    .map-figure .mount {
+      width: 100%;
+      height: 420px;
+      position: relative;
+    }
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Map dot legend ───────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px #999;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    .dot-purple { background: #7a3d8f; }
+    .dot-red    { background: #c0392b; }
+
+    /* ── Sainte-Colombe table ─────────────────────────────────────────── */
+    .colombe-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 32px 0;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+    .colombe-table th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 2px solid #e0d8cc;
+      padding: 6px 8px 6px 0;
+    }
+    .colombe-table td {
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: middle;
+    }
+    .colombe-table td:last-child,
+    .colombe-table th:last-child {
+      text-align: right;
+    }
+    .colombe-table td.dept-cell {
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+    .colombe-table td.pop-cell {
+      font-variant-numeric: tabular-nums;
+    }
+    .colombe-table td.apl-cell {
+      font-variant-numeric: tabular-nums;
+    }
+    .desert-tag {
+      display: inline-block;
+      background: #fce8e6;
+      color: #c0392b;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* ── Pull quote ───────────────────────────────────────────────────── */
+    .pull-stat {
+      display: flex;
+      gap: 32px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+    .pull-stat-item {
+      flex: 1;
+      min-width: 120px;
+    }
+    .pull-stat-item .num {
+      font-size: 40px;
+      font-weight: 700;
+      font-family: Georgia, serif;
+      color: #7a3d8f;
+      line-height: 1;
+    }
+    .pull-stat-item .label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 420px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">France has twelve Sainte-Colombes</h1>
+        <p class="story-dek">3,700 French communes share their name with at least one other. The winner? Sainte-Colombe — a 3rd-century martyr with a dozen villages to her name.</p>
+        <div class="story-meta">
+          <span>2026-05-15</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────────── -->
+      <p>French addresses always include a département code. "75" is Paris. "29" is Finistère. "46" is Lot. This is not bureaucratic excess — it is a hard necessity. France has 35,014 communes, and 3,700 of them share their name with at least one other.</p>
+
+      <p>Send a letter to <em>Saint-Marcel, France</em> without specifying a département and it could end up in any of nine different villages. The post office would have to guess.</p>
+
+      <!-- ── Beat 2: Stats ──────────────────────────────────────────────── -->
+      <div class="pull-stat" id="pull-stats">
+        <div class="pull-stat-item">
+          <div class="num" id="stat-dupes">—</div>
+          <div class="label">distinct names shared by two or more communes</div>
+        </div>
+        <div class="pull-stat-item">
+          <div class="num" id="stat-communes">—</div>
+          <div class="label">communes with a non-unique name (10.6% of France)</div>
+        </div>
+        <div class="pull-stat-item">
+          <div class="num" id="stat-max">—</div>
+          <div class="label">villages sharing the most common name: Sainte-Colombe</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: Chart ──────────────────────────────────────────────── -->
+      <h2>The twenty most-duplicated names</h2>
+
+      <p>Of the 25 names that appear most often, the overwhelming majority invoke a saint. Medieval communities named themselves after the patron saint whose relics or chapel they sheltered. The same saints were venerated all across Gaul — and so the same names were chosen, independently, by communities hundreds of kilometres apart.</p>
+
+      <div class="chart-legend">
+        <span><span class="legend-swatch" style="background:#7a3d8f"></span>Saint or Sainte</span>
+        <span><span class="legend-swatch" style="background:#2a6496"></span>Secular name</span>
+      </div>
+      <div id="chart-dupes">Loading…</div>
+
+      <!-- ── Beat 4: Sainte-Colombe ─────────────────────────────────────── -->
+      <h2>The champion: twelve Sainte-Colombes</h2>
+
+      <p>Sainte Colombe (also spelled Colomba) was a young Gallic martyr venerated from at least the 3rd century, her cult centred in Sens. Her name spread far. Today it belongs to twelve communes, scattered from the Manche coast to the Seine-et-Marne plain, from the Hautes-Alpes to the Landes. Hover the dots to see each one.</p>
+
+      <!-- Map -->
+      <figure class="map-figure">
+        <div id="map-colombes" class="mount">
+          <div class="map-loading" id="map-loading">Loading map…</div>
+        </div>
+        <div class="map-controls">
+          <span><span class="legend-dot dot-purple"></span>Sainte-Colombe commune</span>
+          <span><span class="legend-dot dot-red"></span>Medical desert (APL &lt; 2.5)</span>
+        </div>
+        <figcaption>Each dot is one Sainte-Colombe. Hover for population, APL score, and INSEE code. Source: DREES APL 2023, communes-apl.geojson.</figcaption>
+      </figure>
+
+      <!-- Sainte-Colombe table -->
+      <table class="colombe-table" id="colombe-table">
+        <thead>
+          <tr>
+            <th>Département</th>
+            <th>INSEE code</th>
+            <th>Population</th>
+            <th>APL score</th>
+          </tr>
+        </thead>
+        <tbody id="colombe-tbody">
+          <tr><td colspan="4" style="color:#aaa;font-style:italic">Loading…</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ── Beat 5: Why ────────────────────────────────────────────────── -->
+      <h2>Why so many identical names?</h2>
+
+      <p>France's communes were largely founded — or formally named — between the 9th and 15th centuries, when the Catholic Church was the primary source of civic identity. A village built near a chapel of Saint Aubin would call itself Saint-Aubin. A village with a relic of Sainte Marie would call itself Sainte-Marie. There was no central registry, no naming authority, no mechanism to prevent two villages in different provinces from arriving at the same name.</p>
+
+      <p>The Revolution of 1789 formalised the commune as the basic unit of local government — and encoded whatever names already existed. The 3rd Republic later added the département number as a suffix to postal addresses, quietly solving the ambiguity problem that had been building for centuries. The INSEE commune code, used today on every administrative document, embeds the département in the first two digits.</p>
+
+      <p>The duplicate names remain, not because France couldn't standardise them, but because it chose not to. A commune's name is part of its identity. Asking the twelve Sainte-Colombes to rename themselves would be, to each of them, a small amputation.</p>
+
+      <!-- ── Beat 6: Context ─────────────────────────────────────────────── -->
+      <p>Of the 1,450 names that appear more than once, the most common pattern repeats: saintly prefix, holy figure, no further distinction. <em>Saint-Sauveur</em> (11 communes), <em>Saint-Aubin</em> (10), <em>Saint-Marcel</em> (9), <em>Saint-Michel</em> (9), <em>Saint-Pierre</em> (9). The secular duplicates — <em>Beaulieu</em> (10), <em>Le Pin</em> (9), <em>Beaumont</em> (8) — follow a similar logic: common landscape features, common aspirations, no central arbiter.</p>
+
+      <p>France has 2,007 communes with <em>sur</em> in their name — <em>X-sur-Y</em>, where Y is usually a river. Those names describe location, not devotion. But the principle is the same: each village found its own way to a name, and the result is a country where the address is never quite complete without the number.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset (<em>communes-apl.geojson</em>, 35,014 communes). APL scores measure estimated GP consultations accessible per standardised resident per year; scores below 2.5 indicate an official medical desert. Commune centroids are computed from polygon geometries. The Sainte-Colombe in département 05 (Hautes-Alpes, pop. 59) has APL = 0.00 — a severe medical desert.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) aux médecins généralistes, 2023</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.js"></script>
+
+  <script type="module">
+    import { drawColombMap, drawDuplicateChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    const DEPT_NAMES = {
+      '01':'Ain','02':'Aisne','03':'Allier','04':'Alpes-de-Haute-Provence',
+      '05':'Hautes-Alpes','06':'Alpes-Maritimes','07':'Ardèche','08':'Ardennes',
+      '09':'Ariège','10':'Aube','11':'Aude','12':'Aveyron',
+      '13':'Bouches-du-Rhône','14':'Calvados','15':'Cantal','16':'Charente',
+      '17':'Charente-Maritime','18':'Cher','19':'Corrèze','2A':'Corse-du-Sud',
+      '2B':'Haute-Corse','21':'Côte-d\'Or','22':'Côtes-d\'Armor','23':'Creuse',
+      '24':'Dordogne','25':'Doubs','26':'Drôme','27':'Eure','28':'Eure-et-Loir',
+      '29':'Finistère','30':'Gard','31':'Haute-Garonne','32':'Gers','33':'Gironde',
+      '34':'Hérault','35':'Ille-et-Vilaine','36':'Indre','37':'Indre-et-Loire',
+      '38':'Isère','39':'Jura','40':'Landes','41':'Loir-et-Cher','42':'Loire',
+      '43':'Haute-Loire','44':'Loire-Atlantique','45':'Loiret','46':'Lot',
+      '47':'Lot-et-Garonne','48':'Lozère','49':'Maine-et-Loire','50':'Manche',
+      '51':'Marne','52':'Haute-Marne','53':'Mayenne','54':'Meurthe-et-Moselle',
+      '55':'Meuse','56':'Morbihan','57':'Moselle','58':'Nièvre','59':'Nord',
+      '60':'Oise','61':'Orne','62':'Pas-de-Calais','63':'Puy-de-Dôme',
+      '64':'Pyrénées-Atlantiques','65':'Hautes-Pyrénées','66':'Pyrénées-Orientales',
+      '67':'Bas-Rhin','68':'Haut-Rhin','69':'Rhône','70':'Haute-Saône',
+      '71':'Saône-et-Loire','72':'Sarthe','73':'Savoie','74':'Haute-Savoie',
+      '75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne','78':'Yvelines',
+      '79':'Deux-Sèvres','80':'Somme','81':'Tarn','82':'Tarn-et-Garonne',
+      '83':'Var','84':'Vaucluse','85':'Vendée','86':'Vienne','87':'Haute-Vienne',
+      '88':'Vosges','89':'Yonne','90':'Territoire de Belfort','91':'Essonne',
+      '92':'Hauts-de-Seine','93':'Seine-Saint-Denis','94':'Val-de-Marne',
+      '95':'Val-d\'Oise',
+    };
+
+    function populateStats(data) {
+      document.getElementById('stat-dupes').textContent =
+        data.duplicateNames.toLocaleString('fr-FR');
+      document.getElementById('stat-communes').textContent =
+        data.duplicateCommunes.toLocaleString('fr-FR');
+      document.getElementById('stat-max').textContent =
+        data.top25[0].count;
+    }
+
+    function populateTable(communes) {
+      const tbody = document.getElementById('colombe-tbody');
+      tbody.innerHTML = communes.map(c => {
+        const deptName = DEPT_NAMES[c.dept] || '';
+        const apl = c.apl != null ? Number(c.apl).toFixed(2) : '—';
+        const isDesert = c.category === 'desert';
+        const desertTag = isDesert
+          ? '<span class="desert-tag">desert</span>'
+          : '';
+        const pop = c.pop != null ? Number(c.pop).toLocaleString('fr-FR') : '—';
+        return `<tr>
+          <td class="dept-cell">${c.dept} — ${deptName}</td>
+          <td>${c.code}</td>
+          <td class="pop-cell">${pop}</td>
+          <td class="apl-cell">${apl}${desertTag}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+
+        populateStats(data);
+
+        // Draw bar chart
+        drawDuplicateChart('chart-dupes', data.top25.map(d => ({
+          name: d.name,
+          count: d.count,
+        })));
+
+        // Get Sainte-Colombe communes (first item in top25)
+        const colombes = data.top25[0].communes;
+        populateTable(colombes);
+
+        // Draw map
+        document.getElementById('map-loading').style.display = 'none';
+        drawColombMap('map-colombes', colombes);
+
+      } catch (err) {
+        console.error('name-twins: failed to load data', err);
+        document.getElementById('chart-dupes').textContent = 'Failed to load data.';
+        document.getElementById('map-colombes').innerHTML =
+          '<div class="map-loading">Failed to load map.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

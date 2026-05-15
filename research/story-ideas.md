@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### name-twins: France has twelve Sainte-Colombes
+- Status: ✅ published
+- Published URL: /stories/name-twins/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france)
+- Hook: 3,700 French communes share their name with at least one other. Send a letter to "Saint-Marcel, France" and it could arrive in any of nine different villages. The most duplicated name: Sainte-Colombe, which exists in twelve places.
+- Data: Commune names derived from DREES APL 2023 geojson (35,014 communes). No additional dataset needed.
+- Angle: A horizontal bar chart of the top 25 duplicate names (overwhelmingly saintly) + a Maplibre dot map of the 12 Sainte-Colombes + a table with population and APL score for each. The cultural angle: why French communes kept identical names, and how the département code quietly solved the ambiguity.
+- Draft X summary:
+  > France has 12 communes named Sainte-Colombe. And 10 named Saint-Aubin. And 9 named Saint-Marcel. French addresses always include the département code — and this is exactly why. Today on **france-data**: 3,700 communes sharing a name, one 3rd-century martyr, and the postal system that holds it all together. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
