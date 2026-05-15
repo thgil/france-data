@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. It has 89 residents and holds the Guinness record for the world's shortest place name. There are 13 more with two-letter names, 3,882 that start with Saint or Sainte, and one 45-character monster in the Marne.
+- Data: Commune names extracted from DREES APL 2023 commune records (35,014 communes). No new download required.
+- Angle: Text-and-charts editorial. SVG length-distribution histogram, two tables (shortest/longest), saint-name frequency list, and two-letter pill row. No map — the story lives in the numbers.
+- Draft X summary:
+  > France has a village called Y. Population 89. Guinness-certified world's shortest place name. It also has 13 two-letter communes, 3,882 that start with Saint, and one 45-character hyphen monster in the Marne. Today on **france-data**: 35,014 commune names, counted. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
