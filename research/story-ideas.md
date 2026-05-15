@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### service-atlas: Everything at once, or nothing
+- Status: ✅ published
+- Published URL: /stories/service-atlas/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: 537 IDF communes have a bakery, a pharmacy, and a bar. Paris 1er has 71 bars per 10,000 residents — ten times the national average. 509 communes have none of the three.
+- Data: IDF BPE bakery/pharmacy data ([DS-001](datasets.md#ds-001), [DS-002](datasets.md#ds-002), [DS-004](datasets.md#ds-004)) joined to SIRENE bar data ([DS-SIRENE-BARS](datasets.md#ds-sirene-bars)). All existing in-repo data; no new downloads required.
+- Angle: Choropleth of IDF communes coloured by service count (0–3). Stacked bar chart showing the département breakdown. Prose focuses on the paradox: 39% of communes have nothing, but they hold only 2.3% of people.
+- Draft X summary:
+  > Paris's 1st arrondissement has 123 bars, 36 bakeries, and 19 pharmacies for 17,000 residents. 71 bars per 10,000 people. Now zoom out: 509 of IDF's 1,300 communes have none of the three. Today on **france-data**: every commune mapped by what it has, and what it doesn't. 🇫🇷
+

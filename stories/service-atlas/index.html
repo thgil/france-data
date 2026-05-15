@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everything at once, or nothing — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls ──────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    /* ── Legend ────────────────────────────────────────────────────── */
+    .map-legend {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-left: auto;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      border: 1px solid rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    /* ── Tooltip ───────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Stat callouts ─────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-box {
+      padding: 22px 20px;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+    }
+    .stat-box .stat-num {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .stat-box .stat-note {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+    .stat-num.green { color: #2d7a4a; }
+    .stat-num.red   { color: #c0392b; }
+
+    /* ── Dept chart ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    #chart-dept { width: 100%; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../" class="site-name">France, by the numbers</a>
+    <nav class="site-nav" id="site-nav" aria-label="Stories"></nav>
+  </header>
+
+  <main class="story">
+    <header class="story-header">
+      <div class="story-meta">
+        <span class="story-topic">Culture</span>
+        <span class="story-date">May 2026</span>
+        <span class="story-read-time">5 min read</span>
+      </div>
+      <h1 class="story-title">Everything at once, or nothing</h1>
+      <p class="story-dek">1,300 communes in Île-de-France. Three essentials: a bakery, a pharmacy, a bar. 537 communes have all three — and they hold 94% of the region's people. 509 communes have none.</p>
+    </header>
+
+    <article class="story-body">
+
+      <p>There's a test you can apply to any French commune. It has three parts. Does it have a bakery — somewhere to buy bread before 8&nbsp;a.m.? A pharmacy — somewhere to fill a prescription without driving across a département? A bar — somewhere to sit down with someone?</p>
+
+      <p>In Paris, all twenty arrondissements pass. The 1st arrondissement has 36 bakeries, 19 pharmacies, and 123 bars — that last figure works out to 71 per 10,000 residents, more than ten times the national average. Even the quieter arrondissements, the residential 15th and 13th, have dozens of each. The capital is, by this measure, extravagantly served.</p>
+
+      <p>The picture changes quickly once you leave the <em>périphérique</em>.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num green">537</div>
+          <div class="stat-label">communes with all three</div>
+          <div class="stat-note">94.1% of IDF's population — 11.1 million people — live in one of these communes.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num red">509</div>
+          <div class="stat-label">communes with none</div>
+          <div class="stat-note">Just 2.3% of the population — 275,000 people — live in a commune with no bakery, no pharmacy, and no bar.</div>
+        </div>
+      </div>
+
+      <p>The distribution is lopsided in a way that reflects something fundamental about French geography. Most communes are small; most people live in large ones. The 509 "empty" communes are mostly tiny villages in Seine-et-Marne or the outer Yvelines, places with a few hundred residents and no commercial street. They rely on neighbouring towns for every errand. The 537 fully-served communes are the cities, inner suburbs, and market towns — and together they hold nearly everyone.</p>
+
+      <figure class="map-figure">
+        <div id="map-service" class="mount"></div>
+        <div class="map-controls">
+          <span class="ctrl-label">Zoom to</span>
+          <button class="zoom-btn" data-preset="0">Île-de-France</button>
+          <button class="zoom-btn" data-preset="1">Paris</button>
+          <button class="zoom-btn" data-preset="2">Seine-et-Marne</button>
+          <button class="zoom-btn" data-preset="3">Outer ring</button>
+          <div class="map-legend">
+            <div class="legend-item"><span class="legend-swatch" style="background:#e8d8d0"></span> None</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#f0a55a"></span> One</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#85ba7a"></span> Two</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#2d7a4a"></span> All three</div>
+          </div>
+        </div>
+        <figcaption>Each commune coloured by how many of the three services it has: bakeries (from INSEE BPE ~2014), pharmacies (FINESS/IDF data), and bars (SIRENE March 2026). A commune with even one of each type counts as having that service. Hover for details. IDF only.</figcaption>
+      </figure>
+
+      <p>Zoom to Seine-et-Marne. This is the largest département in Île-de-France — 514 communes, more than the other seven combined — and the one that makes the map look complicated. Of those 514 communes, 254 score zero. Another 78 have just one service. Only 132 have all three.</p>
+
+      <p>The geography is not random. The green communes are the old market towns — Meaux, Provins, Fontainebleau, Coulommiers — plus the suburban corridor along the RER lines. The red ones are the villages between: places built around farming and forestry rather than commerce, where the weekly market two villages over is the nearest thing to a bakery.</p>
+
+      <p>The inner ring tells a different story entirely. Hauts-de-Seine (92), Seine-Saint-Denis (93), and Val-de-Marne (94) together cover 123 communes. Of those 123, only two score below three — and both of those have two services rather than none. These are the <em>petite couronne</em>, the dense inner suburbs that grew with postwar Paris and never stopped. Every commune has a high street. Every high street has bread, medicine, and somewhere to drink.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-dept"></div>
+        <figcaption>Proportion of communes in each IDF département by service count (0–3 services). Ordered from most urban (Paris) to most rural (Seine-et-Marne).</figcaption>
+      </figure>
+
+      <p>The pattern holds a quiet lesson about how French village life actually works. The bar, the bakery, and the pharmacy are not three separate decisions. They live or die together, on the same commercial streets, responding to the same pressures: enough foot traffic, enough residents who don't own a car, enough density to sustain a business on margins that were never generous. Where you find one, you usually find the others. Where you find none, you find a commune that relies entirely on the car and the town next door.</p>
+
+      <p>The 275,000 people living in those 509 communes know this already. They drive for bread. They drive for prescriptions. There's nowhere local to sit down with someone. The map is green where people are dense enough to sustain a commercial street; it's pale where they're not. It's a measure of density dressed as a measure of services.</p>
+
+      <p>What makes the IDF version of this story interesting is the scale of the contrast. Within one région — a small one, by French standards, barely 12,000&nbsp;km² — you have Paris's 1st arrondissement (71 bars per 10,000 residents) and rural Seine-et-Marne villages where there's nothing at all. The Périphérique is twelve kilometres from the most bar-dense patch of France. From there to the nearest commune with zero services is maybe forty kilometres more.</p>
+
+    </article>
+  </main>
+
+  <section class="story-credits">
+    <div class="credits">
+      <h3>Sources &amp; notes</h3>
+      <p>Service counts per commune: bakery and pharmacy data from <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE (IDF commerces)</a> and <a href="https://data.iledefrance.fr/explore/dataset/carte-des-pharmacies-dile-de-france/">Région IDF — Carte des pharmacies</a>, both circa 2014 vintage. Bar counts from <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">SIRENE national snapshot</a> (NAF 56.30Z, March 2026), filtered to IDF departments (75, 77, 78, 91, 92, 93, 94, 95). Commune polygons from the same IDF BPE source.</p>
+      <p>A commune "has" a service if it has at least one recorded establishment. Zero-count communes may include places genuinely without the service, or places where SIRENE/BPE coverage is incomplete (particularly for bakeries, which use the older BPE vintage). The ~12-year gap between the bakery/pharmacy data (2014) and the bar data (2026) means a small number of communes may have gained or lost services in the interim. The broad pattern — a dense urban core surrounded by a rural periphery with no commercial street — is stable across all three datasets.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawServiceMap, drawDeptChart } from './charts.js';
+
+    const PRESETS = [
+      { center: [2.45, 48.75], zoom: 8.3 },
+      { center: [2.35, 48.87], zoom: 11  },
+      { center: [2.95, 48.70], zoom: 9   },
+      { center: [1.95, 48.70], zoom: 9   },
+    ];
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const [communes, barStats] = await Promise.all([
+          loadJSON('../../stories/pharmacy-myth/communes.geojson'),
+          loadJSON('./stats.json'),
+        ]);
+
+        const refs = { communes, barStats };
+        const map = drawServiceMap('#map-service', refs);
+        drawDeptChart('#chart-dept', refs);
+
+        // Preset buttons
+        document.querySelectorAll('.zoom-btn[data-preset]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const p = PRESETS[+btn.dataset.preset];
+            if (map && p) map.flyTo({ center: p.center, zoom: p.zoom, duration: 800 });
+          });
+        });
+
+      } catch (err) {
+        console.error('Failed to load service atlas data:', err);
+        const mount = document.getElementById('map-service');
+        if (mount) {
+          mount.style.height = '120px';
+          mount.style.display = 'flex';
+          mount.style.alignItems = 'center';
+          mount.style.justifyContent = 'center';
+          mount.style.background = '#f8f5f0';
+          mount.style.fontFamily = 'sans-serif';
+          mount.style.fontSize = '13px';
+          mount.style.color = '#888';
+          mount.textContent = 'Map failed to load. Check browser console for details.';
+        }
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

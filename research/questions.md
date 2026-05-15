@@ -201,3 +201,11 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: How many IDF communes have all three essentials — a bakery, a pharmacy, and a bar?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Datasets: [DS-001](datasets.md#ds-001), [DS-002](datasets.md#ds-002), [DS-004](datasets.md#ds-004), [DS-SIRENE-BARS](datasets.md#ds-sirene-bars)
+- Finding: 537 of IDF's 1,300 communes have at least one bakery, one pharmacy, and one bar. These 537 communes hold 94.1% of the region's population (11.1M). 509 communes have none of the three (39.2% of communes, 2.3% of people). Paris's 20 arrondissements and the inner suburbs (92, 93, 94) are fully served; the void is concentrated in rural Seine-et-Marne (254 of 514 communes score zero).
+- Story: [service-atlas](/stories/service-atlas/)
+- Story: [baguettes](/stories/baguettes/)

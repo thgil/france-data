@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Paris 1er: 123 bars, 36 bakeries, 19 pharmacies for 17,308 residents. 71 bars per 10,000 people. Ten times the national average. The most service-rich commune in France. [Q-042]
+- 🔥 509 IDF communes have no bakery, no pharmacy, and no bar. They hold 275,000 people — 2.3% of the region. The void is mostly Seine-et-Marne, France's largest département by area. [Q-042]
+- 🔥 Every one of Paris's 20 arrondissements has all three services. Every single one. Cross into Seine-et-Marne and 49% of communes have none. [Q-042]
+- 🔥 The bar, the bakery, and the pharmacy live or die together — same streets, same commercial pressures, same density threshold. Where you find one you find the others. [Q-042]
