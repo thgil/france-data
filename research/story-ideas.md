@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-capital: France's bar capital is a ski village
+- Status: ✅ published
+- Published URL: /stories/bar-capital/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Divide 49,385 bars by permanent population and the winner is a Pyrenean village of 341 people. The top 8 of 10 are ski resorts. Lille, which leads major cities at 18.8 per 10k, is 11× behind Gavarnie-Gèdre.
+- Data: bars.json (Story 4) joined to commune populations from communes-apl.geojson. 11,201 communes matched (pop ≥ 200).
+- Angle: Horizontal bar chart ranking of top 30 communes + major city comparison. The ski resort dominance is the visual surprise; the explanation (tourist bars, permanent-resident denominator) is the narrative payoff.
+- Draft X summary:
+  > France has 49,385 bars. Raw counts say Lille (444) and Paris 11e (386). But divide by residents and the #1 commune is Gavarnie-Gèdre — 341 permanent residents, 7 bars, 205 per 10k. Today on **france-data**: the per-capita bar league table, and why ski resorts win it. 🏔️🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
