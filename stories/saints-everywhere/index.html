@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twelve Sainte-Colombes — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Short-names table ───────────────────────────────────────────── */
+    .short-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 32px auto;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .short-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 8px 8px 0;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .short-table td {
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+    .short-table td:last-child { text-align: right; color: #555; }
+    .short-table .name-cell {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .short-table .name-cell.lone { color: var(--accent); }
+
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 12px auto 0;
+    }
+
+    /* ── Chart label ─────────────────────────────────────────────────── */
+    .chart-title {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      max-width: 680px;
+      margin: 0 auto 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    /* ── Long-name card ──────────────────────────────────────────────── */
+    .long-name-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px auto;
+      max-width: 680px;
+    }
+    .long-name-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-family: Georgia, serif;
+      font-size: 16px;
+    }
+    .long-name-list .char-count {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #aaa;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 5ch;
+      text-align: right;
+    }
+
+    /* ── Stat callout ────────────────────────────────────────────────── */
+    .stat-callout {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 20px 24px;
+      background: #f5f1ea;
+      border-left: 3px solid var(--accent);
+    }
+    .stat-callout .number {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .stat-callout .label {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #555;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Twelve Sainte-Colombes</h1>
+        <p class="story-dek">France has 35,014 communes. Twelve of them are called Sainte-Colombe. One is called Y.</p>
+        <div class="story-meta">
+          <span>2026-05-16</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ─────────────────────────────────────────────── -->
+      <p>There is a commune in the Somme called Y. Just Y — one letter, one syllable, population 89. It is, as far as any official record confirms, the shortest place name in France. Possibly one of the shortest in the world. The inhabitants are called <em>Ypsiloniens</em>.</p>
+
+      <p>Y is not a fluke. It is part of a tradition. France has 13 other communes with two-letter names. Some read like words: Eu, Oz, Us. Some like abbreviations waiting for the rest: Gy, Ry, Py. One has an accent: Bû. One has a circumflex <em>and</em> a diaeresis: Oô, in the Haute-Garonne, population 103.</p>
+
+      <!-- ── Short names table ──────────────────────────────────────── -->
+      <table class="short-table" id="short-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Département</th>
+            <th style="text-align:right">Population</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- ── Beat 2: The distribution ──────────────────────────────── -->
+      <h2>The bell curve of French commune names</h2>
+
+      <p>Zoom out from those 14 outliers and the shape of French commune names is a lopsided bell curve, peaking at 7–8 characters and trailing off in a long right tail. The median is around 12 characters — something like <em>Saint-Loup</em> or <em>Beauregard</em>. Most communes cluster in that comfortable middle. The tail, though, is long.</p>
+
+      <!-- ── Chart 1: Length histogram ──────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-title">Commune name length distribution</div>
+        <canvas id="hist-chart" style="width:100%;max-width:680px;display:block;margin:0 auto"></canvas>
+        <figcaption>Each bar is one character-length bucket. The Y-axis counts communes. The extreme right tail extends to 45 characters (not shown in full). Source: DREES APL 2023 commune data, 35,014 communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Saints ─────────────────────────────────────────── -->
+      <h2>The saint network</h2>
+
+      <p>Now for the dominant pattern. Of France's 35,014 communes, <strong>3,898</strong> — just over 11% — start with <em>Saint</em> or <em>Sainte</em>. More than one commune in nine is named after a Catholic saint. This is not a coincidence or an administrative artefact: it is medieval France, still visible on every map, every road sign, every GPS display.</p>
+
+      <div class="stat-callout">
+        <span class="number">11.1%</span>
+        <span class="label">of French communes start with Saint or Sainte — 3,898 out of 35,014</span>
+      </div>
+
+      <p>The church did not name them all at once. The pattern accumulated over eight centuries of parish formation, feudal land grants, and local veneration. Each saint name was once a living choice — a community's declaration of patron, protector, or founding legend. Today they are road signs in every corner of the country, from Saint-Aubin (10 of them) to Saint-Sauveur (11) to Sainte-Colombe, which holds the record at 12.</p>
+
+      <!-- ── Beat 4: Duplicates ─────────────────────────────────────── -->
+      <h2>Name collision</h2>
+
+      <p>Out of 35,014 communes, only 32,764 have truly unique names. The other 2,250 share their name with at least one other commune somewhere in France. If you say "I'm from Saint-Aubin" to a French person, they have ten possible locations to consider. If you say "Beaulieu" — also ten.</p>
+
+      <!-- ── Chart 2: Top names ──────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-title">Most common commune names (number of communes sharing each name)</div>
+        <canvas id="names-chart" style="width:100%;max-width:680px;display:block;margin:0 auto"></canvas>
+        <figcaption>Sainte-Colombe leads with 12 communes sharing the name. Non-saint names like Beaulieu (10) and Le Pin (9) appear too, but saints dominate the top of the list.</figcaption>
+      </figure>
+
+      <p>The duplication is not random — it reflects the medieval parish grid. When the same saint was venerated in multiple regions, multiple villages took the name. Sainte-Colombe de Lyon, Sainte-Colombe de la Commanderie, and ten other Sainte-Colombes are all distinct communes, all named for the same 3rd-century martyr, and all in different départements.</p>
+
+      <!-- ── Beat 5: Longest names ──────────────────────────────────── -->
+      <h2>The marathon at the other end</h2>
+
+      <p>At the far extreme from Y sits a commune with 45 characters in its name: <strong>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</strong>, in the Marne. It takes eight hyphen-separated parts to name it fully. It was formed by the merger of three villages, and France, rather than choosing a new name, concatenated the old ones.</p>
+
+      <ul class="long-name-list" id="long-list"></ul>
+
+      <p>This merger logic explains much of the long-name tail. France has 35,014 communes today, down from over 44,000 in the 1960s. Each fusion either chose one name, invented a new one, or joined them with a hyphen. The hyphenation approach is honest but verbose: 38.3% of all French communes now have at least one hyphen in their name.</p>
+
+      <!-- ── Beat 6: Close ──────────────────────────────────────────── -->
+      <h2>A sediment of history</h2>
+
+      <p>French commune names are a sediment layer: Gaulish river-words at the bottom (Oz, Ry, Ur — short vowel-sounds from a pre-Roman landscape), Latin and Frankish on top, then eight centuries of Catholic saint names, then Revolutionary renaming, then post-war municipal fusions. Each era left traces. You can read the stratigraphy just by sorting a spreadsheet.</p>
+
+      <p>35,014 communes. 32,764 names. 3,898 saints. 14 names of two characters or fewer. And a commune in the Somme that answers, correctly and officially, to Y.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset, which covers 35,014 communes across metropolitan France and overseas territories. Name analysis was performed on the <code>communeName</code> field in the dataset. Population figures are from the INSEE 2021 base. All name counts are exact string matches — regional spelling variants (e.g. <em>Saint</em> vs <em>Sant</em> in Occitan areas) are counted separately.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune-level data including names and populations, 35,014 communes</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script>
+    // ── Embedded data ─────────────────────────────────────────────────
+    const DATA = {
+      "shortCommunes": [
+        {"name":"Y","dept":"80","pop":89,"len":1},
+        {"name":"By","dept":"25","pop":86,"len":2},
+        {"name":"Bû","dept":"28","pop":2022,"len":2},
+        {"name":"Eu","dept":"76","pop":6591,"len":2},
+        {"name":"Gy","dept":"70","pop":1001,"len":2},
+        {"name":"Oz","dept":"38","pop":213,"len":2},
+        {"name":"Oô","dept":"31","pop":103,"len":2},
+        {"name":"Py","dept":"66","pop":79,"len":2},
+        {"name":"Ri","dept":"61","pop":156,"len":2},
+        {"name":"Ry","dept":"76","pop":775,"len":2},
+        {"name":"Sy","dept":"08","pop":54,"len":2},
+        {"name":"Ur","dept":"66","pop":348,"len":2},
+        {"name":"Us","dept":"95","pop":1338,"len":2},
+        {"name":"Uz","dept":"65","pop":36,"len":2}
+      ],
+      "longestCommunes": [
+        {"name":"Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson","chars":45},
+        {"name":"Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur","chars":43},
+        {"name":"Saint-Martin-de-Bienfaite-la-Cressonnière","chars":41},
+        {"name":"La Vacquerie-et-Saint-Martin-de-Castries","chars":40},
+        {"name":"Roche-sur-Linotte-et-Sorans-les-Cordiers","chars":40},
+        {"name":"Montigny-Mornay-Villeneuve-sur-Vingeanne","chars":40},
+        {"name":"Saint-Laurent-les-Bains-Laval-d'Aurelle","chars":39},
+        {"name":"Bonneville-et-Saint-Avit-de-Fumadières","chars":38}
+      ],
+      "topNames": [
+        {"name":"Sainte-Colombe","count":12},
+        {"name":"Saint-Sauveur","count":11},
+        {"name":"Saint-Aubin","count":10},
+        {"name":"Beaulieu","count":10},
+        {"name":"Saint-Marcel","count":9},
+        {"name":"Saint-Michel","count":9},
+        {"name":"Le Pin","count":9},
+        {"name":"Saint-Pierre","count":9},
+        {"name":"Sainte-Marie","count":9},
+        {"name":"Saint-Rémy","count":8},
+        {"name":"Saint-Clément","count":8},
+        {"name":"Saint-Hilaire","count":8},
+        {"name":"Saint-Loup","count":8},
+        {"name":"Beaumont","count":8},
+        {"name":"Verrières","count":8}
+      ],
+      "lengthHist": [
+        {"len":1,"count":1},{"len":2,"count":13},{"len":3,"count":154},
+        {"len":4,"count":720},{"len":5,"count":1969},{"len":6,"count":3223},
+        {"len":7,"count":3695},{"len":8,"count":3695},{"len":9,"count":3000},
+        {"len":10,"count":2522},{"len":11,"count":1884},{"len":12,"count":1435},
+        {"len":13,"count":1167},{"len":14,"count":1018},{"len":15,"count":1095},
+        {"len":16,"count":1177},{"len":17,"count":1186},{"len":18,"count":1202},
+        {"len":19,"count":1117},{"len":20,"count":1028},{"len":21,"count":923},
+        {"len":22,"count":819},{"len":23,"count":649},{"len":24,"count":501},
+        {"len":25,"count":329},{"len":26,"count":200},{"len":27,"count":105},
+        {"len":28,"count":55},{"len":29,"count":53},{"len":30,"count":29},
+        {"len":31,"count":12},{"len":32,"count":8},{"len":33,"label":"33+","count":30}
+      ]
+    };
+
+    // ── Dept name lookup ──────────────────────────────────────────────
+    const DEPT_NAMES = {
+      "08":"Ardennes","25":"Doubs","28":"Eure-et-Loir","31":"Haute-Garonne",
+      "38":"Isère","61":"Orne","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales",
+      "70":"Haute-Saône","76":"Seine-Maritime","80":"Somme","95":"Val-d'Oise"
+    };
+
+    // ── Short-names table ─────────────────────────────────────────────
+    const tbody = document.querySelector('#short-table tbody');
+    DATA.shortCommunes.forEach(d => {
+      const deptName = DEPT_NAMES[d.dept] || `Dept. ${d.dept}`;
+      const nameClass = d.len === 1 ? 'name-cell lone' : 'name-cell';
+      tbody.insertAdjacentHTML('beforeend', `
+        <tr>
+          <td class="${nameClass}">${d.name}</td>
+          <td>${deptName}</td>
+          <td>${d.pop.toLocaleString('fr-FR')}</td>
+        </tr>`);
+    });
+
+    // ── Longest-names list ────────────────────────────────────────────
+    const ul = document.getElementById('long-list');
+    DATA.longestCommunes.forEach(d => {
+      ul.insertAdjacentHTML('beforeend', `
+        <li>
+          <span class="char-count">${d.chars} ch.</span>
+          <span>${d.name}</span>
+        </li>`);
+    });
+
+    // ── Chart helpers ─────────────────────────────────────────────────
+    function devicePR() { return Math.min(window.devicePixelRatio || 1, 2); }
+
+    function setupCanvas(canvas, w, h) {
+      const pr = devicePR();
+      canvas.width  = w * pr;
+      canvas.height = h * pr;
+      canvas.style.width  = w + 'px';
+      canvas.style.height = h + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(pr, pr);
+      return ctx;
+    }
+
+    // ── Chart 1: Length histogram ─────────────────────────────────────
+    (function drawHist() {
+      const canvas = document.getElementById('hist-chart');
+      const W = Math.min(canvas.parentElement.clientWidth, 680);
+      const H = 220;
+      const PAD = { top: 16, right: 16, bottom: 36, left: 44 };
+      const ctx = setupCanvas(canvas, W, H);
+
+      const data = DATA.lengthHist;
+      const maxCount = Math.max(...data.map(d => d.count));
+      const chartW = W - PAD.left - PAD.right;
+      const chartH = H - PAD.top - PAD.bottom;
+      const barW = chartW / data.length;
+
+      // Axes
+      ctx.strokeStyle = '#d8d0c0';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(PAD.left, PAD.top);
+      ctx.lineTo(PAD.left, PAD.top + chartH);
+      ctx.lineTo(PAD.left + chartW, PAD.top + chartH);
+      ctx.stroke();
+
+      // Y gridlines
+      const yTicks = [1000, 2000, 3000];
+      ctx.font = '10px Helvetica Neue, sans-serif';
+      ctx.fillStyle = '#aaa';
+      ctx.textAlign = 'right';
+      yTicks.forEach(v => {
+        const y = PAD.top + chartH - (v / maxCount) * chartH;
+        ctx.strokeStyle = '#ede8e0';
+        ctx.beginPath();
+        ctx.moveTo(PAD.left, y);
+        ctx.lineTo(PAD.left + chartW, y);
+        ctx.stroke();
+        ctx.fillStyle = '#aaa';
+        ctx.fillText(v.toLocaleString('fr-FR'), PAD.left - 4, y + 3.5);
+      });
+
+      // Bars
+      data.forEach((d, i) => {
+        const x = PAD.left + i * barW;
+        const barH = (d.count / maxCount) * chartH;
+        const y = PAD.top + chartH - barH;
+
+        // Highlight saint-heavy length range (roughly 13–17 chars = "Saint-Something")
+        const isSaintRange = d.len >= 13 && d.len <= 17;
+        ctx.fillStyle = isSaintRange ? '#b32020' : '#c8b89a';
+        ctx.fillRect(x + 1, y, barW - 2, barH);
+      });
+
+      // X axis labels (every 5 chars)
+      ctx.fillStyle = '#888';
+      ctx.textAlign = 'center';
+      ctx.font = '10px Helvetica Neue, sans-serif';
+      data.forEach((d, i) => {
+        const lbl = d.label || String(d.len);
+        if (d.len % 5 === 0 || d.len === 1 || d.label) {
+          const x = PAD.left + i * barW + barW / 2;
+          ctx.fillText(lbl, x, PAD.top + chartH + 14);
+        }
+      });
+
+      // Axis label
+      ctx.save();
+      ctx.translate(12, PAD.top + chartH / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.textAlign = 'center';
+      ctx.font = '10px Helvetica Neue, sans-serif';
+      ctx.fillStyle = '#999';
+      ctx.fillText('communes', 0, 0);
+      ctx.restore();
+
+      // Legend
+      ctx.fillStyle = '#b32020';
+      ctx.fillRect(PAD.left + 8, PAD.top + 6, 10, 10);
+      ctx.fillStyle = '#555';
+      ctx.font = '11px Helvetica Neue, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('saint-name range', PAD.left + 22, PAD.top + 15);
+    })();
+
+    // ── Chart 2: Top commune names ────────────────────────────────────
+    (function drawNames() {
+      const canvas = document.getElementById('names-chart');
+      const names = DATA.topNames;
+      const W = Math.min(canvas.parentElement.clientWidth, 680);
+      const ROW_H = 26;
+      const PAD = { top: 8, right: 48, bottom: 8, left: 164 };
+      const H = names.length * ROW_H + PAD.top + PAD.bottom;
+      const ctx = setupCanvas(canvas, W, H);
+
+      const maxCount = names[0].count;
+      const chartW = W - PAD.left - PAD.right;
+
+      names.forEach((d, i) => {
+        const y = PAD.top + i * ROW_H;
+        const barW = (d.count / maxCount) * chartW;
+
+        // Is it a saint?
+        const isSaint = d.name.toLowerCase().startsWith('saint');
+        ctx.fillStyle = isSaint ? '#b32020' : '#c8b89a';
+        ctx.fillRect(PAD.left, y + 5, barW, ROW_H - 10);
+
+        // Name label
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = '13px Georgia, serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(d.name, PAD.left - 8, y + ROW_H / 2 + 4.5);
+
+        // Count label
+        ctx.fillStyle = '#555';
+        ctx.font = '11px Helvetica Neue, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('×' + d.count, PAD.left + barW + 6, y + ROW_H / 2 + 3.5);
+      });
+
+      // Legend
+      const legY = H - PAD.bottom - 4;
+      ctx.fillStyle = '#b32020';
+      ctx.fillRect(PAD.left, legY - 10, 10, 10);
+      ctx.fillStyle = '#c8b89a';
+      ctx.fillRect(PAD.left + 80, legY - 10, 10, 10);
+      ctx.fillStyle = '#888';
+      ctx.font = '11px Helvetica Neue, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('saint name', PAD.left + 14, legY);
+      ctx.fillText('other', PAD.left + 94, legY);
+    })();
+  </script>
+</body>
+</html>
