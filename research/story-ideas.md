@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### named: A commune called Y
+- Status: ✅ published
+- Published URL: /stories/named/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: Y is the shortest commune name in France (1 letter, 89 residents). Sainte-Colombe is the most common (12 separate communes). Between them lies a 45-character merger disaster.
+- Data: Commune names from DREES APL 2023 + Etalab contours 2025, both already in the repo. 34,924 communes. Pure text-and-charts analysis, no map.
+- Angle: Four narrative beats: the short names, the saint epidemic, the most-repeated names, the merger marathons. Simple bar charts and a short-names table.
+- Draft X summary:
+  > Y is a commune in the Somme. 89 people. One letter. France also has 3,898 communes named after saints, and one 45-character name born from a 1973 merger where nobody backed down. Today on **france-data**: 34,924 communes, their names, and what the patterns reveal. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
