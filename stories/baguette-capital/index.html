@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The baguette capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Bar chart ──────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .bc-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      min-height: 22px;
+    }
+
+    .bc-rank {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      color: #aaa;
+      min-width: 1.8ch;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .bc-label {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: var(--ink);
+      min-width: 180px;
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 0;
+    }
+
+    .bc-label-dept {
+      min-width: 160px;
+      max-width: 160px;
+    }
+
+    .bc-track {
+      flex: 1;
+      height: 14px;
+      background: #ede8e0;
+      border-radius: 2px;
+      overflow: visible;
+      position: relative;
+    }
+
+    .bc-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    .bc-avg-line {
+      position: absolute;
+      top: -3px;
+      bottom: -3px;
+      width: 2px;
+      background: #888;
+      border-radius: 1px;
+    }
+
+    .bc-value {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #333;
+      min-width: 36px;
+      text-align: right;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .chart-note {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* ── Stat callout ───────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat-box {
+      flex: 1;
+      min-width: 140px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+    }
+    .stat-box .stat-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+    .stat-box .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The baguette capital</h1>
+        <p class="story-dek">6,299 bakeries, 1,300 communes, one question: which IDF commune has the most bread per person?</p>
+        <div class="story-meta">
+          <span>2026-05-16</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Paris 18e arrondissement has 155 bakeries — more than any other commune in Île-de-France, and, by most accounts, more than anywhere else in France. That number appears in travel guides. It feels like an answer. But baguette capitals aren't built on raw counts. They're built on the ratio of bread to people.</p>
+
+      <!-- ── Beat 2: raw count chart ──────────────────────────────────── -->
+      <h2>First, the obvious winners</h2>
+
+      <p>By raw count, the ranking is almost entirely a Paris story. Every arrondissement in the top thirteen is within the <em>périphérique</em>. Saint-Denis (Seine-Saint-Denis) sneaks into 14th place with 67 bakeries — the only non-Paris entry in the top fifteen. Paris as a whole holds 1,800 of the region's 6,299 boulangeries: 29% of the bread for 19% of the population.</p>
+
+      <div class="chart-figure">
+        <h3>Top 15 communes — bakeries (raw count)</h3>
+        <div id="chart-count"></div>
+        <p class="chart-note">Source: INSEE Base Permanente des Équipements (IDF), c. 2014 vintage.</p>
+      </div>
+
+      <!-- ── Beat 3: density twist ────────────────────────────────────── -->
+      <h2>The ranking flips</h2>
+
+      <p>Normalize by resident population and the order inverts completely. Paris 1er arrondissement leads with 20.8 bakeries per 10,000 residents — one boulangerie for every 481 people. The 18e, all 155 shops of it, manages just 7.7 per 10,000: solid, but 12th among Paris arrondissements on this metric. The city that seemed like the answer turns out to have internal variation of nearly 3-to-1.</p>
+
+      <p>The 1er is a business district and tourist hub. Its official resident population — 17,308 — dramatically understates the full daily bread demand. Office workers arriving by the million on weekday mornings, visitors clustered around the Louvre, students crossing from the nearby <em>Quartier Latin</em>: every croissant counts, and many are counted against a denominator that doesn't include the buyer. On real-world demand, the 1er's lead would be wider still.</p>
+
+      <div class="chart-figure">
+        <h3>Top 15 communes — bakeries per 10,000 residents (communes with population ≥ 2,000)</h3>
+        <div id="chart-density"></div>
+        <p class="chart-note">Communes with fewer than 2,000 residents excluded to reduce small-number noise (one closure changes a hamlet's ranking entirely).</p>
+      </div>
+
+      <!-- ── Beat 4: outside Paris ─────────────────────────────────────── -->
+      <h2>The market towns of Brie</h2>
+
+      <p>Outside Paris, a cluster of small market towns in Seine-et-Marne hold their own. Rebais — a bourg of 2,151 in the agricultural plain of the <em>Brie</em>, 70 km east of Paris — has five bakeries: 23.2 per 10,000, nearly twice the IDF average. Bourron-Marlotte, tucked at the edge of the Fontainebleau forest, has four for 2,700 residents. These are places where the boulangerie is still genuinely the social heart of the commune — the one shop that reliably opens at six in the morning and fills the square with the smell of bread.</p>
+
+      <p>These small-town numbers are fragile: a single closure can erase a commune from the top 20 overnight. That fragility is itself a story. The village boulangerie is protected in law (France subsidises bakeries in rural communes through the <em>boulangerie de pays</em> scheme) precisely because its disappearance would hollow out the commune in a way that losing any other shop would not.</p>
+
+      <!-- ── Beat 5: département comparison ───────────────────────────── -->
+      <h2>Paris is still an outlier</h2>
+
+      <p>At the département scale, the picture simplifies. Paris runs at 8.0 bakeries per 10,000 residents — 50% above the IDF average of 5.3, and nearly twice the outer ring. The inner suburbs cluster between 4.9 and 5.2; the sprawling outer <em>grande couronne</em> sits at 4.3–4.5. The gradient is clean: the more urban the density, the more bread per head.</p>
+
+      <div class="chart-figure">
+        <h3>Bakeries per 10,000 residents — by IDF département</h3>
+        <div id="chart-depts"></div>
+        <p class="chart-note" id="dept-avg-label">The grey line marks the IDF average.</p>
+      </div>
+
+      <!-- ── Beat 6: the desert ────────────────────────────────────────── -->
+      <h2>Nearly half of IDF has no bakery</h2>
+
+      <p>The baguette is not a universal pleasure in Île-de-France. Of 1,300 communes in the region, 607 — 47% — have no recorded bakery at all. These are not obscure hamlets: they include established suburban municipalities where residents drive to a supermarket or a commercial <em>zone</em> for their bread, if they buy it at all. The artisanal boulangerie is a city-centre and market-town phenomenon. It thins through the inner suburbs and disappears across much of the rural fringe and commuter belt.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-number">6,299</span>
+          <span class="stat-label">IDF bakeries</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">5.3</span>
+          <span class="stat-label">per 10k residents (IDF avg)</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">47%</span>
+          <span class="stat-label">of communes with zero bakeries</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 7: verdict ───────────────────────────────────────────── -->
+      <h2>So: which is the baguette capital?</h2>
+
+      <p>It depends on what you're counting. By raw number of boulangeries: the 18e arrondissement, 155 shops. By bakeries per resident: the 1er arrondissement, 20.8 per 10,000 — one for every 481 people. By the <em>feel</em> of a town built around its bread, where the boulangerie is the first building to light up in the morning and the last to lock up at noon: a small commune in the Brie, where five bakeries serve two thousand people and the ratio alone can't capture what it means.</p>
+
+      <p>The three answers are all correct. They just measure different things, and France being France, the difference matters.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts come from the INSEE Base Permanente des Équipements (BPE), Île-de-France region, distributed by Région Île-de-France. The vintage is circa 2014, with population from the 2010 census. Coverage is 1,300 communes and Paris arrondissements in IDF. National coverage (for a true France-wide baguette capital story) would require the full SIRENE parquet extract, which is out of scope here. This story reuses the commune-level data first assembled for <a href="../pharmacy-myth/">Story 1 (pharmacy myth)</a> and the dot-level bakery locations from <a href="../baguettes/">Story 3 (baguettes)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Commerces par commune (Île-de-France)</a>, distributed by Région Île-de-France</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Services de santé par commune (Île-de-France)</a> — population field</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawCharts } from './charts.js';
+    drawCharts();
+  </script>
+</body>
+</html>

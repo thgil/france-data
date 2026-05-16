@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Paris 1er arrondissement: 20.8 bakeries per 10,000 residents. One boulangerie for every 481 people. Highest resident-density in IDF, and the official population doesn't include the tourists. [Q-034]
+- 🔥 Paris 18e has 155 bakeries — most in IDF by count. But it only ranks 12th in Paris by density. Raw numbers lie. [Q-034]
+- 🔥 Rebais (Seine-et-Marne, pop. 2,151) has 5 bakeries — 23 per 10,000 residents, nearly double the IDF average. The village boulangerie is a protected species for a reason. [Q-034]
+- 🔥 47% of IDF communes — 607 of 1,300 — have zero recorded bakeries. The baguette is a city-centre phenomenon; it thins to nothing across the commuter belt. [Q-034]
