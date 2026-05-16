@@ -83,3 +83,11 @@ any caveats about quality.
 - Formats: Extracted as CSV from the national SIRENE parquet, joined to SIRENE Géolocalisation for lat/lng. Output: bars.json (3.8 MB) with fields lat, lng, commune, name, dept.
 - Notes: NAF 56.30Z covers all licensed premises serving alcohol for on-site consumption. 59% of establishments carry a registered business name (denominationUniteLegale or enseigne fields); the rest trade anonymously. Same pipeline as DS-003 / baguettes story — filter parquet by NAF, join geocoords, export to JSON. Département field derived from commune code prefix.
 - Used by: Q-033, Story 4 (bars)
+
+### DS-COG-NAMES: Code officiel géographique — commune names (via DREES APL)
+- URL: https://www.data.gouv.fr/datasets/indicateur-daccessibilite-potentielle-localisee-apl-par-commune/
+- Publisher: DREES / INSEE
+- Coverage: All 35,014 communes in metropolitan France and overseas territories; official names as registered in the Code officiel géographique (COG). Embedded in the communes-apl.geojson already in the repo.
+- Formats: GeoJSON (via DS-APL join), CSV (source APL file)
+- Notes: Commune names extracted from the communeName property in stories/medical-deserts/communes-apl.geojson. No additional download needed. Length range: 1 char (Y, Somme) to 45 chars (Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson). 32,764 unique names across 35,014 communes; 1,450 name groups are shared. 3,898 communes (11.1%) start with Saint or Sainte.
+- Used by: Q-037, Q-039, Story 5 (commune-names)
