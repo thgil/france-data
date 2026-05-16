@@ -1,0 +1,333 @@
+{
+  "total": 35014,
+  "uniqueNames": 32764,
+  "duplicateNames": 2250,
+  "saintCount": 4443,
+  "saintPct": 12.7,
+  "surCount": 1991,
+  "lesCount": 1034,
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "topSaints": [
+    {
+      "pattern": "Saint-Martin",
+      "count": 202
+    },
+    {
+      "pattern": "Saint-Jean",
+      "count": 155
+    },
+    {
+      "pattern": "Saint-Pierre",
+      "count": 144
+    },
+    {
+      "pattern": "Saint-Germain",
+      "count": 108
+    },
+    {
+      "pattern": "Saint-Julien",
+      "count": 78
+    },
+    {
+      "pattern": "Saint-Laurent",
+      "count": 77
+    },
+    {
+      "pattern": "Saint-Hilaire",
+      "count": 68
+    },
+    {
+      "pattern": "Saint-Georges",
+      "count": 67
+    },
+    {
+      "pattern": "Saint-Étienne",
+      "count": 65
+    },
+    {
+      "pattern": "Saint-André",
+      "count": 64
+    },
+    {
+      "pattern": "Saint-Aubin",
+      "count": 62
+    },
+    {
+      "pattern": "Saint-Paul",
+      "count": 54
+    },
+    {
+      "pattern": "Saint-Michel",
+      "count": 53
+    },
+    {
+      "pattern": "Saint-Maurice",
+      "count": 51
+    },
+    {
+      "pattern": "Saint-Léger",
+      "count": 50
+    }
+  ],
+  "topSaintDepts": [
+    {
+      "dept": "23",
+      "saint_count": 78,
+      "total": 255,
+      "pct": 30.6
+    },
+    {
+      "dept": "07",
+      "saint_count": 98,
+      "total": 335,
+      "pct": 29.3
+    },
+    {
+      "dept": "24",
+      "saint_count": 145,
+      "total": 503,
+      "pct": 28.8
+    },
+    {
+      "dept": "87",
+      "saint_count": 56,
+      "total": 195,
+      "pct": 28.7
+    },
+    {
+      "dept": "42",
+      "saint_count": 91,
+      "total": 320,
+      "pct": 28.4
+    },
+    {
+      "dept": "85",
+      "saint_count": 69,
+      "total": 253,
+      "pct": 27.3
+    },
+    {
+      "dept": "43",
+      "saint_count": 70,
+      "total": 257,
+      "pct": 27.2
+    },
+    {
+      "dept": "48",
+      "saint_count": 40,
+      "total": 152,
+      "pct": 26.3
+    },
+    {
+      "dept": "30",
+      "saint_count": 85,
+      "total": 350,
+      "pct": 24.3
+    },
+    {
+      "dept": "19",
+      "saint_count": 67,
+      "total": 277,
+      "pct": 24.2
+    }
+  ],
+  "shortest": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "dept": "80",
+      "pop": 89
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "dept": "08",
+      "pop": 54
+    },
+    {
+      "name": "By",
+      "code": "25104",
+      "dept": "25",
+      "pop": 86
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "dept": "28",
+      "pop": 2022
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "dept": "31",
+      "pop": 103
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "dept": "38",
+      "pop": 213
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "dept": "61",
+      "pop": 156
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "dept": "65",
+      "pop": 36
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "dept": "66",
+      "pop": 79
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "dept": "66",
+      "pop": 348
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "dept": "70",
+      "pop": 1001
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "dept": "76",
+      "pop": 6591
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "dept": "76",
+      "pop": 775
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "dept": "95",
+      "pop": 1338
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "dept": "51",
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "dept": "70",
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "dept": "14",
+      "pop": 499
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "code": "70449",
+      "dept": "70",
+      "pop": 64
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "dept": "34",
+      "pop": 195
+    }
+  ]
+}
