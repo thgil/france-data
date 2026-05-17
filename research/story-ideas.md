@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has 35,014 communes, 32,764 unique names, and one that's just the letter Y.
+- Data: Commune names, codes, and populations derived from the 2025 administrative contours dataset (already in repo as stories/medical-deserts/communes-apl.geojson). No new downloads required.
+- Angle: Text-and-charts story. Four beats: the 1-letter commune Y; the saint epidemic (3,882 Saint/Sainte communes); the duplicate problem (2,250 shared names, Sainte-Colombe × 12); the Loi Marcellin ultra-long names (45 chars). SVG bar charts for duplication ranking and name-length histogram.
+- Draft X summary:
+  > France has a commune called Y. One letter. Population 89. Also: 3,882 communes named after saints, 2,250 communes that share their name with at least one other, and a commune in Marne whose name is 45 characters long. Today on **france-data**: what's in 35,014 names. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
