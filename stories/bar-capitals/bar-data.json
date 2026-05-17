@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "totalBars": 49385,
+    "totalCommunes": 35014,
+    "communesWithBars": 11748,
+    "communesNoBars": 23266,
+    "pctNoBars": 66.4,
+    "popNoBars": 11281151,
+    "popTotal": 67329462,
+    "pctPopNoBars": 16.8
+  },
+  "topAll": [
+    {
+      "code": "38253",
+      "name": "Les Deux Alpes",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 39,
+      "pop": 1933,
+      "per10k": 201.8,
+      "category": "ski"
+    },
+    {
+      "code": "74191",
+      "name": "Morzine",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 51,
+      "pop": 2660,
+      "per10k": 191.7,
+      "category": "ski"
+    },
+    {
+      "code": "05096",
+      "name": "Orcières",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 11,
+      "pop": 683,
+      "per10k": 161.1,
+      "category": "ski"
+    },
+    {
+      "code": "05119",
+      "name": "Risoul",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 10,
+      "pop": 660,
+      "per10k": 151.5,
+      "category": "ski"
+    },
+    {
+      "code": "74063",
+      "name": "Châtel",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 16,
+      "pop": 1193,
+      "per10k": 134.1,
+      "category": "ski"
+    },
+    {
+      "code": "73304",
+      "name": "Val-d'Isère",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 21,
+      "pop": 1580,
+      "per10k": 132.9,
+      "category": "ski"
+    },
+    {
+      "code": "74134",
+      "name": "Les Gets",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 16,
+      "pop": 1223,
+      "per10k": 130.8,
+      "category": "ski"
+    },
+    {
+      "code": "73227",
+      "name": "Courchevel",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 30,
+      "pop": 2311,
+      "per10k": 129.8,
+      "category": "ski"
+    },
+    {
+      "code": "2B261",
+      "name": "Rogliano",
+      "dept": "2B",
+      "deptName": "Haute-Corse",
+      "bars": 7,
+      "pop": 540,
+      "per10k": 129.6,
+      "category": "coastal"
+    },
+    {
+      "code": "73296",
+      "name": "Tignes",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 25,
+      "pop": 2005,
+      "per10k": 124.7,
+      "category": "ski"
+    },
+    {
+      "code": "15101",
+      "name": "Laveissière",
+      "dept": "15",
+      "deptName": "Cantal",
+      "bars": 6,
+      "pop": 516,
+      "per10k": 116.3,
+      "category": "city"
+    },
+    {
+      "code": "56195",
+      "name": "La Roche-Bernard",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "bars": 8,
+      "pop": 695,
+      "per10k": 115.1,
+      "category": "coastal"
+    },
+    {
+      "code": "56087",
+      "name": "Île-aux-Moines",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "bars": 7,
+      "pop": 628,
+      "per10k": 111.5,
+      "category": "coastal"
+    },
+    {
+      "code": "73071",
+      "name": "Champagny-en-Vanoise",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 6,
+      "pop": 552,
+      "per10k": 108.7,
+      "category": "ski"
+    },
+    {
+      "code": "05161",
+      "name": "La Salle-les-Alpes",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 10,
+      "pop": 924,
+      "per10k": 108.2,
+      "category": "ski"
+    }
+  ],
+  "top5k": [
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 123,
+      "pop": 15919,
+      "per10k": 77.3,
+      "category": "city"
+    },
+    {
+      "code": "75102",
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 129,
+      "pop": 21119,
+      "per10k": 61.1,
+      "category": "city"
+    },
+    {
+      "code": "83070",
+      "name": "Le Lavandou",
+      "dept": "83",
+      "deptName": "Var",
+      "bars": 37,
+      "pop": 6216,
+      "per10k": 59.5,
+      "category": "coastal"
+    },
+    {
+      "code": "74056",
+      "name": "Chamonix-Mont-Blanc",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 49,
+      "pop": 8642,
+      "per10k": 56.7,
+      "category": "ski"
+    },
+    {
+      "code": "13201",
+      "name": "Marseille 1er Arrondissement",
+      "dept": "13",
+      "deptName": "Bouches-du-Rhône",
+      "bars": 204,
+      "pop": 39436,
+      "per10k": 51.7,
+      "category": "coastal"
+    },
+    {
+      "code": "75108",
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 153,
+      "pop": 35123,
+      "per10k": 43.6,
+      "category": "city"
+    },
+    {
+      "code": "2B050",
+      "name": "Calvi",
+      "dept": "2B",
+      "deptName": "Haute-Corse",
+      "bars": 25,
+      "pop": 5746,
+      "per10k": 43.5,
+      "category": "coastal"
+    },
+    {
+      "code": "73054",
+      "name": "Bourg-Saint-Maurice",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 31,
+      "pop": 7187,
+      "per10k": 43.1,
+      "category": "ski"
+    },
+    {
+      "code": "33214",
+      "name": "Lacanau",
+      "dept": "33",
+      "deptName": "Gironde",
+      "bars": 21,
+      "pop": 5031,
+      "per10k": 41.7,
+      "category": "city"
+    },
+    {
+      "code": "14333",
+      "name": "Honfleur",
+      "dept": "14",
+      "deptName": "Calvados",
+      "bars": 28,
+      "pop": 6761,
+      "per10k": 41.4,
+      "category": "coastal"
+    },
+    {
+      "code": "11170",
+      "name": "Gruissan",
+      "dept": "11",
+      "deptName": "Aude",
+      "bars": 21,
+      "pop": 5096,
+      "per10k": 41.2,
+      "category": "coastal"
+    },
+    {
+      "code": "75104",
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 113,
+      "pop": 28324,
+      "per10k": 39.9,
+      "category": "city"
+    }
+  ],
+  "top100k": [
+    {
+      "code": "75111",
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 386,
+      "pop": 142583,
+      "per10k": 27.1,
+      "category": "city"
+    },
+    {
+      "code": "76540",
+      "name": "Rouen",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "bars": 237,
+      "pop": 114083,
+      "per10k": 20.8,
+      "category": "city"
+    },
+    {
+      "code": "59350",
+      "name": "Lille",
+      "dept": "59",
+      "deptName": "Nord",
+      "bars": 444,
+      "pop": 236710,
+      "per10k": 18.8,
+      "category": "city"
+    },
+    {
+      "code": "38185",
+      "name": "Grenoble",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 254,
+      "pop": 157477,
+      "per10k": 16.1,
+      "category": "ski"
+    },
+    {
+      "code": "57463",
+      "name": "Metz",
+      "dept": "57",
+      "deptName": "Moselle",
+      "bars": 190,
+      "pop": 120874,
+      "per10k": 15.7,
+      "category": "city"
+    },
+    {
+      "code": "75118",
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 292,
+      "pop": 188446,
+      "per10k": 15.5,
+      "category": "city"
+    },
+    {
+      "code": "14118",
+      "name": "Caen",
+      "dept": "14",
+      "deptName": "Calvados",
+      "bars": 164,
+      "pop": 108200,
+      "per10k": 15.2,
+      "category": "coastal"
+    },
+    {
+      "code": "42218",
+      "name": "Saint-Étienne",
+      "dept": "42",
+      "deptName": "Loire",
+      "bars": 259,
+      "pop": 172718,
+      "per10k": 15.0,
+      "category": "city"
+    },
+    {
+      "code": "33063",
+      "name": "Bordeaux",
+      "dept": "33",
+      "deptName": "Gironde",
+      "bars": 341,
+      "pop": 261804,
+      "per10k": 13.0,
+      "category": "city"
+    },
+    {
+      "code": "37261",
+      "name": "Tours",
+      "dept": "37",
+      "deptName": "Indre-et-Loire",
+      "bars": 165,
+      "pop": 137658,
+      "per10k": 12.0,
+      "category": "city"
+    },
+    {
+      "code": "54395",
+      "name": "Nancy",
+      "dept": "54",
+      "deptName": "Meurthe-et-Moselle",
+      "bars": 125,
+      "pop": 104260,
+      "per10k": 12.0,
+      "category": "city"
+    },
+    {
+      "code": "83137",
+      "name": "Toulon",
+      "dept": "83",
+      "deptName": "Var",
+      "bars": 205,
+      "pop": 180452,
+      "per10k": 11.4,
+      "category": "coastal"
+    }
+  ]
+}
