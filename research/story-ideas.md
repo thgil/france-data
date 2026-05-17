@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: France's name problem
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has 35,014 communes and only 32,764 distinct names — and one commune is literally called Y.
+- Data: Commune names extracted from the APL/contours GeoJSON already in the repo (35,014 communes with names, codes, dept, population). No new data needed.
+- Angle: Text-heavy + bar chart of top 20 most-duplicated names. Sections: collision scale → Saint- overload → disambiguation via prepositions → extreme ends (Y vs 45-character merger name).
+- Draft X summary:
+  > France has 35,014 communes and 32,764 distinct names. The most duplicated: Sainte-Colombe, 12 times across 12 départements. 11% of all communes start with Saint- or Sainte-. France's fix was elegant: add a preposition and a river. And then there's Y. One letter. Population 89. Today on **france-data**: France's naming problem. 🗺️🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
