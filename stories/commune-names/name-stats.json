@@ -1,0 +1,517 @@
+{
+  "totalCommunes": 35014,
+  "uniqueNames": 32764,
+  "duplicateNames": 1450,
+  "duplicateCommunes": 3700,
+  "saintDash": 3587,
+  "saintegDash": 295,
+  "saintAny": 4437,
+  "saintPct": 12.7,
+  "avgNameLength": 11.8,
+  "medianNameLength": 10,
+  "shortestName": {
+    "name": "Y",
+    "code": "80829",
+    "dept": "80",
+    "pop": 89
+  },
+  "longestName": {
+    "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+    "code": "51513",
+    "dept": "51",
+    "len": 45
+  },
+  "lengthDistribution": {
+    "1": 1,
+    "2": 13,
+    "3": 154,
+    "4": 720,
+    "5": 1969,
+    "6": 3223,
+    "7": 3695,
+    "8": 3695,
+    "9": 3000,
+    "10": 2522,
+    "11": 1884,
+    "12": 1435,
+    "13": 1167,
+    "14": 1018,
+    "15": 1095,
+    "16": 1177,
+    "17": 1186,
+    "18": 1202,
+    "19": 1117,
+    "20": 1028,
+    "21": 923,
+    "22": 819,
+    "23": 649,
+    "24": 501,
+    "25": 329,
+    "26": 200,
+    "27": 105,
+    "28": 55,
+    "29": 53,
+    "30": 29,
+    "31": 12,
+    "32": 8,
+    "33": 2,
+    "34": 6,
+    "35": 7,
+    "36": 2,
+    "37": 3,
+    "38": 3,
+    "39": 1,
+    "40": 3,
+    "41": 1,
+    "43": 1,
+    "45": 1
+  },
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    },
+    {
+      "name": "Saint-Sulpice",
+      "count": 7
+    },
+    {
+      "name": "Caumont",
+      "count": 7
+    },
+    {
+      "name": "Fleury",
+      "count": 7
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 7
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 7
+    }
+  ],
+  "shortestNames": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "dept": "80",
+      "pop": 89
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "dept": "08",
+      "pop": 54
+    },
+    {
+      "name": "By",
+      "code": "25104",
+      "dept": "25",
+      "pop": 86
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "dept": "28",
+      "pop": 2022
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "dept": "31",
+      "pop": 103
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "dept": "38",
+      "pop": 213
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "dept": "61",
+      "pop": 156
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "dept": "65",
+      "pop": 36
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "dept": "66",
+      "pop": 79
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "dept": "66",
+      "pop": 348
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "dept": "70",
+      "pop": 1001
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "dept": "76",
+      "pop": 6591
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "dept": "76",
+      "pop": 775
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "dept": "95",
+      "pop": 1338
+    },
+    {
+      "name": "Bey",
+      "code": "01042",
+      "dept": "01",
+      "pop": 290
+    },
+    {
+      "name": "Boz",
+      "code": "01057",
+      "dept": "01",
+      "pop": 510
+    },
+    {
+      "name": "Gex",
+      "code": "01173",
+      "dept": "01",
+      "pop": 13078
+    },
+    {
+      "name": "Acy",
+      "code": "02003",
+      "dept": "02",
+      "pop": 1016
+    },
+    {
+      "name": "Lor",
+      "code": "02440",
+      "dept": "02",
+      "pop": 137
+    },
+    {
+      "name": "Gap",
+      "code": "05061",
+      "dept": "05",
+      "pop": 40500
+    }
+  ],
+  "longestNames": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "dept": "51",
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "dept": "70",
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "dept": "14",
+      "pop": 499
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "dept": "21",
+      "pop": 381
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "dept": "34",
+      "pop": 195
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "code": "70449",
+      "dept": "70",
+      "pop": 64
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "code": "07262",
+      "dept": "07",
+      "pop": 180
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "code": "11128",
+      "dept": "11",
+      "pop": 142
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "code": "24048",
+      "dept": "24",
+      "pop": 309
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "code": "80714",
+      "dept": "80",
+      "pop": 1270
+    }
+  ],
+  "topWords": [
+    {
+      "word": "saint",
+      "count": 4090
+    },
+    {
+      "word": "sainte",
+      "count": 360
+    },
+    {
+      "word": "sous",
+      "count": 258
+    },
+    {
+      "word": "martin",
+      "count": 255
+    },
+    {
+      "word": "bois",
+      "count": 217
+    },
+    {
+      "word": "pierre",
+      "count": 180
+    },
+    {
+      "word": "chapelle",
+      "count": 178
+    },
+    {
+      "word": "jean",
+      "count": 170
+    },
+    {
+      "word": "germain",
+      "count": 120
+    },
+    {
+      "word": "villers",
+      "count": 108
+    },
+    {
+      "word": "mont",
+      "count": 102
+    },
+    {
+      "word": "château",
+      "count": 95
+    },
+    {
+      "word": "ville",
+      "count": 93
+    },
+    {
+      "word": "julien",
+      "count": 88
+    },
+    {
+      "word": "pont",
+      "count": 86
+    },
+    {
+      "word": "laurent",
+      "count": 86
+    },
+    {
+      "word": "villeneuve",
+      "count": 85
+    },
+    {
+      "word": "grand",
+      "count": 84
+    },
+    {
+      "word": "georges",
+      "count": 83
+    },
+    {
+      "word": "seine",
+      "count": 81
+    }
+  ],
+  "twoCharCommunes": [
+    {
+      "name": "By",
+      "code": "25104",
+      "dept": "25",
+      "pop": 86
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "dept": "28",
+      "pop": 2022
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "dept": "76",
+      "pop": 6591
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "dept": "70",
+      "pop": 1001
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "dept": "38",
+      "pop": 213
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "dept": "31",
+      "pop": 103
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "dept": "66",
+      "pop": 79
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "dept": "61",
+      "pop": 156
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "dept": "76",
+      "pop": 775
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "dept": "08",
+      "pop": 54
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "dept": "66",
+      "pop": 348
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "dept": "95",
+      "pop": 1338
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "dept": "65",
+      "pop": 36
+    }
+  ]
+}
