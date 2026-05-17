@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France has 202 Saint-Martins — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Chart canvas ───────────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 48px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    canvas#saint-chart {
+      display: block;
+      width: 100%;
+      height: 420px;
+    }
+
+    /* ── Map ─────────────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      height: 520px;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Big stat callouts ───────────────────────────────────────────── */
+    .stat-callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 640px) {
+      .stat-callouts { grid-template-columns: 1fr; }
+    }
+
+    .stat-callout {
+      border-top: 2px solid var(--accent, #b32020);
+      padding-top: 12px;
+    }
+    .stat-callout .stat-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-callout .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Name extremes table ─────────────────────────────────────────── */
+    .extremes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 580px) {
+      .extremes-grid { grid-template-columns: 1fr; }
+    }
+
+    .extremes-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .extremes-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .extremes-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .extremes-table td:last-child {
+      text-align: right;
+      font-size: 11px;
+      color: #888;
+      font-variant-numeric: tabular-nums;
+    }
+    .extremes-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .extremes-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Chart section header ─────────────────────────────────────────── */
+    .chart-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">France has 202 Saint-Martins</h1>
+        <p class="story-dek">One in nine French communes is named after a saint. The most popular saint appears 202 times. The shortest commune name is a single letter.</p>
+        <div class="story-meta">
+          <span>2026-05-17</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes — more than any other country in the European Union. Germany, with a larger population and territory, has roughly 11,000. This is a legacy of the Revolution: in 1789, the National Assembly turned every parish into a commune, and most of them are still there, unchanged. The names that stuck, though, came from somewhere much older.</p>
+
+      <!-- ── Beat 2: key stats ──────────────────────────────────────────── -->
+      <div class="stat-callouts" id="stat-callouts">
+        <div class="stat-callout">
+          <div class="stat-number" id="stat-saint-count">—</div>
+          <div class="stat-label">communes named after a saint<br>(1 in 9)</div>
+        </div>
+        <div class="stat-callout">
+          <div class="stat-number">202</div>
+          <div class="stat-label">communes named<br>Saint-Martin</div>
+        </div>
+        <div class="stat-callout">
+          <div class="stat-number">1</div>
+          <div class="stat-label">letter in the shortest<br>commune name: <em>Y</em></div>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: saint names chart ──────────────────────────────────── -->
+      <h2>The saint leaderboard</h2>
+
+      <p>Of France's 35,014 communes, <span id="saint-total-inline">3,882</span> — <span id="saint-pct-inline">11.1</span>% — begin with <em>Saint-</em> or <em>Sainte-</em>. The chart below shows the top 15 by the first saint name in the compound. Saint-Martin is the clear leader. Martin of Tours, the Roman soldier who cut his cloak to share with a beggar, became the patron saint of France, and the geography has not forgotten him.</p>
+
+      <span class="chart-label">Communes whose name begins with each saint (top 15)</span>
+      <div class="chart-wrap">
+        <canvas id="saint-chart"></canvas>
+      </div>
+
+      <p>Saint-Jean (155) and Saint-Pierre (144) follow. Then Saint-Germain (108) — a bishop of Auxerre who became enormously popular in the early Middle Ages. Together the top four saints account for 609 commune names: roughly one parish in every 57 across France wears one of these four names.</p>
+
+      <!-- ── Beat 4: the map ────────────────────────────────────────────── -->
+      <h2>202 dots, one saint</h2>
+
+      <p>Here are all 202 communes whose name begins with <em>Saint-Martin</em>. Every région has at least one. One of them — in département 97 — is the French side of Saint Martin island in the Caribbean. Hover over any dot for the full name.</p>
+
+      <figure class="map-figure">
+        <div id="map-saints" class="mount"></div>
+        <figcaption>Each red dot is one commune named Saint-Martin-<em>something</em>. 202 communes from metropolitan France and overseas territories. Source: DREES APL 2023 commune dataset.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: extremes ───────────────────────────────────────────── -->
+      <h2>From Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</h2>
+
+      <p>The name distribution is not just top-heavy with saints — it's also wildly asymmetric at the extremes. France has a commune whose entire name is the letter <em>Y</em> (Somme, population 89). It has another whose name runs to 45 characters. The average is a surprisingly tidy 11.8 characters.</p>
+
+      <div class="extremes-grid" id="extremes-grid">
+        <div class="extremes-block">
+          <h3>Shortest names</h3>
+          <table class="extremes-table" id="table-shortest">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="extremes-block">
+          <h3>Longest names</h3>
+          <table class="extremes-table" id="table-longest">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6 ─────────────────────────────────────────────────────── -->
+      <h2>The hyphen and the merger</h2>
+
+      <p>One more pattern in the data: <span id="hyphen-pct">38.3</span>% of commune names contain at least one hyphen — 13,410 out of 35,014. The hyphen is France's bureaucratic inheritance from the nineteenth century, when hundreds of small communes were merged under compound names. The formula is usually <em>original-village-de-the-river-or-feature-nearby</em>. The longest names are the extreme expression of this logic — some communes absorbed two or three neighbours and kept everyone's name in the deed.</p>
+
+      <p>The saints, the letters, the hyphens: the commune name list is a 35,000-entry index of French history, from the Roman roads that Saint-Martin walked to the Revolution that turned every parish into a republic in miniature.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and codes come from the DREES APL 2023 dataset, which covers 35,014 communes across metropolitan France and overseas territories. Saint prefix counts were derived by extracting the first two hyphenated segments of each commune name. The commune Y (Somme, INSEE code 80829) is real — it has been a commune since the French Revolution.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune-level dataset with names, INSEE codes, population, and APL scores for 35,014 communes.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawSaintChart, drawSaintMartinMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateStats(stats) {
+      const el = document.getElementById('stat-saint-count');
+      if (el) el.textContent = stats.saintTotal.toLocaleString('fr-FR');
+
+      const inline = document.getElementById('saint-total-inline');
+      if (inline) inline.textContent = stats.saintTotal.toLocaleString('fr-FR');
+
+      const pctEl = document.getElementById('saint-pct-inline');
+      if (pctEl) pctEl.textContent = stats.saintPct;
+
+      const hyphenEl = document.getElementById('hyphen-pct');
+      if (hyphenEl) hyphenEl.textContent = stats.hyphenPct;
+    }
+
+    function populateExtremes(stats) {
+      const shortBody = document.querySelector('#table-shortest tbody');
+      if (shortBody && stats.shortestNames) {
+        shortBody.innerHTML = stats.shortestNames.slice(0, 8).map(c =>
+          `<tr>
+            <td class="place">${c.name}</td>
+            <td>dept. ${c.dept} · ${c.len} char${c.len > 1 ? 's' : ''}</td>
+          </tr>`
+        ).join('');
+      }
+
+      const longBody = document.querySelector('#table-longest tbody');
+      if (longBody && stats.longestNames) {
+        longBody.innerHTML = stats.longestNames.slice(0, 5).map(c =>
+          `<tr>
+            <td class="place">${c.name}</td>
+            <td>dept. ${c.dept} · ${c.len} chars</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        populateStats(stats);
+        populateExtremes(stats);
+
+        // Chart
+        requestAnimationFrame(() => {
+          drawSaintChart('saint-chart', stats.top15SaintNames);
+        });
+
+        // Map
+        drawSaintMartinMap('map-saints', stats.saintMartinCommunes);
+
+      } catch (err) {
+        console.error('Failed to load saints story data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

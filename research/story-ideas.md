@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### saints-of-france: France has 202 Saint-Martins
+- Status: ✅ published
+- Published URL: /stories/saints-of-france/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: 1 in 9 French communes is named after a saint. Saint-Martin alone appears 202 times. And there's a commune called Y.
+- Data: DREES APL 2023 commune dataset (already in repo as communes-apl.geojson). No new downloads required.
+- Angle: Two charts — a bar chart of the top 15 saint names and a dot map of all 202 Saint-Martin communes — plus inline tables of the shortest and longest names. Short prose, high density of surprising numbers.
+- Draft X summary:
+  > France has 35,014 communes. 3,882 of them — 1 in 9 — are named after a saint. Saint-Martin alone appears 202 times, scattered across every région. And there is a commune called Y. Today on **france-data**: the complete saint leaderboard, 202 red dots on a map, and the 45-character name that proves the Revolution liked bureaucracy even more than bread. 🇫🇷
+

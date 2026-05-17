@@ -1,0 +1,1576 @@
+{
+  "total": 35014,
+  "saintTotal": 3882,
+  "saintPct": 11.1,
+  "hyphenTotal": 13410,
+  "hyphenPct": 38.3,
+  "avgNameLen": 11.8,
+  "top15SaintNames": [
+    {
+      "name": "Saint-Martin",
+      "count": 202
+    },
+    {
+      "name": "Saint-Jean",
+      "count": 155
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 144
+    },
+    {
+      "name": "Saint-Germain",
+      "count": 108
+    },
+    {
+      "name": "Saint-Julien",
+      "count": 78
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 77
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 68
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 67
+    },
+    {
+      "name": "Saint-Étienne",
+      "count": 65
+    },
+    {
+      "name": "Saint-André",
+      "count": 64
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 62
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 54
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 53
+    },
+    {
+      "name": "Saint-Maurice",
+      "count": 51
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 50
+    }
+  ],
+  "saintMartinCount": 202,
+  "saintMartinCommunes": [
+    {
+      "name": "Saint-Martin-de-Bavel",
+      "dept": "01",
+      "pop": 436,
+      "lon": 5.677,
+      "lat": 45.8494
+    },
+    {
+      "name": "Saint-Martin-du-Frêne",
+      "dept": "01",
+      "pop": 1033,
+      "lon": 5.5608,
+      "lat": 46.1386
+    },
+    {
+      "name": "Saint-Martin-du-Mont",
+      "dept": "01",
+      "pop": 1899,
+      "lon": 5.3253,
+      "lat": 46.1052
+    },
+    {
+      "name": "Saint-Martin-le-Châtel",
+      "dept": "01",
+      "pop": 781,
+      "lon": 5.1274,
+      "lat": 46.291
+    },
+    {
+      "name": "Saint-Martin-Rivière",
+      "dept": "02",
+      "pop": 111,
+      "lon": 3.5584,
+      "lat": 50.0449
+    },
+    {
+      "name": "Saint-Martin-des-Lais",
+      "dept": "03",
+      "pop": 125,
+      "lon": 3.6667,
+      "lat": 46.6713
+    },
+    {
+      "name": "Saint-Martin-de-Brômes",
+      "dept": "04",
+      "pop": 630,
+      "lon": 5.9666,
+      "lat": 43.7789
+    },
+    {
+      "name": "Saint-Martin-les-Eaux",
+      "dept": "04",
+      "pop": 125,
+      "lon": 5.7396,
+      "lat": 43.8714
+    },
+    {
+      "name": "Saint-Martin-lès-Seyne",
+      "dept": "04",
+      "pop": 10,
+      "lon": 6.2477,
+      "lat": 44.3843
+    },
+    {
+      "name": "Saint-Martin-de-Queyrières",
+      "dept": "05",
+      "pop": 1125,
+      "lon": 6.5829,
+      "lat": 44.8421
+    },
+    {
+      "name": "Saint-Martin-d'Entraunes",
+      "dept": "06",
+      "pop": 153,
+      "lon": 6.7501,
+      "lat": 44.1463
+    },
+    {
+      "name": "Saint-Martin-du-Var",
+      "dept": "06",
+      "pop": 3375,
+      "lon": 7.1957,
+      "lat": 43.8165
+    },
+    {
+      "name": "Saint-Martin-Vésubie",
+      "dept": "06",
+      "pop": 1385,
+      "lon": 7.3055,
+      "lat": 44.0942
+    },
+    {
+      "name": "Saint-Martin-d'Ardèche",
+      "dept": "07",
+      "pop": 939,
+      "lon": 4.5834,
+      "lat": 44.302
+    },
+    {
+      "name": "Saint-Martin-de-Valamas",
+      "dept": "07",
+      "pop": 1092,
+      "lon": 4.3718,
+      "lat": 44.9293
+    },
+    {
+      "name": "Saint-Martin-sur-Lavezon",
+      "dept": "07",
+      "pop": 443,
+      "lon": 4.6485,
+      "lat": 44.6367
+    },
+    {
+      "name": "Saint-Martin-de-Caralp",
+      "dept": "09",
+      "pop": 367,
+      "lon": 1.5337,
+      "lat": 42.9927
+    },
+    {
+      "name": "Saint-Martin-d'Oydes",
+      "dept": "09",
+      "pop": 241,
+      "lon": 1.4859,
+      "lat": 43.1694
+    },
+    {
+      "name": "Saint-Martin-de-Bossenay",
+      "dept": "10",
+      "pop": 357,
+      "lon": 3.6829,
+      "lat": 48.4429
+    },
+    {
+      "name": "Saint-Martin-des-Puits",
+      "dept": "11",
+      "pop": 29,
+      "lon": 2.5762,
+      "lat": 43.0348
+    },
+    {
+      "name": "Saint-Martin-de-Villereglan",
+      "dept": "11",
+      "pop": 368,
+      "lon": 2.2109,
+      "lat": 43.1023
+    },
+    {
+      "name": "Saint-Martin-Lalande",
+      "dept": "11",
+      "pop": 1113,
+      "lon": 2.0133,
+      "lat": 43.2917
+    },
+    {
+      "name": "Saint-Martin-le-Vieil",
+      "dept": "11",
+      "pop": 212,
+      "lon": 2.1483,
+      "lat": 43.289
+    },
+    {
+      "name": "Saint-Martin-Lys",
+      "dept": "11",
+      "pop": 24,
+      "lon": 2.2287,
+      "lat": 42.826
+    },
+    {
+      "name": "Saint-Martin-de-Lenne",
+      "dept": "12",
+      "pop": 329,
+      "lon": 2.9693,
+      "lat": 44.4178
+    },
+    {
+      "name": "Saint-Martin-de-Crau",
+      "dept": "13",
+      "pop": 13729,
+      "lon": 4.8932,
+      "lat": 43.636
+    },
+    {
+      "name": "Saint-Martin-aux-Chartrains",
+      "dept": "14",
+      "pop": 426,
+      "lon": 0.1576,
+      "lat": 49.3067
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "pop": 499,
+      "lon": 0.3553,
+      "lat": 49.0297
+    },
+    {
+      "name": "Saint-Martin-de-Blagny",
+      "dept": "14",
+      "pop": 122,
+      "lon": -0.9274,
+      "lat": 49.2557
+    },
+    {
+      "name": "Saint-Martin-de-la-Lieue",
+      "dept": "14",
+      "pop": 772,
+      "lon": 0.2214,
+      "lat": 49.11
+    },
+    {
+      "name": "Saint-Martin-de-Mailloc",
+      "dept": "14",
+      "pop": 958,
+      "lon": 0.2807,
+      "lat": 49.0913
+    },
+    {
+      "name": "Saint-Martin-de-Mieux",
+      "dept": "14",
+      "pop": 385,
+      "lon": -0.2428,
+      "lat": 48.8686
+    },
+    {
+      "name": "Saint-Martin-des-Entrées",
+      "dept": "14",
+      "pop": 717,
+      "lon": -0.664,
+      "lat": 49.2637
+    },
+    {
+      "name": "Saint-Martin-Cantalès",
+      "dept": "15",
+      "pop": 150,
+      "lon": 2.3159,
+      "lat": 45.0901
+    },
+    {
+      "name": "Saint-Martin-sous-Vigouroux",
+      "dept": "15",
+      "pop": 221,
+      "lon": 2.7899,
+      "lat": 44.9465
+    },
+    {
+      "name": "Saint-Martin-Valmeroux",
+      "dept": "15",
+      "pop": 710,
+      "lon": 2.446,
+      "lat": 45.1205
+    },
+    {
+      "name": "Saint-Martin-du-Clocher",
+      "dept": "16",
+      "pop": 123,
+      "lon": 0.1481,
+      "lat": 46.0664
+    },
+    {
+      "name": "Saint-Martin-d'Ary",
+      "dept": "17",
+      "pop": 471,
+      "lon": -0.2025,
+      "lat": 45.2145
+    },
+    {
+      "name": "Saint-Martin-de-Coux",
+      "dept": "17",
+      "pop": 474,
+      "lon": -0.1093,
+      "lat": 45.1416
+    },
+    {
+      "name": "Saint-Martin-de-Juillers",
+      "dept": "17",
+      "pop": 153,
+      "lon": -0.3454,
+      "lat": 45.9344
+    },
+    {
+      "name": "Saint-Martin-de-Ré",
+      "dept": "17",
+      "pop": 2263,
+      "lon": -1.3688,
+      "lat": 46.1968
+    },
+    {
+      "name": "Saint-Martin-d'Auxigny",
+      "dept": "18",
+      "pop": 2505,
+      "lon": 2.3821,
+      "lat": 47.2179
+    },
+    {
+      "name": "Saint-Martin-des-Champs",
+      "dept": "18",
+      "pop": 299,
+      "lon": 2.9353,
+      "lat": 47.1691
+    },
+    {
+      "name": "Saint-Martin-la-Méanne",
+      "dept": "19",
+      "pop": 338,
+      "lon": 1.9938,
+      "lat": 45.1782
+    },
+    {
+      "name": "Saint-Martin-de-la-Mer",
+      "dept": "21",
+      "pop": 291,
+      "lon": 4.2281,
+      "lat": 47.2319
+    },
+    {
+      "name": "Saint-Martin-du-Mont",
+      "dept": "21",
+      "pop": 464,
+      "lon": 4.816,
+      "lat": 47.4165
+    },
+    {
+      "name": "Saint-Martin-des-Prés",
+      "dept": "22",
+      "pop": 316,
+      "lon": -2.9701,
+      "lat": 48.3098
+    },
+    {
+      "name": "Saint-Martin-Château",
+      "dept": "23",
+      "pop": 148,
+      "lon": 1.8114,
+      "lat": 45.8479
+    },
+    {
+      "name": "Saint-Martin-Sainte-Catherine",
+      "dept": "23",
+      "pop": 334,
+      "lon": 1.5588,
+      "lat": 45.9429
+    },
+    {
+      "name": "Saint-Martin-de-Fressengeas",
+      "dept": "24",
+      "pop": 362,
+      "lon": 0.8365,
+      "lat": 45.4572
+    },
+    {
+      "name": "Saint-Martin-de-Gurson",
+      "dept": "24",
+      "pop": 645,
+      "lon": 0.1173,
+      "lat": 44.964
+    },
+    {
+      "name": "Saint-Martin-de-Ribérac",
+      "dept": "24",
+      "pop": 734,
+      "lon": 0.3681,
+      "lat": 45.2253
+    },
+    {
+      "name": "Saint-Martin-des-Combes",
+      "dept": "24",
+      "pop": 200,
+      "lon": 0.6167,
+      "lat": 44.9636
+    },
+    {
+      "name": "Saint-Martin-l'Astier",
+      "dept": "24",
+      "pop": 140,
+      "lon": 0.3217,
+      "lat": 45.0575
+    },
+    {
+      "name": "Saint-Martin-le-Pin",
+      "dept": "24",
+      "pop": 268,
+      "lon": 0.6227,
+      "lat": 45.5468
+    },
+    {
+      "name": "Saint-Martin-d'Août",
+      "dept": "26",
+      "pop": 389,
+      "lon": 4.9873,
+      "lat": 45.2232
+    },
+    {
+      "name": "Saint-Martin-en-Vercors",
+      "dept": "26",
+      "pop": 409,
+      "lon": 5.4528,
+      "lat": 45.0185
+    },
+    {
+      "name": "Saint-Martin-le-Colonel",
+      "dept": "26",
+      "pop": 215,
+      "lon": 5.2832,
+      "lat": 44.9877
+    },
+    {
+      "name": "Saint-Martin-du-Tilleul",
+      "dept": "27",
+      "pop": 245,
+      "lon": 0.5298,
+      "lat": 49.1053
+    },
+    {
+      "name": "Saint-Martin-la-Campagne",
+      "dept": "27",
+      "pop": 101,
+      "lon": 1.0832,
+      "lat": 49.0637
+    },
+    {
+      "name": "Saint-Martin-Saint-Firmin",
+      "dept": "27",
+      "pop": 338,
+      "lon": 0.5593,
+      "lat": 49.2955
+    },
+    {
+      "name": "Saint-Martin-de-Nigelles",
+      "dept": "28",
+      "pop": 1575,
+      "lon": 1.6102,
+      "lat": 48.6122
+    },
+    {
+      "name": "Saint-Martin-des-Champs",
+      "dept": "29",
+      "pop": 4750,
+      "lon": -3.8541,
+      "lat": 48.5756
+    },
+    {
+      "name": "Saint-Martin-de-Valgalgues",
+      "dept": "30",
+      "pop": 4603,
+      "lon": 4.074,
+      "lat": 44.1656
+    },
+    {
+      "name": "Saint-Martin",
+      "dept": "32",
+      "pop": 450,
+      "lon": 0.3704,
+      "lat": 43.509
+    },
+    {
+      "name": "Saint-Martin-d'Armagnac",
+      "dept": "32",
+      "pop": 234,
+      "lon": -0.072,
+      "lat": 43.71
+    },
+    {
+      "name": "Saint-Martin-de-Goyne",
+      "dept": "32",
+      "pop": 123,
+      "lon": 0.5774,
+      "lat": 43.9973
+    },
+    {
+      "name": "Saint-Martin-Gimois",
+      "dept": "32",
+      "pop": 86,
+      "lon": 0.8067,
+      "lat": 43.5235
+    },
+    {
+      "name": "Saint-Martin-Lacaussade",
+      "dept": "33",
+      "pop": 1166,
+      "lon": -0.6375,
+      "lat": 45.1452
+    },
+    {
+      "name": "Saint-Martin-de-Laye",
+      "dept": "33",
+      "pop": 549,
+      "lon": -0.2207,
+      "lat": 45.0346
+    },
+    {
+      "name": "Saint-Martin-de-Lerm",
+      "dept": "33",
+      "pop": 157,
+      "lon": -0.0433,
+      "lat": 44.6467
+    },
+    {
+      "name": "Saint-Martin-de-Sescas",
+      "dept": "33",
+      "pop": 568,
+      "lon": -0.1645,
+      "lat": 44.5898
+    },
+    {
+      "name": "Saint-Martin-du-Bois",
+      "dept": "33",
+      "pop": 831,
+      "lon": -0.2556,
+      "lat": 45.0165
+    },
+    {
+      "name": "Saint-Martin-du-Puy",
+      "dept": "33",
+      "pop": 161,
+      "lon": -0.029,
+      "lat": 44.6733
+    },
+    {
+      "name": "Saint-Martin-de-l'Arçon",
+      "dept": "34",
+      "pop": 116,
+      "lon": 2.9824,
+      "lat": 43.5882
+    },
+    {
+      "name": "Saint-Martin-de-Londres",
+      "dept": "34",
+      "pop": 2759,
+      "lon": 3.7088,
+      "lat": 43.7909
+    },
+    {
+      "name": "Saint-Martin-le-Beau",
+      "dept": "37",
+      "pop": 3181,
+      "lon": 0.9159,
+      "lat": 47.3647
+    },
+    {
+      "name": "Saint-Martin-de-la-Cluze",
+      "dept": "38",
+      "pop": 747,
+      "lon": 5.663,
+      "lat": 44.9915
+    },
+    {
+      "name": "Saint-Martin-de-Clelles",
+      "dept": "38",
+      "pop": 185,
+      "lon": 5.6024,
+      "lat": 44.8498
+    },
+    {
+      "name": "Saint-Martin-de-Vaulserre",
+      "dept": "38",
+      "pop": 244,
+      "lon": 5.6752,
+      "lat": 45.4896
+    },
+    {
+      "name": "Saint-Martin-d'Hères",
+      "dept": "38",
+      "pop": 38454,
+      "lon": 5.761,
+      "lat": 45.1804
+    },
+    {
+      "name": "Saint-Martin-d'Uriage",
+      "dept": "38",
+      "pop": 5483,
+      "lon": 5.8427,
+      "lat": 45.1554
+    },
+    {
+      "name": "Saint-Martin-le-Vinoux",
+      "dept": "38",
+      "pop": 5825,
+      "lon": 5.7194,
+      "lat": 45.2234
+    },
+    {
+      "name": "Saint-Martin-de-Hinx",
+      "dept": "40",
+      "pop": 1717,
+      "lon": -1.276,
+      "lat": 43.5793
+    },
+    {
+      "name": "Saint-Martin-de-Seignanx",
+      "dept": "40",
+      "pop": 6076,
+      "lon": -1.3929,
+      "lat": 43.5336
+    },
+    {
+      "name": "Saint-Martin-d'Oney",
+      "dept": "40",
+      "pop": 1366,
+      "lon": -0.6537,
+      "lat": 43.9299
+    },
+    {
+      "name": "Saint-Martin-des-Bois",
+      "dept": "41",
+      "pop": 581,
+      "lon": 0.8256,
+      "lat": 47.7191
+    },
+    {
+      "name": "Saint-Martin-d'Estréaux",
+      "dept": "42",
+      "pop": 845,
+      "lon": 3.8174,
+      "lat": 46.2074
+    },
+    {
+      "name": "Saint-Martin-la-Plaine",
+      "dept": "42",
+      "pop": 3784,
+      "lon": 4.5967,
+      "lat": 45.5582
+    },
+    {
+      "name": "Saint-Martin-la-Sauveté",
+      "dept": "42",
+      "pop": 878,
+      "lon": 3.93,
+      "lat": 45.8411
+    },
+    {
+      "name": "Saint-Martin-Lestra",
+      "dept": "42",
+      "pop": 910,
+      "lon": 4.3709,
+      "lat": 45.7339
+    },
+    {
+      "name": "Saint-Martin-de-Fugères",
+      "dept": "43",
+      "pop": 231,
+      "lon": 3.9512,
+      "lat": 44.9116
+    },
+    {
+      "name": "Saint-Martin-d'Abbat",
+      "dept": "45",
+      "pop": 1800,
+      "lon": 2.3015,
+      "lat": 47.874
+    },
+    {
+      "name": "Saint-Martin-sur-Ocre",
+      "dept": "45",
+      "pop": 1227,
+      "lon": 2.646,
+      "lat": 47.6476
+    },
+    {
+      "name": "Saint-Martin-Labouval",
+      "dept": "46",
+      "pop": 189,
+      "lon": 1.7347,
+      "lat": 44.4801
+    },
+    {
+      "name": "Saint-Martin-le-Redon",
+      "dept": "46",
+      "pop": 196,
+      "lon": 1.0381,
+      "lat": 44.5394
+    },
+    {
+      "name": "Saint-Martin-Curton",
+      "dept": "47",
+      "pop": 307,
+      "lon": -0.0249,
+      "lat": 44.3379
+    },
+    {
+      "name": "Saint-Martin-de-Beauville",
+      "dept": "47",
+      "pop": 162,
+      "lon": 0.818,
+      "lat": 44.2333
+    },
+    {
+      "name": "Saint-Martin-de-Villeréal",
+      "dept": "47",
+      "pop": 104,
+      "lon": 0.8113,
+      "lat": 44.643
+    },
+    {
+      "name": "Saint-Martin-Petit",
+      "dept": "47",
+      "pop": 624,
+      "lon": 0.0845,
+      "lat": 44.5688
+    },
+    {
+      "name": "Saint-Martin-de-Boubaux",
+      "dept": "48",
+      "pop": 194,
+      "lon": 3.9244,
+      "lat": 44.1887
+    },
+    {
+      "name": "Saint-Martin-de-Lansuscle",
+      "dept": "48",
+      "pop": 193,
+      "lon": 3.7397,
+      "lat": 44.226
+    },
+    {
+      "name": "Saint-Martin-du-Fouilloux",
+      "dept": "49",
+      "pop": 1681,
+      "lon": -0.7051,
+      "lat": 47.4364
+    },
+    {
+      "name": "Saint-Martin-d'Aubigny",
+      "dept": "50",
+      "pop": 606,
+      "lon": -1.361,
+      "lat": 49.1709
+    },
+    {
+      "name": "Saint-Martin-d'Audouville",
+      "dept": "50",
+      "pop": 145,
+      "lon": -1.3686,
+      "lat": 49.5296
+    },
+    {
+      "name": "Saint-Martin-de-Bonfossé",
+      "dept": "50",
+      "pop": 533,
+      "lon": -1.1822,
+      "lat": 49.0367
+    },
+    {
+      "name": "Saint-Martin-de-Cenilly",
+      "dept": "50",
+      "pop": 196,
+      "lon": -1.2892,
+      "lat": 48.9758
+    },
+    {
+      "name": "Saint-Martin-de-Varreville",
+      "dept": "50",
+      "pop": 168,
+      "lon": -1.2408,
+      "lat": 49.4246
+    },
+    {
+      "name": "Saint-Martin-le-Bouillant",
+      "dept": "50",
+      "pop": 322,
+      "lon": -1.1581,
+      "lat": 48.7824
+    },
+    {
+      "name": "Saint-Martin-le-Gréard",
+      "dept": "50",
+      "pop": 604,
+      "lon": -1.6432,
+      "lat": 49.5547
+    },
+    {
+      "name": "Saint-Martin-d'Ablois",
+      "dept": "51",
+      "pop": 1374,
+      "lon": 3.8458,
+      "lat": 49.0129
+    },
+    {
+      "name": "Saint-Martin-aux-Champs",
+      "dept": "51",
+      "pop": 110,
+      "lon": 4.4848,
+      "lat": 48.8147
+    },
+    {
+      "name": "Saint-Martin-l'Heureux",
+      "dept": "51",
+      "pop": 83,
+      "lon": 4.3879,
+      "lat": 49.2488
+    },
+    {
+      "name": "Saint-Martin-sur-le-Pré",
+      "dept": "51",
+      "pop": 798,
+      "lon": 4.3677,
+      "lat": 48.9984
+    },
+    {
+      "name": "Saint-Martin-lès-Langres",
+      "dept": "52",
+      "pop": 107,
+      "lon": 5.2615,
+      "lat": 47.9012
+    },
+    {
+      "name": "Saint-Martin-du-Limet",
+      "dept": "53",
+      "pop": 429,
+      "lon": -1.027,
+      "lat": 47.8108
+    },
+    {
+      "name": "Saint-Martin",
+      "dept": "54",
+      "pop": 55,
+      "lon": 6.7498,
+      "lat": 48.5738
+    },
+    {
+      "name": "Saint-Martin-sur-Oust",
+      "dept": "56",
+      "pop": 1298,
+      "lon": -2.2657,
+      "lat": 47.7659
+    },
+    {
+      "name": "Saint-Martin-d'Heuille",
+      "dept": "58",
+      "pop": 559,
+      "lon": 3.2242,
+      "lat": 47.0405
+    },
+    {
+      "name": "Saint-Martin-du-Puy",
+      "dept": "58",
+      "pop": 285,
+      "lon": 3.8827,
+      "lat": 47.3373
+    },
+    {
+      "name": "Saint-Martin-sur-Nohain",
+      "dept": "58",
+      "pop": 376,
+      "lon": 2.9994,
+      "lat": 47.3608
+    },
+    {
+      "name": "Saint-Martin-sur-Écaillon",
+      "dept": "59",
+      "pop": 500,
+      "lon": 3.5193,
+      "lat": 50.2347
+    },
+    {
+      "name": "Saint-Martin-aux-Bois",
+      "dept": "60",
+      "pop": 277,
+      "lon": 2.552,
+      "lat": 49.524
+    },
+    {
+      "name": "Saint-Martin-le-Nœud",
+      "dept": "60",
+      "pop": 1053,
+      "lon": 2.0599,
+      "lat": 49.396
+    },
+    {
+      "name": "Saint-Martin-Longueau",
+      "dept": "60",
+      "pop": 1442,
+      "lon": 2.6033,
+      "lat": 49.3433
+    },
+    {
+      "name": "Saint-Martin-d'Écublei",
+      "dept": "61",
+      "pop": 636,
+      "lon": 0.6673,
+      "lat": 48.8009
+    },
+    {
+      "name": "Saint-Martin-des-Landes",
+      "dept": "61",
+      "pop": 187,
+      "lon": -0.1467,
+      "lat": 48.547
+    },
+    {
+      "name": "Saint-Martin-des-Pézerits",
+      "dept": "61",
+      "pop": 129,
+      "lon": 0.4917,
+      "lat": 48.6303
+    },
+    {
+      "name": "Saint-Martin-du-Vieux-Bellême",
+      "dept": "61",
+      "pop": 546,
+      "lon": 0.5503,
+      "lat": 48.3659
+    },
+    {
+      "name": "Saint-Martin-l'Aiguillon",
+      "dept": "61",
+      "pop": 189,
+      "lon": -0.1764,
+      "lat": 48.6073
+    },
+    {
+      "name": "Saint-Martin-lez-Tatinghem",
+      "dept": "62",
+      "pop": 5916,
+      "lon": 2.2141,
+      "lat": 50.7479
+    },
+    {
+      "name": "Saint-Martin-Boulogne",
+      "dept": "62",
+      "pop": 10999,
+      "lon": 1.6442,
+      "lat": 50.7199
+    },
+    {
+      "name": "Saint-Martin-Choquel",
+      "dept": "62",
+      "pop": 454,
+      "lon": 1.8909,
+      "lat": 50.6657
+    },
+    {
+      "name": "Saint-Martin-d'Hardinghem",
+      "dept": "62",
+      "pop": 270,
+      "lon": 2.115,
+      "lat": 50.614
+    },
+    {
+      "name": "Saint-Martin-sur-Cojeul",
+      "dept": "62",
+      "pop": 213,
+      "lon": 2.8487,
+      "lat": 50.2315
+    },
+    {
+      "name": "Saint-Martin-des-Olmes",
+      "dept": "63",
+      "pop": 304,
+      "lon": 3.8025,
+      "lat": 45.5174
+    },
+    {
+      "name": "Saint-Martin-des-Plains",
+      "dept": "63",
+      "pop": 174,
+      "lon": 3.3113,
+      "lat": 45.4967
+    },
+    {
+      "name": "Saint-Martin-d'Ollières",
+      "dept": "63",
+      "pop": 146,
+      "lon": 3.4564,
+      "lat": 45.4183
+    },
+    {
+      "name": "Saint-Martin-d'Arberoue",
+      "dept": "64",
+      "pop": 343,
+      "lon": -1.1806,
+      "lat": 43.347
+    },
+    {
+      "name": "Saint-Martin-d'Arrossa",
+      "dept": "64",
+      "pop": 546,
+      "lon": -1.304,
+      "lat": 43.2227
+    },
+    {
+      "name": "Saint-Martin",
+      "dept": "65",
+      "pop": 443,
+      "lon": 0.0627,
+      "lat": 43.1651
+    },
+    {
+      "name": "Saint-Martin-de-Fenouillet",
+      "dept": "66",
+      "pop": 50,
+      "lon": 2.4775,
+      "lat": 42.7845
+    },
+    {
+      "name": "Saint-Martin",
+      "dept": "67",
+      "pop": 367,
+      "lon": 7.29,
+      "lat": 48.3522
+    },
+    {
+      "name": "Saint-Martin-en-Haut",
+      "dept": "69",
+      "pop": 3891,
+      "lon": 4.5636,
+      "lat": 45.6578
+    },
+    {
+      "name": "Saint-Martin-Belle-Roche",
+      "dept": "71",
+      "pop": 1390,
+      "lon": 4.86,
+      "lat": 46.381
+    },
+    {
+      "name": "Saint-Martin-d'Auxy",
+      "dept": "71",
+      "pop": 142,
+      "lon": 4.5558,
+      "lat": 46.7172
+    },
+    {
+      "name": "Saint-Martin-de-Commune",
+      "dept": "71",
+      "pop": 101,
+      "lon": 4.5167,
+      "lat": 46.8964
+    },
+    {
+      "name": "Saint-Martin-de-Lixy",
+      "dept": "71",
+      "pop": 93,
+      "lon": 4.2349,
+      "lat": 46.1921
+    },
+    {
+      "name": "Saint-Martin-de-Salencey",
+      "dept": "71",
+      "pop": 108,
+      "lon": 4.495,
+      "lat": 46.5197
+    },
+    {
+      "name": "Saint-Martin-du-Lac",
+      "dept": "71",
+      "pop": 249,
+      "lon": 4.0543,
+      "lat": 46.2439
+    },
+    {
+      "name": "Saint-Martin-du-Mont",
+      "dept": "71",
+      "pop": 177,
+      "lon": 5.2882,
+      "lat": 46.6208
+    },
+    {
+      "name": "Saint-Martin-du-Tartre",
+      "dept": "71",
+      "pop": 153,
+      "lon": 4.6043,
+      "lat": 46.6526
+    },
+    {
+      "name": "Saint-Martin-en-Bresse",
+      "dept": "71",
+      "pop": 1913,
+      "lon": 5.0659,
+      "lat": 46.8069
+    },
+    {
+      "name": "Saint-Martin-en-Gâtinois",
+      "dept": "71",
+      "pop": 119,
+      "lon": 5.0043,
+      "lat": 46.9462
+    },
+    {
+      "name": "Saint-Martin-la-Patrouille",
+      "dept": "71",
+      "pop": 63,
+      "lon": 4.5449,
+      "lat": 46.5839
+    },
+    {
+      "name": "Saint-Martin-sous-Montaigu",
+      "dept": "71",
+      "pop": 337,
+      "lon": 4.71,
+      "lat": 46.8082
+    },
+    {
+      "name": "Saint-Martin-des-Monts",
+      "dept": "72",
+      "pop": 167,
+      "lon": 0.6051,
+      "lat": 48.1556
+    },
+    {
+      "name": "Saint-Martin-d'Arc",
+      "dept": "73",
+      "pop": 305,
+      "lon": 6.459,
+      "lat": 45.2054
+    },
+    {
+      "name": "Saint-Martin-de-la-Porte",
+      "dept": "73",
+      "pop": 684,
+      "lon": 6.4529,
+      "lat": 45.2503
+    },
+    {
+      "name": "Saint-Martin-sur-la-Chambre",
+      "dept": "73",
+      "pop": 536,
+      "lon": 6.318,
+      "lat": 45.372
+    },
+    {
+      "name": "Saint-Martin-aux-Arbres",
+      "dept": "76",
+      "pop": 314,
+      "lon": 0.886,
+      "lat": 49.6496
+    },
+    {
+      "name": "Saint-Martin-au-Bosc",
+      "dept": "76",
+      "pop": 269,
+      "lon": 1.6567,
+      "lat": 49.8344
+    },
+    {
+      "name": "Saint-Martin-aux-Buneaux",
+      "dept": "76",
+      "pop": 642,
+      "lon": 0.559,
+      "lat": 49.8244
+    },
+    {
+      "name": "Saint-Martin-de-Boscherville",
+      "dept": "76",
+      "pop": 1541,
+      "lon": 0.9607,
+      "lat": 49.4481
+    },
+    {
+      "name": "Saint-Martin-du-Bec",
+      "dept": "76",
+      "pop": 643,
+      "lon": 0.2017,
+      "lat": 49.5987
+    },
+    {
+      "name": "Saint-Martin-du-Manoir",
+      "dept": "76",
+      "pop": 1459,
+      "lon": 0.2414,
+      "lat": 49.5399
+    },
+    {
+      "name": "Saint-Martin-du-Vivier",
+      "dept": "76",
+      "pop": 1672,
+      "lon": 1.1511,
+      "lat": 49.4699
+    },
+    {
+      "name": "Saint-Martin-le-Gaillard",
+      "dept": "76",
+      "pop": 288,
+      "lon": 1.3594,
+      "lat": 49.9729
+    },
+    {
+      "name": "Saint-Martin-l'Hortier",
+      "dept": "76",
+      "pop": 272,
+      "lon": 1.408,
+      "lat": 49.7482
+    },
+    {
+      "name": "Saint-Martin-Osmonville",
+      "dept": "76",
+      "pop": 1179,
+      "lon": 1.2938,
+      "lat": 49.6389
+    },
+    {
+      "name": "Saint-Martin-des-Champs",
+      "dept": "77",
+      "pop": 657,
+      "lon": 3.3317,
+      "lat": 48.781
+    },
+    {
+      "name": "Saint-Martin-du-Boschet",
+      "dept": "77",
+      "pop": 270,
+      "lon": 3.4389,
+      "lat": 48.735
+    },
+    {
+      "name": "Saint-Martin-en-Bière",
+      "dept": "77",
+      "pop": 734,
+      "lon": 2.5834,
+      "lat": 48.4332
+    },
+    {
+      "name": "Saint-Martin-de-Bréthencourt",
+      "dept": "78",
+      "pop": 678,
+      "lon": 1.91,
+      "lat": 48.5162
+    },
+    {
+      "name": "Saint-Martin-des-Champs",
+      "dept": "78",
+      "pop": 304,
+      "lon": 1.7181,
+      "lat": 48.8779
+    },
+    {
+      "name": "Saint-Martin-la-Garenne",
+      "dept": "78",
+      "pop": 929,
+      "lon": 1.6686,
+      "lat": 49.0396
+    },
+    {
+      "name": "Saint-Martin-de-Bernegoue",
+      "dept": "79",
+      "pop": 799,
+      "lon": -0.3585,
+      "lat": 46.2367
+    },
+    {
+      "name": "Saint-Martin-de-Mâcon",
+      "dept": "79",
+      "pop": 311,
+      "lon": -0.1089,
+      "lat": 47.0243
+    },
+    {
+      "name": "Saint-Martin-de-Saint-Maixent",
+      "dept": "79",
+      "pop": 1068,
+      "lon": -0.2061,
+      "lat": 46.3884
+    },
+    {
+      "name": "Saint-Martin-de-Sanzay",
+      "dept": "79",
+      "pop": 1053,
+      "lon": -0.1949,
+      "lat": 47.0725
+    },
+    {
+      "name": "Saint-Martin-du-Fouilloux",
+      "dept": "79",
+      "pop": 247,
+      "lon": -0.1324,
+      "lat": 46.5965
+    },
+    {
+      "name": "Saint-Martin-Laguépie",
+      "dept": "81",
+      "pop": 392,
+      "lon": 1.9625,
+      "lat": 44.1359
+    },
+    {
+      "name": "Saint-Martin-de-Pallières",
+      "dept": "83",
+      "pop": 259,
+      "lon": 5.8827,
+      "lat": 43.5744
+    },
+    {
+      "name": "Saint-Martin-de-Castillon",
+      "dept": "84",
+      "pop": 703,
+      "lon": 5.5183,
+      "lat": 43.8489
+    },
+    {
+      "name": "Saint-Martin-de-la-Brasque",
+      "dept": "84",
+      "pop": 816,
+      "lon": 5.543,
+      "lat": 43.766
+    },
+    {
+      "name": "Saint-Martin-de-Fraigneau",
+      "dept": "85",
+      "pop": 809,
+      "lon": -0.7628,
+      "lat": 46.4252
+    },
+    {
+      "name": "Saint-Martin-des-Fontaines",
+      "dept": "85",
+      "pop": 170,
+      "lon": -0.9033,
+      "lat": 46.5518
+    },
+    {
+      "name": "Saint-Martin-des-Noyers",
+      "dept": "85",
+      "pop": 2520,
+      "lon": -1.2047,
+      "lat": 46.7215
+    },
+    {
+      "name": "Saint-Martin-des-Tilleuls",
+      "dept": "85",
+      "pop": 1120,
+      "lon": -1.0717,
+      "lat": 46.9742
+    },
+    {
+      "name": "Saint-Martin-Lars-en-Sainte-Hermine",
+      "dept": "85",
+      "pop": 419,
+      "lon": -0.9747,
+      "lat": 46.594
+    },
+    {
+      "name": "Saint-Martin-l'Ars",
+      "dept": "86",
+      "pop": 376,
+      "lon": 0.5613,
+      "lat": 46.2035
+    },
+    {
+      "name": "Saint-Martin-la-Pallu",
+      "dept": "86",
+      "pop": 5620,
+      "lon": 0.2509,
+      "lat": 46.7329
+    },
+    {
+      "name": "Saint-Martin-de-Jussac",
+      "dept": "87",
+      "pop": 566,
+      "lon": 0.9433,
+      "lat": 45.8546
+    },
+    {
+      "name": "Saint-Martin-le-Mault",
+      "dept": "87",
+      "pop": 142,
+      "lon": 1.2128,
+      "lat": 46.3697
+    },
+    {
+      "name": "Saint-Martin-le-Vieux",
+      "dept": "87",
+      "pop": 895,
+      "lon": 1.1254,
+      "lat": 45.747
+    },
+    {
+      "name": "Saint-Martin-Terressus",
+      "dept": "87",
+      "pop": 566,
+      "lon": 1.4626,
+      "lat": 45.9145
+    },
+    {
+      "name": "Saint-Martin-des-Champs",
+      "dept": "89",
+      "pop": 260,
+      "lon": 3.0186,
+      "lat": 47.6519
+    },
+    {
+      "name": "Saint-Martin-d'Ordon",
+      "dept": "89",
+      "pop": 420,
+      "lon": 3.1595,
+      "lat": 48.0256
+    },
+    {
+      "name": "Saint-Martin-du-Tertre",
+      "dept": "89",
+      "pop": 1533,
+      "lon": 3.2513,
+      "lat": 48.21
+    },
+    {
+      "name": "Saint-Martin-sur-Armançon",
+      "dept": "89",
+      "pop": 144,
+      "lon": 4.0727,
+      "lat": 47.8776
+    },
+    {
+      "name": "Saint-Martin-du-Tertre",
+      "dept": "95",
+      "pop": 2663,
+      "lon": 2.3405,
+      "lat": 49.1017
+    },
+    {
+      "name": "Saint-Martin",
+      "dept": "97",
+      "pop": 0,
+      "lon": -63.0504,
+      "lat": 18.0789
+    }
+  ],
+  "shortestNames": [
+    {
+      "name": "Y",
+      "dept": "80",
+      "pop": 89,
+      "len": 1
+    },
+    {
+      "name": "Sy",
+      "dept": "08",
+      "pop": 54,
+      "len": 2
+    },
+    {
+      "name": "By",
+      "dept": "25",
+      "pop": 86,
+      "len": 2
+    },
+    {
+      "name": "Bû",
+      "dept": "28",
+      "pop": 2022,
+      "len": 2
+    },
+    {
+      "name": "Oô",
+      "dept": "31",
+      "pop": 103,
+      "len": 2
+    },
+    {
+      "name": "Oz",
+      "dept": "38",
+      "pop": 213,
+      "len": 2
+    },
+    {
+      "name": "Ri",
+      "dept": "61",
+      "pop": 156,
+      "len": 2
+    },
+    {
+      "name": "Uz",
+      "dept": "65",
+      "pop": 36,
+      "len": 2
+    },
+    {
+      "name": "Py",
+      "dept": "66",
+      "pop": 79,
+      "len": 2
+    },
+    {
+      "name": "Ur",
+      "dept": "66",
+      "pop": 348,
+      "len": 2
+    }
+  ],
+  "longestNames": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "len": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "len": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "len": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "len": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "len": 40
+    }
+  ]
+}
