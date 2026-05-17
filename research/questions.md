@@ -181,16 +181,22 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: reused commune names from DREES APL GeoJSON (communes-apl.geojson, 35,014 communes)
+- Finding: "Sainte-Colombe" is the most repeated full name, appearing 12 times across France. Among saints, Saint-Martin leads with 202 communes. 1,450 names are shared by 2+ communes; 3,700 communes share their name with at least one other.
+- Story: [name-france](/stories/name-france/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: reused commune names from DREES APL GeoJSON
+- Finding: "Y" — a single letter, Somme département (code 80829), population 89. The longest is "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson" at 45 characters (Marne). 13 communes have 2-character names.
+- Story: [name-france](/stories/name-france/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
