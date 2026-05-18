@@ -1,0 +1,347 @@
+{
+  "total": 35014,
+  "most_common": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    }
+  ],
+  "length_hist": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      154
+    ],
+    [
+      4,
+      720
+    ],
+    [
+      5,
+      1969
+    ],
+    [
+      6,
+      3223
+    ],
+    [
+      7,
+      3695
+    ],
+    [
+      8,
+      3695
+    ],
+    [
+      9,
+      3000
+    ],
+    [
+      10,
+      2522
+    ],
+    [
+      11,
+      1884
+    ],
+    [
+      12,
+      1435
+    ],
+    [
+      13,
+      1167
+    ],
+    [
+      14,
+      1018
+    ],
+    [
+      15,
+      1095
+    ],
+    [
+      16,
+      1177
+    ],
+    [
+      17,
+      1186
+    ],
+    [
+      18,
+      1202
+    ],
+    [
+      19,
+      1117
+    ],
+    [
+      20,
+      1028
+    ],
+    [
+      21,
+      923
+    ],
+    [
+      22,
+      819
+    ],
+    [
+      23,
+      649
+    ],
+    [
+      24,
+      501
+    ],
+    [
+      25,
+      329
+    ],
+    [
+      26,
+      200
+    ],
+    [
+      27,
+      105
+    ],
+    [
+      28,
+      55
+    ],
+    [
+      29,
+      53
+    ],
+    [
+      30,
+      29
+    ],
+    [
+      31,
+      12
+    ],
+    [
+      32,
+      8
+    ],
+    [
+      33,
+      2
+    ],
+    [
+      34,
+      6
+    ],
+    [
+      35,
+      7
+    ],
+    [
+      36,
+      2
+    ],
+    [
+      37,
+      3
+    ],
+    [
+      38,
+      3
+    ],
+    [
+      39,
+      1
+    ],
+    [
+      40,
+      3
+    ],
+    [
+      41,
+      1
+    ],
+    [
+      42,
+      0
+    ],
+    [
+      43,
+      1
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      45,
+      1
+    ]
+  ],
+  "saint_total": 3898,
+  "saint_pct_overall": 11.1,
+  "saint_depts": [
+    {
+      "dept": "07",
+      "name": "Ardèche",
+      "pct": 29.0,
+      "count": 97,
+      "total": 335
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "pct": 28.2,
+      "count": 72,
+      "total": 255
+    },
+    {
+      "dept": "42",
+      "name": "Loire",
+      "pct": 27.8,
+      "count": 89,
+      "total": 320
+    },
+    {
+      "dept": "87",
+      "name": "Haute-Vienne",
+      "pct": 27.2,
+      "count": 53,
+      "total": 195
+    },
+    {
+      "dept": "24",
+      "name": "Dordogne",
+      "pct": 25.8,
+      "count": 130,
+      "total": 503
+    },
+    {
+      "dept": "85",
+      "name": "Vendée",
+      "pct": 24.5,
+      "count": 62,
+      "total": 253
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "pct": 24.3,
+      "count": 37,
+      "total": 152
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "pct": 24.1,
+      "count": 62,
+      "total": 257
+    },
+    {
+      "dept": "19",
+      "name": "Corrèze",
+      "pct": 22.7,
+      "count": 63,
+      "total": 277
+    },
+    {
+      "dept": "33",
+      "name": "Gironde",
+      "pct": 22.7,
+      "count": 121,
+      "total": 534
+    },
+    {
+      "dept": "30",
+      "name": "Gard",
+      "pct": 22.6,
+      "count": 79,
+      "total": 350
+    },
+    {
+      "dept": "17",
+      "name": "Charente-Maritime",
+      "pct": 21.9,
+      "count": 101,
+      "total": 462
+    }
+  ],
+  "prepositions": {
+    "sur": 2007,
+    "les": 1013,
+    "sous": 257
+  },
+  "shortest": {
+    "name": "Y",
+    "code": "80829",
+    "dept": "80",
+    "dept_name": "Somme",
+    "pop": 89,
+    "lat": 49.8064,
+    "lng": 2.985
+  },
+  "longest": {
+    "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+    "code": "51513",
+    "dept": "51",
+    "dept_name": "Marne",
+    "pop": 491,
+    "lat": 48.60612,
+    "lng": 4.6525,
+    "chars": 45
+  }
+}
