@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The names of France — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callouts ──────────────────────────────────────────────── */
+    .callout-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) { .callout-row { grid-template-columns: 1fr; } }
+
+    .callout {
+      border-top: 2px solid var(--ink);
+      padding: 16px 0 0;
+    }
+    .callout .num {
+      font-family: var(--serif);
+      font-size: 40px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .callout .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+
+    /* ── Chart sections ─────────────────────────────────────────────── */
+    .chart-section {
+      margin: 48px 0;
+    }
+    .chart-section h2 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    /* ── Bar chart ──────────────────────────────────────────────────── */
+    .bar-chart { width: 100%; }
+
+    .bar-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .bar-label {
+      width: 210px;
+      flex-shrink: 0;
+      text-align: right;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bar-track {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .bar-fill {
+      height: 14px;
+      background: var(--ink);
+      opacity: 0.75;
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+    .bar-value {
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* saint bars are slightly different colour */
+    .bar-fill.saint { background: var(--accent); opacity: 0.7; }
+
+    @media (max-width: 640px) {
+      .bar-label { width: 130px; font-size: 11px; }
+      .bar-row { font-size: 11px; }
+    }
+
+    /* ── Curiosity boxes ────────────────────────────────────────────── */
+    .curiosity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) { .curiosity-grid { grid-template-columns: 1fr; } }
+
+    .curiosity {
+      border: 1px solid #d8d0c0;
+      padding: 20px 20px 16px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .curiosity .c-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 8px;
+    }
+    .curiosity .c-name {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0 0 6px;
+      word-break: break-word;
+    }
+    .curiosity .c-detail {
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.5;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Search box ─────────────────────────────────────────────────── */
+    .search-block {
+      margin: 48px 0;
+    }
+    .search-block label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .search-input {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      background: #fff;
+      width: 100%;
+      max-width: 400px;
+      color: var(--ink);
+      outline: none;
+      border-radius: 2px;
+    }
+    .search-input:focus { border-color: var(--ink); }
+    .search-results {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      min-height: 24px;
+    }
+    .search-results .result-row {
+      padding: 4px 0;
+      border-bottom: 1px solid #ede8e0;
+      display: flex;
+      gap: 12px;
+    }
+    .search-results .r-name { font-family: Georgia, serif; min-width: 200px; }
+    .search-results .r-dept { color: #888; }
+    .search-results .r-pop { color: #888; margin-left: auto; font-variant-numeric: tabular-nums; }
+    .search-note { font-size: 11px; color: #aaa; margin-top: 8px; }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Language &amp; territory</div>
+        <h1 class="story-title">The names of France</h1>
+        <p class="story-dek">35,014 communes. Only 32,764 distinct names. One of them is just "Y." One is 45 characters long. And 202 are called Saint-Martin — so you'll need to specify.</p>
+        <div class="story-meta">
+          <span>2026-05-18</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>Every French commune has a name. But names aren't unique. France's 35,014 communes share only 32,764 distinct ones — meaning <strong>3,700 communes share a name</strong> with at least one other place. If you say "Sainte-Colombe" without specifying where, you could be talking about any of twelve different villages in twelve different départements.</p>
+
+      <p>This is not an accident. It's a product of how France was named: medieval parishes, Carolingian saints, natural features, administrative mergers. The names are a geographical fossil record of a thousand years of Christianity, feudalism, and rural settlement patterns.</p>
+
+      <div class="callout-row">
+        <div class="callout">
+          <span class="num" id="stat-total">35,014</span>
+          <span class="label">communes in France<br>(metropolitan + DOM)</span>
+        </div>
+        <div class="callout">
+          <span class="num" id="stat-shared">3,700</span>
+          <span class="label">communes with a name<br>shared by at least one other</span>
+        </div>
+        <div class="callout">
+          <span class="num" id="stat-saint-pct">12.7%</span>
+          <span class="label">of all commune names<br>contain "saint" or "sainte"</span>
+        </div>
+      </div>
+
+      <h2>The most-duplicated names</h2>
+
+      <p>Sainte-Colombe wins the duplication race: twelve communes carry that name across as many départements — from Hautes-Alpes to Yonne. Saint-Sauveur appears eleven times. Saint-Aubin and Beaulieu each appear ten times. These are not obscure names. They're the common vocabulary of the landscape.</p>
+
+      <div class="chart-section">
+        <h2>Most shared commune names</h2>
+        <div class="bar-chart" id="chart-shared"></div>
+      </div>
+
+      <p>The pattern is telling. "Beaulieu" — beautiful place — appears ten times, in ten corners of France, because medieval people across the country independently found the same word for a valley they liked. "Beaumont" — beautiful hill — appears eight times for the same reason. The names describe the landscape, not the history; they recur because landscapes recur.</p>
+
+      <h2>The saint problem</h2>
+
+      <p>4,443 communes — 12.7% of all of France — have the word <em>saint</em> or <em>sainte</em> in their name. The country runs on saints. But which saints? Saint-Martin dominates: 202 communes are named after the 4th-century bishop of Tours who is the patron saint of France. Say "Saint-Martin" on a French map and you'll need to be more specific.</p>
+
+      <div class="chart-section">
+        <h2>Most common saints in commune names</h2>
+        <div class="bar-chart" id="chart-saints"></div>
+      </div>
+
+      <p>Saint-Jean (155), Saint-Pierre (144), Saint-Germain (108) — the roster reads like the first chapter of a medieval hagiography. The saints aren't distributed randomly: Saint-Martin and Saint-Jean are spread nationwide; Saint-Gilles clusters in the south; Saint-Brieuc, Saint-Pol, Saint-Tugdual belong to Brittany's Breton-Christian tradition. The saints map the history of conversion and colonisation, village by village.</p>
+
+      <h2>The extremes</h2>
+
+      <div class="curiosity-grid">
+        <div class="curiosity">
+          <p class="c-label">Shortest name</p>
+          <p class="c-name">Y</p>
+          <p class="c-detail">One letter. Département 80 (Somme). Population: 89. The most logistically challenging commune in France to discuss over email.</p>
+        </div>
+        <div class="curiosity">
+          <p class="c-label">Longest name</p>
+          <p class="c-name">Saint-Remy-en-Bouzemont-<br>Saint-Genest-et-Isson</p>
+          <p class="c-detail">45 characters. Marne (51). A 2016 merger of three communes into one very long name. Population: 535.</p>
+        </div>
+        <div class="curiosity">
+          <p class="c-label">Two-letter clubs</p>
+          <p class="c-name">Eu, Gy, Uz, By, Oz, Sy&hellip;</p>
+          <p class="c-detail">Thirteen communes have two-letter names. Eu (Seine-Maritime, pop. 6,591) is the largest; Uz (Hautes-Pyrénées, pop. 36) the smallest. Several are Norse in origin — the -y and -ou suffixes trace Viking settlement routes inland from Normandy.</p>
+        </div>
+        <div class="curiosity">
+          <p class="c-label">Post-merger names</p>
+          <p class="c-name">Beaujeu-Saint-Vallier-<br>Pierrejux-et-Quitteur</p>
+          <p class="c-detail">43 characters. Haute-Saône (70). France's wave of commune mergers since 2015 has produced some of its longest names — concatenations of the old communes' identities into unwieldy administrative compound nouns.</p>
+        </div>
+      </div>
+
+      <h2>Look up a commune name</h2>
+
+      <p>The 35,014 commune names form a complete gazetteer of inhabited France. Type below to search — and notice how many have twins.</p>
+
+      <div class="search-block">
+        <label for="commune-search">Commune name</label>
+        <input type="text" id="commune-search" class="search-input" placeholder="Saint-Martin, Beaulieu, Y…" autocomplete="off" spellcheck="false">
+        <div class="search-results" id="search-results"></div>
+        <p class="search-note" id="search-note"></p>
+      </div>
+
+      <h2>A fossil record</h2>
+
+      <p>The naming of communes is a stratigraphic record. At the bottom: pre-Roman names, Gaulish or Ibero-Basque or Breton, surviving on the periphery — <em>Uz</em>, <em>Eu</em>, <em>Gy</em>. Above that: the Gallo-Roman layer — <em>-ac</em> and <em>-anum</em> suffixes in the south, <em>-y</em> in the north. Then the Christian layer — 4,443 saints' names. Then the feudal layer — Beaumont, Villeneuve, Montfort. Finally: the merger layer, still being written today, concatenating old names into administrative hyphens.</p>
+
+      <p>The total: 35,014 data points, each one a name, each name a political choice about whose history to honour. Twelve villages called Sainte-Colombe, 202 called Saint-Martin, one village called Y. All France, named.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and INSEE codes come from the DREES APL 2023 dataset, which covers all 34,886 communes with APL scores. A small number of additional communes (128) without APL data are included from the same source file. Total: 35,014 features. Centroids are approximated as the mean coordinate of each commune polygon's exterior ring — suitable for display but not for precise centroid calculations.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune names and INSEE codes</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025 (Etalab)</a> — polygon geometries for centroid computation</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module" src="./charts.js"></script>
+</body>
+</html>
