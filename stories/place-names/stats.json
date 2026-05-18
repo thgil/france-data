@@ -1,0 +1,522 @@
+{
+  "total": 35014,
+  "unique": 32764,
+  "sharing": 3700,
+  "saintCount": 3898,
+  "saintPct": 11.1,
+  "chapelleCount": 152,
+  "shortest": [
+    {
+      "name": "Y",
+      "length": 1
+    },
+    {
+      "name": "By",
+      "length": 2
+    },
+    {
+      "name": "Bû",
+      "length": 2
+    },
+    {
+      "name": "Eu",
+      "length": 2
+    },
+    {
+      "name": "Gy",
+      "length": 2
+    },
+    {
+      "name": "Oz",
+      "length": 2
+    },
+    {
+      "name": "Oô",
+      "length": 2
+    },
+    {
+      "name": "Py",
+      "length": 2
+    },
+    {
+      "name": "Ri",
+      "length": 2
+    },
+    {
+      "name": "Ry",
+      "length": 2
+    },
+    {
+      "name": "Sy",
+      "length": 2
+    },
+    {
+      "name": "Ur",
+      "length": 2
+    },
+    {
+      "name": "Us",
+      "length": 2
+    },
+    {
+      "name": "Uz",
+      "length": 2
+    },
+    {
+      "name": "Acq",
+      "length": 3
+    },
+    {
+      "name": "Acy",
+      "length": 3
+    },
+    {
+      "name": "Adé",
+      "length": 3
+    },
+    {
+      "name": "Afa",
+      "length": 3
+    },
+    {
+      "name": "Agy",
+      "length": 3
+    },
+    {
+      "name": "Aix",
+      "length": 3
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "length": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "length": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "length": 41
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "length": 40
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "length": 40
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "length": 40
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "length": 39
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "length": 38
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "length": 38
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "length": 38
+    }
+  ],
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "topSaints": [
+    {
+      "saint": "Martin",
+      "count": 202
+    },
+    {
+      "saint": "Jean",
+      "count": 155
+    },
+    {
+      "saint": "Pierre",
+      "count": 144
+    },
+    {
+      "saint": "Germain",
+      "count": 108
+    },
+    {
+      "saint": "Julien",
+      "count": 78
+    },
+    {
+      "saint": "Laurent",
+      "count": 77
+    },
+    {
+      "saint": "Hilaire",
+      "count": 68
+    },
+    {
+      "saint": "Georges",
+      "count": 67
+    },
+    {
+      "saint": "Étienne",
+      "count": 65
+    },
+    {
+      "saint": "André",
+      "count": 64
+    },
+    {
+      "saint": "Aubin",
+      "count": 62
+    },
+    {
+      "saint": "Paul",
+      "count": 54
+    },
+    {
+      "saint": "Michel",
+      "count": 53
+    },
+    {
+      "saint": "Maurice",
+      "count": 51
+    },
+    {
+      "saint": "Léger",
+      "count": 50
+    }
+  ],
+  "nameLengths": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ],
+  "topSaintDepts": [
+    {
+      "dept": "07",
+      "name": "Ardèche",
+      "saint_count": 97,
+      "total": 335,
+      "pct": 29.0
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "saint_count": 72,
+      "total": 255,
+      "pct": 28.2
+    },
+    {
+      "dept": "42",
+      "name": "Loire",
+      "saint_count": 89,
+      "total": 320,
+      "pct": 27.8
+    },
+    {
+      "dept": "87",
+      "name": "Haute-Vienne",
+      "saint_count": 53,
+      "total": 195,
+      "pct": 27.2
+    },
+    {
+      "dept": "24",
+      "name": "Dordogne",
+      "saint_count": 130,
+      "total": 503,
+      "pct": 25.8
+    },
+    {
+      "dept": "85",
+      "name": "Vendée",
+      "saint_count": 62,
+      "total": 253,
+      "pct": 24.5
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "saint_count": 37,
+      "total": 152,
+      "pct": 24.3
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "saint_count": 62,
+      "total": 257,
+      "pct": 24.1
+    },
+    {
+      "dept": "19",
+      "name": "Corrèze",
+      "saint_count": 63,
+      "total": 277,
+      "pct": 22.7
+    },
+    {
+      "dept": "33",
+      "name": "Gironde",
+      "saint_count": 121,
+      "total": 534,
+      "pct": 22.7
+    }
+  ]
+}
