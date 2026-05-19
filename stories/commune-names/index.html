@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y, and 35,013 other names — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart containers ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-wrap {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      padding: 24px 24px 16px;
+      position: relative;
+    }
+    .chart-wrap canvas {
+      display: block;
+      width: 100% !important;
+    }
+
+    /* ── Pull stat ─────────────────────────────────────────────────────── */
+    .pull-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pull-stat {
+      border-left: 3px solid var(--accent);
+      padding: 8px 16px;
+    }
+    .pull-stat .num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+    .pull-stat .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Extremes table ────────────────────────────────────────────────── */
+    .extremes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 600px) {
+      .extremes-grid { grid-template-columns: 1fr; }
+    }
+    .extremes-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .extremes-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .extremes-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .extremes-table td:last-child {
+      text-align: right;
+      color: #666;
+      font-variant-numeric: tabular-nums;
+    }
+    .extremes-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .extremes-table .place {
+      font-family: Georgia, serif;
+    }
+    .extremes-table .dept {
+      font-size: 11px;
+      color: #aaa;
+      margin-left: 4px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Y, and 35,013 other names</h1>
+        <p class="story-dek">France has 35,014 communes. One is called Y. Another takes 45 characters to write. Between them: 4,443 saints, 13,410 hyphens, and 12 places called Sainte-Colombe.</p>
+        <div class="story-meta">
+          <span>2026-05-19</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The single letter ──────────────────────────────── -->
+      <p>Somewhere in the Somme, 89 people live in a commune called Y. Not <em>Why</em>, not <em>Yé</em> — just the letter Y, one character, the most efficient place name in France. Its residents receive mail addressed to "Y, 80190, Somme." The village has a Romanesque church, a gentle fold of farmland, and the distinction of being an extreme outlier in a country that has historically favoured very long names for very small places.</p>
+
+      <p>Y is the answer to Q-039: which commune in France has the shortest official name? But once you start looking at France's 35,014 communes as a corpus, Y turns out to be just the beginning.</p>
+
+      <!-- ── Beat 2: Stats overview ─────────────────────────────────── -->
+      <div class="pull-stats">
+        <div class="pull-stat">
+          <span class="num">35,014</span>
+          <span class="label">total communes</span>
+        </div>
+        <div class="pull-stat">
+          <span class="num">32,764</span>
+          <span class="label">distinct names</span>
+        </div>
+        <div class="pull-stat">
+          <span class="num">4,443</span>
+          <span class="label">contain "saint"</span>
+        </div>
+        <div class="pull-stat">
+          <span class="num">13,410</span>
+          <span class="label">hyphenated names</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: The saint avalanche ───────────────────────────── -->
+      <h2>The saint avalanche</h2>
+
+      <p>The single most common first word in French commune names is <em>Saint</em> — it starts 3,596 of them, more than <em>Le</em> (758), <em>La</em> (1,054), and <em>Les</em> (328) combined. Add <em>Sainte</em> (295) and you have nearly 3,900 communes opening with the word for "saint." Include saints embedded anywhere in the name — <em>Saint-Rémy-en-Bouzemont-Saint-Genest-et-Isson</em>, for instance, has two — and 4,443 communes (12.7%) carry a saint's name.</p>
+
+      <p>This is the legacy of Christianisation, medieval parish records, and the Ancien Régime's habit of naming settlements after their patron saint. The Revolution renamed many of these in a fit of secular zeal — Saint-Denis became Franciade; Saint-Étienne briefly became Armeville — but most reverted. The saints stayed.</p>
+
+      <!-- ── Beat 4: Most common names ─────────────────────────────── -->
+      <h2>Twelve Sainte-Colombes</h2>
+
+      <p>The single most common exact commune name in France is <em>Sainte-Colombe</em> — there are twelve of them, scattered across twelve départements with no obvious geographic pattern. Sainte Colomba was a sixth-century Irish nun; the French apparently liked her enough to name a dozen villages in her honour without any of them becoming particularly famous. <em>Saint-Sauveur</em> comes second with 11, <em>Saint-Aubin</em> and <em>Beaulieu</em> tie for third with 10.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-top-names" height="380"></canvas>
+        </div>
+        <figcaption>Top 20 most common exact commune names in France. 35,014 communes, 32,764 distinct names — meaning 2,250 names are shared by at least two communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Length extremes ────────────────────────────────── -->
+      <h2>From one letter to forty-five</h2>
+
+      <p>At the long end of the distribution sits <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> in the Marne: 45 characters, two saints, one hyphen count of seven. It was formed in 1972 by the merger of three smaller communes — Saint-Remy-en-Bouzemont, Saint-Genest, and Isson — and rather than pick a name, the commune simply concatenated all three. This is a common source of very long names: French communes merge (sometimes reluctantly), and the longest names are usually the traces of multiple mergers with no one willing to give up their piece of the name.</p>
+
+      <div class="extremes-grid">
+        <div class="extremes-block">
+          <h3>Shortest names</h3>
+          <table class="extremes-table" id="table-shortest">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="extremes-block">
+          <h3>Longest names</h3>
+          <table class="extremes-table" id="table-longest">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Hyphen culture ─────────────────────────────────── -->
+      <h2>A culture of hyphens</h2>
+
+      <p>13,410 communes — 38.3% of all French communes — include at least one hyphen in their name. The hyphen is doing important work: it stitches together saints and geography (<em>Saint-Martin-de-Ré</em>), saints and saints (<em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>), geography and geography (<em>Roche-sur-Linotte-et-Sorans-les-Cordiers</em>), and occasionally produces names that defy easy categorisation (<em>Oô</em>, a two-character Pyrenean village with a circumflex and a vowel, no hyphen required).</p>
+
+      <p>The non-hyphenated names tell a different story: simple single-word names like <em>Gap</em>, <em>Brest</em>, <em>Lyon</em>, <em>Eu</em>. These are the older names, often pre-Roman or Gaulish in origin, whose short forms survived because they predated the administrative habit of specifying-by-saint.</p>
+
+      <!-- ── Beat 7: Length distribution ───────────────────────────── -->
+      <h2>The shape of French place names</h2>
+
+      <p>Plot all 35,014 commune names by length and the distribution skews right: most names cluster between 7 and 15 characters, with a long tail stretching out past 30. The median is around 12. The mode is 8–10 characters — names like <em>Beaumont</em> (8), <em>Montigny</em> (8), <em>Villeneuve</em> (10). These are the plain vanilla French place names: a landscape word (<em>beau mont</em> — beautiful hill; <em>ville neuve</em> — new town) with no saint attached, no hyphen required.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-length-dist" height="200"></canvas>
+        </div>
+        <figcaption>Distribution of commune name lengths (number of characters, including hyphens and spaces). 35,014 communes. The single rightmost bar represents commune names of 40+ characters — there are 15 of them.</figcaption>
+      </figure>
+
+      <p>Y is waiting at the left edge of that chart, a single bar one character wide, alone in its efficiency. The 12 Sainte-Colombes are bunched together somewhere in the 15-character cluster. And somewhere in the Marne, Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson is at the far right, taking up more horizontal space than it strictly needs, and not particularly bothered about it.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names, codes, and population figures come from the DREES APL 2023 dataset joined to the IGN contours administratifs 2025 — the same source used in <a href="../medical-deserts/">Story 2 (medical deserts)</a>. The dataset covers 35,014 communes including overseas territories (Guyane, Martinique, Guadeloupe, La Réunion, Mayotte). Name analysis was performed on the <code>communeName</code> field from the joined GeoJSON. Character counts include hyphens, spaces, and diacritical marks but not article elisions (apostrophes are treated as characters). Population figures are from the INSEE 2021 census base used in the APL file.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune-level names and population</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs des communes 2025</a> — commune boundaries and codes (IGN / Etalab)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script type="module" src="./charts.js"></script>
+</body>
+</html>
