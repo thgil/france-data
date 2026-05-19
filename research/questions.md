@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: How many French communes have no bar at all, and where are they?
+- Status: ✅ answered
+- Topic: [culture](topics/culture.md)
+- Datasets: bars.json (49,385 national SIRENE bars) joined to DREES APL commune list (35,014 communes)
+- Finding: 23,265 communes — 66.4% of France's total — have no registered bar. These are home to 11.3 million people (16.8% of the population); their median size is 285 residents. The distribution is sharply geographic: Meuse leads at 92.6% bar-less, while Morbihan (Bretagne) is just 13.3%. Hauts-de-Seine and Seine-Saint-Denis have 100% bar coverage (every commune has at least one). Eight communes with 10,000+ residents have no bar, led by Villefontaine (Isère, pop 19,083), a 1970s ville nouvelle. The bar-desert map echoes the medical-desert map: the diagonale du vide runs through both.
+- Story: [bar-deserts](/stories/bar-deserts/)

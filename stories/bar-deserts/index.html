@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The missing café — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Big-number hero stats ─────────────────────────────────────────── */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 48px 0;
+      border: 1px solid #d8d0c0;
+    }
+    .hero-stat {
+      flex: 1 1 160px;
+      padding: 28px 24px;
+      border-right: 1px solid #d8d0c0;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat .stat-value {
+      font-family: Georgia, serif;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      color: #b32020;
+      line-height: 1;
+      display: block;
+    }
+    .hero-stat .stat-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      color: #666;
+      margin-top: 8px;
+      display: block;
+    }
+    @media (max-width: 560px) {
+      .hero-stat { border-right: none; border-bottom: 1px solid #d8d0c0; }
+      .hero-stat:last-child { border-bottom: none; }
+    }
+
+    /* ── Chart container ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure .chart-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .chart-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .chart-scroll svg {
+      min-width: 400px;
+    }
+
+    /* ── Large-communes table ──────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 32px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .data-table th {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 8px;
+      border-bottom: 1px solid #d8d0c0;
+      text-align: left;
+    }
+    .data-table th:last-child { text-align: right; }
+    .data-table td {
+      padding: 7px 8px;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .data-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+    .data-table .place {
+      font-family: Georgia, serif;
+    }
+    .data-table .dept-badge {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      color: #888;
+      margin-left: 4px;
+    }
+
+    /* ── Callout box ───────────────────────────────────────────────────── */
+    .callout {
+      margin: 32px auto;
+      max-width: 680px;
+      padding: 20px 24px;
+      background: #f5f0e8;
+      border-left: 3px solid #b32020;
+    }
+    .callout p {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.55;
+      color: #1a1a1a;
+    }
+
+    /* ── Credits ───────────────────────────────────────────────────────── */
+    .credits {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The missing café</h1>
+        <p class="story-dek">Two-thirds of France's communes have no registered bar, café, or pub. Most are small villages — but some have 19,000 residents.</p>
+        <div class="story-meta">
+          <span>2026-05-19</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: the number ───────────────────────────────────────── -->
+      <p>The previous story on this site mapped 49,385 bars across France. A reasonable follow-up question: where aren't they? The answer, it turns out, covers most of the map.</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-value">66.4%</span>
+          <span class="stat-label">of French communes have no registered bar</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-value">23,265</span>
+          <span class="stat-label">communes with zero bars, pubs, or cafés</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-value">11.3 M</span>
+          <span class="stat-label">people living in a commune with no bar</span>
+        </div>
+      </div>
+
+      <p>Of France's 35,014 communes, only 11,749 — one in three — have at least one registered <em>débit de boissons</em>. The 49,385 bars are not evenly distributed; they cluster in cities and larger towns, leaving two-thirds of the commune map without a single licence.</p>
+
+      <!-- ── Beat 2: size context ─────────────────────────────────────── -->
+      <h2>Small communes, mostly</h2>
+
+      <p>The 11.3 million figure sounds alarming until you see the sizes. The median population of a bar-less commune is 285 — a hamlet, a hilltop village, a few farmhouses with a mairie that's open two days a week. Most of these communes never had a bar to lose. The village café closed in them before anyone alive can remember.</p>
+
+      <div class="chart-figure">
+        <div class="chart-title">Bar-less communes by population size</div>
+        <div class="chart-scroll" id="histogram-container"></div>
+        <figcaption class="story figcaption" style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:#666;margin-top:10px;">
+          Size distribution of the 23,265 communes with no registered bar.
+        </figcaption>
+      </div>
+
+      <p>But eight communes have more than 10,000 residents and zero bars (see below). These are the outliers that make the dataset strange and interesting.</p>
+
+      <!-- ── Beat 3: geography ────────────────────────────────────────── -->
+      <h2>Meuse leads; Bretagne resists</h2>
+
+      <p>The geography is anything but uniform. In Meuse, 92.6% of communes have no bar — 462 of its 499 communes, home to some of France's most rural territory. Haute-Marne (89.9%), Haute-Saône (89.4%), Gers (86.0%), and Hautes-Pyrénées (86.4%) are not far behind. These are parts of France where the village café's retreat has been near-total.</p>
+
+      <div class="callout">
+        <p>In Meuse, <strong>37 communes out of 499</strong> have a bar. The other 462 — 92.6% — have none. It is the most bar-silent département in France.</p>
+      </div>
+
+      <p>The other extreme is almost entirely Bretagne. Morbihan has the lowest share of bar-less communes at 13.3% — only 33 of its 249 communes are dry. Finistère (17.7%), Loire-Atlantique (19.3%), and Ille-et-Vilaine (25%) are all in the bottom 10 nationally. Every Breton département sits below the 30% mark, while the national average is 66%. Bretagne has the same population densities as many rural parts of France; the difference is cultural — the Breton café, and its cousin the crêperie-bar, has remained a working social institution long after it disappeared elsewhere.</p>
+
+      <p>Then there are the inner suburbs of Paris. Hauts-de-Seine (92) and Seine-Saint-Denis (93) have zero communes without a bar — every single one of their 36 and 39 communes respectively has at least one. Val-de-Marne (94) has only a single holdout: Périgny, a commune of 2,725 residents.</p>
+
+      <!-- ── Full ranking chart ───────────────────────────────────────── -->
+      <div class="chart-figure" style="margin-top:56px">
+        <div class="chart-title">All 97 French département groupings — share of communes with no bar (worst to best)</div>
+        <div class="chart-scroll" id="ranking-container"></div>
+        <figcaption class="story figcaption" style="font-family:'Helvetica Neue',sans-serif;font-size:13px;color:#666;margin-top:10px;">
+          Sorted from most bar-less (top) to least (bottom). Source: INSEE SIRENE bars vs. DREES APL commune list.
+          "Outre-mer (97)" aggregates Guadeloupe, Martinique, Guyane, La Réunion, and Mayotte.
+        </figcaption>
+      </div>
+
+      <!-- ── Beat 4: large communes ───────────────────────────────────── -->
+      <h2>Eight communes that should have a bar</h2>
+
+      <p>The strangest entries in the dataset are the eight communes with more than 10,000 residents and no registered bar. They span new-town suburbs, overseas territory, and at least one medium-sized city that apparently drinks at home.</p>
+
+      <table class="data-table" id="large-communes-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Département</th>
+            <th style="text-align:right">Population</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <p>Villefontaine in Isère leads at 19,083 residents. It is a <em>ville nouvelle</em> built from scratch in the 1970s as satellite housing for Grenoble — designed deliberately without a traditional centre, with no historic market square around which café life might have crystallised. Fontenay-le-Fleury (Yvelines, 13,455) and Castelginest (Haute-Garonne, 10,876) are similar stories: modern suburban communes where commuters live but don't linger. Two of the eight — Macouria and Mana — are in Guyane, where <em>débits de boissons</em> licensing follows different territorial rhythms.</p>
+
+      <!-- ── Beat 5: closing ──────────────────────────────────────────── -->
+      <h2>The same map, again</h2>
+
+      <p>Look at which parts of France have the most bar-less communes — Meuse, Haute-Marne, Haute-Saône, the Gers, the Ariège — and you are looking at the <em>diagonale du vide</em>. The same empty band that runs diagonally through France in medical-desert maps runs here too. The café and the GP disappeared from the same villages, often in the same decade.</p>
+
+      <p>The village café wasn't just somewhere to drink. It was where the post was collected, where election results were announced, where the boules match ended. France still has 49,385 of them. But two-thirds of its communes have already had their last round.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar locations come from INSEE's SIRENE business registry (active establishments with NAF code 56.30Z — débits de boissons), geocoded by INSEE's statistical geolocation file, as a March 2026 snapshot: 49,385 geocoded bars. Commune population and boundaries come from DREES's APL 2023 file (35,014 communes). The two datasets were joined on INSEE commune code. Bars whose commune code did not match the DREES list (12 records) were excluded. Population totals are INSEE 2021 estimates as reported in the APL file. The calculation counts a commune as "having a bar" if at least one SIRENE-registered bar is geocoded to that commune code.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population base</li>
+        </ul>
+
+        <p>This story uses data from <a href="../bars/">Story 4 (Where France drinks)</a> and <a href="../medical-deserts/">Story 2 (Where the doctors aren't)</a>.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { renderRanking, renderSizeHistogram } from './charts.js';
+
+    const DEPT_NAMES = {
+      "01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence",
+      "05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes",
+      "09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron",
+      "13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente",
+      "17":"Charente-Maritime","18":"Cher","19":"Corrèze","21":"Côte-d'Or",
+      "22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs",
+      "26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère",
+      "2A":"Corse-du-Sud","2B":"Haute-Corse","30":"Gard","31":"Haute-Garonne",
+      "32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine",
+      "36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura",
+      "40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire",
+      "44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne",
+      "48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne",
+      "52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse",
+      "56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord",
+      "60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme",
+      "64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales",
+      "67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône",
+      "71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie",
+      "75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines",
+      "79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne",
+      "83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne",
+      "87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort",
+      "91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis",
+      "94":"Val-de-Marne","95":"Val-d'Oise","97":"Outre-mer",
+    };
+
+    async function main() {
+      const res = await fetch('./dept-stats.json');
+      if (!res.ok) throw new Error('Could not load dept-stats.json');
+      const data = await res.json();
+
+      renderRanking('#ranking-container', data.depts);
+      renderSizeHistogram('#histogram-container', data.depts);
+
+      // Large communes table
+      const tbody = document.querySelector('#large-communes-table tbody');
+      if (tbody && data.largeNoBar) {
+        tbody.innerHTML = data.largeNoBar.map(c => {
+          const deptName = DEPT_NAMES[c.dept] || c.dept;
+          return `<tr>
+            <td class="place">${c.name}</td>
+            <td>${deptName}<span class="dept-badge">(${c.dept})</span></td>
+            <td>${c.pop.toLocaleString('fr-FR')}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    main().catch(err => {
+      console.error('Bar-deserts: failed to load data', err);
+    });
+  </script>
+</body>
+</html>

@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-deserts: The missing café
+- Status: ✅ published
+- Published URL: /stories/bar-deserts/
+- Source question: [Q-042](questions.md#q-042-how-many-french-communes-have-no-bar-at-all-and-where-are-they)
+- Hook: 49,385 bars in France — but 66% of communes have zero. The village café hasn't declined; it's already gone.
+- Data: bars.json (49,385 national SIRENE bars) joined to communes-apl.geojson (35,014 communes with population). Pure computation from existing in-repo data, no new download needed.
+- Angle: Statistical story without a map. Key numbers hero (66.4%, 23,265 communes, 11.3M people). Full ranked bar chart of all 97 département groupings (worst: Meuse 92.6%, best: Hauts-de-Seine 0%). Size histogram of bar-less communes. Table of 8 large communes with no bar, led by Villefontaine (19,083 residents).
+- Draft X summary:
+  > France has 49,385 bars — but 66% of its communes have none. The same diagonale du vide that maps medical deserts maps bar deserts. In Meuse, 93% of communes have no café. In Bretagne's Morbihan, only 13%. And somewhere in Isère, 19,000 people are waiting for a last round. 🇫🇷
+
