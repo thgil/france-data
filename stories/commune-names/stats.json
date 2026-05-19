@@ -1,0 +1,879 @@
+{
+  "total_communes": 35014,
+  "unique_names": 31314,
+  "duplicated_name_count": 1450,
+  "total_in_duplicate_names": 3700,
+  "saint_communes": 3898,
+  "saint_pct": 11.1,
+  "shortest_name": "Y",
+  "shortest_length": 1,
+  "shortest_code": "80829",
+  "longest_name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+  "longest_length": 45,
+  "avg_name_length": 11.8,
+  "median_name_length": 10,
+  "top_names": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    },
+    {
+      "name": "Saint-Sulpice",
+      "count": 7
+    },
+    {
+      "name": "Caumont",
+      "count": 7
+    },
+    {
+      "name": "Fleury",
+      "count": 7
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 7
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 7
+    }
+  ],
+  "top_saints": [
+    {
+      "saint": "Saint-Martin",
+      "count": 202
+    },
+    {
+      "saint": "Saint-Jean",
+      "count": 155
+    },
+    {
+      "saint": "Saint-Pierre",
+      "count": 144
+    },
+    {
+      "saint": "Saint-Germain",
+      "count": 108
+    },
+    {
+      "saint": "Saint-Julien",
+      "count": 78
+    },
+    {
+      "saint": "Saint-Laurent",
+      "count": 77
+    },
+    {
+      "saint": "Saint-Hilaire",
+      "count": 68
+    },
+    {
+      "saint": "Saint-Georges",
+      "count": 67
+    },
+    {
+      "saint": "Saint-Étienne",
+      "count": 65
+    },
+    {
+      "saint": "Saint-André",
+      "count": 64
+    },
+    {
+      "saint": "Saint-Aubin",
+      "count": 62
+    },
+    {
+      "saint": "Saint-Paul",
+      "count": 54
+    },
+    {
+      "saint": "Saint-Michel",
+      "count": 53
+    },
+    {
+      "saint": "Saint-Maurice",
+      "count": 51
+    },
+    {
+      "saint": "Saint-Léger",
+      "count": 50
+    }
+  ],
+  "length_distribution": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ],
+  "shortest_communes": [
+    {
+      "name": "Y",
+      "length": 1,
+      "code": "80829",
+      "dept": "80"
+    },
+    {
+      "name": "By",
+      "length": 2,
+      "code": "25104",
+      "dept": "25"
+    },
+    {
+      "name": "Bû",
+      "length": 2,
+      "code": "28064",
+      "dept": "28"
+    },
+    {
+      "name": "Eu",
+      "length": 2,
+      "code": "76255",
+      "dept": "76"
+    },
+    {
+      "name": "Gy",
+      "length": 2,
+      "code": "70282",
+      "dept": "70"
+    },
+    {
+      "name": "Oz",
+      "length": 2,
+      "code": "38289",
+      "dept": "38"
+    },
+    {
+      "name": "Oô",
+      "length": 2,
+      "code": "31404",
+      "dept": "31"
+    },
+    {
+      "name": "Py",
+      "length": 2,
+      "code": "66155",
+      "dept": "66"
+    },
+    {
+      "name": "Ri",
+      "length": 2,
+      "code": "61349",
+      "dept": "61"
+    },
+    {
+      "name": "Ry",
+      "length": 2,
+      "code": "76548",
+      "dept": "76"
+    },
+    {
+      "name": "Sy",
+      "length": 2,
+      "code": "08434",
+      "dept": "08"
+    },
+    {
+      "name": "Ur",
+      "length": 2,
+      "code": "66218",
+      "dept": "66"
+    },
+    {
+      "name": "Us",
+      "length": 2,
+      "code": "95625",
+      "dept": "95"
+    },
+    {
+      "name": "Uz",
+      "length": 2,
+      "code": "65458",
+      "dept": "65"
+    },
+    {
+      "name": "Acq",
+      "length": 3,
+      "code": "62007",
+      "dept": "62"
+    },
+    {
+      "name": "Acy",
+      "length": 3,
+      "code": "02003",
+      "dept": "02"
+    },
+    {
+      "name": "Adé",
+      "length": 3,
+      "code": "65002",
+      "dept": "65"
+    },
+    {
+      "name": "Afa",
+      "length": 3,
+      "code": "2A001",
+      "dept": "2A"
+    },
+    {
+      "name": "Agy",
+      "length": 3,
+      "code": "14003",
+      "dept": "14"
+    },
+    {
+      "name": "Aix",
+      "length": 3,
+      "code": "19002",
+      "dept": "19"
+    },
+    {
+      "name": "Alo",
+      "length": 3,
+      "code": "98611",
+      "dept": "98"
+    },
+    {
+      "name": "Amy",
+      "length": 3,
+      "code": "60011",
+      "dept": "60"
+    },
+    {
+      "name": "Apt",
+      "length": 3,
+      "code": "84003",
+      "dept": "84"
+    },
+    {
+      "name": "Ars",
+      "length": 3,
+      "code": "16018",
+      "dept": "16"
+    },
+    {
+      "name": "Arx",
+      "length": 3,
+      "code": "40015",
+      "dept": "40"
+    },
+    {
+      "name": "Avy",
+      "length": 3,
+      "code": "17027",
+      "dept": "17"
+    },
+    {
+      "name": "Ayn",
+      "length": 3,
+      "code": "73027",
+      "dept": "73"
+    },
+    {
+      "name": "Azy",
+      "length": 3,
+      "code": "18019",
+      "dept": "18"
+    },
+    {
+      "name": "Azé",
+      "length": 3,
+      "code": "41010",
+      "dept": "41"
+    },
+    {
+      "name": "Bar",
+      "length": 3,
+      "code": "19016",
+      "dept": "19"
+    },
+    {
+      "name": "Bax",
+      "length": 3,
+      "code": "31047",
+      "dept": "31"
+    },
+    {
+      "name": "Bay",
+      "length": 3,
+      "code": "70057",
+      "dept": "70"
+    },
+    {
+      "name": "Bey",
+      "length": 3,
+      "code": "01042",
+      "dept": "01"
+    },
+    {
+      "name": "Bio",
+      "length": 3,
+      "code": "46030",
+      "dept": "46"
+    },
+    {
+      "name": "Bou",
+      "length": 3,
+      "code": "45043",
+      "dept": "45"
+    },
+    {
+      "name": "Boz",
+      "length": 3,
+      "code": "01057",
+      "dept": "01"
+    },
+    {
+      "name": "Boé",
+      "length": 3,
+      "code": "47031",
+      "dept": "47"
+    },
+    {
+      "name": "Bry",
+      "length": 3,
+      "code": "59116",
+      "dept": "59"
+    },
+    {
+      "name": "Brû",
+      "length": 3,
+      "code": "88077",
+      "dept": "88"
+    },
+    {
+      "name": "Buc",
+      "length": 3,
+      "code": "78117",
+      "dept": "78"
+    },
+    {
+      "name": "Bun",
+      "length": 3,
+      "code": "65112",
+      "dept": "65"
+    },
+    {
+      "name": "Bus",
+      "length": 3,
+      "code": "62189",
+      "dept": "62"
+    },
+    {
+      "name": "Bué",
+      "length": 3,
+      "code": "18039",
+      "dept": "18"
+    },
+    {
+      "name": "Cos",
+      "length": 3,
+      "code": "09099",
+      "dept": "09"
+    },
+    {
+      "name": "Cox",
+      "length": 3,
+      "code": "31156",
+      "dept": "31"
+    },
+    {
+      "name": "Cry",
+      "length": 3,
+      "code": "89132",
+      "dept": "89"
+    }
+  ],
+  "longest_communes": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "length": 45,
+      "code": "51513",
+      "dept": "51"
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "length": 43,
+      "code": "70058",
+      "dept": "70"
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "length": 41,
+      "code": "14621",
+      "dept": "14"
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "length": 40,
+      "code": "34317",
+      "dept": "34"
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "length": 40,
+      "code": "21433",
+      "dept": "21"
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "length": 40,
+      "code": "70449",
+      "dept": "70"
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "length": 39,
+      "code": "07262",
+      "dept": "07"
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "length": 38,
+      "code": "24048",
+      "dept": "24"
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "length": 38,
+      "code": "11128",
+      "dept": "11"
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "length": 38,
+      "code": "80714",
+      "dept": "80"
+    },
+    {
+      "name": "Javerlhac-et-la-Chapelle-Saint-Robert",
+      "length": 37,
+      "code": "24214",
+      "dept": "24"
+    },
+    {
+      "name": "Villeneuve-Saint-Vistre-et-Villevotte",
+      "length": 37,
+      "code": "51628",
+      "dept": "51"
+    },
+    {
+      "name": "Îles Saint-Paul et Nouvelle-Amsterdam",
+      "length": 37,
+      "code": "98411",
+      "dept": "98"
+    },
+    {
+      "name": "Castillon (Canton d'Arthez-de-Béarn)",
+      "length": 36,
+      "code": "64181",
+      "dept": "64"
+    },
+    {
+      "name": "Fontenille-Saint-Martin-d'Entraigues",
+      "length": 36,
+      "code": "79122",
+      "dept": "79"
+    },
+    {
+      "name": "Angoustrine-Villeneuve-des-Escaldes",
+      "length": 35,
+      "code": "66005",
+      "dept": "66"
+    },
+    {
+      "name": "Durfort-et-Saint-Martin-de-Sossenac",
+      "length": 35,
+      "code": "30106",
+      "dept": "30"
+    },
+    {
+      "name": "La Villeneuve-Bellenoye-et-la-Maize",
+      "length": 35,
+      "code": "70558",
+      "dept": "70"
+    },
+    {
+      "name": "Les Authieux-sur-le-Port-Saint-Ouen",
+      "length": 35,
+      "code": "76039",
+      "dept": "76"
+    },
+    {
+      "name": "Saint-Félix-de-Reillac-et-Mortemart",
+      "length": 35,
+      "code": "24404",
+      "dept": "24"
+    }
+  ],
+  "first_letter_distribution": [
+    {
+      "letter": "A",
+      "count": 1857
+    },
+    {
+      "letter": "B",
+      "count": 3190
+    },
+    {
+      "letter": "C",
+      "count": 3696
+    },
+    {
+      "letter": "D",
+      "count": 743
+    },
+    {
+      "letter": "E",
+      "count": 490
+    },
+    {
+      "letter": "F",
+      "count": 1148
+    },
+    {
+      "letter": "G",
+      "count": 1201
+    },
+    {
+      "letter": "H",
+      "count": 668
+    },
+    {
+      "letter": "I",
+      "count": 189
+    },
+    {
+      "letter": "J",
+      "count": 325
+    },
+    {
+      "letter": "K",
+      "count": 77
+    },
+    {
+      "letter": "L",
+      "count": 4279
+    },
+    {
+      "letter": "M",
+      "count": 3152
+    },
+    {
+      "letter": "N",
+      "count": 719
+    },
+    {
+      "letter": "O",
+      "count": 526
+    },
+    {
+      "letter": "P",
+      "count": 1813
+    },
+    {
+      "letter": "Q",
+      "count": 119
+    },
+    {
+      "letter": "R",
+      "count": 1203
+    },
+    {
+      "letter": "S",
+      "count": 5598
+    },
+    {
+      "letter": "T",
+      "count": 1103
+    },
+    {
+      "letter": "U",
+      "count": 121
+    },
+    {
+      "letter": "V",
+      "count": 2110
+    },
+    {
+      "letter": "W",
+      "count": 196
+    },
+    {
+      "letter": "X",
+      "count": 21
+    },
+    {
+      "letter": "Y",
+      "count": 61
+    },
+    {
+      "letter": "Z",
+      "count": 34
+    },
+    {
+      "letter": "È",
+      "count": 3
+    },
+    {
+      "letter": "É",
+      "count": 355
+    },
+    {
+      "letter": "Î",
+      "count": 12
+    },
+    {
+      "letter": "Ô",
+      "count": 1
+    },
+    {
+      "letter": "Œ",
+      "count": 4
+    }
+  ]
+}
