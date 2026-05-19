@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What France names its villages
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has 35,014 communes. One is named Y. Twelve are named Sainte-Colombe. The longest name has 45 characters and the word "Saint" appears in it twice.
+- Data: 35,014 communes from the DREES APL 2023 dataset joined to Etalab contours 2025. No new download needed — reuses data already in the repo from the medical-deserts story. Produces communes-index.json (2.99 MB) with name, code, dept, pop, centroid for all communes — reusable by future stories.
+- Angle: Text-and-charts story. Three SVG charts (length distribution histogram, most-common-names bar chart, short-name tiles). Four narrative beats: Y and the two-letter tier; the Saint dominance pattern; the 1,450 duplicate-name problem; the 45-character hyphen monster.
+- Draft X summary:
+  > France has 35,014 communes. One is named Y (pop. 89, Somme). Twelve are named Sainte-Colombe. 11% of all communes start with "Saint". The longest name — Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — is 45 characters and contains "Saint" twice. Today on **france-data**: the complete geography of how France labels its villages. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
