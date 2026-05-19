@@ -189,8 +189,11 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: Y (commune in the Somme, dept 80, pop 89) is the only 1-letter commune in France. There are 13 two-letter communes: By, Bû, Eu, Gy, Oz, Oô, Py, Ri, Ry, Sy, Ur, Us, Uz — scattered from Normandy to the Pyrenees. The median commune name length is 10 characters; the mean is 11.8. The longest name is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (Marne, 45 chars). 11.1% of French communes begin with Saint or Sainte.
+- Story: [short-names](/stories/short-names/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
