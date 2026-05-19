@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What France calls its villages
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune called Y. And 3,891 starting with Saint. And twelve different Sainte-Colombes. The 35,014 commune names are a compressed history of the country.
+- Data: Commune names extracted from DREES APL GeoJSON (DS-APL, 35,014 communes). Analysis of name lengths, saint prefixes, duplicates, and -sur- constructions. Output: communes-index.json (3.1 MB, 35K communes with centroids, reusable by future stories).
+- Angle: Text-and-charts story, no map. Five sections: Y (shortest), Saints (11.1%), Duplicates (Sainte-Colombe × 12), Water (-sur-), Length (1–45 chars). Two horizontal bar charts (saints, rivers); one frequency table (duplicates).
+- Draft X summary:
+  > France has 35,014 communes. One is called Y. 3,891 start with Saint. Twelve are called Sainte-Colombe. 2,007 are on something (a river, a mountain, the sea). Today on **france-data**: the geography of French place names, from Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

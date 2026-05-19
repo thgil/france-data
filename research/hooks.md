@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has a commune called Y. Population 89. One letter. No hyphen. In the Somme. It appears in official census documents as a single capital letter. [Q-039]
+- 🔥 One in nine French communes starts with Saint or Sainte — 3,891 of them. Saint-Martin leads with 203. The patron-saint economy defined the landscape for a thousand years. [Q-037]
+- 🔥 Sainte-Colombe exists twelve times. If you say you live there without naming the département, someone can correctly identify your village on the twelfth guess. [Q-037]
+- 🔥 2,007 French communes are *-sur-* something: the sea (99), the Loire (70), the Seine (70). The -sur- construction is the original French GPS coordinate — if you know the river, you can find the town. [Q-037]
