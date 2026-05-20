@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Baguette Capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px auto;
+      max-width: 720px;
+    }
+
+    .chart-mount {
+      background: #faf7f2;
+      border: 1px solid #e0dbd2;
+      padding: 20px 16px 12px;
+    }
+
+    /* ── Stats grid ──────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px auto;
+      max-width: 720px;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #bbb;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    /* ── Pull stat ───────────────────────────────────────────────────── */
+    .pull-stat {
+      max-width: 680px;
+      margin: 48px auto;
+      border-left: 3px solid #c8860a;
+      padding: 4px 0 4px 20px;
+    }
+    .pull-stat .number {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1a1a1a;
+      display: block;
+    }
+    .pull-stat .label {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #666;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Baguette Capital</h1>
+        <p class="story-dek">6,299 bakeries across Île-de-France. Which commune has the most per resident? Not Paris.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Île-de-France has 6,299 active boulangers across 1,300 communes. On average, that's 5.3 bakeries per 10,000 residents — roughly one boulangerie for every 1,900 people. But averages flatten everything interesting. The question is which commune actually leads.</p>
+
+      <p>The obvious candidate is Paris. And Paris does lead the region's eight <em>départements</em> at 8.0 per 10,000 — driven by foot traffic, tourists, and the commercial density of the city. Within Paris, the first arrondissement runs at 20.8 per 10,000: 36 bakeries for 17,000 residents, one for every 481 people.</p>
+
+      <p>That's impressive. Ury is better.</p>
+
+      <!-- ── Beat 2 ────────────────────────────────────────────────────── -->
+      <h2>The village that broke the curve</h2>
+
+      <p>Ury is a commune of 797 people on the edge of the Fontainebleau forest in Seine-et-Marne, about 60 kilometres south of Paris. It has three bakeries — a density of 37.6 per 10,000. One boulangerie for every 266 residents. Nearly five times the IDF average, and nearly twice Paris's best arrondissement.</p>
+
+      <!-- ── Chart 1: top communes ──────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-top"></div>
+        <figcaption>Top 15 Île-de-France communes by bakeries per 10,000 residents (communes with at least 500 residents). Source: <a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE via Région Île-de-France</a>.</figcaption>
+      </figure>
+
+      <p>Seine-et-Marne (77) dominates: 10 of the top 15 communes are in this sprawling rural <em>département</em> that covers 40% of IDF's area but holds only 11% of its population. Many are small tourist communes near châteaux and forests, where weekender demand is enough to sustain a bakery that serves a population of a few hundred. Barbizon — the 19th-century artists' colony that gave its name to the Barbizon School — makes the list at 22.3 per 10,000.</p>
+
+      <!-- ── Beat 3: the airport commune ───────────────────────────────── -->
+      <h2>The airport commune</h2>
+
+      <p>Second place is a surprise: Le Mesnil-Amelot, a community of 861 people sitting immediately adjacent to Charles de Gaulle airport in Seine-et-Marne. Three bakeries, 34.8 per 10,000. Airport workers, logistics staff, and very early flight passengers presumably have strong opinions about morning bread.</p>
+
+      <!-- ── Beat 4: Paris's position ──────────────────────────────────── -->
+      <h2>Paris's position</h2>
+
+      <p>Paris's first arrondissement — at 20.8 per 10,000 — ranks 11th in IDF, behind ten rural communes in Seine-et-Marne and Val-d'Oise. The larger arrondissements run more modestly: the 12e at 8.5, the 11e at 8.3, the 18e (France's absolute highest by sheer count, at 155 bakeries) at 7.7. Every Paris arrondissement sits above the IDF median, but none comes close to the top of the per-capita table.</p>
+
+      <!-- ── Dept stats table ───────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bakeries per 10k (by département)</h3>
+          <table class="stats-table" id="table-dept-per10k">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Most bakeries in total (by département)</h3>
+          <table class="stats-table" id="table-dept-total">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5: The desert half ───────────────────────────────────── -->
+      <h2>The desert half</h2>
+
+      <p>607 IDF communes — 47% — have no bakery at all. The median population of a zero-bakery commune is 516 people: small enough that driving to the next village is reasonable, but large enough to feel the gap. Seine-et-Marne accounts for 301 of these bakery-free communes, the flipside of its dominance at the top of the per-capita table.</p>
+
+      <div class="pull-stat">
+        <span class="number">607</span>
+        <span class="label">IDF communes with zero bakeries — 47% of the total</span>
+      </div>
+
+      <!-- ── Chart 2: distribution ──────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-dist"></div>
+        <figcaption>Number of Île-de-France communes by bakery count. Nearly half have none at all; the long tail ends with 21 communes (Paris arrondissements and large suburban cities) that have 50 or more.</figcaption>
+      </figure>
+
+      <p>The distribution is a classic long tail: a big zero spike, then a gradual decline through the single-digit bakery counts, then the Paris arrondissements and inner suburbs pulling the high end up. 222 communes have exactly one bakery — a single point of failure for their bread supply.</p>
+
+      <!-- ── Beat 6: close ──────────────────────────────────────────────── -->
+      <p>The baguette capital of Île-de-France is a village you've probably never visited. It's in Seine-et-Marne, at the edge of a forest, with 797 residents and three boulangers who clearly take their work seriously. Paris has the most bakeries. Ury has the most per person. The math is not ambiguous.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts come from the INSEE Base Permanente des Équipements (BPE) — the same IDF dataset used in <a href="../pharmacy-myth/">the pharmacy story</a> and <a href="../baguettes/">the baguettes dot-map</a>. Population figures are 2010 census data. The dataset covers 1,300 communes and Paris arrondissements in Île-de-France only; a national per-capita ranking would require the full SIRENE extract. The minimum-population filter of 500 residents is applied to the per-capita chart to avoid ranking communes where one bakery represents a denominator of 100 people.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Commerces par commune (Île-de-France)</a>, via Région Île-de-France. Vintage: circa 2014 BPE release.</li>
+          <li>Population: 2010 census figures bundled with the same BPE dataset.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopChart, drawDistributionChart } from './charts.js';
+
+    async function main() {
+      let stats;
+      try {
+        const res = await fetch('./stats.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        stats = await res.json();
+      } catch (err) {
+        console.error('Failed to load stats:', err);
+        return;
+      }
+
+      drawTopChart('#chart-top', stats.topByPerCapita);
+      drawDistributionChart('#chart-dist', stats.distribution);
+
+      // Département tables
+      const byPer10k = [...stats.deptSummary].sort((a, b) => b.per10k - a.per10k);
+      const byTotal  = [...stats.deptSummary].sort((a, b) => b.bakeries - a.bakeries);
+
+      function fillTable(id, rows, valFn) {
+        const tbody = document.querySelector(`#${id} tbody`);
+        if (!tbody) return;
+        tbody.innerHTML = rows.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${valFn(d)}</td>
+          </tr>`
+        ).join('');
+      }
+
+      fillTable('table-dept-per10k', byPer10k, d => `${d.per10k.toFixed(1)}/10k`);
+      fillTable('table-dept-total',  byTotal,  d => d.bakeries.toLocaleString('fr-FR'));
+    }
+
+    main();
+  </script>
+</body>
+</html>

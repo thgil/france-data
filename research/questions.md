@@ -173,8 +173,11 @@ datasets and the resulting story.
 - Story: [bars](/stories/bars/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-002](datasets.md#ds-002)
+- Finding: Within IDF (national data not available at commune level), Ury (Seine-et-Marne) leads with 37.6 bakeries per 10,000 residents — 3 bakeries for 797 people, one for every 266. Seine-et-Marne dominates the top 15: 10 of 15 top-ranked communes (pop ≥ 500) are in dept 77, mostly small rural/tourist communes near Fontainebleau. Paris as a whole runs at 8.0/10k; its best arrondissement (1er, 20.8/10k) ranks 11th in IDF. 607 communes (47%) have zero bakeries.
+- Story: [baguette-capital](/stories/baguette-capital/)
 
 ### Q-035: How many communes have a public library, and how many don't?
 - Status: 🟢 open

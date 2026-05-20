@@ -1,0 +1,291 @@
+{
+  "total": 6299,
+  "communes": 1300,
+  "withBakeries": 693,
+  "zeroBakeries": 607,
+  "idfAvgPer10k": 5.3,
+  "medianZeroPop": 516,
+  "topByPerCapita": [
+    {
+      "name": "Ury",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 797,
+      "per10k": 37.6
+    },
+    {
+      "name": "Le Mesnil-Amelot",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 861,
+      "per10k": 34.8
+    },
+    {
+      "name": "Grisy-les-Plâtres",
+      "dept": "95",
+      "bakeries": 2,
+      "population": 607,
+      "per10k": 33.0
+    },
+    {
+      "name": "Vendrest",
+      "dept": "77",
+      "bakeries": 2,
+      "population": 730,
+      "per10k": 27.4
+    },
+    {
+      "name": "Cormeilles-en-Vexin",
+      "dept": "95",
+      "bakeries": 3,
+      "population": 1112,
+      "per10k": 27.0
+    },
+    {
+      "name": "Gouvernes",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1113,
+      "per10k": 26.9
+    },
+    {
+      "name": "Guermantes",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1243,
+      "per10k": 24.1
+    },
+    {
+      "name": "Moisselles",
+      "dept": "95",
+      "bakeries": 3,
+      "population": 1255,
+      "per10k": 23.9
+    },
+    {
+      "name": "Rebais",
+      "dept": "77",
+      "bakeries": 5,
+      "population": 2151,
+      "per10k": 23.2
+    },
+    {
+      "name": "Barbizon",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1346,
+      "per10k": 22.3
+    },
+    {
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "bakeries": 36,
+      "population": 17308,
+      "per10k": 20.8
+    },
+    {
+      "name": "Meilleray",
+      "dept": "77",
+      "bakeries": 1,
+      "population": 501,
+      "per10k": 20.0
+    },
+    {
+      "name": "Bransles",
+      "dept": "77",
+      "bakeries": 1,
+      "population": 505,
+      "per10k": 19.8
+    },
+    {
+      "name": "Dammartin-en-Serve",
+      "dept": "78",
+      "bakeries": 2,
+      "population": 1028,
+      "per10k": 19.5
+    },
+    {
+      "name": "Marolles-sur-Seine",
+      "dept": "77",
+      "bakeries": 3,
+      "population": 1600,
+      "per10k": 18.8
+    }
+  ],
+  "topByCount": [
+    {
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "bakeries": 155,
+      "population": 202685,
+      "per10k": 7.7
+    },
+    {
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "bakeries": 147,
+      "population": 236715,
+      "per10k": 6.2
+    },
+    {
+      "name": "Paris 17e Arrondissement",
+      "dept": "75",
+      "bakeries": 133,
+      "population": 169325,
+      "per10k": 7.8
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "bakeries": 128,
+      "population": 153202,
+      "per10k": 8.3
+    },
+    {
+      "name": "Paris 20e Arrondissement",
+      "dept": "75",
+      "bakeries": 124,
+      "population": 196880,
+      "per10k": 6.3
+    },
+    {
+      "name": "Paris 12e Arrondissement",
+      "dept": "75",
+      "bakeries": 123,
+      "population": 144262,
+      "per10k": 8.5
+    },
+    {
+      "name": "Paris 19e Arrondissement",
+      "dept": "75",
+      "bakeries": 118,
+      "population": 186652,
+      "per10k": 6.3
+    },
+    {
+      "name": "Paris 14e Arrondissement",
+      "dept": "75",
+      "bakeries": 108,
+      "population": 138299,
+      "per10k": 7.8
+    },
+    {
+      "name": "Paris 16e Arrondissement",
+      "dept": "75",
+      "bakeries": 105,
+      "population": 171124,
+      "per10k": 6.1
+    },
+    {
+      "name": "Paris 13e Arrondissement",
+      "dept": "75",
+      "bakeries": 104,
+      "population": 181532,
+      "per10k": 5.7
+    }
+  ],
+  "distribution": [
+    {
+      "label": "0",
+      "count": 607
+    },
+    {
+      "label": "1",
+      "count": 222
+    },
+    {
+      "label": "2–5",
+      "count": 231
+    },
+    {
+      "label": "6–10",
+      "count": 90
+    },
+    {
+      "label": "11–20",
+      "count": 78
+    },
+    {
+      "label": "21–50",
+      "count": 51
+    },
+    {
+      "label": "50+",
+      "count": 21
+    }
+  ],
+  "deptSummary": [
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bakeries": 1800,
+      "population": 2243833,
+      "per10k": 8.0,
+      "communes": 20,
+      "withBakeries": 20
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bakeries": 786,
+      "population": 1522048,
+      "per10k": 5.2,
+      "communes": 40,
+      "withBakeries": 40
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bakeries": 665,
+      "population": 1324865,
+      "per10k": 5.0,
+      "communes": 514,
+      "withBakeries": 213
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bakeries": 650,
+      "population": 1327732,
+      "per10k": 4.9,
+      "communes": 47,
+      "withBakeries": 46
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bakeries": 721,
+      "population": 1572490,
+      "per10k": 4.6,
+      "communes": 36,
+      "withBakeries": 35
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bakeries": 637,
+      "population": 1408765,
+      "per10k": 4.5,
+      "communes": 262,
+      "withBakeries": 126
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bakeries": 513,
+      "population": 1171161,
+      "per10k": 4.4,
+      "communes": 185,
+      "withBakeries": 99
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bakeries": 527,
+      "population": 1215340,
+      "per10k": 4.3,
+      "communes": 196,
+      "withBakeries": 114
+    }
+  ]
+}
