@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The baguette capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+      max-width: 640px;
+    }
+    .chart-figure .chart-mount {
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      padding: 20px 16px 16px;
+      border-radius: 2px;
+    }
+
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    @media (max-width: 580px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+      font-size: 12px;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+      font-size: 13px;
+    }
+    .stats-table .sub {
+      font-size: 10px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Number callouts ─────────────────────────────────────────────── */
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    @media (max-width: 520px) {
+      .callouts { grid-template-columns: 1fr 1fr; }
+    }
+    .callout {
+      border-top: 2px solid #8B6314;
+      padding-top: 12px;
+    }
+    .callout .num {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+      display: block;
+    }
+    .callout .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 6px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The baguette capital</h1>
+        <p class="story-dek">6,299 bakeries across Île-de-France. One arrondissement has a boulangerie for every 481 residents — and 607 communes have none at all.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Île-de-France has 6,299 registered bakeries spread across 1,300 communes and 12 million people. Counting them gets you to the <a href="../baguettes/">dot-density map</a>. But the more interesting question is density: where is the bread thickest, and where does it run out?</p>
+
+      <p>The standard measure is per 10,000 residents — and on that scale, Paris's historic centre dominates. The spread across its twenty arrondissements is wider than you might expect.</p>
+
+      <!-- ── Callouts ──────────────────────────────────────────────────── -->
+      <div class="callouts" id="callouts"></div>
+
+      <!-- ── Beat 2: Chart ─────────────────────────────────────────────── -->
+      <h2>The per-capita ranking</h2>
+
+      <p>Paris 1er tops the list at 20.8 bakeries per 10,000 residents — one <em>boulangerie</em> for every 481 people. It has just 17,000 residents, but 36 bakeries: nearly one per street. The 4th (16.1) and 8th (14.8) follow. At the other end, the 13th sits at 5.7 per 10,000 — barely a quarter of the 1st's rate, one bakery for every 1,745 residents.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-paris"></div>
+        <figcaption>Each row is one Paris arrondissement, ranked by bakeries per 10,000 residents. Data: <a href="https://data.iledefrance.fr/explore/dataset/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements/">INSEE Base Permanente des Équipements</a>, Île-de-France, circa 2014 vintage.</figcaption>
+      </figure>
+
+      <p>The pattern has a geographic logic. The inner arrondissements — the 1st through the 9th, clustered around the Seine's bends — were built for street-level commerce. The 1st's narrow medieval lanes and the 6th's covered arcades were designed before the automobile. High foot traffic, small units, affordable rent for neighbourhood shops: the conditions that sustain a boulangerie have barely changed in 200 years. The outer arrondissements, built later and wider, run at roughly half the density.</p>
+
+      <p>Among the suburbs, a few outliers punch above their weight. Enghien-les-Bains (95, spa town: 11.9), Le Raincy (93: 11.6), and Fontainebleau (77, tourist town near the forest: 11.2) all clear Paris's lowest arrondissements. But they're exceptions. Most of the inner suburbs — Boulogne, Levallois, Vincennes — settle in the 5–8 range. The outer ring is thinner still.</p>
+
+      <!-- ── Beat 3 ─────────────────────────────────────────────────────── -->
+      <h2>The bread deserts</h2>
+
+      <p>More surprising than who's bread-richest is who has nothing at all. 607 of IDF's 1,300 communes — 46.7% — have zero recorded bakeries. Taken together, those communes are home to 400,924 people.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-desert"></div>
+        <figcaption>Share of communes with no bakery registered, by département. Paris: 0 of 20 arrondissements. Source: same as above.</figcaption>
+      </figure>
+
+      <p>Seine-et-Marne is the worst case. 301 of its 514 communes (59%) have no bakery at all. The département is IDF's largest geographically — stretching south and east into genuine agricultural countryside, into villages of 300 people where the last baker retired and no one took over. Val-d'Oise and Essonne follow, each with roughly half their communes without any bakery.</p>
+
+      <p>The contrast with the inner ring is stark. Hauts-de-Seine has 36 communes and just one (Sèvres) with no bakery. Val-de-Marne: 47 communes, one bread desert. The density of the inner suburbs is sufficient to sustain the trade. In Seine-et-Marne, it often isn't.</p>
+
+      <!-- ── Beat 4: Top suburbs table ─────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Top suburbs (pop ≥ 5,000)</h3>
+          <table class="stats-table" id="table-suburbs">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Bread deserts — outer ring</h3>
+          <table class="stats-table" id="table-deserts">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5 ─────────────────────────────────────────────────────── -->
+      <h2>The same map, again</h2>
+
+      <p>The gradient is clean: the closer to central Paris, the better served. Paris itself: 0% of arrondissements without a bakery. Hauts-de-Seine and Val-de-Marne: 2–3%. Essonne and Val-d'Oise: 42–46%. Seine-et-Marne: 59%.</p>
+
+      <p>If you've read the <a href="../medical-deserts/">medical deserts story</a>, this pattern is familiar. The same periphery pays the price — not from policy or poverty, but from the arithmetic of foot traffic. A village of 400 people cannot sustain a boulangerie any more than it can retain a general practitioner. The economics are identical: a small business needs enough passing customers to stay open. Below that threshold, the business closes, the baker retires, and the commune joins the list of 607.</p>
+
+      <p>The bread map and the doctor map are, it turns out, the same map. So is the bar map. The diagonale du vide is also a diagonale du pain.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts by commune come from the INSEE Base Permanente des Équipements, Île-de-France edition (republished by Région IDF). Population figures are from the 2010 census in the same dataset. Both are circa 2014 vintage — more than a decade old. The number of bakeries has likely shifted (especially in Seine-et-Marne, where rural decline has continued), but the structural pattern — dense inner city, sparse outer ring — is durable. A full-France, current-vintage version of this analysis would require the national SIRENE parquet file, which is 2.6 GB and out of scope here. This story reuses the data from <a href="../pharmacy-myth/">Story 1 (pharmacy myth)</a> and <a href="../baguettes/">Story 3 (baguettes)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://data.iledefrance.fr/explore/dataset/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements/">INSEE Base Permanente des Équipements — Commerces par commune (Île-de-France)</a></li>
+          <li>Population: 2010 census, same dataset</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawParisChart, drawDesertChart } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./data.json');
+      const data = await res.json();
+      const { summary, parisRanking, deptBreakdown, topSuburbs } = data;
+
+      // Callouts
+      const callouts = document.getElementById('callouts');
+      if (callouts) {
+        callouts.innerHTML = `
+          <div class="callout">
+            <span class="num">${summary.totalBakeries.toLocaleString('fr-FR')}</span>
+            <span class="label">bakeries in Île-de-France</span>
+          </div>
+          <div class="callout">
+            <span class="num">${summary.desertCommunes.toLocaleString('fr-FR')}</span>
+            <span class="label">communes with zero bakeries (${summary.pctDesertCommunes}%)</span>
+          </div>
+          <div class="callout">
+            <span class="num">${Math.round(summary.desertPop / 1000).toLocaleString('fr-FR')}k</span>
+            <span class="label">people in bread deserts</span>
+          </div>
+        `;
+      }
+
+      // Charts
+      drawParisChart('#chart-paris', parisRanking);
+      drawDesertChart('#chart-desert', deptBreakdown);
+
+      // Top suburbs table
+      const suburbsTbody = document.querySelector('#table-suburbs tbody');
+      if (suburbsTbody && topSuburbs) {
+        suburbsTbody.innerHTML = topSuburbs.slice(0, 8).map((s, i) => `
+          <tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${s.name}<span class="sub">${s.deptName} · ${s.bakeries} bakeries</span></td>
+            <td>${s.per10k.toFixed(1)}/10k</td>
+          </tr>`).join('');
+      }
+
+      // Bread deserts outer-ring table (departments sorted by pctDesert, excluding Paris)
+      const desertTbody = document.querySelector('#table-deserts tbody');
+      if (desertTbody && deptBreakdown) {
+        const outerRing = deptBreakdown
+          .filter(d => d.dept !== '75')
+          .sort((a, b) => b.pctDesert - a.pctDesert);
+        desertTbody.innerHTML = outerRing.map(d => `
+          <tr>
+            <td class="place">${d.name}</td>
+            <td>${d.zeroBakeries} of ${d.communes}<span class="sub">${d.pctDesert}% without a bakery</span></td>
+          </tr>`).join('');
+      }
+    }
+
+    main().catch(err => console.error('baguette-capital: failed to load data', err));
+  </script>
+</body>
+</html>

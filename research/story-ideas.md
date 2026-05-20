@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### baguette-capital: The baguette capital
+- Status: ✅ published
+- Published URL: /stories/baguette-capital/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: Paris 1er has a boulangerie for every 481 residents. Meanwhile 607 IDF communes — 46.7% — have none at all.
+- Data: IDF BPE commune-level bakery counts and population ([DS-002](datasets.md#ds-002)) reused from the pharmacy-myth story. Zero new downloads required.
+- Angle: Two SVG bar charts. First ranks all 20 Paris arrondissements by bakeries per 10k — Paris 1er wins at 20.8, Paris 13e sits at 5.7 (a 3.6× gap). Second shows bread-desert rates by département, revealing the same periphery gradient as medical deserts. Close ties the two stories together.
+- Draft X summary:
+  > Paris 1er has 36 bakeries for 17,000 residents. One boulangerie for every 481 people. 607 IDF communes — nearly half — have none at all. Today on **france-data**: the per-capita ranking, the bread deserts of Seine-et-Marne, and why the bread map and the doctor map are the same map. 🥖🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
