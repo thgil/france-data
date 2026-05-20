@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The baguette capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+
+    /* ── Stats panel ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* ── Big number callout ──────────────────────────────────────────── */
+    .callout-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .callout {
+      flex: 1;
+      min-width: 140px;
+      padding: 20px 24px;
+      background: #f5f0e8;
+      border-left: 3px solid #c67c00;
+    }
+    .callout .number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+    .callout .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    /* ── Legend ──────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    .swatch-paris { background: #1a3a6b; }
+    .swatch-outer { background: #c67c00; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The baguette capital</h1>
+        <p class="story-dek">7,378 bakeries, 1,286 communes, and one clear winner — Paris 1<sup>er</sup> at 21 <em>boulangeries</em> per 10,000 residents.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Île-de-France has 7,378 bakeries spread across 1,286 communes. The regional average is 6.0 per 10,000 residents — one boulangerie for every 1,667 people. But averages tell you almost nothing here. The true distribution spans a factor of more than three, from commercial-dense Paris arrondissements to the 582 communes (45 per cent of IDF) that have no bakery at all.</p>
+
+      <!-- ── Callout row ───────────────────────────────────────────────── -->
+      <div class="callout-row">
+        <div class="callout">
+          <div class="number">7,378</div>
+          <div class="label">bakeries in Île-de-France</div>
+        </div>
+        <div class="callout">
+          <div class="number">6.0</div>
+          <div class="label">per 10,000 — IDF average</div>
+        </div>
+        <div class="callout">
+          <div class="number">45%</div>
+          <div class="label">of IDF communes have zero bakeries</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Ranking chart ─────────────────────────────────────── -->
+      <h2>The ranking</h2>
+
+      <p>The chart below shows the 20 most bread-dense communes in Île-de-France, among places with at least 2,000 residents — a threshold that filters out tiny villages where a single bakery serving the surrounding countryside skews the per-capita rate artificially high.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-legend">
+          <span><span class="legend-swatch swatch-paris"></span>Paris arrondissement</span>
+          <span><span class="legend-swatch swatch-outer"></span>Outer IDF commune</span>
+        </div>
+        <div class="chart-mount" id="chart-ranking"></div>
+        <figcaption>Top 20 IDF communes by bakeries per 10,000 residents (minimum population: 2,000). Hover for details. Source: INSEE SIRENE March 2026 + DREES APL 2023 population data.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>Why Paris 1<sup>er</sup> wins</h2>
+
+      <p>Paris 1<sup>er</sup> Arrondissement holds 34 bakeries for 15,919 residents — 21.4 per 10,000. That's 3.5 times the IDF average. But this isn't just about resident population: the 1<sup>er</sup> hosts the Louvre, Les Halles, and the city's highest daytime foot traffic. Bakeries here serve commuters, tourists, and office workers as much as they serve neighbours.</p>
+
+      <p>Eight of the top 20 are Paris arrondissements. The exceptions are interesting: Hardricourt (78) and Houdan (78) are small market towns where a handful of boulangeries serve an agricultural hinterland larger than their INSEE population count suggests. Arnouville (95) — 14.4 per 10,000 — is a dense suburban commune with an unusually high bakery-to-resident ratio for its size class.</p>
+
+      <!-- ── Beat 4: Scatter ───────────────────────────────────────────── -->
+      <h2>Density vs size</h2>
+
+      <p>Below: every IDF commune that has at least one bakery and at least 500 residents, plotted by population (log scale, horizontal) against bakeries per 10,000 (vertical). The dashed line is the IDF average.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-legend">
+          <span><span class="legend-swatch swatch-paris"></span>Paris arrondissements</span>
+          <span><span class="legend-swatch swatch-outer"></span>Other IDF communes</span>
+        </div>
+        <div class="chart-mount" id="chart-scatter"></div>
+        <figcaption>Each dot is one IDF commune with ≥ 1 bakery and population ≥ 500. Paris arrondissements cluster top-right — large population, high density. Small outer communes scatter high on the left due to small denominators. Hover for details.</figcaption>
+      </figure>
+
+      <p>Paris arrondissements cluster in the top-right: large populations and high densities simultaneously. No other communes manage that combination. Small golden dots in the upper left are rural communes where one or two boulangeries produce high per-capita figures by serving a population of 600 — not evidence of unusual bakery culture, just arithmetic.</p>
+
+      <!-- ── Beat 5: Dept summary ──────────────────────────────────────── -->
+      <h2>By département</h2>
+
+      <p>Paris (75) is the only IDF département to break 9 bakeries per 10,000. The inner suburbs — Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93) — cluster around 5–6. The outer ring falls below the IDF average.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Density by département</h3>
+          <table class="stats-table" id="table-depts">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Top communes overall</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6 ────────────────────────────────────────────────────── -->
+      <h2>The bakery desert</h2>
+
+      <p>582 of 1,286 IDF communes — 45 per cent — have no recorded bakery. Most are small exurban or rural communes in Seine-et-Marne (77) and the outer Yvelines (78), where residents drive to a neighbouring town for their baguette. This pattern mirrors the medical desert geography: the same commercial and demographic pressures that keep GP access uneven also keep bread access uneven. The baguette-free zone and the doctor-free zone overlap on the same map.</p>
+
+      <p>The implication is straightforward: a bakery, like a pharmacy and a doctor, is a commercial service that responds to foot traffic and purchasing power. It clusters in dense urban cores and retreats from low-density peripheries. Paris 1<sup>er</sup> wins the per-capita baguette competition not because Parisians love bread more than people in Seine-et-Marne, but because density compounds density.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery locations come from the same INSEE SIRENE pipeline used in <a href="../baguettes/">Story 3 (baguettes)</a>: 7,378 geocoded active boulangeries (NAF 1071C) in Île-de-France as of March 2026. Population figures are from DREES APL 2023 commune-level data (INSEE 2021 population base). The per-capita calculation uses only communes with a recorded positive population; communes in the APL file with null or zero population are excluded from density rankings. The 2,000-resident threshold for the main ranking chart filters communes where small-denominator effects dominate.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 1071C, active boulangeries, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population (INSEE 2021 base)</li>
+        </ul>
+
+        <p>Related stories: <a href="../baguettes/">6,299 baguettes — IDF bakery dot map</a> · <a href="../pharmacy-myth/">The pharmacy myth</a> · <a href="../medical-deserts/">Where the doctors aren't</a></p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawRankingChart, drawScatterChart } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./stats.json');
+        if (!res.ok) throw new Error(`stats.json: HTTP ${res.status}`);
+        const stats = await res.json();
+
+        drawRankingChart('#chart-ranking', stats);
+        drawScatterChart('#chart-scatter', stats);
+
+        // Dept table
+        const deptTbody = document.querySelector('#table-depts tbody');
+        if (deptTbody && stats.deptSummary) {
+          deptTbody.innerHTML = stats.deptSummary.map((d, i) =>
+            `<tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${d.name}</td>
+              <td>${d.per_10k.toFixed(1)}<span class="sub">/10k</span></td>
+            </tr>`
+          ).join('');
+        }
+
+        // Top communes table
+        const topTbody = document.querySelector('#table-top tbody');
+        if (topTbody && stats.topCommunesByDensity) {
+          topTbody.innerHTML = stats.topCommunesByDensity.slice(0, 8).map((d, i) =>
+            `<tr>
+              <td class="rank">${i + 1}</td>
+              <td class="place">${d.name} <span class="sub">(${d.dept})</span></td>
+              <td>${d.per_10k.toFixed(1)}<span class="sub">/10k</span></td>
+            </tr>`
+          ).join('');
+        }
+
+      } catch (err) {
+        console.error('Failed to load baguette-capital data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
