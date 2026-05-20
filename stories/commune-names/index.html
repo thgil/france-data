@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── Stat cards ─────────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 720px) {
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .stat-row { grid-template-columns: 1fr; }
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 20px 18px;
+    }
+    .stat-card .stat-num {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-card .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      text-align: center;
+    }
+    .chart-wrap {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 24px 20px 12px;
+      position: relative;
+    }
+
+    /* ── Name showcase ──────────────────────────────────────────────── */
+    .name-shelf {
+      margin: 48px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .name-chip {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+      padding: 6px 12px;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      color: var(--ink);
+      position: relative;
+    }
+    .name-chip.chip-single {
+      font-size: 22px;
+      font-weight: 700;
+      border-color: var(--accent);
+      color: var(--accent);
+      padding: 8px 16px;
+    }
+    .name-chip .chip-dept {
+      display: block;
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--ink-mute);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ── Longest name display ───────────────────────────────────────── */
+    .long-name-block {
+      margin: 40px 0;
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .long-name-block .the-name {
+      font-family: Georgia, serif;
+      font-size: clamp(15px, 2.8vw, 22px);
+      font-weight: 700;
+      color: var(--ink);
+      word-break: break-word;
+      hyphens: none;
+    }
+    .long-name-block .the-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+    .char-count {
+      display: inline-block;
+      background: var(--paper);
+      border: 1px solid #e0d8cc;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--ink-mute);
+      padding: 2px 6px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Duplicate name list ────────────────────────────────────────── */
+    .dup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+      margin: 32px 0;
+    }
+    @media (max-width: 580px) {
+      .dup-grid { grid-template-columns: 1fr; }
+    }
+    .dup-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid #ede8e0;
+      padding: 6px 0;
+    }
+    .dup-name {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      flex: 1;
+    }
+    .dup-count {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+    .dup-depts {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: #aaa;
+      white-space: nowrap;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">35,014 communes, 32,764 unique names — and one commune whose full official name is the letter Y.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes. They have been named — and renamed, merged, hyphenated, doubled, and occasionally named after a saint who exists in no other context — across twelve centuries of administration. The result is a list that includes the elegantly abbreviated, the improbably long, and the thoroughly duplicated.</p>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <span class="stat-num">35,014</span>
+          <span class="stat-label">Total communes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">32,764</span>
+          <span class="stat-label">Unique names</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">1,450</span>
+          <span class="stat-label">Names shared by 2+ communes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">4,195</span>
+          <span class="stat-label">Saint or Sainte names</span>
+        </div>
+      </div>
+
+      <p>That leaves 2,250 communes sharing a name with at least one other — 3,700 if you count the communes on the receiving end. Say you live in Saint-Martin. Eight other communes raise their hand. Say you live in Beaulieu. Nine more do. The postal system handles this via the département code; for everyone else, it's a small daily exercise in disambiguation.</p>
+
+      <!-- ── Beat 2: Chart ──────────────────────────────────────────────── -->
+      <h2>The most popular name in France</h2>
+
+      <p>Sainte-Colombe appears 12 times — twelve separate communes in twelve separate départements, each apparently home to a church dedicated to Saint Columba (or a memory of one). They run from the Hautes-Alpes to the Yonne, from Gironde to Seine-et-Marne. No two share a département. The pattern is less a coincidence than an artefact of medieval parish geography, where the patron saint of a local church frequently became the name of the surrounding settlement.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height: 460px;">
+          <canvas id="chart-names"></canvas>
+        </div>
+        <figcaption>Top 20 most common commune names in France. Source: INSEE commune data, 35,014 communes.</figcaption>
+      </figure>
+
+      <p>Saints dominate the top of the list — 16 of the top 20 most common names are Saint- or Sainte- forms. The exceptions: Beaulieu (10×), Le Pin (9×), Beaumont (8×), and Verrières (8×). Together the saint communes number 4,195, or just over 12% of all communes. France has more communes named Saint-Paul than it has communes in some entire départements.</p>
+
+      <!-- ── Beat 3: Shortest names ─────────────────────────────────────── -->
+      <h2>Y</h2>
+
+      <p>The shortest commune name in France is a single letter. <em>Y</em> — pronounced like the French letter ypsilon, rhyming roughly with <em>ee-grek</em> — sits in the Somme (département 80), population 89. It has a church, a mayor, an official INSEE code (80829), and an entry in every administrative database in the Republic. It is also, apparently, very difficult to search for online.</p>
+
+      <div class="name-shelf">
+        <div class="name-chip chip-single">
+          Y<span class="chip-dept">Somme · 89 residents</span>
+        </div>
+        <div class="name-chip">By<span class="chip-dept">Doubs · 86 residents</span></div>
+        <div class="name-chip">Bû<span class="chip-dept">Eure-et-Loir · 2,022</span></div>
+        <div class="name-chip">Eu<span class="chip-dept">Seine-Maritime · 6,591</span></div>
+        <div class="name-chip">Gy<span class="chip-dept">Haute-Saône · 1,001</span></div>
+        <div class="name-chip">Oz<span class="chip-dept">Isère · 213</span></div>
+        <div class="name-chip">Oô<span class="chip-dept">Haute-Garonne · 103</span></div>
+        <div class="name-chip">Py<span class="chip-dept">Pyrénées-Orientales · 79</span></div>
+        <div class="name-chip">Ri<span class="chip-dept">Orne · 156</span></div>
+        <div class="name-chip">Ry<span class="chip-dept">Seine-Maritime · 775</span></div>
+        <div class="name-chip">Sy<span class="chip-dept">Ardennes · 54</span></div>
+        <div class="name-chip">Ur<span class="chip-dept">Pyrénées-Orientales · 348</span></div>
+        <div class="name-chip">Us<span class="chip-dept">Val-d'Oise · 1,338</span></div>
+        <div class="name-chip">Uz<span class="chip-dept">Hautes-Pyrénées · 36</span></div>
+      </div>
+
+      <p>Y has company. There are 13 two-letter communes in France. They cluster slightly in the Pyrenees (Oô, Py, Ur, Uz) and the Norman and Burgundian north (By, Eu, Ry, Ri). Several are Basque or Occitan remnants where French orthography was simply applied to a pre-existing short root. Oô keeps its circumflex; Bû keeps its. The République has a policy on diacritics.</p>
+
+      <!-- ── Beat 4: Longest name ───────────────────────────────────────── -->
+      <h2>The other extreme</h2>
+
+      <p>At the opposite end of the scale: <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, in the Marne (département 51). Forty-five characters. It is a <em>commune nouvelle</em> — a merged administrative unit formed when three or four villages were consolidated, each keeping its historical name in the compound. The result is essentially a postal address that already contains several addresses.</p>
+
+      <div class="long-name-block">
+        <div class="the-name">
+          Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson
+          <span class="char-count">45 chars</span>
+        </div>
+        <div class="the-meta">Marne (51) · population: 517</div>
+      </div>
+
+      <p>The runner-up, <em>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</em> (43 characters, Haute-Saône), follows the same logic: four former communes, one hyphenated administrative entity. Long names correlate strongly with departmental mergers — particularly those from the 2010s and 2020s when the <em>loi NOTRe</em> encouraged but did not require consolidation. The holdouts kept their names by attaching them to each other.</p>
+
+      <!-- ── Beat 5: The 1,450 shared names ─────────────────────────────── -->
+      <h2>1,450 names shared between communes</h2>
+
+      <p>The duplication problem runs deep. Of the 32,764 distinct names, 1,450 are shared by at least two communes. Here are the most duplicated:</p>
+
+      <div class="dup-grid" id="dup-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <p>The geography of duplication follows a rough pattern: saint names spread liturgically, following the expansion of Frankish Christianity across different valleys and pays. Landscape names — Beaulieu (beautiful place), Beaumont (beautiful hill), Le Pin (the pine) — spread descriptively, applied independently wherever the landscape fit. Two separate medieval surveyors, standing on two separate hilltops, looked out at a view and wrote "Beaumont." Neither knew about the other.</p>
+
+      <!-- ── Closing ─────────────────────────────────────────────────────── -->
+      <p>The full list, all 35,014 entries with names, département codes, populations, and centroids, is in the <a href="./communes-index.json"><code>communes-index.json</code></a> file attached to this story. It will serve as a reference dataset for future stories on this site.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and codes come from the DREES APL 2023 dataset, which draws its commune list and INSEE codes from the official <em>Code Officiel Géographique</em> (COG). The geometry used for centroid calculation is the 2025 simplified administrative boundary file from data.gouv.fr. Population figures are the INSEE 2021 base. Some very small communes and overseas territories show population 0 (data not published at commune level).</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune list and INSEE codes)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs communes 2025</a> (geometry for centroid extraction)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawNamesChart, populateDupGrid } from './charts.js';
+    drawNamesChart('#chart-names');
+    populateDupGrid('#dup-grid');
+  </script>
+</body>
+</html>
