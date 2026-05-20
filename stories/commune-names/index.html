@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat cards ──────────────────────────────────────────────────── */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 48px 0;
+    }
+    @media (max-width: 720px) {
+      .stat-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 420px) {
+      .stat-cards { grid-template-columns: 1fr; }
+    }
+    .stat-card {
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-card .stat-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-card .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* ── Chart figure ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure canvas {
+      max-width: 100%;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* ── Short names table ───────────────────────────────────────────── */
+    .names-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) {
+      .names-grid { grid-template-columns: 1fr; }
+    }
+    .names-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .names-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .names-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .names-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+    .names-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .names-table .nm {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      padding-right: 8px;
+    }
+    .names-table .dept-badge {
+      display: inline-block;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 700;
+      color: #888;
+      background: #ede8e0;
+      border-radius: 2px;
+      padding: 1px 4px;
+      margin-left: 4px;
+      letter-spacing: 0.5px;
+    }
+    .names-table .pop-note {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    /* ── Long name callout ───────────────────────────────────────────── */
+    .name-callout {
+      margin: 48px 0;
+      padding: 24px 28px;
+      background: #faf7f2;
+      border-left: 3px solid #b32020;
+      border-radius: 0 4px 4px 0;
+    }
+    .name-callout .callout-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      line-height: 1.4;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .name-callout .callout-note {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">France has 35,014 communes. One is called Y. Twelve share the name Sainte-Colombe. More than a third have hyphens. An accounting of French toponymy, in numbers.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Intro ─────────────────────────────────────────────────── -->
+      <p>France is a country of 35,014 communes. Each one has an official name — a short string of text registered with the state, stamped on road signs, typed into tax returns. For 32,764 of them, that name is entirely unique. For the remaining 2,250, the name is shared with at least one other commune somewhere in the country. And for one commune in the Somme, the entire official name is the single letter <strong>Y</strong>.</p>
+
+      <!-- ── Key numbers ────────────────────────────────────────────── -->
+      <div class="stat-cards" id="stat-cards">
+        <div class="stat-card">
+          <span class="stat-number" id="sn-total">35,014</span>
+          <span class="stat-label">Communes total</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="sn-unique">32,764</span>
+          <span class="stat-label">Unique names</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="sn-saint">3,882</span>
+          <span class="stat-label">Start with Saint / Sainte</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="sn-hyphen">38.3%</span>
+          <span class="stat-label">Names with a hyphen</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 1: Y ─────────────────────────────────────────────── -->
+      <h2>Y</h2>
+
+      <p>The commune of Y (population 89, Département 80, Somme) holds the distinction of having France's shortest place name. It predates the French state, the hyphen convention, and — probably — recorded history. Medieval documents reference it as <em>Y</em> or <em>Yi</em>; the current single-letter form was standardised in administrative registers sometime in the 19th century. It has a mayor. It has a budget line. It receives visitors occasionally, mostly to photograph the road sign.</p>
+
+      <p>Below Y, thirteen more communes claim just two letters. They are an eclectic group:</p>
+
+      <!-- ── Short names table ──────────────────────────────────────── -->
+      <div class="names-grid">
+        <div class="names-block">
+          <h3>1 and 2 letter commune names</h3>
+          <table class="names-table" id="table-short">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="names-block">
+          <h3>Most shared name (top 10)</h3>
+          <table class="names-table" id="table-shared">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: shared names ───────────────────────────────────── -->
+      <h2>Twelve Sainte-Colombes</h2>
+
+      <p>The most duplicated commune name in France is <em>Sainte-Colombe</em> — borne by 12 different communes spread from Ardèche to Haute-Garonne to Seine-et-Marne. <em>Saint-Sauveur</em> follows with 11, then <em>Saint-Aubin</em> and <em>Beaulieu</em> at 10. In total, 1,450 names are shared by at least two communes — meaning roughly one in twelve French communes has a namesake somewhere on the map.</p>
+
+      <p>This creates real administrative headaches. Two communes called Saint-Aubin-du-Perron exist, in neighbouring Manche and Seine-Maritime. Seven separate communes bear the name <em>Saint-Pierre</em>. GPS systems cope by falling back to département codes and postal zones. Residents cope by explaining, every time, which one they mean.</p>
+
+      <!-- ── Beat 3: Chart ───────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <canvas id="chart-top-names" height="420"></canvas>
+        <figcaption>Top 20 most common exact commune names in France. Source: DREES APL 2023 commune dataset (35,014 communes).</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Saints ─────────────────────────────────────────── -->
+      <h2>The saint economy</h2>
+
+      <p>3,882 communes — 11.1% of France — begin with <em>Saint-</em> or <em>Sainte-</em>. The saints come from every century of Catholicism: local martyrs, pilgrimage bishops, Roman missionaries, popular cults attached to springs and hills. The most widespread saint family is Saint-Martin: 250 communes incorporate <em>Saint-Martin</em> somewhere in their name, making the Bishop of Tours the undisputed patron of French address lines.</p>
+
+      <p>The masculine <em>Saint-</em> prefix dominates heavily — 3,587 communes against 295 for <em>Sainte-</em>. Medieval hagiography was not especially equitable, and neither, it turns out, is French cadastre. Still, <em>Sainte-Colombe</em> has the last word on frequency.</p>
+
+      <!-- ── Beat 5: Longest ────────────────────────────────────────── -->
+      <h2>The other extreme</h2>
+
+      <p>If Y is the floor, the ceiling is considerably higher. At 45 characters, the longest commune name in France is:</p>
+
+      <div class="name-callout">
+        <span class="callout-name" id="longest-name">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>
+        <span class="callout-note">Marne (51) · 45 characters · formed by the merger of three communes</span>
+      </div>
+
+      <p>This kind of compound name is the product of France's commune fusion history. Since the 1971 Marcellin law encouraged mergers, hundreds of villages agreed to join administratively while insisting that every original name remain in the official title. The result is an unwieldy but historically faithful record — a hyphenated census of compromises.</p>
+
+      <p>The hyphen habit runs deep across the country: 13,410 communes (38.3%) carry at least one. The connector words are characteristic: <em>-sur-</em> (on the), <em>-en-</em> (in the), <em>-les-</em> (the), <em>-de-</em> (of). Geography, preposition, geography. France in a formula.</p>
+
+      <!-- ── Outro ──────────────────────────────────────────────────── -->
+      <h2>Mostly original</h2>
+
+      <p>Despite the 1,450 shared names and the 3,882 saints, the bigger story is the opposite: 32,764 of France's 35,014 communes — 93.6% — have a name shared by no other commune in the country. The rivers, forests, hills, and lords that baptised these villages in the Middle Ages were, mostly, local enough that each place ended up with something its own. France is a country of very particular places. Most of them just haven't come up with a shorter way to say so than Y.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations are from the DREES APL 2023 commune dataset, covering 35,014 communes in metropolitan France and overseas territories. Commune codes follow the INSEE COG (Code Officiel Géographique). Name comparisons are exact and case-sensitive after normalisation.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) aux médecins généralistes, 2023</a> — commune-level dataset with names, populations, and APL scores for 35,014 communes.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+
+  <script type="module">
+    import { buildCharts } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./names-data.json');
+      const data = await res.json();
+      buildCharts(data);
+    }
+
+    main().catch(err => console.error('commune-names story failed to load:', err));
+  </script>
+</body>
+</html>
