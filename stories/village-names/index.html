@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What French villages are called — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Horizontal bar chart ───────────────────────────────────────── */
+    .hbar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+    }
+    .hbar-label {
+      font-family: Georgia, serif;
+      width: 220px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hbar-track {
+      flex: 1;
+      height: 18px;
+      background: #ede8e0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .hbar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .hbar-value {
+      width: 28px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #444;
+      flex-shrink: 0;
+    }
+
+    /* ── Name length histogram ──────────────────────────────────────── */
+    .hist-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 130px;
+      margin-bottom: 4px;
+    }
+    .hist-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      cursor: default;
+    }
+    .hist-bar {
+      width: 100%;
+      border-radius: 1px 1px 0 0;
+      min-height: 2px;
+    }
+    .hist-tick {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 9px;
+      color: #999;
+      margin-top: 3px;
+      height: 12px;
+    }
+    .hist-xlabel {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── Two-letter table ───────────────────────────────────────────── */
+    .two-letter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+    }
+    .two-letter-pill {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .two-letter-pill .pill-dept {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 0.5px;
+    }
+    .two-letter-pill .pill-pop {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      color: #888;
+    }
+
+    /* ── Big stat callouts ──────────────────────────────────────────── */
+    .stat-callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stat-callouts { grid-template-columns: 1fr 1fr; }
+    }
+    .stat-callout {
+      text-align: center;
+      padding: 24px 16px;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+    }
+    .stat-callout .big-num {
+      font-family: Georgia, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--accent, #b32020);
+      display: block;
+      line-height: 1;
+    }
+    .stat-callout .big-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ── Section charts ─────────────────────────────────────────────── */
+    .chart-section {
+      margin: 48px 0;
+    }
+    .chart-section h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    /* ── Longest name callout ───────────────────────────────────────── */
+    .longest-callout {
+      background: #f0ece4;
+      border-left: 3px solid var(--accent, #b32020);
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-family: Georgia, serif;
+    }
+    .longest-callout .lc-name {
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+      word-break: break-word;
+    }
+    .longest-callout .lc-meta {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What French villages are called</h1>
+        <p class="story-dek">35,014 commune names — one letter long, 45 letters long, and 4,443 of them saints.</p>
+        <div class="story-meta">
+          <span>2026-05-20</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ──────────────────────────────────────────────── -->
+      <p>France has a commune called <strong>Y</strong>. One letter. Population: 89. Located in the Somme département, north of Paris. It has a mayor, a post office, a church. Its name has been <em>Y</em> since at least the 11th century, derived from an old Picard word for water. If you want to receive mail there, you write <em>Y</em> on the envelope and the postal service works the rest out.</p>
+
+      <p>Y is the shortest commune name in France. It is not alone at the extremes.</p>
+
+      <!-- ── Beat 2: Two-letter club ────────────────────────────────── -->
+      <h2>The two-letter club</h2>
+
+      <p>Thirteen communes manage their entire civic identity in two letters. Some are historic market towns. Some are Pyrenean hamlets of under 40 people. All have been places long enough for their names to erode to almost nothing.</p>
+
+      <div class="two-letter-grid" id="two-letter-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <p>Uz, in the Hautes-Pyrénées, has 36 residents — the smallest in the two-letter club. Eu, in Seine-Maritime, has 6,591. Both names trace back to the same process: place names in French (and in the languages French absorbed — Picard, Occitan, Basque, Breton) were ground down by centuries of administrative transcription until what remained was whatever survived. The letter <em>y</em> in <em>Y</em>, <em>Ry</em>, <em>Py</em>, <em>By</em>, <em>Sy</em>, and <em>Gy</em> is almost certainly that same old word for water.</p>
+
+      <!-- ── Key stats ───────────────────────────────────────────────── -->
+      <div class="stat-callouts">
+        <div class="stat-callout">
+          <span class="big-num" id="stat-total">35,014</span>
+          <span class="big-label">total communes</span>
+        </div>
+        <div class="stat-callout">
+          <span class="big-num" id="stat-saint">4,443</span>
+          <span class="big-label">names with Saint or Sainte</span>
+        </div>
+        <div class="stat-callout">
+          <span class="big-num" id="stat-hyphen">38%</span>
+          <span class="big-label">names containing a hyphen</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: Saint overload ─────────────────────────────────── -->
+      <h2>Saint overload</h2>
+
+      <p>4,443 French communes — 12.7% of the total — have the word <em>Saint</em> or <em>Sainte</em> somewhere in their name. The medieval church blanketed the landscape with patron saints, and those saints became the names of the parishes that became the communes that the Revolution kept. The saints are still there.</p>
+
+      <p>Saint-Martin is far and away the most used: 202 communes carry his name, either alone or as part of a longer compound. Saint-Jean comes second (155), Saint-Pierre third (144). The practical result is that when someone says "I'm from Saint-Martin," they could be from any of more than 200 places.</p>
+
+      <div class="chart-section">
+        <h3>Most common saint names (Saint(e)-X, all variants)</h3>
+        <div id="chart-saints"></div>
+      </div>
+
+      <p>The most common <em>exact</em> commune name is Sainte-Colombe, which appears 12 times. There are 11 communes called Saint-Sauveur. Ten each called Saint-Aubin and Beaulieu. If you receive a letter from Saint-Aubin, you need the département code to know which one. France addresses this with the INSEE commune code — five digits that uniquely identify each of the 35,014 — but the names themselves carry no disambiguation.</p>
+
+      <div class="chart-section">
+        <h3>Most common exact commune names</h3>
+        <div id="chart-top-names"></div>
+      </div>
+
+      <!-- ── Beat 4: Longest ────────────────────────────────────────── -->
+      <h2>The 45-character champion</h2>
+
+      <p>At the other end of the spectrum, France's longest commune name is a compound of everything that could happen to a name at once:</p>
+
+      <div class="longest-callout">
+        <span class="lc-name">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>
+        <span class="lc-meta">Marne (dept 51) · 491 residents · 45 characters</span>
+      </div>
+
+      <p>This is a commune de fusion — a merger of formerly separate villages, each of which kept its name, stitched together with hyphens and <em>et</em>s. France has been consolidating small communes since the 1970s (a policy called the <em>loi Marcellin</em>), and the resulting names can become spectacular. The runner-up, Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur in Haute-Saône, runs to 43 characters.</p>
+
+      <!-- ── Beat 5: Hyphen nation ───────────────────────────────────── -->
+      <h2>A nation of hyphens</h2>
+
+      <p>13,410 of France's 35,014 communes — 38.3% — use at least one hyphen in their name. This is both a typographic habit and a structural one: French compound place names join their parts with hyphens, so every <em>Saint-X-sur-Y-lès-Z</em> accumulates them. The longest names are essentially hyphen-connected inventories of the villages they absorbed.</p>
+
+      <!-- ── Length distribution ─────────────────────────────────────── -->
+      <div class="chart-section">
+        <h3>Distribution of commune name lengths</h3>
+        <div id="chart-length-dist"></div>
+        <p style="font-size:13px;color:#666;font-family:var(--sans);text-align:center;margin-top:4px;">Red bars: 1–2 characters (Y + the two-letter club). Most names cluster around 7–9 characters.</p>
+      </div>
+
+      <!-- ── Close ──────────────────────────────────────────────────── -->
+      <h2>The geography of names</h2>
+
+      <p>Commune names are a compressed history of France. The oldest layers are Gaulish and Latin (Autun, Reims, Lyon). The medieval layer is almost entirely Christian — saints on a landscape of parishes. The administrative layer added the prepositions: <em>-sur-</em> (by the river), <em>-sous-</em> (below), <em>-en-</em> (in the pays), <em>-lès-</em> (near). The Revolution wanted to rename everything — there were proposals to strip the saints and replace them with geography — but it largely didn't happen. The saints stayed. The hyphens multiplied. And somewhere in the Somme, there is a village called Y.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names come from the INSEE commune code and name field in the DREES APL 2023 dataset, which covers all 35,014 French communes including overseas territories. Name forms are as registered in the official INSEE code officiel géographique (COG). Hyphenated compound names count hyphens within the registered name; internal spacing is preserved as-is. The communes-apl.geojson source is also used in <a href="../medical-deserts/">Story 2 (medical deserts)</a>.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) aux médecins généralistes 2023</a> — commune names and codes</li>
+          <li>INSEE Code Officiel Géographique (COG) — authoritative commune naming standard</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawHorizBars, drawLengthDist } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function buildTwoLetterGrid(items) {
+      const el = document.getElementById('two-letter-grid');
+      if (!el) return;
+      const deptNames = {
+        '08': 'Ardennes', '25': 'Doubs', '28': 'Eure-et-Loir', '31': 'Haute-Garonne',
+        '38': 'Isère', '61': 'Orne', '65': 'Hautes-Pyrénées', '66': 'Pyrénées-Orientales',
+        '70': 'Haute-Saône', '76': 'Seine-Maritime', '80': 'Somme', '95': "Val-d'Oise"
+      };
+      // Include Y (1 letter)
+      const all = [{ name: 'Y', dept: '80', pop: 89 }, ...items];
+      el.innerHTML = all.map(d => `
+        <div class="two-letter-pill">
+          <span>${d.name}</span>
+          <span class="pill-dept">${deptNames[d.dept] || d.dept}</span>
+          <span class="pill-pop">${d.pop.toLocaleString('fr-FR')} res.</span>
+        </div>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        // Stat callouts
+        document.getElementById('stat-total').textContent = stats.totalCommunes.toLocaleString('fr-FR');
+        document.getElementById('stat-saint').textContent = stats.saint_communes.toLocaleString('fr-FR');
+        document.getElementById('stat-hyphen').textContent = stats.hyphenPct.toFixed(0) + '%';
+
+        // Two-letter grid (includes Y from JS)
+        buildTwoLetterGrid(stats.twoLetterClub);
+
+        // Saints chart
+        drawHorizBars('#chart-saints', stats.topSaints, {
+          labelKey: 'name',
+          valueKey: 'count',
+          color: '#b32020'
+        });
+
+        // Top names chart
+        drawHorizBars('#chart-top-names', stats.topNames, {
+          labelKey: 'name',
+          valueKey: 'count',
+          color: '#5a7ab8'
+        });
+
+        // Length distribution
+        drawLengthDist('#chart-length-dist', stats.lengthDist);
+
+      } catch (err) {
+        console.error('Failed to load village-names data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
