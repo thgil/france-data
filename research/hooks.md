@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has one commune named Y. Population: 89. It is in the Somme. It has a mayor. It has a church. It is spelled exactly how you think it is. [Q-039]
+- 🔥 11.1% of French communes are named after a saint — 3,882 of 35,014. The secular republic has not updated the signposts. [Q-037]
+- 🔥 The most common exact commune name in France is "Sainte-Colombe" — 12 communes, 12 different départements, zero of them famous. [Q-037]
+- 🔥 France's longest commune name — Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson, Marne, 45 characters — is named after saints. Naturally. [Q-037]
