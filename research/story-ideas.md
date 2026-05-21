@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: One in nine French communes is named after a saint. The most popular saint? Martin, at 202 communes — more Saint-Martins than Luxembourg has municipalities. The shortest name: one letter (Y). The longest: 45 characters, 7 hyphens, 491 residents.
+- Data: INSEE commune names from Contours administratifs 2025 via DS-CONTOURS (already in repo as communes-apl.geojson). Pre-computed stats.json (24 KB).
+- Angle: Text-and-charts story. Two charts: horizontal bar of top 20 saint names, name-length histogram. Extreme-cases cards for shortest/longest. Duplicates table.
+- Draft X summary:
+  > France has 35,014 communes. 3,882 of them start with Saint- or Sainte-. The most popular saint? Martin — 202 communes. The shortest name: Y (one letter, 89 residents, Somme). The longest: 45 characters, 7 hyphens. Today on **france-data**: the name game. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
