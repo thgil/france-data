@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 70% of IDF's pharmacies didn't exist before 1990. The green cross feels ancient — it isn't. [Q-042]
+- 🔥 In 1975, Île-de-France had 154 pharmacies for 9 million people. Today it has 3,991. The network grew 26× in 38 years. [Q-042]
+- 🔥 The 1980s saw 920 new IDF pharmacies — more than the entire network had contained at the start of the decade. One new green cross every four days for ten years. [Q-042]
+- 🔥 Val-de-Marne added only 33 pharmacies in the whole 2000s. Paris added 380. Same region, opposite trajectories — saturation vs. densification. [Q-042]

@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: When were IDF's pharmacies built? How did the network expand over time?
+- Status: ✅ answered
+- Topic: [health](topics/health.md)
+- Datasets: [DS-004](datasets.md#ds-004)
+- Finding: 70.3% of IDF's 3,991 pharmacies opened after 1990. In 1975 the region had just 154. The 1980s alone added 920 pharmacies (tripling the 1980 total). The peak five-year window was 2005–2009 (926 openings). Paris led the 2000s wave (+380); Val-de-Marne peaked in the 1980s–90s and added only 33 in the entire 2000s. By 2013 the expansion rate had fallen sharply.
+- Story: [pharmacy-boom](/stories/pharmacy-boom/)

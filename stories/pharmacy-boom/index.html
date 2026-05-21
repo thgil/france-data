@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The pharmacy wave — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ─────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure canvas {
+      width: 100%;
+      max-width: 860px;
+      display: block;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      max-width: 860px;
+    }
+
+    /* ── Stat callouts ─────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 48px 0;
+    }
+    .stat-block {
+      flex: 1;
+      min-width: 160px;
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+    .stat-block .stat-num {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Timeline callout ──────────────────────────────────────── */
+    .timeline-strip {
+      background: #f2ede4;
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      margin: 40px 0;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .timeline-strip strong {
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* ── Dept table ────────────────────────────────────────────── */
+    .dept-table-wrap {
+      margin: 48px 0;
+      overflow-x: auto;
+    }
+    .dept-table {
+      width: 100%;
+      max-width: 760px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+    .dept-table th {
+      text-align: right;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      padding: 6px 10px 6px 0;
+      border-bottom: 1px solid #d0c8b8;
+    }
+    .dept-table th:first-child { text-align: left; }
+    .dept-table td {
+      text-align: right;
+      padding: 5px 10px 5px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-variant-numeric: tabular-nums;
+    }
+    .dept-table td:first-child {
+      text-align: left;
+      font-family: Georgia, serif;
+    }
+    .dept-table .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Credits ───────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Health</div>
+        <h1 class="story-title">The pharmacy wave</h1>
+        <p class="story-dek">In 1975, Île-de-France had 154 registered pharmacies. By 2013, it had 3,991. A 26× expansion in 38 years — charted from first to last.</p>
+        <div class="story-meta">
+          <span>2026-05-21</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ─────────────────────────────────────────────── -->
+      <p>The green cross is ubiquitous in Île-de-France: one for every 2,940 residents, among the highest pharmacy densities in the world. It feels as if they have always been there. The data says otherwise.</p>
+
+      <p>France's FINESS healthcare register records the opening date of every licensed pharmacy. For IDF's 3,991 pharmacies, those dates stretch back to a single entry in 1943 — and tell a story of an almost complete reinvention of the region's pharmaceutical infrastructure in less than four decades.</p>
+
+      <!-- ── Key stat callouts ──────────────────────────────────── -->
+      <div class="stat-row" id="stat-row">
+        <!-- populated by JS -->
+      </div>
+
+      <!-- ── Beat 2 ─────────────────────────────────────────────── -->
+      <h2>A region nearly without pharmacies</h2>
+
+      <p>In 1943, the FINESS register records a single IDF pharmacy: the Pharmacie Jacques et Mouline in Étampes, Essonne, opened on 27 December. For the next three decades, the network grew, but slowly. By 1970, IDF had 84 pharmacies. By 1975, 154. Nine million people, 154 green crosses — one per 58,000 residents.</p>
+
+      <p>The chart below shows every pharmacy opening from 1943 to 2013. The pattern is not a steady climb but a wave: decades of sparse growth, then an explosion.</p>
+
+      <!-- ── Chart 1: growth line ───────────────────────────────── -->
+      <figure class="chart-figure">
+        <canvas id="chart-growth" height="340"></canvas>
+        <figcaption>Annual pharmacy openings (bars, left axis) and cumulative total (line, right axis) in Île-de-France, 1943–2013. Source: FINESS healthcare register.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ─────────────────────────────────────────────── -->
+      <h2>The 1980s explosion</h2>
+
+      <p>The decade that changed everything was the 1980s. Between 1980 and 1989, 920 new IDF pharmacies opened — more than the entire network had contained at the start of the decade. The count tripled from 307 at the start of 1980 to over 1,187 by 1990. What drove this? France's pharmaceutical licensing system had long limited openings through a <em>numerus clausus</em>-style system of demographic thresholds; as IDF's population expanded through the grands ensembles and suburban sprawl of the 1970s–80s, a large cohort of underserved communes finally crossed the threshold that entitled them to a new pharmacy.</p>
+
+      <div class="timeline-strip">
+        <strong>1985–1990:</strong> 684 pharmacies opened in IDF — one every 2.7 days for five consecutive years. The network grew from 503 to 1,187.
+      </div>
+
+      <!-- ── Beat 4 ─────────────────────────────────────────────── -->
+      <h2>The 2000s second wave</h2>
+
+      <p>The 1990s kept pace (1,151 new pharmacies). Then the 2000s arrived with a second, sharper surge. The five years from 2005 to 2009 produced 926 new openings — the most of any five-year period on record. 2007 alone saw 219, the single peak year in the dataset.</p>
+
+      <p>This second wave was led by Paris itself: the capital added 380 new pharmacies in the 2000s, nearly double its 1990s total. Hauts-de-Seine (251) and Seine-et-Marne (184) followed. The inner ring was being densified; the outer ring was still filling in.</p>
+
+      <!-- ── Chart 2: by dept × decade ─────────────────────────── -->
+      <figure class="chart-figure">
+        <canvas id="chart-depts" height="340"></canvas>
+        <figcaption>New pharmacies per département per decade, 1960–2013. Departments ordered by total count. Source: FINESS.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5 ─────────────────────────────────────────────── -->
+      <h2>Department divergence</h2>
+
+      <p>The expansion did not land evenly. Val-de-Marne, an inner suburb densely built in the 1970s–80s, did most of its expansion early: 156 pharmacies in the 1980s, 194 in the 1990s — and just 33 in the entire 2000s. By then, it was saturated. Seine-et-Marne, IDF's largest and most rural département, followed the opposite arc: only 85 in the 1980s, but 184 in the 2000s, as its outer communes and new housing estates finally hit the population thresholds.</p>
+
+      <!-- ── Dept table ─────────────────────────────────────────── -->
+      <div class="dept-table-wrap">
+        <table class="dept-table" id="dept-table">
+          <thead>
+            <tr>
+              <th style="text-align:left">Département</th>
+              <th>1960s</th>
+              <th>1970s</th>
+              <th>1980s</th>
+              <th>1990s</th>
+              <th>2000s</th>
+              <th>2010–13</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 6 ─────────────────────────────────────────────── -->
+      <h2>The wave crests</h2>
+
+      <p>The data ends in 2013, by which point the annual opening rate had fallen sharply. Only 285 pharmacies opened in the four years 2010–2013 combined — compared with 926 in a single five-year window a decade earlier. The FINESS register was compiled around 2014 for the predecessor story in this series; subsequent years are not captured. But the trajectory is clear: IDF's pharmacy network reached something close to saturation by the early 2010s, and the era of rapid expansion was over.</p>
+
+      <p>What remains is one of the densest pharmacy networks of any region in the world — a 26× expansion built almost entirely in a 30-year window. The green cross doesn't feel improvised. But it largely is.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Opening dates come from France's FINESS healthcare facility register as collected for IDF's 3,991 pharmacies (circa 2014). The <code>dateouv</code> field records when each pharmacy received its official FINESS licence number — a reliable proxy for when it opened, though a small number of records may reflect relicensing of a previously operating pharmacy rather than a brand-new opening. One record carries a 1943 date; the earliest that appears genuine given the consistent growth pattern thereafter. This story reuses the <code>pharmacies.json</code> data file from <a href="../pharmacy-myth/">Story 1 (pharmacy myth)</a>; no additional downloads were required.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li>Région Île-de-France / FINESS — <a href="https://data.iledefrance.fr/explore/dataset/carte-des-pharmacies-dile-de-france/information/">Carte des pharmacies d'Île-de-France</a> (3,991 IDF pharmacy points with FINESS ID, address, lat/lng, and opening date)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawGrowthChart, drawDeptChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateStats(stats) {
+      const row = document.getElementById('stat-row');
+      if (!row) return;
+      const items = [
+        { num: stats.total.toLocaleString('fr-FR'), label: 'IDF pharmacies in 2013' },
+        { num: '×26', label: 'expansion from 1975 to 2013' },
+        { num: stats.pctPost1990 + '%', label: 'opened after 1990' },
+        { num: stats.peakYear.year, label: `peak year (${stats.peakYear.count} openings)` },
+      ];
+      row.innerHTML = items.map(i => `
+        <div class="stat-block">
+          <div class="stat-num">${i.num}</div>
+          <div class="stat-label">${i.label}</div>
+        </div>`).join('');
+    }
+
+    function populateDeptTable(stats) {
+      const tbody = document.querySelector('#dept-table tbody');
+      if (!tbody) return;
+      tbody.innerHTML = stats.deptBreakdown.map(d => {
+        const max2000s = Math.max(...stats.deptBreakdown.map(r => r.byDecade['2000'] || 0));
+        const cell2000 = d.byDecade['2000'] || 0;
+        return `<tr>
+          <td>${d.name}</td>
+          <td>${d.byDecade['1960'] || 0}</td>
+          <td>${d.byDecade['1970'] || 0}</td>
+          <td>${d.byDecade['1980'] || 0}</td>
+          <td>${d.byDecade['1990'] || 0}</td>
+          <td class="${cell2000 === max2000s ? 'highlight' : ''}">${cell2000}</td>
+          <td>${d.byDecade['2010'] || 0}</td>
+          <td><strong>${d.total}</strong></td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        populateStats(stats);
+        populateDeptTable(stats);
+        drawGrowthChart('#chart-growth', stats);
+        drawDeptChart('#chart-depts', stats);
+      } catch (err) {
+        console.error('Failed to load pharmacy-boom data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### pharmacy-boom: The pharmacy wave
+- Status: ✅ published
+- Published URL: /stories/pharmacy-boom/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: 70% of IDF's pharmacies didn't exist before 1990. The green cross feels ancient — the data says otherwise.
+- Data: FINESS pharmacy register (DS-004) — 3,991 IDF pharmacy points with opening dates. Reuses pharmacies.json from Story 1.
+- Angle: Two Chart.js charts (cumulative growth line + stacked bar by dept × decade). Six prose beats covering the 1975 starting point, the 1980s explosion, the 2005–2009 peak wave, and department divergence (Val-de-Marne saturated early; Paris boomed in the 2000s).
+- Draft X summary:
+  > In 1975, Île-de-France had 154 pharmacies. Today: 3,991. 70% of them opened after 1990. The 1980s alone added more pharmacies than the entire network had at the start of the decade. Today on **france-data**: the geography of a 26× expansion, charted from one Étampes pharmacy in 1943 to the green cross on every corner. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
