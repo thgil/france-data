@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: The place called Y
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y — one letter, 89 people, Somme. It's also the shortest place name in a country with 35,014 of them, more than the rest of the EU combined.
+- Data: DREES APL 2023 commune roster (35,014 communes with names and INSEE codes). Pure text analysis — no map, no download beyond what was already in the repo.
+- Angle: Three charts (top common names, saint density by département, name-length histogram) plus callout boxes for Y and the longest name. Text-heavy, playful, short.
+- Draft X summary:
+  > France has a commune called Y. One letter. 89 people. Somme. It's also one of 35,014 communes — more than Germany, Italy, and Spain combined. Today on **france-data**: the most common name (Sainte-Colombe, 12 copies), the longest (45 characters, a merger), and why 11% of France is named after a saint. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
