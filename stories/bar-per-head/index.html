@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Finistère — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart container ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+      padding: 12px 8px 8px;
+    }
+    .chart-scroll svg {
+      min-width: 480px;
+    }
+
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .unit {
+      font-size: 10px;
+      color: #aaa;
+      margin-left: 2px;
+    }
+
+    /* ── Key number callout ─────────────────────────────────────────── */
+    .callout {
+      background: #faf7f2;
+      border-left: 3px solid #c67c00;
+      padding: 14px 18px;
+      margin: 36px 0;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .callout strong {
+      color: #1a1a1a;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Not Finistère</h1>
+        <p class="story-dek">Finistère has 1,014 bars and ranks 14th per capita. The real bar capitals of France are more surprising — and the suburbs of Paris are the actual deserts.</p>
+        <div class="story-meta">
+          <span>2026-05-21</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>In our <a href="../bars/">previous story</a> on France's 49,385 bars, the hook was Finistère: under a million residents, over 1,000 bars. It makes Brittany feel like the spiritual home of the French café. That's a good story. It's also incomplete.</p>
+
+      <p>Raw counts reward big populations. The more useful question is: how many bars does each département have per resident? Join bar locations to census population data and the ranking changes entirely. Finistère drops to 14th. The leader, by a margin, is <em>Haute-Corse</em>.</p>
+
+      <!-- ── Chart ─────────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-scroll">
+          <div id="chart-rank"></div>
+        </div>
+        <figcaption>All 96 metropolitan départements ranked by bars per 10,000 residents. The dashed red line is the national average (7.5). Population from INSEE's APL commune dataset (2021 base). Bars from SIRENE (NAF 56.30Z, March 2026). Commune bar counts joined to commune population, then summed by département.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: Corse ─────────────────────────────────────────────── -->
+      <h2>The island at the top</h2>
+
+      <p>Haute-Corse sits at 21.1 bars per 10,000 residents — nearly three times the national average of 7.5. Corse-du-Sud is third at 16.9. Together, the two Corse départements have 666 bars for roughly 347,000 permanent residents. That's an average of one bar for every 521 people.</p>
+
+      <p>Part of this is seasonal distortion: summer tourists inflate bar revenue, and licences tend to stay registered long after the last ferry leaves. But Corse has always had a strong café culture — the village bar is the social anchor in a landscape of scattered <em>hameaux</em>. The numbers confirm what any visitor suspects: in Corse, the bar is infrastructure.</p>
+
+      <!-- ── Beat 3: Massif Central ────────────────────────────────────── -->
+      <h2>The Massif Central — bar-rich, doctor-poor</h2>
+
+      <p>Below Corse, the ranking reads like a tour of depopulating France: Lozère (17.6), Cantal (16.6), Haute-Loire (12.0), Aveyron (10.6), Nièvre (12.1), Corrèze (10.0), Creuse (11.1). Seven of the top fifteen are Massif Central départements. These are the same places that appear in the <em>diagonale du vide</em> — the empty diagonal from the Meuse to the Pyrénées where population has been draining for a century.</p>
+
+      <div class="callout">
+        <strong>Lozère</strong> has 17.6 bars per 10,000 residents and an average GP accessibility score (APL) of just 2.9 — barely above the 2.5 medical-desert threshold. More bars, fewer doctors. The village café fills functions the GP can't.
+      </div>
+
+      <p>This is not coincidence. As villages lose their boulangerie, their école, their poste, the bar is often the last survivor. It doubles as a social club, a newspaper stand, a place where the elderly collect pensions. The high bar density in the Massif Central is not vitality — it's resilience under pressure.</p>
+
+      <!-- ── Stats tables ────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars per capita</h3>
+          <table class="stats-table" id="table-top">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per capita</h3>
+          <table class="stats-table" id="table-bottom">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: Paris ─────────────────────────────────────────────── -->
+      <h2>Paris punches above its weight</h2>
+
+      <p>Paris ranks 6th nationally at 14.6 bars per 10,000 — ahead of Finistère, ahead of Bretagne as a whole, ahead of the entire Mediterranean coast. This surprises people who equate density with scarcity. In fact the capital follows the same commercial-density logic that makes it the pharmacy and bakery capital of France: more foot traffic per square metre means more licences per resident.</p>
+
+      <p>Paris has 3,121 bars for 2.1 million registered residents. That's one bar per 683 people — about the same rate as Lozère, but sustained by a completely different economics: not tradition and resilience, but tourism, nightlife, and the density of the Haussmann grid.</p>
+
+      <!-- ── Beat 5: IDF bar deserts ─────────────────────────────────── -->
+      <h2>The real bar deserts are suburban</h2>
+
+      <p>At the bottom of the ranking: Essonne (3.1 bars/10k), Hauts-de-Seine (3.3), Yvelines (3.3), Val-d'Oise (3.7), Seine-et-Marne (3.8). The five lowest-ranking métropolitain départements are all IDF suburbs. They have 7x fewer bars per resident than Haute-Corse.</p>
+
+      <p>These are not emptied-out rural areas. They're densely populated, economically active, and minutes from Paris by RER. But they were mostly built after the golden age of the café — housing estates and <em>zones commerciales</em> rather than village centres with a square and a café at its heart. The bar-per-head figure captures something real about how they were designed.</p>
+
+      <!-- ── Beat 6: Zero-bar communes ──────────────────────────────── -->
+      <h2>11.2 million people in communes with no bar</h2>
+
+      <p>Zoom to commune level and the picture sharpens. Of France's ~35,000 metropolitan communes, 23,110 — two thirds — have no registered bar at all. That's 11.2 million people, or 17% of the metropolitan population, living in a commune where the nearest débit de boissons is in the next village.</p>
+
+      <p>The commune champions at the other extreme are overwhelmingly ski resorts. Les Deux Alpes (Isère) leads with 39 bars for 1,933 permanent residents — 20 bars per 1,000. Morzine (Haute-Savoie) follows at 19 bars per 1,000. These are not communities of drinkers: they're seasonal economies where bar licences are a commercial necessity, and permanent residents simply happen to outnumber them year-round.</p>
+
+      <!-- ── Top communes table ──────────────────────────────────────── -->
+      <div class="stats-block" style="margin:36px 0;">
+        <h3>Commune bar champions (pop ≥ 500)</h3>
+        <table class="stats-table" id="table-communes">
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 7: Closing ───────────────────────────────────────────── -->
+      <p>The bar-per-head map is also a map of how France was built and when. Corse and the Massif Central carry the density of old rural café culture. Paris carries the density of commercial foot traffic. The banlieues carry the legacy of post-war urban planning that forgot the square. Each number is a licence, a counter, a closing time — and a window into the geography underneath.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar locations are from INSEE SIRENE (49,385 active establishments, NAF 56.30Z, March 2026 snapshot), the same dataset used in <a href="../bars/">Story 4</a>. Population figures come from the DREES APL commune dataset (INSEE 2021 population base), used in <a href="../medical-deserts/">Story 2</a>. The per-capita rates were computed by joining bar counts per INSEE commune code to commune population, then aggregating by département. Communes in bars.json not matched in the APL dataset (13 out of ~11,774) were excluded. Overseas territories (971–976) are excluded from the chart. The national average of 7.5 bars per 10,000 is population-weighted across 96 metropolitan départements.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — débits de boissons actifs (NAF 56.30Z)</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune population base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawRankChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateTables(stats) {
+      const top10 = stats.depts.slice(0, 10);
+      const bot10 = stats.depts.slice(-10).reverse();
+
+      const topBody = document.querySelector('#table-top tbody');
+      if (topBody) {
+        topBody.innerHTML = top10.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.per10k.toFixed(1)}<span class="unit">/10k</span></td>
+          </tr>`
+        ).join('');
+      }
+
+      const botBody = document.querySelector('#table-bottom tbody');
+      if (botBody) {
+        botBody.innerHTML = bot10.map((d, i) =>
+          `<tr>
+            <td class="rank">${stats.depts.length - i}</td>
+            <td class="place">${d.name}</td>
+            <td>${d.per10k.toFixed(1)}<span class="unit">/10k</span></td>
+          </tr>`
+        ).join('');
+      }
+
+      const comBody = document.querySelector('#table-communes tbody');
+      if (comBody && stats.topCommunes) {
+        comBody.innerHTML = stats.topCommunes.slice(0, 10).map((c, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${c.name} <span style="font-size:10px;color:#999;">(${c.dept})</span></td>
+            <td>${c.per1000.toFixed(1)}<span class="unit">/1k</span></td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        drawRankChart('#chart-rank', stats);
+        populateTables(stats);
+      } catch (err) {
+        console.error('Failed to load bar-per-head data:', err);
+        document.getElementById('chart-rank').textContent = 'Failed to load chart.';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-per-head: Not Finistère
+- Status: ✅ published
+- Published URL: /stories/bar-per-head/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Finistère has 1,014 bars and ranks 14th per capita. Haute-Corse leads at 21.1/10k. The IDF suburbs are the real bar deserts.
+- Data: SIRENE bars.json (existing) joined to DREES APL commune population (existing). 96-département ranked chart.
+- Angle: Horizontal ranked bar chart, colour-coded by groupe géographique. Stats tables top/bottom 10. Commune champions table.
+- Draft X summary:
+  > Everyone talks about Finistère having a bar on every corner. Per capita, it ranks 14th. The real leader: Haute-Corse at 21 bars per 10,000 — 3× the national average. And the actual bar deserts? Hauts-de-Seine, Essonne, Yvelines. Today on **france-data**: 96 départements, one ranking, a map of how France was built. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

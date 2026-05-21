@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Finistère has 1,014 bars. Per capita, it ranks 14th. The real leader is Haute-Corse: 21.1 bars per 10,000 residents — nearly 3× the national average. [Q-033]
+- 🔥 Lozère: 17.6 bars per 10,000 residents, APL score of 2.9 (barely above medical-desert threshold). More bars, fewer doctors. The village café fills roles the GP can't. [Q-033]
+- 🔥 The IDF suburbs have 3–4 bars per 10,000 residents — 7× less than Haute-Corse. Essonne, Hauts-de-Seine, Yvelines: built after the golden age of the café, and it shows. [Q-033]
+- 🔥 Two thirds of France's communes (23,110 out of ~35,000) have zero registered bars. 11.2 million metropolitan French live in one. [Q-033]
