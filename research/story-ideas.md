@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### baguette-capital: Génicourt is the baguette capital
+- Status: ✅ published
+- Published URL: /stories/baguette-capital/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: Paris 18e has 192 bakeries. Génicourt (pop 513) has two — and 39 per 10,000 residents. Dividing bread by people changes the entire ranking.
+- Data: SIRENE bakery locations (in-repo, 7,378 IDF points) joined to 2021 INSEE census population from DREES APL dataset. Pure in-repo computation, no new downloads.
+- Angle: Scatter chart (log population vs per-10k) + horizontal bar chart of top 25 communes (pop ≥ 500) + Paris arrondissements ranking table. Shows the small-town paradox (fragile but real per-capita richness) vs. the new-town baguette deserts.
+- Draft X summary:
+  > Paris 18e has 192 bakeries. Génicourt, Val-d'Oise, has two — for 513 residents. That's 39 per 10,000. The 18e? 10. Divide the baguettes by the people and the whole ranking flips. Today on **france-data**: the IDF baguette capital, and why the planned suburbs are bread deserts. 🥖🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

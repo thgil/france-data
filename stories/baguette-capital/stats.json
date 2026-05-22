@@ -1,0 +1,5846 @@
+{
+  "totalBakeries": 7378,
+  "idfCommunes": 1285,
+  "communesWithBakeries": 704,
+  "communesZeroBakeries": 581,
+  "medianPer10k": 5.9,
+  "meanPer10k": 7.3,
+  "topCommunes": [
+    {
+      "code": "78305",
+      "name": "Herbeville",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 237,
+      "bakeries": 1,
+      "per10k": 42.19,
+      "apl": 1.86
+    },
+    {
+      "code": "95271",
+      "name": "Génicourt",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 513,
+      "bakeries": 2,
+      "per10k": 38.99,
+      "apl": 1.97
+    },
+    {
+      "code": "95510",
+      "name": "Puiseux-Pontoise",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 583,
+      "bakeries": 2,
+      "per10k": 34.31,
+      "apl": 3.22
+    },
+    {
+      "code": "77511",
+      "name": "Villeneuve-sous-Dammartin",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 628,
+      "bakeries": 2,
+      "per10k": 31.85,
+      "apl": 1.8
+    },
+    {
+      "code": "91180",
+      "name": "Courances",
+      "dept": "91",
+      "deptName": "Essonne",
+      "pop": 325,
+      "bakeries": 1,
+      "per10k": 30.77,
+      "apl": 2.49
+    },
+    {
+      "code": "77329",
+      "name": "Nanteau-sur-Lunain",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 689,
+      "bakeries": 2,
+      "per10k": 29.03,
+      "apl": 1.49
+    },
+    {
+      "code": "95287",
+      "name": "Grisy-les-Plâtres",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 702,
+      "bakeries": 2,
+      "per10k": 28.49,
+      "apl": 1.4
+    },
+    {
+      "code": "77244",
+      "name": "Larchant",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 713,
+      "bakeries": 2,
+      "per10k": 28.05,
+      "apl": 2.05
+    },
+    {
+      "code": "77454",
+      "name": "Sognolles-en-Montois",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 359,
+      "bakeries": 1,
+      "per10k": 27.86,
+      "apl": 1.84
+    },
+    {
+      "code": "78460",
+      "name": "Oinville-sur-Montcient",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1095,
+      "bakeries": 3,
+      "per10k": 27.4,
+      "apl": 1.98
+    },
+    {
+      "code": "77027",
+      "name": "Beaumont-du-Gâtinais",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 1155,
+      "bakeries": 3,
+      "per10k": 25.97,
+      "apl": 1.79
+    },
+    {
+      "code": "77034",
+      "name": "Blandy",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 775,
+      "bakeries": 2,
+      "per10k": 25.81,
+      "apl": 1.52
+    },
+    {
+      "code": "95592",
+      "name": "Seraincourt",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1305,
+      "bakeries": 3,
+      "per10k": 22.99,
+      "apl": 2.48
+    },
+    {
+      "code": "95651",
+      "name": "Vétheuil",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 877,
+      "bakeries": 2,
+      "per10k": 22.81,
+      "apl": 1.72
+    },
+    {
+      "code": "95523",
+      "name": "La Roche-Guyon",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 448,
+      "bakeries": 1,
+      "per10k": 22.32,
+      "apl": 1.87
+    },
+    {
+      "code": "77353",
+      "name": "Paley",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 462,
+      "bakeries": 1,
+      "per10k": 21.65,
+      "apl": 1.46
+    },
+    {
+      "code": "78192",
+      "name": "Dammartin-en-Serve",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1394,
+      "bakeries": 3,
+      "per10k": 21.52,
+      "apl": 1.2
+    },
+    {
+      "code": "78147",
+      "name": "Chaufour-lès-Bonnières",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 466,
+      "bakeries": 1,
+      "per10k": 21.46,
+      "apl": 2.31
+    },
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 15919,
+      "bakeries": 34,
+      "per10k": 21.36,
+      "apl": 6.54
+    },
+    {
+      "code": "77044",
+      "name": "Bombon",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 944,
+      "bakeries": 2,
+      "per10k": 21.19,
+      "apl": 1.59
+    },
+    {
+      "code": "77011",
+      "name": "Aufferville",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 483,
+      "bakeries": 1,
+      "per10k": 20.7,
+      "apl": 2.93
+    },
+    {
+      "code": "78299",
+      "name": "Hardricourt",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 2480,
+      "bakeries": 5,
+      "per10k": 20.16,
+      "apl": 2.31
+    },
+    {
+      "code": "77178",
+      "name": "Faÿ-lès-Nemours",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 498,
+      "bakeries": 1,
+      "per10k": 20.08,
+      "apl": 2.71
+    },
+    {
+      "code": "77287",
+      "name": "Meilleray",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 502,
+      "bakeries": 1,
+      "per10k": 19.92,
+      "apl": 1.75
+    },
+    {
+      "code": "78143",
+      "name": "Châteaufort",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1515,
+      "bakeries": 3,
+      "per10k": 19.8,
+      "apl": 3.41
+    }
+  ],
+  "topMeaningful": [
+    {
+      "code": "95271",
+      "name": "Génicourt",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 513,
+      "bakeries": 2,
+      "per10k": 38.99,
+      "apl": 1.97
+    },
+    {
+      "code": "95510",
+      "name": "Puiseux-Pontoise",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 583,
+      "bakeries": 2,
+      "per10k": 34.31,
+      "apl": 3.22
+    },
+    {
+      "code": "77511",
+      "name": "Villeneuve-sous-Dammartin",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 628,
+      "bakeries": 2,
+      "per10k": 31.85,
+      "apl": 1.8
+    },
+    {
+      "code": "77329",
+      "name": "Nanteau-sur-Lunain",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 689,
+      "bakeries": 2,
+      "per10k": 29.03,
+      "apl": 1.49
+    },
+    {
+      "code": "95287",
+      "name": "Grisy-les-Plâtres",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 702,
+      "bakeries": 2,
+      "per10k": 28.49,
+      "apl": 1.4
+    },
+    {
+      "code": "77244",
+      "name": "Larchant",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 713,
+      "bakeries": 2,
+      "per10k": 28.05,
+      "apl": 2.05
+    },
+    {
+      "code": "78460",
+      "name": "Oinville-sur-Montcient",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1095,
+      "bakeries": 3,
+      "per10k": 27.4,
+      "apl": 1.98
+    },
+    {
+      "code": "77027",
+      "name": "Beaumont-du-Gâtinais",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 1155,
+      "bakeries": 3,
+      "per10k": 25.97,
+      "apl": 1.79
+    },
+    {
+      "code": "77034",
+      "name": "Blandy",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 775,
+      "bakeries": 2,
+      "per10k": 25.81,
+      "apl": 1.52
+    },
+    {
+      "code": "95592",
+      "name": "Seraincourt",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1305,
+      "bakeries": 3,
+      "per10k": 22.99,
+      "apl": 2.48
+    },
+    {
+      "code": "95651",
+      "name": "Vétheuil",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 877,
+      "bakeries": 2,
+      "per10k": 22.81,
+      "apl": 1.72
+    },
+    {
+      "code": "78192",
+      "name": "Dammartin-en-Serve",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1394,
+      "bakeries": 3,
+      "per10k": 21.52,
+      "apl": 1.2
+    },
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 15919,
+      "bakeries": 34,
+      "per10k": 21.36,
+      "apl": 6.54
+    },
+    {
+      "code": "77044",
+      "name": "Bombon",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 944,
+      "bakeries": 2,
+      "per10k": 21.19,
+      "apl": 1.59
+    },
+    {
+      "code": "78299",
+      "name": "Hardricourt",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 2480,
+      "bakeries": 5,
+      "per10k": 20.16,
+      "apl": 2.31
+    },
+    {
+      "code": "77287",
+      "name": "Meilleray",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 502,
+      "bakeries": 1,
+      "per10k": 19.92,
+      "apl": 1.75
+    },
+    {
+      "code": "78143",
+      "name": "Châteaufort",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 1515,
+      "bakeries": 3,
+      "per10k": 19.8,
+      "apl": 3.41
+    },
+    {
+      "code": "91130",
+      "name": "Chalo-Saint-Mars",
+      "dept": "91",
+      "deptName": "Essonne",
+      "pop": 1031,
+      "bakeries": 2,
+      "per10k": 19.4,
+      "apl": 2.13
+    },
+    {
+      "code": "77480",
+      "name": "Valence-en-Brie",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 1040,
+      "bakeries": 2,
+      "per10k": 19.23,
+      "apl": 2.31
+    },
+    {
+      "code": "77050",
+      "name": "Bransles",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 525,
+      "bakeries": 1,
+      "per10k": 19.05,
+      "apl": 0.87
+    },
+    {
+      "code": "78310",
+      "name": "Houdan",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 3699,
+      "bakeries": 7,
+      "per10k": 18.92,
+      "apl": 1.89
+    },
+    {
+      "code": "78168",
+      "name": "Coignières",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 4377,
+      "bakeries": 8,
+      "per10k": 18.28,
+      "apl": 3.11
+    },
+    {
+      "code": "95535",
+      "name": "Sagy",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1101,
+      "bakeries": 2,
+      "per10k": 18.17,
+      "apl": 2.76
+    },
+    {
+      "code": "78202",
+      "name": "Drocourt",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "pop": 557,
+      "bakeries": 1,
+      "per10k": 17.95,
+      "apl": 2.12
+    },
+    {
+      "code": "75108",
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 35123,
+      "bakeries": 63,
+      "per10k": 17.94,
+      "apl": 5.59
+    },
+    {
+      "code": "95658",
+      "name": "Vigny",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1115,
+      "bakeries": 2,
+      "per10k": 17.94,
+      "apl": 2.02
+    },
+    {
+      "code": "77453",
+      "name": "Sivry-Courtry",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 1122,
+      "bakeries": 2,
+      "per10k": 17.83,
+      "apl": 1.91
+    },
+    {
+      "code": "77174",
+      "name": "Everly",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 570,
+      "bakeries": 1,
+      "per10k": 17.54,
+      "apl": 2.05
+    },
+    {
+      "code": "91284",
+      "name": "Les Granges-le-Roi",
+      "dept": "91",
+      "deptName": "Essonne",
+      "pop": 1183,
+      "bakeries": 2,
+      "per10k": 16.91,
+      "apl": 2.4
+    },
+    {
+      "code": "77279",
+      "name": "Marolles-sur-Seine",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 1812,
+      "bakeries": 3,
+      "per10k": 16.56,
+      "apl": 2.33
+    }
+  ],
+  "topLarge": [
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 15919,
+      "bakeries": 34,
+      "per10k": 21.36,
+      "apl": 6.54
+    },
+    {
+      "code": "75108",
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 35123,
+      "bakeries": 63,
+      "per10k": 17.94,
+      "apl": 5.59
+    },
+    {
+      "code": "75103",
+      "name": "Paris 3e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 32793,
+      "bakeries": 54,
+      "per10k": 16.47,
+      "apl": 6.08
+    },
+    {
+      "code": "95019",
+      "name": "Arnouville",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 14585,
+      "bakeries": 21,
+      "per10k": 14.4,
+      "apl": 1.91
+    },
+    {
+      "code": "75102",
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 21119,
+      "bakeries": 30,
+      "per10k": 14.21,
+      "apl": 6.45
+    },
+    {
+      "code": "77458",
+      "name": "Souppes-sur-Loing",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "pop": 5114,
+      "bakeries": 7,
+      "per10k": 13.69,
+      "apl": 1.85
+    },
+    {
+      "code": "75104",
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 28324,
+      "bakeries": 38,
+      "per10k": 13.42,
+      "apl": 6.6
+    },
+    {
+      "code": "75109",
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 58951,
+      "bakeries": 78,
+      "per10k": 13.23,
+      "apl": 6.09
+    },
+    {
+      "code": "95051",
+      "name": "Beauchamp",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 9158,
+      "bakeries": 12,
+      "per10k": 13.1,
+      "apl": 3.27
+    },
+    {
+      "code": "75107",
+      "name": "Paris 7e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 47947,
+      "bakeries": 60,
+      "per10k": 12.51,
+      "apl": 5.91
+    },
+    {
+      "code": "94065",
+      "name": "Rungis",
+      "dept": "94",
+      "deptName": "Val-de-Marne",
+      "pop": 5647,
+      "bakeries": 7,
+      "per10k": 12.4,
+      "apl": 2.56
+    },
+    {
+      "code": "93074",
+      "name": "Vaujours",
+      "dept": "93",
+      "deptName": "Seine-Saint-Denis",
+      "pop": 7478,
+      "bakeries": 9,
+      "per10k": 12.04,
+      "apl": 2.41
+    },
+    {
+      "code": "75105",
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 56841,
+      "bakeries": 67,
+      "per10k": 11.79,
+      "apl": 5.8
+    },
+    {
+      "code": "93027",
+      "name": "La Courneuve",
+      "dept": "93",
+      "deptName": "Seine-Saint-Denis",
+      "pop": 47160,
+      "bakeries": 55,
+      "per10k": 11.66,
+      "apl": 3.05
+    },
+    {
+      "code": "75110",
+      "name": "Paris 10e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 83543,
+      "bakeries": 96,
+      "per10k": 11.49,
+      "apl": 6.29
+    }
+  ],
+  "paris": [
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 15919,
+      "bakeries": 34,
+      "per10k": 21.36,
+      "apl": 6.54
+    },
+    {
+      "code": "75108",
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 35123,
+      "bakeries": 63,
+      "per10k": 17.94,
+      "apl": 5.59
+    },
+    {
+      "code": "75103",
+      "name": "Paris 3e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 32793,
+      "bakeries": 54,
+      "per10k": 16.47,
+      "apl": 6.08
+    },
+    {
+      "code": "75102",
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 21119,
+      "bakeries": 30,
+      "per10k": 14.21,
+      "apl": 6.45
+    },
+    {
+      "code": "75104",
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 28324,
+      "bakeries": 38,
+      "per10k": 13.42,
+      "apl": 6.6
+    },
+    {
+      "code": "75109",
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 58951,
+      "bakeries": 78,
+      "per10k": 13.23,
+      "apl": 6.09
+    },
+    {
+      "code": "75107",
+      "name": "Paris 7e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 47947,
+      "bakeries": 60,
+      "per10k": 12.51,
+      "apl": 5.91
+    },
+    {
+      "code": "75105",
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 56841,
+      "bakeries": 67,
+      "per10k": 11.79,
+      "apl": 5.8
+    },
+    {
+      "code": "75110",
+      "name": "Paris 10e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 83543,
+      "bakeries": 96,
+      "per10k": 11.49,
+      "apl": 6.29
+    },
+    {
+      "code": "75106",
+      "name": "Paris 6e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 40209,
+      "bakeries": 45,
+      "per10k": 11.19,
+      "apl": 6.09
+    },
+    {
+      "code": "75111",
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 142583,
+      "bakeries": 147,
+      "per10k": 10.31,
+      "apl": 5.31
+    },
+    {
+      "code": "75118",
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 188446,
+      "bakeries": 192,
+      "per10k": 10.19,
+      "apl": 4.86
+    },
+    {
+      "code": "75117",
+      "name": "Paris 17e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 164413,
+      "bakeries": 149,
+      "per10k": 9.06,
+      "apl": 5.24
+    },
+    {
+      "code": "75112",
+      "name": "Paris 12e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 140954,
+      "bakeries": 124,
+      "per10k": 8.8,
+      "apl": 4.22
+    },
+    {
+      "code": "75120",
+      "name": "Paris 20e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 189805,
+      "bakeries": 156,
+      "per10k": 8.22,
+      "apl": 4.55
+    },
+    {
+      "code": "75113",
+      "name": "Paris 13e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 178350,
+      "bakeries": 138,
+      "per10k": 7.74,
+      "apl": 4.42
+    },
+    {
+      "code": "75114",
+      "name": "Paris 14e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 136368,
+      "bakeries": 102,
+      "per10k": 7.48,
+      "apl": 4.5
+    },
+    {
+      "code": "75115",
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 227746,
+      "bakeries": 159,
+      "per10k": 6.98,
+      "apl": 4.55
+    },
+    {
+      "code": "75119",
+      "name": "Paris 19e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 181616,
+      "bakeries": 123,
+      "per10k": 6.77,
+      "apl": 5.29
+    },
+    {
+      "code": "75116",
+      "name": "Paris 16e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "pop": 162061,
+      "bakeries": 107,
+      "per10k": 6.6,
+      "apl": 3.89
+    }
+  ],
+  "allCommunes": [
+    {
+      "name": "Herbeville",
+      "dept": "78",
+      "pop": 237,
+      "bakeries": 1,
+      "per10k": 42.19
+    },
+    {
+      "name": "Génicourt",
+      "dept": "95",
+      "pop": 513,
+      "bakeries": 2,
+      "per10k": 38.99
+    },
+    {
+      "name": "Puiseux-Pontoise",
+      "dept": "95",
+      "pop": 583,
+      "bakeries": 2,
+      "per10k": 34.31
+    },
+    {
+      "name": "Villeneuve-sous-Dammartin",
+      "dept": "77",
+      "pop": 628,
+      "bakeries": 2,
+      "per10k": 31.85
+    },
+    {
+      "name": "Courances",
+      "dept": "91",
+      "pop": 325,
+      "bakeries": 1,
+      "per10k": 30.77
+    },
+    {
+      "name": "Nanteau-sur-Lunain",
+      "dept": "77",
+      "pop": 689,
+      "bakeries": 2,
+      "per10k": 29.03
+    },
+    {
+      "name": "Grisy-les-Plâtres",
+      "dept": "95",
+      "pop": 702,
+      "bakeries": 2,
+      "per10k": 28.49
+    },
+    {
+      "name": "Larchant",
+      "dept": "77",
+      "pop": 713,
+      "bakeries": 2,
+      "per10k": 28.05
+    },
+    {
+      "name": "Sognolles-en-Montois",
+      "dept": "77",
+      "pop": 359,
+      "bakeries": 1,
+      "per10k": 27.86
+    },
+    {
+      "name": "Oinville-sur-Montcient",
+      "dept": "78",
+      "pop": 1095,
+      "bakeries": 3,
+      "per10k": 27.4
+    },
+    {
+      "name": "Beaumont-du-Gâtinais",
+      "dept": "77",
+      "pop": 1155,
+      "bakeries": 3,
+      "per10k": 25.97
+    },
+    {
+      "name": "Blandy",
+      "dept": "77",
+      "pop": 775,
+      "bakeries": 2,
+      "per10k": 25.81
+    },
+    {
+      "name": "Seraincourt",
+      "dept": "95",
+      "pop": 1305,
+      "bakeries": 3,
+      "per10k": 22.99
+    },
+    {
+      "name": "Vétheuil",
+      "dept": "95",
+      "pop": 877,
+      "bakeries": 2,
+      "per10k": 22.81
+    },
+    {
+      "name": "La Roche-Guyon",
+      "dept": "95",
+      "pop": 448,
+      "bakeries": 1,
+      "per10k": 22.32
+    },
+    {
+      "name": "Paley",
+      "dept": "77",
+      "pop": 462,
+      "bakeries": 1,
+      "per10k": 21.65
+    },
+    {
+      "name": "Dammartin-en-Serve",
+      "dept": "78",
+      "pop": 1394,
+      "bakeries": 3,
+      "per10k": 21.52
+    },
+    {
+      "name": "Chaufour-lès-Bonnières",
+      "dept": "78",
+      "pop": 466,
+      "bakeries": 1,
+      "per10k": 21.46
+    },
+    {
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "pop": 15919,
+      "bakeries": 34,
+      "per10k": 21.36
+    },
+    {
+      "name": "Bombon",
+      "dept": "77",
+      "pop": 944,
+      "bakeries": 2,
+      "per10k": 21.19
+    },
+    {
+      "name": "Aufferville",
+      "dept": "77",
+      "pop": 483,
+      "bakeries": 1,
+      "per10k": 20.7
+    },
+    {
+      "name": "Hardricourt",
+      "dept": "78",
+      "pop": 2480,
+      "bakeries": 5,
+      "per10k": 20.16
+    },
+    {
+      "name": "Faÿ-lès-Nemours",
+      "dept": "77",
+      "pop": 498,
+      "bakeries": 1,
+      "per10k": 20.08
+    },
+    {
+      "name": "Meilleray",
+      "dept": "77",
+      "pop": 502,
+      "bakeries": 1,
+      "per10k": 19.92
+    },
+    {
+      "name": "Châteaufort",
+      "dept": "78",
+      "pop": 1515,
+      "bakeries": 3,
+      "per10k": 19.8
+    },
+    {
+      "name": "Chalo-Saint-Mars",
+      "dept": "91",
+      "pop": 1031,
+      "bakeries": 2,
+      "per10k": 19.4
+    },
+    {
+      "name": "Valence-en-Brie",
+      "dept": "77",
+      "pop": 1040,
+      "bakeries": 2,
+      "per10k": 19.23
+    },
+    {
+      "name": "Bransles",
+      "dept": "77",
+      "pop": 525,
+      "bakeries": 1,
+      "per10k": 19.05
+    },
+    {
+      "name": "Houdan",
+      "dept": "78",
+      "pop": 3699,
+      "bakeries": 7,
+      "per10k": 18.92
+    },
+    {
+      "name": "Coignières",
+      "dept": "78",
+      "pop": 4377,
+      "bakeries": 8,
+      "per10k": 18.28
+    },
+    {
+      "name": "Sagy",
+      "dept": "95",
+      "pop": 1101,
+      "bakeries": 2,
+      "per10k": 18.17
+    },
+    {
+      "name": "Drocourt",
+      "dept": "78",
+      "pop": 557,
+      "bakeries": 1,
+      "per10k": 17.95
+    },
+    {
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "pop": 35123,
+      "bakeries": 63,
+      "per10k": 17.94
+    },
+    {
+      "name": "Vigny",
+      "dept": "95",
+      "pop": 1115,
+      "bakeries": 2,
+      "per10k": 17.94
+    },
+    {
+      "name": "Sivry-Courtry",
+      "dept": "77",
+      "pop": 1122,
+      "bakeries": 2,
+      "per10k": 17.83
+    },
+    {
+      "name": "Everly",
+      "dept": "77",
+      "pop": 570,
+      "bakeries": 1,
+      "per10k": 17.54
+    },
+    {
+      "name": "Les Granges-le-Roi",
+      "dept": "91",
+      "pop": 1183,
+      "bakeries": 2,
+      "per10k": 16.91
+    },
+    {
+      "name": "Marolles-sur-Seine",
+      "dept": "77",
+      "pop": 1812,
+      "bakeries": 3,
+      "per10k": 16.56
+    },
+    {
+      "name": "Paris 3e Arrondissement",
+      "dept": "75",
+      "pop": 32793,
+      "bakeries": 54,
+      "per10k": 16.47
+    },
+    {
+      "name": "Valmondois",
+      "dept": "95",
+      "pop": 1215,
+      "bakeries": 2,
+      "per10k": 16.46
+    },
+    {
+      "name": "Touquin",
+      "dept": "77",
+      "pop": 1221,
+      "bakeries": 2,
+      "per10k": 16.38
+    },
+    {
+      "name": "Recloses",
+      "dept": "77",
+      "pop": 616,
+      "bakeries": 1,
+      "per10k": 16.23
+    },
+    {
+      "name": "Hermé",
+      "dept": "77",
+      "pop": 622,
+      "bakeries": 1,
+      "per10k": 16.08
+    },
+    {
+      "name": "Montceaux-lès-Meaux",
+      "dept": "77",
+      "pop": 624,
+      "bakeries": 1,
+      "per10k": 16.03
+    },
+    {
+      "name": "Moisselles",
+      "dept": "95",
+      "pop": 1254,
+      "bakeries": 2,
+      "per10k": 15.95
+    },
+    {
+      "name": "Jossigny",
+      "dept": "77",
+      "pop": 641,
+      "bakeries": 1,
+      "per10k": 15.6
+    },
+    {
+      "name": "Gazeran",
+      "dept": "78",
+      "pop": 1288,
+      "bakeries": 2,
+      "per10k": 15.53
+    },
+    {
+      "name": "Commeny",
+      "dept": "95",
+      "pop": 653,
+      "bakeries": 1,
+      "per10k": 15.31
+    },
+    {
+      "name": "Orly-sur-Morin",
+      "dept": "77",
+      "pop": 660,
+      "bakeries": 1,
+      "per10k": 15.15
+    },
+    {
+      "name": "Villiers-sous-Grez",
+      "dept": "77",
+      "pop": 661,
+      "bakeries": 1,
+      "per10k": 15.13
+    },
+    {
+      "name": "La Croix-en-Brie",
+      "dept": "77",
+      "pop": 663,
+      "bakeries": 1,
+      "per10k": 15.08
+    },
+    {
+      "name": "Buchelay",
+      "dept": "78",
+      "pop": 3340,
+      "bakeries": 5,
+      "per10k": 14.97
+    },
+    {
+      "name": "Le Mérévillois",
+      "dept": "91",
+      "pop": 3364,
+      "bakeries": 5,
+      "per10k": 14.86
+    },
+    {
+      "name": "Servon",
+      "dept": "77",
+      "pop": 3396,
+      "bakeries": 5,
+      "per10k": 14.72
+    },
+    {
+      "name": "Marines",
+      "dept": "95",
+      "pop": 3422,
+      "bakeries": 5,
+      "per10k": 14.61
+    },
+    {
+      "name": "Moisenay",
+      "dept": "77",
+      "pop": 1371,
+      "bakeries": 2,
+      "per10k": 14.59
+    },
+    {
+      "name": "Bourron-Marlotte",
+      "dept": "77",
+      "pop": 2762,
+      "bakeries": 4,
+      "per10k": 14.48
+    },
+    {
+      "name": "Arnouville",
+      "dept": "95",
+      "pop": 14585,
+      "bakeries": 21,
+      "per10k": 14.4
+    },
+    {
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "pop": 21119,
+      "bakeries": 30,
+      "per10k": 14.21
+    },
+    {
+      "name": "Piscop",
+      "dept": "95",
+      "pop": 706,
+      "bakeries": 1,
+      "per10k": 14.16
+    },
+    {
+      "name": "La Chapelle-Gauthier",
+      "dept": "77",
+      "pop": 1420,
+      "bakeries": 2,
+      "per10k": 14.08
+    },
+    {
+      "name": "Nucourt",
+      "dept": "95",
+      "pop": 712,
+      "bakeries": 1,
+      "per10k": 14.04
+    },
+    {
+      "name": "Égreville",
+      "dept": "77",
+      "pop": 2143,
+      "bakeries": 3,
+      "per10k": 14.0
+    },
+    {
+      "name": "Freneuse",
+      "dept": "78",
+      "pop": 4285,
+      "bakeries": 6,
+      "per10k": 14.0
+    },
+    {
+      "name": "Souppes-sur-Loing",
+      "dept": "77",
+      "pop": 5114,
+      "bakeries": 7,
+      "per10k": 13.69
+    },
+    {
+      "name": "Saint-Martin-en-Bière",
+      "dept": "77",
+      "pop": 734,
+      "bakeries": 1,
+      "per10k": 13.62
+    },
+    {
+      "name": "Moussy-le-Vieux",
+      "dept": "77",
+      "pop": 1476,
+      "bakeries": 2,
+      "per10k": 13.55
+    },
+    {
+      "name": "Saint-Germain-Laxis",
+      "dept": "77",
+      "pop": 741,
+      "bakeries": 1,
+      "per10k": 13.5
+    },
+    {
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "pop": 28324,
+      "bakeries": 38,
+      "per10k": 13.42
+    },
+    {
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "pop": 58951,
+      "bakeries": 78,
+      "per10k": 13.23
+    },
+    {
+      "name": "Le Val-Saint-Germain",
+      "dept": "91",
+      "pop": 1524,
+      "bakeries": 2,
+      "per10k": 13.12
+    },
+    {
+      "name": "Rebais",
+      "dept": "77",
+      "pop": 2289,
+      "bakeries": 3,
+      "per10k": 13.11
+    },
+    {
+      "name": "Beauchamp",
+      "dept": "95",
+      "pop": 9158,
+      "bakeries": 12,
+      "per10k": 13.1
+    },
+    {
+      "name": "Étiolles",
+      "dept": "91",
+      "pop": 3086,
+      "bakeries": 4,
+      "per10k": 12.96
+    },
+    {
+      "name": "Richebourg",
+      "dept": "78",
+      "pop": 1568,
+      "bakeries": 2,
+      "per10k": 12.76
+    },
+    {
+      "name": "Bray-sur-Seine",
+      "dept": "77",
+      "pop": 2356,
+      "bakeries": 3,
+      "per10k": 12.73
+    },
+    {
+      "name": "Machault",
+      "dept": "77",
+      "pop": 786,
+      "bakeries": 1,
+      "per10k": 12.72
+    },
+    {
+      "name": "La Queue-les-Yvelines",
+      "dept": "78",
+      "pop": 2381,
+      "bakeries": 3,
+      "per10k": 12.6
+    },
+    {
+      "name": "Paris 7e Arrondissement",
+      "dept": "75",
+      "pop": 47947,
+      "bakeries": 60,
+      "per10k": 12.51
+    },
+    {
+      "name": "Verneuil-l'Étang",
+      "dept": "77",
+      "pop": 3198,
+      "bakeries": 4,
+      "per10k": 12.51
+    },
+    {
+      "name": "Mandres-les-Roses",
+      "dept": "94",
+      "pop": 4825,
+      "bakeries": 6,
+      "per10k": 12.44
+    },
+    {
+      "name": "Rungis",
+      "dept": "94",
+      "pop": 5647,
+      "bakeries": 7,
+      "per10k": 12.4
+    },
+    {
+      "name": "Champeaux",
+      "dept": "77",
+      "pop": 810,
+      "bakeries": 1,
+      "per10k": 12.35
+    },
+    {
+      "name": "Voulx",
+      "dept": "77",
+      "pop": 1632,
+      "bakeries": 2,
+      "per10k": 12.25
+    },
+    {
+      "name": "Compans",
+      "dept": "77",
+      "pop": 820,
+      "bakeries": 1,
+      "per10k": 12.2
+    },
+    {
+      "name": "La Celle-les-Bordes",
+      "dept": "78",
+      "pop": 825,
+      "bakeries": 1,
+      "per10k": 12.12
+    },
+    {
+      "name": "Orgerus",
+      "dept": "78",
+      "pop": 2480,
+      "bakeries": 3,
+      "per10k": 12.1
+    },
+    {
+      "name": "Chenoise-Cucharmoy",
+      "dept": "77",
+      "pop": 1654,
+      "bakeries": 2,
+      "per10k": 12.09
+    },
+    {
+      "name": "Ville-Saint-Jacques",
+      "dept": "77",
+      "pop": 828,
+      "bakeries": 1,
+      "per10k": 12.08
+    },
+    {
+      "name": "Vaujours",
+      "dept": "93",
+      "pop": 7478,
+      "bakeries": 9,
+      "per10k": 12.04
+    },
+    {
+      "name": "Méré",
+      "dept": "78",
+      "pop": 1667,
+      "bakeries": 2,
+      "per10k": 12.0
+    },
+    {
+      "name": "Chanteloup-en-Brie",
+      "dept": "77",
+      "pop": 4171,
+      "bakeries": 5,
+      "per10k": 11.99
+    },
+    {
+      "name": "Clairefontaine-en-Yvelines",
+      "dept": "78",
+      "pop": 840,
+      "bakeries": 1,
+      "per10k": 11.9
+    },
+    {
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "pop": 56841,
+      "bakeries": 67,
+      "per10k": 11.79
+    },
+    {
+      "name": "Vert",
+      "dept": "78",
+      "pop": 851,
+      "bakeries": 1,
+      "per10k": 11.75
+    },
+    {
+      "name": "La Courneuve",
+      "dept": "93",
+      "pop": 47160,
+      "bakeries": 55,
+      "per10k": 11.66
+    },
+    {
+      "name": "Maison-Rouge",
+      "dept": "77",
+      "pop": 858,
+      "bakeries": 1,
+      "per10k": 11.66
+    },
+    {
+      "name": "Saclay",
+      "dept": "91",
+      "pop": 4323,
+      "bakeries": 5,
+      "per10k": 11.57
+    },
+    {
+      "name": "Ury",
+      "dept": "77",
+      "pop": 864,
+      "bakeries": 1,
+      "per10k": 11.57
+    },
+    {
+      "name": "Paris 10e Arrondissement",
+      "dept": "75",
+      "pop": 83543,
+      "bakeries": 96,
+      "per10k": 11.49
+    },
+    {
+      "name": "Rochefort-en-Yvelines",
+      "dept": "78",
+      "pop": 883,
+      "bakeries": 1,
+      "per10k": 11.33
+    },
+    {
+      "name": "Écouen",
+      "dept": "95",
+      "pop": 7145,
+      "bakeries": 8,
+      "per10k": 11.2
+    },
+    {
+      "name": "Paris 6e Arrondissement",
+      "dept": "75",
+      "pop": 40209,
+      "bakeries": 45,
+      "per10k": 11.19
+    },
+    {
+      "name": "Sainte-Colombe",
+      "dept": "77",
+      "pop": 1793,
+      "bakeries": 2,
+      "per10k": 11.15
+    },
+    {
+      "name": "Longueville",
+      "dept": "77",
+      "pop": 1800,
+      "bakeries": 2,
+      "per10k": 11.11
+    },
+    {
+      "name": "Poigny-la-Forêt",
+      "dept": "78",
+      "pop": 900,
+      "bakeries": 1,
+      "per10k": 11.11
+    },
+    {
+      "name": "Nesles-la-Vallée",
+      "dept": "95",
+      "pop": 1803,
+      "bakeries": 2,
+      "per10k": 11.09
+    },
+    {
+      "name": "Maffliers",
+      "dept": "95",
+      "pop": 1806,
+      "bakeries": 2,
+      "per10k": 11.07
+    },
+    {
+      "name": "Saint-Siméon",
+      "dept": "77",
+      "pop": 908,
+      "bakeries": 1,
+      "per10k": 11.01
+    },
+    {
+      "name": "Saint-Augustin",
+      "dept": "77",
+      "pop": 1820,
+      "bakeries": 2,
+      "per10k": 10.99
+    },
+    {
+      "name": "Seine-Port",
+      "dept": "77",
+      "pop": 1824,
+      "bakeries": 2,
+      "per10k": 10.96
+    },
+    {
+      "name": "Le Thillay",
+      "dept": "95",
+      "pop": 4589,
+      "bakeries": 5,
+      "per10k": 10.9
+    },
+    {
+      "name": "Bennecourt",
+      "dept": "78",
+      "pop": 1837,
+      "bakeries": 2,
+      "per10k": 10.89
+    },
+    {
+      "name": "Milly-la-Forêt",
+      "dept": "91",
+      "pop": 4603,
+      "bakeries": 5,
+      "per10k": 10.86
+    },
+    {
+      "name": "Marles-en-Brie",
+      "dept": "77",
+      "pop": 1843,
+      "bakeries": 2,
+      "per10k": 10.85
+    },
+    {
+      "name": "Saclas",
+      "dept": "91",
+      "pop": 1847,
+      "bakeries": 2,
+      "per10k": 10.83
+    },
+    {
+      "name": "Saâcy-sur-Marne",
+      "dept": "77",
+      "pop": 1864,
+      "bakeries": 2,
+      "per10k": 10.73
+    },
+    {
+      "name": "Maisse",
+      "dept": "91",
+      "pop": 2802,
+      "bakeries": 3,
+      "per10k": 10.71
+    },
+    {
+      "name": "Beton-Bazoches",
+      "dept": "77",
+      "pop": 935,
+      "bakeries": 1,
+      "per10k": 10.7
+    },
+    {
+      "name": "Coubert",
+      "dept": "77",
+      "pop": 1879,
+      "bakeries": 2,
+      "per10k": 10.64
+    },
+    {
+      "name": "Bréval",
+      "dept": "78",
+      "pop": 1908,
+      "bakeries": 2,
+      "per10k": 10.48
+    },
+    {
+      "name": "Mézières-sur-Seine",
+      "dept": "78",
+      "pop": 3826,
+      "bakeries": 4,
+      "per10k": 10.45
+    },
+    {
+      "name": "Yèbles",
+      "dept": "77",
+      "pop": 958,
+      "bakeries": 1,
+      "per10k": 10.44
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "pop": 142583,
+      "bakeries": 147,
+      "per10k": 10.31
+    },
+    {
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "pop": 188446,
+      "bakeries": 192,
+      "per10k": 10.19
+    },
+    {
+      "name": "Issou",
+      "dept": "78",
+      "pop": 3928,
+      "bakeries": 4,
+      "per10k": 10.18
+    },
+    {
+      "name": "Boutigny-sur-Essonne",
+      "dept": "91",
+      "pop": 2950,
+      "bakeries": 3,
+      "per10k": 10.17
+    },
+    {
+      "name": "Ozouer-le-Voulgis",
+      "dept": "77",
+      "pop": 1970,
+      "bakeries": 2,
+      "per10k": 10.15
+    },
+    {
+      "name": "Saint-Clair-sur-Epte",
+      "dept": "95",
+      "pop": 986,
+      "bakeries": 1,
+      "per10k": 10.14
+    },
+    {
+      "name": "Le Raincy",
+      "dept": "93",
+      "pop": 14877,
+      "bakeries": 15,
+      "per10k": 10.08
+    },
+    {
+      "name": "Croissy-Beaubourg",
+      "dept": "77",
+      "pop": 1990,
+      "bakeries": 2,
+      "per10k": 10.05
+    },
+    {
+      "name": "Dampierre-en-Yvelines",
+      "dept": "78",
+      "pop": 1000,
+      "bakeries": 1,
+      "per10k": 10.0
+    },
+    {
+      "name": "Santeny",
+      "dept": "94",
+      "pop": 4003,
+      "bakeries": 4,
+      "per10k": 9.99
+    },
+    {
+      "name": "Gentilly",
+      "dept": "94",
+      "pop": 19048,
+      "bakeries": 19,
+      "per10k": 9.97
+    },
+    {
+      "name": "Fontaine-le-Port",
+      "dept": "77",
+      "pop": 1003,
+      "bakeries": 1,
+      "per10k": 9.97
+    },
+    {
+      "name": "Faremoutiers",
+      "dept": "77",
+      "pop": 3013,
+      "bakeries": 3,
+      "per10k": 9.96
+    },
+    {
+      "name": "Limetz-Villez",
+      "dept": "78",
+      "pop": 2025,
+      "bakeries": 2,
+      "per10k": 9.88
+    },
+    {
+      "name": "Chars",
+      "dept": "95",
+      "pop": 2028,
+      "bakeries": 2,
+      "per10k": 9.86
+    },
+    {
+      "name": "Le Mesnil-Amelot",
+      "dept": "77",
+      "pop": 1016,
+      "bakeries": 1,
+      "per10k": 9.84
+    },
+    {
+      "name": "Avrainville",
+      "dept": "91",
+      "pop": 1030,
+      "bakeries": 1,
+      "per10k": 9.71
+    },
+    {
+      "name": "Chambry",
+      "dept": "77",
+      "pop": 1038,
+      "bakeries": 1,
+      "per10k": 9.63
+    },
+    {
+      "name": "Enghien-les-Bains",
+      "dept": "95",
+      "pop": 11440,
+      "bakeries": 11,
+      "per10k": 9.62
+    },
+    {
+      "name": "Mormant",
+      "dept": "77",
+      "pop": 5222,
+      "bakeries": 5,
+      "per10k": 9.57
+    },
+    {
+      "name": "Saint-Mandé",
+      "dept": "94",
+      "pop": 21195,
+      "bakeries": 20,
+      "per10k": 9.44
+    },
+    {
+      "name": "Chailly-en-Bière",
+      "dept": "77",
+      "pop": 2118,
+      "bakeries": 2,
+      "per10k": 9.44
+    },
+    {
+      "name": "Beaumont-sur-Oise",
+      "dept": "95",
+      "pop": 9590,
+      "bakeries": 9,
+      "per10k": 9.38
+    },
+    {
+      "name": "Luzancy",
+      "dept": "77",
+      "pop": 1070,
+      "bakeries": 1,
+      "per10k": 9.35
+    },
+    {
+      "name": "Ussy-sur-Marne",
+      "dept": "77",
+      "pop": 1074,
+      "bakeries": 1,
+      "per10k": 9.31
+    },
+    {
+      "name": "Fontenay-en-Parisis",
+      "dept": "95",
+      "pop": 2149,
+      "bakeries": 2,
+      "per10k": 9.31
+    },
+    {
+      "name": "Guernes",
+      "dept": "78",
+      "pop": 1075,
+      "bakeries": 1,
+      "per10k": 9.3
+    },
+    {
+      "name": "La Ferté-sous-Jouarre",
+      "dept": "77",
+      "pop": 9714,
+      "bakeries": 9,
+      "per10k": 9.26
+    },
+    {
+      "name": "Nézel",
+      "dept": "78",
+      "pop": 1083,
+      "bakeries": 1,
+      "per10k": 9.23
+    },
+    {
+      "name": "Pussay",
+      "dept": "91",
+      "pop": 2169,
+      "bakeries": 2,
+      "per10k": 9.22
+    },
+    {
+      "name": "Coulommiers",
+      "dept": "77",
+      "pop": 15250,
+      "bakeries": 14,
+      "per10k": 9.18
+    },
+    {
+      "name": "Saulx-les-Chartreux",
+      "dept": "91",
+      "pop": 6583,
+      "bakeries": 6,
+      "per10k": 9.11
+    },
+    {
+      "name": "Morigny-Champigny",
+      "dept": "91",
+      "pop": 4405,
+      "bakeries": 4,
+      "per10k": 9.08
+    },
+    {
+      "name": "Paris 17e Arrondissement",
+      "dept": "75",
+      "pop": 164413,
+      "bakeries": 149,
+      "per10k": 9.06
+    },
+    {
+      "name": "Doue",
+      "dept": "77",
+      "pop": 1108,
+      "bakeries": 1,
+      "per10k": 9.03
+    },
+    {
+      "name": "Saint-Ouen-sur-Seine",
+      "dept": "93",
+      "pop": 53207,
+      "bakeries": 48,
+      "per10k": 9.02
+    },
+    {
+      "name": "Le Vésinet",
+      "dept": "78",
+      "pop": 15646,
+      "bakeries": 14,
+      "per10k": 8.95
+    },
+    {
+      "name": "Saint-Maurice",
+      "dept": "94",
+      "pop": 14603,
+      "bakeries": 13,
+      "per10k": 8.9
+    },
+    {
+      "name": "Vert-le-Grand",
+      "dept": "91",
+      "pop": 2252,
+      "bakeries": 2,
+      "per10k": 8.88
+    },
+    {
+      "name": "Butry-sur-Oise",
+      "dept": "95",
+      "pop": 2254,
+      "bakeries": 2,
+      "per10k": 8.87
+    },
+    {
+      "name": "Paris 12e Arrondissement",
+      "dept": "75",
+      "pop": 140954,
+      "bakeries": 124,
+      "per10k": 8.8
+    },
+    {
+      "name": "Villeneuve-sur-Bellot",
+      "dept": "77",
+      "pop": 1136,
+      "bakeries": 1,
+      "per10k": 8.8
+    },
+    {
+      "name": "Guermantes",
+      "dept": "77",
+      "pop": 1148,
+      "bakeries": 1,
+      "per10k": 8.71
+    },
+    {
+      "name": "La Chapelle-la-Reine",
+      "dept": "77",
+      "pop": 2301,
+      "bakeries": 2,
+      "per10k": 8.69
+    },
+    {
+      "name": "La Ville-du-Bois",
+      "dept": "91",
+      "pop": 8080,
+      "bakeries": 7,
+      "per10k": 8.66
+    },
+    {
+      "name": "Villiers-Saint-Georges",
+      "dept": "77",
+      "pop": 1165,
+      "bakeries": 1,
+      "per10k": 8.58
+    },
+    {
+      "name": "Voisenon",
+      "dept": "77",
+      "pop": 1167,
+      "bakeries": 1,
+      "per10k": 8.57
+    },
+    {
+      "name": "Salins",
+      "dept": "77",
+      "pop": 1171,
+      "bakeries": 1,
+      "per10k": 8.54
+    },
+    {
+      "name": "Mantes-la-Jolie",
+      "dept": "78",
+      "pop": 44539,
+      "bakeries": 38,
+      "per10k": 8.53
+    },
+    {
+      "name": "Lizy-sur-Ourcq",
+      "dept": "77",
+      "pop": 3519,
+      "bakeries": 3,
+      "per10k": 8.53
+    },
+    {
+      "name": "Gouvernes",
+      "dept": "77",
+      "pop": 1178,
+      "bakeries": 1,
+      "per10k": 8.49
+    },
+    {
+      "name": "Mouroux",
+      "dept": "77",
+      "pop": 5928,
+      "bakeries": 5,
+      "per10k": 8.43
+    },
+    {
+      "name": "Villemoisson-sur-Orge",
+      "dept": "91",
+      "pop": 7120,
+      "bakeries": 6,
+      "per10k": 8.43
+    },
+    {
+      "name": "Pringy",
+      "dept": "77",
+      "pop": 3558,
+      "bakeries": 3,
+      "per10k": 8.43
+    },
+    {
+      "name": "Bièvres",
+      "dept": "91",
+      "pop": 4748,
+      "bakeries": 4,
+      "per10k": 8.42
+    },
+    {
+      "name": "Ablon-sur-Seine",
+      "dept": "94",
+      "pop": 5946,
+      "bakeries": 5,
+      "per10k": 8.41
+    },
+    {
+      "name": "Thiverval-Grignon",
+      "dept": "78",
+      "pop": 1192,
+      "bakeries": 1,
+      "per10k": 8.39
+    },
+    {
+      "name": "Provins",
+      "dept": "77",
+      "pop": 11958,
+      "bakeries": 10,
+      "per10k": 8.36
+    },
+    {
+      "name": "Soisy-sur-École",
+      "dept": "91",
+      "pop": 1207,
+      "bakeries": 1,
+      "per10k": 8.29
+    },
+    {
+      "name": "Saint-Denis",
+      "dept": "93",
+      "pop": 113942,
+      "bakeries": 94,
+      "per10k": 8.25
+    },
+    {
+      "name": "Lorrez-le-Bocage-Préaux",
+      "dept": "77",
+      "pop": 1213,
+      "bakeries": 1,
+      "per10k": 8.24
+    },
+    {
+      "name": "Paris 20e Arrondissement",
+      "dept": "75",
+      "pop": 189805,
+      "bakeries": 156,
+      "per10k": 8.22
+    },
+    {
+      "name": "Vincennes",
+      "dept": "94",
+      "pop": 48798,
+      "bakeries": 40,
+      "per10k": 8.2
+    },
+    {
+      "name": "Gambais",
+      "dept": "78",
+      "pop": 2451,
+      "bakeries": 2,
+      "per10k": 8.16
+    },
+    {
+      "name": "Charenton-le-Pont",
+      "dept": "94",
+      "pop": 29445,
+      "bakeries": 24,
+      "per10k": 8.15
+    },
+    {
+      "name": "Oissery",
+      "dept": "77",
+      "pop": 2459,
+      "bakeries": 2,
+      "per10k": 8.13
+    },
+    {
+      "name": "Éragny",
+      "dept": "95",
+      "pop": 18468,
+      "bakeries": 15,
+      "per10k": 8.12
+    },
+    {
+      "name": "Les Lilas",
+      "dept": "93",
+      "pop": 23469,
+      "bakeries": 19,
+      "per10k": 8.1
+    },
+    {
+      "name": "Montereau-Fault-Yonne",
+      "dept": "77",
+      "pop": 22259,
+      "bakeries": 18,
+      "per10k": 8.09
+    },
+    {
+      "name": "Barbizon",
+      "dept": "77",
+      "pop": 1241,
+      "bakeries": 1,
+      "per10k": 8.06
+    },
+    {
+      "name": "Villejust",
+      "dept": "91",
+      "pop": 2496,
+      "bakeries": 2,
+      "per10k": 8.01
+    },
+    {
+      "name": "Condé-sur-Vesgre",
+      "dept": "78",
+      "pop": 1250,
+      "bakeries": 1,
+      "per10k": 8.0
+    },
+    {
+      "name": "Aubervilliers",
+      "dept": "93",
+      "pop": 90071,
+      "bakeries": 72,
+      "per10k": 7.99
+    },
+    {
+      "name": "Héricy",
+      "dept": "77",
+      "pop": 2511,
+      "bakeries": 2,
+      "per10k": 7.96
+    },
+    {
+      "name": "Garancières",
+      "dept": "78",
+      "pop": 2512,
+      "bakeries": 2,
+      "per10k": 7.96
+    },
+    {
+      "name": "Moret-Loing-et-Orvanne",
+      "dept": "77",
+      "pop": 12581,
+      "bakeries": 10,
+      "per10k": 7.95
+    },
+    {
+      "name": "Bonnières-sur-Seine",
+      "dept": "78",
+      "pop": 5038,
+      "bakeries": 4,
+      "per10k": 7.94
+    },
+    {
+      "name": "Le Mesnil-le-Roi",
+      "dept": "78",
+      "pop": 6322,
+      "bakeries": 5,
+      "per10k": 7.91
+    },
+    {
+      "name": "Breuillet",
+      "dept": "91",
+      "pop": 8873,
+      "bakeries": 7,
+      "per10k": 7.89
+    },
+    {
+      "name": "Nangis",
+      "dept": "77",
+      "pop": 8898,
+      "bakeries": 7,
+      "per10k": 7.87
+    },
+    {
+      "name": "Les Alluets-le-Roi",
+      "dept": "78",
+      "pop": 1273,
+      "bakeries": 1,
+      "per10k": 7.86
+    },
+    {
+      "name": "Chartrettes",
+      "dept": "77",
+      "pop": 2543,
+      "bakeries": 2,
+      "per10k": 7.86
+    },
+    {
+      "name": "Boissy-sous-Saint-Yon",
+      "dept": "91",
+      "pop": 3828,
+      "bakeries": 3,
+      "per10k": 7.84
+    },
+    {
+      "name": "Ivry-sur-Seine",
+      "dept": "94",
+      "pop": 64001,
+      "bakeries": 50,
+      "per10k": 7.81
+    },
+    {
+      "name": "Ferrières-en-Brie",
+      "dept": "77",
+      "pop": 3841,
+      "bakeries": 3,
+      "per10k": 7.81
+    },
+    {
+      "name": "Saint-Jean-les-Deux-Jumeaux",
+      "dept": "77",
+      "pop": 1285,
+      "bakeries": 1,
+      "per10k": 7.78
+    },
+    {
+      "name": "Paris 13e Arrondissement",
+      "dept": "75",
+      "pop": 178350,
+      "bakeries": 138,
+      "per10k": 7.74
+    },
+    {
+      "name": "Champlan",
+      "dept": "91",
+      "pop": 2597,
+      "bakeries": 2,
+      "per10k": 7.7
+    },
+    {
+      "name": "Vernou-la-Celle-sur-Seine",
+      "dept": "77",
+      "pop": 2606,
+      "bakeries": 2,
+      "per10k": 7.67
+    },
+    {
+      "name": "Choisy-en-Brie",
+      "dept": "77",
+      "pop": 1308,
+      "bakeries": 1,
+      "per10k": 7.65
+    },
+    {
+      "name": "Les Bréviaires",
+      "dept": "78",
+      "pop": 1311,
+      "bakeries": 1,
+      "per10k": 7.63
+    },
+    {
+      "name": "Bagnolet",
+      "dept": "93",
+      "pop": 39366,
+      "bakeries": 30,
+      "per10k": 7.62
+    },
+    {
+      "name": "Villeneuve-Saint-Georges",
+      "dept": "94",
+      "pop": 35492,
+      "bakeries": 27,
+      "per10k": 7.61
+    },
+    {
+      "name": "Épône",
+      "dept": "78",
+      "pop": 6585,
+      "bakeries": 5,
+      "per10k": 7.59
+    },
+    {
+      "name": "Pontault-Combault",
+      "dept": "77",
+      "pop": 38258,
+      "bakeries": 29,
+      "per10k": 7.58
+    },
+    {
+      "name": "Nemours",
+      "dept": "77",
+      "pop": 13189,
+      "bakeries": 10,
+      "per10k": 7.58
+    },
+    {
+      "name": "Pantin",
+      "dept": "93",
+      "pop": 60800,
+      "bakeries": 46,
+      "per10k": 7.57
+    },
+    {
+      "name": "Morangis",
+      "dept": "91",
+      "pop": 13211,
+      "bakeries": 10,
+      "per10k": 7.57
+    },
+    {
+      "name": "Les Clayes-sous-Bois",
+      "dept": "78",
+      "pop": 17237,
+      "bakeries": 13,
+      "per10k": 7.54
+    },
+    {
+      "name": "Fontainebleau",
+      "dept": "77",
+      "pop": 15945,
+      "bakeries": 12,
+      "per10k": 7.53
+    },
+    {
+      "name": "Gouaix",
+      "dept": "77",
+      "pop": 1335,
+      "bakeries": 1,
+      "per10k": 7.49
+    },
+    {
+      "name": "Paris 14e Arrondissement",
+      "dept": "75",
+      "pop": 136368,
+      "bakeries": 102,
+      "per10k": 7.48
+    },
+    {
+      "name": "Us",
+      "dept": "95",
+      "pop": 1338,
+      "bakeries": 1,
+      "per10k": 7.47
+    },
+    {
+      "name": "Saint-Maur-des-Fossés",
+      "dept": "94",
+      "pop": 75441,
+      "bakeries": 56,
+      "per10k": 7.42
+    },
+    {
+      "name": "Andilly",
+      "dept": "95",
+      "pop": 2697,
+      "bakeries": 2,
+      "per10k": 7.42
+    },
+    {
+      "name": "Penchard",
+      "dept": "77",
+      "pop": 1354,
+      "bakeries": 1,
+      "per10k": 7.39
+    },
+    {
+      "name": "Boissy-le-Cutté",
+      "dept": "91",
+      "pop": 1355,
+      "bakeries": 1,
+      "per10k": 7.38
+    },
+    {
+      "name": "Pontoise",
+      "dept": "95",
+      "pop": 31327,
+      "bakeries": 23,
+      "per10k": 7.34
+    },
+    {
+      "name": "Alfortville",
+      "dept": "94",
+      "pop": 45046,
+      "bakeries": 33,
+      "per10k": 7.33
+    },
+    {
+      "name": "Villabé",
+      "dept": "91",
+      "pop": 5457,
+      "bakeries": 4,
+      "per10k": 7.33
+    },
+    {
+      "name": "Vulaines-sur-Seine",
+      "dept": "77",
+      "pop": 2731,
+      "bakeries": 2,
+      "per10k": 7.32
+    },
+    {
+      "name": "Donnemarie-Dontilly",
+      "dept": "77",
+      "pop": 2747,
+      "bakeries": 2,
+      "per10k": 7.28
+    },
+    {
+      "name": "Grisy-Suisnes",
+      "dept": "77",
+      "pop": 2749,
+      "bakeries": 2,
+      "per10k": 7.28
+    },
+    {
+      "name": "Gournay-sur-Marne",
+      "dept": "93",
+      "pop": 6882,
+      "bakeries": 5,
+      "per10k": 7.27
+    },
+    {
+      "name": "Lardy",
+      "dept": "91",
+      "pop": 5509,
+      "bakeries": 4,
+      "per10k": 7.26
+    },
+    {
+      "name": "Clichy",
+      "dept": "92",
+      "pop": 64849,
+      "bakeries": 47,
+      "per10k": 7.25
+    },
+    {
+      "name": "Chevreuse",
+      "dept": "78",
+      "pop": 5536,
+      "bakeries": 4,
+      "per10k": 7.23
+    },
+    {
+      "name": "Montigny-Lencoup",
+      "dept": "77",
+      "pop": 1384,
+      "bakeries": 1,
+      "per10k": 7.23
+    },
+    {
+      "name": "Le Mesnil-Saint-Denis",
+      "dept": "78",
+      "pop": 6929,
+      "bakeries": 5,
+      "per10k": 7.22
+    },
+    {
+      "name": "Rosny-sur-Seine",
+      "dept": "78",
+      "pop": 6929,
+      "bakeries": 5,
+      "per10k": 7.22
+    },
+    {
+      "name": "Courpalay",
+      "dept": "77",
+      "pop": 1385,
+      "bakeries": 1,
+      "per10k": 7.22
+    },
+    {
+      "name": "Fublaines",
+      "dept": "77",
+      "pop": 1391,
+      "bakeries": 1,
+      "per10k": 7.19
+    },
+    {
+      "name": "Bondy",
+      "dept": "93",
+      "pop": 52905,
+      "bakeries": 38,
+      "per10k": 7.18
+    },
+    {
+      "name": "Saint-Cyr-l'École",
+      "dept": "78",
+      "pop": 20971,
+      "bakeries": 15,
+      "per10k": 7.15
+    },
+    {
+      "name": "Parmain",
+      "dept": "95",
+      "pop": 5610,
+      "bakeries": 4,
+      "per10k": 7.13
+    },
+    {
+      "name": "Sannois",
+      "dept": "95",
+      "pop": 26768,
+      "bakeries": 19,
+      "per10k": 7.1
+    },
+    {
+      "name": "Puteaux",
+      "dept": "92",
+      "pop": 43672,
+      "bakeries": 31,
+      "per10k": 7.1
+    },
+    {
+      "name": "Rozay-en-Brie",
+      "dept": "77",
+      "pop": 2819,
+      "bakeries": 2,
+      "per10k": 7.09
+    },
+    {
+      "name": "Dourdan",
+      "dept": "91",
+      "pop": 11279,
+      "bakeries": 8,
+      "per10k": 7.09
+    },
+    {
+      "name": "Brunoy",
+      "dept": "91",
+      "pop": 25423,
+      "bakeries": 18,
+      "per10k": 7.08
+    },
+    {
+      "name": "Chennevières-sur-Marne",
+      "dept": "94",
+      "pop": 18367,
+      "bakeries": 13,
+      "per10k": 7.08
+    },
+    {
+      "name": "Saint-Léger-en-Yvelines",
+      "dept": "78",
+      "pop": 1412,
+      "bakeries": 1,
+      "per10k": 7.08
+    },
+    {
+      "name": "Maisons-Alfort",
+      "dept": "94",
+      "pop": 58068,
+      "bakeries": 41,
+      "per10k": 7.06
+    },
+    {
+      "name": "Baulne",
+      "dept": "91",
+      "pop": 1416,
+      "bakeries": 1,
+      "per10k": 7.06
+    },
+    {
+      "name": "Juvisy-sur-Orge",
+      "dept": "91",
+      "pop": 18424,
+      "bakeries": 13,
+      "per10k": 7.06
+    },
+    {
+      "name": "Mortcerf",
+      "dept": "77",
+      "pop": 1416,
+      "bakeries": 1,
+      "per10k": 7.06
+    },
+    {
+      "name": "Le Châtelet-en-Brie",
+      "dept": "77",
+      "pop": 4258,
+      "bakeries": 3,
+      "per10k": 7.05
+    },
+    {
+      "name": "Montreuil",
+      "dept": "93",
+      "pop": 111455,
+      "bakeries": 78,
+      "per10k": 7.0
+    },
+    {
+      "name": "Paris 15e Arrondissement",
+      "dept": "75",
+      "pop": 227746,
+      "bakeries": 159,
+      "per10k": 6.98
+    },
+    {
+      "name": "Thoiry",
+      "dept": "78",
+      "pop": 1432,
+      "bakeries": 1,
+      "per10k": 6.98
+    },
+    {
+      "name": "Montfort-l'Amaury",
+      "dept": "78",
+      "pop": 2870,
+      "bakeries": 2,
+      "per10k": 6.97
+    },
+    {
+      "name": "Jouarre",
+      "dept": "77",
+      "pop": 4304,
+      "bakeries": 3,
+      "per10k": 6.97
+    },
+    {
+      "name": "Bailly-Romainvilliers",
+      "dept": "77",
+      "pop": 7169,
+      "bakeries": 5,
+      "per10k": 6.97
+    },
+    {
+      "name": "Conflans-Sainte-Honorine",
+      "dept": "78",
+      "pop": 35926,
+      "bakeries": 25,
+      "per10k": 6.96
+    },
+    {
+      "name": "Grez-sur-Loing",
+      "dept": "77",
+      "pop": 1436,
+      "bakeries": 1,
+      "per10k": 6.96
+    },
+    {
+      "name": "La Grande-Paroisse",
+      "dept": "77",
+      "pop": 2873,
+      "bakeries": 2,
+      "per10k": 6.96
+    },
+    {
+      "name": "Choisy-le-Roi",
+      "dept": "94",
+      "pop": 46129,
+      "bakeries": 32,
+      "per10k": 6.94
+    },
+    {
+      "name": "Villemomble",
+      "dept": "93",
+      "pop": 30332,
+      "bakeries": 21,
+      "per10k": 6.92
+    },
+    {
+      "name": "Montlignon",
+      "dept": "95",
+      "pop": 2894,
+      "bakeries": 2,
+      "per10k": 6.91
+    },
+    {
+      "name": "Magny-en-Vexin",
+      "dept": "95",
+      "pop": 5788,
+      "bakeries": 4,
+      "per10k": 6.91
+    },
+    {
+      "name": "Gennevilliers",
+      "dept": "92",
+      "pop": 49410,
+      "bakeries": 34,
+      "per10k": 6.88
+    },
+    {
+      "name": "Orsay",
+      "dept": "91",
+      "pop": 16007,
+      "bakeries": 11,
+      "per10k": 6.87
+    },
+    {
+      "name": "Coupvray",
+      "dept": "77",
+      "pop": 2949,
+      "bakeries": 2,
+      "per10k": 6.78
+    },
+    {
+      "name": "Les Mureaux",
+      "dept": "78",
+      "pop": 33977,
+      "bakeries": 23,
+      "per10k": 6.77
+    },
+    {
+      "name": "Paris 19e Arrondissement",
+      "dept": "75",
+      "pop": 181616,
+      "bakeries": 123,
+      "per10k": 6.77
+    },
+    {
+      "name": "Bobigny",
+      "dept": "93",
+      "pop": 55056,
+      "bakeries": 37,
+      "per10k": 6.72
+    },
+    {
+      "name": "Bois-Colombes",
+      "dept": "92",
+      "pop": 29765,
+      "bakeries": 20,
+      "per10k": 6.72
+    },
+    {
+      "name": "Sainte-Geneviève-des-Bois",
+      "dept": "91",
+      "pop": 35846,
+      "bakeries": 24,
+      "per10k": 6.7
+    },
+    {
+      "name": "Asnières-sur-Seine",
+      "dept": "92",
+      "pop": 89662,
+      "bakeries": 60,
+      "per10k": 6.69
+    },
+    {
+      "name": "Stains",
+      "dept": "93",
+      "pop": 40359,
+      "bakeries": 27,
+      "per10k": 6.69
+    },
+    {
+      "name": "Saint-Germain-lès-Corbeil",
+      "dept": "91",
+      "pop": 7472,
+      "bakeries": 5,
+      "per10k": 6.69
+    },
+    {
+      "name": "Gometz-la-Ville",
+      "dept": "91",
+      "pop": 1506,
+      "bakeries": 1,
+      "per10k": 6.64
+    },
+    {
+      "name": "Louveciennes",
+      "dept": "78",
+      "pop": 7563,
+      "bakeries": 5,
+      "per10k": 6.61
+    },
+    {
+      "name": "Paris 16e Arrondissement",
+      "dept": "75",
+      "pop": 162061,
+      "bakeries": 107,
+      "per10k": 6.6
+    },
+    {
+      "name": "Drancy",
+      "dept": "93",
+      "pop": 71363,
+      "bakeries": 47,
+      "per10k": 6.59
+    },
+    {
+      "name": "Sourdun",
+      "dept": "77",
+      "pop": 1517,
+      "bakeries": 1,
+      "per10k": 6.59
+    },
+    {
+      "name": "Jouy-le-Châtel",
+      "dept": "77",
+      "pop": 1526,
+      "bakeries": 1,
+      "per10k": 6.55
+    },
+    {
+      "name": "Cernay-la-Ville",
+      "dept": "78",
+      "pop": 1536,
+      "bakeries": 1,
+      "per10k": 6.51
+    },
+    {
+      "name": "Saint-Maurice-Montcouronne",
+      "dept": "91",
+      "pop": 1536,
+      "bakeries": 1,
+      "per10k": 6.51
+    },
+    {
+      "name": "Magnanville",
+      "dept": "78",
+      "pop": 6155,
+      "bakeries": 4,
+      "per10k": 6.5
+    },
+    {
+      "name": "Morainvilliers",
+      "dept": "78",
+      "pop": 3082,
+      "bakeries": 2,
+      "per10k": 6.49
+    },
+    {
+      "name": "Arcueil",
+      "dept": "94",
+      "pop": 21557,
+      "bakeries": 14,
+      "per10k": 6.49
+    },
+    {
+      "name": "Asnières-sur-Oise",
+      "dept": "95",
+      "pop": 3082,
+      "bakeries": 2,
+      "per10k": 6.49
+    },
+    {
+      "name": "Bois-d'Arcy",
+      "dept": "78",
+      "pop": 15435,
+      "bakeries": 10,
+      "per10k": 6.48
+    },
+    {
+      "name": "Bures-sur-Yvette",
+      "dept": "91",
+      "pop": 9254,
+      "bakeries": 6,
+      "per10k": 6.48
+    },
+    {
+      "name": "Longnes",
+      "dept": "78",
+      "pop": 1544,
+      "bakeries": 1,
+      "per10k": 6.48
+    },
+    {
+      "name": "Le Pin",
+      "dept": "77",
+      "pop": 1548,
+      "bakeries": 1,
+      "per10k": 6.46
+    },
+    {
+      "name": "Corbeil-Essonnes",
+      "dept": "91",
+      "pop": 52683,
+      "bakeries": 34,
+      "per10k": 6.45
+    },
+    {
+      "name": "Montmorency",
+      "dept": "95",
+      "pop": 21870,
+      "bakeries": 14,
+      "per10k": 6.4
+    },
+    {
+      "name": "Fontenay-le-Vicomte",
+      "dept": "91",
+      "pop": 1564,
+      "bakeries": 1,
+      "per10k": 6.39
+    },
+    {
+      "name": "Villeron",
+      "dept": "95",
+      "pop": 1564,
+      "bakeries": 1,
+      "per10k": 6.39
+    },
+    {
+      "name": "Gargenville",
+      "dept": "78",
+      "pop": 7863,
+      "bakeries": 5,
+      "per10k": 6.36
+    },
+    {
+      "name": "Charny",
+      "dept": "77",
+      "pop": 1575,
+      "bakeries": 1,
+      "per10k": 6.35
+    },
+    {
+      "name": "Jouy-en-Josas",
+      "dept": "78",
+      "pop": 7928,
+      "bakeries": 5,
+      "per10k": 6.31
+    },
+    {
+      "name": "Longjumeau",
+      "dept": "91",
+      "pop": 20620,
+      "bakeries": 13,
+      "per10k": 6.3
+    },
+    {
+      "name": "Mitry-Mory",
+      "dept": "77",
+      "pop": 20627,
+      "bakeries": 13,
+      "per10k": 6.3
+    },
+    {
+      "name": "Crécy-la-Chapelle",
+      "dept": "77",
+      "pop": 4779,
+      "bakeries": 3,
+      "per10k": 6.28
+    },
+    {
+      "name": "Malakoff",
+      "dept": "92",
+      "pop": 30292,
+      "bakeries": 19,
+      "per10k": 6.27
+    },
+    {
+      "name": "Bagneaux-sur-Loing",
+      "dept": "77",
+      "pop": 1595,
+      "bakeries": 1,
+      "per10k": 6.27
+    },
+    {
+      "name": "Argenteuil",
+      "dept": "95",
+      "pop": 107221,
+      "bakeries": 67,
+      "per10k": 6.25
+    },
+    {
+      "name": "Bezons",
+      "dept": "95",
+      "pop": 32017,
+      "bakeries": 20,
+      "per10k": 6.25
+    },
+    {
+      "name": "Esbly",
+      "dept": "77",
+      "pop": 6402,
+      "bakeries": 4,
+      "per10k": 6.25
+    },
+    {
+      "name": "Le Coudray-Montceaux",
+      "dept": "91",
+      "pop": 4814,
+      "bakeries": 3,
+      "per10k": 6.23
+    },
+    {
+      "name": "La Ferté-Gaucher",
+      "dept": "77",
+      "pop": 4820,
+      "bakeries": 3,
+      "per10k": 6.22
+    },
+    {
+      "name": "Deuil-la-Barre",
+      "dept": "95",
+      "pop": 22510,
+      "bakeries": 14,
+      "per10k": 6.22
+    },
+    {
+      "name": "Limours",
+      "dept": "91",
+      "pop": 6431,
+      "bakeries": 4,
+      "per10k": 6.22
+    },
+    {
+      "name": "Arpajon",
+      "dept": "91",
+      "pop": 11281,
+      "bakeries": 7,
+      "per10k": 6.21
+    },
+    {
+      "name": "Montigny-lès-Cormeilles",
+      "dept": "95",
+      "pop": 22603,
+      "bakeries": 14,
+      "per10k": 6.19
+    },
+    {
+      "name": "Bagneux",
+      "dept": "92",
+      "pop": 43699,
+      "bakeries": 27,
+      "per10k": 6.18
+    },
+    {
+      "name": "Dugny",
+      "dept": "93",
+      "pop": 11328,
+      "bakeries": 7,
+      "per10k": 6.18
+    },
+    {
+      "name": "Épinay-sur-Seine",
+      "dept": "93",
+      "pop": 53489,
+      "bakeries": 33,
+      "per10k": 6.17
+    },
+    {
+      "name": "Saint-Nom-la-Bretèche",
+      "dept": "78",
+      "pop": 4886,
+      "bakeries": 3,
+      "per10k": 6.14
+    },
+    {
+      "name": "Bessancourt",
+      "dept": "95",
+      "pop": 8172,
+      "bakeries": 5,
+      "per10k": 6.12
+    },
+    {
+      "name": "Meaux",
+      "dept": "77",
+      "pop": 55616,
+      "bakeries": 34,
+      "per10k": 6.11
+    },
+    {
+      "name": "Boissy-le-Châtel",
+      "dept": "77",
+      "pop": 3285,
+      "bakeries": 2,
+      "per10k": 6.09
+    },
+    {
+      "name": "Montrouge",
+      "dept": "92",
+      "pop": 47657,
+      "bakeries": 29,
+      "per10k": 6.09
+    },
+    {
+      "name": "Colombes",
+      "dept": "92",
+      "pop": 88870,
+      "bakeries": 54,
+      "per10k": 6.08
+    },
+    {
+      "name": "Montfermeil",
+      "dept": "93",
+      "pop": 27980,
+      "bakeries": 17,
+      "per10k": 6.08
+    },
+    {
+      "name": "Noisy-le-Sec",
+      "dept": "93",
+      "pop": 46094,
+      "bakeries": 28,
+      "per10k": 6.07
+    },
+    {
+      "name": "Le Bourget",
+      "dept": "93",
+      "pop": 14832,
+      "bakeries": 9,
+      "per10k": 6.07
+    },
+    {
+      "name": "Andrésy",
+      "dept": "78",
+      "pop": 13230,
+      "bakeries": 8,
+      "per10k": 6.05
+    },
+    {
+      "name": "Mareuil-lès-Meaux",
+      "dept": "77",
+      "pop": 3304,
+      "bakeries": 2,
+      "per10k": 6.05
+    },
+    {
+      "name": "Aulnay-sous-Bois",
+      "dept": "93",
+      "pop": 86135,
+      "bakeries": 52,
+      "per10k": 6.04
+    },
+    {
+      "name": "Meudon",
+      "dept": "92",
+      "pop": 46342,
+      "bakeries": 28,
+      "per10k": 6.04
+    },
+    {
+      "name": "Annet-sur-Marne",
+      "dept": "77",
+      "pop": 3317,
+      "bakeries": 2,
+      "per10k": 6.03
+    },
+    {
+      "name": "Villecresnes",
+      "dept": "94",
+      "pop": 11642,
+      "bakeries": 7,
+      "per10k": 6.01
+    },
+    {
+      "name": "Saint-Rémy-l'Honoré",
+      "dept": "78",
+      "pop": 1668,
+      "bakeries": 1,
+      "per10k": 6.0
+    },
+    {
+      "name": "Saint-Ouen-l'Aumône",
+      "dept": "95",
+      "pop": 25023,
+      "bakeries": 15,
+      "per10k": 5.99
+    },
+    {
+      "name": "Villenoy",
+      "dept": "77",
+      "pop": 5019,
+      "bakeries": 3,
+      "per10k": 5.98
+    },
+    {
+      "name": "La Houssaye-en-Brie",
+      "dept": "77",
+      "pop": 1675,
+      "bakeries": 1,
+      "per10k": 5.97
+    },
+    {
+      "name": "Nanterre",
+      "dept": "92",
+      "pop": 97351,
+      "bakeries": 58,
+      "per10k": 5.96
+    },
+    {
+      "name": "Chaumontel",
+      "dept": "95",
+      "pop": 3356,
+      "bakeries": 2,
+      "per10k": 5.96
+    },
+    {
+      "name": "Saint-Brice-sous-Forêt",
+      "dept": "95",
+      "pop": 15209,
+      "bakeries": 9,
+      "per10k": 5.92
+    },
+    {
+      "name": "Melun",
+      "dept": "77",
+      "pop": 42367,
+      "bakeries": 25,
+      "per10k": 5.9
+    },
+    {
+      "name": "Vaux-sur-Seine",
+      "dept": "78",
+      "pop": 5083,
+      "bakeries": 3,
+      "per10k": 5.9
+    },
+    {
+      "name": "Trilport",
+      "dept": "77",
+      "pop": 5081,
+      "bakeries": 3,
+      "per10k": 5.9
+    },
+    {
+      "name": "Crespières",
+      "dept": "78",
+      "pop": 1702,
+      "bakeries": 1,
+      "per10k": 5.88
+    },
+    {
+      "name": "Nanteuil-lès-Meaux",
+      "dept": "77",
+      "pop": 6800,
+      "bakeries": 4,
+      "per10k": 5.88
+    },
+    {
+      "name": "Chaumes-en-Brie",
+      "dept": "77",
+      "pop": 3401,
+      "bakeries": 2,
+      "per10k": 5.88
+    },
+    {
+      "name": "Saint-Germain-en-Laye",
+      "dept": "78",
+      "pop": 44380,
+      "bakeries": 26,
+      "per10k": 5.86
+    },
+    {
+      "name": "Sartrouville",
+      "dept": "78",
+      "pop": 51220,
+      "bakeries": 30,
+      "per10k": 5.86
+    },
+    {
+      "name": "Mareil-sur-Mauldre",
+      "dept": "78",
+      "pop": 1709,
+      "bakeries": 1,
+      "per10k": 5.85
+    },
+    {
+      "name": "Bouleurs",
+      "dept": "77",
+      "pop": 1720,
+      "bakeries": 1,
+      "per10k": 5.81
+    },
+    {
+      "name": "Villebon-sur-Yvette",
+      "dept": "91",
+      "pop": 10322,
+      "bakeries": 6,
+      "per10k": 5.81
+    },
+    {
+      "name": "Vigneux-sur-Seine",
+      "dept": "91",
+      "pop": 31050,
+      "bakeries": 18,
+      "per10k": 5.8
+    },
+    {
+      "name": "Osny",
+      "dept": "95",
+      "pop": 17277,
+      "bakeries": 10,
+      "per10k": 5.79
+    },
+    {
+      "name": "Champigny-sur-Marne",
+      "dept": "94",
+      "pop": 77724,
+      "bakeries": 45,
+      "per10k": 5.79
+    },
+    {
+      "name": "Angervilliers",
+      "dept": "91",
+      "pop": 1731,
+      "bakeries": 1,
+      "per10k": 5.78
+    },
+    {
+      "name": "Orgeval",
+      "dept": "78",
+      "pop": 6948,
+      "bakeries": 4,
+      "per10k": 5.76
+    },
+    {
+      "name": "Saint-Gratien",
+      "dept": "95",
+      "pop": 20866,
+      "bakeries": 12,
+      "per10k": 5.75
+    },
+    {
+      "name": "Mériel",
+      "dept": "95",
+      "pop": 5213,
+      "bakeries": 3,
+      "per10k": 5.75
+    },
+    {
+      "name": "Chavenay",
+      "dept": "78",
+      "pop": 1746,
+      "bakeries": 1,
+      "per10k": 5.73
+    },
+    {
+      "name": "Monthyon",
+      "dept": "77",
+      "pop": 1749,
+      "bakeries": 1,
+      "per10k": 5.72
+    },
+    {
+      "name": "Chelles",
+      "dept": "77",
+      "pop": 54309,
+      "bakeries": 31,
+      "per10k": 5.71
+    },
+    {
+      "name": "Romainville",
+      "dept": "93",
+      "pop": 33266,
+      "bakeries": 19,
+      "per10k": 5.71
+    },
+    {
+      "name": "Linas",
+      "dept": "91",
+      "pop": 7032,
+      "bakeries": 4,
+      "per10k": 5.69
+    },
+    {
+      "name": "Boulogne-Billancourt",
+      "dept": "92",
+      "pop": 119808,
+      "bakeries": 68,
+      "per10k": 5.68
+    },
+    {
+      "name": "Houilles",
+      "dept": "78",
+      "pop": 33449,
+      "bakeries": 19,
+      "per10k": 5.68
+    },
+    {
+      "name": "Vert-Saint-Denis",
+      "dept": "77",
+      "pop": 8822,
+      "bakeries": 5,
+      "per10k": 5.67
+    },
+    {
+      "name": "Lagny-sur-Marne",
+      "dept": "77",
+      "pop": 21191,
+      "bakeries": 12,
+      "per10k": 5.66
+    },
+    {
+      "name": "Congis-sur-Thérouanne",
+      "dept": "77",
+      "pop": 1772,
+      "bakeries": 1,
+      "per10k": 5.64
+    },
+    {
+      "name": "Saint-Leu-la-Forêt",
+      "dept": "95",
+      "pop": 15979,
+      "bakeries": 9,
+      "per10k": 5.63
+    },
+    {
+      "name": "Achères",
+      "dept": "78",
+      "pop": 21368,
+      "bakeries": 12,
+      "per10k": 5.62
+    },
+    {
+      "name": "Savigny-sur-Orge",
+      "dept": "91",
+      "pop": 37371,
+      "bakeries": 21,
+      "per10k": 5.62
+    },
+    {
+      "name": "Ville-d'Avray",
+      "dept": "92",
+      "pop": 10694,
+      "bakeries": 6,
+      "per10k": 5.61
+    },
+    {
+      "name": "Mantes-la-Ville",
+      "dept": "78",
+      "pop": 21376,
+      "bakeries": 12,
+      "per10k": 5.61
+    },
+    {
+      "name": "Levallois-Perret",
+      "dept": "92",
+      "pop": 68009,
+      "bakeries": 38,
+      "per10k": 5.59
+    },
+    {
+      "name": "Yerres",
+      "dept": "91",
+      "pop": 28699,
+      "bakeries": 16,
+      "per10k": 5.58
+    },
+    {
+      "name": "Bruyères-le-Châtel",
+      "dept": "91",
+      "pop": 3584,
+      "bakeries": 2,
+      "per10k": 5.58
+    },
+    {
+      "name": "Villiers-le-Bel",
+      "dept": "95",
+      "pop": 28836,
+      "bakeries": 16,
+      "per10k": 5.55
+    },
+    {
+      "name": "Goussainville",
+      "dept": "95",
+      "pop": 30693,
+      "bakeries": 17,
+      "per10k": 5.54
+    },
+    {
+      "name": "Crouy-sur-Ourcq",
+      "dept": "77",
+      "pop": 1808,
+      "bakeries": 1,
+      "per10k": 5.53
+    },
+    {
+      "name": "Clamart",
+      "dept": "92",
+      "pop": 54491,
+      "bakeries": 30,
+      "per10k": 5.51
+    },
+    {
+      "name": "Poissy",
+      "dept": "78",
+      "pop": 40016,
+      "bakeries": 22,
+      "per10k": 5.5
+    },
+    {
+      "name": "Lisses",
+      "dept": "91",
+      "pop": 7292,
+      "bakeries": 4,
+      "per10k": 5.49
+    },
+    {
+      "name": "Maincy",
+      "dept": "77",
+      "pop": 1833,
+      "bakeries": 1,
+      "per10k": 5.46
+    },
+    {
+      "name": "L'Haÿ-les-Roses",
+      "dept": "94",
+      "pop": 31392,
+      "bakeries": 17,
+      "per10k": 5.42
+    },
+    {
+      "name": "Varennes-sur-Seine",
+      "dept": "77",
+      "pop": 3688,
+      "bakeries": 2,
+      "per10k": 5.42
+    },
+    {
+      "name": "Boissise-le-Roi",
+      "dept": "77",
+      "pop": 3700,
+      "bakeries": 2,
+      "per10k": 5.41
+    },
+    {
+      "name": "Chevilly-Larue",
+      "dept": "94",
+      "pop": 20326,
+      "bakeries": 11,
+      "per10k": 5.41
+    },
+    {
+      "name": "Saint-Cloud",
+      "dept": "92",
+      "pop": 29727,
+      "bakeries": 16,
+      "per10k": 5.38
+    },
+    {
+      "name": "Les Pavillons-sous-Bois",
+      "dept": "93",
+      "pop": 24165,
+      "bakeries": 13,
+      "per10k": 5.38
+    },
+    {
+      "name": "Maurepas",
+      "dept": "78",
+      "pop": 18611,
+      "bakeries": 10,
+      "per10k": 5.37
+    },
+    {
+      "name": "La Celle-Saint-Cloud",
+      "dept": "78",
+      "pop": 20476,
+      "bakeries": 11,
+      "per10k": 5.37
+    },
+    {
+      "name": "Vanves",
+      "dept": "92",
+      "pop": 28014,
+      "bakeries": 15,
+      "per10k": 5.35
+    },
+    {
+      "name": "Villeneuve-le-Comte",
+      "dept": "77",
+      "pop": 1870,
+      "bakeries": 1,
+      "per10k": 5.35
+    },
+    {
+      "name": "Le Port-Marly",
+      "dept": "78",
+      "pop": 5608,
+      "bakeries": 3,
+      "per10k": 5.35
+    },
+    {
+      "name": "Le Pré-Saint-Gervais",
+      "dept": "93",
+      "pop": 16865,
+      "bakeries": 9,
+      "per10k": 5.34
+    },
+    {
+      "name": "Magny-les-Hameaux",
+      "dept": "78",
+      "pop": 9385,
+      "bakeries": 5,
+      "per10k": 5.33
+    },
+    {
+      "name": "Dammartin-en-Goële",
+      "dept": "77",
+      "pop": 11272,
+      "bakeries": 6,
+      "per10k": 5.32
+    },
+    {
+      "name": "Sarcelles",
+      "dept": "95",
+      "pop": 58424,
+      "bakeries": 31,
+      "per10k": 5.31
+    },
+    {
+      "name": "Bourg-la-Reine",
+      "dept": "92",
+      "pop": 20810,
+      "bakeries": 11,
+      "per10k": 5.29
+    },
+    {
+      "name": "Baillet-en-France",
+      "dept": "95",
+      "pop": 1893,
+      "bakeries": 1,
+      "per10k": 5.28
+    },
+    {
+      "name": "Les Molières",
+      "dept": "91",
+      "pop": 1896,
+      "bakeries": 1,
+      "per10k": 5.27
+    },
+    {
+      "name": "Beynes",
+      "dept": "78",
+      "pop": 7617,
+      "bakeries": 4,
+      "per10k": 5.25
+    },
+    {
+      "name": "Noisy-le-Roi",
+      "dept": "78",
+      "pop": 7631,
+      "bakeries": 4,
+      "per10k": 5.24
+    },
+    {
+      "name": "Chambourcy",
+      "dept": "78",
+      "pop": 5736,
+      "bakeries": 3,
+      "per10k": 5.23
+    },
+    {
+      "name": "Mareil-Marly",
+      "dept": "78",
+      "pop": 3826,
+      "bakeries": 2,
+      "per10k": 5.23
+    },
+    {
+      "name": "Bullion",
+      "dept": "78",
+      "pop": 1914,
+      "bakeries": 1,
+      "per10k": 5.22
+    },
+    {
+      "name": "Ézanville",
+      "dept": "95",
+      "pop": 9573,
+      "bakeries": 5,
+      "per10k": 5.22
+    },
+    {
+      "name": "Saint-Mard",
+      "dept": "77",
+      "pop": 3847,
+      "bakeries": 2,
+      "per10k": 5.2
+    },
+    {
+      "name": "Montcourt-Fromonville",
+      "dept": "77",
+      "pop": 1925,
+      "bakeries": 1,
+      "per10k": 5.19
+    },
+    {
+      "name": "Noisiel",
+      "dept": "77",
+      "pop": 15461,
+      "bakeries": 8,
+      "per10k": 5.17
+    },
+    {
+      "name": "Bry-sur-Marne",
+      "dept": "94",
+      "pop": 17400,
+      "bakeries": 9,
+      "per10k": 5.17
+    },
+    {
+      "name": "Saint-Rémy-lès-Chevreuse",
+      "dept": "78",
+      "pop": 7747,
+      "bakeries": 4,
+      "per10k": 5.16
+    },
+    {
+      "name": "Ballancourt-sur-Essonne",
+      "dept": "91",
+      "pop": 7757,
+      "bakeries": 4,
+      "per10k": 5.16
+    },
+    {
+      "name": "Courbevoie",
+      "dept": "92",
+      "pop": 81516,
+      "bakeries": 42,
+      "per10k": 5.15
+    },
+    {
+      "name": "Rueil-Malmaison",
+      "dept": "92",
+      "pop": 78186,
+      "bakeries": 40,
+      "per10k": 5.12
+    },
+    {
+      "name": "Avon",
+      "dept": "77",
+      "pop": 13660,
+      "bakeries": 7,
+      "per10k": 5.12
+    },
+    {
+      "name": "Saint-Cyr-sur-Morin",
+      "dept": "77",
+      "pop": 1954,
+      "bakeries": 1,
+      "per10k": 5.12
+    },
+    {
+      "name": "Limay",
+      "dept": "78",
+      "pop": 17626,
+      "bakeries": 9,
+      "per10k": 5.11
+    },
+    {
+      "name": "Paray-Vieille-Poste",
+      "dept": "91",
+      "pop": 7868,
+      "bakeries": 4,
+      "per10k": 5.08
+    },
+    {
+      "name": "L'Isle-Adam",
+      "dept": "95",
+      "pop": 11846,
+      "bakeries": 6,
+      "per10k": 5.07
+    },
+    {
+      "name": "Auffargis",
+      "dept": "78",
+      "pop": 1974,
+      "bakeries": 1,
+      "per10k": 5.07
+    },
+    {
+      "name": "Herblay-sur-Seine",
+      "dept": "95",
+      "pop": 31605,
+      "bakeries": 16,
+      "per10k": 5.06
+    },
+    {
+      "name": "Rosny-sous-Bois",
+      "dept": "93",
+      "pop": 45655,
+      "bakeries": 23,
+      "per10k": 5.04
+    },
+    {
+      "name": "Versailles",
+      "dept": "78",
+      "pop": 83587,
+      "bakeries": 42,
+      "per10k": 5.02
+    },
+    {
+      "name": "Fontenay-sous-Bois",
+      "dept": "94",
+      "pop": 51812,
+      "bakeries": 26,
+      "per10k": 5.02
+    },
+    {
+      "name": "La Garenne-Colombes",
+      "dept": "92",
+      "pop": 29932,
+      "bakeries": 15,
+      "per10k": 5.01
+    },
+    {
+      "name": "Maule",
+      "dept": "78",
+      "pop": 6024,
+      "bakeries": 3,
+      "per10k": 4.98
+    },
+    {
+      "name": "Samois-sur-Seine",
+      "dept": "77",
+      "pop": 2010,
+      "bakeries": 1,
+      "per10k": 4.98
+    },
+    {
+      "name": "Louvres",
+      "dept": "95",
+      "pop": 12083,
+      "bakeries": 6,
+      "per10k": 4.97
+    },
+    {
+      "name": "Le Mée-sur-Seine",
+      "dept": "77",
+      "pop": 20207,
+      "bakeries": 10,
+      "per10k": 4.95
+    },
+    {
+      "name": "Juilly",
+      "dept": "77",
+      "pop": 2020,
+      "bakeries": 1,
+      "per10k": 4.95
+    },
+    {
+      "name": "Soignolles-en-Brie",
+      "dept": "77",
+      "pop": 2026,
+      "bakeries": 1,
+      "per10k": 4.94
+    },
+    {
+      "name": "Boissy-l'Aillerie",
+      "dept": "95",
+      "pop": 2024,
+      "bakeries": 1,
+      "per10k": 4.94
+    },
+    {
+      "name": "Montsoult",
+      "dept": "95",
+      "pop": 4068,
+      "bakeries": 2,
+      "per10k": 4.92
+    },
+    {
+      "name": "Perthes",
+      "dept": "77",
+      "pop": 2040,
+      "bakeries": 1,
+      "per10k": 4.9
+    },
+    {
+      "name": "Suresnes",
+      "dept": "92",
+      "pop": 49104,
+      "bakeries": 24,
+      "per10k": 4.89
+    },
+    {
+      "name": "Claye-Souilly",
+      "dept": "77",
+      "pop": 12282,
+      "bakeries": 6,
+      "per10k": 4.89
+    },
+    {
+      "name": "Villiers-sur-Morin",
+      "dept": "77",
+      "pop": 2048,
+      "bakeries": 1,
+      "per10k": 4.88
+    },
+    {
+      "name": "Villeparisis",
+      "dept": "77",
+      "pop": 26822,
+      "bakeries": 13,
+      "per10k": 4.85
+    },
+    {
+      "name": "Vélizy-Villacoublay",
+      "dept": "78",
+      "pop": 22713,
+      "bakeries": 11,
+      "per10k": 4.84
+    },
+    {
+      "name": "Vauhallan",
+      "dept": "91",
+      "pop": 2066,
+      "bakeries": 1,
+      "per10k": 4.84
+    },
+    {
+      "name": "Valenton",
+      "dept": "94",
+      "pop": 14482,
+      "bakeries": 7,
+      "per10k": 4.83
+    },
+    {
+      "name": "Viry-Châtillon",
+      "dept": "91",
+      "pop": 31045,
+      "bakeries": 15,
+      "per10k": 4.83
+    },
+    {
+      "name": "Neuville-sur-Oise",
+      "dept": "95",
+      "pop": 2070,
+      "bakeries": 1,
+      "per10k": 4.83
+    },
+    {
+      "name": "Dammarie-les-Lys",
+      "dept": "77",
+      "pop": 22845,
+      "bakeries": 11,
+      "per10k": 4.82
+    },
+    {
+      "name": "Bouray-sur-Juine",
+      "dept": "91",
+      "pop": 2080,
+      "bakeries": 1,
+      "per10k": 4.81
+    },
+    {
+      "name": "Saint-Thibault-des-Vignes",
+      "dept": "77",
+      "pop": 6266,
+      "bakeries": 3,
+      "per10k": 4.79
+    },
+    {
+      "name": "Maisons-Laffitte",
+      "dept": "78",
+      "pop": 23080,
+      "bakeries": 11,
+      "per10k": 4.77
+    },
+    {
+      "name": "Le Plessis-Bouchard",
+      "dept": "95",
+      "pop": 8393,
+      "bakeries": 4,
+      "per10k": 4.77
+    },
+    {
+      "name": "Survilliers",
+      "dept": "95",
+      "pop": 4216,
+      "bakeries": 2,
+      "per10k": 4.74
+    },
+    {
+      "name": "Villetaneuse",
+      "dept": "93",
+      "pop": 12663,
+      "bakeries": 6,
+      "per10k": 4.74
+    },
+    {
+      "name": "Gagny",
+      "dept": "93",
+      "pop": 40189,
+      "bakeries": 19,
+      "per10k": 4.73
+    },
+    {
+      "name": "Villeneuve-le-Roi",
+      "dept": "94",
+      "pop": 21129,
+      "bakeries": 10,
+      "per10k": 4.73
+    },
+    {
+      "name": "Viroflay",
+      "dept": "78",
+      "pop": 16960,
+      "bakeries": 8,
+      "per10k": 4.72
+    },
+    {
+      "name": "Saint-Pathus",
+      "dept": "77",
+      "pop": 6358,
+      "bakeries": 3,
+      "per10k": 4.72
+    },
+    {
+      "name": "Varreddes",
+      "dept": "77",
+      "pop": 2121,
+      "bakeries": 1,
+      "per10k": 4.71
+    },
+    {
+      "name": "Guerville",
+      "dept": "78",
+      "pop": 2124,
+      "bakeries": 1,
+      "per10k": 4.71
+    },
+    {
+      "name": "Bonnelles",
+      "dept": "78",
+      "pop": 2123,
+      "bakeries": 1,
+      "per10k": 4.71
+    },
+    {
+      "name": "Gretz-Armainvilliers",
+      "dept": "77",
+      "pop": 8556,
+      "bakeries": 4,
+      "per10k": 4.68
+    },
+    {
+      "name": "Longpont-sur-Orge",
+      "dept": "91",
+      "pop": 6417,
+      "bakeries": 3,
+      "per10k": 4.68
+    },
+    {
+      "name": "Garges-lès-Gonesse",
+      "dept": "95",
+      "pop": 42841,
+      "bakeries": 20,
+      "per10k": 4.67
+    },
+    {
+      "name": "Vaucresson",
+      "dept": "92",
+      "pop": 8566,
+      "bakeries": 4,
+      "per10k": 4.67
+    },
+    {
+      "name": "Villepinte",
+      "dept": "93",
+      "pop": 38725,
+      "bakeries": 18,
+      "per10k": 4.65
+    },
+    {
+      "name": "Leuville-sur-Orge",
+      "dept": "91",
+      "pop": 4304,
+      "bakeries": 2,
+      "per10k": 4.65
+    },
+    {
+      "name": "Pontcarré",
+      "dept": "77",
+      "pop": 2156,
+      "bakeries": 1,
+      "per10k": 4.64
+    },
+    {
+      "name": "Tigery",
+      "dept": "91",
+      "pop": 4318,
+      "bakeries": 2,
+      "per10k": 4.63
+    },
+    {
+      "name": "Montgeron",
+      "dept": "91",
+      "pop": 23800,
+      "bakeries": 11,
+      "per10k": 4.62
+    },
+    {
+      "name": "Montlhéry",
+      "dept": "91",
+      "pop": 8670,
+      "bakeries": 4,
+      "per10k": 4.61
+    },
+    {
+      "name": "Follainville-Dennemont",
+      "dept": "78",
+      "pop": 2173,
+      "bakeries": 1,
+      "per10k": 4.6
+    },
+    {
+      "name": "Palaiseau",
+      "dept": "91",
+      "pop": 34893,
+      "bakeries": 16,
+      "per10k": 4.59
+    },
+    {
+      "name": "Maurecourt",
+      "dept": "78",
+      "pop": 4355,
+      "bakeries": 2,
+      "per10k": 4.59
+    },
+    {
+      "name": "Le Perray-en-Yvelines",
+      "dept": "78",
+      "pop": 6543,
+      "bakeries": 3,
+      "per10k": 4.59
+    },
+    {
+      "name": "Bouffémont",
+      "dept": "95",
+      "pop": 6584,
+      "bakeries": 3,
+      "per10k": 4.56
+    },
+    {
+      "name": "Boissy-Saint-Léger",
+      "dept": "94",
+      "pop": 17570,
+      "bakeries": 8,
+      "per10k": 4.55
+    },
+    {
+      "name": "Itteville",
+      "dept": "91",
+      "pop": 6603,
+      "bakeries": 3,
+      "per10k": 4.54
+    },
+    {
+      "name": "Guignes",
+      "dept": "77",
+      "pop": 4414,
+      "bakeries": 2,
+      "per10k": 4.53
+    },
+    {
+      "name": "Étampes",
+      "dept": "91",
+      "pop": 26529,
+      "bakeries": 12,
+      "per10k": 4.52
+    },
+    {
+      "name": "Jouy-sur-Morin",
+      "dept": "77",
+      "pop": 2212,
+      "bakeries": 1,
+      "per10k": 4.52
+    },
+    {
+      "name": "Bouafle",
+      "dept": "78",
+      "pop": 2213,
+      "bakeries": 1,
+      "per10k": 4.52
+    },
+    {
+      "name": "Livry-sur-Seine",
+      "dept": "77",
+      "pop": 2215,
+      "bakeries": 1,
+      "per10k": 4.51
+    },
+    {
+      "name": "Belloy-en-France",
+      "dept": "95",
+      "pop": 2228,
+      "bakeries": 1,
+      "per10k": 4.49
+    },
+    {
+      "name": "Cormeilles-en-Parisis",
+      "dept": "95",
+      "pop": 26741,
+      "bakeries": 12,
+      "per10k": 4.49
+    },
+    {
+      "name": "Villepreux",
+      "dept": "78",
+      "pop": 11150,
+      "bakeries": 5,
+      "per10k": 4.48
+    },
+    {
+      "name": "Vaux-le-Pénil",
+      "dept": "77",
+      "pop": 11174,
+      "bakeries": 5,
+      "per10k": 4.47
+    },
+    {
+      "name": "Nozay",
+      "dept": "91",
+      "pop": 4482,
+      "bakeries": 2,
+      "per10k": 4.46
+    },
+    {
+      "name": "Le Blanc-Mesnil",
+      "dept": "93",
+      "pop": 58257,
+      "bakeries": 26,
+      "per10k": 4.46
+    },
+    {
+      "name": "Trappes",
+      "dept": "78",
+      "pop": 33717,
+      "bakeries": 15,
+      "per10k": 4.45
+    },
+    {
+      "name": "Auvers-sur-Oise",
+      "dept": "95",
+      "pop": 6763,
+      "bakeries": 3,
+      "per10k": 4.44
+    },
+    {
+      "name": "Les Essarts-le-Roi",
+      "dept": "78",
+      "pop": 6775,
+      "bakeries": 3,
+      "per10k": 4.43
+    },
+    {
+      "name": "Meulan-en-Yvelines",
+      "dept": "78",
+      "pop": 9041,
+      "bakeries": 4,
+      "per10k": 4.42
+    },
+    {
+      "name": "Verneuil-sur-Seine",
+      "dept": "78",
+      "pop": 15914,
+      "bakeries": 7,
+      "per10k": 4.4
+    },
+    {
+      "name": "Grigny",
+      "dept": "91",
+      "pop": 27257,
+      "bakeries": 12,
+      "per10k": 4.4
+    },
+    {
+      "name": "Septeuil",
+      "dept": "78",
+      "pop": 2272,
+      "bakeries": 1,
+      "per10k": 4.4
+    },
+    {
+      "name": "Issy-les-Moulineaux",
+      "dept": "92",
+      "pop": 68580,
+      "bakeries": 30,
+      "per10k": 4.37
+    },
+    {
+      "name": "Étréchy",
+      "dept": "91",
+      "pop": 6866,
+      "bakeries": 3,
+      "per10k": 4.37
+    },
+    {
+      "name": "Mézy-sur-Seine",
+      "dept": "78",
+      "pop": 2287,
+      "bakeries": 1,
+      "per10k": 4.37
+    },
+    {
+      "name": "Varennes-Jarcy",
+      "dept": "91",
+      "pop": 2296,
+      "bakeries": 1,
+      "per10k": 4.36
+    },
+    {
+      "name": "Chessy",
+      "dept": "77",
+      "pop": 6875,
+      "bakeries": 3,
+      "per10k": 4.36
+    },
+    {
+      "name": "Courtry",
+      "dept": "77",
+      "pop": 6885,
+      "bakeries": 3,
+      "per10k": 4.36
+    },
+    {
+      "name": "Châtillon",
+      "dept": "92",
+      "pop": 36777,
+      "bakeries": 16,
+      "per10k": 4.35
+    },
+    {
+      "name": "Domont",
+      "dept": "95",
+      "pop": 16078,
+      "bakeries": 7,
+      "per10k": 4.35
+    },
+    {
+      "name": "Fontenay-lès-Briis",
+      "dept": "91",
+      "pop": 2297,
+      "bakeries": 1,
+      "per10k": 4.35
+    },
+    {
+      "name": "Villeneuve-la-Garenne",
+      "dept": "92",
+      "pop": 25371,
+      "bakeries": 11,
+      "per10k": 4.34
+    },
+    {
+      "name": "Eaubonne",
+      "dept": "95",
+      "pop": 25373,
+      "bakeries": 11,
+      "per10k": 4.34
+    },
+    {
+      "name": "Villejuif",
+      "dept": "94",
+      "pop": 57753,
+      "bakeries": 25,
+      "per10k": 4.33
+    },
+    {
+      "name": "La Frette-sur-Seine",
+      "dept": "95",
+      "pop": 4621,
+      "bakeries": 2,
+      "per10k": 4.33
+    },
+    {
+      "name": "Presles-en-Brie",
+      "dept": "77",
+      "pop": 2313,
+      "bakeries": 1,
+      "per10k": 4.32
+    },
+    {
+      "name": "Montévrain",
+      "dept": "77",
+      "pop": 13934,
+      "bakeries": 6,
+      "per10k": 4.31
+    },
+    {
+      "name": "Châtenay-Malabry",
+      "dept": "92",
+      "pop": 34898,
+      "bakeries": 15,
+      "per10k": 4.3
+    },
+    {
+      "name": "Wissous",
+      "dept": "91",
+      "pop": 6991,
+      "bakeries": 3,
+      "per10k": 4.29
+    },
+    {
+      "name": "Saint-Pierre-du-Perray",
+      "dept": "91",
+      "pop": 11680,
+      "bakeries": 5,
+      "per10k": 4.28
+    },
+    {
+      "name": "Bonneuil-sur-Marne",
+      "dept": "94",
+      "pop": 18750,
+      "bakeries": 8,
+      "per10k": 4.27
+    },
+    {
+      "name": "Marolles-en-Brie",
+      "dept": "94",
+      "pop": 4689,
+      "bakeries": 2,
+      "per10k": 4.27
+    },
+    {
+      "name": "Villiers-sur-Marne",
+      "dept": "94",
+      "pop": 30669,
+      "bakeries": 13,
+      "per10k": 4.24
+    },
+    {
+      "name": "Quincy-sous-Sénart",
+      "dept": "91",
+      "pop": 9477,
+      "bakeries": 4,
+      "per10k": 4.22
+    },
+    {
+      "name": "Ballainvilliers",
+      "dept": "91",
+      "pop": 4752,
+      "bakeries": 2,
+      "per10k": 4.21
+    },
+    {
+      "name": "Saint-Michel-sur-Orge",
+      "dept": "91",
+      "pop": 21437,
+      "bakeries": 9,
+      "per10k": 4.2
+    },
+    {
+      "name": "Ennery",
+      "dept": "95",
+      "pop": 2383,
+      "bakeries": 1,
+      "per10k": 4.2
+    },
+    {
+      "name": "Nogent-sur-Marne",
+      "dept": "94",
+      "pop": 33472,
+      "bakeries": 14,
+      "per10k": 4.18
+    },
+    {
+      "name": "Fresnes",
+      "dept": "94",
+      "pop": 28780,
+      "bakeries": 12,
+      "per10k": 4.17
+    },
+    {
+      "name": "Brie-Comte-Robert",
+      "dept": "77",
+      "pop": 19213,
+      "bakeries": 8,
+      "per10k": 4.16
+    },
+    {
+      "name": "Athis-Mons",
+      "dept": "91",
+      "pop": 36222,
+      "bakeries": 15,
+      "per10k": 4.14
+    },
+    {
+      "name": "Plaisir",
+      "dept": "78",
+      "pop": 31375,
+      "bakeries": 13,
+      "per10k": 4.14
+    },
+    {
+      "name": "Saint-Witz",
+      "dept": "95",
+      "pop": 2419,
+      "bakeries": 1,
+      "per10k": 4.13
+    },
+    {
+      "name": "Flins-sur-Seine",
+      "dept": "78",
+      "pop": 2424,
+      "bakeries": 1,
+      "per10k": 4.13
+    },
+    {
+      "name": "Serris",
+      "dept": "77",
+      "pop": 9706,
+      "bakeries": 4,
+      "per10k": 4.12
+    },
+    {
+      "name": "Samoreau",
+      "dept": "77",
+      "pop": 2426,
+      "bakeries": 1,
+      "per10k": 4.12
+    },
+    {
+      "name": "Draveil",
+      "dept": "91",
+      "pop": 29173,
+      "bakeries": 12,
+      "per10k": 4.11
+    },
+    {
+      "name": "Verrières-le-Buisson",
+      "dept": "91",
+      "pop": 14597,
+      "bakeries": 6,
+      "per10k": 4.11
+    },
+    {
+      "name": "Luzarches",
+      "dept": "95",
+      "pop": 4867,
+      "bakeries": 2,
+      "per10k": 4.11
+    },
+    {
+      "name": "Soisy-sur-Seine",
+      "dept": "91",
+      "pop": 7322,
+      "bakeries": 3,
+      "per10k": 4.1
+    },
+    {
+      "name": "Taverny",
+      "dept": "95",
+      "pop": 27025,
+      "bakeries": 11,
+      "per10k": 4.07
+    },
+    {
+      "name": "Aubergenville",
+      "dept": "78",
+      "pop": 12317,
+      "bakeries": 5,
+      "per10k": 4.06
+    },
+    {
+      "name": "Chatou",
+      "dept": "78",
+      "pop": 29649,
+      "bakeries": 12,
+      "per10k": 4.05
+    },
+    {
+      "name": "Sevran",
+      "dept": "93",
+      "pop": 51845,
+      "bakeries": 21,
+      "per10k": 4.05
+    },
+    {
+      "name": "Saint-Prix",
+      "dept": "95",
+      "pop": 7404,
+      "bakeries": 3,
+      "per10k": 4.05
+    },
+    {
+      "name": "Fosses",
+      "dept": "95",
+      "pop": 9929,
+      "bakeries": 4,
+      "per10k": 4.03
+    },
+    {
+      "name": "Brou-sur-Chantereine",
+      "dept": "77",
+      "pop": 4992,
+      "bakeries": 2,
+      "per10k": 4.01
+    },
+    {
+      "name": "Franconville",
+      "dept": "95",
+      "pop": 37520,
+      "bakeries": 15,
+      "per10k": 4.0
+    },
+    {
+      "name": "Chaville",
+      "dept": "92",
+      "pop": 19991,
+      "bakeries": 8,
+      "per10k": 4.0
+    },
+    {
+      "name": "Pierrelaye",
+      "dept": "95",
+      "pop": 9998,
+      "bakeries": 4,
+      "per10k": 4.0
+    },
+    {
+      "name": "Cergy",
+      "dept": "95",
+      "pop": 68348,
+      "bakeries": 27,
+      "per10k": 3.95
+    },
+    {
+      "name": "Cachan",
+      "dept": "94",
+      "pop": 30592,
+      "bakeries": 12,
+      "per10k": 3.92
+    },
+    {
+      "name": "Roissy-en-Brie",
+      "dept": "77",
+      "pop": 23061,
+      "bakeries": 9,
+      "per10k": 3.9
+    },
+    {
+      "name": "Ormoy",
+      "dept": "91",
+      "pop": 2568,
+      "bakeries": 1,
+      "per10k": 3.89
+    },
+    {
+      "name": "Soisy-sous-Montmorency",
+      "dept": "95",
+      "pop": 18008,
+      "bakeries": 7,
+      "per10k": 3.89
+    },
+    {
+      "name": "Créteil",
+      "dept": "94",
+      "pop": 92989,
+      "bakeries": 36,
+      "per10k": 3.87
+    },
+    {
+      "name": "Ozoir-la-Ferrière",
+      "dept": "77",
+      "pop": 20692,
+      "bakeries": 8,
+      "per10k": 3.87
+    },
+    {
+      "name": "Croissy-sur-Seine",
+      "dept": "78",
+      "pop": 10399,
+      "bakeries": 4,
+      "per10k": 3.85
+    },
+    {
+      "name": "Moissy-Cramayel",
+      "dept": "77",
+      "pop": 18248,
+      "bakeries": 7,
+      "per10k": 3.84
+    },
+    {
+      "name": "Saint-Chéron",
+      "dept": "91",
+      "pop": 5220,
+      "bakeries": 2,
+      "per10k": 3.83
+    },
+    {
+      "name": "Montigny-sur-Loing",
+      "dept": "77",
+      "pop": 2621,
+      "bakeries": 1,
+      "per10k": 3.82
+    },
+    {
+      "name": "Ormesson-sur-Marne",
+      "dept": "94",
+      "pop": 10540,
+      "bakeries": 4,
+      "per10k": 3.8
+    },
+    {
+      "name": "Le Pecq",
+      "dept": "78",
+      "pop": 15832,
+      "bakeries": 6,
+      "per10k": 3.79
+    },
+    {
+      "name": "Montigny-le-Bretonneux",
+      "dept": "78",
+      "pop": 31777,
+      "bakeries": 12,
+      "per10k": 3.78
+    },
+    {
+      "name": "Guérard",
+      "dept": "77",
+      "pop": 2655,
+      "bakeries": 1,
+      "per10k": 3.77
+    },
+    {
+      "name": "Ollainville",
+      "dept": "91",
+      "pop": 5314,
+      "bakeries": 2,
+      "per10k": 3.76
+    },
+    {
+      "name": "Saint-Martin-du-Tertre",
+      "dept": "95",
+      "pop": 2663,
+      "bakeries": 1,
+      "per10k": 3.76
+    },
+    {
+      "name": "Boussy-Saint-Antoine",
+      "dept": "91",
+      "pop": 7980,
+      "bakeries": 3,
+      "per10k": 3.76
+    },
+    {
+      "name": "Cannes-Écluse",
+      "dept": "77",
+      "pop": 2659,
+      "bakeries": 1,
+      "per10k": 3.76
+    },
+    {
+      "name": "Longperrier",
+      "dept": "77",
+      "pop": 2669,
+      "bakeries": 1,
+      "per10k": 3.75
+    },
+    {
+      "name": "Crégy-lès-Meaux",
+      "dept": "77",
+      "pop": 5354,
+      "bakeries": 2,
+      "per10k": 3.74
+    },
+    {
+      "name": "Vauréal",
+      "dept": "95",
+      "pop": 16034,
+      "bakeries": 6,
+      "per10k": 3.74
+    },
+    {
+      "name": "Chanteloup-les-Vignes",
+      "dept": "78",
+      "pop": 10735,
+      "bakeries": 4,
+      "per10k": 3.73
+    },
+    {
+      "name": "Fontenay-le-Fleury",
+      "dept": "78",
+      "pop": 13455,
+      "bakeries": 5,
+      "per10k": 3.72
+    },
+    {
+      "name": "Viarmes",
+      "dept": "95",
+      "pop": 5386,
+      "bakeries": 2,
+      "per10k": 3.71
+    },
+    {
+      "name": "Ris-Orangis",
+      "dept": "91",
+      "pop": 29825,
+      "bakeries": 11,
+      "per10k": 3.69
+    },
+    {
+      "name": "Saint-Pierre-lès-Nemours",
+      "dept": "77",
+      "pop": 5416,
+      "bakeries": 2,
+      "per10k": 3.69
+    },
+    {
+      "name": "Le Kremlin-Bicêtre",
+      "dept": "94",
+      "pop": 24380,
+      "bakeries": 9,
+      "per10k": 3.69
+    },
+    {
+      "name": "Roissy-en-France",
+      "dept": "95",
+      "pop": 2738,
+      "bakeries": 1,
+      "per10k": 3.65
+    },
+    {
+      "name": "Vert-le-Petit",
+      "dept": "91",
+      "pop": 2749,
+      "bakeries": 1,
+      "per10k": 3.64
+    },
+    {
+      "name": "Évry-Courcouronnes",
+      "dept": "91",
+      "pop": 66177,
+      "bakeries": 24,
+      "per10k": 3.63
+    },
+    {
+      "name": "Lieusaint",
+      "dept": "77",
+      "pop": 13808,
+      "bakeries": 5,
+      "per10k": 3.62
+    },
+    {
+      "name": "Combs-la-Ville",
+      "dept": "77",
+      "pop": 22240,
+      "bakeries": 8,
+      "per10k": 3.6
+    },
+    {
+      "name": "Tournan-en-Brie",
+      "dept": "77",
+      "pop": 8340,
+      "bakeries": 3,
+      "per10k": 3.6
+    },
+    {
+      "name": "Cesson",
+      "dept": "77",
+      "pop": 11140,
+      "bakeries": 4,
+      "per10k": 3.59
+    },
+    {
+      "name": "Persan",
+      "dept": "95",
+      "pop": 13996,
+      "bakeries": 5,
+      "per10k": 3.57
+    },
+    {
+      "name": "Groslay",
+      "dept": "95",
+      "pop": 8416,
+      "bakeries": 3,
+      "per10k": 3.56
+    },
+    {
+      "name": "Massy",
+      "dept": "91",
+      "pop": 50962,
+      "bakeries": 18,
+      "per10k": 3.53
+    },
+    {
+      "name": "Marolles-en-Hurepoix",
+      "dept": "91",
+      "pop": 5667,
+      "bakeries": 2,
+      "per10k": 3.53
+    },
+    {
+      "name": "Chilly-Mazarin",
+      "dept": "91",
+      "pop": 19938,
+      "bakeries": 7,
+      "per10k": 3.51
+    },
+    {
+      "name": "Vémars",
+      "dept": "95",
+      "pop": 2848,
+      "bakeries": 1,
+      "per10k": 3.51
+    },
+    {
+      "name": "Champs-sur-Marne",
+      "dept": "77",
+      "pop": 25695,
+      "bakeries": 9,
+      "per10k": 3.5
+    },
+    {
+      "name": "Fontenay-Trésigny",
+      "dept": "77",
+      "pop": 5757,
+      "bakeries": 2,
+      "per10k": 3.47
+    },
+    {
+      "name": "Neuilly-sur-Marne",
+      "dept": "93",
+      "pop": 37531,
+      "bakeries": 13,
+      "per10k": 3.46
+    },
+    {
+      "name": "Champcueil",
+      "dept": "91",
+      "pop": 2893,
+      "bakeries": 1,
+      "per10k": 3.46
+    },
+    {
+      "name": "Montesson",
+      "dept": "78",
+      "pop": 14511,
+      "bakeries": 5,
+      "per10k": 3.45
+    },
+    {
+      "name": "Margency",
+      "dept": "95",
+      "pop": 2896,
+      "bakeries": 1,
+      "per10k": 3.45
+    },
+    {
+      "name": "Saint-Fargeau-Ponthierry",
+      "dept": "77",
+      "pop": 14516,
+      "bakeries": 5,
+      "per10k": 3.44
+    },
+    {
+      "name": "Jouars-Pontchartrain",
+      "dept": "78",
+      "pop": 5814,
+      "bakeries": 2,
+      "per10k": 3.44
+    },
+    {
+      "name": "Joinville-le-Pont",
+      "dept": "94",
+      "pop": 20413,
+      "bakeries": 7,
+      "per10k": 3.43
+    },
+    {
+      "name": "Vitry-sur-Seine",
+      "dept": "94",
+      "pop": 96205,
+      "bakeries": 33,
+      "per10k": 3.43
+    },
+    {
+      "name": "Saintry-sur-Seine",
+      "dept": "91",
+      "pop": 5829,
+      "bakeries": 2,
+      "per10k": 3.43
+    },
+    {
+      "name": "Sceaux",
+      "dept": "92",
+      "pop": 20488,
+      "bakeries": 7,
+      "per10k": 3.42
+    },
+    {
+      "name": "Le Plessis-Robinson",
+      "dept": "92",
+      "pop": 29228,
+      "bakeries": 10,
+      "per10k": 3.42
+    },
+    {
+      "name": "Saint-Arnoult-en-Yvelines",
+      "dept": "78",
+      "pop": 5870,
+      "bakeries": 2,
+      "per10k": 3.41
+    },
+    {
+      "name": "Guyancourt",
+      "dept": "78",
+      "pop": 29406,
+      "bakeries": 10,
+      "per10k": 3.4
+    },
+    {
+      "name": "Buc",
+      "dept": "78",
+      "pop": 5920,
+      "bakeries": 2,
+      "per10k": 3.38
+    },
+    {
+      "name": "Montmagny",
+      "dept": "95",
+      "pop": 14775,
+      "bakeries": 5,
+      "per10k": 3.38
+    },
+    {
+      "name": "Neuilly-sur-Seine",
+      "dept": "92",
+      "pop": 59267,
+      "bakeries": 20,
+      "per10k": 3.37
+    },
+    {
+      "name": "Morsang-sur-Orge",
+      "dept": "91",
+      "pop": 20785,
+      "bakeries": 7,
+      "per10k": 3.37
+    },
+    {
+      "name": "Clichy-sous-Bois",
+      "dept": "93",
+      "pop": 29735,
+      "bakeries": 10,
+      "per10k": 3.36
+    },
+    {
+      "name": "Rambouillet",
+      "dept": "78",
+      "pop": 26816,
+      "bakeries": 9,
+      "per10k": 3.36
+    },
+    {
+      "name": "Garches",
+      "dept": "92",
+      "pop": 17898,
+      "bakeries": 6,
+      "per10k": 3.35
+    },
+    {
+      "name": "Bois-le-Roi",
+      "dept": "77",
+      "pop": 5979,
+      "bakeries": 2,
+      "per10k": 3.35
+    },
+    {
+      "name": "Antony",
+      "dept": "92",
+      "pop": 63232,
+      "bakeries": 21,
+      "per10k": 3.32
+    },
+    {
+      "name": "Pommeuse",
+      "dept": "77",
+      "pop": 3015,
+      "bakeries": 1,
+      "per10k": 3.32
+    },
+    {
+      "name": "La Queue-en-Brie",
+      "dept": "94",
+      "pop": 12081,
+      "bakeries": 4,
+      "per10k": 3.31
+    },
+    {
+      "name": "Saint-Vrain",
+      "dept": "91",
+      "pop": 3023,
+      "bakeries": 1,
+      "per10k": 3.31
+    },
+    {
+      "name": "Feucherolles",
+      "dept": "78",
+      "pop": 3020,
+      "bakeries": 1,
+      "per10k": 3.31
+    },
+    {
+      "name": "Menucourt",
+      "dept": "95",
+      "pop": 6093,
+      "bakeries": 2,
+      "per10k": 3.28
+    },
+    {
+      "name": "Neuilly-Plaisance",
+      "dept": "93",
+      "pop": 21415,
+      "bakeries": 7,
+      "per10k": 3.27
+    },
+    {
+      "name": "Noisy-le-Grand",
+      "dept": "93",
+      "pop": 70374,
+      "bakeries": 23,
+      "per10k": 3.27
+    },
+    {
+      "name": "Livry-Gargan",
+      "dept": "93",
+      "pop": 46028,
+      "bakeries": 15,
+      "per10k": 3.26
+    },
+    {
+      "name": "Villiers-Saint-Frédéric",
+      "dept": "78",
+      "pop": 3068,
+      "bakeries": 1,
+      "per10k": 3.26
+    },
+    {
+      "name": "Sucy-en-Brie",
+      "dept": "94",
+      "pop": 27622,
+      "bakeries": 9,
+      "per10k": 3.26
+    },
+    {
+      "name": "Château-Landon",
+      "dept": "77",
+      "pop": 3085,
+      "bakeries": 1,
+      "per10k": 3.24
+    },
+    {
+      "name": "Fontenay-aux-Roses",
+      "dept": "92",
+      "pop": 24772,
+      "bakeries": 8,
+      "per10k": 3.23
+    },
+    {
+      "name": "Le Chesnay-Rocquencourt",
+      "dept": "78",
+      "pop": 30924,
+      "bakeries": 10,
+      "per10k": 3.23
+    },
+    {
+      "name": "Limeil-Brévannes",
+      "dept": "94",
+      "pop": 27999,
+      "bakeries": 9,
+      "per10k": 3.21
+    },
+    {
+      "name": "Mennecy",
+      "dept": "91",
+      "pop": 15711,
+      "bakeries": 5,
+      "per10k": 3.18
+    },
+    {
+      "name": "Évry-Grégy-sur-Yerre",
+      "dept": "77",
+      "pop": 3150,
+      "bakeries": 1,
+      "per10k": 3.17
+    },
+    {
+      "name": "Porcheville",
+      "dept": "78",
+      "pop": 3162,
+      "bakeries": 1,
+      "per10k": 3.16
+    },
+    {
+      "name": "Champagne-sur-Seine",
+      "dept": "77",
+      "pop": 6356,
+      "bakeries": 2,
+      "per10k": 3.15
+    },
+    {
+      "name": "Crosne",
+      "dept": "91",
+      "pop": 9532,
+      "bakeries": 3,
+      "per10k": 3.15
+    },
+    {
+      "name": "Gonesse",
+      "dept": "95",
+      "pop": 25963,
+      "bakeries": 8,
+      "per10k": 3.08
+    },
+    {
+      "name": "Élancourt",
+      "dept": "78",
+      "pop": 26082,
+      "bakeries": 8,
+      "per10k": 3.07
+    },
+    {
+      "name": "Rubelles",
+      "dept": "77",
+      "pop": 3273,
+      "bakeries": 1,
+      "per10k": 3.06
+    },
+    {
+      "name": "Moussy-le-Neuf",
+      "dept": "77",
+      "pop": 3270,
+      "bakeries": 1,
+      "per10k": 3.06
+    },
+    {
+      "name": "Saint-Mammès",
+      "dept": "77",
+      "pop": 3302,
+      "bakeries": 1,
+      "per10k": 3.03
+    },
+    {
+      "name": "Marly-le-Roi",
+      "dept": "78",
+      "pop": 16531,
+      "bakeries": 5,
+      "per10k": 3.02
+    },
+    {
+      "name": "Frépillon",
+      "dept": "95",
+      "pop": 3334,
+      "bakeries": 1,
+      "per10k": 3.0
+    },
+    {
+      "name": "Collégien",
+      "dept": "77",
+      "pop": 3334,
+      "bakeries": 1,
+      "per10k": 3.0
+    },
+    {
+      "name": "Cerny",
+      "dept": "91",
+      "pop": 3345,
+      "bakeries": 1,
+      "per10k": 2.99
+    },
+    {
+      "name": "Vernouillet",
+      "dept": "78",
+      "pop": 10025,
+      "bakeries": 3,
+      "per10k": 2.99
+    },
+    {
+      "name": "Vaires-sur-Marne",
+      "dept": "77",
+      "pop": 13518,
+      "bakeries": 4,
+      "per10k": 2.96
+    },
+    {
+      "name": "Briis-sous-Forges",
+      "dept": "91",
+      "pop": 3380,
+      "bakeries": 1,
+      "per10k": 2.96
+    },
+    {
+      "name": "Égly",
+      "dept": "91",
+      "pop": 6756,
+      "bakeries": 2,
+      "per10k": 2.96
+    },
+    {
+      "name": "Tremblay-en-France",
+      "dept": "93",
+      "pop": 37271,
+      "bakeries": 11,
+      "per10k": 2.95
+    },
+    {
+      "name": "Igny",
+      "dept": "91",
+      "pop": 10213,
+      "bakeries": 3,
+      "per10k": 2.94
+    },
+    {
+      "name": "Thomery",
+      "dept": "77",
+      "pop": 3411,
+      "bakeries": 1,
+      "per10k": 2.93
+    },
+    {
+      "name": "Courdimanche",
+      "dept": "95",
+      "pop": 6816,
+      "bakeries": 2,
+      "per10k": 2.93
+    },
+    {
+      "name": "Le Perreux-sur-Marne",
+      "dept": "94",
+      "pop": 34213,
+      "bakeries": 10,
+      "per10k": 2.92
+    },
+    {
+      "name": "Thorigny-sur-Marne",
+      "dept": "77",
+      "pop": 10405,
+      "bakeries": 3,
+      "per10k": 2.88
+    },
+    {
+      "name": "Lésigny",
+      "dept": "77",
+      "pop": 7102,
+      "bakeries": 2,
+      "per10k": 2.82
+    },
+    {
+      "name": "Voisins-le-Bretonneux",
+      "dept": "78",
+      "pop": 10721,
+      "bakeries": 3,
+      "per10k": 2.8
+    },
+    {
+      "name": "Épinay-sur-Orge",
+      "dept": "91",
+      "pop": 10760,
+      "bakeries": 3,
+      "per10k": 2.79
+    },
+    {
+      "name": "Saint-Soupplets",
+      "dept": "77",
+      "pop": 3585,
+      "bakeries": 1,
+      "per10k": 2.79
+    },
+    {
+      "name": "Ermont",
+      "dept": "95",
+      "pop": 28987,
+      "bakeries": 8,
+      "per10k": 2.76
+    },
+    {
+      "name": "Bondoufle",
+      "dept": "91",
+      "pop": 10862,
+      "bakeries": 3,
+      "per10k": 2.76
+    },
+    {
+      "name": "Chauconin-Neufmontiers",
+      "dept": "77",
+      "pop": 3655,
+      "bakeries": 1,
+      "per10k": 2.74
+    },
+    {
+      "name": "Bailly",
+      "dept": "78",
+      "pop": 3650,
+      "bakeries": 1,
+      "per10k": 2.74
+    },
+    {
+      "name": "La Ferté-Alais",
+      "dept": "91",
+      "pop": 3649,
+      "bakeries": 1,
+      "per10k": 2.74
+    },
+    {
+      "name": "Carrières-sous-Poissy",
+      "dept": "78",
+      "pop": 18316,
+      "bakeries": 5,
+      "per10k": 2.73
+    },
+    {
+      "name": "Ablis",
+      "dept": "78",
+      "pop": 3715,
+      "bakeries": 1,
+      "per10k": 2.69
+    },
+    {
+      "name": "Gif-sur-Yvette",
+      "dept": "91",
+      "pop": 22352,
+      "bakeries": 6,
+      "per10k": 2.68
+    },
+    {
+      "name": "Torcy",
+      "dept": "77",
+      "pop": 22444,
+      "bakeries": 6,
+      "per10k": 2.67
+    },
+    {
+      "name": "Puiseux-en-France",
+      "dept": "95",
+      "pop": 3757,
+      "bakeries": 1,
+      "per10k": 2.66
+    },
+    {
+      "name": "Sèvres",
+      "dept": "92",
+      "pop": 22618,
+      "bakeries": 6,
+      "per10k": 2.65
+    },
+    {
+      "name": "Montry",
+      "dept": "77",
+      "pop": 3799,
+      "bakeries": 1,
+      "per10k": 2.63
+    },
+    {
+      "name": "Émerainville",
+      "dept": "77",
+      "pop": 7601,
+      "bakeries": 2,
+      "per10k": 2.63
+    },
+    {
+      "name": "Savigny-le-Temple",
+      "dept": "77",
+      "pop": 30510,
+      "bakeries": 8,
+      "per10k": 2.62
+    },
+    {
+      "name": "Brétigny-sur-Orge",
+      "dept": "91",
+      "pop": 27106,
+      "bakeries": 7,
+      "per10k": 2.58
+    },
+    {
+      "name": "Saint-Germain-sur-Morin",
+      "dept": "77",
+      "pop": 3881,
+      "bakeries": 1,
+      "per10k": 2.58
+    },
+    {
+      "name": "La Rochette",
+      "dept": "77",
+      "pop": 3870,
+      "bakeries": 1,
+      "per10k": 2.58
+    },
+    {
+      "name": "Chevry-Cossigny",
+      "dept": "77",
+      "pop": 3904,
+      "bakeries": 1,
+      "per10k": 2.56
+    },
+    {
+      "name": "Juziers",
+      "dept": "78",
+      "pop": 3976,
+      "bakeries": 1,
+      "per10k": 2.52
+    },
+    {
+      "name": "Le Plessis-Trévise",
+      "dept": "94",
+      "pop": 20218,
+      "bakeries": 5,
+      "per10k": 2.47
+    },
+    {
+      "name": "Ecquevilly",
+      "dept": "78",
+      "pop": 4105,
+      "bakeries": 1,
+      "per10k": 2.44
+    },
+    {
+      "name": "Forges-les-Bains",
+      "dept": "91",
+      "pop": 4132,
+      "bakeries": 1,
+      "per10k": 2.42
+    },
+    {
+      "name": "Triel-sur-Seine",
+      "dept": "78",
+      "pop": 12388,
+      "bakeries": 3,
+      "per10k": 2.42
+    },
+    {
+      "name": "Marcoussis",
+      "dept": "91",
+      "pop": 8430,
+      "bakeries": 2,
+      "per10k": 2.37
+    },
+    {
+      "name": "La Norville",
+      "dept": "91",
+      "pop": 4312,
+      "bakeries": 1,
+      "per10k": 2.32
+    },
+    {
+      "name": "L'Île-Saint-Denis",
+      "dept": "93",
+      "pop": 8664,
+      "bakeries": 2,
+      "per10k": 2.31
+    },
+    {
+      "name": "Bruyères-sur-Oise",
+      "dept": "95",
+      "pop": 4356,
+      "bakeries": 1,
+      "per10k": 2.3
+    },
+    {
+      "name": "Angerville",
+      "dept": "91",
+      "pop": 4395,
+      "bakeries": 1,
+      "per10k": 2.28
+    },
+    {
+      "name": "Thiais",
+      "dept": "94",
+      "pop": 31097,
+      "bakeries": 7,
+      "per10k": 2.25
+    },
+    {
+      "name": "Bougival",
+      "dept": "78",
+      "pop": 9031,
+      "bakeries": 2,
+      "per10k": 2.21
+    },
+    {
+      "name": "Magny-le-Hongre",
+      "dept": "77",
+      "pop": 9064,
+      "bakeries": 2,
+      "per10k": 2.21
+    },
+    {
+      "name": "Villiers-sur-Orge",
+      "dept": "91",
+      "pop": 4584,
+      "bakeries": 1,
+      "per10k": 2.18
+    },
+    {
+      "name": "Noiseau",
+      "dept": "94",
+      "pop": 4610,
+      "bakeries": 1,
+      "per10k": 2.17
+    },
+    {
+      "name": "Fleury-Mérogis",
+      "dept": "91",
+      "pop": 13983,
+      "bakeries": 3,
+      "per10k": 2.15
+    },
+    {
+      "name": "Lognes",
+      "dept": "77",
+      "pop": 14650,
+      "bakeries": 3,
+      "per10k": 2.05
+    },
+    {
+      "name": "Orly",
+      "dept": "94",
+      "pop": 24482,
+      "bakeries": 5,
+      "per10k": 2.04
+    },
+    {
+      "name": "Champagne-sur-Oise",
+      "dept": "95",
+      "pop": 5021,
+      "bakeries": 1,
+      "per10k": 1.99
+    },
+    {
+      "name": "Coubron",
+      "dept": "93",
+      "pop": 5063,
+      "bakeries": 1,
+      "per10k": 1.98
+    },
+    {
+      "name": "Bussy-Saint-Georges",
+      "dept": "77",
+      "pop": 26571,
+      "bakeries": 5,
+      "per10k": 1.88
+    },
+    {
+      "name": "Quincy-Voisins",
+      "dept": "77",
+      "pop": 5435,
+      "bakeries": 1,
+      "per10k": 1.84
+    },
+    {
+      "name": "Villennes-sur-Seine",
+      "dept": "78",
+      "pop": 5628,
+      "bakeries": 1,
+      "per10k": 1.78
+    },
+    {
+      "name": "Saint-Germain-lès-Arpajon",
+      "dept": "91",
+      "pop": 11305,
+      "bakeries": 2,
+      "per10k": 1.77
+    },
+    {
+      "name": "Marly-la-Ville",
+      "dept": "95",
+      "pop": 5681,
+      "bakeries": 1,
+      "per10k": 1.76
+    },
+    {
+      "name": "Jouy-le-Moutier",
+      "dept": "95",
+      "pop": 17175,
+      "bakeries": 3,
+      "per10k": 1.75
+    },
+    {
+      "name": "La Verrière",
+      "dept": "78",
+      "pop": 6183,
+      "bakeries": 1,
+      "per10k": 1.62
+    },
+    {
+      "name": "Othis",
+      "dept": "77",
+      "pop": 6739,
+      "bakeries": 1,
+      "per10k": 1.48
+    },
+    {
+      "name": "Carrières-sur-Seine",
+      "dept": "78",
+      "pop": 15038,
+      "bakeries": 2,
+      "per10k": 1.33
+    },
+    {
+      "name": "Les Ulis",
+      "dept": "91",
+      "pop": 25253,
+      "bakeries": 3,
+      "per10k": 1.19
+    },
+    {
+      "name": "Méry-sur-Oise",
+      "dept": "95",
+      "pop": 10046,
+      "bakeries": 1,
+      "per10k": 1.0
+    },
+    {
+      "name": "Épinay-sous-Sénart",
+      "dept": "91",
+      "pop": 11869,
+      "bakeries": 1,
+      "per10k": 0.84
+    }
+  ]
+}

@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Génicourt (Val-d'Oise, pop 513) has 2 bakeries — 39 per 10,000 residents. Paris 18e has 192 bakeries and barely makes 10 per 10,000. Dividing bread by people changes everything. [Q-034]
+- 🔥 Arnouville (Val-d'Oise, pop 14,585) has more bakeries per capita than 16 of Paris's 20 arrondissements. Nobody outside France has heard of it. [Q-034]
+- 🔥 45% of Île-de-France communes have zero registered bakeries. The most bread-deprived with any bakery at all: Épinay-sous-Sénart, 12,000 people, one bakery, 0.8 per 10,000. [Q-034]
+- 🔥 The geography of bread is the geography of walkability. The IDF suburbs that went car-first never got their boulangerie de quartier. The data makes this visible. [Q-034]

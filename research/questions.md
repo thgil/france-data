@@ -173,8 +173,10 @@ datasets and the resulting story.
 - Story: [bars](/stories/bars/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: In Île-de-France (the only region with geocoded SIRENE bakery data in-repo), Génicourt (Val-d'Oise, pop 513) leads at 39 per 10,000 with 2 bakeries — but ratios for tiny communes are fragile. Among communes with pop ≥ 5,000, Paris 1er tops the list at 21.4/10k; strikingly, Arnouville (Val-d'Oise, pop 14,585) ranks #4 at 14.4/10k, beating 16 of 20 Paris arrondissements. 581 of 1,285 IDF communes (45%) have zero bakeries — the bread-poorest are planned post-war suburbs (Les Ulis: 1.2/10k, Épinay-sous-Sénart: 0.8/10k). The geography of bread follows the geography of walkability.
+- Story: [baguette-capital](/stories/baguette-capital/)
 
 ### Q-035: How many communes have a public library, and how many don't?
 - Status: 🟢 open

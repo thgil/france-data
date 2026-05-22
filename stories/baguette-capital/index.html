@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Génicourt is the baguette capital — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart containers ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-mount {
+      width: 100%;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      border-radius: 2px;
+      padding: 16px 8px 8px;
+      box-sizing: border-box;
+    }
+
+    /* ── Stats grid (two-column tables) ─────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .sub {
+      font-size: 11px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Pull-stat callouts ─────────────────────────────────────────── */
+    .pull-stats {
+      display: flex;
+      gap: 24px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .pull-stat {
+      flex: 1;
+      min-width: 140px;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      border-radius: 2px;
+      padding: 16px 20px;
+    }
+    .pull-stat .number {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      line-height: 1;
+      color: #1a1a1a;
+      display: block;
+    }
+    .pull-stat .label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute, #6b6b6b);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute, #6b6b6b);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Génicourt is the baguette capital</h1>
+        <p class="story-dek">7,378 bakeries in Île-de-France — but which commune has the most per resident? Dividing bread by people changes everything.</p>
+        <div class="story-meta">
+          <span>2026-05-22</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The <a href="../baguettes/">baguettes story</a> counted 7,378 bakeries across Île-de-France and mapped each one as a gold dot. Paris 18e topped the list with 192 — the most of any commune. But absolute counts favour big communes by definition. A more honest question: relative to the people who live there and presumably eat bread, where is Île-de-France's bread supply actually richest?</p>
+
+      <p>To answer that, we join the SIRENE bakery locations (by commune code) to the 2021 INSEE census population — and compute bakeries per 10,000 residents for every commune that has at least one.</p>
+
+      <!-- ── Pull stats ─────────────────────────────────────────────────── -->
+      <div class="pull-stats" id="pull-stats">
+        <div class="pull-stat">
+          <span class="number" id="stat-total">—</span>
+          <span class="label">bakeries in IDF (SIRENE, 2026)</span>
+        </div>
+        <div class="pull-stat">
+          <span class="number" id="stat-with">—</span>
+          <span class="label">communes with at least one bakery</span>
+        </div>
+        <div class="pull-stat">
+          <span class="number" id="stat-zero">—</span>
+          <span class="label">communes with zero bakeries (45%)</span>
+        </div>
+        <div class="pull-stat">
+          <span class="number" id="stat-median">—</span>
+          <span class="label">median bakeries per 10,000 residents</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: scatter ───────────────────────────────────────────── -->
+      <h2>Small towns dominate the top of the list</h2>
+
+      <p>Plot every commune with a bakery on axes of population (log scale) and per-capita density, and a pattern emerges immediately: the top-left corner — tiny populations — is where the per-capita numbers get extreme. Génicourt, Val-d'Oise, has 513 residents and two bakeries. That works out to <strong>39 per 10,000</strong> — nearly four times the median.</p>
+
+      <p>These numbers are fragile. Génicourt loses one bakery and falls to 19. But they aren't random: rural villages on the Seine-et-Marne and Yvelines fringes consistently keep two or three <em>boulangeries</em> alive for populations well under 1,000. The village bakery is a social institution, not just a commercial one — which is partly why it survives where a supermarket wouldn't.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-scatter" class="chart-mount"></div>
+        <figcaption>Each dot is one IDF commune with at least one bakery. Hover for details. Communes with per-capita ratios above 45 are capped at the top axis. Source: INSEE SIRENE (bakeries) + INSEE census 2021 (population).</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: large communes ────────────────────────────────────── -->
+      <h2>Among large communes, Paris 1er — and a surprise from Val-d'Oise</h2>
+
+      <p>Once you filter to communes with at least 5,000 residents — where the ratios stabilise into something meaningful — a clearer picture emerges. Paris 1er leads at <strong>21 bakeries per 10,000</strong>. The 2nd, 3rd, and 8th arrondissements follow. The historic right-bank core has the densest bread supply in the region by far.</p>
+
+      <p>But at #4 sits <strong>Arnouville</strong>, a Val-d'Oise suburb of 14,585 people with 21 bakeries — 14.4 per 10,000. It beats sixteen of Paris's twenty arrondissements. Further down the outer-department list, Souppes-sur-Loing (Seine-et-Marne) and Beauchamp (Val-d'Oise) both top 13 per 10,000. Neither is famous for its bread.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bread per capita (pop ≥ 5,000)</h3>
+          <table class="stats-table" id="table-large"><tbody></tbody></table>
+        </div>
+        <div class="stats-block">
+          <h3>Paris arrondissements, ranked</h3>
+          <table class="stats-table" id="table-paris"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: bar chart ─────────────────────────────────────────── -->
+      <h2>The top 25 — where small-town bread wins</h2>
+
+      <p>Filtering to communes with at least 500 residents (to reduce noise from the single-bakery villages) and ranking by per-10,000 gives a list dominated by small communes in Seine-et-Marne, Yvelines, and Val-d'Oise — the rural and peri-urban fringe. Paris 1er enters at #19, the first Paris arrondissement on the list.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-topbar" class="chart-mount"></div>
+        <figcaption>Top 25 IDF communes by bakeries per 10,000 residents (minimum population 500). Hover for exact figures. Paris arrondissements in dark red; outer départements in greens.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: deserts ───────────────────────────────────────────── -->
+      <h2>The baguette deserts</h2>
+
+      <p>581 of Île-de-France's 1,285 communes — <strong>45%</strong> — have zero registered bakeries. These aren't only tiny hamlets; many are mid-size suburban communes where car-based retail planning replaced the village high street. Épinay-sous-Sénart (Essonne, pop 11,869) has one bakery: <strong>0.8 per 10,000</strong>. Les Ulis (Essonne, pop 25,253) has three: <strong>1.2 per 10,000</strong>. Carrières-sur-Seine (Yvelines, pop 15,038) has two: <strong>1.3 per 10,000</strong>.</p>
+
+      <p>The same <em>diagonale du vide</em> that runs through medical access and bar density shows up here, too — but in IDF it takes a different form. The underserved communes aren't the most remote; they're the planned post-war and new-town suburbs, built for the car, where the <em>boulangerie de quartier</em> never took root. The geography of bread is the geography of walkability.</p>
+
+      <!-- ── Beat 6 (close) ────────────────────────────────────────────── -->
+      <p>Paris 18e has 192 bakeries and nobody doubts it lives up to its reputation. But Génicourt (pop 513, Val-d'Oise) has two — and per resident, it's the baguette capital of Île-de-France. The smallest town on the map sometimes has the richest table.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery locations are from INSEE SIRENE (NAF code 1071C — <em>boulangeries</em> and <em>boulangeries-pâtisseries</em>), active establishments as of a March 2026 snapshot, geocoded via SIRENE Géolocalisation. Population figures are from the 2021 INSEE communal census (<em>recensement de la population</em>), sourced from the <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL dataset</a> which uses 2021 population as its denominator. Île-de-France comprises départements 75, 77, 78, 91, 92, 93, 94, 95. 7,378 bakeries mapped across 1,285 communes with population data; 704 communes have at least one. This story uses bakery data first published in <a href="../baguettes/">Story 3 (baguettes)</a>.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 1071C, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population (2021 census base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopBar, drawScatter } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function fmt(n) { return n.toLocaleString('fr-FR'); }
+
+    function populateStats(stats) {
+      document.getElementById('stat-total').textContent = fmt(stats.totalBakeries);
+      document.getElementById('stat-with').textContent  = fmt(stats.communesWithBakeries);
+      document.getElementById('stat-zero').textContent  = fmt(stats.communesZeroBakeries);
+      document.getElementById('stat-median').textContent = stats.medianPer10k.toFixed(1);
+
+      // Large communes table
+      const largeTbody = document.querySelector('#table-large tbody');
+      if (largeTbody && stats.topLarge) {
+        largeTbody.innerHTML = stats.topLarge.map((d, i) => `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${d.name}<span class="sub">${d.deptName}</span></td>
+          <td>${d.per10k.toFixed(1)}</td>
+        </tr>`).join('');
+      }
+
+      // Paris table
+      const parisTbody = document.querySelector('#table-paris tbody');
+      if (parisTbody && stats.paris) {
+        parisTbody.innerHTML = stats.paris.map((d, i) => `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${d.name.replace('Arrondissement', 'arr.')}</td>
+          <td>${d.per10k.toFixed(1)}</td>
+        </tr>`).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        populateStats(stats);
+        drawScatter('#chart-scatter', stats);
+        drawTopBar('#chart-topbar', stats);
+      } catch (err) {
+        console.error('Failed to load baguette-capital data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
