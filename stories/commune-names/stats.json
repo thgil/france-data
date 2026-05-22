@@ -1,0 +1,354 @@
+{
+  "total": 35014,
+  "uniqueNames": 32764,
+  "duplicatedNames": 1450,
+  "communesWithDuplicateName": 3700,
+  "meanLength": 11.8,
+  "minLength": 1,
+  "maxLength": 45,
+  "saintCount": 3898,
+  "saintPct": 11.1,
+  "lengthDistribution": [
+    1,
+    13,
+    154,
+    720,
+    1969,
+    3223,
+    3695,
+    3695,
+    3000,
+    2522,
+    1884,
+    1435,
+    1167,
+    1018,
+    1095,
+    1177,
+    1186,
+    1202,
+    1117,
+    1028,
+    923,
+    819,
+    649,
+    501,
+    329,
+    200,
+    105,
+    55,
+    53,
+    29,
+    12,
+    8,
+    2,
+    6,
+    7,
+    2,
+    3,
+    3,
+    1,
+    3,
+    1,
+    0,
+    1,
+    0,
+    1
+  ],
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "shortest5": [
+    {
+      "name": "Y",
+      "len": 1
+    },
+    {
+      "name": "By",
+      "len": 2
+    },
+    {
+      "name": "Bû",
+      "len": 2
+    },
+    {
+      "name": "Eu",
+      "len": 2
+    },
+    {
+      "name": "Gy",
+      "len": 2
+    },
+    {
+      "name": "Oz",
+      "len": 2
+    },
+    {
+      "name": "Oô",
+      "len": 2
+    },
+    {
+      "name": "Py",
+      "len": 2
+    },
+    {
+      "name": "Ri",
+      "len": 2
+    },
+    {
+      "name": "Ry",
+      "len": 2
+    }
+  ],
+  "longest10": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "len": 45,
+      "dept": "51",
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "len": 43,
+      "dept": "70",
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "len": 41,
+      "dept": "14",
+      "pop": 499
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "len": 40,
+      "dept": "21",
+      "pop": 381
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "len": 40,
+      "dept": "34",
+      "pop": 195
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "len": 40,
+      "dept": "70",
+      "pop": 64
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "len": 39,
+      "dept": "07",
+      "pop": 180
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "len": 38,
+      "dept": "11",
+      "pop": 142
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "len": 38,
+      "dept": "24",
+      "pop": 309
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "len": 38,
+      "dept": "80",
+      "pop": 1270
+    }
+  ],
+  "yCommune": {
+    "name": "Y",
+    "dept": "80",
+    "pop": 89,
+    "code": "80829"
+  },
+  "topSaintDepts": [
+    {
+      "dept": "07",
+      "saint": 97,
+      "total": 335,
+      "pct": 29.0
+    },
+    {
+      "dept": "23",
+      "saint": 72,
+      "total": 255,
+      "pct": 28.2
+    },
+    {
+      "dept": "42",
+      "saint": 89,
+      "total": 320,
+      "pct": 27.8
+    },
+    {
+      "dept": "87",
+      "saint": 53,
+      "total": 195,
+      "pct": 27.2
+    },
+    {
+      "dept": "24",
+      "saint": 130,
+      "total": 503,
+      "pct": 25.8
+    },
+    {
+      "dept": "85",
+      "saint": 62,
+      "total": 253,
+      "pct": 24.5
+    },
+    {
+      "dept": "48",
+      "saint": 37,
+      "total": 152,
+      "pct": 24.3
+    },
+    {
+      "dept": "43",
+      "saint": 62,
+      "total": 257,
+      "pct": 24.1
+    },
+    {
+      "dept": "19",
+      "saint": 63,
+      "total": 277,
+      "pct": 22.7
+    },
+    {
+      "dept": "33",
+      "saint": 121,
+      "total": 534,
+      "pct": 22.7
+    }
+  ],
+  "topPrefixes": [
+    {
+      "prefix": "Saint",
+      "count": 3596
+    },
+    {
+      "prefix": "La",
+      "count": 1054
+    },
+    {
+      "prefix": "Le",
+      "count": 758
+    },
+    {
+      "prefix": "Les",
+      "count": 328
+    },
+    {
+      "prefix": "Sainte",
+      "count": 295
+    },
+    {
+      "prefix": "Villers",
+      "count": 105
+    },
+    {
+      "prefix": "Villeneuve",
+      "count": 70
+    },
+    {
+      "prefix": "Val",
+      "count": 67
+    },
+    {
+      "prefix": "Pont",
+      "count": 63
+    },
+    {
+      "prefix": "Fontaine",
+      "count": 58
+    }
+  ]
+}
