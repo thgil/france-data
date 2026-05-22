@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Morzine (Haute-Savoie) has 51 bars for 2,660 permanent residents — 191.7 per 10,000. In January it has 50,000 visitors. SIRENE counts the licences; INSEE counts the village. [Q-033]
+- 🔥 Villefontaine (Isère): 19,083 residents, zero registered bars. France's largest bar-free commune is not a hamlet — it's a post-war new town built without a square. [Q-033]
+- 🔥 Rouen has 237 bars for 114,000 residents — 20.8/10k. That puts it ahead of Lyon, Bordeaux, Nantes, and Strasbourg in bars per capita. Rouen just quietly drinks more. [Q-033]
+- 🔥 Among French communes with 50k+ residents, Bayonne ranks 8th in bars per capita — ahead of every city south of Paris except Cannes. The pintxos bar is not a metaphor; it's a licence. [Q-033]
