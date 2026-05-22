@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Après-ski — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart container ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      max-width: 640px;
+    }
+    #chart-top20 {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+    }
+
+    /* ── Comparison table ─────────────────────────────────────────────── */
+    .compare-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) {
+      .compare-wrap { grid-template-columns: 1fr; }
+    }
+    .compare-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .compare-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .compare-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .compare-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .compare-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.8ch;
+    }
+    .compare-table .place {
+      font-family: Georgia, serif;
+    }
+    .compare-table .sub {
+      font-size: 11px;
+      color: #888;
+      display: block;
+    }
+
+    /* ── Big number callout ───────────────────────────────────────────── */
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      border-top: 2px solid #1a1a1a;
+      padding-top: 24px;
+    }
+    @media (max-width: 560px) {
+      .callout-grid { grid-template-columns: 1fr; }
+    }
+    .callout-item {}
+    .callout-num {
+      font-family: Georgia, serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      margin: 0 0 4px;
+      color: #1a1a1a;
+    }
+    .callout-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────────── */
+    .chart-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Après-ski</h1>
+        <p class="story-dek">France's bar-per-capita champions aren't in Paris, Bretagne, or Bordeaux. They're in the Alps — and the data reveals exactly why.</p>
+        <div class="story-meta">
+          <span>2026-05-22</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The <a href="../bars/">last story</a> mapped all 49,385 bars in France. It answered the big question — which département? Nord + Pas-de-Calais together. Finistère per capita. Paris by sheer density. But there was one thing it couldn't answer: which <em>commune</em> has the most bars per resident?</p>
+
+      <p>That question required a join: bar counts from SIRENE, plus the population of every commune from the DREES APL dataset. 35,014 communes. One division. The answer was not what you'd expect.</p>
+
+      <!-- ── Beat 2: The ranking ───────────────────────────────────────── -->
+      <h2>The mountain monopoly</h2>
+
+      <p id="lead-finding">Loading…</p>
+
+      <figure class="chart-figure">
+        <div id="chart-top20"><div class="chart-loading">Loading chart…</div></div>
+        <figcaption>Top 20 communes by bars per 1,000 registered residents (minimum 500 residents). Ski resorts in blue; coastal and other tourist towns in amber. Source: INSEE SIRENE (March 2026) joined to DREES APL commune populations (2021 base).</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <p>Eighteen of the top twenty are Alpine ski resorts. Les Deux Alpes leads at <strong>20.2 bars per 1,000 registered residents</strong>. That's one bar for every 50 people on the electoral roll. Morzine (19.2), Orcières (16.1), Risoul (15.2) follow. Courchevel, Val-d'Isère, Tignes, Châtel, Les Gets — the names read like a piste map.</p>
+
+      <p>The two non-ski entries near the top: Rogliano, a village of 540 people on the northern cape of Corsica (13.0/1,000), and La Roche-Bernard (11.5/1,000), a river-port town in Morbihan where the Vilaine meets the Atlantic. Both are summer tourist magnets. The pattern holds.</p>
+
+      <!-- ── Beat 4: The twist ─────────────────────────────────────────── -->
+      <h2>A January population, a February customer base</h2>
+
+      <p>The statistic is real, but it is measuring something subtle. SIRENE registers bar addresses. The population denominator — from INSEE's 2021 census base — counts permanent residents, not visitors. These two numbers are snapshots from different realities.</p>
+
+      <p>Morzine has 2,660 registered residents. In peak ski season it hosts roughly 30,000 visitors per week. A resort builds its bar infrastructure for February. The population counter clicks in January. The ratio of bars to residents is therefore not a measure of how much the locals drink — it is a measure of how intense the tourism economy is relative to the permanent settlement.</p>
+
+      <p>Saint-Tropez (9.5/1,000) and Deauville (9.0/1,000) make the same argument for summer. Their permanent populations are a fraction of their July crowds. Île-aux-Moines, a small island in the Gulf of Morbihan with 628 year-round residents and 11 bars, fills with day-trippers every summer weekend.</p>
+
+      <!-- ── Beat 5: Comparison ────────────────────────────────────────── -->
+      <h2>Where the cities land</h2>
+
+      <p>Against that backdrop, France's famously sociable cities look almost austere.</p>
+
+      <div class="compare-wrap">
+        <div class="compare-block">
+          <h3>Top 10 tourist communes</h3>
+          <table class="compare-table" id="table-ski">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="compare-block">
+          <h3>Major cities for comparison</h3>
+          <table class="compare-table" id="table-cities">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>Lyon's 1er arrondissement leads the cities at 3.7/1,000 — a neighbourhood packed with <em>bouchons</em> and student bars. Paris's 11e, the city's bar heartland, sits at 2.7. Lille, the most bar-dense major city in France by raw count, comes in at 1.9. Toulouse, a city of half a million, manages just 0.6. Rennes, despite its student population, 1.0.</p>
+
+      <p>None of these cities get within a factor of five of Les Deux Alpes. The bar density of French cities is not driven by the same forces as the bar density of ski resorts — the former reflects neighbourhood commerce and culture; the latter reflects accommodation capacity built for a season.</p>
+
+      <!-- ── Beat 6: The other end ─────────────────────────────────────── -->
+      <h2>The quiet two-thirds</h2>
+
+      <div class="callout-grid" id="callout-grid">
+        <div class="callout-item">
+          <div class="callout-num" id="stat-zero-pct">—</div>
+          <div class="callout-label">of French communes have<br>zero registered bars</div>
+        </div>
+        <div class="callout-item">
+          <div class="callout-num" id="stat-zero-n">—</div>
+          <div class="callout-label">communes, out of 35,014,<br>with no bar at all</div>
+        </div>
+        <div class="callout-item">
+          <div class="callout-num">17</div>
+          <div class="callout-label">communes with 10+ bars<br>per 1,000 residents</div>
+        </div>
+      </div>
+
+      <p>Two-thirds of French communes have no bar. Not one. The village café, once a fixture of every settlement with a <em>mairie</em>, has been retreating for decades. In 1960, France had roughly 200,000 cafés; today, fewer than 50,000 licensed premises of all kinds remain. The bar map is a tourist map partly because the tourist zones are among the last places where the economics still work.</p>
+
+      <!-- ── Beat 7: Closing ───────────────────────────────────────────── -->
+      <p>A registered bar address tells you where the alcohol is served. A census counts where people sleep when no one is skiing. In the mountains, those are not always the same answer.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the method.</strong> Bar counts come from SIRENE active establishments with NAF code 56.30Z (débits de boissons), March 2026 snapshot — the same source as <a href="../bars/">Story 4</a>. Commune populations come from the DREES APL 2023 dataset, which uses an INSEE 2021 census base. 35,014 communes are covered. Communes with fewer than 500 registered residents are excluded from the ranking to suppress noise from very small denominators (e.g. a hamlet with two permanent residents and one bar). The join key is the 5-digit INSEE commune code. Paris and Lyon arrondissements each have separate codes and are counted individually.</p>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — débits de boissons (NAF 56.30Z, March 2026)</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune populations, INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function drawChart(data, container) {
+      const top20 = data.top20;
+      const maxVal = top20[0].per1000;
+      const BAR_HEIGHT = 28;
+      const ROW_H = 36;
+      const LABEL_W = 180;
+      const NUM_W = 52;
+      const BAR_MAX = 360;
+      const PADDING = 16;
+      const W = LABEL_W + BAR_MAX + NUM_W + PADDING * 2;
+      const H = top20.length * ROW_H + 8;
+
+      const SKI_COLOR = '#2563a8';
+      const COASTAL_COLOR = '#c67c00';
+
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.setAttribute('width', '100%');
+      svg.style.fontFamily = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+      svg.style.display = 'block';
+
+      top20.forEach((d, i) => {
+        const y = i * ROW_H;
+        const barW = (d.per1000 / maxVal) * BAR_MAX;
+        const fill = d.category === 'ski' ? SKI_COLOR : COASTAL_COLOR;
+        const textY = y + ROW_H / 2;
+
+        // Label
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', LABEL_W - 8);
+        label.setAttribute('y', textY + 1);
+        label.setAttribute('text-anchor', 'end');
+        label.setAttribute('dominant-baseline', 'middle');
+        label.setAttribute('font-size', '12');
+        label.setAttribute('fill', '#1a1a1a');
+        label.textContent = `${d.name}`;
+        svg.appendChild(label);
+
+        // Dept sub-label
+        const sub = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        sub.setAttribute('x', LABEL_W - 8);
+        sub.setAttribute('y', textY + 14);
+        sub.setAttribute('text-anchor', 'end');
+        sub.setAttribute('dominant-baseline', 'middle');
+        sub.setAttribute('font-size', '9.5');
+        sub.setAttribute('fill', '#999');
+        sub.textContent = `dept. ${d.dept}`;
+        svg.appendChild(sub);
+
+        // Bar bg
+        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bg.setAttribute('x', LABEL_W + PADDING);
+        bg.setAttribute('y', y + (ROW_H - BAR_HEIGHT) / 2);
+        bg.setAttribute('width', BAR_MAX);
+        bg.setAttribute('height', BAR_HEIGHT);
+        bg.setAttribute('fill', '#f0ebe2');
+        bg.setAttribute('rx', '2');
+        svg.appendChild(bg);
+
+        // Bar
+        const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bar.setAttribute('x', LABEL_W + PADDING);
+        bar.setAttribute('y', y + (ROW_H - BAR_HEIGHT) / 2);
+        bar.setAttribute('width', barW);
+        bar.setAttribute('height', BAR_HEIGHT);
+        bar.setAttribute('fill', fill);
+        bar.setAttribute('rx', '2');
+        svg.appendChild(bar);
+
+        // Value
+        const val = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        val.setAttribute('x', LABEL_W + PADDING + barW + 6);
+        val.setAttribute('y', textY + 1);
+        val.setAttribute('dominant-baseline', 'middle');
+        val.setAttribute('font-size', '12');
+        val.setAttribute('font-variant-numeric', 'tabular-nums');
+        val.setAttribute('fill', '#333');
+        val.textContent = `${d.per1000}`;
+        svg.appendChild(val);
+      });
+
+      // Legend
+      const legendY = H - 4;
+      [['ski resort', SKI_COLOR], ['coastal / island', COASTAL_COLOR]].forEach(([label, color], i) => {
+        const x = LABEL_W + PADDING + i * 140;
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', legendY);
+        dot.setAttribute('r', '5');
+        dot.setAttribute('fill', color);
+        svg.appendChild(dot);
+        const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        t.setAttribute('x', x + 9);
+        t.setAttribute('y', legendY + 1);
+        t.setAttribute('dominant-baseline', 'middle');
+        t.setAttribute('font-size', '11');
+        t.setAttribute('fill', '#555');
+        t.textContent = label;
+        svg.appendChild(t);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(svg);
+    }
+
+    function populateTables(data) {
+      const skiTbody = document.querySelector('#table-ski tbody');
+      if (skiTbody) {
+        skiTbody.innerHTML = data.top20.slice(0, 10).map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}<span class="sub">dept. ${d.dept} · ${d.bars} bars, ${d.pop.toLocaleString('fr-FR')} residents</span></td>
+            <td>${d.per1000.toLocaleString('fr-FR')}</td>
+          </tr>`
+        ).join('');
+      }
+
+      const citiesTbody = document.querySelector('#table-cities tbody');
+      if (citiesTbody) {
+        citiesTbody.innerHTML = data.comparisons.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.name}<span class="sub">dept. ${d.dept} · ${d.bars} bars, ${d.pop.toLocaleString('fr-FR')} residents</span></td>
+            <td>${d.per1000.toLocaleString('fr-FR')}</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    function populateCallouts(data) {
+      const pctEl = document.getElementById('stat-zero-pct');
+      const nEl = document.getElementById('stat-zero-n');
+      if (pctEl) pctEl.textContent = data.pct_zero.toLocaleString('fr-FR') + ' %';
+      if (nEl) nEl.textContent = data.zero_bar_communes.toLocaleString('fr-FR');
+    }
+
+    function setLeadFinding(data) {
+      const el = document.getElementById('lead-finding');
+      if (!el) return;
+      const top = data.top20[0];
+      el.innerHTML = `<em>${top.name}</em>, a ski resort in the Isère département, has ${top.bars} bars for ${top.pop.toLocaleString('en-GB')} registered residents. That works out to <strong>${top.per1000} bars per 1,000 people</strong> — the highest ratio of any commune in France with at least 500 residents. The chart below shows the full top 20. Spot the pattern.`;
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./data.json');
+        setLeadFinding(data);
+        drawChart(data, document.getElementById('chart-top20'));
+        populateTables(data);
+        populateCallouts(data);
+      } catch (err) {
+        console.error('Failed to load après-ski data:', err);
+        document.getElementById('chart-top20').innerHTML =
+          '<div class="chart-loading">Failed to load chart data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
