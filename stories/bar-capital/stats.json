@@ -1,0 +1,384 @@
+{
+  "total_bars": 49385,
+  "total_communes": 34791,
+  "communes_with_bars": 11662,
+  "communes_without_bars": 23129,
+  "pct_without_bars": 66.5,
+  "pop_without_bars": 11169719,
+  "total_metro_pop": 65426623,
+  "double_desert_communes": 8088,
+  "double_desert_pop": 3270251,
+  "medical_desert_communes": 11000,
+  "medical_desert_pop": 10392087,
+  "top_communes_per_capita": [
+    {
+      "code": "65192",
+      "name": "Gavarnie-Gèdre",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "bars": 7,
+      "pop": 341,
+      "per_1000": 20.5
+    },
+    {
+      "code": "38253",
+      "name": "Les Deux Alpes",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 39,
+      "pop": 1933,
+      "per_1000": 20.2
+    },
+    {
+      "code": "38567",
+      "name": "Chamrousse",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 8,
+      "pop": 414,
+      "per_1000": 19.3
+    },
+    {
+      "code": "74191",
+      "name": "Morzine",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 51,
+      "pop": 2660,
+      "per_1000": 19.2
+    },
+    {
+      "code": "56086",
+      "name": "Île-d'Houat",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "bars": 4,
+      "pop": 216,
+      "per_1000": 18.5
+    },
+    {
+      "code": "05110",
+      "name": "Puy-Saint-Vincent",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 5,
+      "pop": 280,
+      "per_1000": 17.9
+    },
+    {
+      "code": "05085",
+      "name": "Montgenèvre",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 8,
+      "pop": 457,
+      "per_1000": 17.5
+    },
+    {
+      "code": "05096",
+      "name": "Orcières",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 11,
+      "pop": 683,
+      "per_1000": 16.1
+    },
+    {
+      "code": "48188",
+      "name": "Serverette",
+      "dept": "48",
+      "deptName": "Lozère",
+      "bars": 4,
+      "pop": 248,
+      "per_1000": 16.1
+    },
+    {
+      "code": "05119",
+      "name": "Risoul",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 10,
+      "pop": 660,
+      "per_1000": 15.2
+    },
+    {
+      "code": "38527",
+      "name": "Vaujany",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 5,
+      "pop": 348,
+      "per_1000": 14.4
+    },
+    {
+      "code": "30005",
+      "name": "Aiguèze",
+      "dept": "30",
+      "deptName": "Gard",
+      "bars": 3,
+      "pop": 213,
+      "per_1000": 14.1
+    }
+  ],
+  "top_communes_raw": [
+    {
+      "name": "Lille",
+      "dept": "59",
+      "deptName": "Nord",
+      "bars": 444,
+      "pop": 236710,
+      "per_1000": 1.9
+    },
+    {
+      "name": "Paris 11e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 386,
+      "pop": 142583,
+      "per_1000": 2.7
+    },
+    {
+      "name": "Nice",
+      "dept": "06",
+      "deptName": "Alpes-Maritimes",
+      "bars": 364,
+      "pop": 348085,
+      "per_1000": 1.0
+    },
+    {
+      "name": "Bordeaux",
+      "dept": "33",
+      "deptName": "Gironde",
+      "bars": 341,
+      "pop": 261804,
+      "per_1000": 1.3
+    },
+    {
+      "name": "Nantes",
+      "dept": "44",
+      "deptName": "Loire-Atlantique",
+      "bars": 341,
+      "pop": 323204,
+      "per_1000": 1.1
+    },
+    {
+      "name": "Toulouse",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "bars": 323,
+      "pop": 504078,
+      "per_1000": 0.6
+    },
+    {
+      "name": "Paris 18e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bars": 292,
+      "pop": 188446,
+      "per_1000": 1.5
+    },
+    {
+      "name": "Saint-Étienne",
+      "dept": "42",
+      "deptName": "Loire",
+      "bars": 259,
+      "pop": 172718,
+      "per_1000": 1.5
+    }
+  ],
+  "dept_top10": [
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "bars": 390,
+      "pop": 184655,
+      "per_1000": 2.11
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "bars": 135,
+      "pop": 76519,
+      "per_1000": 1.76
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "bars": 276,
+      "pop": 162942,
+      "per_1000": 1.69
+    },
+    {
+      "dept": "15",
+      "name": "Cantal",
+      "bars": 239,
+      "pop": 144226,
+      "per_1000": 1.66
+    },
+    {
+      "dept": "05",
+      "name": "Hautes-Alpes",
+      "bars": 220,
+      "pop": 140976,
+      "per_1000": 1.56
+    },
+    {
+      "dept": "04",
+      "name": "Alpes-de-Hte-Provence",
+      "bars": 243,
+      "pop": 166077,
+      "per_1000": 1.46
+    },
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bars": 3121,
+      "pop": 2133111,
+      "per_1000": 1.46
+    },
+    {
+      "dept": "22",
+      "name": "Côtes-d'Armor",
+      "bars": 787,
+      "pop": 604489,
+      "per_1000": 1.3
+    },
+    {
+      "dept": "73",
+      "name": "Savoie",
+      "bars": 539,
+      "pop": 442468,
+      "per_1000": 1.22
+    },
+    {
+      "dept": "56",
+      "name": "Morbihan",
+      "bars": 931,
+      "pop": 768687,
+      "per_1000": 1.21
+    }
+  ],
+  "dept_bottom10": [
+    {
+      "dept": "01",
+      "name": "Ain",
+      "bars": 329,
+      "pop": 663025,
+      "per_1000": 0.5
+    },
+    {
+      "dept": "90",
+      "name": "Terr. de Belfort",
+      "bars": 65,
+      "pop": 139654,
+      "per_1000": 0.47
+    },
+    {
+      "dept": "31",
+      "name": "Haute-Garonne",
+      "bars": 602,
+      "pop": 1434367,
+      "per_1000": 0.42
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bars": 565,
+      "pop": 1415367,
+      "per_1000": 0.4
+    },
+    {
+      "dept": "67",
+      "name": "Bas-Rhin",
+      "bars": 450,
+      "pop": 1152662,
+      "per_1000": 0.39
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bars": 547,
+      "pop": 1438100,
+      "per_1000": 0.38
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bars": 463,
+      "pop": 1256607,
+      "per_1000": 0.37
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bars": 478,
+      "pop": 1456365,
+      "per_1000": 0.33
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bars": 546,
+      "pop": 1635291,
+      "per_1000": 0.33
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bars": 403,
+      "pop": 1313768,
+      "per_1000": 0.31
+    }
+  ],
+  "idf_ring": [
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bars": 403,
+      "pop": 1313768,
+      "per_1000": 0.31
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bars": 478,
+      "pop": 1456365,
+      "per_1000": 0.33
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bars": 546,
+      "pop": 1635291,
+      "per_1000": 0.33
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bars": 463,
+      "pop": 1256607,
+      "per_1000": 0.37
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bars": 547,
+      "pop": 1438100,
+      "per_1000": 0.38
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bars": 565,
+      "pop": 1415367,
+      "per_1000": 0.4
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bars": 856,
+      "pop": 1636291,
+      "per_1000": 0.52
+    }
+  ]
+}
