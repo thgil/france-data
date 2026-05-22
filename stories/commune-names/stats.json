@@ -1,0 +1,379 @@
+{
+  "total": 35014,
+  "unique": 32764,
+  "shared_name_count": 1450,
+  "saint_total": 3898,
+  "saint_pct": 11.1,
+  "sainte_count": 297,
+  "saint_only": 3601,
+  "top_shared": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    },
+    {
+      "name": "Saint-Sulpice",
+      "count": 7
+    },
+    {
+      "name": "Caumont",
+      "count": 7
+    },
+    {
+      "name": "Fleury",
+      "count": 7
+    },
+    {
+      "name": "Saint-Léger",
+      "count": 7
+    },
+    {
+      "name": "Saint-Laurent",
+      "count": 7
+    }
+  ],
+  "mean_length": 11.8,
+  "median_length": 10.0,
+  "shortest": [
+    [
+      "Y",
+      1
+    ],
+    [
+      "Eu",
+      2
+    ],
+    [
+      "Uz",
+      2
+    ],
+    [
+      "Py",
+      2
+    ],
+    [
+      "Ur",
+      2
+    ],
+    [
+      "Sy",
+      2
+    ],
+    [
+      "Bû",
+      2
+    ],
+    [
+      "Oz",
+      2
+    ],
+    [
+      "Gy",
+      2
+    ],
+    [
+      "Ry",
+      2
+    ]
+  ],
+  "longest": [
+    [
+      "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      45
+    ],
+    [
+      "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      43
+    ],
+    [
+      "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      41
+    ],
+    [
+      "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      40
+    ],
+    [
+      "La Vacquerie-et-Saint-Martin-de-Castries",
+      40
+    ],
+    [
+      "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      40
+    ],
+    [
+      "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      39
+    ],
+    [
+      "Bonneville-et-Saint-Avit-de-Fumadières",
+      38
+    ],
+    [
+      "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      38
+    ],
+    [
+      "Escueillens-et-Saint-Just-de-Bélengard",
+      38
+    ]
+  ],
+  "y_commune": {
+    "code": "80829",
+    "apl": 2.78,
+    "pop": 89,
+    "communeName": "Y",
+    "dept": "80",
+    "category": "adequate"
+  },
+  "length_distribution": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ]
+}
