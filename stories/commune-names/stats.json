@@ -1,0 +1,466 @@
+{
+  "total": 35014,
+  "saintTotal": 3898,
+  "hyphenated": 13410,
+  "mostDuplicated": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "locatives": {
+    "-sur-": 1991,
+    "-en-": 974,
+    "-lès-": 544,
+    "-de-": 1145,
+    "-sous-": 257,
+    "-du-": 336
+  },
+  "nameLengths": {
+    "min": 1,
+    "max": 45,
+    "avg": 11.8,
+    "median": 10,
+    "le2": 14,
+    "le3": 168,
+    "ge30": 79,
+    "distribution": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        3,
+        154
+      ],
+      [
+        4,
+        720
+      ],
+      [
+        5,
+        1969
+      ],
+      [
+        6,
+        3223
+      ],
+      [
+        7,
+        3695
+      ],
+      [
+        8,
+        3695
+      ],
+      [
+        9,
+        3000
+      ],
+      [
+        10,
+        2522
+      ],
+      [
+        11,
+        1884
+      ],
+      [
+        12,
+        1435
+      ],
+      [
+        13,
+        1167
+      ],
+      [
+        14,
+        1018
+      ],
+      [
+        15,
+        1095
+      ],
+      [
+        16,
+        1177
+      ],
+      [
+        17,
+        1186
+      ],
+      [
+        18,
+        1202
+      ],
+      [
+        19,
+        1117
+      ],
+      [
+        20,
+        1028
+      ],
+      [
+        21,
+        923
+      ],
+      [
+        22,
+        819
+      ],
+      [
+        23,
+        649
+      ],
+      [
+        24,
+        501
+      ],
+      [
+        25,
+        329
+      ],
+      [
+        26,
+        200
+      ],
+      [
+        27,
+        105
+      ],
+      [
+        28,
+        55
+      ],
+      [
+        29,
+        53
+      ],
+      [
+        30,
+        29
+      ],
+      [
+        31,
+        12
+      ],
+      [
+        32,
+        8
+      ],
+      [
+        33,
+        2
+      ],
+      [
+        34,
+        6
+      ],
+      [
+        35,
+        7
+      ],
+      [
+        36,
+        2
+      ],
+      [
+        37,
+        3
+      ],
+      [
+        38,
+        3
+      ],
+      [
+        39,
+        1
+      ],
+      [
+        40,
+        3
+      ],
+      [
+        41,
+        1
+      ],
+      [
+        43,
+        1
+      ],
+      [
+        45,
+        1
+      ]
+    ]
+  },
+  "shortest": [
+    {
+      "name": "Y",
+      "len": 1,
+      "dept": "80",
+      "pop": 89
+    },
+    {
+      "name": "Bû",
+      "len": 2,
+      "dept": "28",
+      "pop": 2022
+    },
+    {
+      "name": "Eu",
+      "len": 2,
+      "dept": "76",
+      "pop": 6591
+    },
+    {
+      "name": "Gy",
+      "len": 2,
+      "dept": "70",
+      "pop": 1001
+    },
+    {
+      "name": "Py",
+      "len": 2,
+      "dept": "66",
+      "pop": 79
+    },
+    {
+      "name": "Us",
+      "len": 2,
+      "dept": "95",
+      "pop": 1338
+    },
+    {
+      "name": "Ri",
+      "len": 2,
+      "dept": "61",
+      "pop": 156
+    },
+    {
+      "name": "By",
+      "len": 2,
+      "dept": "25",
+      "pop": 86
+    },
+    {
+      "name": "Uz",
+      "len": 2,
+      "dept": "65",
+      "pop": 36
+    },
+    {
+      "name": "Oz",
+      "len": 2,
+      "dept": "38",
+      "pop": 213
+    },
+    {
+      "name": "Ur",
+      "len": 2,
+      "dept": "66",
+      "pop": 348
+    },
+    {
+      "name": "Ry",
+      "len": 2,
+      "dept": "76",
+      "pop": 775
+    },
+    {
+      "name": "Sy",
+      "len": 2,
+      "dept": "08",
+      "pop": 54
+    },
+    {
+      "name": "Oô",
+      "len": 2,
+      "dept": "31",
+      "pop": 103
+    },
+    {
+      "name": "Pys",
+      "len": 3,
+      "dept": "80",
+      "pop": 124
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "len": 45,
+      "dept": "51",
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "len": 43,
+      "dept": "70",
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "len": 41,
+      "dept": "14",
+      "pop": 499
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "len": 40,
+      "dept": "34",
+      "pop": 195
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "len": 40,
+      "dept": "70",
+      "pop": 64
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "len": 40,
+      "dept": "21",
+      "pop": 381
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "len": 39,
+      "dept": "07",
+      "pop": 180
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "len": 38,
+      "dept": "24",
+      "pop": 309
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "len": 38,
+      "dept": "11",
+      "pop": 142
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "len": 38,
+      "dept": "80",
+      "pop": 1270
+    }
+  ],
+  "topTerminal": [
+    {
+      "word": "bois",
+      "count": 178
+    },
+    {
+      "word": "mer",
+      "count": 108
+    },
+    {
+      "word": "seine",
+      "count": 77
+    },
+    {
+      "word": "loire",
+      "count": 74
+    },
+    {
+      "word": "bains",
+      "count": 60
+    },
+    {
+      "word": "château",
+      "count": 60
+    },
+    {
+      "word": "marne",
+      "count": 56
+    },
+    {
+      "word": "rivière",
+      "count": 53
+    }
+  ]
+}
