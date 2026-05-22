@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### name-patterns: The name game
+- Status: ✅ published
+- Published URL: /stories/name-patterns/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. One letter. 89 people. Name older than France itself. And 3,898 communes named after saints.
+- Data: Commune names derived from DREES APL 2023 data ([DS-APL](datasets.md#ds-apl)), which carries communeName for all 35,014 communes.
+- Angle: Text-and-charts. Three sections: length distribution chart, the shortest names (Y + two-letter list), top names bar chart. Light and playful editorial voice.
+- Draft X summary:
+  > France has 35,014 communes. One of them is called Y — population 89, name older than the French state. Another is 45 characters long. And 3,898 are named after saints, the most popular being Martin (×255). Today on **france-data**: what the full list reveals. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
