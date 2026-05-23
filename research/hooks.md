@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has a commune called Y. Population: 89. It's in the Somme, and its post office has delivered mail addressed to "Y, 80190" since before the Revolution. [Q-039]
+- 🔥 4,195 French communes — 12% of the total — begin with Saint or Sainte. The republic of saints is larger than most European administrative districts. [Q-037]
+- 🔥 Sainte-Colombe appears 12 times across France. Saint-Sauveur 11 times. Saint-Aubin 10. Each one named independently by people who never met. [Q-037]
+- 🔥 Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson: 45 characters, three saints, one commune. It became itself in 1972 when three villages couldn't agree on whose name to drop. [Q-039]
