@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar capital of France is a ski resort — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-legend {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      max-width: 680px;
+    }
+
+    /* ── Big number callout ──────────────────────────────────────────── */
+    .callout-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 48px 0;
+      border-top: 1px solid #e0d8cc;
+      border-bottom: 1px solid #e0d8cc;
+      padding: 28px 0;
+    }
+    .callout {
+      flex: 1 1 160px;
+      text-align: center;
+    }
+    .callout .big {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      display: block;
+    }
+    .callout .sub {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── Two-column context table ───────────────────────────────────── */
+    .context-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 32px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .context-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 0 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .context-table th:last-child { text-align: right; }
+    .context-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .context-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #333;
+    }
+    .context-table .place {
+      font-family: var(--serif);
+    }
+    .context-table .tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-alpine  { background: #dbeafe; color: #1d4ed8; }
+    .tag-coastal { background: #d1fae5; color: #065f46; }
+    .tag-urban   { background: #fee2e2; color: #991b1b; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar capital of France is a ski resort</h1>
+        <p class="story-dek">Raw counts put Nord ahead of Paris. Per capita, 9 of the top 10 bar-dense communes are Alpine ski resorts.</p>
+        <div class="story-meta">
+          <span>2026-05-23</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>The <a href="../bars/">bars story</a> mapped 49,385 débits de boissons across France and found that Nord + Pas-de-Calais beat Paris by raw count, and that Finistère punches far above its weight. All true. But raw counts favour big places. Divide by population and the picture changes entirely.</p>
+
+      <!-- ── Big number callouts ──────────────────────────────────────── -->
+      <div class="callout-strip" id="callout-strip">
+        <div class="callout">
+          <span class="big" id="cn-top-per10k">—</span>
+          <span class="sub" id="cn-top-name">loading…</span>
+        </div>
+        <div class="callout">
+          <span class="big" id="cn-alpine-count">9/10</span>
+          <span class="sub">of top 10 are Alpine ski resorts</span>
+        </div>
+        <div class="callout">
+          <span class="big" id="cn-paris1er">77</span>
+          <span class="sub">bars per 10k in Paris 1<sup>er</sup></span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Chart ────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-ranking"></div>
+        <div class="chart-legend" id="chart-ranking-legend"></div>
+        <figcaption>Top 20 communes by bars per 10,000 registered residents. Minimum population 500. Source: INSEE SIRENE (March 2026) joined to DREES population data.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3 ────────────────────────────────────────────────────── -->
+      <h2>Why ski resorts?</h2>
+
+      <p>Les Deux Alpes (Isère) has 39 registered bars for 1,933 permanent residents — 201.8 per 10,000. Morzine (Haute-Savoie) has 51 bars for 2,660 people — 191.7 per 10,000. In peak ski season, these resorts host tens of thousands of visitors. But SIRENE records permanent residents as counted by the INSEE census, not the seasonal crowds. The licences stay; the skiers go home.</p>
+
+      <p>This is infrastructure anchored to tourism. A bar licence registered in Morzine doesn't close in June — it stays on the books, keeps the staff, waits for December. The result is a ratio that looks absurd on paper but makes perfect sense on the ground.</p>
+
+      <!-- ── Context table ───────────────────────────────────────────── -->
+      <table class="context-table" id="context-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Bars</th>
+            <th>Population</th>
+            <th>Per 10k</th>
+          </tr>
+        </thead>
+        <tbody id="context-tbody"></tbody>
+      </table>
+
+      <!-- ── Beat 4 ────────────────────────────────────────────────────── -->
+      <h2>The coastal echo</h2>
+
+      <p>The same logic plays out along the coasts, at lower intensity. Saint-Tropez (Var): 34 bars for 3,578 residents — 95 per 10,000. Deauville (Calvados): 32 bars, 3,565 residents — 89.8 per 10,000. Île-aux-Moines in Morbihan — a tiny island commune in the Gulf of Morbihan — clocks 111 per 10,000. Tourist season compresses months of consumption into weeks, and the licensing infrastructure follows.</p>
+
+      <!-- ── Beat 5: Dept chart ────────────────────────────────────────── -->
+      <h2>The département view — Brittany finally wins</h2>
+
+      <p>At département level, Paris leads with 14.6 bars per 10,000 residents — a predictable outcome for France's densest, most walkable city. But second place goes to Morbihan (12.1), and third to Finistère (11.0). <em>Brittany finally gets its due.</em> The raw-count story obscured it: Nord was bigger by volume, but Bretons drink at higher rates relative to their population, and the data confirms it.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-depts"></div>
+        <figcaption>Top 12 départements by bars per 10,000 residents. Minimum population 100,000. Source: INSEE SIRENE (March 2026) joined to DREES population data.</figcaption>
+      </figure>
+
+      <!-- ── Beat 6 ────────────────────────────────────────────────────── -->
+      <p>The same 49,385 establishments. The same geography. But denominator matters. What looks like a northern drinking culture by raw count looks like an Alpine and coastal tourism story per capita — with Brittany sitting solidly in between, drinking consistently regardless of season.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from the SIRENE business registry (active NAF 56.30Z establishments, March 2026 snapshot) as used in <a href="../bars/">Story 4</a>. Population figures are INSEE estimates from the DREES APL dataset (2021 base), which covers 35,014 communes. Communes with fewer than 500 registered residents are excluded from commune-level rankings to avoid noise from single-bar villages. Département population is summed from commune-level figures in the same dataset; small discrepancies with official INSEE estimates may exist due to rounding and commune boundary changes.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — débits de boissons (NAF 56.30Z), March 2026</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023 — commune population data</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawRankingChart, drawDeptChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    const TAG_HTML = {
+      alpine:  '<span class="tag tag-alpine">Alpine</span>',
+      coastal: '<span class="tag tag-coastal">Coastal</span>',
+      urban:   '<span class="tag tag-urban">Paris</span>',
+      other:   '',
+    };
+
+    function populatePage(stats) {
+      // Callouts
+      const top = stats.topCommune;
+      document.getElementById('cn-top-per10k').textContent =
+        top.per10k.toFixed(0) + '/10k';
+      document.getElementById('cn-top-name').textContent =
+        top.name + ' (' + top.dept + ')';
+      document.getElementById('cn-alpine-count').textContent =
+        stats.alpineInTop10 + '/10';
+      document.getElementById('cn-paris1er').textContent =
+        stats.paris1er.per10k.toFixed(0);
+
+      // Context table — top 10 communes with variety
+      const tbody = document.getElementById('context-tbody');
+      const rows = stats.topCommunes.slice(0, 12);
+      tbody.innerHTML = rows.map((d, i) =>
+        `<tr>
+          <td class="place">${i + 1}. ${d.name}${TAG_HTML[d.category] || ''}</td>
+          <td>${d.bars}</td>
+          <td>${d.pop.toLocaleString('fr-FR')}</td>
+          <td><strong>${d.per10k.toFixed(1)}</strong></td>
+        </tr>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        populatePage(stats);
+        drawRankingChart('#chart-ranking', stats);
+        drawDeptChart('#chart-depts', stats);
+      } catch (err) {
+        console.error('Failed to load apres-ski data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

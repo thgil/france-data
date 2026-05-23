@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### apres-ski: The bar capital of France is a ski resort
+- Status: ✅ published
+- Published URL: /stories/apres-ski/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Per capita, France's most bar-dense communes aren't in Paris or Brittany — they're Alpine ski resorts. Les Deux Alpes: 202 bars per 10,000 registered residents.
+- Data: bars.json (49,385 national SIRENE bars) joined to DREES APL commune population data (35,014 communes). No new downloads needed.
+- Angle: Horizontal bar chart of top 20 communes + département rankings. Text-and-charts story explaining the tourist-infrastructure paradox: licences are permanent, populations are seasonal.
+- Draft X summary:
+  > The most bar-dense commune in France isn't in Paris or Brittany. It's a ski resort — Les Deux Alpes, Isère: 202 bars per 10,000 registered residents. 9 of the top 10 are in the Alps. Today on **france-data**: why the denominator matters. 🎿🍺🇫🇷
+
