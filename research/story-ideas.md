@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a village called Y. Twelve villages called Sainte-Colombe. And one whose name is 45 characters and 7 hyphens long.
+- Data: DREES APL GeoJSON 2025, communeName field across 35,014 communes. No additional download required — reused from Story 2 (medical-deserts).
+- Angle: Text-and-charts story. Two canvas charts: (1) top-15 most-common names as a horizontal bar chart, (2) name-length histogram. Four narrative beats: the single-letter Y, the saint-name republic, the length extremes, the duplicate-name problem.
+- Draft X summary:
+  > France has 35,014 communes. One is called Y — just the letter Y, population 89, Somme département, named since the 12th century. The most common name is Sainte-Colombe, shared by 12 communes. And somewhere in the Marne, 491 people live in Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson. Today on **france-data**: all 35,014 commune names, analysed. 🇫🇷
+
 ### medical-deserts: Where the doctors aren't
 - Status: ✅ published
 - Published URL: /stories/medical-deserts/
