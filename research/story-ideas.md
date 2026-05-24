@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### saint-republic: The Republic of Saints
+- Status: ✅ published
+- Published URL: /stories/saint-republic/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has 35,000 communes and one of them is called Y. Twelve are named Sainte-Colombe. The longest name is 45 characters and contains two saints.
+- Data: INSEE commune names extracted from the DREES APL 2023 GeoJSON (35,014 communes with names, codes, populations). No new download needed — data already in the repo.
+- Angle: Text-and-charts story. Two bar charts (most common saint-prefixes; most-shared full names), a chips display for the shortest names, and name cards for the extremes.
+- Draft X summary:
+  > France has a commune called Y. Population 89. One letter. It shares a national register with Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 chars, two saints). Today on **france-data**: the strangest address book in Europe — 35,000 names, 3,898 saints, and 12 places all called Sainte-Colombe. 🇫🇷
+
