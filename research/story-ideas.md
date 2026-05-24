@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: The village called Y
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: Y is a commune in the Somme. One letter. 89 residents. And it's not even the weirdest naming fact about France — 3,882 communes start with Saint.
+- Data: DREES APL 2023 commune dataset (35,014 communes with names, codes, population) — reused from medical-deserts story. No additional download needed.
+- Angle: Text-and-charts story. Two Observable Plot horizontal bar charts (saint bases, most-common names) + a table of the 14 shortest commune names. Six narrative beats: Y → short names → saint country → duplicated names → uniqueness stat → longest name.
+- Draft X summary:
+  > Y is a commune in France. One letter. 89 people. Also: 3,882 communes start with Saint, Sainte-Colombe is 12 different places at once, and the longest commune name is 45 characters. Today on **france-data**: 35,014 communes, and everything weird about how they're named. 🇫🇷
+

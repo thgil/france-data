@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Y is a commune. One letter. 89 people. Dept. 80 (Somme). It has been called Y since the 12th century. [Q-039]
+- 🔥 14 communes in France have names of 2 letters or fewer. The largest: Eu (Seine-Maritime, 6,591 residents, predates the Norman Conquest). The smallest: Sy (Ardennes, 54 residents). [Q-039]
+- 🔥 3,882 French communes — 11.1% — start with Saint or Sainte. Saint-Martin alone accounts for 202 of them, scattered from Finistère to the Var. [Q-037]
+- 🔥 Sainte-Colombe appears 12 times as a commune name. There are 12 different villages in France that share the exact same name. The postal code is the only disambiguation. [Q-037]
