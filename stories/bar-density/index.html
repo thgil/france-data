@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where France drinks most — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ─────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-mount {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Commune table ─────────────────────────────────────────────── */
+    .commune-table-wrap {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      overflow-x: auto;
+    }
+    .commune-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      font-family: var(--sans);
+    }
+    .commune-table th {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 8px 0;
+      border-bottom: 1px solid #d8d0c0;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .commune-table th.num, .commune-table td.num {
+      text-align: right;
+    }
+    .commune-table td {
+      padding: 5px 8px 5px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+    .commune-table td.rank {
+      font-size: 10px;
+      color: #aaa;
+      min-width: 1.6ch;
+    }
+    .commune-table td.place {
+      font-family: Georgia, serif;
+    }
+    .commune-table td.dept-tag {
+      color: #666;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .commune-table td.rate {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: #c67c00;
+      text-align: right;
+    }
+    .commune-table td.subtext {
+      color: #888;
+      font-size: 11px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── Pull-quote / big number ───────────────────────────────────── */
+    .big-stat {
+      max-width: 680px;
+      margin: 32px auto;
+      padding: 24px 28px;
+      border-left: 4px solid #c67c00;
+      background: #fdf9f3;
+    }
+    .big-stat .number {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: #c67c00;
+    }
+    .big-stat .label {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    /* ── Two-col stats ─────────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 680px;
+      margin: 32px auto;
+    }
+    @media (max-width: 600px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .stat-block {
+      padding: 16px 20px;
+      border: 1px solid #d8d0c0;
+    }
+    .stat-block .sb-number {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .stat-block .sb-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* ── Credits ───────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Where France drinks most</h1>
+        <p class="story-dek">49,385 bars split by who actually lives near them — and the per-capita answer isn't who you'd expect.</p>
+        <div class="story-meta">
+          <span>2026-05-24</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 49,385 active bars — <a href="../bars/">we mapped all of them</a>. By raw count, Paris leads (3,120), followed by Nord and Finistère. But raw counts favour big places. Divide by population and the rankings turn inside out.</p>
+
+      <p>The national average is <strong>7.3 bars per 10,000 residents</strong>. Below that line you find half of France — and above it you find a story that has almost nothing to do with drinking culture.</p>
+
+      <!-- ── Big stat ──────────────────────────────────────────────────── -->
+      <div class="big-stat">
+        <div class="number" id="top-rate">—</div>
+        <div class="label" id="top-rate-label">bars per 10,000 residents — Haute-Corse (2B), the highest rate of any département</div>
+      </div>
+
+      <!-- ── Beat 2: Dept chart ────────────────────────────────────────── -->
+      <h2>Corsica, the Alps, and the Massif Central</h2>
+
+      <p>Haute-Corse (2B) tops the national ranking at 21.1 per 10k — nearly <em>three times</em> the national average. Corse-du-Sud (2A) is third at 16.9. Between them sits Lozère at 17.6, followed by Cantal (16.6) and Hautes-Alpes (15.6). Paris, at 14.6, is seventh. These aren't the départements France usually thinks of as heavy-drinking territory. What they share is low permanent population and high seasonal tourism.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-top"></div>
+        <figcaption>Top 20 départements by registered bars per 10,000 residents. Dashed line = national average (7.3). Source: INSEE SIRENE (March 2026) joined to INSEE commune populations.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Commune table ─────────────────────────────────────── -->
+      <h2>The commune ranking reads like a ski-resort directory</h2>
+
+      <p>Zoom from département to commune level (minimum 200 permanent residents) and the tourism logic becomes undeniable. The top 25 reads like a piste map: <em>Les Deux Alpes, Morzine, Chamrousse, Val-d'Isère, Courchevel, Tignes</em>. These communes have a few hundred or a few thousand registered residents — and several thousand seasonal visitors cycling through their hotels, chalets, and après-ski bars. The bars stay in the SIRENE register year-round; the tourists don't.</p>
+
+      <p>Les Deux Alpes (38) has <strong>39 bars for 1,933 residents</strong>, a rate of 202 per 10k. Morzine (74) has 51 bars for 2,660 residents. These are not communities that drink unusually much — they are communities permanently outnumbered by their own infrastructure.</p>
+
+      <div class="commune-table-wrap">
+        <table class="commune-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Commune</th>
+              <th>Département</th>
+              <th class="num">Bars</th>
+              <th class="num">Pop.</th>
+              <th class="num">Per 10k</th>
+            </tr>
+          </thead>
+          <tbody id="commune-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 4: The inversion ─────────────────────────────────────── -->
+      <h2>The ring around Paris, again</h2>
+
+      <p>The flip side of the ranking is just as striking. The ten lowest-scoring départements are almost entirely the inner and outer suburbs of Paris: Essonne (3.1), Yvelines (3.3), Hauts-de-Seine (3.3), Val-d'Oise (3.7), Seine-et-Marne (3.8). These are large, densely populated territories — but their bars-per-capita rate is less than half the national average.</p>
+
+      <p>It's the same ring that showed up in <a href="../medical-deserts/">the medical deserts story</a> — the zone of outer Île-de-France where access scores, whether measured in GPs or in <em>débits de boissons</em>, consistently lag behind both Paris proper and the rest of France. Paris at 14.6 per 10k is well above average. Its suburbs at 3–4 per 10k are in a different country.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-bottom"></div>
+        <figcaption>Bottom 10 départements by bars per 10,000 residents. The IDF suburbs dominate. Dashed line = national average (7.3).</figcaption>
+      </figure>
+
+      <!-- ── Beat 5 ────────────────────────────────────────────────────── -->
+      <div class="two-col" id="summary-stats"></div>
+
+      <p>The French café runs on foot traffic — which is why it concentrates where people walk: in city centres, mountain resorts, island villages, and coastal tourist towns. The <em>diagonale du vide</em>, the empty demographic diagonal from Meuse to the Pyrenees, shows up here too: its small, low-density communes provide bars-per-capita rates double the national average, precisely because the population denominator is small. The sprawling commuter suburbs of greater Paris, where residents drive everywhere and there is no high street, show up at the bottom.</p>
+
+      <p>Per capita, France doesn't drink most in its cities. It drinks most where permanent residents are outnumbered by tourists, slopes, and granite.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar locations come from the same INSEE SIRENE pipeline as <a href="../bars/">Story 4</a>: 49,385 active establishments with NAF code 56.30Z (débits de boissons), geocoded coordinates from SIRENE Géolocalisation, March 2026 snapshot. Population figures are INSEE commune populations embedded in the APL 2023 dataset (DREES, based on INSEE 2021 census). Department totals aggregate commune-level bar counts against commune-level populations. Communes with population &lt; 200 are excluded from the commune ranking to reduce noise from very small places.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune populations)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, drawBottomChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function fmt(n) {
+      return n.toLocaleString('fr-FR');
+    }
+
+    function fmtRate(n) {
+      return parseFloat(n).toFixed(1);
+    }
+
+    function populateCommunes(communes) {
+      const tbody = document.getElementById('commune-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = communes.slice(0, 20).map((c, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${c.name}</td>
+          <td class="dept-tag">${c.dept_name} (${c.dept})</td>
+          <td class="num">${c.bars}</td>
+          <td class="num subtext">${fmt(c.pop)}</td>
+          <td class="rate">${fmtRate(c.per10k)}</td>
+        </tr>`
+      ).join('');
+    }
+
+    function populateSummary(stats) {
+      const el = document.getElementById('summary-stats');
+      if (!el) return;
+      el.innerHTML = `
+        <div class="stat-block">
+          <div class="sb-number">${fmtRate(stats.national.per10k)}</div>
+          <div class="sb-label">national average bars per 10,000 residents</div>
+        </div>
+        <div class="stat-block">
+          <div class="sb-number">${fmt(stats.national.total_bars)}</div>
+          <div class="sb-label">total active bars in France (NAF 56.30Z, March 2026)</div>
+        </div>
+      `;
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        const topRate = stats.dept_top20[0];
+        const el = document.getElementById('top-rate');
+        if (el) el.textContent = fmtRate(topRate.per10k);
+        const labelEl = document.getElementById('top-rate-label');
+        if (labelEl) labelEl.textContent = `bars per 10,000 residents — ${topRate.name} (${topRate.dept}), the highest rate of any département`;
+
+        drawDeptChart('#chart-top', stats.dept_top20, stats.national.per10k);
+        drawBottomChart('#chart-bottom', stats.dept_bottom10.slice().reverse(), stats.national.per10k);
+        populateCommunes(stats.commune_top25);
+        populateSummary(stats);
+
+      } catch (err) {
+        console.error('Failed to load bar-density data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
