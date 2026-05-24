@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France's shortest commune name is a single letter — Y, Somme, pop 89 — and its longest is 45 characters of hyphenated fusion history.
+- Data: INSEE commune names from DREES APL 2023 dataset (35,014 communes). All statistics computed from the communes-apl.geojson already in the repo. No new data download needed.
+- Angle: Text-and-charts story. Name-length histogram, top-saints bar chart, shortest/longest tables, duplicate-name cards. No map needed — the patterns are linguistic and distributional, not spatial.
+- Draft X summary:
+  > France has 35,014 communes. The shortest name is one letter (Y — Somme, 89 residents). The longest is 45 characters of hyphenated compromise. One in eight communes is named for a saint — Saint-Martin leads with 249 occurrences. And 12 separate villages are all called Sainte-Colombe. Today on france-data. 🇫🇷
+
 ### medical-deserts: Where the doctors aren't
 - Status: ✅ published
 - Published URL: /stories/medical-deserts/
