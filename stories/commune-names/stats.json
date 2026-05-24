@@ -1,0 +1,334 @@
+{
+  "totalCommunes": 35014,
+  "saintCount": 3898,
+  "saintPercent": 11.1,
+  "distinctDuplicateNames": 1450,
+  "communesSharing": 3700,
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "sainteColombes": [
+    {
+      "code": "05135",
+      "dept": "05",
+      "pop": 59,
+      "lat": 44.2908,
+      "lng": 5.6614
+    },
+    {
+      "code": "17319",
+      "dept": "17",
+      "pop": 107,
+      "lat": 45.277,
+      "lng": -0.2794
+    },
+    {
+      "code": "25515",
+      "dept": "25",
+      "pop": 464,
+      "lat": 46.8778,
+      "lng": 6.271
+    },
+    {
+      "code": "33390",
+      "dept": "33",
+      "pop": 426,
+      "lat": 44.8822,
+      "lng": -0.061
+    },
+    {
+      "code": "35262",
+      "dept": "35",
+      "pop": 360,
+      "lat": 47.8978,
+      "lng": -1.4592
+    },
+    {
+      "code": "40252",
+      "dept": "40",
+      "pop": 622,
+      "lat": 43.6894,
+      "lng": -0.5561
+    },
+    {
+      "code": "46260",
+      "dept": "46",
+      "pop": 230,
+      "lat": 44.7216,
+      "lng": 2.0164
+    },
+    {
+      "code": "50457",
+      "dept": "50",
+      "pop": 184,
+      "lat": 49.4169,
+      "lng": -1.5062
+    },
+    {
+      "code": "69189",
+      "dept": "69",
+      "pop": 1953,
+      "lat": 45.5238,
+      "lng": 4.8625
+    },
+    {
+      "code": "76569",
+      "dept": "76",
+      "pop": 222,
+      "lat": 49.7953,
+      "lng": 0.7659
+    },
+    {
+      "code": "77404",
+      "dept": "77",
+      "pop": 1793,
+      "lat": 48.5306,
+      "lng": 3.2593
+    },
+    {
+      "code": "89339",
+      "dept": "89",
+      "pop": 185,
+      "lat": 47.5721,
+      "lng": 3.9564
+    }
+  ],
+  "shortest": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "dept": "80",
+      "pop": 89,
+      "lat": 49.8064,
+      "lng": 2.985
+    },
+    {
+      "name": "By",
+      "code": "25104",
+      "dept": "25",
+      "pop": 86,
+      "lat": 47.0158,
+      "lng": 5.8936
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "dept": "28",
+      "pop": 2022,
+      "lat": 48.8033,
+      "lng": 1.489
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "dept": "76",
+      "pop": 6591,
+      "lat": 50.0416,
+      "lng": 1.4312
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "dept": "70",
+      "pop": 1001,
+      "lat": 47.3972,
+      "lng": 5.8182
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "dept": "38",
+      "pop": 213,
+      "lat": 45.1205,
+      "lng": 6.0648
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "dept": "31",
+      "pop": 103,
+      "lat": 42.7453,
+      "lng": 0.494
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "dept": "66",
+      "pop": 79,
+      "lat": 42.4723,
+      "lng": 2.3634
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "dept": "61",
+      "pop": 156,
+      "lat": 48.7922,
+      "lng": -0.1388
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "dept": "76",
+      "pop": 775,
+      "lat": 49.477,
+      "lng": 1.3255
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "dept": "08",
+      "pop": 54,
+      "lat": 49.51,
+      "lng": 4.8751
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "dept": "66",
+      "pop": 348,
+      "lat": 42.463,
+      "lng": 1.9409
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "dept": "95",
+      "pop": 1338,
+      "lat": 49.108,
+      "lng": 1.9519
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "dept": "65",
+      "pop": 36,
+      "lat": 42.9574,
+      "lng": -0.0874
+    },
+    {
+      "name": "Acq",
+      "code": "62007",
+      "dept": "62",
+      "pop": 797,
+      "lat": 50.3493,
+      "lng": 2.6513
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "dept": "51",
+      "pop": 491,
+      "chars": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "dept": "70",
+      "pop": 923,
+      "chars": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "dept": "14",
+      "pop": 499,
+      "chars": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "dept": "21",
+      "pop": 381,
+      "chars": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "dept": "34",
+      "pop": 195,
+      "chars": 40
+    }
+  ]
+}
