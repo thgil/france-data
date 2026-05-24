@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: 35,014 communes, one obsession
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has more places called Sainte-Colombe than it does Nobel laureates. The most common commune name appears 12 times, in 12 different départements — none of them neighbours.
+- Data: Commune names extracted from INSEE contours administratifs 2025 (35,014 communes), reusing communes-apl.geojson from Story 2.
+- Angle: Four narrative beats with Chart.js bar charts — top duplicated names, the saint economy (Saint-Martin: 203 communes), the extremes (Y vs 45-character Marne monster), and the uniqueness paradox (89.4% of communes are one-of-a-kind).
+- Draft X summary:
+  > France has a commune called Y. Population 89. It's the shortest place name in the country. At the other end: Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters, Marne, three villages that merged and refused to choose). Today on **france-data**: 35,014 commune names, 12 places called Sainte-Colombe, and why 89% of French communes have a name found nowhere else. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>35,014 communes, one obsession — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart containers ───────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .chart-wrap canvas {
+      width: 100% !important;
+    }
+
+    /* ── Callout boxes ──────────────────────────────────────────────── */
+    .callout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) {
+      .callout-grid { grid-template-columns: 1fr; }
+    }
+    .callout {
+      background: #f0ece4;
+      border-left: 3px solid var(--accent);
+      padding: 20px 20px 16px;
+    }
+    .callout .callout-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    .callout .callout-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+    .callout .callout-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin: 0 0 8px;
+    }
+
+    /* ── Pull stat ──────────────────────────────────────────────────── */
+    .pull-stat {
+      border-top: 2px solid var(--rule);
+      border-bottom: 1px solid #ccc;
+      padding: 24px 0;
+      margin: 48px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .pull-stat .ps-number {
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .pull-stat .ps-label {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--ink-soft);
+      max-width: 360px;
+    }
+
+    /* ── Dupe table ─────────────────────────────────────────────────── */
+    .dupe-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 24px 0;
+    }
+    .dupe-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 8px 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .dupe-table td {
+      padding: 6px 8px 6px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #eee;
+    }
+    .dupe-table td:nth-child(2) {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+    }
+    .dupe-table .name-cell {
+      font-family: var(--serif);
+    }
+    .dupe-table .dept-cell {
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">35,014 communes, one obsession</h1>
+        <p class="story-dek">France has more places named Sainte-Colombe than it does Nobel laureates. An exploration of what 35,000 place names reveal about a country.</p>
+        <div class="story-meta">
+          <span>2026-05-24</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>Ask twelve communes their name. Each one, independently, will tell you: <em>Sainte-Colombe.</em> They are scattered across twelve different départements — Gironde, Yonne, Haute-Savoie, Normandie, Charente-Maritime — none of them neighbours, none of them the most important, all of them named after the same third-century martyr from Sens. Welcome to the French commune naming system.</p>
+
+      <p>France's 35,014 communes have accumulated their names over a thousand years of settlement, conquest, merger, and bureaucratic accident. The results are, by turns, repetitive, poetic, and occasionally baffling. Sainte-Colombe wins the frequency contest. But the data contains richer things than the winner.</p>
+
+      <!-- ── Beat 2: Top duplicated names chart ──────────────────────── -->
+      <h2>The most duplicated names</h2>
+
+      <p>Among 35,014 communes, <strong>32,764 distinct names</strong> are used — which means 2,250 names are shared by at least two places. The top of the frequency list reads like a roll call from a medieval hagiography.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height:420px">
+          <canvas id="chart-dupes"></canvas>
+        </div>
+        <figcaption>Top 20 most-duplicated commune names in France. All but two (Beaulieu and Beaumont) are saint names. Source: INSEE contours administratifs, 2025.</figcaption>
+      </figure>
+
+      <p>Beaulieu — "beautiful place" — appears ten times. Beaumont — "beautiful hill" — eight. Both are descriptive names that independent communities in different regions converged on for obvious reasons. The saints are different: their prevalence is not coincidence but policy. The Catholic Church spread its calendar across every valley, and villages that built a chapel to the same saint often adopted the same name.</p>
+
+      <!-- ── Beat 3: The Saint economy ──────────────────────────────── -->
+      <h2>The saint economy</h2>
+
+      <div class="pull-stat">
+        <span class="ps-number" id="ps-saint-count">3,898</span>
+        <span class="ps-label">communes — 11.1% of France — start with <em>Saint</em> or <em>Sainte</em>. That's more named communes than most European countries have communes total.</span>
+      </div>
+
+      <p>One name prefix, 3,898 uses. Saint-Martin leads with <strong>203 communes</strong> — enough to fill the Stade de France with villagers all sharing the same postal prefix. Saint-Jean follows with 155, Saint-Pierre with 144. The top fifteen saints between them account for <strong>1,283 communes</strong>.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height:360px">
+          <canvas id="chart-saints"></canvas>
+        </div>
+        <figcaption>The 15 most common saints in French commune names. Saint-Martin (203 communes) has more than twice as many as Saint-Julien in fifth place. Source: INSEE, 2025.</figcaption>
+      </figure>
+
+      <p>Saint-Martin's dominance is not accidental. Martin of Tours was the first non-martyr to be canonised by the Catholic Church and the patron saint of France before Joan of Arc took the role. His feast day (November 11 — still <em>Armistice Day</em> on the calendar) and his popularity in the early medieval period meant that settlements founded between the 5th and 12th centuries reached for his name naturally. The result is 203 communes who share his name, plus hundreds more who append it to a hyphenated compound: Saint-Martin-d'Hères, Saint-Martin-de-Crau, Saint-Martin-en-Bresse, and so on.</p>
+
+      <!-- ── Beat 4: The extremes ────────────────────────────────────── -->
+      <h2>The alphabet extremes</h2>
+
+      <p>The shortest commune name in France — and possibly one of the shortest in Europe — is a single letter.</p>
+
+      <div class="callout-grid">
+        <div class="callout">
+          <div class="callout-label">Shortest name</div>
+          <p class="callout-name">Y</p>
+          <p class="callout-sub">Département de la Somme (80). Population: 89. Named from a Germanic root meaning "water" or "stream". Sitting along the Somme river, it has been spelled Y since at least the 12th century.</p>
+        </div>
+        <div class="callout">
+          <div class="callout-label">Longest name (45 characters)</div>
+          <p class="callout-name" style="font-size:16px">Saint-Remy-en-Bouzemont-<br>Saint-Genest-et-Isson</p>
+          <p class="callout-sub">Département de la Marne (51). Population: 491. The name dates from a 1972 merger of three communes: Saint-Remy-en-Bouzemont, Saint-Genest, and Isson. Rather than choose, they kept all three.</p>
+        </div>
+      </div>
+
+      <p>Between Y and Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson lies the full range of French place-name logic. Y's brevity is almost certainly an accident of phonetic survival — long vowel sounds that lost their consonants over a millennium of French evolution. The long names are the opposite: deliberate accumulations, communes merged by administrative decree in the 1970s who preserved their identity in the only way the law allowed — by concatenating their names with hyphens and <em>et</em>.</p>
+
+      <p>There are also <strong>13 two-letter communes</strong> (Sy, By, Oô, Oz, Gy, Eu, Ry, and others), each a small grammatical puzzle, and 154 communes with three-letter names. The name-length distribution peaks at 7–8 characters — roughly the length of a French monosyllable with an article, or a saint name without embellishment.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap" style="height:280px">
+          <canvas id="chart-lengths"></canvas>
+        </div>
+        <figcaption>Distribution of commune name lengths. The mode is 7–8 characters. The long right tail (30+ characters) comes from post-1970 mergers that kept all their original names. Source: INSEE, 2025.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Uniqueness paradox ────────────────────────────── -->
+      <h2>A spectacularly diverse system</h2>
+
+      <p>Here is the surprising number: <strong>89.4%</strong> of French communes — 31,314 of them — have a name that exists nowhere else in France. One commune, one name, found in exactly that spot and nowhere else on the map.</p>
+
+      <p>For a country famous for administrative centralisation, this is remarkable. The Fifth Republic has standardised everything from school hours to bread weights. But commune names were effectively frozen centuries before the Republic existed, and France chose to preserve them rather than rationalise them. The result is a dataset of extraordinary local particularity: Abergement-Clémenciat, Abzac, Achicourt, each unrepeated.</p>
+
+      <p>The 2,250 shared names are the exception, not the rule. And within that group, the saint names dominate precisely because they were the one common cultural input — the Catholic Church's calendar — that reached every corner of medieval France at the same time. Strip out the saints and the <em>Le/La/Les</em> prefixes, and the underlying name diversity becomes even starker.</p>
+
+      <p>Twelve places called Sainte-Colombe. Thirty-one thousand places called nothing else. France is, officially, very hard to name.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and population figures are drawn from INSEE's contours administratifs 2025 dataset, via the GeoJSON file generated for <a href="../medical-deserts/">Story 2 (medical deserts)</a>. The dataset covers 35,014 communes including overseas territories. Names are as recorded in the INSEE administrative database at the 2025 vintage — post-merger names for communes that joined after 1970 appear in their current merged form.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025</a> — data.gouv.fr / Etalab (commune boundaries, names, INSEE codes)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">APL médecins généralistes 2023</a> — DREES (commune population figures)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script type="module" src="./charts.js"></script>
+</body>
+</html>
