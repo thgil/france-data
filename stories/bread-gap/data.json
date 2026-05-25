@@ -1,0 +1,311 @@
+{
+  "summary": {
+    "totalBakeries": 6299,
+    "totalPopulation": 11786234,
+    "totalCommunes": 1300,
+    "zeroBakeryCommunes": 607,
+    "parisPer10k": 8.0,
+    "suburbsPer10k": 4.7,
+    "idfPer10k": 5.3
+  },
+  "byDept": [
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bakeries": 1800,
+      "population": 2243833,
+      "communes": 20,
+      "zeroBakerieCommunes": 0,
+      "per10k": 8.0
+    },
+    {
+      "dept": "93",
+      "name": "Seine-Saint-Denis",
+      "bakeries": 786,
+      "population": 1522048,
+      "communes": 40,
+      "zeroBakerieCommunes": 0,
+      "per10k": 5.2
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bakeries": 665,
+      "population": 1324865,
+      "communes": 514,
+      "zeroBakerieCommunes": 301,
+      "per10k": 5.0
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bakeries": 650,
+      "population": 1327732,
+      "communes": 47,
+      "zeroBakerieCommunes": 1,
+      "per10k": 4.9
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bakeries": 721,
+      "population": 1572490,
+      "communes": 36,
+      "zeroBakerieCommunes": 1,
+      "per10k": 4.6
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bakeries": 637,
+      "population": 1408765,
+      "communes": 262,
+      "zeroBakerieCommunes": 136,
+      "per10k": 4.5
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bakeries": 513,
+      "population": 1171161,
+      "communes": 185,
+      "zeroBakerieCommunes": 86,
+      "per10k": 4.4
+    },
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bakeries": 527,
+      "population": 1215340,
+      "communes": 196,
+      "zeroBakerieCommunes": 82,
+      "per10k": 4.3
+    }
+  ],
+  "topCommunesPop5k": [
+    {
+      "name": "Paris 1er Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 36,
+      "population": 17308,
+      "per10k": 20.8
+    },
+    {
+      "name": "Paris 4e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 45,
+      "population": 28012,
+      "per10k": 16.06
+    },
+    {
+      "name": "Paris 8e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 61,
+      "population": 41280,
+      "per10k": 14.78
+    },
+    {
+      "name": "Paris 9e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 78,
+      "population": 60139,
+      "per10k": 12.97
+    },
+    {
+      "name": "Paris 6e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 56,
+      "population": 43451,
+      "per10k": 12.89
+    },
+    {
+      "name": "Paris 2e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 29,
+      "population": 23009,
+      "per10k": 12.6
+    },
+    {
+      "name": "Paris 5e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 73,
+      "population": 60938,
+      "per10k": 11.98
+    },
+    {
+      "name": "Enghien-les-Bains",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "bakeries": 14,
+      "population": 11809,
+      "per10k": 11.86
+    },
+    {
+      "name": "Le Raincy",
+      "dept": "93",
+      "deptName": "Seine-Saint-Denis",
+      "bakeries": 16,
+      "population": 13828,
+      "per10k": 11.57
+    },
+    {
+      "name": "Fontainebleau",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bakeries": 17,
+      "population": 15107,
+      "per10k": 11.25
+    },
+    {
+      "name": "Paris 3e Arrondissement",
+      "dept": "75",
+      "deptName": "Paris",
+      "bakeries": 36,
+      "population": 35652,
+      "per10k": 10.1
+    },
+    {
+      "name": "La Ferté-sous-Jouarre",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bakeries": 9,
+      "population": 9061,
+      "per10k": 9.93
+    }
+  ],
+  "zeroBakeryCommunes": [
+    {
+      "name": "Saint-Germain-lès-Arpajon",
+      "dept": "91",
+      "deptName": "Essonne",
+      "population": 9338
+    },
+    {
+      "name": "Nandy",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 5814
+    },
+    {
+      "name": "Le Port-Marly",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "population": 4803
+    },
+    {
+      "name": "Boissise-le-Roi",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3572
+    },
+    {
+      "name": "Pomponne",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 3364
+    },
+    {
+      "name": "Rocquencourt",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "population": 3215
+    },
+    {
+      "name": "Saint-Germain-Laval",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2773
+    },
+    {
+      "name": "Gometz-le-Châtel",
+      "dept": "91",
+      "deptName": "Essonne",
+      "population": 2588
+    },
+    {
+      "name": "Écuelles",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2479
+    },
+    {
+      "name": "Longperrier",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "population": 2454
+    }
+  ],
+  "lowestDensityPop5k": [
+    {
+      "name": "Jouy-le-Moutier",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "bakeries": 1,
+      "population": 16589,
+      "per10k": 0.6
+    },
+    {
+      "name": "Méry-sur-Oise",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "bakeries": 1,
+      "population": 9260,
+      "per10k": 1.08
+    },
+    {
+      "name": "Fleury-Mérogis",
+      "dept": "91",
+      "deptName": "Essonne",
+      "bakeries": 1,
+      "population": 9121,
+      "per10k": 1.1
+    },
+    {
+      "name": "Carrières-sur-Seine",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "bakeries": 2,
+      "population": 15473,
+      "per10k": 1.29
+    },
+    {
+      "name": "Montmagny",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "bakeries": 2,
+      "population": 14250,
+      "per10k": 1.4
+    },
+    {
+      "name": "Itteville",
+      "dept": "91",
+      "deptName": "Essonne",
+      "bakeries": 1,
+      "population": 6575,
+      "per10k": 1.52
+    },
+    {
+      "name": "Othis",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bakeries": 1,
+      "population": 6471,
+      "per10k": 1.55
+    },
+    {
+      "name": "Saint-Thibault-des-Vignes",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bakeries": 1,
+      "population": 6300,
+      "per10k": 1.59
+    }
+  ]
+}

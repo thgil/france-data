@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bread gap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ─────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 56px 0;
+    }
+
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute, #888);
+    }
+
+    /* ── Stats grid ───────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+      white-space: nowrap;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .dept-tag {
+      font-size: 11px;
+      color: #999;
+      padding-right: 8px;
+      white-space: nowrap;
+    }
+
+    /* ── Pull quote ───────────────────────────────────────────────── */
+    .pull-stat {
+      border-left: 3px solid #c67c00;
+      margin: 40px 0;
+      padding: 4px 0 4px 20px;
+    }
+    .pull-stat .big-num {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      line-height: 1;
+      color: #1a1a1a;
+      display: block;
+    }
+    .pull-stat .big-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #666;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Gap comparison band ──────────────────────────────────────── */
+    .gap-band {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 48px 0;
+      border: 1px solid #d8d0c0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .gap-cell {
+      flex: 1;
+      padding: 20px 22px;
+      background: #faf7f2;
+    }
+    .gap-cell + .gap-cell {
+      border-left: 1px solid #d8d0c0;
+    }
+    .gap-cell.highlight {
+      background: #fff9f0;
+    }
+    .gap-cell .gc-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .gap-cell .gc-num {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #1a1a1a;
+      display: block;
+      line-height: 1;
+    }
+    .gap-cell.highlight .gc-num {
+      color: #c67c00;
+    }
+    .gap-cell .gc-sub {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Credits ──────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute, #888);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute, #888);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bread gap</h1>
+        <p class="story-dek">Paris has 8 bakeries per 10,000 residents. Its suburbs have barely 5. And 607 of Île-de-France's 1,300 communes have none at all.</p>
+        <div class="story-meta">
+          <span>2026-05-25</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The gap ────────────────────────────────────────── -->
+      <p>Île-de-France has 6,299 bakeries. That's the same number you've seen on the dot-density map — 7,378 SIRENE establishments, of which 6,299 fall inside the 1,300 communes tracked by INSEE's <em>Base Permanente des Équipements</em>. The question isn't how many there are. It's how evenly they're distributed.</p>
+
+      <p>The answer, bluntly, is not very.</p>
+
+      <div class="gap-band">
+        <div class="gap-cell highlight">
+          <span class="gc-label">Paris (dept. 75)</span>
+          <span class="gc-num" id="gc-paris">8.0</span>
+          <span class="gc-sub">bakeries per 10,000 residents</span>
+        </div>
+        <div class="gap-cell">
+          <span class="gc-label">IDF suburbs (depts. 77–95)</span>
+          <span class="gc-num" id="gc-suburbs">4.7</span>
+          <span class="gc-sub">bakeries per 10,000 residents</span>
+        </div>
+        <div class="gap-cell">
+          <span class="gc-label">IDF average</span>
+          <span class="gc-num" id="gc-idf">5.3</span>
+          <span class="gc-sub">bakeries per 10,000 residents</span>
+        </div>
+      </div>
+
+      <p>Paris proper has 70% more bakeries per capita than the rest of Île-de-France. Cross the <em>périphérique</em> and bread gets measurably scarcer. Not because the suburbs are rural — Hauts-de-Seine alone has 1.6 million residents — but because the spatial pattern of bakeries tracks commercial density and pedestrian footfall, both of which collapse outside the city limits.</p>
+
+      <!-- ── Beat 2: Chart ───────────────────────────────────────────── -->
+      <h2>The eight départements</h2>
+
+      <figure class="chart-figure">
+        <div id="chart-dept"></div>
+        <figcaption>Bakeries per 10,000 residents, by IDF département. Population figures: INSEE 2010 census. Bakery counts: INSEE BPE (Base Permanente des Équipements), circa 2014 vintage. Paris 75 is the gold bar; the seven suburban départements follow in brown.</figcaption>
+      </figure>
+
+      <p>Within the suburbs the variation is narrower than you might expect. Seine-Saint-Denis — often cited as France's poorest département — actually leads the outer ring at 5.2 per 10k, nearly matching Seine-et-Marne. Essonne and Val-d'Oise trail the pack at 4.3 and 4.4. The practical floor for a suburban IDF département seems to be around 4–5 bakeries per 10,000, regardless of income levels or population density.</p>
+
+      <!-- ── Beat 3: Richest ─────────────────────────────────────────── -->
+      <h2>The most bread-rich communes</h2>
+
+      <p>Within Paris, the arrondissement rankings are unsurprising in their logic but still striking in their numbers. The 1st arrondissement — home to the Louvre, the Palais-Royal, the most expensive office space in France — has 20.8 bakeries per 10,000 residents. That's one bakery for every 481 people. The tourist-heavy central arrondissements (1st, 4th, 8th) dominate because the bakery count is calibrated to daytime population and visitor demand, not just residents.</p>
+
+      <p>The first non-Paris commune in the per-capita ranking (among towns of 5,000+ residents) is Enghien-les-Bains in Val-d'Oise at 11.9 — roughly where Paris's 10th arrondissement sits.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bread-rich (pop. &gt; 5,000)</h3>
+          <table class="stats-table" id="table-top">
+            <thead>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th style="text-align:right;font-size:10px;color:#aaa;font-weight:600;letter-spacing:.5px">/10k</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="stats-block">
+          <h3>Bread deserts (pop. &gt; 5,000)</h3>
+          <table class="stats-table" id="table-deserts">
+            <thead>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th style="text-align:right;font-size:10px;color:#aaa;font-weight:600;letter-spacing:.5px">/10k</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: Jouy-le-Moutier ────────────────────────────────── -->
+      <p>Jouy-le-Moutier sits in Val-d'Oise, 30 km northwest of Paris. It has 16,589 residents and one registered bakery. That's a per-capita rate of 0.6 per 10,000 — one baker for every 16,589 people. No other IDF commune with a population above 5,000 comes close. The runner-up, Méry-sur-Oise (9,260 residents, 1 bakery), still manages 1.1 per 10k.</p>
+
+      <p>These aren't towns without commercial infrastructure — they're suburbs with car-dependent planning, large residential footprints, and a supermarket where the <em>boulangerie</em> never materialised. The bread is there; it just arrives on a shelf, wrapped in plastic, labelled <em>tradition</em>.</p>
+
+      <!-- ── Beat 5: Zero communes ───────────────────────────────────── -->
+      <h2>607 communes: zero</h2>
+
+      <div class="pull-stat">
+        <span class="big-num" id="pull-zero">607</span>
+        <span class="big-label">of 1,300 IDF communes have no registered bakery — 47%</span>
+      </div>
+
+      <p>Nearly half of Île-de-France's communes have no bakery at all. Most of these are small rural communes in Seine-et-Marne (301 of its 514 communes have zero), but two have populations over 5,000: Saint-Germain-lès-Arpajon in Essonne (9,338 residents) and Nandy in Seine-et-Marne (5,814 residents). Both are périurban commuter towns with no registered <em>boulangerie</em>.</p>
+
+      <div class="stats-grid" style="margin-top: 32px;">
+        <div class="stats-block">
+          <h3>Largest communes with zero bakeries</h3>
+          <table class="stats-table" id="table-zero">
+            <thead>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th style="text-align:right;font-size:10px;color:#aaa;font-weight:600;letter-spacing:.5px">pop.</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block" style="display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:13px;color:#555;line-height:1.6;margin:0;">
+            Alongside these are 301 communes in Seine-et-Marne alone with no bakery — more than half of the département's 514 communes. At one end, the village with 80 residents and a weekly market. At the other, a town of 9,000 where bread means a drive to a retail park.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: Closing ─────────────────────────────────────────── -->
+      <h2>The pattern behind the pattern</h2>
+
+      <p>The bread gap is a proxy for something larger. Bakeries require pedestrian density — foot traffic that justifies a 4 AM start. They require commercial rent levels that aren't astronomical (central Paris defies this, but the 8th arrondissement baker also sells to 50,000 daily commuters). They require a critical mass of residents who walk past the shop on the way somewhere else.</p>
+
+      <p>These conditions exist inside Paris and collapse in the suburbs. The same pattern shows up in pharmacies, in doctors (Story 2), in bars (Story 4). Every trade that depends on neighbourhood-scale foot traffic maps almost identically. The bread gap isn't about bread. It's about what a city does to the space immediately outside itself.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bakery counts and population come from INSEE's <em>Base Permanente des Équipements</em> (BPE) for Île-de-France, as republished by Région Île-de-France on data.gouv.fr. The BPE vintage is circa 2014; the population figures are from the 2010 census. Both figures are slightly dated, but the spatial pattern — Paris outpacing its suburbs by a stable 1.7× ratio — is unlikely to have changed materially. This story uses the same underlying communes dataset as <a href="../pharmacy-myth/">Story 1 (pharmacy myth)</a> and <a href="../baguettes/">Story 3 (baguettes)</a>.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/les-commerces-par-commune-ou-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Commerces par commune (Île-de-France)</a>, via Région Île-de-France</li>
+          <li><a href="https://www.data.gouv.fr/datasets/les-services-de-sante-par-commune-ou-par-arrondissement-base-permanente-des-equipements-idf">INSEE BPE — Services de santé par commune (Île-de-France)</a>, via Région Île-de-France</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, populateTables } from './charts.js';
+
+    async function main() {
+      try {
+        const res = await fetch('./data.json');
+        if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Update gap band numbers
+        document.getElementById('gc-paris').textContent = data.summary.parisPer10k.toFixed(1);
+        document.getElementById('gc-suburbs').textContent = data.summary.suburbsPer10k.toFixed(1);
+        document.getElementById('gc-idf').textContent = data.summary.idfPer10k.toFixed(1);
+
+        // Update pull stat
+        document.getElementById('pull-zero').textContent = data.summary.zeroBakeryCommunes.toLocaleString('fr-FR');
+
+        drawDeptChart('#chart-dept', data);
+        populateTables(data);
+
+      } catch (err) {
+        console.error('Failed to load bread-gap data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

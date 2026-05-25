@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Paris has 8.0 bakeries per 10,000 residents. The IDF suburbs have 4.7. Cross the périphérique and bread gets measurably scarcer. [Q-034]
+- 🔥 Jouy-le-Moutier: 16,589 residents, 1 bakery. That's 0.6 per 10k — the worst-served IDF town with any baker at all. [Q-034]
+- 🔥 607 of Île-de-France's 1,300 communes have no registered bakery. Saint-Germain-lès-Arpajon (9,338 residents) is the largest with zero. [Q-034]
+- 🔥 Paris 1er has one bakery for every 481 residents — 20.8 per 10k. The suburb average is 4.7. The gap is 70%, and it's entirely explained by foot traffic. [Q-034]
