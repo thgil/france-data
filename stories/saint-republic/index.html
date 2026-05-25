@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Saint Republic — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Bar chart table ─────────────────────────────────────────────── */
+    .bar-chart-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .bar-chart-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .bct-rank {
+      font-size: 10px;
+      color: #aaa;
+      padding: 5px 8px 5px 0;
+      min-width: 2ch;
+      vertical-align: middle;
+      font-variant-numeric: tabular-nums;
+    }
+    .bct-label {
+      font-family: Georgia, serif;
+      padding: 5px 12px 5px 0;
+      white-space: nowrap;
+      vertical-align: middle;
+      min-width: 160px;
+    }
+    .bct-bar-cell {
+      width: 100%;
+      padding: 5px 8px 5px 0;
+      vertical-align: middle;
+    }
+    .bct-bar-wrap {
+      background: #ede8e0;
+      border-radius: 2px;
+      height: 12px;
+      width: 100%;
+    }
+    .bct-bar {
+      height: 12px;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .bct-bar-saint { background: #b32020; }
+    .bct-bar-other { background: #7a9e7a; }
+    .bct-val {
+      font-variant-numeric: tabular-nums;
+      color: #555;
+      padding: 5px 0 5px 8px;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-align: right;
+      font-size: 12px;
+    }
+
+    /* ── Length histogram ────────────────────────────────────────────── */
+    .len-chart {
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .len-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 180px;
+      padding-bottom: 0;
+    }
+    .len-bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .len-bar {
+      width: 100%;
+      background: #b32020;
+      border-radius: 1px 1px 0 0;
+      transition: height 0.4s ease;
+      cursor: default;
+    }
+    .len-bar:hover { background: #8a1818; }
+    .len-label {
+      font-size: 9px;
+      color: #888;
+      margin-top: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+    .len-label-empty {
+      height: 14px;
+    }
+    .len-caption {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      margin: 8px 0 0;
+      font-style: italic;
+    }
+
+    /* ── Stat numbers ────────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 48px auto;
+      max-width: 680px;
+      justify-content: space-between;
+    }
+    .stat-block {
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    .stat-num {
+      font-family: Georgia, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      color: #b32020;
+      line-height: 1;
+      display: block;
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── Short names grid ────────────────────────────────────────────── */
+    .short-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 680px;
+      margin: 24px auto 32px;
+    }
+    .short-chip {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-radius: 3px;
+      padding: 4px 10px;
+      color: #1a1a1a;
+    }
+    .short-chip.chip-y {
+      background: #b32020;
+      border-color: #b32020;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ── Long name callout ───────────────────────────────────────────── */
+    .long-name-box {
+      max-width: 680px;
+      margin: 32px auto;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-left: 4px solid #b32020;
+      padding: 20px 24px;
+    }
+    .long-name-box .lnb-name {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.4;
+      color: #1a1a1a;
+      margin: 0 0 8px;
+    }
+    .long-name-box .lnb-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Saint dept table ────────────────────────────────────────────── */
+    .saint-dept-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .saint-dept-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 0 0 8px;
+      border-bottom: 1px solid #d8d0c0;
+    }
+    .saint-dept-table th:last-child { text-align: right; }
+    .saint-dept-table td {
+      padding: 5px 0;
+      vertical-align: middle;
+    }
+    .saint-dept-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .sdt-dept {
+      font-variant-numeric: tabular-nums;
+      color: #888;
+      padding-right: 10px;
+      min-width: 40px;
+    }
+    .sdt-bar-cell {
+      width: 100%;
+      padding: 0 12px 0 0;
+    }
+    .sdt-bar-wrap {
+      background: #ede8e0;
+      border-radius: 2px;
+      height: 10px;
+    }
+    .sdt-bar { height: 10px; background: #b32020; border-radius: 2px; }
+    .sdt-pct {
+      text-align: right;
+      white-space: nowrap;
+      color: #555;
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Saint Republic</h1>
+        <p class="story-dek">France has 35,014 communes. One is called Y. Twelve are called Sainte-Colombe. And 3,898 — one in nine — are named after saints.</p>
+        <div class="story-meta">
+          <span>2026-05-25</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>Ask what makes France's commune map distinctive and you might say its sheer scale — 35,014 units of local government, far more than any other European country. But look closer at the names and a stranger story emerges. The secular Republic that abolished religious privilege in 1905, that put <em>Liberté, Égalité, Fraternité</em> on its public buildings, named nearly 4,000 of its communes after saints.</p>
+
+      <div class="stat-row" id="stat-row">
+        <div class="stat-block">
+          <span class="stat-num" id="s-total">35,014</span>
+          <span class="stat-label">communes</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num" id="s-unique">32,764</span>
+          <span class="stat-label">unique names</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num" id="s-saints">3,898</span>
+          <span class="stat-label">saint names</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num" id="s-hyphens">38%</span>
+          <span class="stat-label">hyphenated</span>
+        </div>
+      </div>
+
+      <h2>Y</h2>
+
+      <p>The shortest commune name in France is one letter. <em>Y</em> — pronounced like the French letter <em>i grec</em> — sits in the Somme département, in a flat stretch of Picardy farmland between Amiens and Saint-Quentin. Population: 89. APL score: 2.78 (adequate, just above the desert threshold). It has appeared on French maps since at least the medieval period, and linguists trace it to a Gaulish root meaning water or waterway.</p>
+
+      <p>It is not the only very short name. France has 13 two-letter communes — By, Bû, Eu, Gy, Oz, Oô, Py, Ri, Ry, Sy, Ur, Us, and Uz — and over 150 with three-letter names. Many cluster in Basque country and Catalonia, where pre-Roman place-name roots resist the Latinised lengthening that reshaped northern names. A few are Norman relics. Oô (Haute-Garonne) and Eu (Seine-Maritime, population 6,591) are both named for rivers of the same name.</p>
+
+      <div class="short-names" id="short-names-wrap"></div>
+
+      <h2>At the other extreme</h2>
+
+      <p>The longest commune name in France runs to 45 characters: <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, a village in the Marne. It acquired its monstrous length through a 1972 merger of two communes — Saint-Remy-en-Bouzemont and Saint-Genest-et-Isson — whose inhabitants apparently could not agree on a shorter combined name. The second-longest (43 characters) tells the same story: <em>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</em> in Haute-Saône, another merger product.</p>
+
+      <div class="long-name-box">
+        <p class="lnb-name" id="longest-name">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</p>
+        <p class="lnb-sub">The longest commune name in France — 45 characters. Marne (dept 51). A 1972 merger of two communes that kept both names.</p>
+      </div>
+
+      <p>The length distribution tells a clear story. The median commune name is 12 characters. Names cluster between 6 and 20 characters — the typical shape of a "Saint-Something" name. The very long tail (above 30 characters) is almost entirely merger names: two places fused, their names concatenated with an <em>-et-</em>. The very short tail (below 5 characters) is almost entirely pre-Latin place-name survivals.</p>
+
+      <div id="len-chart-mount"></div>
+
+      <h2>Sainte-Colombe × 12</h2>
+
+      <p>The single most common commune name in France is <em>Sainte-Colombe</em>, shared by 12 different communes across 12 different départements — from the Hautes-Alpes (population 59) to Seine-et-Marne (population 1,793). They are not related administratively. They share a name because they all grew around a medieval church dedicated to Sainte Colombe, a 3rd-century martyr whose veneration spread across Gaul with the monastic network.</p>
+
+      <p>This is how medieval France was named: locally, independently, following the liturgical calendar and the local bishop's preferred saints. The result is a map full of collisions. There are 11 communes called Saint-Sauveur, 10 called Saint-Aubin, 10 called Beaulieu, 9 each called Saint-Marcel, Saint-Michel, Saint-Pierre, Sainte-Marie, and Le Pin. In total, 1,450 commune names are shared by at least two different communes. When a French address says "Saint-Aubin," it means one of ten places.</p>
+
+      <div id="top-names-chart"></div>
+
+      <h2>One in nine communes is a saint</h2>
+
+      <p>Across France, 3,898 communes — 11.1% — have a name beginning with Saint or Sainte. The distribution is uneven. In the Ardèche (dept 07), nearly 29% of communes carry a saint's name. In the Creuse (dept 23), it's 28%. The Loire (dept 42) and the Haute-Vienne (dept 87) follow close behind. These are the old dioceses where early medieval Christianity planted its densest network of parishes — and where the names stuck hardest through the Revolution, which briefly attempted to rename places like "Saint-Tropez" to the more republican "Héraclée."</p>
+
+      <p>It didn't take. The Republic's communes kept their saints.</p>
+
+      <div id="saint-dept-table-mount"></div>
+
+      <h2>The hyphen habit</h2>
+
+      <p>38.3% of French commune names contain at least one hyphen — 13,410 out of 35,014. This is partly saint names (Saint-X), partly topographic compounds (-sur-[river], 1,991 names; -en-[region], 974 names), and partly the merger habit. The French hyphen in place names does what the German compound does in German: it glues geography together into a single token. Pont-sur-Yonne. Boulogne-sur-Mer. Saint-Martin-de-Bienfaite-la-Cressonnière.</p>
+
+      <p>The cumulative effect is a naming register entirely unlike English place names — no "Newcastles" or "Hamptons," no county suffixes. French commune names are sentences compressed into nouns: a saint, a river, a preposition, a direction, all hyphenated into a topographic poem.</p>
+
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and properties come from the DREES APL 2023 dataset, which covers all 35,014 French communes (metropolitan France and overseas territories) with INSEE commune codes. Name lengths and frequency counts are computed from the <em>communeName</em> field as it appears in that dataset. Two-letter and very-short names are reproduced exactly. Population figures are from the APL dataset's population column (INSEE 2021 base). The Sainte-Colombe count of 12 and the Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson length of 45 characters are both verified from the raw data.</p>
+
+        <h3>Questions answered</h3>
+        <ul>
+          <li><a href="../../research/questions.md">Q-037</a> — What is the single most common commune name in France? <strong>Sainte-Colombe (12 communes).</strong></li>
+          <li><a href="../../research/questions.md">Q-039</a> — Which commune in France has the shortest official name? <strong>Y (Somme, 1 character).</strong></li>
+        </ul>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL aux médecins généralistes 2023</a> — commune-level data including communeName and population fields. 35,014 communes, used here for name analysis only.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawTopNamesChart, drawLengthChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateStats(data) {
+      const fmt = n => n.toLocaleString('fr-FR');
+      const el = (id, text) => { const e = document.getElementById(id); if (e) e.textContent = text; };
+      el('s-total',   fmt(data.total));
+      el('s-unique',  fmt(data.unique));
+      el('s-saints',  fmt(data.saintCount));
+      el('s-hyphens', data.hyphenPct + '%');
+    }
+
+    function populateShortNames(data) {
+      const wrap = document.getElementById('short-names-wrap');
+      if (!wrap) return;
+      const items = data.veryShort.filter(d => d.length <= 3);
+      items.forEach(d => {
+        const chip = document.createElement('span');
+        chip.className = 'short-chip' + (d.name === 'Y' ? ' chip-y' : '');
+        chip.textContent = d.name;
+        chip.title = `${d.length} character${d.length === 1 ? '' : 's'}`;
+        wrap.appendChild(chip);
+      });
+    }
+
+    function populateSaintDeptTable(data) {
+      const mount = document.getElementById('saint-dept-table-mount');
+      if (!mount) return;
+      const top = data.topSaintDepts.slice(0, 10);
+      const maxShare = top[0].share;
+
+      const table = document.createElement('table');
+      table.className = 'saint-dept-table';
+      table.innerHTML = `<thead><tr>
+        <th>Dept</th>
+        <th></th>
+        <th style="text-align:right">% saint names</th>
+      </tr></thead>`;
+
+      const tbody = document.createElement('tbody');
+      top.forEach(d => {
+        const pct = (d.share * 100).toFixed(1);
+        const barW = ((d.share / maxShare) * 100).toFixed(1);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="sdt-dept">${d.dept}</td>
+          <td class="sdt-bar-cell">
+            <div class="sdt-bar-wrap">
+              <div class="sdt-bar" style="width:${barW}%"></div>
+            </div>
+          </td>
+          <td class="sdt-pct">${pct}% <span style="color:#aaa;font-size:11px">(${d.saint}/${d.total})</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      mount.appendChild(table);
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./names-stats.json');
+        populateStats(data);
+        populateShortNames(data);
+        drawLengthChart('#len-chart-mount', data);
+        drawTopNamesChart('#top-names-chart', data);
+        populateSaintDeptTable(data);
+      } catch (err) {
+        console.error('Failed to load saint-republic data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
