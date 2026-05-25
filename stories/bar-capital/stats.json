@@ -1,0 +1,573 @@
+{
+  "totalBars": 49385,
+  "communesWithBars": 11761,
+  "communesWithNoBars": 23265,
+  "totalCommunes": 35014,
+  "topCommunesPerCapita": [
+    {
+      "name": "Les Deux Alpes",
+      "dept": "38",
+      "deptName": "Isère",
+      "bars": 39,
+      "pop": 1933,
+      "per1000": 20.2
+    },
+    {
+      "name": "Morzine",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 51,
+      "pop": 2660,
+      "per1000": 19.2
+    },
+    {
+      "name": "Orcières",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 11,
+      "pop": 683,
+      "per1000": 16.1
+    },
+    {
+      "name": "Risoul",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 10,
+      "pop": 660,
+      "per1000": 15.2
+    },
+    {
+      "name": "Châtel",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 16,
+      "pop": 1193,
+      "per1000": 13.4
+    },
+    {
+      "name": "Val-d'Isère",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 21,
+      "pop": 1580,
+      "per1000": 13.3
+    },
+    {
+      "name": "Les Gets",
+      "dept": "74",
+      "deptName": "Haute-Savoie",
+      "bars": 16,
+      "pop": 1223,
+      "per1000": 13.1
+    },
+    {
+      "name": "Courchevel",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 30,
+      "pop": 2311,
+      "per1000": 13.0
+    },
+    {
+      "name": "Rogliano",
+      "dept": "2B",
+      "deptName": "Haute-Corse",
+      "bars": 7,
+      "pop": 540,
+      "per1000": 13.0
+    },
+    {
+      "name": "Tignes",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 25,
+      "pop": 2005,
+      "per1000": 12.5
+    },
+    {
+      "name": "Laveissière",
+      "dept": "15",
+      "deptName": "Cantal",
+      "bars": 6,
+      "pop": 516,
+      "per1000": 11.6
+    },
+    {
+      "name": "La Roche-Bernard",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "bars": 8,
+      "pop": 695,
+      "per1000": 11.5
+    },
+    {
+      "name": "Île-aux-Moines",
+      "dept": "56",
+      "deptName": "Morbihan",
+      "bars": 7,
+      "pop": 628,
+      "per1000": 11.1
+    },
+    {
+      "name": "Champagny-en-Vanoise",
+      "dept": "73",
+      "deptName": "Savoie",
+      "bars": 6,
+      "pop": 552,
+      "per1000": 10.9
+    },
+    {
+      "name": "La Salle-les-Alpes",
+      "dept": "05",
+      "deptName": "Hautes-Alpes",
+      "bars": 10,
+      "pop": 924,
+      "per1000": 10.8
+    }
+  ],
+  "bottomCommunesPerCapita": [
+    {
+      "name": "Tournefeuille",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "bars": 1,
+      "pop": 29439,
+      "per1000": 0.03
+    },
+    {
+      "name": "Élancourt",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "bars": 1,
+      "pop": 26082,
+      "per1000": 0.04
+    },
+    {
+      "name": "Torcy",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bars": 1,
+      "pop": 22444,
+      "per1000": 0.04
+    },
+    {
+      "name": "Écully",
+      "dept": "69",
+      "deptName": "Rhône",
+      "bars": 1,
+      "pop": 18361,
+      "per1000": 0.05
+    },
+    {
+      "name": "Lingolsheim",
+      "dept": "67",
+      "deptName": "Bas-Rhin",
+      "bars": 1,
+      "pop": 20266,
+      "per1000": 0.05
+    },
+    {
+      "name": "Matoury",
+      "dept": "97",
+      "deptName": "97",
+      "bars": 2,
+      "pop": 34810,
+      "per1000": 0.06
+    },
+    {
+      "name": "Garches",
+      "dept": "92",
+      "deptName": "Hauts-de-Seine",
+      "bars": 1,
+      "pop": 17898,
+      "per1000": 0.06
+    },
+    {
+      "name": "Verneuil-sur-Seine",
+      "dept": "78",
+      "deptName": "Yvelines",
+      "bars": 1,
+      "pop": 15914,
+      "per1000": 0.06
+    },
+    {
+      "name": "Saint-Jean-de-la-Ruelle",
+      "dept": "45",
+      "deptName": "Loiret",
+      "bars": 1,
+      "pop": 16594,
+      "per1000": 0.06
+    },
+    {
+      "name": "Noisiel",
+      "dept": "77",
+      "deptName": "Seine-et-Marne",
+      "bars": 1,
+      "pop": 15461,
+      "per1000": 0.06
+    }
+  ],
+  "topDeptsPerCapita": [
+    {
+      "dept": "2B",
+      "name": "Haute-Corse",
+      "bars": 390,
+      "pop": 184655,
+      "per1000": 2.11
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "bars": 135,
+      "pop": 76519,
+      "per1000": 1.76
+    },
+    {
+      "dept": "2A",
+      "name": "Corse-du-Sud",
+      "bars": 276,
+      "pop": 162942,
+      "per1000": 1.69
+    },
+    {
+      "dept": "15",
+      "name": "Cantal",
+      "bars": 239,
+      "pop": 144226,
+      "per1000": 1.66
+    },
+    {
+      "dept": "05",
+      "name": "Hautes-Alpes",
+      "bars": 220,
+      "pop": 140976,
+      "per1000": 1.56
+    },
+    {
+      "dept": "04",
+      "name": "Alpes-de-Haute-Provence",
+      "bars": 243,
+      "pop": 166077,
+      "per1000": 1.46
+    },
+    {
+      "dept": "75",
+      "name": "Paris",
+      "bars": 3120,
+      "pop": 2133111,
+      "per1000": 1.46
+    },
+    {
+      "dept": "22",
+      "name": "Côtes-d'Armor",
+      "bars": 789,
+      "pop": 604489,
+      "per1000": 1.31
+    },
+    {
+      "dept": "73",
+      "name": "Savoie",
+      "bars": 538,
+      "pop": 442468,
+      "per1000": 1.22
+    },
+    {
+      "dept": "56",
+      "name": "Morbihan",
+      "bars": 931,
+      "pop": 768687,
+      "per1000": 1.21
+    },
+    {
+      "dept": "58",
+      "name": "Nièvre",
+      "bars": 245,
+      "pop": 202417,
+      "per1000": 1.21
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "bars": 273,
+      "pop": 227284,
+      "per1000": 1.2
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "bars": 128,
+      "pop": 115596,
+      "per1000": 1.11
+    },
+    {
+      "dept": "29",
+      "name": "Finistère",
+      "bars": 1014,
+      "pop": 921638,
+      "per1000": 1.1
+    },
+    {
+      "dept": "12",
+      "name": "Aveyron",
+      "bars": 298,
+      "pop": 278076,
+      "per1000": 1.07
+    }
+  ],
+  "bottomDeptsPerCapita": [
+    {
+      "dept": "91",
+      "name": "Essonne",
+      "bars": 403,
+      "pop": 1313768,
+      "per1000": 0.31
+    },
+    {
+      "dept": "78",
+      "name": "Yvelines",
+      "bars": 478,
+      "pop": 1456365,
+      "per1000": 0.33
+    },
+    {
+      "dept": "92",
+      "name": "Hauts-de-Seine",
+      "bars": 546,
+      "pop": 1635291,
+      "per1000": 0.33
+    },
+    {
+      "dept": "95",
+      "name": "Val-d'Oise",
+      "bars": 463,
+      "pop": 1256607,
+      "per1000": 0.37
+    },
+    {
+      "dept": "77",
+      "name": "Seine-et-Marne",
+      "bars": 547,
+      "pop": 1438100,
+      "per1000": 0.38
+    },
+    {
+      "dept": "67",
+      "name": "Bas-Rhin",
+      "bars": 450,
+      "pop": 1152662,
+      "per1000": 0.39
+    },
+    {
+      "dept": "94",
+      "name": "Val-de-Marne",
+      "bars": 565,
+      "pop": 1415367,
+      "per1000": 0.4
+    },
+    {
+      "dept": "31",
+      "name": "Haute-Garonne",
+      "bars": 601,
+      "pop": 1434367,
+      "per1000": 0.42
+    },
+    {
+      "dept": "90",
+      "name": "Territoire de Belfort",
+      "bars": 65,
+      "pop": 139654,
+      "per1000": 0.47
+    },
+    {
+      "dept": "01",
+      "name": "Ain",
+      "bars": 329,
+      "pop": 663025,
+      "per1000": 0.5
+    }
+  ],
+  "parisArrondissements": [
+    {
+      "code": "75101",
+      "name": "Paris 1er Arrondissement",
+      "bars": 123,
+      "pop": 15919,
+      "per1000": 7.73
+    },
+    {
+      "code": "75102",
+      "name": "Paris 2e Arrondissement",
+      "bars": 129,
+      "pop": 21119,
+      "per1000": 6.11
+    },
+    {
+      "code": "75103",
+      "name": "Paris 3e Arrondissement",
+      "bars": 87,
+      "pop": 32793,
+      "per1000": 2.65
+    },
+    {
+      "code": "75104",
+      "name": "Paris 4e Arrondissement",
+      "bars": 113,
+      "pop": 28324,
+      "per1000": 3.99
+    },
+    {
+      "code": "75105",
+      "name": "Paris 5e Arrondissement",
+      "bars": 150,
+      "pop": 56841,
+      "per1000": 2.64
+    },
+    {
+      "code": "75106",
+      "name": "Paris 6e Arrondissement",
+      "bars": 109,
+      "pop": 40209,
+      "per1000": 2.71
+    },
+    {
+      "code": "75107",
+      "name": "Paris 7e Arrondissement",
+      "bars": 63,
+      "pop": 47947,
+      "per1000": 1.31
+    },
+    {
+      "code": "75108",
+      "name": "Paris 8e Arrondissement",
+      "bars": 153,
+      "pop": 35123,
+      "per1000": 4.36
+    },
+    {
+      "code": "75109",
+      "name": "Paris 9e Arrondissement",
+      "bars": 197,
+      "pop": 58951,
+      "per1000": 3.34
+    },
+    {
+      "code": "75110",
+      "name": "Paris 10e Arrondissement",
+      "bars": 223,
+      "pop": 83543,
+      "per1000": 2.67
+    },
+    {
+      "code": "75111",
+      "name": "Paris 11e Arrondissement",
+      "bars": 386,
+      "pop": 142583,
+      "per1000": 2.71
+    },
+    {
+      "code": "75112",
+      "name": "Paris 12e Arrondissement",
+      "bars": 151,
+      "pop": 140954,
+      "per1000": 1.07
+    },
+    {
+      "code": "75113",
+      "name": "Paris 13e Arrondissement",
+      "bars": 109,
+      "pop": 178350,
+      "per1000": 0.61
+    },
+    {
+      "code": "75114",
+      "name": "Paris 14e Arrondissement",
+      "bars": 104,
+      "pop": 136368,
+      "per1000": 0.76
+    },
+    {
+      "code": "75115",
+      "name": "Paris 15e Arrondissement",
+      "bars": 148,
+      "pop": 227746,
+      "per1000": 0.65
+    },
+    {
+      "code": "75116",
+      "name": "Paris 16e Arrondissement",
+      "bars": 83,
+      "pop": 162061,
+      "per1000": 0.51
+    },
+    {
+      "code": "75117",
+      "name": "Paris 17e Arrondissement",
+      "bars": 179,
+      "pop": 164413,
+      "per1000": 1.09
+    },
+    {
+      "code": "75118",
+      "name": "Paris 18e Arrondissement",
+      "bars": 292,
+      "pop": 188446,
+      "per1000": 1.55
+    },
+    {
+      "code": "75119",
+      "name": "Paris 19e Arrondissement",
+      "bars": 142,
+      "pop": 181616,
+      "per1000": 0.78
+    },
+    {
+      "code": "75120",
+      "name": "Paris 20e Arrondissement",
+      "bars": 180,
+      "pop": 189805,
+      "per1000": 0.95
+    }
+  ],
+  "largestBarDeserts": [
+    {
+      "name": "Villefontaine",
+      "dept": "38",
+      "pop": 19083
+    },
+    {
+      "name": "Macouria",
+      "dept": "97",
+      "pop": 18847
+    },
+    {
+      "name": "Fontenay-le-Fleury",
+      "dept": "78",
+      "pop": 13455
+    },
+    {
+      "name": "Mana",
+      "dept": "97",
+      "pop": 11764
+    },
+    {
+      "name": "Allonnes",
+      "dept": "72",
+      "pop": 11013
+    },
+    {
+      "name": "Castelginest",
+      "dept": "31",
+      "pop": 10876
+    },
+    {
+      "name": "Saint-Esprit",
+      "dept": "97",
+      "pop": 10270
+    },
+    {
+      "name": "Parempuyre",
+      "dept": "33",
+      "pop": 10142
+    }
+  ]
+}

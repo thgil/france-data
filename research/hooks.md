@@ -27,3 +27,8 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Two-thirds of French communes have no registered bar. 23,265 of 35,014. The bar desert is bigger than the medical desert. [Q-033]
+- 🔥 The most bar-dense commune in France (pop ≥500) is Les Deux Alpes, Isère: 39 bars for 1,933 permanent residents — 20.2 per thousand. The top 12 are all ski resorts. Tourism licences stay registered year-round; the actual drinkers leave in April. [Q-033]
+- 🔥 Corsica beats France on per-capita bars. Haute-Corse (2B) has 2.11 bars per thousand residents — highest in metropolitan France, ahead of Lozère, Cantal, and the Alps. [Q-033]
+- 🔥 Paris 1er vs Paris 15e: 7.73 bars per thousand vs 0.65. Same city, eleven-fold difference. The arrondissement you're in determines whether you can walk to a drink. [Q-033]
+- 🔥 Villefontaine, Isère: 19,000 people, zero bars. Designed in the 1970s for cars and apartments, not cafés. The largest metropolitan bar desert in France. [Q-033]
