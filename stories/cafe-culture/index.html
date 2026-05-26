@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The café capital isn't Paris — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    .chart-outer { margin: 56px 0; }
+    .chart-scroll { overflow-x: auto; }
+    #chart-svg { display: block; }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin: 12px 0 0;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .legend-swatch {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+      opacity: 0.85;
+    }
+
+    .chart-tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 12px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.6;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 1000;
+      display: none;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 2.2ch;
+    }
+    .stats-table .place { font-family: Georgia, serif; }
+
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The café capital isn't Paris</h1>
+        <p class="story-dek">France has 7.5 bars per 10,000 residents. Corsica has 21. Paris is seventh. And the suburbs of the capital sit at three.</p>
+        <div class="story-meta">
+          <span>2026-05-26</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <p>The <a href="../bars/">dot map</a> showed where the bars are — 49,385 amber dots, each one a registered <em>débit de boissons</em>, placed at its real address across France. The north was bright. Bretagne was bright. Paris glowed. But raw counts flatter big places. To find where France actually drinks, you have to divide by population.</p>
+
+      <p>The result upends the obvious answer. Paris, home of the <em>zinc</em> counter and the 6 AM espresso, ranks seventh among French departments for bars per capita. Corsica ranks first — and by a very wide margin.</p>
+
+      <figure class="chart-outer">
+        <div class="chart-scroll">
+          <svg id="chart-svg"></svg>
+        </div>
+        <div class="chart-legend">
+          <span><span class="legend-swatch" style="background:#c0392b"></span>Corse</span>
+          <span><span class="legend-swatch" style="background:#2c4a7c"></span>Bretagne</span>
+          <span><span class="legend-swatch" style="background:#7a9a6b"></span>Above national avg (7.5)</span>
+          <span><span class="legend-swatch" style="background:#a0aab4"></span>Below national avg</span>
+          <span><span class="legend-swatch" style="background:#c67c00"></span>Île-de-France suburbs</span>
+        </div>
+        <figcaption>Bars per 10,000 residents, by département. 96 metropolitan départements. Source: INSEE SIRENE (NAF 56.30Z, March 2026) + INSEE population census 2021. Hover for details.</figcaption>
+      </figure>
+
+      <h2>Corsica, which has 21</h2>
+
+      <p>Haute-Corse has 390 bars for 185,000 permanent residents. That's 21.1 per 10,000 — nearly three times the national rate. Corse-du-Sud adds 276 bars for 163,000 residents: 16.9 per 10,000, third in France. Only Lozère (17.6 per 10,000), a thin-population mountain department in the Massif Central, sits between the two Corsican departments at the top of the ranking.</p>
+
+      <p>Corsica's numbers reflect a combination that recurs throughout the upper tier: small permanent population, substantial year-round tourism, and a village-bar culture where the <em>café du village</em> is infrastructure rather than amenity. The licence outlasts the demographic pressure that justified it. The bar stays open.</p>
+
+      <h2>Rural mountains fill the top ten</h2>
+
+      <p>After Corsica, the top five is essentially the atlas of thin-population France: Lozère (17.6), Cantal (16.6), Hautes-Alpes (15.6), Alpes-de-Haute-Provence (14.6). These are four of France's least-populated departments, but each sustains a bar density that exceeds central Paris. The tourist economy — skiing in winter, hiking in summer — keeps licences economically viable across mountains that otherwise export their young. The bars follow the wallets, not the permanent inhabitants.</p>
+
+      <h2>Paris is seventh</h2>
+
+      <p>At 14.6 bars per 10,000, Paris ties Alpes-de-Haute-Provence for sixth and seventh place in the ranking. This is genuinely high — nearly double the national rate — and it validates the café republic's reputation. But "the most bar-dense place in metropolitan France" belongs to an island, not the Marais.</p>
+
+      <p>Paris's 3,120 bars serving 2.1 million registered residents is a real density. What that figure also undercounts: a daytime population of millions of commuters and tourists who keep the same bars profitable without appearing in the census denominator. The lived café experience is denser than the number suggests. But the number is still what it is: seventh.</p>
+
+      <h2>Bretagne earns its reputation</h2>
+
+      <p>Three of the four historic Breton departments rank in the top 15: Côtes-d'Armor at 13.1 per 10,000 (eighth), Morbihan at 12.1 (tenth), and Finistère at 11.0 (fourteenth). Ille-et-Vilaine, the fourth, falls to fortieth — but still above the national average. Bretagne's bar culture isn't a <em>biniou</em>-and-<em>crêpes</em> cliché. It's a measurable pattern in the national business registry, consistent across four departments and several centuries.</p>
+
+      <h2>The suburbs don't drink (statistically)</h2>
+
+      <p>The bottom of the ranking is almost entirely Île-de-France. Six of the seven lowest-scoring departments in France are Paris suburbs: Essonne (3.1 per 10,000, dead last), Hauts-de-Seine (3.3), Yvelines (3.3), Val-d'Oise (3.7), Seine-et-Marne (3.8), and Val-de-Marne (4.0). Each has less than half the national rate. The seventh-lowest is Bas-Rhin — Strasbourg, France's beer capital by reputation — at 3.9.</p>
+
+      <p>These are not places without nightlife. Hauts-de-Seine contains La Défense and Boulogne-Billancourt. Yvelines holds Versailles. But their bar density per resident is low in a way that doesn't yield to obvious explanation. These are car-dependent, architecturally residential suburbs — built around the <em>pavillon</em>, the supermarket and the RER, not the zinc counter. Where bars exist, they cluster near commuter stations and serve a quite different function from the Corsican <em>café du village</em>.</p>
+
+      <p>Paris itself, surrounded by these departments at ranks 90–96, sits at seventh in the country. Within Île-de-France, it isn't just first — it's in a different league.</p>
+
+      <p>The Alsace footnote is worth stating plainly: Bas-Rhin (3.9 per 10,000, rank 91) and Haut-Rhin (5.4, rank 83) are both below the national average. Strasbourg has real beer culture. It also has a beer <em>industry</em> — Kronenbourg, Heineken's French operations — and the culture expresses itself through <em>winstubs</em> and brewery taprooms rather than through sheer licensed-premises density. The registry doesn't lie; it just counts differently than the reputation implies.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest bar density</h3>
+          <table class="stats-table" id="table-top"><tbody></tbody></table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest bar density</h3>
+          <table class="stats-table" id="table-bottom"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <div class="credits">
+        <p><strong>Methodology.</strong> Bar counts come from INSEE's SIRENE business registry (active establishments with NAF code 56.30Z — <em>débits de boissons</em>), geocoded by INSEE's statistical geolocation file, both March 2026 snapshots. Of 49,385 geocoded bars in <a href="../bars/">Story 4 (bars)</a>, this analysis uses 48,785 in the 96 metropolitan departments; the remaining 600 are in overseas territories whose commune codes don't cleanly map to the two-digit department prefix used here. Population figures are from the INSEE 2021 census, as published in the DREES APL dataset and aggregated to département level by summing commune populations. Overseas territories are excluded from the ranking.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026 snapshot)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune-level population from INSEE census 2021</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <div class="chart-tooltip" id="tooltip"></div>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script>
+    const CORSE = new Set(['2A', '2B']);
+    const BRETAGNE = new Set(['22', '29', '35', '56']);
+    const IDF_SUBURBS = new Set(['77', '78', '91', '92', '93', '94', '95']);
+
+    function barColor(d, nationalRate) {
+      if (CORSE.has(d.dept)) return '#c0392b';
+      if (BRETAGNE.has(d.dept)) return '#2c4a7c';
+      if (IDF_SUBURBS.has(d.dept)) return '#c67c00';
+      return d.per10k >= nationalRate ? '#7a9a6b' : '#a0aab4';
+    }
+
+    function nameWeight(d) {
+      return CORSE.has(d.dept) || IDF_SUBURBS.has(d.dept) ? '600' : 'normal';
+    }
+
+    async function init() {
+      const data = await fetch('./data.json').then(r => r.json());
+      const depts = data.departments;
+      const nationalRate = data.national_rate;
+
+      const marginLeft = 182;
+      const marginRight = 52;
+      const marginTop = 36;
+      const marginBottom = 16;
+      const rowH = 15;
+
+      const pageEl = document.querySelector('.page');
+      const available = pageEl ? pageEl.clientWidth - 48 : 680;
+      const chartW = Math.min(780, Math.max(480, available));
+      const barW = chartW - marginLeft - marginRight;
+      const chartH = depts.length * rowH + marginTop + marginBottom;
+
+      const svg = d3.select('#chart-svg')
+        .attr('width', chartW)
+        .attr('height', chartH)
+        .style('font-family', "'Helvetica Neue', Helvetica, Arial, sans-serif");
+
+      const xMax = d3.max(depts, d => d.per10k);
+      const x = d3.scaleLinear().domain([0, xMax * 1.06]).range([0, barW]);
+
+      const tooltip = document.getElementById('tooltip');
+
+      // National average line
+      const avgX = marginLeft + x(nationalRate);
+      svg.append('line')
+        .attr('x1', avgX).attr('x2', avgX)
+        .attr('y1', marginTop - 10).attr('y2', chartH - marginBottom)
+        .attr('stroke', '#bbb').attr('stroke-width', 1).attr('stroke-dasharray', '3,3');
+
+      svg.append('text')
+        .attr('x', avgX + 3).attr('y', marginTop - 14)
+        .attr('font-size', '9px').attr('fill', '#999')
+        .text('national avg: ' + nationalRate);
+
+      // Bar rows
+      const rows = svg.selectAll('.bar-row')
+        .data(depts)
+        .join('g')
+        .attr('class', 'bar-row')
+        .attr('transform', (d, i) => `translate(0,${marginTop + i * rowH})`);
+
+      rows.append('text')
+        .attr('x', marginLeft - 5)
+        .attr('y', rowH / 2)
+        .attr('text-anchor', 'end')
+        .attr('dominant-baseline', 'middle')
+        .attr('font-size', '10px')
+        .attr('font-weight', d => nameWeight(d))
+        .attr('fill', d => CORSE.has(d.dept) || BRETAGNE.has(d.dept) || IDF_SUBURBS.has(d.dept) ? '#1a1a1a' : '#444')
+        .text(d => d.name);
+
+      rows.append('rect')
+        .attr('x', marginLeft)
+        .attr('y', 1)
+        .attr('width', d => x(d.per10k))
+        .attr('height', rowH - 2)
+        .attr('fill', d => barColor(d, nationalRate))
+        .attr('opacity', 0.82);
+
+      rows.append('text')
+        .attr('x', d => marginLeft + x(d.per10k) + 4)
+        .attr('y', rowH / 2)
+        .attr('dominant-baseline', 'middle')
+        .attr('font-size', '9px')
+        .attr('fill', '#666')
+        .text(d => d.per10k.toFixed(1));
+
+      // Hover
+      rows
+        .style('cursor', 'default')
+        .on('mouseenter', function(event, d) {
+          tooltip.style.display = 'block';
+          tooltip.innerHTML =
+            '<strong>' + d.name + '</strong> (' + d.dept + ')<br>' +
+            d.bars.toLocaleString('fr-FR') + ' bars<br>' +
+            (d.pop / 1000).toFixed(0) + 'k residents<br>' +
+            '<strong>' + d.per10k.toFixed(1) + ' per 10,000</strong><br>' +
+            '<span style="color:#888">Rank ' + d.rank + ' of 96</span>';
+        })
+        .on('mousemove', function(event) {
+          const tx = Math.min(event.clientX + 18, window.innerWidth - 240);
+          tooltip.style.left = tx + 'px';
+          tooltip.style.top = (event.clientY - 32) + 'px';
+        })
+        .on('mouseleave', function() {
+          tooltip.style.display = 'none';
+        });
+
+      // Stats tables
+      const topBody = document.querySelector('#table-top tbody');
+      topBody.innerHTML = depts.slice(0, 10).map((d, i) =>
+        '<tr>' +
+        '<td class="rank">' + (i + 1) + '</td>' +
+        '<td class="place">' + d.name + '</td>' +
+        '<td>' + d.per10k.toFixed(1) + '</td>' +
+        '</tr>'
+      ).join('');
+
+      const botBody = document.querySelector('#table-bottom tbody');
+      botBody.innerHTML = [...depts].reverse().slice(0, 10).map((d, i) =>
+        '<tr>' +
+        '<td class="rank">' + (depts.length - i) + '</td>' +
+        '<td class="place">' + d.name + '</td>' +
+        '<td>' + d.per10k.toFixed(1) + '</td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    init().catch(err => {
+      document.getElementById('chart-svg').parentElement.innerHTML =
+        '<p style="color:#888;font-style:italic">Chart failed to load.</p>';
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

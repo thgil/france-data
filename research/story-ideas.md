@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### cafe-culture: The café capital isn't Paris
+- Status: ✅ published
+- Published URL: /stories/cafe-culture/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: France has 7.5 bars per 10,000 residents. Corsica has 21. Paris — home of the zinc counter — ranks seventh.
+- Data: bars.json (49,385 national bars, from Story 4) joined to DREES APL commune populations aggregated to département level. No new downloads required.
+- Angle: Ranked horizontal bar chart of all 96 metropolitan departments. Color-coded by region group (Corse, Bretagne, IDF suburbs, others). Four narrative beats: Corsica's dominance, the rural-mountain cluster, Paris at seventh, and the suburban bar desert.
+- Draft X summary:
+  > Paris has 14.6 bars per 10,000 residents. That's genuinely high — but it's only seventh in France. Corsica has 21. And the suburbs ringing Paris? Under 4. Today on **france-data**: the per-capita ranking that the dot map couldn't show. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
