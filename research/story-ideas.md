@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### saints-of-france: One in eight French communes is a saint
+- Status: ✅ published
+- Published URL: /stories/saints-of-france/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: There are 12 communes in France called Sainte-Colombe. Also one called Y. The map of France is partly a map of medieval Christianity.
+- Data: Commune names from DREES APL dataset (35,014 communes), already in-repo from medical-deserts story. No new data download required.
+- Angle: Maplibre choropleth — saint communes amber, others gray — reveals a clear "saint belt" across Dordogne, Ardèche, and the Massif Central, contrasted against Alsace (1.4%) and Corsica (0.4%). CSS bar charts for top/bottom departments and most-duplicated names. Chip display for 14 communes with 1–2 letter names.
+- Draft X summary:
+  > France has 4,426 communes named after saints. One in eight. Creuse: nearly one in three. Alsace: one in fifty. Corsica: almost zero. There are 12 Sainte-Colombes and one commune called Y. Today on **france-data**: the medieval map under the republic. 🇫🇷⛪
+
