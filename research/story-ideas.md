@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: France in 35,000 names
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. One letter, 89 residents. It's one of 35,014 — and one in nine is a saint.
+- Data: Commune names and populations from the DREES APL 2023 GeoJSON (already in-repo at `stories/medical-deserts/communes-apl.geojson`), 35,014 communes with communeName, dept, and population. No new downloads needed.
+- Angle: Text-and-charts story. Five narrative beats: the one-letter hook → the saint empire (3,898 saints) → the duplicate problem (1,450 shared names) → the river address (1,991 -sur- communes) → the extremes (Y vs. Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson). Horizontal SVG bar charts, no map.
+- Draft X summary:
+  > France has a commune called Y. One letter, 89 residents. It's joined by 13 two-letter villages. At the other end: Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 letters). In between: 3,898 saints, 1,450 shared names, and 1,991 places that put themselves on a river. Today on **france-data**: France in 35,000 names. 🇫🇷
+
