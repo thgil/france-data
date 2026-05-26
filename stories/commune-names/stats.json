@@ -1,0 +1,284 @@
+{
+  "top20": [
+    [
+      "Sainte-Colombe",
+      12
+    ],
+    [
+      "Saint-Sauveur",
+      11
+    ],
+    [
+      "Saint-Aubin",
+      10
+    ],
+    [
+      "Beaulieu",
+      10
+    ],
+    [
+      "Saint-Marcel",
+      9
+    ],
+    [
+      "Saint-Michel",
+      9
+    ],
+    [
+      "Le Pin",
+      9
+    ],
+    [
+      "Saint-Pierre",
+      9
+    ],
+    [
+      "Sainte-Marie",
+      9
+    ],
+    [
+      "Saint-Rémy",
+      8
+    ],
+    [
+      "Saint-Clément",
+      8
+    ],
+    [
+      "Saint-Hilaire",
+      8
+    ],
+    [
+      "Saint-Loup",
+      8
+    ],
+    [
+      "Beaumont",
+      8
+    ],
+    [
+      "Verrières",
+      8
+    ],
+    [
+      "Saint-Hippolyte",
+      8
+    ],
+    [
+      "Saint-Georges",
+      8
+    ],
+    [
+      "Saint-Médard",
+      8
+    ],
+    [
+      "Saint-Paul",
+      8
+    ],
+    [
+      "Brion",
+      7
+    ]
+  ],
+  "topSaints": [
+    [
+      "Martin",
+      202
+    ],
+    [
+      "Jean",
+      155
+    ],
+    [
+      "Pierre",
+      144
+    ],
+    [
+      "Germain",
+      108
+    ],
+    [
+      "Julien",
+      78
+    ],
+    [
+      "Laurent",
+      77
+    ],
+    [
+      "Hilaire",
+      68
+    ],
+    [
+      "Georges",
+      67
+    ],
+    [
+      "Étienne",
+      65
+    ],
+    [
+      "André",
+      64
+    ],
+    [
+      "Aubin",
+      62
+    ],
+    [
+      "Paul",
+      54
+    ]
+  ],
+  "prefixes": {
+    "Saint-/Sainte-": 3882,
+    "Le/La/Les": 2140,
+    "-sur-": 1991,
+    "-en-": 974,
+    "Beau-/Bel-": 380,
+    "Villeneuve": 71,
+    "Mont-/Montagne": 772
+  },
+  "lenDist": {
+    "1": 1,
+    "2": 13,
+    "3": 154,
+    "4": 720,
+    "5": 1969,
+    "6": 3223,
+    "7": 3695,
+    "8": 3695,
+    "9": 3000,
+    "10": 2522,
+    "11": 1884,
+    "12": 1435,
+    "13": 1167,
+    "14": 1018,
+    "15": 1095,
+    "16": 1177,
+    "17": 1186,
+    "18": 1202,
+    "19": 1117,
+    "20": 1028,
+    "21": 923,
+    "22": 819,
+    "23": 649,
+    "24": 501,
+    "25": 329,
+    "26": 200,
+    "27": 105,
+    "28": 55,
+    "29": 53,
+    "30": 29,
+    "31": 12,
+    "32": 8,
+    "33": 2,
+    "34": 6,
+    "35": 7,
+    "36": 2,
+    "37": 3,
+    "38": 3,
+    "39": 1,
+    "40": 3,
+    "41": 1,
+    "43": 1,
+    "45": 1
+  },
+  "shortest": [
+    {
+      "name": "Y",
+      "dept": "80",
+      "pop": 89,
+      "code": "80829"
+    },
+    {
+      "name": "Sy",
+      "dept": "08",
+      "pop": 54,
+      "code": "08434"
+    },
+    {
+      "name": "By",
+      "dept": "25",
+      "pop": 86,
+      "code": "25104"
+    },
+    {
+      "name": "Bû",
+      "dept": "28",
+      "pop": 2022,
+      "code": "28064"
+    },
+    {
+      "name": "Oô",
+      "dept": "31",
+      "pop": 103,
+      "code": "31404"
+    },
+    {
+      "name": "Oz",
+      "dept": "38",
+      "pop": 213,
+      "code": "38289"
+    },
+    {
+      "name": "Ri",
+      "dept": "61",
+      "pop": 156,
+      "code": "61349"
+    },
+    {
+      "name": "Uz",
+      "dept": "65",
+      "pop": 36,
+      "code": "65458"
+    },
+    {
+      "name": "Py",
+      "dept": "66",
+      "pop": 79,
+      "code": "66155"
+    },
+    {
+      "name": "Ur",
+      "dept": "66",
+      "pop": 348,
+      "code": "66218"
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "pop": 491,
+      "len": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "pop": 923,
+      "len": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "pop": 499,
+      "len": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "pop": 381,
+      "len": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "pop": 195,
+      "len": 40
+    }
+  ],
+  "total": 35014,
+  "uniqueNames": 32764
+}
