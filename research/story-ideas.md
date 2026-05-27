@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: What France is called
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France has a commune called Y. One letter. It's been called that since the 11th century. Also: 12 different communes are called Sainte-Colombe. Also: one commune's name is 45 characters long.
+- Data: commune names and codes extracted from DREES APL 2023 dataset (35,014 communes), all in-repo. No new downloads required. Produces communes-index.json (35K entries, 3MB) and name-stats.json (7KB pre-computed aggregates).
+- Angle: Text-and-charts. Three SVG charts: most repeated names, name length distribution, most common first-word prefixes. Big callout stats. Several embedded fun-fact boxes (Y, the longest name). No map.
+- Draft X summary:
+  > France has 35,014 communes. One is called Y. Twelve are called Sainte-Colombe. The longest is 45 characters long and was created by a 2016 merger. Today on **france-data**: the naming patterns of a nation, from single letters to administrative epics. 🇫🇷
+
