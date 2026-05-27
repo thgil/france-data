@@ -1,0 +1,229 @@
+{
+  "totalCommunes": 35014,
+  "uniqueNames": 32764,
+  "singleNames": 31314,
+  "saintNames": 4437,
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    }
+  ],
+  "topSaints": [
+    {
+      "name": "Martin",
+      "count": 202
+    },
+    {
+      "name": "Jean",
+      "count": 155
+    },
+    {
+      "name": "Pierre",
+      "count": 144
+    },
+    {
+      "name": "Germain",
+      "count": 108
+    },
+    {
+      "name": "Julien",
+      "count": 78
+    },
+    {
+      "name": "Laurent",
+      "count": 77
+    },
+    {
+      "name": "Hilaire",
+      "count": 68
+    },
+    {
+      "name": "Georges",
+      "count": 67
+    },
+    {
+      "name": "Étienne",
+      "count": 65
+    },
+    {
+      "name": "André",
+      "count": 64
+    },
+    {
+      "name": "Aubin",
+      "count": 62
+    },
+    {
+      "name": "Paul",
+      "count": 54
+    }
+  ],
+  "sainteColombe": [
+    {
+      "code": "05135",
+      "dept": "05",
+      "pop": 59,
+      "lat": 44.2908,
+      "lng": 5.6614,
+      "deptName": "Hautes-Alpes"
+    },
+    {
+      "code": "17319",
+      "dept": "17",
+      "pop": 107,
+      "lat": 45.277,
+      "lng": -0.2794,
+      "deptName": "Charente-Maritime"
+    },
+    {
+      "code": "25515",
+      "dept": "25",
+      "pop": 464,
+      "lat": 46.8778,
+      "lng": 6.271,
+      "deptName": "Doubs"
+    },
+    {
+      "code": "33390",
+      "dept": "33",
+      "pop": 426,
+      "lat": 44.8822,
+      "lng": -0.061,
+      "deptName": "Gironde"
+    },
+    {
+      "code": "35262",
+      "dept": "35",
+      "pop": 360,
+      "lat": 47.8978,
+      "lng": -1.4592,
+      "deptName": "Ille-et-Vilaine"
+    },
+    {
+      "code": "40252",
+      "dept": "40",
+      "pop": 622,
+      "lat": 43.6894,
+      "lng": -0.5561,
+      "deptName": "Landes"
+    },
+    {
+      "code": "46260",
+      "dept": "46",
+      "pop": 230,
+      "lat": 44.7216,
+      "lng": 2.0164,
+      "deptName": "Lot"
+    },
+    {
+      "code": "50457",
+      "dept": "50",
+      "pop": 184,
+      "lat": 49.4169,
+      "lng": -1.5062,
+      "deptName": "Manche"
+    },
+    {
+      "code": "69189",
+      "dept": "69",
+      "pop": 1953,
+      "lat": 45.5238,
+      "lng": 4.8625,
+      "deptName": "Rhône"
+    },
+    {
+      "code": "76569",
+      "dept": "76",
+      "pop": 222,
+      "lat": 49.7953,
+      "lng": 0.7659,
+      "deptName": "Seine-Maritime"
+    },
+    {
+      "code": "77404",
+      "dept": "77",
+      "pop": 1793,
+      "lat": 48.5306,
+      "lng": 3.2593,
+      "deptName": "Seine-et-Marne"
+    },
+    {
+      "code": "89339",
+      "dept": "89",
+      "pop": 185,
+      "lat": 47.5721,
+      "lng": 3.9564,
+      "deptName": "Yonne"
+    }
+  ],
+  "shortestName": {
+    "name": "Y",
+    "dept": "80",
+    "deptName": "Somme",
+    "pop": 89
+  },
+  "longestName": {
+    "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+    "dept": "51",
+    "deptName": "Marne",
+    "pop": 491,
+    "chars": 45
+  }
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a Name — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Stat cards ─────────────────────────────────────────────────── */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 48px 0;
+    }
+
+    .stat-card {
+      background: #f5f0e8;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 20px 22px;
+    }
+
+    .stat-card .sc-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .sc-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .stat-card .sc-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    .stat-card.accent-card {
+      background: #b32020;
+      border-color: #8a1515;
+      color: #fff;
+    }
+    .stat-card.accent-card .sc-label { color: rgba(255,255,255,0.65); }
+    .stat-card.accent-card .sc-number { color: #fff; }
+    .stat-card.accent-card .sc-sub { color: rgba(255,255,255,0.75); }
+
+    /* ── Chart containers ────────────────────────────────────────────── */
+    .chart-block {
+      margin: 48px 0;
+    }
+
+    .chart-block h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .chart-area {
+      overflow: visible;
+    }
+
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 56px 0; }
+
+    #map-sc {
+      width: 100%;
+      height: 460px;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Name extremes cards ─────────────────────────────────────────── */
+    .extreme-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) {
+      .extreme-pair { grid-template-columns: 1fr; }
+    }
+
+    .extreme-card {
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      padding: 22px 24px;
+    }
+
+    .extreme-card .ex-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .extreme-card .ex-name {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    .extreme-card .ex-detail {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Geography</div>
+        <h1 class="story-title">What's in a Name</h1>
+        <p class="story-dek">France has 35,000 communes. Most have a unique name — but 3,700 share one with a village they've never met, somewhere else in the country.</p>
+        <div class="story-meta">
+          <span>2026-05-27</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes — more than all other EU countries combined. Each was, at some point, a village with its own church, its own market, its own notary who knew every family in the valley. Each got a name. The surprise is how often, two or three hundred kilometres away, another village did too — and chose the same one.</p>
+
+      <p>In all, 3,700 communes share their name with at least one other commune in a different département. The duplicates aren't typos or database errors. They're independent places that independently chose to name themselves after the same patron saint, the same geographic feature, the same Frankish overlord. France's administrative map is a palimpsest, and the names show the layers.</p>
+
+      <!-- ── Beat 2: Stats ─────────────────────────────────────────────── -->
+      <div class="stat-cards" id="stat-cards">
+        <!-- filled by JS -->
+      </div>
+
+      <!-- ── Beat 3: Top names chart ───────────────────────────────────── -->
+      <h2>The fifteen most common commune names</h2>
+
+      <p>Which name wins? <em>Sainte-Colombe</em>, with twelve communes spread across twelve départements from Manche to Rhône, from Yonne to Seine-Maritime. They are all small — the largest, near Lyon, has 1,953 residents — and they are all, officially, distinct places. Their saint, Colombe de Sens, was a 3rd-century martyr whose cult spread widely through medieval France. The name followed.</p>
+
+      <div class="chart-block">
+        <h3>Most common commune names (by number of communes)</h3>
+        <div class="chart-area" id="chart-topnames"></div>
+      </div>
+
+      <!-- ── Beat 4: Map ───────────────────────────────────────────────── -->
+      <h2>Twelve villages, twelve different France</h2>
+
+      <p>The twelve <em>Sainte-Colombes</em> span the whole country. They are in Norman bocage, Breton hills, Charentais vineyard country, Bordeaux suburbs, Lot valleys, Pyrénées foothills, Burgundy plains, Haute-Saône farmland, the Marne champagne belt — and the Seine-et-Marne commuter belt, thirty kilometres east of Paris. The same dedication, the same canonical form, twelve utterly different landscapes.</p>
+
+      <figure class="map-figure">
+        <div id="map-sc"></div>
+        <figcaption>The twelve communes named Sainte-Colombe. Each red dot is a real, separate village. Hover for département and population. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> commune dataset.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Saint names ───────────────────────────────────────── -->
+      <h2>Saint-Martin leads; the army is large</h2>
+
+      <p>4,437 communes — 12.7% of all of them — are named after a saint. That's a standing army of toponymy. <em>Saint-Martin-*</em> is the undisputed champion with 202 communes, more than any other country on Earth has communes at all. Saint-Martin of Tours, the Roman soldier who cut his cloak in half to share with a beggar, won more parishes than almost any other Christian figure. Saint-Jean comes next (155), then Saint-Pierre (144), Saint-Germain (108).</p>
+
+      <div class="chart-block">
+        <h3>Most common saint-name prefixes (commune count)</h3>
+        <div class="chart-area" id="chart-saints"></div>
+      </div>
+
+      <!-- ── Beat 6: La Chapelle ─────────────────────────────────────── -->
+      <p>Saints dominate, but not exclusively. <em>La Chapelle-*</em> appears 152 times — every medieval hamlet built around a chapel, still there, still named for the building. <em>Villers-*</em>, from the Latin <em>villare</em> (farmstead), appears 105 times. <em>Villeneuve-*</em> (new town) 70 times. The French commune map reads like a condensed history of Latin and medieval French, with parish dedications stamped on top.</p>
+
+      <!-- ── Beat 7: Name extremes ─────────────────────────────────────── -->
+      <h2>From one letter to forty-five</h2>
+
+      <p>Not all commune names grew in medieval piety. Some are startlingly short. The shortest commune name in France is <em>Y</em> — one letter, a village in the Somme with 89 residents. The name is genuinely old, probably from a Gaulish root meaning "water" or "place by water," shortened over centuries into a single vowel. It has a post office. It has a mayor. Its address is, literally, Y, 80190.</p>
+
+      <div class="extreme-pair" id="extreme-pair">
+        <!-- filled by JS -->
+      </div>
+
+      <p>The longest name — <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> at 45 characters — is a merger artifact. France has 358 communes whose names contain the hyphenated <em>-et-</em>, the grammatical trace of a fusion between two formerly independent villages. Most date from the <em>regroupement communal</em> policies of the 1970s, which tried to consolidate small rural communes and mostly failed: many fused villages have since separated again, leaving behind either the hyphenated name or an awkward administrative scar.</p>
+
+      <!-- ── Beat 8: Regional fingerprints ────────────────────────────── -->
+      <h2>The linguistic fingerprints</h2>
+
+      <p>Names aren't just history — they're geography. In Pyrénées-Orientales (département 66), you find <em>Py</em>, <em>Ur</em>, <em>Err</em>, <em>Eus</em>, <em>Llo</em> — Catalan monosyllables surviving intact inside the French administrative system. Basque Country has <em>Ossès</em>, <em>Ayherre</em>, <em>Ustaritz</em>. Alsace has the Germanic <em>-heim</em> and <em>-hoffen</em> endings. Brittany has <em>Plougastel</em>, <em>Locquirec</em>, <em>Plounéour</em> — the Breton <em>plou-</em> prefix for a parish, from Latin <em>plebs</em>. The Republic uses one language. Its communes remember others.</p>
+
+      <p>89.4% of France's communes have a name that appears nowhere else in the country. Each one is a unique fingerprint of whoever built a church there, named a hill, remembered a martyr, or arrived from somewhere with a word in their pocket. The 10.6% that share a name are the exceptions — but they are the most French of all, because they show the reach of a shared cultural memory, laid down over fourteen centuries, across 35,000 villages.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> All commune names and population figures are derived from the DREES APL 2023 commune dataset (34,886 communes) joined to the Etalab administrative boundaries file (2025 vintage). The total of 35,014 features includes overseas communes. Name-frequency counts treat the <em>communeName</em> field in the APL GeoJSON as canonical — hyphenated variants count as distinct names. Saint-prefix analysis extracted the first segment after the hyphen.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) 2023</a> — commune-level APL scores, populations, boundaries</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs communes 2025</a> — polygons used to derive commune centroids</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.js"></script>
+
+  <script type="module">
+    import { drawBarChart, drawSainteColombeMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function fmt(n) {
+      return n.toLocaleString('fr-FR');
+    }
+
+    function renderStatCards(stats) {
+      const container = document.getElementById('stat-cards');
+      if (!container) return;
+
+      const singlePct = ((stats.singleNames / stats.totalCommunes) * 100).toFixed(1);
+      const saintPct  = ((stats.saintNames  / stats.totalCommunes) * 100).toFixed(1);
+
+      container.innerHTML = `
+        <div class="stat-card accent-card">
+          <div class="sc-label">Total communes</div>
+          <div class="sc-number">${fmt(stats.totalCommunes)}</div>
+          <div class="sc-sub">in metropolitan France + overseas</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Unique names</div>
+          <div class="sc-number">${fmt(stats.uniqueNames)}</div>
+          <div class="sc-sub">${singlePct}% of communes have a name found nowhere else</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Named after a saint</div>
+          <div class="sc-number">${fmt(stats.saintNames)}</div>
+          <div class="sc-sub">${saintPct}% of all communes carry a Saint or Sainte</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Most-repeated name</div>
+          <div class="sc-number">12×</div>
+          <div class="sc-sub"><em>Sainte-Colombe</em> — twelve communes, twelve départements</div>
+        </div>`;
+    }
+
+    function renderExtremes(stats) {
+      const container = document.getElementById('extreme-pair');
+      if (!container) return;
+
+      const s = stats.shortestName;
+      const l = stats.longestName;
+
+      container.innerHTML = `
+        <div class="extreme-card">
+          <div class="ex-label">Shortest commune name</div>
+          <div class="ex-name">${s.name}</div>
+          <div class="ex-detail">
+            <strong>1 letter.</strong> A village in the Somme (dept. ${s.dept}),
+            population ${fmt(s.pop)}. Probably from a Gaulish root for
+            "water" or "place." Its postal address is literally:
+            <em>Y, 80190, Somme</em>.
+          </div>
+        </div>
+        <div class="extreme-card">
+          <div class="ex-label">Longest commune name</div>
+          <div class="ex-name">${l.name}</div>
+          <div class="ex-detail">
+            <strong>${l.chars} characters.</strong> A merger commune in the Marne
+            (dept. ${l.dept}), population ${fmt(l.pop)}. Three former villages
+            fused into one administrative unit — and the name kept all of them.
+          </div>
+        </div>`;
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        renderStatCards(stats);
+        renderExtremes(stats);
+
+        // Top-15 names chart
+        const saintSet = new Set(
+          stats.topNames.filter(d => d.name.startsWith('Saint') || d.name.startsWith('Sainte')).map(d => d.name)
+        );
+        drawBarChart('#chart-topnames', stats.topNames, {
+          highlightSet: saintSet,
+          colour: '#c8bfa8',
+          saintColour: '#8a1515',
+          marginLeft: 170,
+        });
+
+        // Top saints chart
+        drawBarChart('#chart-saints', stats.topSaints, {
+          colour: '#8a1515',
+          marginLeft: 160,
+        });
+
+        // Sainte-Colombe map
+        drawSainteColombeMap('map-sc', stats.sainteColombe);
+
+      } catch (err) {
+        console.error('Failed to load place-names story data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
