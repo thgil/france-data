@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a French name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callout blocks ─────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 48px 0;
+      border: 1px solid var(--rule);
+    }
+    .stat-box {
+      flex: 1;
+      min-width: 180px;
+      padding: 24px 28px;
+      border-right: 1px solid #d8d0c0;
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box .big {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .stat-box .label {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ink-mute);
+      margin: 0;
+    }
+
+    /* ── Name extremes table ─────────────────────────────────────────── */
+    .extremes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px 0;
+    }
+    @media (max-width: 600px) { .extremes { grid-template-columns: 1fr; } }
+
+    .extremes-panel {
+      border: 1px solid #d8d0c0;
+      padding: 20px;
+    }
+    .extremes-panel h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 16px;
+    }
+    .name-entry {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px solid #ece8e0;
+    }
+    .name-entry:last-child { border-bottom: none; }
+    .name-entry .name-text {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      word-break: break-word;
+    }
+    .name-entry .name-meta {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Charts ──────────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-mount svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ── Y spotlight ─────────────────────────────────────────────────── */
+    .y-spotlight {
+      margin: 48px auto;
+      max-width: 600px;
+      border-left: 3px solid var(--accent);
+      padding: 20px 28px;
+      background: #f5f0e8;
+    }
+    .y-spotlight .y-name {
+      font-family: var(--serif);
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .y-spotlight .y-facts {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ── Longest name highlight ──────────────────────────────────────── */
+    .long-name-highlight {
+      margin: 48px auto;
+      max-width: 680px;
+      text-align: center;
+    }
+    .long-name-highlight .the-name {
+      font-family: var(--serif);
+      font-size: clamp(14px, 2.5vw, 22px);
+      font-weight: 700;
+      line-height: 1.3;
+      word-break: break-word;
+      letter-spacing: 0.3px;
+      color: var(--ink);
+      display: block;
+      margin: 0 0 10px;
+    }
+    .long-name-highlight .the-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Words heatmap / bar ─────────────────────────────────────────── */
+    .saint-band {
+      background: #b32020;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      margin: 4px 0;
+      color: white;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <a href="../../index.html" class="wordmark">France, by the numbers</a>
+  <span class="meta">Culture · 4 min read</span>
+</header>
+
+<main class="page">
+  <div class="story">
+
+    <header class="story-header">
+      <p class="story-kicker">Culture</p>
+      <h1 class="story-title">What's in a French name?</h1>
+      <p class="story-dek">France has 35,014 commune names. One is a single letter. One is 45 letters long. And one in nine starts with "Saint."</p>
+      <div class="story-meta">
+        <span>May 2026</span>
+        <span>4 min read</span>
+        <span>35,014 communes</span>
+      </div>
+    </header>
+
+    <p>Every place has a name, but France takes the naming of places very seriously. Across 35,014 communes — the basic administrative unit of the Republic — you find a lexicon that spans ancient Latin saints, medieval geography, Breton roots, Occitan hills, and at least one town that gave up entirely and called itself <strong>Y</strong>.</p>
+
+    <p>The commune name dataset, derived from the INSEE commune registry, holds the full inventory: 35,014 names, ranging in length from one character to forty-five, and ranging in ambition from "Uz" to "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson." Here is what that inventory looks like.</p>
+
+    <!-- Key stats -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big">35,014</div>
+        <p class="label">Communes in France</p>
+      </div>
+      <div class="stat-box">
+        <div class="big">32,764</div>
+        <p class="label">Unique names</p>
+      </div>
+      <div class="stat-box">
+        <div class="big">3,898</div>
+        <p class="label">Start with Saint or Sainte</p>
+      </div>
+      <div class="stat-box">
+        <div class="big">38.3%</div>
+        <p class="label">Contain a hyphen</p>
+      </div>
+    </div>
+
+    <h2>The shortest name in France — and probably the world</h2>
+
+    <p>There is a commune in the Somme, 110 km north of Paris, whose full official name fits in a single keystroke.</p>
+
+    <div class="y-spotlight">
+      <div class="y-name">Y</div>
+      <p class="y-facts">
+        Commune de Y, Somme (80)<br>
+        Population: 89 inhabitants<br>
+        Postal code: 80440<br>
+        Postal address: "Y, 80440 Y"
+      </p>
+    </div>
+
+    <p>Y (pronounced like the French letter, roughly "ee-grek") has a population of 89 and sits on the Noye river. Its one-letter name is almost certainly the shortest official commune name in the world — the Oxford Handbook of Place-Name Studies includes it as an outlier. The INSEE code is 80829. The postman writes three letters.</p>
+
+    <p>Thirteen communes have two-letter names: By (Doubs), Bû (Eure-et-Loir), Eu (Seine-Maritime), Gy (Haute-Saône), Oz (Isère), Oô (Haute-Garonne), Py (Pyrénées-Orientales), Ri (Orne), Ry (Seine-Maritime), Sy (Ardennes), Ur (Pyrénées-Orientales), Us (Val-d'Oise), and Uz (Hautes-Pyrénées). Their populations range from 36 (Uz) to 6,591 (Eu).</p>
+
+    <h2>Saint and its 3,898 followers</h2>
+
+    <p>The most common opening word in a French commune name is not <em>La</em>, not <em>Le</em>, and not anything geographical. It is <em>Saint</em> — by a distance that is almost comical.</p>
+
+    <figure class="chart-figure">
+      <div id="chart-words" class="chart-mount"></div>
+      <figcaption>Most common words appearing in French commune names, excluding grammatical particles (de, du, la, le, les, sur, en…). Source: INSEE commune registry, 35,014 communes.</figcaption>
+    </figure>
+
+    <p>The word "saint" (in both Saint- and Sainte- prefixes) appears in roughly 4,090 commune names — more than twice the next runner-up. <strong>Martin</strong> is the most popular saint's name: 255 communes carry it. Then come <strong>Pierre</strong> (180), <strong>Jean</strong> (170), <strong>Germain</strong> (120), and <strong>Julien</strong> (88).</p>
+
+    <p>In Ardèche (département 07), 29% of all communes start with Saint or Sainte — nearly one in three. The Creuse (23), Loire (42), and Haute-Vienne (87) all exceed 27%. These are the old heartlands of rural Roman Catholicism, where medieval parish geography froze into administrative geography and stayed.</p>
+
+    <p>The most replicated exact name is <strong>Sainte-Colombe</strong>, which appears twelve times. Saint-Sauveur appears eleven times. Saint-Aubin and Saint-Marcel each appear ten. Each instance is a distinct commune, with its own mayor and INSEE code, in a different part of France — though if you ask your GPS for "Saint-Aubin," you will need to specify which one.</p>
+
+    <h2>France and its hyphen obsession</h2>
+
+    <p>Of the 35,014 commune names, 13,410 — or 38.3% — contain at least one hyphen. Hyphens are how French commune names absorb mergers, double geography ("Saint-Martin-de-Ré"), and the habit of specifying the hill or river that makes your Saint-Martin different from the other nine nearby ones.</p>
+
+    <p>At one end of the hyphen spectrum: the shortest names, like Y. At the other end:</p>
+
+    <div class="long-name-highlight">
+      <span class="the-name">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>
+      <span class="the-sub">45 characters · Marne (51) · population 491</span>
+    </div>
+
+    <p>This commune in the Marne contains two saints, one river name (Bouzemont), one village (Genest), and one hamlet (Isson), fused together after a 1972 merger. It is the longest commune name in France at 45 characters. The postcode is 51290. Writing a return address is a commitment.</p>
+
+    <p>The next longest, at 43 characters: <strong>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</strong> (Haute-Saône, pop. 779). Then <strong>Saint-Martin-de-Bienfaite-la-Cressonnière</strong> (41 chars, Calvados) and <strong>Saint-Laurent-les-Bains-Laval-d'Aurelle</strong> (39 chars, Ardèche). All are merger products — France consolidated thousands of tiny communes in the 1970s under the Marcellin law, and many chose to preserve every component name rather than pick a winner.</p>
+
+    <h2>The name length landscape</h2>
+
+    <p>The modal commune name is 7 or 8 characters long — that's where the distribution peaks, at 3,695 communes each. But the distribution has a long right tail: 500+ communes have names over 24 characters.</p>
+
+    <figure class="chart-figure">
+      <div id="chart-lengths" class="chart-mount"></div>
+      <figcaption>Distribution of commune name lengths across all 35,014 French communes. The peak is at 7–8 characters. The longest name has 45 characters.</figcaption>
+    </figure>
+
+    <h2>The most common names</h2>
+
+    <p>Out of 35,014 communes, only 32,764 distinct names exist — 2,250 names are shared by two or more communes. That means 1,450 names are duplicated at least once. The twelve Saint-Colombes are not an anomaly; they are the extreme of a general pattern of naming convergence.</p>
+
+    <figure class="chart-figure">
+      <div id="chart-topnames" class="chart-mount"></div>
+      <figcaption>The 15 most common exact commune names in France. "Sainte-Colombe" leads with 12 communes sharing the same name.</figcaption>
+    </figure>
+
+    <h2>The extremes</h2>
+
+    <p>For reference, the shortest and longest commune names in the dataset:</p>
+
+    <div class="extremes">
+      <div class="extremes-panel">
+        <h3>Shortest names (≤ 3 characters)</h3>
+        <div id="short-names-list"></div>
+      </div>
+      <div class="extremes-panel">
+        <h3>Longest names (≥ 38 characters)</h3>
+        <div id="long-names-list"></div>
+      </div>
+    </div>
+
+    <h2>A lexicon of France</h2>
+
+    <p>Taken together, the 35,014 commune names form an accidental dictionary of French geography, religion, and history. <em>Bois</em> (217 communes) and <em>Mer</em> (109) mark the old landscape. <em>Chapelle</em> (178) and <em>Martin</em> (255) mark the church. <em>Villeneuve</em> (85) marks medieval town-founding. <em>Val</em> (130) marks the river valleys. And somewhere in the Somme, contributing its single letter to all of this, sits Y — population 89, asking nothing and giving everything away in one keystroke.</p>
+
+  </div><!-- /.story -->
+</main>
+
+<footer class="site-footer">
+  <p style="font-family:var(--sans);font-size:12px;color:var(--ink-mute);margin:0;">
+    Data: INSEE commune registry (via DREES APL 2023 dataset), 35,014 communes.
+    Analysis by france-data.
+  </p>
+</footer>
+
+<!-- Observable Plot -->
+<script type="module">
+  import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+  async function main() {
+    const stats = await fetch("stats.json").then(r => r.json());
+
+    // ── 1. Top words bar chart ────────────────────────────────────────────
+    (function renderWords() {
+      const words = stats.topWords.slice(0, 18);
+      const el = document.getElementById("chart-words");
+      const w = Math.min(el.clientWidth || 720, 720);
+
+      const chart = Plot.plot({
+        width: w,
+        marginLeft: 90,
+        marginBottom: 40,
+        x: { label: "communes containing this word →", grid: true },
+        y: { label: null, domain: words.map(d => d.word).reverse() },
+        marks: [
+          Plot.barX(words, {
+            x: "count",
+            y: "word",
+            sort: { y: "-x" },
+            fill: d => d.word === "saint" || d.word === "sainte" ? "#b32020" : "#3a6b9e",
+            tip: true,
+            title: d => `${d.word}: ${d.count.toLocaleString()} communes`
+          }),
+          Plot.ruleX([0])
+        ],
+        style: {
+          fontFamily: "var(--sans, 'Helvetica Neue', sans-serif)",
+          fontSize: 12,
+          background: "transparent"
+        }
+      });
+      el.appendChild(chart);
+    })();
+
+    // ── 2. Name length distribution histogram ────────────────────────────
+    (function renderLengths() {
+      const dist = stats.lengthDistribution;
+      const el = document.getElementById("chart-lengths");
+      const w = Math.min(el.clientWidth || 720, 720);
+
+      const chart = Plot.plot({
+        width: w,
+        marginLeft: 60,
+        marginBottom: 40,
+        x: { label: "characters in commune name →", tickSpacing: 40 },
+        y: { label: "communes", grid: true },
+        marks: [
+          Plot.barY(dist, {
+            x: "length",
+            y: "count",
+            fill: "#3a6b9e",
+            tip: true,
+            title: d => `${d.length} chars: ${d.count.toLocaleString()} communes`
+          }),
+          Plot.ruleY([0])
+        ],
+        style: {
+          fontFamily: "var(--sans, 'Helvetica Neue', sans-serif)",
+          fontSize: 12,
+          background: "transparent"
+        }
+      });
+      el.appendChild(chart);
+    })();
+
+    // ── 3. Top names bar chart ────────────────────────────────────────────
+    (function renderTopNames() {
+      const names = stats.topNames.slice(0, 15);
+      const el = document.getElementById("chart-topnames");
+      const w = Math.min(el.clientWidth || 720, 720);
+
+      const chart = Plot.plot({
+        width: w,
+        marginLeft: 200,
+        marginBottom: 40,
+        x: { label: "number of communes with this exact name →", grid: true },
+        y: { label: null, domain: names.map(d => d.name).reverse() },
+        marks: [
+          Plot.barX(names, {
+            x: "count",
+            y: "name",
+            sort: { y: "-x" },
+            fill: "#b32020",
+            tip: true,
+            title: d => `${d.name}: ${d.count} communes`
+          }),
+          Plot.ruleX([0])
+        ],
+        style: {
+          fontFamily: "var(--sans, 'Helvetica Neue', sans-serif)",
+          fontSize: 12,
+          background: "transparent"
+        }
+      });
+      el.appendChild(chart);
+    })();
+
+    // ── 4. Short names list ───────────────────────────────────────────────
+    (function renderShortNames() {
+      const el = document.getElementById("short-names-list");
+      const names = stats.shortNames.filter(c => c.name.length <= 2);
+      // Include Y (1 char) + 2-char names
+      const all = [...names].sort((a, b) => a.name.length - b.name.length || a.name.localeCompare(b.name));
+      all.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "name-entry";
+        div.innerHTML = `
+          <span class="name-text">${c.name}</span>
+          <span class="name-meta">dept ${c.dept} · pop ${c.pop.toLocaleString()}</span>
+        `;
+        el.appendChild(div);
+      });
+    })();
+
+    // ── 5. Long names list ────────────────────────────────────────────────
+    (function renderLongNames() {
+      const el = document.getElementById("long-names-list");
+      const names = stats.longNames;
+      names.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "name-entry";
+        div.innerHTML = `
+          <span class="name-text">${c.name}</span>
+          <span class="name-meta">${c.name.length} ch · d${c.dept}</span>
+        `;
+        el.appendChild(div);
+      });
+    })();
+  }
+
+  main().catch(console.error);
+</script>
+
+</body>
+</html>
