@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-deserts: The bar map, inverted
+- Status: ✅ published
+- Published URL: /stories/bar-deserts/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Haute-Corse has 21 bars per 10,000 residents. Essonne has 3. The Paris suburbs are the real bar deserts — and the Massif Central, the "empty diagonal," drinks more per person than most of France.
+- Data: INSEE SIRENE bars.json (reused from Story 4) + DREES APL commune populations aggregated by département. 96 metropolitan départements ranked.
+- Angle: Interactive ranked horizontal bar chart — all 96 departments, color-coded by group (Corse, Massif Central, Paris, IDF suburbs, other). 5 narrative beats: Corsica surprise, rural bar belt, Paris in context, IDF inversion, diagonale du vide paradox.
+- Draft X summary:
+  > We mapped 49,385 French bars. Then we divided by population. The map inverts. Corsica: 21 bars per 10k. Essonne: 3. Six of Paris's suburbs rank in the national bottom 12. The Massif Central — the empty diagonal, the medical desert — is *not* a bar desert. 🍺🇫🇷
+
