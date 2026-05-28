@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: There is a French commune called Y. Population 89. It has a post office. Twelve others are called Sainte-Colombe.
+- Data: DREES APL 2023 commune dataset (35,014 entries) for names and populations, joined to Etalab administrative boundaries for polygons. All analysis from in-repo data. Derived file: communes-index.json (35,014 entries, name + centroid + dept + pop, 3 MB).
+- Angle: Text-and-charts. Name-length histogram and top-15-names bar chart. Two callout cards for the extremes (Y and Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson). Short-names table. No map needed.
+- Draft X summary:
+  > There is a French commune called Y. It has 89 residents, a post office, and a Wikipedia article. On the other end: Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson — 45 characters, population 246, the result of a 1972 three-way merger where no one could agree what to drop. Today on **france-data**: the full atlas of France's 35,014 commune names. 🇫🇷
+
 ### medical-deserts: Where the doctors aren't
 - Status: ✅ published
 - Published URL: /stories/medical-deserts/
