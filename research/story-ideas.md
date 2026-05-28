@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### village-names: Y — the one-letter commune
+- Status: ✅ published
+- Published URL: /stories/village-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called "Y". One letter, population 89. At the other end: "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson" — 45 characters, born from a 1972 merger. And 4,437 communes — one in eight — are named after a saint.
+- Data: Commune names from the DREES APL 2023 dataset (35,014 communes). No new downloads needed — reuses the geojson from Story 2. Name length distribution, duplicate names, saint-prefix analysis all computed from that source.
+- Angle: Text-and-charts story. Two callout cards (shortest/longest), a name-length histogram, and a horizontal bar chart of the most duplicated names. Playful tone. No map needed.
+- Draft X summary:
+  > France has a commune called "Y". Population 89. Its Wikipedia article is longer than its name. Today on **france-data**: the extremes of French commune names — from 1 letter to 45, through 4,437 saints and 12 different Sainte-Colombes. 🇫🇷
+
