@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### name-game: The Name Game
+- Status: ✅ published
+- Published URL: /stories/name-game/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune named Y. One letter. And 3,898 communes start with "Saint." The naming vocabulary of 35,000 communes turns out to be surprisingly small — and strange.
+- Data: Commune names extracted from the in-repo APL 2023 GeoJSON (35,014 communes). No download needed.
+- Angle: Text-and-charts story. Three callouts (shortest name, saint count, most-duplicated name), two horizontal bar charts (top prefixes, top duplicated names), name-length histogram, short-names pill list.
+- Draft X summary:
+  > France has a commune named Y. One letter. And 3,898 communes — 11.1% of them — start with "Saint." The most common exact commune name: Sainte-Colombe, shared by 12 separate communes across 9 départements. Today on **france-data**: every French commune name, counted. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
