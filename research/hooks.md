@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 One in nine French communes is called Saint-Something. 3,882 out of 35,014 — the medieval Church branded the map and the Republic kept it. [Q-037]
+- 🔥 Twelve separate villages are called Sainte-Colombe, scattered across twelve different départements. They share a patron saint and nothing else. [Q-037]
+- 🔥 Ardèche: 29% of its 335 communes start with Saint- or Sainte-. The ancient heartlands of Frankish settlement read like a 9th-century parish register. [Q-037]
+- 🔥 France has a commune called Y. One letter. Population 89. Somme. It's the shortest place name in France — and one of the shortest in the world. [Q-039]
