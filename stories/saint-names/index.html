@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Sainte-Colombes — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map ──────────────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+      background: #c0392b;
+    }
+
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Frequency bar chart ───────────────────────────────────────── */
+    .name-chart {
+      margin: 48px 0;
+    }
+    .name-chart h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 28px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+    .bar-row .bar-label {
+      font-family: Georgia, serif;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #1a1a1a;
+    }
+    .bar-row .bar-track {
+      background: #ede8e0;
+      border-radius: 2px;
+      height: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-row .bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: #8b2018;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .bar-row.top-name .bar-fill { background: #c0392b; }
+    .bar-row .bar-count {
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      color: #555;
+      text-align: right;
+    }
+    @media (max-width: 560px) {
+      .bar-row { grid-template-columns: 120px 1fr 24px; }
+    }
+
+    /* ── Stats callout ───────────────────────────────────────────────── */
+    .stat-callout {
+      border-left: 3px solid #c0392b;
+      padding: 4px 0 4px 16px;
+      margin: 32px 0;
+    }
+    .stat-callout .stat-big {
+      font-family: Georgia, serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: #c0392b;
+      display: block;
+    }
+    .stat-callout .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Sainte-Colombes table ──────────────────────────────────────── */
+    .sc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 32px 0;
+    }
+    .sc-table th {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 8px 0;
+      text-align: left;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .sc-table td {
+      padding: 5px 8px 5px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+    .sc-table .td-name { font-family: Georgia, serif; }
+    .sc-table .td-num {
+      font-variant-numeric: tabular-nums;
+      color: #444;
+    }
+    .sc-table .td-apl-desert { color: #c0392b; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">12 Sainte-Colombes</h1>
+        <p class="story-dek">France has 35,014 communes and 32,764 distinct names. The most popular name belongs to twelve villages spread from Normandy to the Rhône — and none of them are the same place.</p>
+        <div class="story-meta">
+          <span>2026-05-29</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────── -->
+      <p>France is famously, almost comically, over-communed. With 35,014 communes for a population of 68 million, the average commune has fewer than 2,000 residents. Many have fewer than 100. Several dozen have fewer than ten. And yet each one has a name — a proper, registered, République-approved name — that appears on the Institut national de l'information géographique et forestière's (IGN) official maps.</p>
+
+      <p>Most of those names are unique. Of the 35,014 communes, 31,314 have a name shared by no other commune in France. But 3,700 — roughly one in nine — share their exact name with at least one other commune somewhere on the hexagon. Two communes share a name: common. Three: not rare. Twelve: that's Sainte-Colombe.</p>
+
+      <!-- ── Beat 2: Map ───────────────────────────────────────────────── -->
+      <h2>Twelve villages, one name</h2>
+
+      <p>Hover over any red dot to see which département it's in. The twelve Sainte-Colombes run from the tip of the Cotentin peninsula (Manche, dept 50) down to Hautes-Alpes (dept 05), from the Atlantic coast of Gironde and Charente-Maritime to the Rhône valley and the Yonne. Together they hold about 6,600 residents. The largest, in Seine-et-Marne, has 1,793. The smallest, in Hautes-Alpes, has 59.</p>
+
+      <figure class="map-figure">
+        <div id="map-sc" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <span style="display:inline-flex;align-items:center;gap:5px;">
+            <span class="legend-dot"></span>
+            Sainte-Colombe
+          </span>
+          <span style="color:#888;font-size:11px;margin-left:auto">12 communes · hover for details</span>
+        </div>
+        <figcaption>Each dot is one commune named Sainte-Colombe. Twelve exist across metropolitan France. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> commune list.</figcaption>
+      </figure>
+
+      <!-- Sainte-Colombe table -->
+      <table class="sc-table" id="sc-table">
+        <thead>
+          <tr>
+            <th>Commune</th>
+            <th>Département</th>
+            <th>Population</th>
+            <th>APL score</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- ── Beat 3: Top names chart ───────────────────────────────────── -->
+      <h2>Sainte-Colombe is just the most extreme case</h2>
+
+      <p>Saint-Sauveur appears 11 times. Saint-Aubin and Beaulieu each appear 10 times. Below that, there are 18 names shared by 6 communes, 14 names shared by 7, and so on — a long tail of gentle duplication. The pattern tells you something about how communes got named: a mix of local saints, landscape features (<em>beau lieu</em> = beautiful place, <em>pin</em> = pine tree), and an absence of any national co-ordination. The République unified the country administratively without standardising what it called its smallest parts.</p>
+
+      <div class="name-chart">
+        <h3>Most-duplicated commune names (top 20)</h3>
+        <div id="name-bars"></div>
+      </div>
+
+      <!-- ── Beat 4: Saints ─────────────────────────────────────────────── -->
+      <h2>One in eight communes is a saint</h2>
+
+      <div class="stat-callout">
+        <span class="stat-big" id="stat-saint-count">4,443</span>
+        <span class="stat-label">communes whose name begins with Saint or Sainte — 12.7% of all French communes</span>
+      </div>
+
+      <p>The Catholic Church did a lot of heavy lifting for French cartography. Of 35,014 communes, 4,443 have a name beginning with <em>Saint</em> or <em>Sainte</em>. That's one in eight. They cover 3,930 distinct saint names — meaning even within the saint category, there's a lot of sharing. Saint-Martin alone gives its name to dozens of communes (and the famous Caribbean island). Saint-Michel, Saint-Pierre, Saint-Paul — the apostles and early martyrs were prolific placeholders for local administrators who needed a name and had a church.</p>
+
+      <p>The pattern isn't uniquely French — Belgium, Spain, and Italy have similar saint-name saturation — but in France it is especially visible because the commune structure is so atomised. One large British market town becomes dozens of small French communes, each with its own saint. Drive through the Aveyron on a Sunday and the road signs are a litany.</p>
+
+      <!-- ── Beat 5: Uniqueness ─────────────────────────────────────────── -->
+      <h2>Most names are, in fact, unique</h2>
+
+      <p>The sharing is real but the exception. Of 32,764 distinct commune names, 31,314 — 95.6% — appear exactly once. The duplicated 1,450 names account for 3,700 communes. Most duplication is simple: 1,048 names are shared by exactly two communes, 216 by three, 93 by four. The long tail drops off quickly. Only one name reaches twelve: Sainte-Colombe.</p>
+
+      <p>Who was Sainte Colombe? The name most likely refers to Saint Columba, the Irish monk (521–597 CE) who evangelised much of Celtic Gaul before heading to Scotland to found Iona. A plausible candidate for a Romanesque church, and a Romanesque church was often enough to name the village that grew around it. Twelve churches, twelve Sainte-Colombes, twelve villages that don't know each other and will probably never meet.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names come from the <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023 dataset</a>, which covers 35,014 communes across metropolitan France and overseas territories, joined to commune geometries from <a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs 2025</a>. The commune name field (<code>communeName</code>) uses the official INSEE libellé commune. Population figures are INSEE 2021. APL scores are the 2023 DREES estimate of GP accessibility (consultations per standardised resident per year; &lt; 2.5 = sous-dense).</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs des communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawNameMap } from './charts.js';
+
+    const DEPT_NAMES = {
+      '05': 'Hautes-Alpes', '17': 'Charente-Maritime', '25': 'Doubs',
+      '33': 'Gironde', '35': 'Ille-et-Vilaine', '40': 'Landes',
+      '46': 'Lot', '50': 'Manche', '69': 'Rhône', '76': 'Seine-Maritime',
+      '77': 'Seine-et-Marne', '89': 'Yonne',
+    };
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function renderNameBars(topNames) {
+      const container = document.getElementById('name-bars');
+      if (!container) return;
+      const max = topNames[0].count;
+      container.innerHTML = topNames.slice(0, 20).map((item, i) => `
+        <div class="bar-row ${i === 0 ? 'top-name' : ''}">
+          <div class="bar-label">${item.name}</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:${(item.count / max * 100).toFixed(1)}%"></div>
+          </div>
+          <div class="bar-count">${item.count}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderSCTable(sainteColombes) {
+      const tbody = document.querySelector('#sc-table tbody');
+      if (!tbody) return;
+      const sorted = [...sainteColombes].sort((a, b) => b.pop - a.pop);
+      tbody.innerHTML = sorted.map(c => {
+        const aplClass = c.apl < 2.5 ? 'td-apl-desert' : '';
+        return `<tr>
+          <td class="td-name">Sainte-Colombe</td>
+          <td>${c.dept} — ${DEPT_NAMES[c.dept] || c.dept}</td>
+          <td class="td-num">${c.pop.toLocaleString('fr-FR')}</td>
+          <td class="td-num ${aplClass}">${c.apl != null ? c.apl.toFixed(2) : '—'}${c.apl < 2.5 ? ' ⚑' : ''}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        renderNameBars(stats.topSharedNames);
+        renderSCTable(stats.sainteColombes);
+
+        document.getElementById('stat-saint-count').textContent =
+          stats.saintCommunes.toLocaleString('fr-FR');
+
+        const mapAPI = drawNameMap('#map-sc', stats);
+        document.getElementById('map-controls').style.display = '';
+
+      } catch (err) {
+        console.error('Failed to load saint-names data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

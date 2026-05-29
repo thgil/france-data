@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### saint-names: 12 Sainte-Colombes
+- Status: ✅ published
+- Published URL: /stories/saint-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france)
+- Hook: France's most common commune name is Sainte-Colombe — 12 villages from Normandy to the Alps, all named after the same 6th-century Irish monk.
+- Data: DREES APL 2023 commune dataset (35,014 communes with names, codes, population, APL scores) already in repo at `stories/medical-deserts/communes-apl.geojson`. No new downloads needed.
+- Angle: Map of the 12 Sainte-Colombes as red dots on France; horizontal bar chart of top 20 most-duplicated names; text narrative about saint-name saturation (4,443 communes = 1 in 8).
+- Draft X summary:
+  > France has 35,014 communes. The most common name: Sainte-Colombe — appearing 12 times, from the Cotentin coast to the Rhône valley. One in eight French communes is named after a saint. Today on **france-data**: the naming of France, one village at a time. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

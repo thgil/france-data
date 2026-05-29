@@ -181,8 +181,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: **Sainte-Colombe** — 12 communes across metropolitan France share the name, from Manche to Hautes-Alpes. Saint-Sauveur appears 11 times; Saint-Aubin and Beaulieu each appear 10 times. Of 35,014 communes, 31,314 (89.4%) have a unique name; 3,700 share their name with at least one other. 4,443 communes (12.7%) begin with Saint or Sainte. The naming pattern reflects the Catholic church grid: a Romanesque church, a dedication to a local saint, and a village that grew around it.
+- Story: [saint-names](/stories/saint-names/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
