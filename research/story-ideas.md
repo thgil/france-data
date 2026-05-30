@@ -64,6 +64,17 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: Y is a village
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. One letter. And Sainte-Colombe exists twelve times over.
+- Data: DREES APL 2023 commune dataset (35,014 communes) + Etalab administrative boundaries. Name analysis from communeName field.
+- Angle: Text-and-charts story. No map — the story is statistical and linguistic, not spatial. Four beats: the shortest (Y), the most repeated (Sainte-Colombe), the Saint-* dominance (11.1%), the longest (Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson, 45 chars). Charts: horizontal bar for top repeated names, histogram for name-length distribution.
+- Side effect: Generates communes-index.json (35,014 entries, names + centroids, ~3 MB) — shared data asset for future stories.
+- Draft X summary:
+  > France has a commune called Y. Just Y. One letter, 89 residents, Somme. Then there's Sainte-Colombe — which exists 12 times, in 12 départements. And 3,882 communes start with Saint or Sainte. Today on **france-data**: 35,014 commune names decoded, from the briefest to the longest (45 characters, a 1972 merger that refused to simplify). 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
