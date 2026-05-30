@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### saints-of-france: The Saints of France
+- Status: ✅ published
+- Published URL: /stories/saints-of-france/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: 11.1% of French communes start with "Saint" or "Sainte." The most common saint is Martin (202 communes). The shortest commune name in France is Y (1 character, 89 residents). The longest is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters).
+- Data: communes-apl.geojson (in-repo, from DREES APL 2023 join to Etalab contours). No new download needed — all 35,014 commune names already in the repo.
+- Angle: Text-and-charts story. Two D3 horizontal bar charts (top saints by commune count; prefix breakdown Saint vs Le/La/Les vs other). Short-names table. Closing callout on longest name.
+- Draft X summary:
+  > France has 3,882 communes named after a saint. Saint-Martin alone accounts for 202. The shortest commune name is Y — one character, Somme, population 89. The longest is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters). Today on **france-data**: what a thousand years of naming looks like. 🇫🇷
+

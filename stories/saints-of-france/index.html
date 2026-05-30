@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Saints of France — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ───────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px auto;
+      max-width: 720px;
+    }
+    .chart-mount {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    /* ── Stat blocks ─────────────────────────────────────────────────────── */
+    .stat-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    @media (max-width: 580px) {
+      .stat-trio { grid-template-columns: 1fr; }
+    }
+    .stat-block {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+    .stat-block .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+
+    /* ── Short-names table ───────────────────────────────────────────────── */
+    .short-table {
+      width: 100%;
+      max-width: 480px;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 24px 0;
+    }
+    .short-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 4px 0 8px;
+      border-bottom: 1px solid #d8d0c0;
+    }
+    .short-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .short-table td:first-child {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      padding-right: 16px;
+      min-width: 60px;
+    }
+    .short-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-mute);
+      font-size: 13px;
+    }
+    .short-table .dept-tag {
+      font-size: 11px;
+      color: #888;
+      font-family: var(--sans);
+    }
+
+    /* ── Long name callout ───────────────────────────────────────────────── */
+    .callout {
+      border-left: 3px solid var(--accent);
+      padding: 12px 20px;
+      margin: 32px auto;
+      max-width: 680px;
+      background: #f5f0e8;
+    }
+    .callout p {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .callout .callout-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 6px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The Saints of France</h1>
+        <p class="story-dek">11.1% of French communes are named after a saint. Saint-Martin alone claims 202 of them. And then there's Y — one character, 89 residents, somewhere in the Somme.</p>
+        <div class="story-meta">
+          <span>2026-05-30</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes. Type them into a list and a pattern immediately emerges: Saint-Pierre, Saint-Martin, Saint-Jean, Sainte-Marie — saint after saint after saint, interspersed with Le Pin, La Roche, Les Essarts. The country's administrative geography is a medieval document that nobody ever revised.</p>
+
+      <p>3,882 communes — 11.1% of the total — begin with "Saint" or "Sainte." That's one in every nine French addresses starting with a name that most of the residents have never thought about. They're home to 6.5 million people.</p>
+
+      <!-- ── Stat trio ─────────────────────────────────────────────────────── -->
+      <div class="stat-trio">
+        <div class="stat-block">
+          <div class="stat-num" id="stat-saint">3,882</div>
+          <div class="stat-label">Communes named Saint- or Sainte-</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" id="stat-pct">11.1%</div>
+          <div class="stat-label">Share of all French communes</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" id="stat-pop">6.5M</div>
+          <div class="stat-label">People living in a saint commune</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The champion ─────────────────────────────────────────── -->
+      <h2>Saint-Martin wins, by a lot</h2>
+
+      <p>When you group saint communes by the saint's name — collapsing Saint-Martin-de-Ré, Saint-Martin-d'Auxigny, Saint-Martin-en-Bière, and 199 more into a single count — Saint-Martin dominates. 202 communes bear his name in some form. Saint-Jean follows with 155, Saint-Pierre with 144, Saint-Germain with 108.</p>
+
+      <p>Martin of Tours was a Roman soldier turned bishop who founded French Christianity in the 4th century. He may not be the most famous saint — that's probably a three-way tie between Pierre, Jean, and Paul — but he built the network. The French had centuries to name towns after him before the competition arrived.</p>
+
+      <!-- ── Chart: Top saints ─────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-saints"></div>
+        <figcaption>Saint names across all French communes. "Saint(e)-Martin" collapses Saint-Martin-de-…, Saint-Martin-sur-…, Sainte-Martine, etc. Source: INSEE administrative boundaries 2023, via DREES APL dataset.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: The duplicate problem ────────────────────────────────── -->
+      <h2>The duplicate-name problem</h2>
+
+      <p>The most common <em>exact</em> commune name in France is Sainte-Colombe — 12 communes with the same name, in 12 different départements. Saint-Sauveur comes second with 11. Saint-Aubin and Beaulieu tie at 10.</p>
+
+      <p>This creates genuine administrative comedy. If you tell a courier you live in "Saint-Aubin," they'll need a département code to sort it from nine other communes with identical names. The French postal system resolves it with the five-digit code postal, but GPS databases still occasionally lose their minds.</p>
+
+      <!-- ── Beat 4: Prefix breakdown ──────────────────────────────────────── -->
+      <h2>Saint, Le, and everything else</h2>
+
+      <p>Saint-/Sainte- isn't the only pattern. 2,140 communes start with Le, La, or Les — roughly 6% of the total. Together, the two patterns account for about one in six French communes with a structured prefix.</p>
+
+      <!-- ── Chart: Prefix breakdown ───────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-prefix"></div>
+        <figcaption>Distribution of commune name prefixes across all 35,014 French communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: The extremes ─────────────────────────────────────────── -->
+      <h2>From Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</h2>
+
+      <p>At one end of the spectrum: the shortest commune name in France is a single letter. <em>Y</em>. It's in the Somme, département 80, population 89. It's a real place with a real mayor and a real IGN coordinate. It is not a typo.</p>
+
+      <p>Eleven other communes make do with two characters: Sy, By, Oô, Oz, Ri, Uz, Py, Ur, Gy, Eu, Ry. Together they form a small club of the administratively minimal, mostly in rural corners of France, mostly with populations under 1,000.</p>
+
+      <!-- ── Short names table ─────────────────────────────────────────────── -->
+      <div style="max-width:680px; margin: 0 auto;">
+        <table class="short-table" id="table-short">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Département</th>
+              <th>Population</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- ── Callout: Longest name ─────────────────────────────────────────── -->
+      <div class="callout" style="margin-top: 40px;">
+        <div class="callout-label">Longest commune name in France</div>
+        <p><em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> — 45 characters, Marne (51), population 189. It contains two saints, a river, and a hyphen budget that would bankrupt most countries.</p>
+      </div>
+
+      <!-- ── Beat 6: Closing ──────────────────────────────────────────────── -->
+      <p>The same government that runs a European democracy, high-speed rail, and a nuclear deterrent also maintains an official record of a village called Y — and has done so, more or less continuously, since the Carolingians. Both facts are on the same cadastral map.</p>
+
+      <p>France's commune names are not optimised for search engines, GPS systems, or courier routing. They are the accumulated choices of a thousand years of local history, preserved in amber. Saint-Martin named 202 of them. Y named itself.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset, joined to administrative boundary data (Etalab Contours-IRIS, 2025 vintage). The full dataset covers 35,014 communes across metropolitan France and overseas territories. Name analysis was done by counting communes whose <code>communeName</code> field begins with "Saint-" or "Sainte-". The population figure of 6.5M for saint communes uses the same INSEE 2021 population base as the APL dataset.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) 2023</a> — commune-level data with names, population, and INSEE codes</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs des communes 2025</a> — boundary geometries joined to produce the full commune list</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawSaintsChart, drawPrefixChart } from './charts.js';
+
+    const DEPT_NAMES = {
+      '01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes-de-Haute-Provence',
+      '05': 'Hautes-Alpes', '06': 'Alpes-Maritimes', '07': 'Ardèche', '08': 'Ardennes',
+      '09': 'Ariège', '10': 'Aube', '11': 'Aude', '12': 'Aveyron',
+      '13': 'Bouches-du-Rhône', '14': 'Calvados', '15': 'Cantal', '16': 'Charente',
+      '17': 'Charente-Maritime', '18': 'Cher', '19': 'Corrèze', '21': 'Côte-d\'Or',
+      '22': 'Côtes-d\'Armor', '23': 'Creuse', '24': 'Dordogne', '25': 'Doubs',
+      '26': 'Drôme', '27': 'Eure', '28': 'Eure-et-Loir', '29': 'Finistère',
+      '30': 'Gard', '31': 'Haute-Garonne', '32': 'Gers', '33': 'Gironde',
+      '34': 'Hérault', '35': 'Ille-et-Vilaine', '36': 'Indre', '37': 'Indre-et-Loire',
+      '38': 'Isère', '39': 'Jura', '40': 'Landes', '41': 'Loir-et-Cher',
+      '42': 'Loire', '43': 'Haute-Loire', '44': 'Loire-Atlantique', '45': 'Loiret',
+      '46': 'Lot', '47': 'Lot-et-Garonne', '48': 'Lozère', '49': 'Maine-et-Loire',
+      '50': 'Manche', '51': 'Marne', '52': 'Haute-Marne', '53': 'Mayenne',
+      '54': 'Meurthe-et-Moselle', '55': 'Meuse', '56': 'Morbihan', '57': 'Moselle',
+      '58': 'Nièvre', '59': 'Nord', '60': 'Oise', '61': 'Orne',
+      '62': 'Pas-de-Calais', '63': 'Puy-de-Dôme', '64': 'Pyrénées-Atlantiques',
+      '65': 'Hautes-Pyrénées', '66': 'Pyrénées-Orientales', '67': 'Bas-Rhin',
+      '68': 'Haut-Rhin', '69': 'Rhône', '70': 'Haute-Saône', '71': 'Saône-et-Loire',
+      '72': 'Sarthe', '73': 'Savoie', '74': 'Haute-Savoie', '75': 'Paris',
+      '76': 'Seine-Maritime', '77': 'Seine-et-Marne', '78': 'Yvelines',
+      '79': 'Deux-Sèvres', '80': 'Somme', '81': 'Tarn', '82': 'Tarn-et-Garonne',
+      '83': 'Var', '84': 'Vaucluse', '85': 'Vendée', '86': 'Vienne',
+      '87': 'Haute-Vienne', '88': 'Vosges', '89': 'Yonne', '90': 'Territoire de Belfort',
+      '91': 'Essonne', '92': 'Hauts-de-Seine', '93': 'Seine-Saint-Denis',
+      '94': 'Val-de-Marne', '95': 'Val-d\'Oise',
+    };
+
+    async function main() {
+      const res = await fetch('./stats.json');
+      const stats = await res.json();
+
+      // Update headline stat numbers
+      document.getElementById('stat-saint').textContent =
+        stats.saintCommunes.toLocaleString('fr-FR');
+      document.getElementById('stat-pct').textContent =
+        stats.saintPct.toFixed(1) + '%';
+      document.getElementById('stat-pop').textContent =
+        (stats.saintPop / 1e6).toFixed(1) + 'M';
+
+      // Draw charts
+      drawSaintsChart('#chart-saints', stats);
+      drawPrefixChart('#chart-prefix', stats);
+
+      // Populate short-names table
+      const tbody = document.querySelector('#table-short tbody');
+      if (tbody && stats.shortestNames) {
+        tbody.innerHTML = stats.shortestNames.slice(0, 12).map(d => {
+          const deptName = DEPT_NAMES[d.dept] || `Dept ${d.dept}`;
+          return `<tr>
+            <td>${d.name}</td>
+            <td>${deptName} <span class="dept-tag">(${d.dept})</span></td>
+            <td>${d.pop.toLocaleString('fr-FR')}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    main().catch(err => console.error('Failed to load saints story:', err));
+  </script>
+</body>
+</html>
