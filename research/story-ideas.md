@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-density: The Alps drink more than Paris
+- Status: ✅ published
+- Published URL: /stories/bar-density/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: 49,385 bars, now ranked per capita. The ski resort of Les Deux Alpes has 27× the national average. The Paris suburbs have less than half.
+- Data: INSEE SIRENE bars.json (reused from Story 4) joined to DREES APL commune populations (reused from Story 2). 11,748 communes matched; min population 500 for per-capita rankings.
+- Angle: Two tables (top communes, top departments) + Observable Plot horizontal bar chart of all 96 metropolitan departments sorted by bars per 10k. Alpine + Corsican departments highlighted in deep red; IDF suburbs in muted gray.
+- Draft X summary:
+  > Raw counts show Paris winning France's bar race (3,120 bars). Per capita, it's 6th. Les Deux Alpes — ski resort, 1,933 permanent residents — has 39 bars. One for every 50 people. The IDF suburbs have fewer bars per capita than anywhere in metropolitan France. The map writes itself. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
