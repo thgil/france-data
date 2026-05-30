@@ -1,0 +1,350 @@
+{
+  "total": 35014,
+  "uniqueNames": 32764,
+  "dupUniqueNames": 1450,
+  "dupTotalCommunes": 3700,
+  "saintCount": 3898,
+  "avgLength": 11.8,
+  "medianLength": 10,
+  "maxLength": 45,
+  "minLength": 1,
+  "shortCommunes": [
+    {
+      "code": "80829",
+      "name": "Y",
+      "dept": "80",
+      "pop": 89,
+      "lng": 2.985,
+      "lat": 49.8064
+    },
+    {
+      "code": "25104",
+      "name": "By",
+      "dept": "25",
+      "pop": 86,
+      "lng": 5.8936,
+      "lat": 47.0158
+    },
+    {
+      "code": "28064",
+      "name": "Bû",
+      "dept": "28",
+      "pop": 2022,
+      "lng": 1.489,
+      "lat": 48.8033
+    },
+    {
+      "code": "76255",
+      "name": "Eu",
+      "dept": "76",
+      "pop": 6591,
+      "lng": 1.4312,
+      "lat": 50.0416
+    },
+    {
+      "code": "70282",
+      "name": "Gy",
+      "dept": "70",
+      "pop": 1001,
+      "lng": 5.8182,
+      "lat": 47.3972
+    },
+    {
+      "code": "38289",
+      "name": "Oz",
+      "dept": "38",
+      "pop": 213,
+      "lng": 6.0648,
+      "lat": 45.1205
+    },
+    {
+      "code": "31404",
+      "name": "Oô",
+      "dept": "31",
+      "pop": 103,
+      "lng": 0.494,
+      "lat": 42.7453
+    },
+    {
+      "code": "66155",
+      "name": "Py",
+      "dept": "66",
+      "pop": 79,
+      "lng": 2.3634,
+      "lat": 42.4723
+    },
+    {
+      "code": "61349",
+      "name": "Ri",
+      "dept": "61",
+      "pop": 156,
+      "lng": -0.1388,
+      "lat": 48.7922
+    },
+    {
+      "code": "76548",
+      "name": "Ry",
+      "dept": "76",
+      "pop": 775,
+      "lng": 1.3255,
+      "lat": 49.477
+    },
+    {
+      "code": "08434",
+      "name": "Sy",
+      "dept": "08",
+      "pop": 54,
+      "lng": 4.8751,
+      "lat": 49.51
+    },
+    {
+      "code": "66218",
+      "name": "Ur",
+      "dept": "66",
+      "pop": 348,
+      "lng": 1.9409,
+      "lat": 42.463
+    },
+    {
+      "code": "95625",
+      "name": "Us",
+      "dept": "95",
+      "pop": 1338,
+      "lng": 1.9519,
+      "lat": 49.108
+    },
+    {
+      "code": "65458",
+      "name": "Uz",
+      "dept": "65",
+      "pop": 36,
+      "lng": -0.0874,
+      "lat": 42.9574
+    }
+  ],
+  "longestCommunes": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "dept": "51",
+      "len": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "dept": "70",
+      "len": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "dept": "14",
+      "len": 41
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "dept": "21",
+      "len": 40
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "dept": "34",
+      "len": 40
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "code": "70449",
+      "dept": "70",
+      "len": 40
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "code": "07262",
+      "dept": "07",
+      "len": 39
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "code": "11128",
+      "dept": "11",
+      "len": 38
+    }
+  ],
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "topSaints": [
+    {
+      "saint": "Martin",
+      "count": 202
+    },
+    {
+      "saint": "Jean",
+      "count": 155
+    },
+    {
+      "saint": "Pierre",
+      "count": 144
+    },
+    {
+      "saint": "Germain",
+      "count": 108
+    },
+    {
+      "saint": "Julien",
+      "count": 78
+    },
+    {
+      "saint": "Laurent",
+      "count": 77
+    },
+    {
+      "saint": "Hilaire",
+      "count": 68
+    },
+    {
+      "saint": "Georges",
+      "count": 67
+    },
+    {
+      "saint": "Étienne",
+      "count": 65
+    },
+    {
+      "saint": "André",
+      "count": 64
+    },
+    {
+      "saint": "Aubin",
+      "count": 62
+    },
+    {
+      "saint": "Paul",
+      "count": 54
+    }
+  ],
+  "lengthDist": {
+    "1": 1,
+    "2": 13,
+    "3": 154,
+    "4": 720,
+    "5": 1969,
+    "6": 3223,
+    "7": 3695,
+    "8": 3695,
+    "9": 3000,
+    "10": 2522,
+    "11": 1884,
+    "12": 1435,
+    "13": 1167,
+    "14": 1018,
+    "15": 1095,
+    "16": 1177,
+    "17": 1186,
+    "18": 1202,
+    "19": 1117,
+    "20": 1028,
+    "21": 923,
+    "22": 819,
+    "23": 649,
+    "24": 501,
+    "25": 329,
+    "26": 200,
+    "27": 105,
+    "28": 55,
+    "29": 53,
+    "30": 29,
+    "31": 12,
+    "32": 8,
+    "33": 2,
+    "34": 6,
+    "35": 7,
+    "36": 2,
+    "37": 3,
+    "38": 3,
+    "39": 1,
+    "40": 3,
+    "41+": 3
+  }
+}
