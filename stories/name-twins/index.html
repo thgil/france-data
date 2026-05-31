@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The commune called Y — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Name list ─────────────────────────────────────────────────────── */
+    .name-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 32px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .name-chip {
+      background: #f0ece4;
+      border: 1px solid #d8d0c0;
+      border-radius: 3px;
+      padding: 6px 12px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .name-chip .chip-name {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .name-chip .chip-meta {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .name-chip.y-chip {
+      border-color: #b32020;
+      background: #fff5f5;
+    }
+    .name-chip.y-chip .chip-name {
+      color: #b32020;
+      font-size: 22px;
+    }
+
+    /* ── Chart container ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure canvas {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ── Map figure ─────────────────────────────────────────────────────── */
+    .map-figure { margin: 48px 0; }
+    .map-figure .mount {
+      width: 100%;
+      height: 420px;
+      max-width: 100%;
+      border: 1px solid #d8d0c0;
+    }
+    .map-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+    .map-figure figcaption a { color: inherit; }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #555;
+      white-space: nowrap;
+      display: block;
+    }
+
+    /* ── Stat callout ───────────────────────────────────────────────────── */
+    .stat-callout {
+      text-align: center;
+      margin: 48px auto;
+      max-width: 680px;
+      padding: 32px;
+      background: #f5f0e8;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+    }
+    .stat-callout .big-number {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 8px;
+      color: #1a1a1a;
+    }
+    .stat-callout .big-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Stats table ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 420px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+      border: 1px solid #d8d0c0;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The commune called Y</h1>
+        <p class="story-dek">France has 35,014 communes. 3,700 of them share a name with at least one other. The shortest official name is a single letter.</p>
+        <div class="story-meta">
+          <span>2026-05-31</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ─────────────────────────────────────────────────── -->
+      <p>In the département of Somme, 20 kilometres south-east of Amiens, there is a commune of 89 people. Its postal code is 80829. Its INSEE code is 80829. And its official name — the one on the road signs, the one on the birth certificates, the one in every administrative database in the French Republic — is <strong>Y</strong>.</p>
+
+      <p>One letter. Not an abbreviation, not a label error. Y is the shortest commune name in France, and probably in Europe. It has existed under that name since at least the 14th century, when French spelling hadn't yet settled down enough to insist on vowels.</p>
+
+      <!-- ── Beat 2: the two-letter club ──────────────────────────────── -->
+      <h2>The two-letter club</h2>
+
+      <p>Y is not alone. France has 13 more communes with names of exactly two letters. Together, the 14 shortest-named communes in France span ten departments, from the Ardennes to the Pyrénées-Orientales.</p>
+
+      <div class="name-grid" id="short-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <p>These names are mostly Norse or pre-Latin in origin — ancient words compressed by centuries of French phonology until almost nothing remained. <em>Eu</em> (pop. 6,591, Seine-Maritime) is one of the oldest names in Normandy, recorded as early as the 10th century. <em>Oz</em> (pop. 213, Isère) sits in the Alps. <em>Sy</em> (pop. 54, Ardennes) is the smallest in the club by population. <em>Uz</em> (pop. 36, Hautes-Pyrénées) is the smallest of all.</p>
+
+      <!-- ── Beat 3: name twins ────────────────────────────────────────── -->
+      <h2>When France runs out of names</h2>
+
+      <p>Brevity is only one kind of commune-name curiosity. The more widespread one is duplication. Of France's 35,014 communes, 3,700 — roughly one in ten — share their name with at least one other commune somewhere in the country.</p>
+
+      <div class="stat-callout">
+        <div class="big-number">1,450</div>
+        <div class="big-label">commune names shared by more than one commune — across 3,700 places</div>
+      </div>
+
+      <p>Most of these duplicates come in pairs: 1,048 names are used by exactly two communes. A further 216 names are shared by three. The numbers thin out quickly — but they don't reach zero until you get to the name used twelve times.</p>
+
+      <!-- ── Beat 4: Sainte-Colombe ────────────────────────────────────── -->
+      <h2>Twelve Sainte-Colombes</h2>
+
+      <p>The most replicated commune name in France is <strong>Sainte-Colombe</strong>. Not Saint-Martin (nine), not Saint-Michel (nine), not Saint-Pierre (nine) — Sainte-Colombe, twelve times over, across twelve different departments.</p>
+
+      <p>The twelve Sainte-Colombes are not clustered. They don't form a cult, a franchise, or a regional tradition. They are scattered from the Hautes-Alpes (dept. 05, pop. 59) to the Manche (dept. 50, pop. 184) to Seine-et-Marne in the Île-de-France suburbs (dept. 77, pop. 1,793). Three are in the Atlantic south-west. One is in the Doubs. One is in Haute-Normandie. The only thing they have in common is Sainte Columba — a 6th-century Frankish martyr whose cult spread from monastery to monastery across medieval France, leaving a dozen villages named in her honour and now completely unaware of each other.</p>
+
+      <!-- ── Map: Sainte-Colombes ──────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-colombe" class="mount">
+          <div class="map-loading">Loading map…</div>
+        </div>
+        <figcaption>The twelve Sainte-Colombes, at their real locations. Each dot is one commune. Source: <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> via <code>communes-apl.geojson</code>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: top names chart ───────────────────────────────────── -->
+      <h2>The full ranking</h2>
+
+      <p>The chart below shows the 20 most common commune names in France. The Saint-/Sainte- prefix dominates — of the top 20, fourteen begin with a saint's name. The remaining six (Beaulieu, Le Pin, Beaumont, Verrières, Brion) are geographical descriptions that were simply too apt to be used only once.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-top-names" height="420"></canvas>
+        <figcaption>Number of French communes sharing each name. Top 20 by frequency. Sainte-Colombe leads at 12.</figcaption>
+      </figure>
+
+      <!-- ── Closing ──────────────────────────────────────────────────── -->
+      <p>France's administrative map is, in this sense, a palimpsest. The commune names preserve 1,500 years of Christianity, a handful of Norse placeholders, a few inarticulate syllables from a language spoken before Latin arrived, and twelve separate acts of medieval piety toward a now-forgotten saint. The republic standardised everything else. The names it left alone.</p>
+
+      <!-- ── Credits ──────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> All commune names, codes, and populations are taken from the <code>communes-apl.geojson</code> built for the <a href="../medical-deserts/">medical deserts story</a>, which joins DREES APL 2023 scores to Etalab commune boundaries. The file covers 35,014 communes across metropolitan France and overseas territories. Centroids are computed as polygon centroid means; for display purposes, overseas communes are excluded from the map view.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs des communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawColombeMap, drawTopNamesChart, renderShortGrid } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const data = await loadJSON('./name-data.json');
+        renderShortGrid('#short-grid', data.short_communes);
+        drawTopNamesChart('#chart-top-names', data.top_names.slice(0, 20));
+        drawColombeMap('#map-colombe', data.top_names[0]);
+      } catch (err) {
+        console.error('Failed to load name-twins data:', err);
+        document.getElementById('map-colombe').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

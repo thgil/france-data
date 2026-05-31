@@ -27,6 +27,16 @@ When adding a new pitch, use this shape:
 
 ## Pitches
 
+### name-twins: The commune called Y
+- Status: ✅ published
+- Published URL: /stories/name-twins/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune with a one-letter name. The most common commune name is shared by 12 different villages. One in ten French communes is not uniquely named.
+- Data: `stories/medical-deserts/communes-apl.geojson` reused — 35,014 communes with names, codes, populations, and polygon centroids. No new download required.
+- Angle: Text-and-charts story. Short-name grid (chip UI), horizontal bar chart of top 20 most duplicated names, MapLibre dot map of the 12 Sainte-Colombes scattered across France.
+- Draft X summary:
+  > France has a commune called Y. One letter, 89 people, Somme. And Sainte-Colombe exists 12 times, in 12 different departments, because a 6th-century martyr's cult spread further than any post office. Today on **france-data**: the shortest names, the most duplicated names, and what it means when 1 in 10 French communes isn't uniquely named. 🇫🇷
+
 ### medical-deserts: Where the doctors aren't
 - Status: ✅ published
 - Published URL: /stories/medical-deserts/

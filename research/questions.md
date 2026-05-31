@@ -181,16 +181,20 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Sainte-Colombe — 12 communes, spread across 12 different departments (from Hautes-Alpes to Seine-et-Marne), sharing the name of a 6th-century Frankish martyr whose cult spread through medieval monasteries. Saint-Sauveur comes second (11), then Saint-Aubin and Beaulieu (10 each). Of France's 35,014 communes, 3,700 share a name with at least one other commune (1,450 shared names total).
+- Story: [name-twins](/stories/name-twins/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: Y — one letter, INSEE code 80829, département Somme, population 89. There are also 13 communes with two-letter names: Sy (Ardennes, pop. 54), Py (Pyrénées-Orientales, pop. 79), By (Doubs, pop. 86), Oô (Haute-Garonne, pop. 103), Oz (Isère, pop. 213), Ri (Orne, pop. 156), Uz (Hautes-Pyrénées, pop. 36), Ur (Pyrénées-Orientales, pop. 348), Gy (Haute-Saône, pop. 1,001), Eu (Seine-Maritime, pop. 6,591), Ry (Seine-Maritime, pop. 775), Us (Val-d'Oise, pop. 1,338), Bû (Eure-et-Loir, pop. 2,022).
+- Story: [name-twins](/stories/name-twins/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
