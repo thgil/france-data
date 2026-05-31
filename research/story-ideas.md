@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: What's in a Name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune with a one-letter name — Y — and 3,898 communes named after saints. One name (Sainte-Colombe) belongs to 12 different villages in 12 different départements.
+- Data: DREES APL 2023 dataset (35,014 communes with official names) + IGN commune boundaries (centroids computed). No new download required — reused from the medical-deserts story.
+- Angle: Text + two charts. Bar chart of the 15 most duplicated commune names; histogram of all 35,014 name lengths (1–45 characters). Four narrative beats: Y (shortest), the saint phenomenon, the Sainte-Colombe duplication problem, and the 45-character longest name.
+- Draft X summary:
+  > France has 35,014 communes. One is called Y — just Y, 89 residents, in the Somme. One in nine are named after a saint. Sainte-Colombe exists 12 times. Today on **france-data**: a tour of French commune names, from 1 character to 45. 🇫🇷
+
