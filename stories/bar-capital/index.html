@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France's real bar capitals — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      padding: 24px 16px 16px;
+    }
+    .chart-wrap canvas {
+      display: block;
+      width: 100% !important;
+    }
+
+    /* ── Stat callouts ──────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      margin: 40px auto;
+      max-width: 680px;
+      flex-wrap: wrap;
+    }
+    .stat-block {
+      flex: 1;
+      min-width: 140px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+    }
+    .stat-block .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 6px;
+    }
+
+    /* ── Rankings table ─────────────────────────────────────────────── */
+    .rank-table-wrap {
+      margin: 40px auto;
+      max-width: 680px;
+      overflow-x: auto;
+    }
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .rank-table thead tr {
+      border-bottom: 2px solid #1a1a1a;
+    }
+    .rank-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 8px 0;
+      text-align: left;
+    }
+    .rank-table th:not(:first-child) { text-align: right; }
+    .rank-table td {
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+    .rank-table td:not(:first-child):not(:nth-child(2)) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .rank-table .td-rank {
+      font-size: 10px;
+      color: #bbb;
+      min-width: 2ch;
+    }
+    .rank-table .td-name {
+      font-family: var(--serif);
+    }
+    .rank-table .td-highlight {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ── Legend note ────────────────────────────────────────────────── */
+    .chart-note {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+      max-width: 680px;
+    }
+    .dot-paris { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: rgba(179,32,32,0.75); vertical-align: middle; margin-right: 4px; }
+    .dot-other { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: rgba(198,124,0,0.75); vertical-align: middle; margin-right: 4px; }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">France's real bar capitals</h1>
+        <p class="story-dek">49,385 bars, one question: which commune actually has the most for its size? Ski resorts cheat. Paris surprises. And two-thirds of communes have no bar at all.</p>
+        <div class="story-meta">
+          <span>2026-05-31</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Setup ─────────────────────────────────────────────── -->
+      <p>The previous story mapped all 49,385 of France's <em>débits de boissons</em>. Raw count tells you where bars cluster — Paris, Lille, the Mediterranean coast. But it doesn't tell you which commune is most saturated with bars relative to its population. For that, you need to divide.</p>
+
+      <p>When you do, the answer shifts considerably. Size advantages evaporate. Surprises emerge. And a structural fact about the French café becomes visible: most of the country doesn't really have one.</p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num" id="stat-communes-no-bar">—</div>
+          <div class="stat-label">of communes have zero bars</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" id="stat-median">—</div>
+          <div class="stat-label">bars per 10,000 residents (median, towns 5k+)</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" id="stat-max-paris">—</div>
+          <div class="stat-label">bars per 10,000 in the densest Paris arrondissement</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Ski resort effect ─────────────────────────────────── -->
+      <h2>The ski resort effect</h2>
+
+      <p>Among all communes with at least 500 permanent residents, ski resorts dominate the per-capita ranking. Les Deux Alpes in Isère leads with 202 bars per 10,000 permanent residents. Morzine in Haute-Savoie follows at 192. Val-d'Isère, Courchevel, Tignes — the top ten reads like a piste map.</p>
+
+      <p>This is a measurement artifact, not a cultural one. SIRENE counts permanent residents; the commune population used as the denominator comes from the INSEE census. But a ski resort that hosts 40,000 tourists on a busy weekend has a permanent population of perhaps 1,500 — the census denominator is an order of magnitude too small. The licences are real; the mismatch is in who we're dividing by.</p>
+
+      <p>Below are the top communes by bars per capita among those with at least 1,000 permanent residents. The ski and coastal resort pattern is stark.</p>
+
+      <div class="rank-table-wrap">
+        <table class="rank-table" id="table-tourist">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Commune</th>
+              <th>Dept</th>
+              <th>Bars</th>
+              <th>Population</th>
+              <th>Per 10,000</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 3: Big cities ─────────────────────────────────────────── -->
+      <h2>Among France's largest cities</h2>
+
+      <p>Filter to communes with at least 100,000 residents — the fifty largest cities and arrondissements in France — and the ranking looks different. Ski resorts disappear. City-centre dynamics take over.</p>
+
+      <p>The leader, among all large communes, is Paris 11e at 27 bars per 10,000 — the nightlife hub of the capital, home to 386 bars and 143,000 residents. But the surprise at the top of the non-Paris ranking is <strong>Rouen</strong>, at 20.8 bars per 10,000, ahead of Lille (18.8). Lille has 444 bars — the most of any non-arrondissement city in France — but its larger population of 237,000 pulls the rate back. Rouen's 237 bars serve only 114,000 people.</p>
+
+      <p>Grenoble (16.1), Metz (15.7), and Caen (15.2) follow. All three are medium-sized cities with strong student or post-industrial bar cultures. Toulouse, despite having France's fourth-largest population, ranks far down at just 6.4 — a large, young city where the population denominator runs ahead of the bar stock.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-big-cities" height="520"></canvas>
+        </div>
+        <figcaption>
+          <p class="chart-note">
+            <span class="dot-paris"></span> Paris arrondissements &nbsp;
+            <span class="dot-other"></span> Other large communes (≥ 100,000 residents)
+          </p>
+          Ranked by bars per 10,000 permanent residents. Source: INSEE SIRENE (NAF 56.30Z, March 2026) joined to DREES APL commune population data (2021 census base).
+        </figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Paris within Paris ────────────────────────────────── -->
+      <h2>Paris is not one city</h2>
+
+      <p>The Paris arrondissements span a range that would look extraordinary if they were separate communes. The 1st arrondissement — 15,919 permanent residents, dense with offices and tourists — has 123 bars at a rate of 77 per 10,000. The 16th, a wealthy residential district on the western edge of the city, has 83 bars spread across 162,000 residents: 5.1 per 10,000. Same city, same métro system, a 15-to-1 ratio.</p>
+
+      <p>The pattern traces the boundary between Paris-as-destination and Paris-as-neighbourhood. The inner arrondissements (1st through 6th) are visited more than they are lived in, and their bar counts reflect foot traffic more than resident headcount. The outer eastern arrondissements — 11th, 18th, 10th — punch higher because they combine genuine nightlife density with lower residential population than the outer west.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <canvas id="chart-paris" height="400"></canvas>
+        </div>
+        <figcaption>All 20 Paris arrondissements ranked by bars per 10,000 permanent residents. The 1st and 2nd arrondissements are outliers inflated by daytime and tourist populations not captured in census figures.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Department level ───────────────────────────────────── -->
+      <h2>Where the old café culture holds</h2>
+
+      <p>At département level, the per-capita leaders are not the places you'd expect from the raw counts. Lozère leads all mainland departments at 25.7 bars per 10,000 — a rural department in the Massif Central with 52,000 residents and 135 bars. Haute-Corse (23.9/10k) and Corse-du-Sud (19.6/10k) follow. The top ten is dominated by mountainous, low-density territories: Cantal, Creuse, Hautes-Alpes, Ariège.</p>
+
+      <p>These are places where the village café has persisted not because it's thriving but because it was never fully displaced. Population has fallen faster than bar licences have lapsed. The denominator shrinks; the count stays stubbornly in place. In Lozère, a SIRENE registration that might have served a village of 300 now serves a village of 80.</p>
+
+      <p>At the bottom sit the inner-ring suburbs of Paris — Seine-Saint-Denis (7.2/10k), Hauts-de-Seine (5.4/10k), Val-de-Marne — and the overseas territories of La Réunion and Martinique. The banlieue's low bar density is the mirror image of central Paris's high density: large residential populations without the commercial and nightlife infrastructure of the city core.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (active establishments, NAF 56.30Z, March 2026 snapshot), geocoded by INSEE's statistical geolocation file. Population figures are from the DREES APL 2023 dataset, which uses an INSEE 2021 census population base at commune level. Some bars' commune codes don't match an APL entry (mostly small overseas territories); those are excluded from per-capita calculations. Ski resort and tourist distortion is real and acknowledged — per-capita rates for those communes reflect permanent census populations, not seasonal visitor counts.</p>
+
+        <h3>Source data</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune population (2021 census base), 34,886 communes</li>
+        </ul>
+
+        <h3>Related stories</h3>
+        <ul>
+          <li><a href="../bars/">Where France drinks</a> — 49,385 bars dot-mapped nationally</li>
+          <li><a href="../medical-deserts/">Where the doctors aren't</a> — medical desert choropleth using the same APL data</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+
+  <script type="module">
+    import { drawCharts } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./stats.json');
+      const stats = await res.json();
+
+      // Fill stat callouts
+      const pctNoBar = Math.round((stats.meta.totalCommunes - stats.meta.communesWithBars) / stats.meta.totalCommunes * 100);
+      document.getElementById('stat-communes-no-bar').textContent = pctNoBar + '%';
+      document.getElementById('stat-median').textContent = stats.meta.medianPer10k;
+      const maxParis = Math.max(...stats.parisArr.map(a => a.per10k));
+      document.getElementById('stat-max-paris').textContent = maxParis;
+
+      // Fill tourist table
+      const tbody = document.querySelector('#table-tourist tbody');
+      if (tbody && stats.touristLeaders) {
+        tbody.innerHTML = stats.touristLeaders.slice(0, 12).map((r, i) => `
+          <tr>
+            <td class="td-rank">${i + 1}</td>
+            <td class="td-name">${r.name}</td>
+            <td style="color:#888;font-size:12px">${r.dept}</td>
+            <td>${r.bars}</td>
+            <td>${r.pop.toLocaleString('fr-FR')}</td>
+            <td class="td-highlight">${r.per10k}</td>
+          </tr>`).join('');
+      }
+
+      drawCharts(stats);
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>

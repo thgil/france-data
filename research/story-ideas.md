@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-capital: France's real bar capitals
+- Status: ✅ published
+- Published URL: /stories/bar-capital/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Lille has France's most bars. Rouen wins on per capita. Paris 1er has 77 bars per 10,000; Paris 16e has 5. And 66% of French communes have no bar at all.
+- Data: bars.json (49,385 points, from Story 4) joined to communes-apl.geojson (35K communes with 2021 census population). Pre-aggregated to stats.json (16KB). No new data downloads required.
+- Angle: Stats and ranking story — no map, two horizontal bar charts (Chart.js). Four narrative beats: ski resort artifact, big-city ranking, Paris-within-Paris contrast, département-level café culture persistence.
+- Draft X summary:
+  > Lille has 444 bars — France's most. Rouen has 237. But Rouen wins on per capita. Paris 1er has 77 bars per 10,000 residents; the 16e has 5. And two-thirds of French communes have zero bars at all. Today on **france-data**: the per-capita ranking, and what it reveals. 🍺🇫🇷
+
