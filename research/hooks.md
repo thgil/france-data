@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Haute-Corse has 21.1 bars per 10,000 residents — nearly 3× the national average of 7.45. Corsica is France's bar capital per head. [Q-033]
+- 🔥 Paris (75) ranks 7th in France for bars per capita at 14.6 per 10K — higher than Bretagne, higher than the Alps, higher than the Mediterranean coast. [Q-033]
+- 🔥 Paris has 4.7× more bars per head than its suburb Essonne. Ride the RER 40 minutes from Châtelet and you may not find a single bar in walking distance. [Q-033]
+- 🔥 The IDF suburban ring (77, 78, 91, 92, 94, 95) is both a medical desert and a bar desert. Low APL scores, low bar density — the same commuter-belt geography produces both absences. [Q-033]

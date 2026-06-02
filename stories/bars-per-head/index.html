@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The bar gap — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map controls ───────────────────────────────────────────────── */
+    .map-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      user-select: none;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .zoom-btn {
+      background: none;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .zoom-btn:hover { background: #ece8e0; border-color: #999; }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #555;
+    }
+    .legend-gradient {
+      width: 100px;
+      height: 10px;
+      border-radius: 2px;
+      background: linear-gradient(to right, #fef3d0, #fdd988, #f4a416, #d4730a, #a04500, #6b2600);
+      border: 1px solid #ccc;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 2ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .per10k {
+      font-weight: 600;
+    }
+
+    /* ── Bar chart ──────────────────────────────────────────────────── */
+    .bar-chart-section { margin: 48px 0; }
+    .bar-chart-section h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .bar-chart-wrap {
+      overflow-x: auto;
+    }
+    .inline-bar-row {
+      display: flex;
+      align-items: center;
+      margin: 3px 0;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .inline-bar-label {
+      width: 180px;
+      flex-shrink: 0;
+      font-family: Georgia, serif;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #1a1a1a;
+    }
+    .inline-bar-track {
+      flex: 1;
+      background: #ede8e0;
+      border-radius: 2px;
+      height: 14px;
+      position: relative;
+    }
+    .inline-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: #d4730a;
+    }
+    .inline-bar-fill.is-paris { background: #2c6fad; }
+    .inline-bar-fill.is-bottom { background: #a04500; opacity: 0.5; }
+    .inline-bar-val {
+      width: 42px;
+      flex-shrink: 0;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-size: 11px;
+      color: #555;
+    }
+    .inline-bar-nat-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #999;
+      opacity: 0.6;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* ── Pull stat ───────────────────────────────────────────────────── */
+    .pull-stat {
+      border-left: 3px solid #d4730a;
+      padding: 12px 0 12px 20px;
+      margin: 32px 0;
+    }
+    .pull-stat .number {
+      font-family: Georgia, serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: #d4730a;
+      display: block;
+    }
+    .pull-stat .label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+      display: block;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ───────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The bar gap</h1>
+        <p class="story-dek">France's 49,385 bars aren't evenly distributed. Corsica has 21 per 10,000 residents. The suburbs of Paris have 3.</p>
+        <div class="story-meta">
+          <span>2026-06-02</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Lead ──────────────────────────────────────────────────── -->
+      <p>France has 49,385 active <em>débits de boissons</em> — bars, cafés, brasseries — and roughly 65 million metropolitan residents. The national average works out to <strong>7.45 bars per 10,000 people</strong>. But a national average is a liar. Zoom into any one département and that figure can be anywhere from 3 to 21. Where you live determines whether France's legendary café culture is actually yours.</p>
+
+      <!-- ── Map ───────────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-bph" class="mount"></div>
+        <div class="map-controls" id="map-controls" style="display:none">
+          <div class="ctrl-group">
+            <span class="ctrl-label">View</span>
+            <button class="zoom-btn" id="btn-france">France</button>
+            <button class="zoom-btn" id="btn-paris">Île-de-France</button>
+            <button class="zoom-btn" id="btn-corsica">Corse</button>
+            <button class="zoom-btn" id="btn-bretagne">Bretagne</button>
+          </div>
+          <div class="ctrl-group" style="margin-left:auto">
+            <div class="legend">
+              <span>3</span>
+              <div class="legend-gradient"></div>
+              <span>21</span>
+              <span style="margin-left:4px;color:#888">bars per 10K</span>
+            </div>
+          </div>
+        </div>
+        <figcaption>Bars per 10,000 residents by département. Hover for details. Metropolitan France only (96 départements). Sources: <a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> (bar counts) + <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> (population). Boundaries: <a href="https://github.com/gregoiredavid/france-geojson">france-geojson</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 1: Corsica ────────────────────────────────────────── -->
+      <h2>Corsica is France's bar capital</h2>
+
+      <p>Haute-Corse (2B) tops the ranking at <strong>21.1 bars per 10,000 residents</strong> — nearly three times the national average. Corse-du-Sud (2A) follows at 16.9. Together, the two Corsican départements rank 1st and 3rd out of 96. Between them, the island has 666 active bars for a permanent population of under 350,000.</p>
+
+      <p>The runner-up is Lozère (48) at 17.6 — France's least populous département, 76,000 residents, 135 bars. Then Cantal (15) at 16.6, Hautes-Alpes (05) at 15.6. The top of the ranking is a list of France's remotest, most mountainous, most tourism-dependent territories. The bar isn't just a leisure amenity here — it's often the only meeting place in the village.</p>
+
+      <div class="pull-stat">
+        <span class="number">6.9×</span>
+        <span class="label">the gap between Haute-Corse (21.1 per 10K) and Essonne (3.1 per 10K) — the highest and lowest départements in metropolitan France</span>
+      </div>
+
+      <!-- ── Beat 2: Paris ──────────────────────────────────────────── -->
+      <h2>Paris punches way above its weight</h2>
+
+      <p>The surprise is Paris. Département 75 — the city itself, excluding its suburbs — ranks <strong>7th in France</strong> at 14.6 bars per 10,000 residents. That puts Paris ahead of Bretagne, ahead of the Alps, ahead of the Mediterranean coast. For a city of 2.1 million, it's a remarkable density.</p>
+
+      <p>The explanation is structural: Paris was built before the car. Its tight 19th-century street grid, where apartments sit above shops and every block has a corner café, makes bar viability a function of foot traffic rather than car parking. Add two million daily commuters and several million tourists, and the 3,121 registered bars in the city's 75km² make sense as economic geography, not just culture.</p>
+
+      <!-- ── Beat 3: Suburban desert ────────────────────────────────── -->
+      <h2>The suburb that doesn't drink — at least not in bars</h2>
+
+      <p>Cross the Périphérique, and something shifts. The six départements that ring Paris occupy the bottom third of the national ranking. Essonne (91): <strong>3.1</strong>. Yvelines (78) and Hauts-de-Seine (92): <strong>3.3</strong>. Val-d'Oise (95): <strong>3.7</strong>. Seine-et-Marne (77): <strong>3.8</strong>. Val-de-Marne (94): <strong>4.0</strong>.</p>
+
+      <p>Paris (14.6) has 4.7 times as many bars per head as its nearest suburban département. You can board the RER at Châtelet and ride 40 minutes to a town with no bar within walking distance — no café to open a laptop, no counter to lean on before work, no terrace in July. The suburb wasn't built for that. It was built for the car and the supermarket.</p>
+
+      <!-- ── Stats tables ────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest bars per 10K</h3>
+          <table class="stats-table" id="table-top"><tbody></tbody></table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest bars per 10K</h3>
+          <table class="stats-table" id="table-bottom"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: The double absence ────────────────────────────── -->
+      <h2>Same ring, two kinds of absence</h2>
+
+      <p>Readers of the <a href="../medical-deserts/">medical deserts story</a> will recognise the pattern. The APL score — France's measure of GP access — is low in almost the same ring. Seine-et-Marne (77) has an average APL of 2.11 across its communes, below the official desert threshold of 2.5. Yvelines (78): 2.34. Val-d'Oise (95): 2.31. Essonne (91): 2.46.</p>
+
+      <p>The correspondence isn't perfect: Hauts-de-Seine (92), the wealthy western suburb, has 3.3 bars per 10K but a reasonable APL of 3.09 — it lacks bars without being a medical desert. But the broad pattern holds. The postwar commuter belt, built fast and cheap along motorway corridors, never developed the commercial street life that makes both a GP practice and a neighbourhood café economically viable. High rents, low footfall, and a population that drives everywhere keep both the doctor and the barman out.</p>
+
+      <!-- ── Bar chart: all 96 ───────────────────────────────────────── -->
+      <div class="bar-chart-section">
+        <h3>All 96 metropolitan départements — bars per 10,000 residents</h3>
+        <div class="bar-chart-wrap">
+          <div id="dept-chart"></div>
+        </div>
+      </div>
+
+      <!-- ── Closing ────────────────────────────────────────────────── -->
+      <p>The village café has been closing across rural France for decades — but in the places it survives, it survives hard. Corsica, the Massif Central, the Alps: these are the territories where the bar remains an institution, not an amenity. The new bar deserts aren't the empty countryside. They're the full suburbs.</p>
+
+      <!-- ── Credits ────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from the same SIRENE dataset as <a href="../bars/">Story 4</a>: active establishments with NAF code 56.30Z (<em>débits de boissons</em>), March 2026 snapshot, geocoded by INSEE. Population figures are the INSEE 2021 commune-level totals included in the DREES APL 2023 file, summed by département. The analysis covers 96 metropolitan départements; overseas territories (971–976) are excluded due to their unique geography and the way département codes were assigned in the source data. Département boundaries from <a href="https://github.com/gregoiredavid/france-geojson">france-geojson</a> (MIT licence).</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE</a> — active débits de boissons (NAF 56.30Z), March 2026</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a> — commune populations (INSEE 2021 base)</li>
+          <li><a href="https://github.com/gregoiredavid/france-geojson">france-geojson</a> — département boundaries (MIT)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBarsPerHeadMap } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateTables(stats) {
+      const top = document.querySelector('#table-top tbody');
+      if (top) {
+        top.innerHTML = stats.top10.map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place">${d.nom} (${d.dept})</td>
+            <td class="per10k">${d.bars_per_10k.toFixed(1)}</td>
+          </tr>`
+        ).join('');
+      }
+      const bot = document.querySelector('#table-bottom tbody');
+      if (bot) {
+        const bottom = [...stats.depts].reverse().slice(0, 10);
+        bot.innerHTML = bottom.map((d, i) =>
+          `<tr>
+            <td class="rank">${96 - i}</td>
+            <td class="place">${d.nom} (${d.dept})</td>
+            <td class="per10k">${d.bars_per_10k.toFixed(1)}</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    function buildBarChart(stats) {
+      const container = document.getElementById('dept-chart');
+      if (!container) return;
+
+      const nat = stats.national_per_10k;
+      const max = Math.max(...stats.depts.map(d => d.bars_per_10k));
+
+      const IDF_RING = ['77','78','91','92','94','95'];
+
+      container.innerHTML = stats.depts.map((d, i) => {
+        const pct = (d.bars_per_10k / max * 100).toFixed(1);
+        const natPct = (nat / max * 100).toFixed(1);
+        const isParis = d.dept === '75';
+        const isBottom = IDF_RING.includes(d.dept);
+        const fillClass = isParis ? 'is-paris' : isBottom ? 'is-bottom' : '';
+        return `<div class="inline-bar-row">
+          <div class="inline-bar-label" title="${d.nom} (${d.dept})">${d.nom}</div>
+          <div class="inline-bar-track">
+            <div class="inline-bar-fill ${fillClass}" style="width:${pct}%"></div>
+            <div class="inline-bar-nat-line" style="left:${natPct}%" title="National avg ${nat}"></div>
+          </div>
+          <div class="inline-bar-val">${d.bars_per_10k.toFixed(1)}</div>
+        </div>`;
+      }).join('');
+    }
+
+    async function main() {
+      try {
+        const [geojson, stats] = await Promise.all([
+          loadJSON('./depts.geojson'),
+          loadJSON('./stats.json'),
+        ]);
+
+        populateTables(stats);
+        buildBarChart(stats);
+
+        const mapAPI = drawBarsPerHeadMap('#map-bph', { geojson, stats });
+
+        document.getElementById('map-controls').style.display = '';
+
+        document.getElementById('btn-france').addEventListener('click',   () => mapAPI.flyToFrance());
+        document.getElementById('btn-paris').addEventListener('click',    () => mapAPI.flyToParis());
+        document.getElementById('btn-corsica').addEventListener('click',  () => mapAPI.flyToCorsica());
+        document.getElementById('btn-bretagne').addEventListener('click', () => mapAPI.flyToBretagne());
+
+      } catch (err) {
+        console.error('Failed to load bars-per-head story data:', err);
+        document.getElementById('map-bph').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
