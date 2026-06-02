@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### bar-deserts: Bar deserts
+- Status: ✅ published
+- Published URL: /stories/bar-deserts/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Two-thirds of French communes have no bar. The places with the most per capita are almost all ski resorts. The suburbs of Paris are drier than most of rural France.
+- Data: bars.json (49,385 bars, commune codes) joined to communes-apl.geojson (35,014 communes with population). No new downloads needed — pure reuse of existing in-repo data.
+- Angle: Per-capita analysis story. Horizontal bar chart of top 15 départements by density. Two ranking tables (top communes pop≥200 and pop≥1,000). Three pull stats. Six narrative beats connecting the bar desert geography to the previously-published medical-deserts and diagonale du vide patterns.
+- Draft X summary:
+  > Two in three French communes have no bar. The national average is 0.73 per 1,000. The "bar capital"? Les Deux Alpes — a ski resort with 20× the national density. The Paris suburbs are the driest in metropolitan France. Today on **france-data**: where France actually drinks, per capita. 🍺🇫🇷
+

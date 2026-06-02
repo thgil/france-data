@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar deserts — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 2px;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+    .stats-table .place-sub {
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* ── Chart wrap ─────────────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    .chart-wrap h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .chart-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    /* ── Pull stat ──────────────────────────────────────────────────── */
+    .pull-stat {
+      border-left: 3px solid var(--accent);
+      margin: 40px auto;
+      padding: 16px 24px;
+      max-width: 680px;
+      background: #f5f1ea;
+    }
+    .pull-stat .number {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pull-stat .label {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Bar deserts</h1>
+        <p class="story-dek">Two-thirds of French communes have no bar. Here's where the other third actually is — and where France really drinks.</p>
+        <div class="story-meta">
+          <span>2026-06-02</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The hook ──────────────────────────────────────────── -->
+      <p>France has 49,385 bars. The internet will tell you this is a café culture, a nation of terrasse and vin rouge and leisurely espresso. The numbers say something more complicated. Divide 49,385 by 67 million people and you get 0.73 bars per 1,000 residents — barely three-quarters of a bar per thousand. And two in three French communes have no bar at all.</p>
+
+      <p>The bars story (<a href="../bars/">Story 4</a>) mapped every one of those 49,385 points. This one asks a different question: <em>per capita</em>, where does France actually drink?</p>
+
+      <!-- ── Beat 2: The dry two-thirds ───────────────────────────────── -->
+      <h2>The dry two-thirds</h2>
+
+      <p>Of France's 35,014 communes, 23,265 — 66.4% — have exactly zero registered bars. That's not a data artefact. It reflects a long structural trend: the village café has been disappearing from rural France for fifty years. The communes with no bar tend to be small (median population: under 300), scattered across the low-density interior, and increasingly reliant on the nearest market town for any commercial life.</p>
+
+      <div class="pull-stat">
+        <div class="number">66.4%</div>
+        <div class="label">of French communes have no bar — 23,265 of 35,014</div>
+      </div>
+
+      <p>The national average of 0.73 bars per 1,000 is itself a compression. Paris sits at 1.46 — twice the average. The Île-de-France suburbs sit at 0.31–0.37 — less than half. The extremes are further apart than the average suggests.</p>
+
+      <!-- ── Beat 3: The ski resort exception ─────────────────────────── -->
+      <h2>The mountain exception: ski resorts at 20× the average</h2>
+
+      <p>The communes with the highest bar density per capita are almost all ski resorts. Gavarnie-Gèdre in the Hautes-Pyrénées has seven bars for 341 registered residents — 20.5 per 1,000. Les Deux Alpes in Isère has 39 bars for 1,933 residents — 20.2 per 1,000. Morzine in Haute-Savoie (19.2), Chamrousse in Isère (19.3), Val-d'Isère in Savoie (13.3), Courchevel (13.0).</p>
+
+      <p>The logic is straightforward: a ski resort's bar licences serve a winter population — tourists, seasonal workers, après-ski culture — that is an order of magnitude larger than the registered permanent population. The SIRENE registry counts licences, not customers. The mountain communes look drunk on paper because their bars are calibrated to a crowd that doesn't show up in the census.</p>
+
+      <!-- ── Top communes table ────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Top communes — bars per 1,000 residents (pop ≥ 1,000)</h3>
+          <table class="stats-table">
+            <tbody id="table-communes-1k"></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Top communes — bars per 1,000 residents (pop ≥ 200)</h3>
+          <table class="stats-table">
+            <tbody id="table-communes-200"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: Department rankings ──────────────────────────────── -->
+      <h2>By département: Corsica leads, not Bretagne</h2>
+
+      <p>Aggregated at département level, the results surprise. Haute-Corse (2B) leads France at 2.11 bars per 1,000 — nearly three times the national average. Lozère (1.76) and Corse-du-Sud (1.69) follow. The top five are all from the remote, thinly-populated fringes of France: Corsica twice, the sparsely-settled highlands of Massif Central (Lozère, Cantal), and the Hautes-Alpes.</p>
+
+      <p>Bretagne, often cited as France's café heartland, ranks lower per capita than the island of Corsica. Finistère has 1,014 bars and 922,000 residents — a solid 1.10 per 1,000, comfortably above average, but not exceptional. The north's reputation for drinking is real (Nord: 0.98/1,000, Pas-de-Calais: 0.79/1,000), but it shows up in raw counts, not density. Sheer population keeps the absolute numbers high.</p>
+
+      <!-- ── Department chart ──────────────────────────────────────────── -->
+      <div class="chart-wrap">
+        <h3>Bars per 1,000 residents — top 15 départements</h3>
+        <div class="chart-container" id="chart-depts"></div>
+        <p style="font-size:13px;color:#888;margin-top:8px;">Red dashed line = national average (0.73). Départements with fewer than 50,000 residents excluded.</p>
+      </div>
+
+      <!-- ── Beat 5: The suburban dry belt ────────────────────────────── -->
+      <h2>The suburban dry belt</h2>
+
+      <p>The lowest-density departments in metropolitan France are not rural. They are the Paris suburbs. Essonne (0.31/1,000), Yvelines (0.33), Hauts-de-Seine (0.33), Val-d'Oise (0.37) — all four ring departments rank in the bottom five nationally, alongside the overseas territories aggregated together (0.31).</p>
+
+      <p>The commuter belt has less than half the national average bar density, and less than a quarter of Paris's. It is the same ring that appeared in <a href="../medical-deserts/">Story 2 (medical deserts)</a>: the zone immediately around Paris where services — doctors, bars — thin out despite dense population. The capital concentrates what its suburbs lack.</p>
+
+      <!-- ── Dept top/bottom tables ────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Most bars per 1,000 (by département)</h3>
+          <table class="stats-table">
+            <tbody id="table-top-depts"></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>Fewest bars per 1,000 (by département)</h3>
+          <table class="stats-table">
+            <tbody id="table-bottom-depts"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 6: The diagonal ──────────────────────────────────────── -->
+      <h2>The diagonale shows up again</h2>
+
+      <p>The map of bar density repeats a pattern visible in the <a href="../medical-deserts/">medical deserts</a> and <a href="../baguettes/">baguettes</a> stories. The <em>diagonale du vide</em> — the low-density band running from the Meuse to the Pyrenees — is also a bar desert. The departments in that diagonal (Meuse: 0.77, Haute-Marne: 0.61, Creuse: 0.95, Lot: 0.97) track one another across different commercial and service sectors. It is not really about bars, or doctors, or bakeries. It is about a structural emptying of the French interior — a geography of retreat that shows up regardless of what variable you measure.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from <a href="../bars/">Story 4's</a> bars.json — 49,385 active débits de boissons (NAF 56.30Z) from the INSEE SIRENE registry (March 2026 snapshot), geocoded via SIRENE Géolocalisation. Population figures are from the communes-apl.geojson built for <a href="../medical-deserts/">Story 2</a> — 35,014 communes with INSEE 2021 population. The per-capita calculations join both datasets on INSEE commune code. Communes with fewer than 200 residents are excluded from commune-level rankings to reduce small-number noise. Départements with fewer than 50,000 residents are excluded from département-level rankings.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, active establishments, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/geolocalisation-des-etablissements-du-repertoire-sirene-pour-les-etudes-statistiques">INSEE SIRENE Géolocalisation</a> — geocoded coordinates</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL 2023</a> — commune population (INSEE 2021 base)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawDeptChart, populateDeptTables, populateCommuneTable } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        // Commune tables
+        populateCommuneTable('table-communes-1k', stats.topCommunesPop1000);
+        populateCommuneTable('table-communes-200', stats.topCommunesPop200);
+
+        // Dept tables
+        populateDeptTables('table-top-depts', 'table-bottom-depts', stats.deptByDensity);
+
+        // Dept chart
+        drawDeptChart('#chart-depts', stats.deptByDensity);
+
+      } catch (err) {
+        console.error('Failed to load bar-deserts data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
