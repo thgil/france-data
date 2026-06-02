@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twelve towns named Sainte-Colombe — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Name bar chart ────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 64px 0;
+    }
+
+    .name-chart {
+      width: 100%;
+      overflow: visible;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+      font-size: 13px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+
+    .bar-label {
+      width: 220px;
+      flex-shrink: 0;
+      text-align: right;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-label.is-top {
+      font-weight: bold;
+      color: #8b1a1a;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 18px;
+      background: #f0ece4;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: #c8a46e;
+      transition: width 0.5s ease;
+    }
+
+    .bar-fill.is-top {
+      background: #8b1a1a;
+    }
+
+    .bar-count {
+      width: 28px;
+      flex-shrink: 0;
+      text-align: left;
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+
+    .bar-count.is-top {
+      font-weight: bold;
+      color: #8b1a1a;
+    }
+
+    .chart-axis-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: #888;
+      margin-top: 8px;
+      padding-left: 230px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ── Map figure ────────────────────────────────────────────────── */
+    .map-figure {
+      margin: 64px 0;
+    }
+
+    .map-figure .mount {
+      width: 100%;
+      height: 420px;
+    }
+
+    .map-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px 16px;
+      padding: 8px 12px;
+      background: #faf7f2;
+      border: 1px solid #d8d0c0;
+      border-top: none;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      background: #8b1a1a;
+      flex-shrink: 0;
+    }
+
+    /* ── Map tooltip ───────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+
+    .map-tooltip .tt-label {
+      font-weight: 600;
+    }
+
+    /* ── Pull quotes / highlight blocks ───────────────────────────── */
+    .pull-stat {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 48px 0;
+      padding: 24px 0;
+      border-top: 1px solid #e0d8cc;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .stat-item .stat-number {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      color: #8b1a1a;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-item .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Name extremes block ───────────────────────────────────────── */
+    .extremes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    @media (max-width: 600px) {
+      .extremes-grid { grid-template-columns: 1fr; }
+    }
+
+    .extreme-card {
+      padding: 20px;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+    }
+
+    .extreme-card .card-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .extreme-card .card-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+
+    .extreme-card .card-detail {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ── Credits ───────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+
+    .credits a { color: inherit; }
+
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading ───────────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Twelve towns named Sainte-Colombe</h1>
+        <p class="story-dek">France has 35,014 communes but only 32,764 unique names — 3,700 share their name with at least one other town. One name repeats twelve times.</p>
+        <div class="story-meta">
+          <span>2026-06-02</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ───────────────────────────────────────────────── -->
+      <p>The commune of Sainte-Colombe exists in the Hautes-Alpes. And in the Charente-Maritime. And in the Doubs, and the Gironde, and Ille-et-Vilaine, and the Landes, and the Lot, and the Manche, and the Rhône, and the Seine-Maritime, and Seine-et-Marne, and the Yonne. Twelve different communes, twelve different departments, one shared name. If you post a letter addressed simply to <em>Sainte-Colombe, France</em>, it has twelve equally valid destinations.</p>
+
+      <p>This is not an accident. It's a structural feature of a country that grew from 40,000 medieval parishes, each named by a different local clergy, according to the same Catholic calendar. When the Revolution reorganised France into communes in 1789, the names stayed. France has been living with the consequences ever since.</p>
+
+      <!-- ── Pull stats ────────────────────────────────────────────── -->
+      <div class="pull-stat" id="pull-stats">
+        <div class="stat-item">
+          <div class="stat-number" id="stat-total">35,014</div>
+          <div class="stat-label">communes in France</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-unique">32,764</div>
+          <div class="stat-label">unique commune names</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-dupl">3,700</div>
+          <div class="stat-label">communes sharing a name with another</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-saint">11.1%</div>
+          <div class="stat-label">of communes start with Saint or Sainte</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Map of 12 Sainte-Colombes ────────────────────── -->
+      <h2>A name in twelve places</h2>
+
+      <p>The twelve Sainte-Colombes are small. The biggest — in the Rhône, near Vienne — has 1,953 residents. The smallest, in the Hautes-Alpes, has 59. Their total combined population is about 6,400. They are scattered across the country, from Normandy to the Pyrénées, from Brittany to Burgundy. What they share is a saint who was martyred in Sens in the 3rd century, whose feast day is on December 31st, and whose name was popular enough to be bestowed twelve times over.</p>
+
+      <figure class="map-figure">
+        <div id="map-colombe" class="mount"><div class="map-loading">Loading map…</div></div>
+        <div class="map-controls">
+          <span class="legend-dot"></span>
+          <span>Each dot is one commune named Sainte-Colombe. Hover to see population and département.</span>
+        </div>
+        <figcaption>The twelve communes named Sainte-Colombe, mapped. Source: INSEE commune register via <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: The chart ─────────────────────────────────────── -->
+      <h2>Sainte-Colombe is only the beginning</h2>
+
+      <p>Of France's 32,764 distinct commune names, 1,450 are shared by at least two communes — and 93 appear five or more times. The chart below shows the 25 most duplicated names. Saints dominate, naturally: every name in the top ten except <em>Beaulieu</em> and <em>Le Pin</em> belongs to a Catholic feast. But secular repetition runs deep too: twelve communes are called <em>Verrières</em>, eight are <em>Beaumont</em>, seven are <em>Fleury</em>.</p>
+
+      <figure class="chart-figure">
+        <div id="name-chart-container"></div>
+        <p class="chart-axis-label">Number of communes sharing the name</p>
+        <figcaption>Top 25 most common commune names in France. Data: 35,014 communes from the INSEE APL 2023 commune register.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Saint analysis ────────────────────────────────── -->
+      <h2>One commune in nine is a saint</h2>
+
+      <p>Of France's 35,014 communes, 3,882 — 11.1% — have names that begin with <em>Saint-</em> or <em>Sainte-</em>. That's roughly one in nine. Of those, 3,376 saint names are unique (only one commune bears them). But 202 saint names appear in two or more communes, meaning the saint-name duplication problem is almost entirely a sub-problem of a much larger Catholic geography exercise.</p>
+
+      <p>The most prolific saint names are the most universal ones: Sauveur (saviour), Aubin (a bishop popular in western France), Michel (the archangel), Marcel (a Roman martyr), Pierre (the apostle). These were safe choices, widely venerated, unlikely to offend a neighbouring parish. The uniquely local saints — Saint-Eutrope, Saint-Mexme, Saint-Lunaire — appear only once. Their obscurity was their protection.</p>
+
+      <!-- ── Beat 5: The extremes ──────────────────────────────────── -->
+      <h2>From Y to Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</h2>
+
+      <p>French commune names span an extraordinary range. At one end: <em>Y</em>, a village of 89 people in the Somme, whose monosyllabic name is thought to derive from the Old French word for water. It is, as far as anyone can tell, the shortest place name in France — and possibly in Europe. At the other end: <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, a Marne commune of 869 people whose name is 45 characters long and contains two saints, a hyphenated landscape reference, a conjunction, and the ghost of three formerly independent villages fused by municipal merger in 1972.</p>
+
+      <div class="extremes-grid">
+        <div class="extreme-card">
+          <div class="card-label">Shortest commune name</div>
+          <div class="card-name">Y</div>
+          <div class="card-detail">Somme (dept. 80) · population 89<br>One letter. Possibly derives from the Old French <em>aie</em> (water). Unique in France.</div>
+        </div>
+        <div class="extreme-card">
+          <div class="card-label">Longest commune name · 45 characters</div>
+          <div class="card-name">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</div>
+          <div class="card-detail">Marne (dept. 51) · population 869<br>Three former villages, two saints, one merger in 1972. The name is longer than this sentence fragment.</div>
+        </div>
+      </div>
+
+      <p>Between these two poles, the mean commune name in France is 12 characters long. The median is 10. There are 13 communes with two-letter names (Uz, Ri, Eu, Oz, Bû, Ry, Ur, Py, By, Oô, Gy, Sy, Us). There are 133 with three-letter names. The distribution trails off slowly into the hyphenated mergers of the 1970s, where bureaucratic logic collided with local pride and produced names like <em>Roche-sur-Linotte-et-Sorans-les-Cordiers</em> (40 characters, Haute-Saône).</p>
+
+      <!-- ── Closing ───────────────────────────────────────────────── -->
+      <p>The postal system deals with the ambiguity using commune codes — every commune has a unique five-digit INSEE code, which appears on envelopes and in every administrative database. The name is for humans. The code is for machines. France, as usual, has found a way to honour both.</p>
+
+      <!-- ── Credits ──────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and codes are drawn from the DREES APL 2023 commune-level dataset, which covers 35,014 communes across metropolitan France and the overseas territories. The APL GeoJSON used in <a href="../medical-deserts/">Story 2 (medical deserts)</a> carries the <code>communeName</code> field for every commune, making it a convenient source for name analysis. Population figures are INSEE 2021 base.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> — commune names, codes, and INSEE populations reused from Story 2</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawColombeMap, drawNameChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const d = await loadJSON('./names-data.json');
+
+        // Update stats from data
+        const s = d.stats;
+        document.getElementById('stat-total').textContent = s.total.toLocaleString('fr-FR');
+        document.getElementById('stat-unique').textContent = s.unique.toLocaleString('fr-FR');
+        document.getElementById('stat-dupl').textContent = s.duplicated.toLocaleString('fr-FR');
+        document.getElementById('stat-saint').textContent = s.saintPct + '%';
+
+        drawNameChart('#name-chart-container', d.top25);
+        drawColombeMap('#map-colombe', d.saintColombes);
+
+      } catch (err) {
+        console.error('Failed to load name-twins data:', err);
+        document.getElementById('map-colombe').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
