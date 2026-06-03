@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* ── Map figure ─────────────────────────────────────────────────── */
+    .map-figure { margin: 64px 0; }
+    .map-figure .mount {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── Map tooltip ─────────────────────────────────────────────────── */
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #faf7f2;
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 7px 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-name {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      color: #b32020;
+    }
+    .map-tooltip .tt-row {
+      font-size: 11px;
+      color: #444;
+      white-space: nowrap;
+      display: block;
+    }
+    .map-tooltip .tt-label { font-weight: 600; }
+
+    /* ── Chart containers ───────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 48px auto;
+      max-width: 680px;
+    }
+
+    /* ── Stat callouts ──────────────────────────────────────────────── */
+    .callout-row {
+      display: flex;
+      gap: 32px;
+      margin: 48px auto;
+      max-width: 680px;
+      flex-wrap: wrap;
+    }
+    .callout {
+      flex: 1;
+      min-width: 140px;
+      border-top: 2px solid #b32020;
+      padding-top: 12px;
+    }
+    .callout .big {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+    .callout .label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* ── Name table ─────────────────────────────────────────────────── */
+    .name-table {
+      width: 100%;
+      max-width: 680px;
+      margin: 24px auto;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .name-table th {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 6px 8px 8px 0;
+      border-bottom: 1px solid #d8d0c0;
+    }
+    .name-table td {
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid #ede8e0;
+      vertical-align: baseline;
+    }
+    .name-table .cn { font-family: Georgia, serif; font-size: 16px; font-weight: 700; }
+    .name-table .dept { color: #888; font-size: 12px; }
+    .name-table .pop { text-align: right; font-variant-numeric: tabular-nums; color: #333; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+
+    /* ── Loading state ───────────────────────────────────────────────── */
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">France has 35,014 communes. One of them is called Y. Another is Ur. Here's what those names reveal about saints, village mergers, and one very confusing mailing address.</p>
+        <div class="story-meta">
+          <span>2026-06-03</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ────────────────────────────────────────────────── -->
+      <p>France has a commune named <strong>Y</strong>. Not Y-les-quelque-chose. Not Y-sur-Somme. Just Y. It sits in the Somme département, north of Paris, with 89 residents and a postal code that has caused letterboxes untold confusion since the Middle Ages. It is, by some distance, the shortest official commune name in France — and possibly in Europe.</p>
+
+      <p>Y gets its name from an Old Picard word meaning "water" or "river bend," rooted in the same linguistic family as the Old French <em>aigue</em>. The name survived every round of administrative reform France has thrown at its map. Napoleon's prefects didn't touch it. The Third Republic didn't rename it. Y remains Y.</p>
+
+      <!-- ── Callout row ────────────────────────────────────────────────── -->
+      <div class="callout-row">
+        <div class="callout">
+          <div class="big">1</div>
+          <div class="label">Letter in Y's name</div>
+        </div>
+        <div class="callout">
+          <div class="big">89</div>
+          <div class="label">Residents of Y</div>
+        </div>
+        <div class="callout">
+          <div class="big">14</div>
+          <div class="label">Communes with ≤ 2-letter names</div>
+        </div>
+        <div class="callout">
+          <div class="big">35,014</div>
+          <div class="label">Total communes in France</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The short name club ─────────────────────────────── -->
+      <h2>The short-name club</h2>
+
+      <p>Y is not alone. Thirteen more communes have two-letter names: <em>By</em> in the Doubs (86 residents), <em>Eu</em> in Seine-Maritime (6,591), <em>Gy</em> in Haute-Saône (1,001), and ten others scattered from the Pyrenees to Normandy. Their brevity is rarely accidental — most are corruptions of ancient Gaulish, Basque, or Occitan roots, worn down by a millennium of written administration into a single syllable.</p>
+
+      <p>The map below plots all 14. Hover over each dot for population and département.</p>
+
+      <!-- ── Map ────────────────────────────────────────────────────── -->
+      <figure class="map-figure">
+        <div id="map-short" class="mount"></div>
+        <figcaption>14 French communes with names of two letters or fewer. Each dot is at the commune's centroid. Source: <a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab administrative contours 2025</a> joined to <a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES APL 2023</a>.</figcaption>
+      </figure>
+
+      <!-- ── Table of ultra-short communes ────────────────────────────── -->
+      <table class="name-table" id="short-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Département</th>
+            <th class="pop">Population</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- ── Beat 3: Saints ───────────────────────────────────────────── -->
+      <h2>One name, twelve communes</h2>
+
+      <p>At the other end of the creativity spectrum: <strong>Sainte-Colombe</strong>. It exists 12 times. There are Sainte-Colombes in the Rhône (4,250 residents), the Seine-Maritime, the Yonne, the Charente-Maritime, and eight other départements. Each municipality is entirely separate — different mayors, different budgets, different weather — united only by their devotion to the same fourth-century martyr.</p>
+
+      <p><strong>4,410 French communes</strong> — one in eight — have "Saint" or "Sainte" somewhere in their name. The national naming stock didn't run out exactly, but it ran thin. The top 15 most-repeated commune names below are almost entirely saints.</p>
+
+      <!-- ── Chart: top names ───────────────────────────────────────────── -->
+      <figure>
+        <div class="chart-wrap" id="chart-names"></div>
+        <figcaption>The 15 most common commune names in France. All 35,014 communes counted; Paris, Lyon, and Marseille arrondissements treated as separate entities. Source: Etalab + DREES APL 2023.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Length ────────────────────────────────────────────── -->
+      <h2>The 7-character sweet spot</h2>
+
+      <p>Strip away the outliers and a clear mode emerges. Most French communes have names that are exactly <strong>7 or 8 characters long</strong> — 3,695 at each length. The distribution drops off sharply on the short side (only 1 commune with 1 character, 13 with 2), then spreads into a long right tail of hyphenated compound names created when villages merged and refused to give up either identity.</p>
+
+      <!-- ── Histogram ─────────────────────────────────────────────────── -->
+      <figure>
+        <div class="chart-wrap" id="chart-length"></div>
+        <figcaption>Distribution of commune name lengths across France's 34,969 real communes (arrondissements excluded). X-axis: characters; y-axis: number of communes.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Longest ──────────────────────────────────────────── -->
+      <h2>45 characters, four saints</h2>
+
+      <p>At the far right of that histogram sits <strong>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</strong>. 45 characters. Located in the Marne (département 51). It was assembled from several villages that merged in the 1970s under France's <em>loi Marcellin</em> fusion programme — a well-intentioned policy that created hundreds of hyphenated marathon names. The commune is longer, in characters, than "the United States of America" and nearly twice as long as "the United Kingdom."</p>
+
+      <p>The second-longest, at 43 characters, is <em>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</em> in Haute-Saône — also a merger product, also emphatically refusing to abbreviate. France has at least six communes that exceed 40 characters. Envelope manufacturers presumably charge extra.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names, populations, and boundaries come from Etalab's administrative contours dataset (2025 vintage, 1000m simplification), joined to the DREES APL 2023 commune-level file. Centroids are computed as polygon centroids from the simplified geometries. The "real commune" count used in the length distribution (34,969) excludes the Paris, Lyon, and Marseille arrondissements, which are sub-communal administrative entities. The full 35,014 figure includes them.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs des communes françaises — Etalab 2025</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">APL aux médecins généralistes 2023 — DREES</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawShortMap, drawNamesChart, drawLengthHistogram } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    const DEPT_NAMES = {
+      '01':'Ain','02':'Aisne','03':'Allier','04':'Alpes-de-Haute-Provence','05':'Hautes-Alpes',
+      '06':'Alpes-Maritimes','07':'Ardèche','08':'Ardennes','09':'Ariège','10':'Aube',
+      '11':'Aude','12':'Aveyron','13':'Bouches-du-Rhône','14':'Calvados','15':'Cantal',
+      '16':'Charente','17':'Charente-Maritime','18':'Cher','19':'Corrèze','21':'Côte-d\'Or',
+      '22':'Côtes-d\'Armor','23':'Creuse','24':'Dordogne','25':'Doubs','26':'Drôme',
+      '27':'Eure','28':'Eure-et-Loir','29':'Finistère','2A':'Corse-du-Sud','2B':'Haute-Corse',
+      '30':'Gard','31':'Haute-Garonne','32':'Gers','33':'Gironde','34':'Hérault',
+      '35':'Ille-et-Vilaine','36':'Indre','37':'Indre-et-Loire','38':'Isère','39':'Jura',
+      '40':'Landes','41':'Loir-et-Cher','42':'Loire','43':'Haute-Loire','44':'Loire-Atlantique',
+      '45':'Loiret','46':'Lot','47':'Lot-et-Garonne','48':'Lozère','49':'Maine-et-Loire',
+      '50':'Manche','51':'Marne','52':'Haute-Marne','53':'Mayenne','54':'Meurthe-et-Moselle',
+      '55':'Meuse','56':'Morbihan','57':'Moselle','58':'Nièvre','59':'Nord',
+      '60':'Oise','61':'Orne','62':'Pas-de-Calais','63':'Puy-de-Dôme','64':'Pyrénées-Atlantiques',
+      '65':'Hautes-Pyrénées','66':'Pyrénées-Orientales','67':'Bas-Rhin','68':'Haut-Rhin',
+      '69':'Rhône','70':'Haute-Saône','71':'Saône-et-Loire','72':'Sarthe','73':'Savoie',
+      '74':'Haute-Savoie','75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne',
+      '78':'Yvelines','79':'Deux-Sèvres','80':'Somme','81':'Tarn','82':'Tarn-et-Garonne',
+      '83':'Var','84':'Vaucluse','85':'Vendée','86':'Vienne','87':'Haute-Vienne',
+      '88':'Vosges','89':'Yonne','90':'Territoire de Belfort','91':'Essonne',
+      '92':'Hauts-de-Seine','93':'Seine-Saint-Denis','94':'Val-de-Marne','95':'Val-d\'Oise',
+      '971':'Guadeloupe','972':'Martinique','973':'Guyane','974':'La Réunion','976':'Mayotte',
+    };
+
+    function deptName(code) {
+      return DEPT_NAMES[code] || code;
+    }
+
+    function populateShortTable(ultraShort) {
+      const tbody = document.querySelector('#short-table tbody');
+      if (!tbody) return;
+      tbody.innerHTML = ultraShort.map(c => {
+        const pop = c.pop ? c.pop.toLocaleString('fr-FR') : '–';
+        return `<tr>
+          <td class="cn">${c.name}</td>
+          <td class="dept">${deptName(c.dept)} (${c.dept})</td>
+          <td class="pop">${pop}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        // Populate table
+        populateShortTable(stats.ultraShort);
+
+        // Map of short communes
+        drawShortMap('#map-short', stats.ultraShort);
+
+        // Top names chart
+        drawNamesChart('#chart-names', stats.topNames);
+
+        // Length histogram
+        drawLengthHistogram('#chart-length', stats.lengthDist);
+
+      } catch (err) {
+        console.error('Failed to load commune-names story data:', err);
+        document.getElementById('map-short').innerHTML =
+          '<div class="map-loading">Failed to load map data.</div>';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
