@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: There are 12 communes called Sainte-Colombe, one commune called Y, and the longest commune name has two saints and 45 characters.
+- Data: commune names extracted from the DREES APL GeoJSON already in the repo (35,014 communes with communeName field). No new downloads. Centroid index built as a reusable asset for future stories.
+- Angle: Text-and-charts story — no map. CSS bar charts for saint sub-names, first words, and most-duplicated names. Tables for shortest/longest names. The story is a tour of naming patterns: saints, articles, hyphens, fusions, anomalies.
+- Draft X summary:
+  > There are 12 communes called Sainte-Colombe. One commune is called Y (pop. 89, Somme — the name is 13th century). The longest commune name is 45 characters and has two saints in it. Today on **france-data**: 35,014 French commune names, counted and sorted. 🇫🇷
+
