@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raw counts lie — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .chart-figure figcaption a { color: inherit; }
+
+    #chart-ranked {
+      width: 100%;
+      max-width: 800px;
+      overflow: visible;
+    }
+
+    /* ── Callout ────────────────────────────────────────────────────── */
+    .callout {
+      background: #f0ece4;
+      border-left: 3px solid #1a1a1a;
+      padding: 14px 18px;
+      margin: 32px 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .callout strong { font-family: Georgia, serif; }
+
+    /* ── Stats grid ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place { font-family: Georgia, serif; }
+    .stats-table .place.idf { color: #b32020; }
+    .stats-table .place.corse { color: #c67c00; }
+    .stats-table .place.bretagne { color: #2a7a5c; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Raw counts lie</h1>
+        <p class="story-dek">Paris has the most bars in France. Divide by population and it falls to seventh. Corsica leads. The suburbs around Paris — the same ones that are medical deserts — are also bar deserts.</p>
+        <div class="story-meta">
+          <span>2026-06-03</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The deception ─────────────────────────────────────── -->
+      <p>Walk through most discussions of French bars — or watch the tables in the <a href="../bars/">previous story</a> — and the ranking looks obvious. Paris: 3,120 bars. Nord: 1,961. Bouches-du-Rhône: 1,632. The capital wins, the northern industrial belt comes second, the Mediterranean coast fills the podium.</p>
+
+      <p>The ranking is real. It's also almost entirely a population story. The three largest French départements by population sit at the top because there are simply more people to drink. Divide by how many people actually live there and a different France emerges.</p>
+
+      <!-- ── Beat 2: The chart ──────────────────────────────────────────── -->
+      <h2>All 96 mainland départements, ranked</h2>
+
+      <p>The chart below shows bars per 10,000 residents for every métropolitain département, from highest to lowest. The dashed line is the national average: <strong>7.3 per 10,000</strong>. Hover over any row to see the full figures.</p>
+
+      <figure class="chart-figure">
+        <div id="chart-ranked"></div>
+        <figcaption>Bars per 10,000 residents by département. Bar count: INSEE SIRENE (NAF 56.30Z, March 2026). Population: INSEE, via DREES APL 2023 dataset.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Corsica leads ─────────────────────────────────────── -->
+      <h2>Corsica, far ahead</h2>
+
+      <p>Haute-Corse tops the chart at <strong>21.1 per 10,000</strong> — nearly three times the national average. One bar for every 473 residents. Corse-du-Sud is third at 16.9. The two Corsican départements combined have 666 bars for 348,000 people, a ratio that no mainland region approaches.</p>
+
+      <div class="callout">
+        <strong>The Corsican number.</strong> Haute-Corse: 390 bars, 184,655 residents. 21.1 per 10,000. The national average is 7.3. On a summer weekend, with seasonal tourism included, the true density is higher still.
+      </div>
+
+      <p>The mechanism isn't mysterious. Corsica has a deep café culture, a strong tourist season (which creates bars that stay registered year-round), and low population density outside Ajaccio and Bastia — meaning each bar serves a wide social catchment. The same logic, in lower doses, explains why Lozère (#2, 17.6), Cantal (#4, 16.6), and Hautes-Alpes (#5, 15.6) all out-rank Paris despite being among France's emptiest territories.</p>
+
+      <!-- ── Beat 4: Paris falls ────────────────────────────────────────── -->
+      <h2>Paris: first by count, seventh by rate</h2>
+
+      <p>Paris has 3,120 bars and 2.13 million residents. That puts it at <strong>14.6 per 10,000</strong> — impressive, and firmly above average. But four rural and two alpine départements have a higher density. Paris is the absolute capital of French bars only if you don't adjust for scale.</p>
+
+      <p>The Breton cluster tells the same story from another angle. Côtes-d'Armor (13.1), Morbihan (12.1), Finistère (11.0), and Ille-et-Vilaine (8.7) all appear in the upper half. Four of France's five Breton départements in the top half of a per-capita ranking. This isn't noise; it's the Celtic café culture that makes Bretagne different from the rest of France — documented, registered, and countable.</p>
+
+      <!-- ── Stats tables ───────────────────────────────────────────────── -->
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Highest density (per 10,000)</h3>
+          <table class="stats-table" id="table-top"><tbody></tbody></table>
+        </div>
+        <div class="stats-block">
+          <h3>Lowest density (per 10,000)</h3>
+          <table class="stats-table" id="table-bottom"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- ── Beat 5: IDF bar desert ─────────────────────────────────────── -->
+      <h2>The IDF bar desert</h2>
+
+      <p>Six of the ten lowest-ranked départements are in Île-de-France. Essonne: 3.1 per 10,000. Yvelines: 3.3. Hauts-de-Seine: 3.3. Val-d'Oise: 3.7. Seine-et-Marne: 3.8. Val-de-Marne: 4.0. The Paris suburbs that have spent decades being built for commuting — low-density residential towers, business parks, périphérique-adjacent zones — have about half the bar density of the French average.</p>
+
+      <p>This is the same map we've seen twice before. The <a href="../medical-deserts/">medical-deserts story</a> showed Paris's inner ring as among France's worst-served territories for GP access. The patterns are not coincidental. Both bars and GP surgeries cluster where neighbourhood street life is possible: walking-distance commerce, a café to sit in, a doctor to walk to. The IDF suburbs were built around the car and the commute, and the data on both trades reflects that structural choice.</p>
+
+      <p>The bottom of the per-capita table is not the emptiest places in France — it's the most efficiently gridded ones. Haute-Garonne (4.2), containing Toulouse, and Bas-Rhin (3.9), containing Strasbourg, also rank low. Dense, functional, relatively few bars. The cities where the <em>brasserie</em> tradition never quite took hold in the same way as in Bretagne or the midi.</p>
+
+      <!-- ── Beat 6: Closing ───────────────────────────────────────────── -->
+      <p>49,385 bars. 96 mainland départements. 7.3 per 10,000 on average. The headline number hasn't changed since the last story — but the map underneath it has. Corsica leads. The Celtic west punches well above its weight. The Paris suburbs, for all their proximity to the capital's 3,120 bars, have built themselves into something closer to a bar desert than most people would guess.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Bar counts come from INSEE SIRENE (NAF 56.30Z, débits de boissons, active establishments, March 2026 snapshot) — the same data used in <a href="../bars/">Story 4</a>. Population figures come from the DREES APL 2023 commune-level dataset (INSEE 2021 population base), aggregated by département. Overseas departments (971–976) are excluded from the ranking as the population-to-bar relationship differs significantly from metropolitan France. The DOM-TOM aggregate in SIRENE also conflates several territories under a single code.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret">INSEE SIRENE — Base des entreprises et de leurs établissements</a> (NAF 56.30Z, March 2026)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (population by commune, aggregated to département)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawBarChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateTables(stats) {
+      const regionClass = r => {
+        if (r === 'Corse') return 'corse';
+        if (r === 'Bretagne') return 'bretagne';
+        if (r === 'Île-de-France') return 'idf';
+        return '';
+      };
+
+      const topTbody = document.querySelector('#table-top tbody');
+      if (topTbody) {
+        topTbody.innerHTML = stats.depts.slice(0, 10).map((d, i) =>
+          `<tr>
+            <td class="rank">${i + 1}</td>
+            <td class="place ${regionClass(d.region)}">${d.name}</td>
+            <td>${d.per10k.toFixed(1)}</td>
+          </tr>`
+        ).join('');
+      }
+
+      const bottomTbody = document.querySelector('#table-bottom tbody');
+      if (bottomTbody) {
+        const bottom10 = stats.depts.slice(-10).reverse();
+        bottomTbody.innerHTML = bottom10.map((d, i) =>
+          `<tr>
+            <td class="rank">${stats.depts.length - i}</td>
+            <td class="place ${regionClass(d.region)}">${d.name}</td>
+            <td>${d.per10k.toFixed(1)}</td>
+          </tr>`
+        ).join('');
+      }
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+        populateTables(stats);
+        drawBarChart('#chart-ranked', stats);
+      } catch (err) {
+        console.error('Failed to load bar-gap data:', err);
+        document.getElementById('chart-ranked').textContent = 'Failed to load chart data.';
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

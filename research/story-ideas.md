@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-gap: Raw counts lie
+- Status: ✅ published
+- Published URL: /stories/bar-gap/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita) (follow-up)
+- Hook: Paris has the most bars in France. Divide by population and it falls to seventh. Corsica leads at 21.1 per 10,000 — nearly three times the national average.
+- Data: INSEE SIRENE bars (from Story 4) joined to DREES APL 2023 commune population aggregated by département. No new downloads needed.
+- Angle: Full ranked horizontal bar chart of all 96 métropolitain départements. Colour-coded by region (Corse amber, Bretagne teal, IDF red). Reveals IDF suburban bar desert mirroring medical desert geography.
+- Draft X summary:
+  > Paris has 3,120 bars — the most in France. Per resident, it ranks 7th. Corsica leads at 21 per 10,000. And six of France's ten least bar-dense départements are in Île-de-France. Today on **france-data**: the per-capita reveal. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
