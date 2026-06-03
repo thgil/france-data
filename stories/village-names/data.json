@@ -1,0 +1,62 @@
+{
+  "totalCommunes": 35014,
+  "uniqueNames": 32764,
+  "singletons": 31314,
+  "repeated": 1450,
+  "saintCount": 4437,
+  "saintUniquePatterns": 3925,
+  "topNames": [
+    { "name": "Sainte-Colombe", "count": 12 },
+    { "name": "Saint-Sauveur", "count": 11 },
+    { "name": "Saint-Aubin", "count": 10 },
+    { "name": "Beaulieu", "count": 10 },
+    { "name": "Saint-Marcel", "count": 9 },
+    { "name": "Saint-Michel", "count": 9 },
+    { "name": "Le Pin", "count": 9 },
+    { "name": "Saint-Pierre", "count": 9 },
+    { "name": "Sainte-Marie", "count": 9 },
+    { "name": "Saint-Rémy", "count": 8 },
+    { "name": "Saint-Clément", "count": 8 },
+    { "name": "Saint-Hilaire", "count": 8 },
+    { "name": "Saint-Loup", "count": 8 },
+    { "name": "Beaumont", "count": 8 },
+    { "name": "Verrières", "count": 8 },
+    { "name": "Saint-Hippolyte", "count": 8 },
+    { "name": "Saint-Georges", "count": 8 },
+    { "name": "Saint-Médard", "count": 8 },
+    { "name": "Saint-Paul", "count": 8 },
+    { "name": "Saint-Laurent", "count": 7 }
+  ],
+  "shortNames": [
+    { "name": "Y",   "chars": 1, "dept": "80", "deptName": "Somme",                 "pop": 89   },
+    { "name": "By",  "chars": 2, "dept": "25", "deptName": "Doubs",                 "pop": 86   },
+    { "name": "Bû",  "chars": 2, "dept": "28", "deptName": "Eure-et-Loir",          "pop": 2022 },
+    { "name": "Eu",  "chars": 2, "dept": "76", "deptName": "Seine-Maritime",        "pop": 6591 },
+    { "name": "Gy",  "chars": 2, "dept": "70", "deptName": "Haute-Saône",           "pop": 1001 },
+    { "name": "Oz",  "chars": 2, "dept": "38", "deptName": "Isère",                 "pop": 213  },
+    { "name": "Oô",  "chars": 2, "dept": "31", "deptName": "Haute-Garonne",         "pop": 103  },
+    { "name": "Py",  "chars": 2, "dept": "66", "deptName": "Pyrénées-Orientales",   "pop": 79   },
+    { "name": "Ri",  "chars": 2, "dept": "61", "deptName": "Orne",                  "pop": 156  },
+    { "name": "Ry",  "chars": 2, "dept": "76", "deptName": "Seine-Maritime",        "pop": 775  },
+    { "name": "Sy",  "chars": 2, "dept": "08", "deptName": "Ardennes",              "pop": 54   },
+    { "name": "Ur",  "chars": 2, "dept": "66", "deptName": "Pyrénées-Orientales",   "pop": 348  },
+    { "name": "Us",  "chars": 2, "dept": "95", "deptName": "Val-d'Oise",            "pop": 1338 },
+    { "name": "Uz",  "chars": 2, "dept": "65", "deptName": "Hautes-Pyrénées",       "pop": 36   }
+  ],
+  "longestName": {
+    "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+    "chars": 45,
+    "dept": "51",
+    "deptName": "Marne"
+  },
+  "topSaintDepts": [
+    { "dept": "24", "deptName": "Dordogne",         "saintCount": 145, "totalCount": 503, "pct": 29 },
+    { "dept": "33", "deptName": "Gironde",           "saintCount": 125, "totalCount": 534, "pct": 23 },
+    { "dept": "76", "deptName": "Seine-Maritime",    "saintCount": 121, "totalCount": 707, "pct": 17 },
+    { "dept": "71", "deptName": "Saône-et-Loire",    "saintCount": 115, "totalCount": 563, "pct": 20 },
+    { "dept": "38", "deptName": "Isère",             "saintCount": 113, "totalCount": 512, "pct": 22 },
+    { "dept": "17", "deptName": "Charente-Maritime", "saintCount": 106, "totalCount": 462, "pct": 23 },
+    { "dept": "07", "deptName": "Ardèche",           "saintCount":  98, "totalCount": 335, "pct": 29 },
+    { "dept": "63", "deptName": "Puy-de-Dôme",       "saintCount":  97, "totalCount": 463, "pct": 21 }
+  ]
+}
