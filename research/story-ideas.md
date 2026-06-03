@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: Y is a Village
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a village called Y (one letter, 89 people, Somme). The longest commune name has 45 characters. Between them: 35,014 communes, 3,882 named after saints, and 12 different places all called Sainte-Colombe.
+- Data: Commune names extracted from the DREES APL 2023 + Etalab Contours administratifs GeoJSON already in the repo — no new downloads required.
+- Angle: Text-and-charts story. Three visualisations: name length histogram, top duplicate names (horizontal bars), top saint epithets (horizontal bars). Four narrative beats: shortest names, name-length distribution, the saint-naming problem, the duplicate-name problem.
+- Draft X summary:
+  > France has a village called Y. One letter. 89 people. It's been called Y since the Middle Ages. Also: 12 communes named Sainte-Colombe. Saint-Martin appearing 202 times. The longest name: 45 characters, three villages that merged in 1972 and refused to pick. Today on **france-data**: 35,014 commune names, dissected. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
