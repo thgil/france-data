@@ -1,0 +1,266 @@
+{
+  "total": 35014,
+  "uniqueNames": 32764,
+  "singletons": 31314,
+  "shared": 1450,
+  "sharedCommunes": 3700,
+  "shortestCommune": {
+    "code": "80829",
+    "name": "Y",
+    "dept": "80",
+    "deptName": "Somme",
+    "pop": 89
+  },
+  "twoLetterCommunes": [
+    {
+      "name": "By",
+      "dept": "25",
+      "deptName": "Doubs",
+      "pop": 86
+    },
+    {
+      "name": "Bû",
+      "dept": "28",
+      "deptName": "Eure-et-Loir",
+      "pop": 2022
+    },
+    {
+      "name": "Eu",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 6591
+    },
+    {
+      "name": "Gy",
+      "dept": "70",
+      "deptName": "Haute-Saône",
+      "pop": 1001
+    },
+    {
+      "name": "Oz",
+      "dept": "38",
+      "deptName": "Isère",
+      "pop": 213
+    },
+    {
+      "name": "Oô",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "pop": 103
+    },
+    {
+      "name": "Py",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 79
+    },
+    {
+      "name": "Ri",
+      "dept": "61",
+      "deptName": "Orne",
+      "pop": 156
+    },
+    {
+      "name": "Ry",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 775
+    },
+    {
+      "name": "Sy",
+      "dept": "08",
+      "deptName": "Ardennes",
+      "pop": 54
+    },
+    {
+      "name": "Ur",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 348
+    },
+    {
+      "name": "Us",
+      "dept": "95",
+      "deptName": "Val-d'Oise",
+      "pop": 1338
+    },
+    {
+      "name": "Uz",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "pop": 36
+    }
+  ],
+  "topDuplicatedNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    }
+  ],
+  "saintCount": 3898,
+  "saintPercent": 11.1,
+  "leLaLesCount": 2220,
+  "longestCommunes": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "deptName": "Marne",
+      "nameLen": 45,
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "deptName": "Haute-Saône",
+      "nameLen": 43,
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "deptName": "Calvados",
+      "nameLen": 41,
+      "pop": 499
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "deptName": "Côte-d'Or",
+      "nameLen": 40,
+      "pop": 381
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "deptName": "Hérault",
+      "nameLen": 40,
+      "pop": 195
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "dept": "70",
+      "deptName": "Haute-Saône",
+      "nameLen": 40,
+      "pop": 64
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "dept": "07",
+      "deptName": "Ardèche",
+      "nameLen": 39,
+      "pop": 180
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "dept": "11",
+      "deptName": "Aude",
+      "nameLen": 38,
+      "pop": 142
+    }
+  ],
+  "lengthDistribution": {
+    "1": 1,
+    "2": 13,
+    "3": 154,
+    "4": 720,
+    "5": 1969,
+    "6": 3223,
+    "7": 3695,
+    "8": 3695,
+    "9": 3000,
+    "10": 2522,
+    "11": 1884,
+    "12": 1435,
+    "13": 1167,
+    "14": 1018,
+    "15": 1095,
+    "16": 1177,
+    "17": 1186,
+    "18": 1202,
+    "19": 1117,
+    "20": 1028,
+    "21": 923,
+    "22": 819,
+    "23": 649,
+    "24": 501,
+    "25": 329,
+    "26": 200,
+    "27": 105,
+    "28": 55,
+    "29": 53,
+    "30": 29,
+    "31": 12,
+    "32": 8,
+    "33": 2,
+    "34": 6,
+    "35": 7,
+    "36": 2,
+    "37": 3,
+    "38": 3,
+    "39": 1,
+    "40": 3,
+    "41": 1,
+    "43": 1,
+    "45": 1
+  },
+  "medianLength": 10,
+  "meanLength": 11.8,
+  "maxLength": 45,
+  "minLength": 1
+}
