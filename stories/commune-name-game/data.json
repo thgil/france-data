@@ -1,0 +1,404 @@
+{
+  "totalCommunes": 35014,
+  "shortestName": "Y",
+  "longestName": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+  "longestDept": "Marne",
+  "avgLength": 11.8,
+  "medianLength": 10,
+  "saintCount": 4443,
+  "saintPct": 12.7,
+  "uniqueNames": 31314,
+  "uniquePct": 89.4,
+  "dupNamesCount": 1450,
+  "saintMartinVariants": 251,
+  "lengthDist": [
+    {
+      "len": 1,
+      "count": 1
+    },
+    {
+      "len": 2,
+      "count": 13
+    },
+    {
+      "len": 3,
+      "count": 154
+    },
+    {
+      "len": 4,
+      "count": 720
+    },
+    {
+      "len": 5,
+      "count": 1969
+    },
+    {
+      "len": 6,
+      "count": 3223
+    },
+    {
+      "len": 7,
+      "count": 3695
+    },
+    {
+      "len": 8,
+      "count": 3695
+    },
+    {
+      "len": 9,
+      "count": 3000
+    },
+    {
+      "len": 10,
+      "count": 2522
+    },
+    {
+      "len": 11,
+      "count": 1884
+    },
+    {
+      "len": 12,
+      "count": 1435
+    },
+    {
+      "len": 13,
+      "count": 1167
+    },
+    {
+      "len": 14,
+      "count": 1018
+    },
+    {
+      "len": 15,
+      "count": 1095
+    },
+    {
+      "len": 16,
+      "count": 1177
+    },
+    {
+      "len": 17,
+      "count": 1186
+    },
+    {
+      "len": 18,
+      "count": 1202
+    },
+    {
+      "len": 19,
+      "count": 1117
+    },
+    {
+      "len": 20,
+      "count": 1028
+    },
+    {
+      "len": 21,
+      "count": 923
+    },
+    {
+      "len": 22,
+      "count": 819
+    },
+    {
+      "len": 23,
+      "count": 649
+    },
+    {
+      "len": 24,
+      "count": 501
+    },
+    {
+      "len": 25,
+      "count": 329
+    },
+    {
+      "len": 26,
+      "count": 200
+    },
+    {
+      "len": 27,
+      "count": 105
+    },
+    {
+      "len": 28,
+      "count": 55
+    },
+    {
+      "len": 29,
+      "count": 53
+    },
+    {
+      "len": 30,
+      "count": 29
+    },
+    {
+      "len": 31,
+      "count": 12
+    },
+    {
+      "len": 32,
+      "count": 8
+    },
+    {
+      "len": 33,
+      "count": 2
+    },
+    {
+      "len": 34,
+      "count": 6
+    },
+    {
+      "len": 35,
+      "count": 7
+    },
+    {
+      "len": 36,
+      "count": 2
+    },
+    {
+      "len": 37,
+      "count": 3
+    },
+    {
+      "len": 38,
+      "count": 3
+    },
+    {
+      "len": 39,
+      "count": 1
+    },
+    {
+      "len": 40,
+      "count": 3
+    },
+    {
+      "len": 41,
+      "count": 1
+    },
+    {
+      "len": 42,
+      "count": 0
+    },
+    {
+      "len": 43,
+      "count": 1
+    },
+    {
+      "len": 44,
+      "count": 0
+    },
+    {
+      "len": 45,
+      "count": 1
+    }
+  ],
+  "topTokens": [
+    {
+      "word": "saint",
+      "count": 4090
+    },
+    {
+      "word": "sainte",
+      "count": 360
+    },
+    {
+      "word": "martin",
+      "count": 255
+    },
+    {
+      "word": "bois",
+      "count": 217
+    },
+    {
+      "word": "pierre",
+      "count": 180
+    },
+    {
+      "word": "chapelle",
+      "count": 178
+    },
+    {
+      "word": "jean",
+      "count": 170
+    },
+    {
+      "word": "val",
+      "count": 130
+    },
+    {
+      "word": "germain",
+      "count": 120
+    },
+    {
+      "word": "mer",
+      "count": 109
+    },
+    {
+      "word": "villers",
+      "count": 108
+    },
+    {
+      "word": "mont",
+      "count": 102
+    },
+    {
+      "word": "château",
+      "count": 95
+    },
+    {
+      "word": "ville",
+      "count": 93
+    },
+    {
+      "word": "grand",
+      "count": 88
+    },
+    {
+      "word": "julien",
+      "count": 88
+    },
+    {
+      "word": "pont",
+      "count": 86
+    },
+    {
+      "word": "laurent",
+      "count": 86
+    }
+  ],
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    }
+  ],
+  "topSaintDepts": [
+    {
+      "dept": "07",
+      "name": "Ardèche",
+      "saint": 97,
+      "total": 335,
+      "pct": 29.0
+    },
+    {
+      "dept": "23",
+      "name": "Creuse",
+      "saint": 72,
+      "total": 255,
+      "pct": 28.2
+    },
+    {
+      "dept": "42",
+      "name": "Loire",
+      "saint": 89,
+      "total": 320,
+      "pct": 27.8
+    },
+    {
+      "dept": "87",
+      "name": "Haute-Vienne",
+      "saint": 53,
+      "total": 195,
+      "pct": 27.2
+    },
+    {
+      "dept": "24",
+      "name": "Dordogne",
+      "saint": 130,
+      "total": 503,
+      "pct": 25.8
+    },
+    {
+      "dept": "85",
+      "name": "Vendée",
+      "saint": 62,
+      "total": 253,
+      "pct": 24.5
+    },
+    {
+      "dept": "48",
+      "name": "Lozère",
+      "saint": 37,
+      "total": 152,
+      "pct": 24.3
+    },
+    {
+      "dept": "43",
+      "name": "Haute-Loire",
+      "saint": 62,
+      "total": 257,
+      "pct": 24.1
+    },
+    {
+      "dept": "19",
+      "name": "Corrèze",
+      "saint": 63,
+      "total": 277,
+      "pct": 22.7
+    },
+    {
+      "dept": "33",
+      "name": "Gironde",
+      "saint": 121,
+      "total": 534,
+      "pct": 22.7
+    }
+  ]
+}
