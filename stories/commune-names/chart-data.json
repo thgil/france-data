@@ -1,0 +1,539 @@
+{
+  "total": 35014,
+  "uniqueNames": 31314,
+  "sharedNames": 1450,
+  "saintCount": 3898,
+  "avgLen": 11.8,
+  "topDups": [
+    [
+      "Sainte-Colombe",
+      12
+    ],
+    [
+      "Saint-Sauveur",
+      11
+    ],
+    [
+      "Saint-Aubin",
+      10
+    ],
+    [
+      "Beaulieu",
+      10
+    ],
+    [
+      "Saint-Marcel",
+      9
+    ],
+    [
+      "Saint-Michel",
+      9
+    ],
+    [
+      "Le Pin",
+      9
+    ],
+    [
+      "Saint-Pierre",
+      9
+    ],
+    [
+      "Sainte-Marie",
+      9
+    ],
+    [
+      "Saint-Rémy",
+      8
+    ],
+    [
+      "Saint-Clément",
+      8
+    ],
+    [
+      "Saint-Hilaire",
+      8
+    ],
+    [
+      "Saint-Loup",
+      8
+    ],
+    [
+      "Beaumont",
+      8
+    ],
+    [
+      "Verrières",
+      8
+    ],
+    [
+      "Saint-Hippolyte",
+      8
+    ],
+    [
+      "Saint-Georges",
+      8
+    ],
+    [
+      "Saint-Médard",
+      8
+    ],
+    [
+      "Saint-Paul",
+      8
+    ],
+    [
+      "Brion",
+      7
+    ]
+  ],
+  "topSaints": [
+    [
+      "Saint-Martin",
+      203
+    ],
+    [
+      "Saint-Jean",
+      155
+    ],
+    [
+      "Saint-Pierre",
+      144
+    ],
+    [
+      "Saint-Germain",
+      108
+    ],
+    [
+      "Saint-Julien",
+      78
+    ],
+    [
+      "Saint-Laurent",
+      77
+    ],
+    [
+      "Saint-Hilaire",
+      68
+    ],
+    [
+      "Saint-Georges",
+      67
+    ],
+    [
+      "Saint-André",
+      64
+    ],
+    [
+      "Saint-Aubin",
+      62
+    ],
+    [
+      "Saint-Paul",
+      54
+    ],
+    [
+      "Saint-Michel",
+      53
+    ],
+    [
+      "Saint-Maurice",
+      52
+    ],
+    [
+      "Saint-Léger",
+      50
+    ],
+    [
+      "Saint-Denis",
+      44
+    ]
+  ],
+  "lenDist": [
+    {
+      "len": 1,
+      "count": 1
+    },
+    {
+      "len": 2,
+      "count": 13
+    },
+    {
+      "len": 3,
+      "count": 154
+    },
+    {
+      "len": 4,
+      "count": 720
+    },
+    {
+      "len": 5,
+      "count": 1969
+    },
+    {
+      "len": 6,
+      "count": 3223
+    },
+    {
+      "len": 7,
+      "count": 3695
+    },
+    {
+      "len": 8,
+      "count": 3695
+    },
+    {
+      "len": 9,
+      "count": 3000
+    },
+    {
+      "len": 10,
+      "count": 2522
+    },
+    {
+      "len": 11,
+      "count": 1884
+    },
+    {
+      "len": 12,
+      "count": 1435
+    },
+    {
+      "len": 13,
+      "count": 1167
+    },
+    {
+      "len": 14,
+      "count": 1018
+    },
+    {
+      "len": 15,
+      "count": 1095
+    },
+    {
+      "len": 16,
+      "count": 1177
+    },
+    {
+      "len": 17,
+      "count": 1186
+    },
+    {
+      "len": 18,
+      "count": 1202
+    },
+    {
+      "len": 19,
+      "count": 1117
+    },
+    {
+      "len": 20,
+      "count": 1028
+    },
+    {
+      "len": 21,
+      "count": 923
+    },
+    {
+      "len": 22,
+      "count": 819
+    },
+    {
+      "len": 23,
+      "count": 649
+    },
+    {
+      "len": 24,
+      "count": 501
+    },
+    {
+      "len": 25,
+      "count": 329
+    },
+    {
+      "len": 26,
+      "count": 200
+    },
+    {
+      "len": 27,
+      "count": 105
+    },
+    {
+      "len": 28,
+      "count": 55
+    },
+    {
+      "len": 29,
+      "count": 53
+    },
+    {
+      "len": 30,
+      "count": 29
+    },
+    {
+      "len": 31,
+      "count": 12
+    },
+    {
+      "len": 32,
+      "count": 8
+    },
+    {
+      "len": 33,
+      "count": 2
+    },
+    {
+      "len": 34,
+      "count": 6
+    },
+    {
+      "len": 35,
+      "count": 7
+    },
+    {
+      "len": 36,
+      "count": 2
+    },
+    {
+      "len": 37,
+      "count": 3
+    },
+    {
+      "len": 38,
+      "count": 3
+    },
+    {
+      "len": 39,
+      "count": 1
+    },
+    {
+      "len": 40,
+      "count": 3
+    },
+    {
+      "len": 41,
+      "count": 1
+    },
+    {
+      "len": 43,
+      "count": 1
+    },
+    {
+      "len": 45,
+      "count": 1
+    }
+  ],
+  "shortest": [
+    {
+      "code": "80829",
+      "name": "Y",
+      "dept": "80",
+      "pop": 89,
+      "len": 1
+    },
+    {
+      "code": "08434",
+      "name": "Sy",
+      "dept": "08",
+      "pop": 54,
+      "len": 2
+    },
+    {
+      "code": "25104",
+      "name": "By",
+      "dept": "25",
+      "pop": 86,
+      "len": 2
+    },
+    {
+      "code": "28064",
+      "name": "Bû",
+      "dept": "28",
+      "pop": 2022,
+      "len": 2
+    },
+    {
+      "code": "31404",
+      "name": "Oô",
+      "dept": "31",
+      "pop": 103,
+      "len": 2
+    },
+    {
+      "code": "38289",
+      "name": "Oz",
+      "dept": "38",
+      "pop": 213,
+      "len": 2
+    },
+    {
+      "code": "61349",
+      "name": "Ri",
+      "dept": "61",
+      "pop": 156,
+      "len": 2
+    },
+    {
+      "code": "65458",
+      "name": "Uz",
+      "dept": "65",
+      "pop": 36,
+      "len": 2
+    },
+    {
+      "code": "66155",
+      "name": "Py",
+      "dept": "66",
+      "pop": 79,
+      "len": 2
+    },
+    {
+      "code": "66218",
+      "name": "Ur",
+      "dept": "66",
+      "pop": 348,
+      "len": 2
+    },
+    {
+      "code": "70282",
+      "name": "Gy",
+      "dept": "70",
+      "pop": 1001,
+      "len": 2
+    },
+    {
+      "code": "76255",
+      "name": "Eu",
+      "dept": "76",
+      "pop": 6591,
+      "len": 2
+    },
+    {
+      "code": "76548",
+      "name": "Ry",
+      "dept": "76",
+      "pop": 775,
+      "len": 2
+    },
+    {
+      "code": "95625",
+      "name": "Us",
+      "dept": "95",
+      "pop": 1338,
+      "len": 2
+    },
+    {
+      "code": "01042",
+      "name": "Bey",
+      "dept": "01",
+      "pop": 290,
+      "len": 3
+    },
+    {
+      "code": "01057",
+      "name": "Boz",
+      "dept": "01",
+      "pop": 510,
+      "len": 3
+    },
+    {
+      "code": "01173",
+      "name": "Gex",
+      "dept": "01",
+      "pop": 13078,
+      "len": 3
+    },
+    {
+      "code": "02003",
+      "name": "Acy",
+      "dept": "02",
+      "pop": 1016,
+      "len": 3
+    },
+    {
+      "code": "02440",
+      "name": "Lor",
+      "dept": "02",
+      "pop": 137,
+      "len": 3
+    },
+    {
+      "code": "05061",
+      "name": "Gap",
+      "dept": "05",
+      "pop": 40500,
+      "len": 3
+    }
+  ],
+  "longest": [
+    {
+      "code": "51513",
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "pop": 491,
+      "len": 45
+    },
+    {
+      "code": "70058",
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "pop": 923,
+      "len": 43
+    },
+    {
+      "code": "14621",
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "pop": 499,
+      "len": 41
+    },
+    {
+      "code": "21433",
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "pop": 381,
+      "len": 40
+    },
+    {
+      "code": "34317",
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "pop": 195,
+      "len": 40
+    },
+    {
+      "code": "70449",
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "dept": "70",
+      "pop": 64,
+      "len": 40
+    },
+    {
+      "code": "07262",
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "dept": "07",
+      "pop": 180,
+      "len": 39
+    },
+    {
+      "code": "11128",
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "dept": "11",
+      "pop": 142,
+      "len": 38
+    },
+    {
+      "code": "24048",
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "dept": "24",
+      "pop": 309,
+      "len": 38
+    },
+    {
+      "code": "80714",
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "dept": "80",
+      "pop": 1270,
+      "len": 38
+    }
+  ]
+}
