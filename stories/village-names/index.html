@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y is a village — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px auto;
+      max-width: 720px;
+    }
+
+    .chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .chart-wrap svg {
+      display: block;
+    }
+
+    /* ── Two-letter table ───────────────────────────────────────────── */
+    .two-letter-wrap {
+      margin: 48px auto;
+      max-width: 680px;
+    }
+
+    .two-letter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+    }
+
+    .two-letter-table th {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0 8px 8px 0;
+      text-align: left;
+      border-bottom: 1px solid #d8d0c0;
+    }
+
+    .two-letter-table td {
+      padding: 6px 8px 6px 0;
+      vertical-align: baseline;
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    .two-letter-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+
+    .two-letter-table .name-cell {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* ── Callout box ─────────────────────────────────────────────────── */
+    .callout {
+      max-width: 680px;
+      margin: 32px auto;
+      padding: 20px 24px;
+      background: #f0ece4;
+      border-left: 3px solid #b32020;
+      font-family: Georgia, serif;
+      font-size: 17px;
+      line-height: 1.5;
+      color: #1a1a1a;
+    }
+
+    .callout strong {
+      font-style: normal;
+    }
+
+    /* ── Stats summary grid ─────────────────────────────────────────── */
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 680px;
+      margin: 40px auto;
+    }
+    @media (max-width: 600px) {
+      .stats-summary { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-block {
+      text-align: center;
+      border-top: 2px solid #1a1a1a;
+      padding-top: 12px;
+    }
+
+    .stat-number {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #666;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Y is a village</h1>
+        <p class="story-dek">From one letter to 45 — France's 35,014 communes run the full alphabet of odd, saintly, and barely-pronounceable names.</p>
+        <div class="story-meta">
+          <span>2026-06-04</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The one-letter champion ──────────────────────────── -->
+      <p>France has 35,014 communes. One of them is called Y.</p>
+
+      <p>Not "Y-something." Not an abbreviation. The full, official, INSEE-registered name of the commune in the Somme (département 80) is a single capital letter: <strong>Y</strong>. Population 89. INSEE code 80829. It has a mayor. It collects taxes. And if you mail a letter to it, the address line reads, improbably, "Y, 80190, France."</p>
+
+      <div class="callout">
+        <strong>Y</strong> — Somme (80) — pop. 89<br>
+        The shortest commune name in France, and almost certainly in the world.
+      </div>
+
+      <!-- ── Stats summary ─────────────────────────────────────────────── -->
+      <div class="stats-summary" id="stats-summary">
+        <div class="stat-block">
+          <span class="stat-number">35,014</span>
+          <span class="stat-label">communes</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">1</span>
+          <span class="stat-label">one-letter name</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">13</span>
+          <span class="stat-label">two-letter names</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">45</span>
+          <span class="stat-label">letters — longest</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The two-letter club ──────────────────────────────── -->
+      <h2>The two-letter club</h2>
+
+      <p>Beyond Y, France has 13 communes whose official name is exactly two letters. They are scattered from Normandy to the Pyrenées, from the Rhine to the Haute-Saône — mostly small villages (the smallest, Uz, has 36 residents), though Eu in Seine-Maritime reaches 6,591 and qualifies as a proper town. One thing almost all of them share: a consonant–vowel syllable, often ending in a vowel, that reads like the leftover fragment of a longer medieval name.</p>
+
+      <!-- Two-letter table populated by JS -->
+      <div class="two-letter-wrap">
+        <table class="two-letter-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Département</th>
+              <th style="text-align:right">Population</th>
+            </tr>
+          </thead>
+          <tbody id="two-letter-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- ── Beat 3: The saint avalanche ──────────────────────────────── -->
+      <h2>The saint avalanche</h2>
+
+      <p>At the other end of the frequency spectrum: saints. Exactly 3,898 French communes — 11.1% of the total — have names that begin with <em>Saint-</em> or <em>Sainte-</em>. That is more saint-named communes than the entire population of many of those communes combined.</p>
+
+      <p>The most duplicated name in all of France is <strong>Sainte-Colombe</strong>, which appears in 12 different communes across 12 different départements. <em>Saint-Sauveur</em> appears 11 times. <em>Saint-Aubin</em>, 10 times. Each is a genuinely different village; each has its own INSEE code, its own mayor, its own church.</p>
+
+      <!-- Most common names chart -->
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <svg id="chart-common" width="680" height="340"></svg>
+        </div>
+        <figcaption>The 15 most-duplicated commune names in France. <em>Sainte-Colombe</em> leads with 12 distinct communes sharing the name. Source: INSEE commune register via DREES APL 2023 dataset (35,014 communes).</figcaption>
+      </figure>
+
+      <p>Of 35,014 communes, only 32,764 have a <em>distinct</em> name. That means 1,450 names are shared by at least two different places — and navigating a map of France requires a département code almost as often as it requires a commune name.</p>
+
+      <!-- ── Beat 4: The monster ────────────────────────────────────────── -->
+      <h2>The 45-letter monster</h2>
+
+      <p>At the far right of the distribution sits <strong>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</strong>: 45 characters, the longest commune name in France. It is in the Marne (département 51), has 491 residents, and was born from the merger of several smaller villages. The hyphen-joined colossus is a common consequence of <em>communes nouvelles</em> — a 2010 law that encouraged neighbouring communes to merge administratively while keeping all their old names stitched together.</p>
+
+      <p>The runner-up is <em>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</em> in the Haute-Saône, at 43 characters. Third: <em>Saint-Martin-de-Bienfaite-la-Cressonnière</em> in Calvados, 41 characters. The pattern is clear — the longest names in France are almost all the result of mergers, and almost all of them started with "Saint."</p>
+
+      <!-- ── Beat 5: Length distribution chart ─────────────────────────── -->
+      <h2>The shape of French commune names</h2>
+
+      <p>The median commune name is 10 characters long. The mean is 11.8 — pulled rightward by the long-tailed distribution of merger names. The peak of the distribution sits squarely at 7 and 8 characters: simple two-syllable names like <em>Bresles</em>, <em>Moreuil</em>, <em>Méricourt</em>. Nearly half of all communes have names between 6 and 10 characters.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <svg id="chart-histogram" width="680" height="320"></svg>
+        </div>
+        <figcaption>Distribution of commune name lengths, 1–45 characters. Bars show individual character counts up to 25; "26+" groups the remaining 442 communes. Source: same as above.</figcaption>
+      </figure>
+
+      <p>The long tail — communes with names above 25 characters — is almost entirely saint-merger territory. The handful of names above 30 characters are all the result of the same administrative logic: small villages that agreed to share a municipal budget but insisted on keeping every syllable of their identity.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names come from the DREES APL 2023 commune-level dataset, which in turn uses the INSEE commune register. The dataset covers 35,014 communes including metropolitan France and overseas territories. Population figures are from INSEE 2021. The single overseas territory with a zero-population entry (Îles Saint-Paul et Nouvelle-Amsterdam, dept 98) is included in name counts but excluded from population-based analysis.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) aux médecins généralistes, 2023</a> — commune register reused from <a href="../medical-deserts/">Story 2 (medical deserts)</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    const DEPT_NAMES = {
+      "01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence",
+      "05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes",
+      "09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône",
+      "14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime",
+      "18":"Cher","19":"Corrèze","21":"Côte-d'Or","22":"Côtes-d'Armor",
+      "23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure",
+      "28":"Eure-et-Loir","29":"Finistère","2A":"Corse-du-Sud","2B":"Haute-Corse",
+      "30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault",
+      "35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère",
+      "39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire",
+      "43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot",
+      "47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche",
+      "51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle",
+      "55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord",
+      "60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme",
+      "64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales",
+      "67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône",
+      "71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie",
+      "75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines",
+      "79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne",
+      "83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne",
+      "88":"Vosges","89":"Yonne","90":"Territoire de Belfort",
+      "91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis",
+      "94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe",
+      "972":"Martinique","973":"Guyane","974":"La Réunion","976":"Mayotte",
+    };
+
+    async function main() {
+      const stats = await fetch('./stats.json').then(r => r.json());
+
+      buildTwoLetterTable(stats.twoLetters);
+      buildCommonNamesChart(stats.mostCommon);
+      buildHistogram(stats.histogram);
+    }
+
+    function buildTwoLetterTable(rows) {
+      const tbody = document.getElementById('two-letter-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = rows.map(r => {
+        const dname = DEPT_NAMES[r.dept] || `Dép. ${r.dept}`;
+        const pop = r.pop > 0 ? r.pop.toLocaleString('fr-FR') : '—';
+        return `<tr>
+          <td class="name-cell">${r.name}</td>
+          <td>${dname} (${r.dept})</td>
+          <td>${pop}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function buildCommonNamesChart(items) {
+      const svg = document.getElementById('chart-common');
+      if (!svg) return;
+
+      const W = 680, H = 340;
+      const marginLeft = 160, marginRight = 60, marginTop = 20, marginBottom = 30;
+      const chartW = W - marginLeft - marginRight;
+      const chartH = H - marginTop - marginBottom;
+
+      const maxCount = Math.max(...items.map(d => d.count));
+      const barH = Math.floor(chartH / items.length) - 3;
+      const xScale = v => (v / (maxCount + 1)) * chartW;
+
+      let html = '';
+
+      items.forEach((d, i) => {
+        const y = marginTop + i * (chartH / items.length);
+        const barW = xScale(d.count);
+        const isTop = i === 0;
+
+        html += `<rect x="${marginLeft}" y="${y + 1}" width="${barW}" height="${barH}"
+          fill="${isTop ? '#b32020' : '#c8a87a'}" rx="1"/>`;
+
+        html += `<text x="${marginLeft - 8}" y="${y + barH / 2 + 5}"
+          text-anchor="end" font-family="Georgia, serif" font-size="13"
+          fill="#1a1a1a">${d.name}</text>`;
+
+        html += `<text x="${marginLeft + barW + 6}" y="${y + barH / 2 + 5}"
+          font-family="'Helvetica Neue', sans-serif" font-size="11"
+          fill="#666">${d.count}×</text>`;
+      });
+
+      // X axis ticks
+      for (let v = 0; v <= maxCount; v += 2) {
+        const x = marginLeft + xScale(v);
+        html += `<line x1="${x}" y1="${marginTop}" x2="${x}" y2="${H - marginBottom}"
+          stroke="#e0d8cc" stroke-width="1"/>`;
+        html += `<text x="${x}" y="${H - marginBottom + 14}"
+          text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="10"
+          fill="#999">${v}</text>`;
+      }
+
+      html += `<text x="${W / 2}" y="${H - 2}"
+        text-anchor="middle" font-family="'Helvetica Neue', sans-serif"
+        font-size="10" fill="#999" letter-spacing="1">COMMUNES SHARING THIS NAME</text>`;
+
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = html;
+    }
+
+    function buildHistogram(bins) {
+      const svg = document.getElementById('chart-histogram');
+      if (!svg) return;
+
+      const W = 680, H = 320;
+      const marginLeft = 44, marginRight = 16, marginTop = 16, marginBottom = 40;
+      const chartW = W - marginLeft - marginRight;
+      const chartH = H - marginTop - marginBottom;
+
+      const maxCount = Math.max(...bins.map(d => d.count));
+      const barW = Math.floor(chartW / bins.length) - 1;
+      const yScale = v => chartH - (v / maxCount) * chartH;
+
+      let html = '';
+
+      // Y axis gridlines
+      for (let v = 0; v <= maxCount; v += 1000) {
+        const y = marginTop + yScale(v);
+        html += `<line x1="${marginLeft}" y1="${y}" x2="${W - marginRight}" y2="${y}"
+          stroke="#e0d8cc" stroke-width="1"/>`;
+        if (v > 0) {
+          html += `<text x="${marginLeft - 4}" y="${y + 4}"
+            text-anchor="end" font-family="'Helvetica Neue', sans-serif" font-size="10"
+            fill="#aaa">${(v / 1000).toFixed(0)}k</text>`;
+        }
+      }
+
+      bins.forEach((d, i) => {
+        const x = marginLeft + i * (chartW / bins.length);
+        const barHeight = (d.count / maxCount) * chartH;
+        const y = marginTop + chartH - barHeight;
+
+        const isShort = parseInt(d.length) <= 3;
+        const isPeak = d.count === maxCount;
+        const fill = isPeak ? '#b32020' : isShort ? '#c8a87a' : '#8ea8c3';
+
+        html += `<rect x="${x}" y="${y}" width="${barW}" height="${barHeight}"
+          fill="${fill}" rx="1"/>`;
+
+        // X labels: every 5th label + "26+"
+        const lval = parseInt(d.length);
+        const showLabel = d.length === '26+' || lval === 1 || lval % 5 === 0;
+        if (showLabel) {
+          html += `<text x="${x + barW / 2}" y="${H - marginBottom + 14}"
+            text-anchor="middle" font-family="'Helvetica Neue', sans-serif"
+            font-size="10" fill="#888">${d.length}</text>`;
+        }
+      });
+
+      // Annotation for peak
+      const peakBin = bins.find(d => d.count === maxCount);
+      const peakIdx = bins.indexOf(peakBin);
+      const peakX = marginLeft + peakIdx * (chartW / bins.length) + barW / 2;
+      const peakY = marginTop + yScale(maxCount) - 6;
+      html += `<text x="${peakX}" y="${peakY}"
+        text-anchor="middle" font-family="'Helvetica Neue', sans-serif"
+        font-size="10" fill="#b32020">peak: ${peakBin.length} chars</text>`;
+
+      html += `<text x="${W / 2}" y="${H - 4}"
+        text-anchor="middle" font-family="'Helvetica Neue', sans-serif"
+        font-size="10" fill="#999" letter-spacing="1">NAME LENGTH (CHARACTERS)</text>`;
+
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = html;
+    }
+
+    main().catch(console.error);
+  </script>
+</body>
+</html>
