@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a French commune name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callouts ────────────────────────────────────────────── */
+    .stat-callout {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 48px auto;
+      max-width: 680px;
+      border-top: 1px solid #e0d8cc;
+      border-bottom: 1px solid #e0d8cc;
+      padding: 32px 0;
+    }
+
+    .stat-item {
+      flex: 1 1 140px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+
+    .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ── Big callout letter ───────────────────────────────────────── */
+    .letter-callout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+
+    .letter-box {
+      font-family: Georgia, serif;
+      font-size: 120px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      padding: 12px 32px;
+      letter-spacing: -2px;
+    }
+
+    .letter-caption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* ── Chart figures ────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px auto;
+      max-width: 760px;
+    }
+
+    .chart-figure h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .chart-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    svg.bar-chart {
+      display: block;
+      overflow: visible;
+    }
+
+    .bar-rect {
+      fill: #b32020;
+      opacity: 0.8;
+    }
+
+    .bar-label {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      fill: #1a1a1a;
+      dominant-baseline: middle;
+    }
+
+    .bar-value {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      fill: #666;
+      dominant-baseline: middle;
+    }
+
+    .axis-line {
+      stroke: #ccc;
+      stroke-width: 1;
+    }
+
+    /* Histogram */
+    .hist-bar {
+      fill: #555;
+      opacity: 0.75;
+    }
+    .hist-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      fill: #888;
+    }
+
+    /* ── Name monsters ────────────────────────────────────────────── */
+    .name-list {
+      max-width: 680px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    .name-list li {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid #ede8e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .name-list li:last-child { border-bottom: none; }
+
+    .name-text { color: var(--ink); }
+
+    .name-meta {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      color: var(--ink-mute);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a French commune name?</h1>
+        <p class="story-dek">35,014 communes. One is called Y. 202 are called Saint-Martin. And one stretches to 45 characters with seven hyphens.</p>
+        <div class="story-meta">
+          <span>2026-06-04</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: The Y ────────────────────────────────────────── -->
+      <p>Every commune in France has an official name — recorded in the INSEE reference register, printed on road signs, written into birth certificates and death notices. There are 35,014 of them. The shortest is a single letter.</p>
+
+      <div class="letter-callout">
+        <div class="letter-box">Y</div>
+        <p class="letter-caption">Y, Somme (département 80) — population 89 — the only one-letter commune in France</p>
+      </div>
+
+      <p>Y sits in the Somme, about 110 kilometres north of Paris. Population: 89. It has been called Y since at least the 12th century — a toponym derived from water, from the Latin <em>aqua</em> through an Old Picard path so worn-down it lost all its letters but one. The post office knows it. The tax authority knows it. The INSEE code is 80829. It is, in every official sense, a place.</p>
+
+      <!-- ── Key stats ─────────────────────────────────────────────── -->
+      <div class="stat-callout" id="stat-callout">
+        <div class="stat-item">
+          <span class="stat-number" id="stat-total">35,014</span>
+          <span class="stat-label">communes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-unique">32,764</span>
+          <span class="stat-label">distinct names</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-saint">3,882</span>
+          <span class="stat-label">start with Saint / Sainte</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-hyphen">38%</span>
+          <span class="stat-label">have a hyphen</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Saint overload ───────────────────────────────── -->
+      <h2>Saint as a default setting</h2>
+
+      <p>The single most structurally useful word in the French commune-naming system is <em>Saint</em>. Eleven percent of all communes — 3,882 of them — start with Saint or Sainte. They are distributed across every region, every département, every era of French administrative geography. The saints supply infinite variation: any obscure martyr from the early Christian calendar is potentially a commune somewhere.</p>
+
+      <p>But the most popular saints ran out of real estate fast. France has 202 communes that begin with Saint-Martin — the most of any base name. They cannot simply all be called Saint-Martin. So each one appended its geography: Saint-Martin-d'Hères (Isère, pop. 38,454), Saint-Martin-de-Crau (Bouches-du-Rhône, pop. 13,729), Saint-Martin-Boulogne (Pas-de-Calais, pop. 11,000). The longest of these derivations — Saint-Martin-de-Bienfaite-la-Cressonnière in Calvados — runs to 41 characters.</p>
+
+      <!-- ── Chart: Top Saint bases ───────────────────────────────── -->
+      <figure class="chart-figure">
+        <h3>Most common Saint-X base names</h3>
+        <div class="chart-container">
+          <svg id="chart-saints" class="bar-chart"></svg>
+        </div>
+        <figcaption>Top 12 saint-base names. Saint-Martin leads with 202 communes — the full name of each must include a geographic suffix to distinguish them.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Short names ───────────────────────────────────── -->
+      <h2>Thirteen two-letter communes</h2>
+
+      <p>Y is alone at one letter, but thirteen communes manage with two. They are: By (Doubs), Bû (Eure-et-Loir), Eu (Seine-Maritime, pop. 6,591 — the largest two-letter commune), Gy (Haute-Saône), Oô (Haute-Garonne), Oz (Isère), Py (Pyrénées-Orientales), Ri (Orne), Ry (Seine-Maritime), Sy (Ardennes), Ur (Pyrénées-Orientales), Us (Val-d'Oise), and Uz (Hautes-Pyrénées, pop. 36 — the smallest).</p>
+
+      <p>The two-letter club is geographically scattered but phonetically consistent: short vowel-consonant or consonant-vowel syllables. Several end in <em>-y</em>, a suffix common in northern France from Germanic and Latin roots. Oô is exceptional — two letters, two identical sounds, a name that looks like a typo and has been on the map since the Middle Ages.</p>
+
+      <!-- ── Beat 4: Sur ────────────────────────────────────────────── -->
+      <h2>The grammar of <em>-sur-</em></h2>
+
+      <p>The second most productive structural element in French commune names is not a saint — it is a preposition. <em>Sur</em>, meaning "on" or "above," appears in 1,991 commune names. The formula is always the same: <em>[commune name]-sur-[geographic feature]</em>. It locates a place in relation to something larger: a river, a coast, a valley.</p>
+
+      <p>The most common feature is the sea itself: 99 communes are named X-sur-Mer. Then come the great rivers. Loire and Seine each host 70 communes. The Marne accounts for 55. The Meuse, the Saône, the Sarthe, the Aube all host dozens. The pattern is a linguistic fossil of medieval settlement — every market town needed to know which river it was on.</p>
+
+      <!-- ── Chart: Top rivers ─────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <h3>Most common geographic feature in <em>-sur-</em> names</h3>
+        <div class="chart-container">
+          <svg id="chart-rivers" class="bar-chart"></svg>
+        </div>
+        <figcaption>Count of communes containing <em>-sur-[feature]</em>. "Mer" (the sea) leads — 99 coastal communes describe themselves by the coast rather than a named river.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Long names ────────────────────────────────────── -->
+      <h2>The naming wars, frozen in hyphens</h2>
+
+      <p>At the other extreme from Y: the long names. French administrative history occasionally forced communes to merge — a village absorbed a hamlet, or two communes combined — and the official record-keeping solution was often to hyphenate the names together. The results can get unwieldy.</p>
+
+      <p>The longest commune name in France — 45 characters, seven hyphens — is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson in the Marne. Population: 491. It is the product of two separate mergers that added three suffixes to a single root. The name takes longer to say than it takes to drive through the commune.</p>
+
+      <ul class="name-list" id="longest-names">
+        <li>
+          <span class="name-text">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>
+          <span class="name-meta">45 chars · Marne · pop. 491</span>
+        </li>
+        <li>
+          <span class="name-text">Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</span>
+          <span class="name-meta">43 chars · Haute-Saône · pop. 576</span>
+        </li>
+        <li>
+          <span class="name-text">Saint-Martin-de-Bienfaite-la-Cressonnière</span>
+          <span class="name-meta">41 chars · Calvados · pop. 760</span>
+        </li>
+        <li>
+          <span class="name-text">Montigny-Mornay-Villeneuve-sur-Vingeanne</span>
+          <span class="name-meta">40 chars · Côte-d'Or · pop. 337</span>
+        </li>
+        <li>
+          <span class="name-text">La Vacquerie-et-Saint-Martin-de-Castries</span>
+          <span class="name-meta">40 chars · Hérault · pop. 233</span>
+        </li>
+      </ul>
+
+      <!-- ── Beat 6: Length distribution ─────────────────────────── -->
+      <h2>The shape of French place names</h2>
+
+      <p>The average commune name is 11.8 characters long. The median is 10. The distribution peaks at seven and eight characters — short enough to fit on a road sign, long enough to be specific. Beyond 20 characters the count drops off sharply, but the tail is long: 116 communes have names over 30 characters.</p>
+
+      <figure class="chart-figure">
+        <h3>Name length distribution (all 35,014 communes)</h3>
+        <div class="chart-container">
+          <svg id="chart-lengths" class="bar-chart"></svg>
+        </div>
+        <figcaption>Number of communes at each name length. The bimodal shape — a short-name cluster and a second bump at 15–20 characters — reflects two populations: simple original names and compound names formed by mergers.</figcaption>
+      </figure>
+
+      <p>The short-name cluster (3–8 characters) is mostly ancient: names from Gaulish, Latin, Frankish, or Viking roots, compressed by centuries of spoken use. The longer names (15–25 characters) are often compounds, saints with geographic qualifiers, or merger products — administrative decisions that left their mark in the name itself. The commune name is a stratigraphy: you can read the history in the hyphens.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Name data comes from the <em>communes-apl.geojson</em> file assembled for <a href="../medical-deserts/">Story 2 (medical deserts)</a>, which joined DREES APL 2023 commune-level scores to Etalab's 2025 administrative boundary polygons (1000m simplification). That join covers 35,014 communes. Centroids were computed as polygon centroid averages; overseas territories are included at their real coordinates. The full list of 35,014 commune names and centroids is available in <a href="./communes-index.json">communes-index.json</a>.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs des communes 2025</a> — Etalab / data.gouv.fr</li>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">APL aux médecins généralistes 2023</a> — DREES</li>
+          <li>INSEE commune reference codes (COG) as embedded in the administrative boundary file</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module">
+    import { drawSaintChart, drawRiversChart, drawLengthChart } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      try {
+        const d = await loadJSON('./chart-data.json');
+
+        // Stat callout: update with real numbers
+        document.getElementById('stat-total').textContent   = d.total.toLocaleString('fr-FR');
+        document.getElementById('stat-unique').textContent  = d.unique.toLocaleString('fr-FR');
+        document.getElementById('stat-saint').textContent   = d.saintCount.toLocaleString('fr-FR');
+        document.getElementById('stat-hyphen').textContent  = Math.round(d.hyphenCount / d.total * 100) + '%';
+
+        drawSaintChart('#chart-saints', d.topSaintBases.slice(0, 12));
+        drawRiversChart('#chart-rivers', d.topRivers.slice(0, 12));
+        drawLengthChart('#chart-lengths', d.lengthDist);
+
+      } catch (err) {
+        console.error('Failed to load chart data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
