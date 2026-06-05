@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### village-names: What's in a commune name?
+- Status: ✅ published
+- Published URL: /stories/village-names/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: France's shortest commune name is one letter — Y, population 89. Its longest is 45 characters and contains two saints. In between, 3,882 communes are named after a saint, and 2,250 share their name with at least one other village.
+- Data: All 35,014 commune names extracted from the APL GeoJSON already in the repo (stories/medical-deserts/communes-apl.geojson). No new downloads required.
+- Angle: Text-and-charts story. CSS horizontal bar chart of most common name-words. Two tables: most duplicated names, and shortest names. Large callout for the one-letter winner and the 45-character record-holder.
+- Draft X summary:
+  > France has 35,014 communes. Its shortest name is one letter: Y (pop. 89, Somme). Its longest is 45 characters. 3,882 are named after a saint. "Sainte-Colombe" is the most duplicated — 12 different villages, one name, zero coordination. Today on **france-data**. 🇫🇷
+
