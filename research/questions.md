@@ -181,16 +181,20 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: **Sainte-Colombe** is the most common exact commune name, shared by 12 separate villages across 12 départements. Counting by saint-base (any suffix), Saint-Martin leads with 203 variants, followed by Saint-Jean (158) and Saint-Pierre (149). Overall, 3,898 communes (11.1%) begin with Saint or Sainte.
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Finding: **Y** in the Somme (code 80829, pop 89) is the only one-letter commune name in France. There are 13 two-letter communes (By, Bû, Eu, Gy, Oô, Oz, Py, Ri, Ry, Sy, Ur, Us, Uz). The longest name is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson in the Marne (45 characters, pop 491), formed by merger in 1972.
+- Story: [commune-names](/stories/commune-names/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open
