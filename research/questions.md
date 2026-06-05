@@ -181,16 +181,22 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 
 ### Q-037: What is the single most common commune name in France?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-APL](datasets.md#ds-apl) (communeName field across 35,014 communes)
+- Finding: The most duplicated exact name is **Sainte-Colombe** — 12 communes bear that name, in 12 different départements. Saint prefixes dominate: 3,898 communes (11.1%) start with Saint or Sainte. The most common saint is Martin (202 communes begin with Saint-Martin), but no two share the same full name — each appends a unique geographic suffix.
+- Story: [commune-y](/stories/commune-y/)
 
 ### Q-038: Where are France's most-visited cultural sites (museums, monuments) actually located?
 - Status: 🟢 open
 - Topic: [culture](topics/culture.md)
 
 ### Q-039: Which commune in France has the shortest official name?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: **Y** (Somme, dept 80) — a single letter, population 89. Thirteen more communes make do with two letters: Eu (Seine-Maritime, 6,591 residents), By, Bû, Gy, Oô, Oz, Py, Ri, Ry, Sy, Ur, Us, Uz. Many cluster in the Pyrenees (pre-Latin roots) or Normandy (Viking-era names). The longest commune name is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (Marne, 45 characters, pop 491).
+- Story: [commune-y](/stories/commune-y/)
 
 ### Q-040: Which département borrows the most books from public libraries per capita?
 - Status: 🟢 open

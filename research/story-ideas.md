@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-y: Y, and 35,013 others
+- Status: ✅ published
+- Published URL: /stories/commune-y/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. One letter. 89 residents. And it's one of 3,898 saint-named communes — though it isn't one of them.
+- Data: commune names extracted from DREES APL commune dataset (35,014 communes). No download needed — names were already in the in-repo geojson from Story 2.
+- Angle: Text-and-charts story. Three Chart.js charts (saint names bar, most duplicated names bar, name length histogram) plus one styled table of short names. No map.
+- Draft X summary:
+  > France has 35,014 communes. One is called Y. Thirteen more have two-letter names. 3,898 are named after saints — and the most common saint is Martin, who appears in 202 commune names but never twice with the same suffix. The most duplicated name? Sainte-Colombe, 12 times. Today on **france-data**: the statistics of French commune names. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
