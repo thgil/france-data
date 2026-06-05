@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: 35,014 names
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune named Y (one letter, 89 residents) and another named Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters, 7 hyphens). The distribution in between tells a whole story about saints, rivers, and mergers.
+- Data: Commune names extracted from the DREES APL 2023 dataset (35,014 communes), already in the repo at stories/medical-deserts/communes-apl.geojson. No new data download required. Centroids derived from polygon geometry and saved to communes-index.json.
+- Angle: Text-and-charts. Length distribution histogram, top-duplicated-names table, rivers bar chart. No map needed — the story is statistical.
+- Draft X summary:
+  > France has a commune named Y. One letter. 89 people. Also: a commune with 45 characters and 7 hyphens in its name. 12 places all called Sainte-Colombe. 11% of all 35,014 communes named after a saint. Today on **france-data**: what the full list of commune names looks like when you count them properly. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
