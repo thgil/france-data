@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat callouts ─────────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+    .stat-block {
+      flex: 1 1 160px;
+      border-top: 2px solid var(--accent);
+      padding-top: 12px;
+    }
+    .stat-block .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-block .stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+
+    /* ── Chart figure ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure canvas {
+      display: block;
+      width: 100%;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+
+    /* ── Short-name table ──────────────────────────────────────────── */
+    .short-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 32px 0;
+    }
+    .short-table th {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      text-align: left;
+      padding: 6px 8px 6px 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .short-table td {
+      padding: 7px 8px 7px 0;
+      border-bottom: 1px solid #e8e4dc;
+      vertical-align: baseline;
+    }
+    .short-table td.name-cell {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent);
+      min-width: 48px;
+    }
+    .short-table td.pop-cell {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-soft);
+    }
+
+    /* ── Long-name list ────────────────────────────────────────────── */
+    .long-names-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .long-names-list li {
+      font-family: var(--serif);
+      font-size: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e4dc;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .long-names-list .ln-name {
+      color: var(--ink);
+    }
+    .long-names-list .ln-meta {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-mute);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      align-self: center;
+    }
+
+    /* ── Inline pull-quote ─────────────────────────────────────────── */
+    .pull {
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.5vw, 24px);
+      line-height: 1.4;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin: 40px 0;
+    }
+
+    /* ── Credits ───────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">One letter to 45. There are 35,014 communes in France and every one has a name. Here's what those names say about a country.</p>
+        <div class="story-meta">
+          <span>2026-06-05</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────── -->
+      <p>In the département of Somme, 150 kilometres north of Paris, there is a village of 89 people. It has a church, a town hall, and the shortest place name in France. The name is <strong>Y</strong>. Not an abbreviation. Not a placeholder in a database. Just the letter Y, standing alone on road signs and official documents and the village's own letterhead since at least the 10th century.</p>
+
+      <p>Y is thought to derive from a Gaulish word for water — the same root as the English "eau." It predates the French language. It predates most of the country's administrative structures. It is, officially, a commune, and it is officially the only one-letter commune in France.</p>
+
+      <!-- ── Beat 2: Short names ────────────────────────────────────── -->
+      <h2>The company Y keeps</h2>
+
+      <p>Y is not alone at the short end. France has 13 other communes whose names fit in two characters. Most of them come from the same era of linguistic prehistory: Norse, Gaulish, Occitan, or Basque roots that were already worn down to syllables before French toponymy began smoothing everything into <em>Saint-</em> prefixes and hyphenated saints.</p>
+
+      <table class="short-table" id="table-short">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Département</th>
+            <th class="pop-cell">Population</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <p>Some are tiny. Uz (Hautes-Pyrénées) has 36 residents. Sy (Ardennes): 54. Py (Pyrénées-Orientales): 79. But Eu — a town in Seine-Maritime whose name derives from the River Bresle, which the Norse called something that got compressed to two letters — has a population of 6,591 and a proper high street. The shortness is not a sign of smallness. It's a sign of age.</p>
+
+      <!-- ── Stat callouts ───────────────────────────────────────────── -->
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-number" id="stat-total">35,014</div>
+          <div class="stat-label">Communes in France</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="stat-avglen">11.8</div>
+          <div class="stat-label">Avg. name length (chars)</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="stat-saint">3,898</div>
+          <div class="stat-label">Communes starting with Saint or Sainte</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="stat-saint-pct">11.1%</div>
+          <div class="stat-label">Share of all communes</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 3: Distribution ───────────────────────────────────── -->
+      <h2>The shape of French place names</h2>
+
+      <p>If you plot all 35,014 commune names by character length, you get a distribution that peaks at 7–8 characters — the natural length of a simple French place name like <em>Morlaix</em> or <em>Auxerre</em> — but drags rightward with a long tail of compound names. The average is 11.8 characters, pulled up by the hyphenated monsters at the far end.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-length" aria-label="Histogram of commune name lengths from 1 to 45 characters"></canvas>
+        <figcaption>Name length distribution for all 35,014 French communes. Peak at 7–8 characters; long right tail from merged communes. Source: DREES APL 2023 / Etalab commune data.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Saint ──────────────────────────────────────────── -->
+      <h2>The Saint factory</h2>
+
+      <p>3,898 communes — 11.1% of the total — start with "Saint" or "Sainte." Add the communes beginning with <em>La</em>, <em>Le</em>, and <em>Les</em> and you've pre-determined the first word of roughly one in six French place names before a single syllable of actual geography enters the picture. The Church didn't just build cathedrals. It built the address book.</p>
+
+      <p class="pull">France has more communes named after saints than some countries have communes.</p>
+
+      <p>The saint names aren't uniformly distributed. Brittany and Normandy run hot — areas where Celtic and Norman Christianity settled early and named everything within reach. The Mediterranean south leans more toward landscape-derived names: <em>Montrouge</em>, <em>Blanchefort</em>, <em>Fontvieille</em>. The pattern is readable on a map of name-type density, though that would be a story in itself.</p>
+
+      <!-- ── Beat 5: Most common ─────────────────────────────────────── -->
+      <h2>The most common name in France</h2>
+
+      <p>Among all 35,014 communes, one name appears more than any other: <strong>Sainte-Colombe</strong>. There are twelve of them, spread across twelve different départements — from Charente to Seine-et-Marne, from Yonne to Landes. Each one is a distinct village with its own mayor, its own population, its own postal code. What they share is a 6th-century Gallo-Roman martyr from Sens whose cult spread so widely that a dozen unrelated communities ended up with the same name.</p>
+
+      <figure class="chart-figure">
+        <canvas id="chart-topnames" aria-label="Horizontal bar chart of the 10 most common commune names in France"></canvas>
+        <figcaption>The 10 most duplicated commune names in France, by number of occurrences. Source: DREES APL 2023 / Etalab commune data.</figcaption>
+      </figure>
+
+      <p>Saint-Sauveur (11 occurrences), Saint-Aubin (10), and Beaulieu (10) follow close behind. "Beaulieu" — meaning "beautiful place" — is the most common non-saint name on the list, which says something about either French landscape or French civic self-esteem. Wherever there was a beautiful place, someone named it that. Ten someones, apparently.</p>
+
+      <!-- ── Beat 6: Long names ──────────────────────────────────────── -->
+      <h2>The monsters at the other end</h2>
+
+      <p>At 45 characters, <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> in the Marne is the longest commune name in France. It got there the way most of the long names did: merger. In 1972, three villages — Saint-Rémy-en-Bouzemont, Saint-Genest, and Isson — were administratively combined into one commune. Rather than choose a single name, they kept all three, hyphenated together into a small bureaucratic monument to French administrative compromise.</p>
+
+      <ul class="long-names-list" id="list-long"></ul>
+
+      <p>These names aren't rare anomalies — they cluster in regions where the 1971 Marcellin Law drove rapid commune mergers. Some of the resulting names are so long that they've been informally shortened by local usage, road signs, and GPS systems, while the official name remains untouched in the prefecture records.</p>
+
+      <!-- ── Closing ────────────────────────────────────────────────── -->
+      <p>Y, population 89, will never have that problem. Its sign fits on a single plank. Its name has been stable for a thousand years, longer than the French state. In a country that can produce <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, there is something clarifying about a village that just decided, once, on a vowel.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and metadata come from the APL 2023 dataset published by DREES, which covers 35,014 communes including overseas territories. Name lengths are character counts of the official commune name string as it appears in that dataset. The same data powers the <a href="../medical-deserts/">medical deserts story</a>; here we ignore the health metrics entirely and look only at the names.</p>
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Etalab — Contours administratifs des communes</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawLengthChart, drawTopNamesChart } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./stats.json');
+      const stats = await res.json();
+
+      // Stat callouts
+      document.getElementById('stat-total').textContent = stats.total.toLocaleString('fr-FR');
+      document.getElementById('stat-avglen').textContent = stats.avgLen;
+      document.getElementById('stat-saint').textContent = stats.saintCount.toLocaleString('fr-FR');
+      document.getElementById('stat-saint-pct').textContent = stats.saintPct + '%';
+
+      // Short names table
+      const tbody = document.querySelector('#table-short tbody');
+      tbody.innerHTML = stats.shortNames.map(c => `
+        <tr>
+          <td class="name-cell">${c.name}</td>
+          <td>${c.deptName}</td>
+          <td class="pop-cell">${c.pop.toLocaleString('fr-FR')}</td>
+        </tr>
+      `).join('');
+
+      // Long names list
+      const ul = document.getElementById('list-long');
+      ul.innerHTML = stats.longestNames.map(c => `
+        <li>
+          <span class="ln-name">${c.name}</span>
+          <span class="ln-meta">${c.nameLen} chars · Dept ${c.dept} · pop ${c.pop.toLocaleString('fr-FR')}</span>
+        </li>
+      `).join('');
+
+      // Charts
+      drawLengthChart('chart-length', stats);
+      drawTopNamesChart('chart-topnames', stats);
+    }
+
+    main().catch(err => console.error('Failed to load village-names data:', err));
+  </script>
+</body>
+</html>

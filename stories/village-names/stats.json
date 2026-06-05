@@ -1,0 +1,498 @@
+{
+  "total": 35014,
+  "avgLen": 11.8,
+  "minLen": 1,
+  "maxLen": 45,
+  "saintCount": 3898,
+  "saintPct": 11.1,
+  "laLeLesCount": 2220,
+  "lengthDist": [
+    {
+      "len": 1,
+      "count": 1
+    },
+    {
+      "len": 2,
+      "count": 13
+    },
+    {
+      "len": 3,
+      "count": 154
+    },
+    {
+      "len": 4,
+      "count": 720
+    },
+    {
+      "len": 5,
+      "count": 1969
+    },
+    {
+      "len": 6,
+      "count": 3223
+    },
+    {
+      "len": 7,
+      "count": 3695
+    },
+    {
+      "len": 8,
+      "count": 3695
+    },
+    {
+      "len": 9,
+      "count": 3000
+    },
+    {
+      "len": 10,
+      "count": 2522
+    },
+    {
+      "len": 11,
+      "count": 1884
+    },
+    {
+      "len": 12,
+      "count": 1435
+    },
+    {
+      "len": 13,
+      "count": 1167
+    },
+    {
+      "len": 14,
+      "count": 1018
+    },
+    {
+      "len": 15,
+      "count": 1095
+    },
+    {
+      "len": 16,
+      "count": 1177
+    },
+    {
+      "len": 17,
+      "count": 1186
+    },
+    {
+      "len": 18,
+      "count": 1202
+    },
+    {
+      "len": 19,
+      "count": 1117
+    },
+    {
+      "len": 20,
+      "count": 1028
+    },
+    {
+      "len": 21,
+      "count": 923
+    },
+    {
+      "len": 22,
+      "count": 819
+    },
+    {
+      "len": 23,
+      "count": 649
+    },
+    {
+      "len": 24,
+      "count": 501
+    },
+    {
+      "len": 25,
+      "count": 329
+    },
+    {
+      "len": 26,
+      "count": 200
+    },
+    {
+      "len": 27,
+      "count": 105
+    },
+    {
+      "len": 28,
+      "count": 55
+    },
+    {
+      "len": 29,
+      "count": 53
+    },
+    {
+      "len": 30,
+      "count": 29
+    },
+    {
+      "len": 31,
+      "count": 12
+    },
+    {
+      "len": 32,
+      "count": 8
+    },
+    {
+      "len": 33,
+      "count": 2
+    },
+    {
+      "len": 34,
+      "count": 6
+    },
+    {
+      "len": 35,
+      "count": 7
+    },
+    {
+      "len": 36,
+      "count": 2
+    },
+    {
+      "len": 37,
+      "count": 3
+    },
+    {
+      "len": 38,
+      "count": 3
+    },
+    {
+      "len": 39,
+      "count": 1
+    },
+    {
+      "len": 40,
+      "count": 3
+    },
+    {
+      "len": 41,
+      "count": 1
+    },
+    {
+      "len": 43,
+      "count": 1
+    },
+    {
+      "len": 45,
+      "count": 1
+    }
+  ],
+  "topNames": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12,
+      "depts": [
+        "05",
+        "17",
+        "25",
+        "33",
+        "35",
+        "40",
+        "46",
+        "50",
+        "69",
+        "76",
+        "77",
+        "89"
+      ]
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11,
+      "depts": [
+        "05",
+        "21",
+        "24",
+        "29",
+        "31",
+        "33",
+        "38",
+        "54",
+        "60",
+        "70",
+        "80"
+      ]
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10,
+      "depts": [
+        "02",
+        "10",
+        "21",
+        "36",
+        "39",
+        "40",
+        "47",
+        "59",
+        "62",
+        "91"
+      ]
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10,
+      "depts": [
+        "07",
+        "15",
+        "21",
+        "34",
+        "36",
+        "38",
+        "43",
+        "58",
+        "61",
+        "63"
+      ]
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9,
+      "depts": [
+        "01",
+        "08",
+        "27",
+        "36",
+        "54",
+        "56",
+        "70",
+        "71",
+        "73"
+      ]
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9,
+      "depts": [
+        "02",
+        "09",
+        "16",
+        "31",
+        "32",
+        "34",
+        "45",
+        "64",
+        "82"
+      ]
+    },
+    {
+      "name": "Le Pin",
+      "count": 9,
+      "depts": [
+        "03",
+        "14",
+        "17",
+        "30",
+        "39",
+        "44",
+        "77",
+        "79",
+        "82"
+      ]
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9,
+      "depts": [
+        "04",
+        "15",
+        "31",
+        "39",
+        "51",
+        "67",
+        "97"
+      ]
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9,
+      "depts": [
+        "08",
+        "15",
+        "25",
+        "32",
+        "35",
+        "58",
+        "65",
+        "97"
+      ]
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8,
+      "depts": [
+        "01",
+        "12",
+        "14",
+        "19",
+        "21",
+        "24",
+        "71",
+        "79"
+      ]
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8,
+      "depts": [
+        "02",
+        "03",
+        "07",
+        "15",
+        "19",
+        "30",
+        "54",
+        "89"
+      ]
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8,
+      "depts": [
+        "03",
+        "11",
+        "25",
+        "31",
+        "43",
+        "46",
+        "63",
+        "91"
+      ]
+    }
+  ],
+  "shortNames": [
+    {
+      "name": "Y",
+      "dept": "80",
+      "deptName": "Somme",
+      "pop": 89,
+      "nameLen": 1
+    },
+    {
+      "name": "By",
+      "dept": "25",
+      "deptName": "Doubs",
+      "pop": 86,
+      "nameLen": 2
+    },
+    {
+      "name": "Bû",
+      "dept": "28",
+      "deptName": "Eure-et-Loir",
+      "pop": 2022,
+      "nameLen": 2
+    },
+    {
+      "name": "Eu",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 6591,
+      "nameLen": 2
+    },
+    {
+      "name": "Gy",
+      "dept": "70",
+      "deptName": "Haute-Saône",
+      "pop": 1001,
+      "nameLen": 2
+    },
+    {
+      "name": "Oz",
+      "dept": "38",
+      "deptName": "Isère",
+      "pop": 213,
+      "nameLen": 2
+    },
+    {
+      "name": "Oô",
+      "dept": "31",
+      "deptName": "Haute-Garonne",
+      "pop": 103,
+      "nameLen": 2
+    },
+    {
+      "name": "Py",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 79,
+      "nameLen": 2
+    },
+    {
+      "name": "Ri",
+      "dept": "61",
+      "deptName": "Orne",
+      "pop": 156,
+      "nameLen": 2
+    },
+    {
+      "name": "Ry",
+      "dept": "76",
+      "deptName": "Seine-Maritime",
+      "pop": 775,
+      "nameLen": 2
+    },
+    {
+      "name": "Sy",
+      "dept": "08",
+      "deptName": "Ardennes",
+      "pop": 54,
+      "nameLen": 2
+    },
+    {
+      "name": "Ur",
+      "dept": "66",
+      "deptName": "Pyrénées-Orientales",
+      "pop": 348,
+      "nameLen": 2
+    },
+    {
+      "name": "Us",
+      "dept": "95",
+      "deptName": "Val-d Oise",
+      "pop": 1338,
+      "nameLen": 2
+    },
+    {
+      "name": "Uz",
+      "dept": "65",
+      "deptName": "Hautes-Pyrénées",
+      "pop": 36,
+      "nameLen": 2
+    }
+  ],
+  "longestNames": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "nameLen": 45,
+      "pop": 491
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "nameLen": 43,
+      "pop": 923
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "nameLen": 41,
+      "pop": 499
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "nameLen": 40,
+      "pop": 381
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "nameLen": 40,
+      "pop": 195
+    }
+  ]
+}
