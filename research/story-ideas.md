@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### bar-deserts: The Bar Desert
+- Status: ✅ published
+- Published URL: /stories/bar-deserts/
+- Source question: [Q-033](questions.md#q-033-which-commune-has-the-most-bars-per-capita)
+- Hook: Two-thirds of French communes have no bar. The outer ring around Paris — already a medical desert — has the lowest bar density in metropolitan France.
+- Data: bars.json (Story 4, 49,385 national bar points) joined to communes-apl.geojson (Story 2, DREES APL population data). Pure join, no new downloads.
+- Angle: Per-capita analysis revealing the "bar desert" phenomenon. Resort effect (ski towns top the commune ranking), Corsica dominates the département ranking, Paris suburbs are the floor nationally.
+- Draft X summary:
+  > France has 49,385 bars. But 66% of its communes have none. The ski resorts top the per-capita list. Corsica leads the départements at 21 per 10,000. And Essonne? 3. The same outer ring around Paris that's a medical desert is a bar desert too. Today on france-data. 🍺🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
