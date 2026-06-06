@@ -1,0 +1,531 @@
+{
+  "total": 35014,
+  "distinct": 32764,
+  "duplicateNames": 2250,
+  "avgLength": 11.8,
+  "saintStart": 3898,
+  "saintAnywhere": 4437,
+  "surCount": 1991,
+  "lesCount": 545,
+  "shortestName": {
+    "name": "Y",
+    "code": "80829",
+    "pop": 89,
+    "dept": "80"
+  },
+  "longestName": {
+    "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+    "code": "51513",
+    "pop": 491,
+    "dept": "51"
+  },
+  "mostCommonName": {
+    "name": "Sainte-Colombe",
+    "count": 12
+  },
+  "shortest20": [
+    {
+      "name": "Y",
+      "code": "80829",
+      "pop": 89,
+      "dept": "80"
+    },
+    {
+      "name": "Sy",
+      "code": "08434",
+      "pop": 54,
+      "dept": "08"
+    },
+    {
+      "name": "By",
+      "code": "25104",
+      "pop": 86,
+      "dept": "25"
+    },
+    {
+      "name": "Bû",
+      "code": "28064",
+      "pop": 2022,
+      "dept": "28"
+    },
+    {
+      "name": "Oô",
+      "code": "31404",
+      "pop": 103,
+      "dept": "31"
+    },
+    {
+      "name": "Oz",
+      "code": "38289",
+      "pop": 213,
+      "dept": "38"
+    },
+    {
+      "name": "Ri",
+      "code": "61349",
+      "pop": 156,
+      "dept": "61"
+    },
+    {
+      "name": "Uz",
+      "code": "65458",
+      "pop": 36,
+      "dept": "65"
+    },
+    {
+      "name": "Py",
+      "code": "66155",
+      "pop": 79,
+      "dept": "66"
+    },
+    {
+      "name": "Ur",
+      "code": "66218",
+      "pop": 348,
+      "dept": "66"
+    },
+    {
+      "name": "Gy",
+      "code": "70282",
+      "pop": 1001,
+      "dept": "70"
+    },
+    {
+      "name": "Eu",
+      "code": "76255",
+      "pop": 6591,
+      "dept": "76"
+    },
+    {
+      "name": "Ry",
+      "code": "76548",
+      "pop": 775,
+      "dept": "76"
+    },
+    {
+      "name": "Us",
+      "code": "95625",
+      "pop": 1338,
+      "dept": "95"
+    },
+    {
+      "name": "Bey",
+      "code": "01042",
+      "pop": 290,
+      "dept": "01"
+    },
+    {
+      "name": "Boz",
+      "code": "01057",
+      "pop": 510,
+      "dept": "01"
+    },
+    {
+      "name": "Gex",
+      "code": "01173",
+      "pop": 13078,
+      "dept": "01"
+    },
+    {
+      "name": "Acy",
+      "code": "02003",
+      "pop": 1016,
+      "dept": "02"
+    },
+    {
+      "name": "Lor",
+      "code": "02440",
+      "pop": 137,
+      "dept": "02"
+    },
+    {
+      "name": "Gap",
+      "code": "05061",
+      "pop": 40500,
+      "dept": "05"
+    }
+  ],
+  "longest10": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "code": "51513",
+      "pop": 491,
+      "dept": "51"
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "code": "70058",
+      "pop": 923,
+      "dept": "70"
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "code": "14621",
+      "pop": 499,
+      "dept": "14"
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "code": "70449",
+      "pop": 64,
+      "dept": "70"
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "code": "34317",
+      "pop": 195,
+      "dept": "34"
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "code": "21433",
+      "pop": 381,
+      "dept": "21"
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "code": "07262",
+      "pop": 180,
+      "dept": "07"
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "code": "80714",
+      "pop": 1270,
+      "dept": "80"
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "code": "24048",
+      "pop": 309,
+      "dept": "24"
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "code": "11128",
+      "pop": 142,
+      "dept": "11"
+    }
+  ],
+  "topDuplicates": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Saint-Georges",
+      "count": 8
+    },
+    {
+      "name": "Saint-Médard",
+      "count": 8
+    },
+    {
+      "name": "Saint-Paul",
+      "count": 8
+    },
+    {
+      "name": "Brion",
+      "count": 7
+    }
+  ],
+  "topSaints": [
+    {
+      "name": "Colombe",
+      "count": 12
+    },
+    {
+      "name": "Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Aubin",
+      "count": 10
+    },
+    {
+      "name": "Marcel",
+      "count": 9
+    },
+    {
+      "name": "Michel",
+      "count": 9
+    },
+    {
+      "name": "Pierre",
+      "count": 9
+    },
+    {
+      "name": "Marie",
+      "count": 9
+    },
+    {
+      "name": "Rémy",
+      "count": 8
+    },
+    {
+      "name": "Clément",
+      "count": 8
+    },
+    {
+      "name": "Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Loup",
+      "count": 8
+    },
+    {
+      "name": "Hippolyte",
+      "count": 8
+    },
+    {
+      "name": "Georges",
+      "count": 8
+    },
+    {
+      "name": "Médard",
+      "count": 8
+    },
+    {
+      "name": "Paul",
+      "count": 8
+    }
+  ],
+  "topRivers": [
+    {
+      "name": "Mer",
+      "count": 99
+    },
+    {
+      "name": "Loire",
+      "count": 70
+    },
+    {
+      "name": "Seine",
+      "count": 70
+    },
+    {
+      "name": "Marne",
+      "count": 55
+    },
+    {
+      "name": "Meuse",
+      "count": 43
+    },
+    {
+      "name": "le",
+      "count": 35
+    },
+    {
+      "name": "Saône",
+      "count": 34
+    },
+    {
+      "name": "Sarthe",
+      "count": 22
+    },
+    {
+      "name": "Aube",
+      "count": 21
+    },
+    {
+      "name": "Cher",
+      "count": 21
+    },
+    {
+      "name": "Seille",
+      "count": 19
+    },
+    {
+      "name": "Vienne",
+      "count": 17
+    }
+  ],
+  "topWords": [
+    {
+      "word": "saint",
+      "count": 4090
+    },
+    {
+      "word": "sur",
+      "count": 2007
+    },
+    {
+      "word": "les",
+      "count": 799
+    },
+    {
+      "word": "lès",
+      "count": 546
+    },
+    {
+      "word": "sainte",
+      "count": 360
+    },
+    {
+      "word": "sous",
+      "count": 258
+    },
+    {
+      "word": "martin",
+      "count": 255
+    },
+    {
+      "word": "des",
+      "count": 228
+    },
+    {
+      "word": "bois",
+      "count": 217
+    },
+    {
+      "word": "pierre",
+      "count": 180
+    },
+    {
+      "word": "chapelle",
+      "count": 178
+    },
+    {
+      "word": "jean",
+      "count": 170
+    },
+    {
+      "word": "val",
+      "count": 130
+    },
+    {
+      "word": "aux",
+      "count": 124
+    },
+    {
+      "word": "germain",
+      "count": 120
+    },
+    {
+      "word": "mer",
+      "count": 109
+    },
+    {
+      "word": "villers",
+      "count": 108
+    },
+    {
+      "word": "mont",
+      "count": 102
+    },
+    {
+      "word": "château",
+      "count": 95
+    },
+    {
+      "word": "ville",
+      "count": 93
+    }
+  ],
+  "lengthDist": {
+    "1": 1,
+    "2": 13,
+    "3": 154,
+    "4": 720,
+    "5": 1969,
+    "6": 3223,
+    "7": 3695,
+    "8": 3695,
+    "9": 3000,
+    "10": 2522,
+    "11": 1884,
+    "12": 1435,
+    "13": 1167,
+    "14": 1018,
+    "15": 1095,
+    "16": 1177,
+    "17": 1186,
+    "18": 1202,
+    "19": 1117,
+    "20": 1028,
+    "21": 923,
+    "22": 819,
+    "23": 649,
+    "24": 501,
+    "25": 329,
+    "26": 200,
+    "27": 105,
+    "28": 55,
+    "29": 53,
+    "30": 29,
+    "31": 12,
+    "32": 8,
+    "33": 2,
+    "34": 6,
+    "35": 7,
+    "36": 2,
+    "37": 3,
+    "38": 3,
+    "39": 1,
+    "40": 3,
+    "41": 1,
+    "43": 1,
+    "45": 1
+  }
+}
