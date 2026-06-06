@@ -74,3 +74,13 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 49,385 registered bars. Nord + Pas-de-Calais together beat Paris. Finistère has 1,000+ bars for under a million people. Today on **france-data**: every débit de boissons in France, mapped. The diagonale du vide makes its third appearance. 🍺🇫🇷
 
+### all-the-saints: All the saints — and the one-letter town
+- Status: ✅ published
+- Published URL: /stories/all-the-saints/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France's shortest commune name is Y (one letter, population 89). Its longest is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters). Both are real.
+- Data: Commune names extracted from communes-apl.geojson (35,014 communes, no new download needed).
+- Angle: Text-and-charts story. Two canvas charts: a name-length histogram showing the peak at 7–8 characters, and a horizontal bar showing the 12 most-shared names. Key beats: Y, the Saint factory (3,898 communes = 11.1%), Sainte-Colombe (the #1 shared name, 12 instances), and the long tail of merger-product names.
+- Draft X summary:
+  > France has a commune called Y. Population: 89. Its longest commune name is 45 characters long. In between: 3,898 communes starting with Saint or Sainte, 12 places called Sainte-Colombe, and one name that is just the letter %. Wait, that's bars. Today on **france-data**: 35,014 commune names. 🇫🇷
+
