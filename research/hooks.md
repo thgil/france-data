@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 Rochefourchat, Drôme: population 1. It has a mayor, a municipal council, and a budget. It is, legally, the equal of Paris. [Q-042]
+- 🔥 52.7% of French communes have fewer than 500 residents. Together, those 18,312 communes hold just 6.2% of France's total population. [Q-042]
+- 🔥 France has 34,791 communes. Germany has ~11,000. Spain ~8,000. France is the EU record-holder — a direct consequence of the Revolution, which gave every parish its own municipality. [Q-042]
+- 🔥 You need the top 1,021 communes (2.9% of all) to reach half of France's population. The other 97.1% of communes share the remaining half. [Q-042]

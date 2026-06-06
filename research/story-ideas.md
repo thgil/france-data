@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### tiny-communes: 35,000 communes, one republic
+- Status: ✅ published
+- Published URL: /stories/tiny-communes/
+- Source question: [Q-042](questions.md#q-042)
+- Hook: France's median commune has 457 people. Rochefourchat (Drôme) has 1. Both are, legally, the equal of Paris.
+- Data: DREES APL 2023 dataset — 34,791 communes in metro France + DOM with 2021 population counts. No new download: reuses the communes-apl.geojson already in the repo from the medical-deserts story.
+- Angle: Text-led with one paired bar chart (% of communes vs % of population by size tier). Two ranked tables: 10 smallest inhabited communes, 10 largest cities. Three callout numbers.
+- Draft X summary:
+  > France has 34,791 communes. Germany has ~11,000. Spain ~8,000. The median French commune has 457 people. Rochefourchat, Drôme: population 1. It has a mayor. Today on **france-data**: what it means that the Revolution gave every village the same legal status as Paris — and why two centuries later, no one's undone it. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

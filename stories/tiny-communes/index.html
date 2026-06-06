@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>35,000 communes, one republic — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Chart figure ────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute, #888);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    #chart-distribution {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 12px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #444;
+    }
+    .legend-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .swatch-communes { background: #6b8cba; }
+    .swatch-pop      { background: #c67c00; }
+
+    /* ── Stats tables ─────────────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    .stats-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Big number callout ─────────────────────────────────────────── */
+    .callout-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+      text-align: center;
+    }
+    @media (max-width: 540px) {
+      .callout-row { grid-template-columns: 1fr; }
+    }
+    .callout-block {
+      padding: 20px 12px;
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+    }
+    .callout-number {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      color: #1a1a1a;
+      display: block;
+      line-height: 1.1;
+    }
+    .callout-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── Credits ────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ──────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Demographics</div>
+        <h1 class="story-title">35,000 communes, one republic</h1>
+        <p class="story-dek">France has more communes than any country in the EU — and the median one has 457 people. A look at the most unequal distribution in European local government.</p>
+        <div class="story-meta">
+          <span>2026-06-06</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1 ────────────────────────────────────────────────── -->
+      <p>France has 34,791 communes in metropolitan France and its overseas departments. Germany has about 11,000. Spain has 8,000. France: 34,791. More than any other country in the European Union, by a wide margin.</p>
+
+      <p>This is not an accident. In 1789 and the years immediately after, the National Assembly converted every parish, every village, every hamlet into a <em>commune</em> — an equal unit of local government with the same legal standing as Paris. The idea was radical: no commune is beneath the republic. Two hundred years later, most of those communes still exist. A few have merged. Most haven't.</p>
+
+      <div class="callout-row" id="callout-row">
+        <div class="callout-block">
+          <span class="callout-number" id="cn-total">—</span>
+          <span class="callout-label">communes in metro France + DOM</span>
+        </div>
+        <div class="callout-block">
+          <span class="callout-number" id="cn-median">—</span>
+          <span class="callout-label">median commune population</span>
+        </div>
+        <div class="callout-block">
+          <span class="callout-number" id="cn-smallest">1</span>
+          <span class="callout-label">resident in Rochefourchat, Drôme — France's smallest inhabited commune</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Distribution chart ───────────────────────────── -->
+      <h2>The two Frances</h2>
+
+      <p>The median commune has 457 people. That's not a village — in urban terms, it's a single apartment tower. But the median hides the real shape of the distribution, which is deeply lopsided.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-legend">
+          <span><span class="legend-swatch swatch-communes"></span>% of communes</span>
+          <span><span class="legend-swatch swatch-pop"></span>% of population</span>
+        </div>
+        <div id="chart-distribution"></div>
+        <figcaption>Each pair of bars shows the share of communes (blue) versus the share of France's population (orange) that falls into each size category. The gap between the two bars is the story. Source: DREES APL 2023, INSEE commune population 2021.</figcaption>
+      </figure>
+
+      <p>52.7% of French communes — 18,312 of them — have fewer than 500 residents. Together, those 18,312 communes hold just 6.2% of France's total population. At the other end: 48 communes have more than 100,000 residents. That's 0.1% of all communes. They hold 12.6% of the population.</p>
+
+      <p>The chart above is, in miniature, the story of French demographic history. After the Revolution created this commune structure, urban industrialisation concentrated people in cities that the structure never anticipated. The communes stayed fixed; the people moved. And the resulting gap — thousands of near-empty villages holding a tiny fraction of the national population — has widened every decade since.</p>
+
+      <!-- ── Beat 3: The tiny end ──────────────────────────────────── -->
+      <h2>The republic of one</h2>
+
+      <p>Rochefourchat is a commune in the Drôme — a département in the southern Alps, between Grenoble and Montélimar. Its population, as of the most recent INSEE count: <strong>one person</strong>. It has a mayor. It holds municipal elections. It is, by any French legal measure, the equal of Paris.</p>
+
+      <p>It is not alone. Three communes in metropolitan France have a registered population of 2. Seven more have between 3 and 5. These aren't ghost towns — they're active legal entities that were once larger, that still own land, still collect the taxe foncière, still send a delegate to the canton. They just happen to have almost no one left in them.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>France's smallest inhabited communes</h3>
+          <table class="stats-table" id="table-smallest">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="stats-block">
+          <h3>France's largest communes</h3>
+          <table class="stats-table" id="table-largest">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Beat 4: The Paris question ───────────────────────────── -->
+      <h2>The Paris question</h2>
+
+      <p>The largest communes table above lists Toulouse (504,078) at the top. That's because INSEE records Paris not as one commune but as 20 — one per arrondissement. The Paris 15th arrondissement is, in INSEE's system, a commune of 227,746 people. The 20th has 189,805. Counted together, Paris has 2,133,111 residents across those 20 communes.</p>
+
+      <p>This is not a quirk of this dataset — it's a genuine feature of French administrative law. The 1982 PLM law (Paris–Lyon–Marseille) created a special municipal structure for France's three largest cities, in which the arrondissements became the functional unit of local administration. For our data, that means Toulouse is the biggest single commune and Paris is, simultaneously, both the biggest city and 20 separate communes.</p>
+
+      <!-- ── Beat 5: The close ─────────────────────────────────────── -->
+      <h2>The weight of the past</h2>
+
+      <p>France has tried to merge its smallest communes before. The 1971 Marcellin law was meant to consolidate the thousands of tiny municipalities. It produced fewer than 800 mergers, then stalled. The <em>commune nouvelle</em> legislation of 2010 tried again, and has worked better — a few hundred communes merged in the following decade. But the pace is slow. Mayors of tiny communes resist. The commune is not just an administrative unit; it's an identity, a churchyard, a school building that might still be used, a post office that closed in 2003, a name on a road sign.</p>
+
+      <p>What does it mean that 3,402 communes have fewer than 100 residents? It means France has 3,402 mayors, 3,402 municipal councils, 3,402 budgets, 3,402 tax rolls — for a combined population of about 195,000 people. That's roughly the population of a single French city the size of Orléans.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Population figures are from the DREES APL 2023 dataset (which includes INSEE commune-level population counts for 2021, the most recent available year). The dataset covers 34,791 communes in metropolitan France and the overseas departments (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte). Overseas collectivities (French Polynesia, Wallis-and-Futuna, etc.) are excluded. 20 communes in this dataset have a registered population of zero — most are recently created or merged communes whose inhabitants are recorded under another code. Paris is counted as 20 arrondissements following standard INSEE practice; the Paris total (2,133,111) is the sum of all 20.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité potentielle localisée (APL) aux médecins généralistes 2023</a> — commune-level population and APL scores</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs communes 2025</a> — commune boundaries (used in the <a href="../medical-deserts/">medical deserts</a> story)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module" src="./charts.js"></script>
+
+</body>
+</html>

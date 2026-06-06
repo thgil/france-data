@@ -201,3 +201,10 @@ datasets and the resulting story.
 - Topic: [culture](topics/culture.md)
 - Finding: Paris's inner arrondissements dominate by count (Paris 18e: 155, 15e: 147, 17e: 133) and run at ~8 bakeries per 10k residents — the highest in IDF. Smaller outer communes like Cormeilles-en-Vexin top the per-capita ranking due to small denominators. 607 of 1,300 IDF communes have zero recorded bakeries. The density pattern closely tracks the pharmacy network from Q-007 — the same commercial-density logic governs both trades.
 - Story: [baguettes](/stories/baguettes/)
+
+### Q-042: How is France's population distributed across its 35,000 communes?
+- Status: ✅ answered
+- Topic: [demographics](topics/demographics.md)
+- Datasets: [DS-APL](datasets.md#ds-apl)
+- Finding: France has 34,791 communes in metro France + DOM. The median commune has just 457 residents. 52.7% of communes (18,312) have fewer than 500 people but together hold only 6.2% of France's population. At the other extreme, 48 communes (0.1%) have 100,000+ residents and hold 12.6% of the population. The smallest inhabited commune is Rochefourchat, Drôme — population 1. Paris is counted as 20 arrondissements (total 2.1M); Toulouse (504K) is the largest single commune.
+- Story: [tiny-communes](/stories/tiny-communes/)
