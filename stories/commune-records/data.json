@@ -1,0 +1,555 @@
+{
+  "total": 35014,
+  "unique_names": 32764,
+  "saint_total": 3898,
+  "saint_pct": 11.1,
+  "saint_unique": 3392,
+  "duplicated_name_count": 1450,
+  "non_unique_communes": 3700,
+  "avg_name_length": 11.8,
+  "length_dist": [
+    {
+      "length": 1,
+      "count": 1
+    },
+    {
+      "length": 2,
+      "count": 13
+    },
+    {
+      "length": 3,
+      "count": 154
+    },
+    {
+      "length": 4,
+      "count": 720
+    },
+    {
+      "length": 5,
+      "count": 1969
+    },
+    {
+      "length": 6,
+      "count": 3223
+    },
+    {
+      "length": 7,
+      "count": 3695
+    },
+    {
+      "length": 8,
+      "count": 3695
+    },
+    {
+      "length": 9,
+      "count": 3000
+    },
+    {
+      "length": 10,
+      "count": 2522
+    },
+    {
+      "length": 11,
+      "count": 1884
+    },
+    {
+      "length": 12,
+      "count": 1435
+    },
+    {
+      "length": 13,
+      "count": 1167
+    },
+    {
+      "length": 14,
+      "count": 1018
+    },
+    {
+      "length": 15,
+      "count": 1095
+    },
+    {
+      "length": 16,
+      "count": 1177
+    },
+    {
+      "length": 17,
+      "count": 1186
+    },
+    {
+      "length": 18,
+      "count": 1202
+    },
+    {
+      "length": 19,
+      "count": 1117
+    },
+    {
+      "length": 20,
+      "count": 1028
+    },
+    {
+      "length": 21,
+      "count": 923
+    },
+    {
+      "length": 22,
+      "count": 819
+    },
+    {
+      "length": 23,
+      "count": 649
+    },
+    {
+      "length": 24,
+      "count": 501
+    },
+    {
+      "length": 25,
+      "count": 329
+    },
+    {
+      "length": 26,
+      "count": 200
+    },
+    {
+      "length": 27,
+      "count": 105
+    },
+    {
+      "length": 28,
+      "count": 55
+    },
+    {
+      "length": 29,
+      "count": 53
+    },
+    {
+      "length": 30,
+      "count": 29
+    },
+    {
+      "length": 31,
+      "count": 12
+    },
+    {
+      "length": 32,
+      "count": 8
+    },
+    {
+      "length": 33,
+      "count": 2
+    },
+    {
+      "length": 34,
+      "count": 6
+    },
+    {
+      "length": 35,
+      "count": 7
+    },
+    {
+      "length": 36,
+      "count": 2
+    },
+    {
+      "length": 37,
+      "count": 3
+    },
+    {
+      "length": 38,
+      "count": 3
+    },
+    {
+      "length": 39,
+      "count": 1
+    },
+    {
+      "length": 40,
+      "count": 3
+    },
+    {
+      "length": 41,
+      "count": 1
+    },
+    {
+      "length": 42,
+      "count": 0
+    },
+    {
+      "length": 43,
+      "count": 1
+    },
+    {
+      "length": 44,
+      "count": 0
+    },
+    {
+      "length": 45,
+      "count": 1
+    }
+  ],
+  "shortest": [
+    {
+      "name": "Y",
+      "dept": "80",
+      "dept_name": "Somme",
+      "pop": 89,
+      "length": 1
+    },
+    {
+      "name": "By",
+      "dept": "25",
+      "dept_name": "Doubs",
+      "pop": 86,
+      "length": 2
+    },
+    {
+      "name": "Bû",
+      "dept": "28",
+      "dept_name": "Eure-et-Loir",
+      "pop": 2022,
+      "length": 2
+    },
+    {
+      "name": "Eu",
+      "dept": "76",
+      "dept_name": "Seine-Maritime",
+      "pop": 6591,
+      "length": 2
+    },
+    {
+      "name": "Gy",
+      "dept": "70",
+      "dept_name": "Haute-Saône",
+      "pop": 1001,
+      "length": 2
+    },
+    {
+      "name": "Oz",
+      "dept": "38",
+      "dept_name": "Isère",
+      "pop": 213,
+      "length": 2
+    },
+    {
+      "name": "Oô",
+      "dept": "31",
+      "dept_name": "Haute-Garonne",
+      "pop": 103,
+      "length": 2
+    },
+    {
+      "name": "Py",
+      "dept": "66",
+      "dept_name": "Pyrénées-Orientales",
+      "pop": 79,
+      "length": 2
+    },
+    {
+      "name": "Ri",
+      "dept": "61",
+      "dept_name": "Orne",
+      "pop": 156,
+      "length": 2
+    },
+    {
+      "name": "Ry",
+      "dept": "76",
+      "dept_name": "Seine-Maritime",
+      "pop": 775,
+      "length": 2
+    },
+    {
+      "name": "Sy",
+      "dept": "08",
+      "dept_name": "Ardennes",
+      "pop": 54,
+      "length": 2
+    },
+    {
+      "name": "Ur",
+      "dept": "66",
+      "dept_name": "Pyrénées-Orientales",
+      "pop": 348,
+      "length": 2
+    },
+    {
+      "name": "Us",
+      "dept": "95",
+      "dept_name": "Val-d'Oise",
+      "pop": 1338,
+      "length": 2
+    },
+    {
+      "name": "Uz",
+      "dept": "65",
+      "dept_name": "Hautes-Pyrénées",
+      "pop": 36,
+      "length": 2
+    },
+    {
+      "name": "Acq",
+      "dept": "62",
+      "dept_name": "Pas-de-Calais",
+      "pop": 797,
+      "length": 3
+    },
+    {
+      "name": "Acy",
+      "dept": "02",
+      "dept_name": "Aisne",
+      "pop": 1016,
+      "length": 3
+    },
+    {
+      "name": "Adé",
+      "dept": "65",
+      "dept_name": "Hautes-Pyrénées",
+      "pop": 828,
+      "length": 3
+    },
+    {
+      "name": "Afa",
+      "dept": "2A",
+      "dept_name": "Corse-du-Sud",
+      "pop": 3336,
+      "length": 3
+    },
+    {
+      "name": "Agy",
+      "dept": "14",
+      "dept_name": "Calvados",
+      "pop": 313,
+      "length": 3
+    },
+    {
+      "name": "Aix",
+      "dept": "19",
+      "dept_name": "Corrèze",
+      "pop": 382,
+      "length": 3
+    },
+    {
+      "name": "Alo",
+      "dept": "98",
+      "dept_name": "98",
+      "pop": 0,
+      "length": 3
+    },
+    {
+      "name": "Amy",
+      "dept": "60",
+      "dept_name": "Oise",
+      "pop": 416,
+      "length": 3
+    },
+    {
+      "name": "Apt",
+      "dept": "84",
+      "dept_name": "Vaucluse",
+      "pop": 10536,
+      "length": 3
+    },
+    {
+      "name": "Ars",
+      "dept": "16",
+      "dept_name": "Charente",
+      "pop": 699,
+      "length": 3
+    },
+    {
+      "name": "Ars",
+      "dept": "23",
+      "dept_name": "Creuse",
+      "pop": 232,
+      "length": 3
+    }
+  ],
+  "most_common": [
+    {
+      "name": "Sainte-Colombe",
+      "count": 12
+    },
+    {
+      "name": "Saint-Sauveur",
+      "count": 11
+    },
+    {
+      "name": "Saint-Aubin",
+      "count": 10
+    },
+    {
+      "name": "Beaulieu",
+      "count": 10
+    },
+    {
+      "name": "Saint-Marcel",
+      "count": 9
+    },
+    {
+      "name": "Saint-Michel",
+      "count": 9
+    },
+    {
+      "name": "Le Pin",
+      "count": 9
+    },
+    {
+      "name": "Saint-Pierre",
+      "count": 9
+    },
+    {
+      "name": "Sainte-Marie",
+      "count": 9
+    },
+    {
+      "name": "Saint-Rémy",
+      "count": 8
+    },
+    {
+      "name": "Saint-Clément",
+      "count": 8
+    },
+    {
+      "name": "Saint-Hilaire",
+      "count": 8
+    },
+    {
+      "name": "Saint-Loup",
+      "count": 8
+    },
+    {
+      "name": "Beaumont",
+      "count": 8
+    },
+    {
+      "name": "Verrières",
+      "count": 8
+    }
+  ],
+  "longest": [
+    {
+      "name": "Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson",
+      "dept": "51",
+      "dept_name": "Marne",
+      "pop": 491,
+      "length": 45
+    },
+    {
+      "name": "Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur",
+      "dept": "70",
+      "dept_name": "Haute-Saône",
+      "pop": 923,
+      "length": 43
+    },
+    {
+      "name": "Saint-Martin-de-Bienfaite-la-Cressonnière",
+      "dept": "14",
+      "dept_name": "Calvados",
+      "pop": 499,
+      "length": 41
+    },
+    {
+      "name": "La Vacquerie-et-Saint-Martin-de-Castries",
+      "dept": "34",
+      "dept_name": "Hérault",
+      "pop": 195,
+      "length": 40
+    },
+    {
+      "name": "Montigny-Mornay-Villeneuve-sur-Vingeanne",
+      "dept": "21",
+      "dept_name": "Côte-d'Or",
+      "pop": 381,
+      "length": 40
+    },
+    {
+      "name": "Roche-sur-Linotte-et-Sorans-les-Cordiers",
+      "dept": "70",
+      "dept_name": "Haute-Saône",
+      "pop": 64,
+      "length": 40
+    },
+    {
+      "name": "Saint-Laurent-les-Bains-Laval-d'Aurelle",
+      "dept": "07",
+      "dept_name": "Ardèche",
+      "pop": 180,
+      "length": 39
+    },
+    {
+      "name": "Bonneville-et-Saint-Avit-de-Fumadières",
+      "dept": "24",
+      "dept_name": "Dordogne",
+      "pop": 309,
+      "length": 38
+    },
+    {
+      "name": "Escueillens-et-Saint-Just-de-Bélengard",
+      "dept": "11",
+      "dept_name": "Aude",
+      "pop": 142,
+      "length": 38
+    },
+    {
+      "name": "Saint-Quentin-la-Motte-Croix-au-Bailly",
+      "dept": "80",
+      "dept_name": "Somme",
+      "pop": 1270,
+      "length": 38
+    }
+  ],
+  "top_saint_depts": [
+    {
+      "dept": "24",
+      "dept_name": "Dordogne",
+      "count": 130
+    },
+    {
+      "dept": "33",
+      "dept_name": "Gironde",
+      "count": 121
+    },
+    {
+      "dept": "38",
+      "dept_name": "Isère",
+      "count": 106
+    },
+    {
+      "dept": "71",
+      "dept_name": "Saône-et-Loire",
+      "count": 105
+    },
+    {
+      "dept": "17",
+      "dept_name": "Charente-Maritime",
+      "count": 101
+    },
+    {
+      "dept": "76",
+      "dept_name": "Seine-Maritime",
+      "count": 100
+    },
+    {
+      "dept": "07",
+      "dept_name": "Ardèche",
+      "count": 97
+    },
+    {
+      "dept": "63",
+      "dept_name": "Puy-de-Dôme",
+      "count": 92
+    },
+    {
+      "dept": "42",
+      "dept_name": "Loire",
+      "count": 89
+    },
+    {
+      "dept": "50",
+      "dept_name": "Manche",
+      "count": 86
+    }
+  ]
+}
