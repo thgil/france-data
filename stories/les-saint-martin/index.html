@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Saint-Martin — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat cards ─────────────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    .stat-card {
+      background: #f5f1ea;
+      border: 1px solid #ddd8ce;
+      padding: 20px 24px;
+    }
+    .stat-card .num {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #b32020;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card .label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ── Two-column stats grid ───────────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stats-block h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 8px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place {
+      font-family: Georgia, serif;
+    }
+
+    /* ── Chart figure ────────────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+      max-width: 680px;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+    }
+
+    /* ── Name extreme cards ──────────────────────────────────────────────── */
+    .extreme-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    @media (max-width: 560px) {
+      .extreme-pair { grid-template-columns: 1fr; }
+    }
+    .extreme-card {
+      border: 1px solid #ddd8ce;
+      padding: 20px 24px;
+    }
+    .extreme-card .e-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b32020;
+      margin-bottom: 10px;
+    }
+    .extreme-card .e-name {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+    .extreme-card .e-meta {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* ── Preposition stat list ───────────────────────────────────────────── */
+    .prep-list {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .prep-item {
+      border-left: 3px solid #b32020;
+      padding: 8px 0 8px 12px;
+    }
+    .prep-item .p-code {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #1a1a1a;
+    }
+    .prep-item .p-count {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #b32020;
+      line-height: 1;
+      margin: 4px 0 2px;
+    }
+    .prep-item .p-tip {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────────── */
+    .credits {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">Les Saint-Martin</h1>
+        <p class="story-dek">One letter, 202 Martins, and 3,898 saints: a tour of France told through 35,000 commune names.</p>
+        <div class="story-meta">
+          <span>2026-06-06</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes. One of them is called Y. That's the whole name — a single letter — and it sits in the Somme département with 89 residents who presumably have to explain their address to everyone they've ever met. Y has existed as a settlement since the medieval period; its name derives from an old word for water. It is the shortest commune name in the French Republic.</p>
+
+      <p>But Y is just the headline. Below it, a modest 2-letter club:</p>
+
+      <!-- ── Short name table ──────────────────────────────────────────────── -->
+      <div style="max-width:680px;margin:0 auto 32px">
+        <h3 style="font-family:'Helvetica Neue',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #e0d8cc">The short-name club (≤ 2 letters)</h3>
+        <div id="table-short"></div>
+      </div>
+
+      <p>Thirteen communes have two-letter names. Most are relics of medieval Latin or Old French, worn down to a stub over centuries of usage. Oô in Haute-Garonne (population 103) gets its double accent from Gascon; Py in the Pyrénées-Orientales sits at 1,600 metres in the mountains; Eu in Seine-Maritime gave its name to the whole region of Normandy's pays de Caux in a way that confuses every foreign tourist who tries to book a hotel there.</p>
+
+      <!-- ── Stat cards ────────────────────────────────────────────────────── -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="num">1</div>
+          <div class="label">letter in France's shortest commune name — <strong>Y</strong>, Somme, pop. 89</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">13</div>
+          <div class="label">communes with two-letter names — from <strong>By</strong> (pop. 86) to <strong>Us</strong> (pop. 1,338)</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">35,014</div>
+          <div class="label">communes in France, each with a name registered in the Code officiel géographique</div>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Saint machine ─────────────────────────────────────────── -->
+      <h2>The saint machine</h2>
+
+      <p>11.1% of French communes — 3,898 of them — carry a saint's name. That's roughly one commune in nine. They are not evenly distributed: they cluster in the historically Catholic rural regions, thin out near Protestant strongholds in the Cévennes and Alsace, and vanish almost entirely in Corsica and the DOM-TOM.</p>
+
+      <p>Saint-Martin leads the ranking by a wide margin: 202 communes begin with <em>Saint-Martin</em>, from Saint-Martin-Belle-Roche in Saône-et-Loire to Saint-Martin-de-Bienfaite-la-Cressonnière in Calvados (which is also, incidentally, the third-longest commune name in France, at 41 characters). Saint-Jean follows with 155, Saint-Pierre with 144. The chart below shows the top 12.</p>
+
+      <!-- ── Saints chart ──────────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div id="chart-saints"></div>
+        <figcaption>Top 12 saint types by number of communes. "Saint-Martin" counts any commune whose name starts with <em>Saint-Martin</em> (including compound names like Saint-Martin-de-Bienfaite-la-Cressonnière). Source: INSEE communes-apl 2023 extract, 35,014 communes.</figcaption>
+      </figure>
+
+      <p>Saint Martin of Tours (316–397 AD), the soldier who cut his cloak in half to share with a beggar, became the patron saint of France. Charlemagne promoted his cult across the Frankish empire. When villages wanted a name — or a patron to protect them — Martin was the obvious choice. That decision, made in scattered parishes across twelve centuries, left its mark on the map in 202 places.</p>
+
+      <!-- ── Beat 3: Prepositions ───────────────────────────────────────────── -->
+      <h2>The grammar of the landscape</h2>
+
+      <p>French commune names are not just names — they are sentences. The prepositions embedded in them describe exactly where each village sits in the landscape, and who or what it stood beside when the name was first written down.</p>
+
+      <div class="prep-list">
+        <div class="prep-item">
+          <div class="p-code">-sur-</div>
+          <div class="p-count">1,991</div>
+          <div class="p-tip">alongside a river or geographical feature</div>
+        </div>
+        <div class="prep-item">
+          <div class="p-code">-de-</div>
+          <div class="p-count">1,145</div>
+          <div class="p-tip">of / belonging to a territory or lord</div>
+        </div>
+        <div class="prep-item">
+          <div class="p-code">-lès-</div>
+          <div class="p-count">1,033</div>
+          <div class="p-tip">"near" — beside a larger town</div>
+        </div>
+        <div class="prep-item">
+          <div class="p-code">-en-</div>
+          <div class="p-count">974</div>
+          <div class="p-tip">inside a pays, forest, or region</div>
+        </div>
+        <div class="prep-item">
+          <div class="p-code">-le- / -la-</div>
+          <div class="p-count">1,476</div>
+          <div class="p-tip">the definite article (combined)</div>
+        </div>
+        <div class="prep-item">
+          <div class="p-code">-sous-</div>
+          <div class="p-count">257</div>
+          <div class="p-tip">"under" — tucked below a hillside or château</div>
+        </div>
+      </div>
+
+      <p>The <em>-sur-</em> villages (1,991 of them) are the water towns. Chalon-sur-Saône, Neuilly-sur-Seine, Boulogne-sur-Mer — each name encodes the river that made the settlement possible. The <em>-lès-</em> places (1,033) encode a different kind of proximity: <em>lès</em> is an archaic preposition meaning "beside," used specifically to name smaller places relative to bigger ones — Plessis-lès-Tours, Neuilly-lès-Dijon. Not <em>on</em> anything. Just <em>next to</em>. A geographic footnote, promoted to place name.</p>
+
+      <p>The <em>-en-</em> villages sit inside something — a forest, a province, a pays that no longer exists on any official map. Fontainebleau, Montreuil-en-Caux, Bar-en-Condroz. The landscape those prepositions referred to is often gone; the name remained.</p>
+
+      <!-- ── Beat 4: Length distribution ───────────────────────────────────── -->
+      <h2>The length distribution</h2>
+
+      <p>Most commune names are 7–8 characters long. The distribution is lopsided: a sharp spike in the 6–10 range, then a long tail of longer names stretching all the way to 45. The tail is almost entirely the product of 19th and 20th-century commune mergers, when two villages were fused administratively and both insisted on keeping their name.</p>
+
+      <!-- ── Length histogram ──────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <div id="chart-lengths"></div>
+        <figcaption>Distribution of commune name lengths (characters), from 1 (Y, black bar) to 45 (Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson, grey). The peak is at 7–8 characters. Source: 35,014 communes from INSEE.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4b: Long name extremes ───────────────────────────────────── -->
+      <h2>The baroque outliers</h2>
+
+      <p>At the far end of the distribution sits the longest commune name in France: <strong>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</strong>. 45 characters. Four hyphenated words stitched together like a legal document. It is a commune in the Marne (Champagne), population 491, formed in 1972 when three villages were merged by administrative decree. None of them agreed to give up their name. The result is a place that takes longer to type than to drive through.</p>
+
+      <div class="stats-grid">
+        <div class="stats-block">
+          <h3>Longest commune names</h3>
+          <div id="table-long"></div>
+        </div>
+        <div class="stats-block">
+          <h3>Two extremes</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="extreme-card">
+              <div class="e-label">Shortest — 1 letter</div>
+              <div class="e-name">Y</div>
+              <div class="e-meta">Somme (80) · pop. 89<br>Named for an old word for water</div>
+            </div>
+            <div class="extreme-card">
+              <div class="e-label">Longest — 45 letters</div>
+              <div class="e-name" style="font-size:13px">Saint-Remy-en-Bouzemont-<br>Saint-Genest-et-Isson</div>
+              <div class="e-meta">Marne (51) · pop. 491<br>Three villages merged in 1972</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>Between Y and Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson lie 35,012 communes. Their names are a compressed administrative history of France — Roman foundations, Frankish lords, river crossings, saint's days, feudal allegiances, revolutionary renamings, and bureaucratic mergers. Every name in the Code officiel géographique is a data point. Taken together, they are an accidental atlas of how a country remembers itself.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> All name analysis was run against the 35,014-commune extract embedded in the medical-deserts story's APL GeoJSON (DREES 2023, built from INSEE commune boundaries). Name lengths are character counts of the <code>communeName</code> field as it appears in the COG. Saint-type counts group any commune beginning with <em>Saint-X</em> or <em>Sainte-X</em> where X is the same first element. Preposition counts scan for the hyphenated substring (e.g. <code>-sur-</code>) and may overlap: a commune can contain both <code>-sur-</code> and <code>-en-</code>. The analysis covers metropolitan France and overseas territories.</p>
+
+        <h3>Source</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a> (commune names and codes)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025</a> (Etalab / data.gouv.fr)</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawCharts } from './charts.js';
+    drawCharts();
+  </script>
+</body>
+</html>

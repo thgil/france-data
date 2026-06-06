@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### les-saint-martin: Les Saint-Martin
+- Status: ✅ published
+- Published URL: /stories/les-saint-martin/
+- Source questions: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has a commune called Y. One letter. And 202 different Saint-Martins. A tour of France through 35,000 commune names.
+- Data: Commune names extracted from the 35,014-commune APL GeoJSON (DREES 2023) already in repo at stories/medical-deserts/communes-apl.geojson. No external data download needed.
+- Angle: Text-and-charts story. Four beats: the 1-letter/2-letter club; the saint machine (top 12 saints horizontal bar chart); landscape prepositions (-sur-, -lès-, -en-); baroque long names from 19th-century mergers. Name-length distribution histogram.
+- Draft X summary:
+  > France has a commune called Y (pop. 89, Somme). It also has 202 different Saint-Martins. 3,898 communes bear a saint's name — one in nine. 1,991 contain "-sur-" (they sit on rivers). The longest name is 45 characters, the result of a 1972 forced merger. Today on **france-data**: the complete atlas of how France names its 35,014 towns. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/
