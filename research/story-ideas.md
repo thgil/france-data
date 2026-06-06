@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-names: What's in a name?
+- Status: ✅ published
+- Published URL: /stories/commune-names/
+- Source question: [Q-037](questions.md#q-037), [Q-039](questions.md#q-039)
+- Hook: France has 35,014 communes. One is called Y. 3,898 start with Saint. The longest name needs seven hyphens to fit.
+- Data: Commune names extracted from the DREES APL + IGN contours dataset already in the repo (communes-apl.geojson, 35,014 communes). No new data download required.
+- Angle: Text-and-charts story. Two D3 charts: a name-length histogram (revealing a bimodal distribution — short local names and compound saint-geographic names), and a horizontal bar chart of the top-10 saint names. Six narrative beats: the one-letter commune Y, the length distribution, the saint dominance, the river/sea preposition geography, the longest name (7 hyphens), and the duplicated names.
+- Draft X summary:
+  > France has 35,014 communes. One is called Y (pop. 89). Another is called Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (7 hyphens). 3,898 start with "Saint." And Sainte-Colombe exists 12 times. Today on **france-data**: every commune name, measured. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

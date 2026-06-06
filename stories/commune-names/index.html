@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's in a name? — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Big number highlights ───────────────────────────────────────────── */
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+    @media (max-width: 540px) {
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .stat-highlight {
+      font-family: Georgia, serif;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      color: #1a1a1a;
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute);
+      letter-spacing: 0.4px;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ── Chart figures ───────────────────────────────────────────────────── */
+    .chart-figure { margin: 48px 0; }
+    .chart-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Stats table ─────────────────────────────────────────────────────── */
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .stats-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+    }
+    .stats-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .stats-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 8px;
+      min-width: 1.6ch;
+    }
+    .stats-table .place { font-family: Georgia, serif; }
+
+    /* ── Commune name inline ─────────────────────────────────────────────── */
+    .cn { font-family: Georgia, serif; font-style: italic; }
+
+    /* ── Credits ─────────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">What's in a name?</h1>
+        <p class="story-dek">35,014 communes. One is called Y. 3,898 start with Saint. The longest name needs seven hyphens to fit.</p>
+        <div class="story-meta">
+          <span>2026-06-06</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ────────────────────────────────────────────────────── -->
+      <p>France has 35,014 communes, and their names stretch from a single capital letter to a 45-character hyphenated clause that takes a breath to read aloud. The shortest is <span class="cn">Y</span> — one letter, population 89, tucked into the Somme in northern France. It has a mayor. It has a road sign. The road sign says <span class="cn">Y</span>.</p>
+
+      <p>Thirteen communes manage exactly two letters: <span class="cn">By</span> (Doubs), <span class="cn">Eu</span> (Seine-Maritime), <span class="cn">Gy</span> (Haute-Saône), <span class="cn">Oz</span> (Isère), <span class="cn">Oô</span> (Haute-Garonne), <span class="cn">Py</span> (Pyrénées-Orientales), <span class="cn">Ry</span> (Seine-Maritime), <span class="cn">Sy</span> (Ardennes), <span class="cn">Ur</span> (Pyrénées-Orientales), <span class="cn">Us</span> (Val-d'Oise), <span class="cn">Uz</span> (Hautes-Pyrénées), <span class="cn">Ri</span> (Orne), and <span class="cn">Bû</span> (Eure-et-Loir). The Pyrénées clearly like short names.</p>
+
+      <!-- ── Big numbers ───────────────────────────────────────────────────── -->
+      <div class="numbers-grid">
+        <div>
+          <span class="stat-highlight">35,014</span>
+          <span class="stat-label">communes total</span>
+        </div>
+        <div>
+          <span class="stat-highlight">11.8</span>
+          <span class="stat-label">avg. characters per name</span>
+        </div>
+        <div>
+          <span class="stat-highlight">45</span>
+          <span class="stat-label">longest name, in chars</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: Length chart ──────────────────────────────────────────── -->
+      <h2>A bell curve that skews right</h2>
+
+      <p>Most commune names cluster around 7–8 characters — the sweet spot for something pronounceable, distinctive, and printable on a road sign. But the distribution has a long right tail: hundreds of communes carry names longer than 20 characters, and 50 push past 30. There is also a curious secondary hump in the 16–20 character range — an artifact of France's most productive naming template: <span class="cn">Saint-Xxx-de-Yyy</span> and <span class="cn">Xxx-sur-Yyy</span>, which reliably land in that band.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <svg id="chart-lengths" width="100%" style="overflow:visible; display:block;"></svg>
+        </div>
+        <figcaption>Distribution of commune name lengths by number of characters (including spaces and hyphens). The "31+" bar aggregates all 50 communes with names of 31 or more characters. 35,014 communes total.</figcaption>
+      </figure>
+
+      <!-- ── Beat 3: Saints ────────────────────────────────────────────────── -->
+      <h2>One in nine communes is a saint</h2>
+
+      <p>3,898 communes — 11.1% of France — start their name with <span class="cn">Saint</span> or <span class="cn">Sainte</span>. No other country in Europe has so many places named after Christian saints; it is the accumulated weight of twelve centuries of church politics, parish boundaries, and local piety cast into administrative concrete.</p>
+
+      <p>Saint-Martin leads with 202 variations scattered across France. It has been the country's most popular saint since the 5th century, when the bishop of Tours turned his cloak-sharing story into an institutional franchise. Saint-Jean (155), Saint-Pierre (144), and Saint-Germain (108) follow. Add them up and the top-10 saints alone account for 928 communes — more places than most French départements have in total.</p>
+
+      <figure class="chart-figure">
+        <div class="chart-wrap">
+          <svg id="chart-saints" width="100%" style="overflow:visible; display:block;"></svg>
+        </div>
+        <figcaption>The ten most common saint names across France's 3,898 communes beginning with Saint or Sainte. Communes where "Saint" appears later in a compound name (e.g. <span class="cn">Remy-en-Bouzemont-Saint-Genest</span>) are not counted here.</figcaption>
+      </figure>
+
+      <!-- ── Beat 4: Rivers ────────────────────────────────────────────────── -->
+      <h2>On the river, by the sea</h2>
+
+      <p>French commune names carry a compressed geography. 1,991 names include <em>-sur-</em> — built on, or at least adjacent to, something worth mentioning. The Loire and Seine each claim 70 communes in their name. The Marne, 55. The Meuse, 43.</p>
+
+      <p>But the sea wins. 99 communes are called something-<em>sur-Mer</em> — places where the ocean was important enough to advertise in the name. The preposition changes — <em>-sur-</em>, <em>-les-</em>, <em>-en-</em>, <em>-lès-</em> — but the logic is always the same: tell a stranger where you are relative to something they might know. Another 545 communes use <em>-lès-</em> (meaning "near"), the medieval preposition that survives in French place names long after it vanished from the spoken language.</p>
+
+      <!-- ── Beat 5: Longest name ──────────────────────────────────────────── -->
+      <h2>Seven hyphens, one commune</h2>
+
+      <p>The longest commune name in France is <span class="cn">Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</span>. It is 45 characters long, has seven hyphens, and sits in the Marne with a population of 491. It was created in 1972 by the merger of three separate communes — Saint-Remy-en-Bouzemont, Saint-Genest, and Isson — whose collective pride was sufficient to insist that all three names appear in the result.</p>
+
+      <p>This is the French administrative logic in full flower: every merger preserves its components, every component gets a hyphen, and nobody goes home unhappy except the cartographers. <span class="cn">Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</span> (43 chars, Haute-Saône) and <span class="cn">Saint-Martin-de-Bienfaite-la-Cressonnière</span> (41 chars, Calvados) round out the podium.</p>
+
+      <!-- ── Beat 6: Duplicates ─────────────────────────────────────────────── -->
+      <h2>Twelve Sainte-Colombes</h2>
+
+      <p><span class="cn">Sainte-Colombe</span> exists 12 times, scattered across 12 different départements from the Hautes-Alpes to Val-d'Oise. Each one has its own INSEE code, its own mayor, its own road sign. Each one is, administratively, a completely different place. <span class="cn">Saint-Sauveur</span> appears 11 times. <span class="cn">Saint-Aubin</span> and <span class="cn">Beaulieu</span>, 10 times each.</p>
+
+      <div style="max-width:680px;margin:32px auto;">
+        <h3 style="font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #e0d8cc;">Most duplicated commune names</h3>
+        <table class="stats-table">
+          <tbody id="table-duplicates"></tbody>
+        </table>
+      </div>
+
+      <p>In all, 4,272 commune names are shared by at least two different communes. France has 35,014 communes and roughly 30,742 distinct names — meaning around one name in eight belongs to more than one place. You can mail a letter to <span class="cn">Sainte-Colombe</span> and be confident only that it will reach one of twelve possible villages, any of which will want to tell you it's the real one.</p>
+
+      <!-- ── Closing ────────────────────────────────────────────────────────── -->
+      <p>Every commune name is a layer of sediment: Old Occitan, Old Frankish, Latin ecclesiastics, revolutionary renaming, mergers, splits, and the occasional bureaucratic whim. The names aren't labels. They're the shortest possible record of how France became France — 35,014 times, one hyphen at a time.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names come from the DREES APL dataset joined to IGN administrative contours — the same source used in <a href="../medical-deserts/">Story 2 (medical deserts)</a>. The dataset covers 35,014 communes including overseas territories, in their official INSEE COG form. Population figures are 2021 INSEE census estimates. Name-length statistics, saint counts, preposition tallies, and duplicate counts were computed from this dataset; no external source was used for commune names.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — APL aux médecins généralistes 2023</a></li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">IGN / Etalab — Contours administratifs communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+  <script type="module" src="./charts.js"></script>
+</body>
+</html>
