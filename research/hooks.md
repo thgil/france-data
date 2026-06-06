@@ -27,3 +27,7 @@ that surfaced it.
 - 🔥 Finistère: under a million residents, over 1,000 bars. Per capita, Bretagne is off the chart. [Q-033]
 - 🔥 59% of French bars have a registered business name. The rest trade anonymously. The named ones: #BRUT, 0% ALCOHOL FREE EXPERIENCE, LE TWENTY FOUR SEVEN — and a bar simply called %. [Q-033]
 - 🔥 The diagonale du vide shows up again — the same empty diagonal that's a medical desert and a bakery desert is a bar desert too. The geography is surprisingly stable across trades. [Q-033]
+- 🔥 France has 3,882 communes named Saint- or Sainte-. That's one in nine. Saint-Martin alone has 202 of them. If you live in Saint-Martin, you share your town name with 201 postal codes. [Q-037]
+- 🔥 One French commune is called Y. One letter. Population 87. It's in the Somme. [Q-037, Q-039]
+- 🔥 The longest commune name in France is Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson (45 characters, Marne). It was created by merging two parishes that couldn't agree on one name. The hyphen is a monument to negotiation. [Q-037]
+- 🔥 38.3% of French communes have at least one hyphen. The formula: [place or saint] + [preposition] + [geographic feature]. 1,991 communes are "-sur-" something. 570 are "-lès-" something. The prepositions are a medieval geography lesson. [Q-037]
