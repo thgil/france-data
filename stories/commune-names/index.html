@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The commune called Y — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Name tables ─────────────────────────────────────────────────── */
+    .name-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .name-grid { grid-template-columns: 1fr; }
+    }
+
+    .name-block h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0d8cc;
+    }
+
+    .name-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .name-table td {
+      padding: 5px 0;
+      vertical-align: baseline;
+    }
+    .name-table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #555;
+      font-size: 12px;
+    }
+    .name-table tr:not(:last-child) td {
+      border-bottom: 1px solid #ede8e0;
+    }
+    .name-table .rank {
+      font-size: 10px;
+      color: #aaa;
+      padding-right: 6px;
+      min-width: 1.6ch;
+    }
+    .name-table .place {
+      font-family: Georgia, serif;
+    }
+    .name-table .dept-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      color: #888;
+      background: #f0ece4;
+      border-radius: 2px;
+      padding: 1px 4px;
+      margin-left: 4px;
+    }
+
+    /* ── Chart figures ───────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+    .chart-figure figcaption {
+      margin-top: 10px;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute, #888);
+    }
+    .chart-mount {
+      background: #fdf9f3;
+      border: 1px solid #e0d8cc;
+      border-radius: 3px;
+      padding: 16px 8px 8px;
+      overflow: hidden;
+    }
+
+    /* ── Highlight callout ───────────────────────────────────────────── */
+    .callout {
+      margin: 32px 0;
+      padding: 20px 24px;
+      background: #faf7f0;
+      border-left: 3px solid #c67c00;
+      font-family: Georgia, serif;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+    .callout .callout-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .callout .callout-sub {
+      font-size: 0.85em;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      color: #666;
+    }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute, #888);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute, #ccc);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">The commune called Y</h1>
+        <p class="story-dek">France has 35,014 communes. One is named Y. Another runs to 45 characters. In between: 3,898 saints, 13 two-letter villages, and one name that appears in 12 different départements.</p>
+        <div class="story-meta">
+          <span>2026-06-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Y ─────────────────────────────────────────────────── -->
+      <p>In the Somme, département 80, there is a commune called Y. Just Y. One letter. Population 89. It has a mayor, a postal code (80190), and a centuries-old history — the name is thought to derive from a Germanic root meaning <em>water</em>, filtered through generations of Old Picard dialect until nothing remained but a vowel. It is the shortest commune name in France, and quite possibly the shortest legal place name in Europe.</p>
+
+      <div class="callout">
+        <span class="callout-name">Y</span>
+        <span class="callout-sub">Somme (80) · population 89 · the only 1-letter commune in France</span>
+      </div>
+
+      <p>Y is not an outlier so much as an extreme point on a very wide distribution. France's 35,014 communes — metropolitan territory plus overseas — carry names ranging from one character to 45. The average is 11.8 characters. The median is 10. The histogram below shows the full shape.</p>
+
+      <!-- ── Chart 1: Length distribution ─────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-lengths"></div>
+        <figcaption>Name length distribution for all 35,014 French communes. Y (1 character) sits at the far left; <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em> (45 characters) at the far right. Most communes cluster between 6 and 15 characters.</figcaption>
+      </figure>
+
+      <!-- ── Beat 2: Two-letter club ───────────────────────────────────── -->
+      <h2>The two-letter club</h2>
+
+      <p>Below Y, thirteen communes share the two-character tier. They are:</p>
+
+      <div class="name-grid">
+        <div class="name-block">
+          <h3>The 13 two-letter communes</h3>
+          <table class="name-table" id="table-twoletter">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="name-block">
+          <h3>The 10 longest commune names</h3>
+          <table class="name-table" id="table-longest">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>The two-letter communes are scattered — By in the Doubs, Bû in Eure-et-Loir, Eu in Seine-Maritime, Gy in Haute-Saône, Oz in Isère, Oô in Haute-Garonne (those are two letter O's), Py and Ur in Pyrénées-Orientales, Ri in Orne, Ry in Seine-Maritime, Sy in Ardennes, Us in Val-d'Oise, Uz in Hautes-Pyrénées. Many sit in river valleys or mountain folds where ancient names compressed over time. Ry, in Normandy, is thought to be the real-world model for <em>Yonville-l'Abbaye</em> in Flaubert's <em>Madame Bovary</em>.</p>
+
+      <!-- ── Beat 3: The long end ──────────────────────────────────────── -->
+      <h2>The long end: communes nouvelles</h2>
+
+      <p>France's longest commune name — <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, in the Marne — runs to 45 characters and contains two saints, three hyphens, a preposition, and a conjunction. It is a <em>commune nouvelle</em>: in 2016, three villages merged under a single administrative umbrella and hyphenated their names together. The result is a mouthful that fits on no standard form.</p>
+
+      <div class="callout">
+        <span class="callout-name">Saint-Remy-en-Bouzemont-<br>Saint-Genest-et-Isson</span>
+        <span class="callout-sub">Marne (51) · 45 characters · the longest commune name in France</span>
+      </div>
+
+      <p>The long tail of French commune names is largely a record of 21st-century municipal mergers. France launched a major fusional policy in 2015 with the <em>loi NOTRe</em>, encouraging neighbouring villages to consolidate. Many chose to keep both names, joined by hyphens. The result is an ongoing ratchet: the list of 40-plus-character communes grows with each wave of mergers, and France's administrative vocabulary grows a little stranger each time.</p>
+
+      <!-- ── Beat 4: Saints ────────────────────────────────────────────── -->
+      <h2>One nation, 3,898 saints</h2>
+
+      <p>The most striking pattern is not at the extremes but in the middle: 3,898 of France's 35,014 communes — <strong>11.1%</strong> — begin with Saint or Sainte. This is a direct imprint of medieval parish geography. Every diocese planted saints in the landscape, and when the Revolution created communes from those parishes in 1789, the names came with them. Attempts to de-Christianise place names during the Terror renamed a few hundred, but most reverted within a decade.</p>
+
+      <p>The most-duplicated name is <strong>Sainte-Colombe</strong>, which appears 12 times — in 12 different départements, from Haute-Garonne to Yonne. Saint-Sauveur appears 11 times. Saint-Aubin, 10. The chart below shows the full top 15.</p>
+
+      <!-- ── Chart 2: Most common names ───────────────────────────────── -->
+      <figure class="chart-figure">
+        <div class="chart-mount" id="chart-common"></div>
+        <figcaption>The 15 most-repeated exact commune names in France. Each bar is the count of communes sharing that name — in different départements, sometimes different regions. Sainte-Colombe leads with 12 occurrences across 12 départements.</figcaption>
+      </figure>
+
+      <!-- ── Beat 5: Articles ──────────────────────────────────────────── -->
+      <h2>La, Le, Les</h2>
+
+      <p>Beyond saints, the dominant pattern is the definite article: <em>La</em> leads all first words with 1,054 communes — La Chapelle-something, La Tour-something, La Croix-something. <em>Le</em> follows with 758, and <em>Les</em> with 328. Together, articled communes number 2,140, or 6.1% of the total. This is a landscape still narrated by medieval French grammar, where every hill, wood, ford, and chapel found its name in a gendered article and a common noun.</p>
+
+      <p>The full 35,014 names form a kind of dictionary of French rural life: <em>Beaulieu</em> (beautiful place, 10 occurrences), <em>Beaumont</em> (beautiful hill, 8), <em>Verrières</em> (glassworks, 8). The same names repeat across the country because they described the same features — a spring, a forest edge, a Roman road — that medieval settlers found everywhere and named the same way everywhere.</p>
+
+      <!-- ── Beat 6: Close ─────────────────────────────────────────────── -->
+      <p>What France's commune names preserve, across 35,014 entries, is a compressed archive of a millennium of settlement. The single letter Y in the Somme is as much a historical document as the 45-character hyphenated merger in the Marne. One encodes a Germanic root through centuries of erosion; the other encodes a 2016 vote in a regional council chamber. Both end up on the same administrative list, alphabetically sorted, equally official.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations are drawn from the APL commune dataset published by DREES (2023 vintage, INSEE 2021 population base), which covers all 35,014 French communes including overseas territories. Name lengths are computed on the official commune name string as published in the dataset. A small number of overseas commune names contain non-Latin characters; all are counted by character length as stored in UTF-8.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée aux médecins généralistes 2023</a> (commune names and population, reused from <a href="../medical-deserts/">Story 2</a>)</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">data.gouv.fr — Contours administratifs des communes 2025</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawLengthHistogram, drawMostCommon } from './charts.js';
+
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+      return res.json();
+    }
+
+    function populateTwoLetter(shortest) {
+      const two = shortest.filter(d => d.name.length === 2);
+      const tbody = document.querySelector('#table-twoletter tbody');
+      if (!tbody) return;
+      tbody.innerHTML = two.map((d, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place">${d.name}<span class="dept-badge">${d.dept}</span></td>
+          <td>${(d.pop || 0).toLocaleString('fr-FR')}</td>
+        </tr>`
+      ).join('');
+    }
+
+    function populateLongest(longest) {
+      const tbody = document.querySelector('#table-longest tbody');
+      if (!tbody) return;
+      tbody.innerHTML = longest.slice(0, 8).map((d, i) =>
+        `<tr>
+          <td class="rank">${i + 1}</td>
+          <td class="place" style="font-size:11px;line-height:1.3">${d.name}<span class="dept-badge">${d.dept}</span></td>
+          <td>${d.name.length}</td>
+        </tr>`
+      ).join('');
+    }
+
+    async function main() {
+      try {
+        const stats = await loadJSON('./stats.json');
+
+        populateTwoLetter(stats.shortest);
+        populateLongest(stats.longest);
+
+        drawLengthHistogram('#chart-lengths', stats.lengthDist);
+        drawMostCommon('#chart-common', stats.mostCommon);
+
+      } catch (err) {
+        console.error('Failed to load commune-names data:', err);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
