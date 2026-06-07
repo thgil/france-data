@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### baguette-capital: The baguette capital
+- Status: ✅ published
+- Published URL: /stories/baguette-capital/
+- Source question: [Q-034](questions.md#q-034-where-is-the-baguette-capital--the-commune-with-the-most-bakeries-per-capita)
+- Hook: Which commune in Île-de-France has the most bakeries per resident? The answer is different for villages vs cities — and the outer-ring gap mirrors the medical desert.
+- Data: IDF BPE commune-level bakery counts ([DS-002](datasets.md#ds-002)) with pre-computed `bakeriesPer10k` and population. 1,300 communes; same communes.geojson used in the pharmacy-myth story.
+- Angle: Choropleth of IDF communes coloured by bakeries per 10k. Two stats tables (city density ranking, absolute count). Département bar chart. Text-heavy narrative walking through the small-village vs city dichotomy and the outer-ring access gap.
+- Draft X summary:
+  > Paris 1er: 20.8 bakeries per 10,000 residents. Châtenoy (pop. 149): 67 per 10,000 — but that's one artisan bakery in a village. 607 IDF communes have zero. They hold 3.4% of the population. Today on **france-data**: per-capita bread access across Île-de-France, and why the outer ring runs at half Paris's rate. 🥖🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

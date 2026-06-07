@@ -173,8 +173,11 @@ datasets and the resulting story.
 - Story: [bars](/stories/bars/)
 
 ### Q-034: Where is the "baguette capital" — the commune with the most bakeries per capita?
-- Status: 🟢 open
+- Status: ✅ answered
 - Topic: [culture](topics/culture.md)
+- Datasets: [DS-002](datasets.md#ds-002) (BPE Commerces IDF — bakery counts per commune with population)
+- Finding: Among all IDF communes, Châtenoy (Seine-et-Marne, pop. 149) tops the raw per-capita ranking at 67/10k — but that's a single-bakery artefact. Among cities (pop ≥ 5,000), Paris 1er wins at 20.8/10k (1 bakery per 481 residents). Paris as a département averages 8.0/10k, roughly twice the outer-ring average of 4.3–4.5/10k. 607 of 1,300 IDF communes have zero bakeries, but they hold only 3.4% of IDF's population — bread access is much better distributed than doctor access.
+- Story: [baguette-capital](/stories/baguette-capital/)
 
 ### Q-035: How many communes have a public library, and how many don't?
 - Status: 🟢 open
