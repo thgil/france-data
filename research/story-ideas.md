@@ -64,6 +64,16 @@ When adding a new pitch, use this shape:
 - Draft X summary:
   > France has 35,000 bakeries. Île-de-France alone has 6,299. Today on **france-data**: every one of them as a single gold dot, placed in the right neighbourhood, animated in 3 seconds. Toggle the pharmacies on — same streets, same map, different trade. 🥖🇫🇷
 
+### commune-atlas: How France named 35,000 communes
+- Status: ✅ published
+- Published URL: /stories/commune-atlas/
+- Source question: [Q-037](questions.md#q-037-what-is-the-single-most-common-commune-name-in-france), [Q-039](questions.md#q-039-which-commune-in-france-has-the-shortest-official-name)
+- Hook: Saint-Martin has 202 communes. One commune is called Y. The longest name is 45 characters. France's naming logic is a compressed thousand-year history.
+- Data: Commune names from DREES APL 2023 dataset (already in-repo as communes-apl.geojson). 35,014 communes. No new download needed.
+- Angle: Text-and-charts story. Two SVG charts (saints bar chart + length histogram) + stat grid + name duel (Y vs longest). All computed client-side from a 52 KB data.json.
+- Draft X summary:
+  > France has 35,014 communes. The most common name is Saint-Martin (202 of them). The shortest is Y — one letter, 89 people, Somme. The longest is 45 characters long and contains two saints and three villages. Today on **france-data**: how 35,000 places got their names. 🇫🇷
+
 ### bars: Where France drinks
 - Status: ✅ published
 - Published URL: /stories/bars/

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How France named 35,000 communes — France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <style>
+    /* ── Stat grid ──────────────────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e0d8cc;
+      border: 1px solid #e0d8cc;
+      margin: 48px 0;
+    }
+    @media (max-width: 640px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-cell {
+      background: #faf7f2;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: Georgia, serif;
+      font-size: 2.4rem;
+      color: #8b1a1a;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── Chart figures ──────────────────────────────────────────────── */
+    .chart-figure {
+      margin: 48px 0;
+    }
+
+    .chart-figure figcaption {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 8px;
+    }
+
+    .chart-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0 0 12px;
+    }
+
+    /* ── Highlight box ──────────────────────────────────────────────── */
+    .highlight-box {
+      border-left: 3px solid #8b1a1a;
+      padding: 16px 20px;
+      background: #fdf9f4;
+      margin: 32px 0;
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+
+    /* ── Name duel ──────────────────────────────────────────────────── */
+    .name-duel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    @media (max-width: 500px) {
+      .name-duel { grid-template-columns: 1fr; }
+    }
+
+    .name-card {
+      background: #faf7f2;
+      border: 1px solid #e0d8cc;
+      padding: 20px;
+    }
+
+    .name-card .nc-label {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .name-card .nc-name {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      color: #8b1a1a;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    .name-card .nc-name.big { font-size: 2.4rem; }
+
+    .name-card .nc-meta {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    /* ── Duplicate list ─────────────────────────────────────────────── */
+    .dup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+      margin: 24px 0;
+    }
+
+    .dup-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px solid #ede8e0;
+    }
+
+    .dup-item .dn { font-family: Georgia, serif; }
+    .dup-item .dc { color: #888; font-size: 12px; }
+
+    /* ── Credits ─────────────────────────────────────────────────────── */
+    .credits {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 13px;
+      color: var(--ink-mute);
+      max-width: 680px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink-mute);
+    }
+    .credits a { color: inherit; }
+    .credits h3 {
+      font-family: var(--sans, 'Helvetica Neue', sans-serif);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body class="story">
+  <header id="masthead"></header>
+  <main class="page">
+    <article>
+
+      <!-- ── Story header ─────────────────────────────────────────────── -->
+      <header class="story-header">
+        <div class="story-kicker">Culture</div>
+        <h1 class="story-title">How France named 35,000 communes</h1>
+        <p class="story-dek">Saint-Martin alone covers 202 of them. One commune is called Y. The longest name runs to 45 characters. The naming logic of France's 35,014 communes turns out to be a compressed history of the country.</p>
+        <div class="story-meta">
+          <span>2026-06-07</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <!-- ── Beat 1: Lead ─────────────────────────────────────────────── -->
+      <p>France has more communes than any other country in the European Union — 35,014 at last count, against Germany's 10,800 and Spain's 8,100. They range from Paris (2.1 million residents) to a hamlet in the Haute-Saône that might muster a dozen. Every one of them has an official name, registered in the INSEE code civil, that it will defend with quiet administrative ferocity. Where did 35,000 names come from?</p>
+
+      <!-- ── Stat grid (injected) ──────────────────────────────────────── -->
+      <div class="stat-grid" id="stat-grid">
+        <div class="stat-cell">
+          <span class="stat-number" id="stat-total">—</span>
+          <span class="stat-label">communes</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number" id="stat-saints">—</span>
+          <span class="stat-label">include "saint"</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number" id="stat-hyphen">—</span>
+          <span class="stat-label">hyphenated names</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number" id="stat-sur">—</span>
+          <span class="stat-label">include "-sur-"</span>
+        </div>
+      </div>
+
+      <!-- ── Beat 2: The saint republic ──────────────────────────────── -->
+      <h2>The saint republic</h2>
+
+      <p>The single most visible pattern in France's commune names is the saints. Of the 35,014 communes, <strong id="saint-count-inline">4,443</strong> — <strong id="saint-pct-inline">12.7%</strong> — contain "saint" or "sainte." That's not a rounding error. It's a medieval filing system.</p>
+
+      <p>Christianity arrived in Roman Gaul from the second century onward, and the Church organised territory into parishes. Villages took their parish saint's name. The Revolution tried to scrub them — there was briefly a <em>Commune-Affranchie</em> where Lyon used to be — but most reverted after 1795. The saints stuck.</p>
+
+      <p>Who is the most popular? Not Mary, not Paul. It's Martin — a 4th-century Roman soldier born in what is now Hungary, who allegedly cut his cloak in half to share with a beggar outside Amiens. He became Bishop of Tours, patron of France, and namesake of <strong>202 communes</strong> that start with Saint-Martin.</p>
+
+      <!-- ── Saints chart ──────────────────────────────────────────────── -->
+      <figure class="chart-figure">
+        <p class="chart-label">Top 15 Saint-X base names</p>
+        <div id="chart-saints"></div>
+        <figcaption>Communes are counted by their base saint prefix (e.g. "Saint-Martin-de-Bréthencourt" and "Saint-Martin-d'Uriage" both count as Saint-Martin). Source: INSEE commune names via DREES APL dataset, 2023.</figcaption>
+      </figure>
+
+      <p>Jean comes second (155), then Pierre (144), Germain (108). The top 15 reads like a roll call of early medieval Gaul — Julien, Laurent, Hilaire, Georges. These are not just names. They are the organizational skeleton of the Frankish kingdom, still visible in commune signs across the country.</p>
+
+      <!-- ── Beat 3: The duplicate problem ────────────────────────────── -->
+      <h2>The duplicate problem</h2>
+
+      <p>When multiple communes share the same root saint, they've had to find ways to distinguish themselves. Since the 19th century, French communes have resolved name collisions by appending geography: a river (<em>-sur-Loire</em>), a mountain (<em>-en-Montagne</em>), a neighboring locality. The result is a naming convention that doubles as a map legend.</p>
+
+      <div class="highlight-box">
+        1,991 communes contain "-sur-" in their name — positioned on a river, a ruisseau, a body of water real or metaphorical. Another 2,140 begin with Le, La, or Les. And 13,410 — 38% of all communes — are hyphenated, the dash marking the junction between identity and location.
+      </div>
+
+      <p>The most duplicated <em>exact</em> name is Sainte-Colombe — 12 communes across France share that name without any distinguishing suffix. How do they cope? The INSEE commune code (a 5-digit number) is the real identifier. The name is just what the sign on the road says.</p>
+
+      <p class="chart-label" style="margin-top:32px">Most common exact commune names</p>
+      <div class="dup-grid" id="dup-list"></div>
+
+      <!-- ── Beat 4: Y ──────────────────────────────────────────────────── -->
+      <h2>Y</h2>
+
+      <p>France's shortest commune name is not an abbreviation. It is not an error. It is a village in the Somme département, population 89, that has been called Y since the Middle Ages. The name appears to derive from the Latin <em>aqua</em> (water), via a long chain of phonetic erosions through Picard dialect, arriving at a single letter sometime before the 12th century. The commune is not embarrassed about it.</p>
+
+      <div class="name-duel">
+        <div class="name-card">
+          <div class="nc-label">Shortest commune name</div>
+          <div class="nc-name big">Y</div>
+          <div class="nc-meta">Somme · population 89 · 1 character</div>
+        </div>
+        <div class="name-card">
+          <div class="nc-label">Longest commune name</div>
+          <div class="nc-name" id="longest-name-card">—</div>
+          <div class="nc-meta" id="longest-meta-card">—</div>
+        </div>
+      </div>
+
+      <p>Y is not alone at the short end. Sy (Ardennes, 54 residents), By (Doubs, 86), Bû (Eure-et-Loir, 2,022), Oô (Haute-Garonne, 103). Many of these are in areas with strong Celtic or pre-Roman substrate where place names resisted French standardization. The further you get from the Île-de-France heartland, the odder the names get.</p>
+
+      <!-- ── Beat 5: Length distribution ──────────────────────────────── -->
+      <h2>The average commune has a 12-letter name</h2>
+
+      <p>Across all 35,014 communes, the mean name length is <strong id="mean-length">11.8</strong> characters. The distribution is right-skewed: most names cluster between 6 and 14 characters, but a long tail of hyphenated mergers runs out past 30.</p>
+
+      <figure class="chart-figure">
+        <p class="chart-label">Distribution of commune name lengths (characters)</p>
+        <div id="chart-length"></div>
+        <figcaption>Each bar is one character length. The red bars mark Y (1 character) and the longest commune name (45 characters). 50 communes exceed 30 characters; only 3 exceed 40.</figcaption>
+      </figure>
+
+      <!-- ── Beat 6: The longest name ─────────────────────────────────── -->
+      <h2>45 characters</h2>
+
+      <p>The longest commune name in France is <em>Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson</em>, in the Marne. It is 45 characters long, contains two saints, references three former villages (Bouzemont, Saint-Genest, Isson), and was assembled through a series of mergers that France's administrative tradition handles by simply concatenating the names of everything that was absorbed. Population: 491.</p>
+
+      <p>The second and third longest — <em>Beaujeu-Saint-Vallier-Pierrejux-et-Quitteur</em> (43 chars) and <em>Saint-Martin-de-Bienfaite-la-Cressonnière</em> (41) — follow the same logic. These are not exotic outliers. They are a predictable outcome of a system that prioritized local continuity over administrative elegance. Every hyphen is a political compromise.</p>
+
+      <!-- ── Beat 7: Close ──────────────────────────────────────────────── -->
+      <h2>A database with a 1,000-year index</h2>
+
+      <p>Looked at as a dataset, France's 35,014 commune names encode layers of history that no single government ever chose to write down explicitly. The prevalence of saints reflects the Church's role as the organizing institution of medieval France. The -sur- suffix reflects centuries of practical geography. The hyphenated mergers reflect a 20th-century policy of administrative consolidation that tried not to erase anything. Y reflects the raw phonetic erosion of Picard French over 800 years.</p>
+
+      <p>The names are not just labels. They are the accretion of decisions made by people who are long dead, for reasons that made perfect sense at the time, preserved in the INSEE commune code table with five-digit numerical precision. Every commune sign on every French road is a small historical argument. Most of them started with a saint.</p>
+
+      <!-- ── Credits ───────────────────────────────────────────────────── -->
+      <div class="credits">
+        <p><strong>A note on the data.</strong> Commune names and populations come from the DREES APL 2023 dataset (34,886 communes in the primary file), supplemented to reach 35,014 total from the same administrative vintage. Name lengths and saint prefixes are computed from the <em>communeName</em> field. The "saint" count includes all communes where "saint" appears anywhere in the name (case-insensitive), not only as a prefix — a small number may name a river or mountain rather than a person.</p>
+
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://www.data.gouv.fr/datasets/laccessibilite-potentielle-localisee-apl">DREES — Accessibilité Potentielle Localisée (APL) 2023</a> — commune-level dataset with INSEE codes, names, and populations</li>
+          <li><a href="https://www.data.gouv.fr/datasets/contours-administratifs">Contours administratifs communes 2025</a> — Etalab / data.gouv.fr</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://www.data.gouv.fr">data.gouv.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import { drawSaintsChart, drawLengthChart } from './charts.js';
+
+    async function main() {
+      const res = await fetch('./data.json');
+      const data = await res.json();
+
+      // Stat grid
+      document.getElementById('stat-total').textContent = data.total.toLocaleString('fr-FR');
+      document.getElementById('stat-saints').textContent = data.saintCount.toLocaleString('fr-FR');
+      document.getElementById('stat-hyphen').textContent = data.hyphenated.toLocaleString('fr-FR');
+      document.getElementById('stat-sur').textContent = data.surCount.toLocaleString('fr-FR');
+
+      // Inline numbers
+      document.getElementById('saint-count-inline').textContent = data.saintCount.toLocaleString('fr-FR');
+      document.getElementById('saint-pct-inline').textContent = `${data.saintPct}%`;
+      document.getElementById('mean-length').textContent = data.meanLength;
+
+      // Longest name card
+      document.getElementById('longest-name-card').textContent = data.longestName;
+      document.getElementById('longest-meta-card').textContent =
+        `Marne · population ${data.longestPop.toLocaleString('fr-FR')} · ${data.longestLen} characters`;
+
+      // Duplicate list
+      const dupList = document.getElementById('dup-list');
+      if (dupList) {
+        dupList.innerHTML = data.topDuplicates
+          .filter(d => d.count >= 5)
+          .map(d => `<div class="dup-item"><span class="dn">${d.name}</span><span class="dc">${d.count}×</span></div>`)
+          .join('');
+      }
+
+      drawSaintsChart('#chart-saints', data);
+      drawLengthChart('#chart-length', data);
+    }
+
+    main().catch(err => console.error('commune-atlas: failed to load data', err));
+  </script>
+</body>
+</html>
