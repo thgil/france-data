@@ -68,6 +68,10 @@ Of 11 operations in the 7e marked `ABANDONNÉ`:
 
 The page reports both, separately, in those words.
 
+**Five of the seven abandoned local projects are sited at Champ-de-Mars**: Parcours de santé (€40,000), Jardin pédagogique (€60,000), Une ruche (€12,000), Cultiver au Champ-de-Mars (€20,000), Panneaux Histoire (€2,500). The other two are Éclairage Saint-Thomas d'Aquin (€150,000) and lampadaires télescopiques (€25,000).
+
+This is the section's most consequential finding and it is directly adverse to the author's own proposal: **a publicly-voted fitness trail at Champ-de-Mars was approved and then abandoned.** The dataset records no reasons. A plausible hypothesis — Champ-de-Mars is a *site classé*, so physical installations require heritage approval — **must be verified against a primary source before the page or any proposal states it.** Until verified, the page reports the pattern and explicitly declines to explain it.
+
 ### Budget Participatif still moves more into the 7e than the état spécial
 
 2025 edition, deduplicated to project level: **€850,000 in `PROCEDURES`** (one project — "Rénover, améliorer et végétaliser les établissements scolaires du 7e" — spanning three operations) and **€1,010,000 not yet started** (two projects). Against €161,405 a year of local investment capacity, the directional conclusion holds: for a capital proposal, the Budget Participatif is the mechanism and the état spécial is not.
@@ -233,6 +237,8 @@ Problem; candidate locations mapped; cost tiers at €20k / €75k / €250k; th
 The status log is the component with the longest useful life. It converts scattered correspondence into a record that can be cited.
 
 **Evidence limit:** no runner-count data exists. Bike counters near Champ-de-Mars may be shown as an active-mobility proxy, labelled as a proxy. They are not evidence of demand for a running facility and must not be presented as such.
+
+**Precedent that cuts against the proposal, and must be addressed on the page:** a *Parcours de santé au Champ de Mars* (€40,000) won a Budget Participatif vote and was abandoned, as were four other Champ-de-Mars projects. A proposal for a running facility at the same site that does not confront this will be dismissed by anyone who knows the file. The proposal's first research task is establishing why those projects died; the answer determines whether the pilot names a Champ-de-Mars location at all, or deliberately sites itself just outside the protected perimeter.
 
 **Scale context for the proposal itself:** at €20k–250k, the pilot is between an eighth and one and a half times the arrondissement's *entire annual investment budget* of €161,405. That is the single most important fact for choosing which mechanism to approach, and it belongs on the proposal page.
 
