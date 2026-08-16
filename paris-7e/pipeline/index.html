@@ -388,6 +388,7 @@
       t,
       titleHtml,
       glossHtml,
+      glossText,
       STATUS_ORDER,
     } from '../section.js';
 
@@ -546,8 +547,11 @@
         for (const project of champ) {
           const li = document.createElement('li');
           const title = document.createElement('span');
-          title.setAttribute('lang', 'fr');
-          title.textContent = project.titre_projet_gagnant;
+          title.innerHTML = titleHtml(
+            project.identifiant_projet_gagnant,
+            project.titre_projet_gagnant,
+            'projects',
+          );
           const budget = document.createElement('span');
           budget.className = 'champ-budget';
           budget.textContent = ` ${formatMoney(project.budget)}`;
@@ -1120,8 +1124,9 @@
         for (const status of statuses) {
           const option = document.createElement('option');
           option.value = status;
-          option.textContent = status;
-          option.setAttribute('lang', 'fr');
+          // A select cannot stack two lines, so it prints both inline.
+          option.textContent = glossText(status, 'avancement');
+          option.title = status;
           select.append(option);
         }
         select.value = current;

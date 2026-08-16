@@ -186,6 +186,7 @@
     import {
       initSection, loadData, loadContent, applyLang, formatMoney, formatNumber,
       formatDate, onLangChange, pickSources, renderProvenance, t,
+      titleHtml, glossHtml, gloss, getLang,
     } from '../../section.js';
 
     const BASEMAP = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
@@ -301,8 +302,11 @@
         { en: 'Status (avancement)', fr: 'Avancement' },
       ], champMars.map((project) => {
         const title = el('span');
-        title.setAttribute('lang', 'fr');
-        title.textContent = project.titre_projet_gagnant;
+        title.innerHTML = titleHtml(
+          project.identifiant_projet_gagnant,
+          project.titre_projet_gagnant,
+          'projects',
+        );
         if (project === direct) {
           const strong = el('strong');
           strong.append(title);
@@ -347,8 +351,9 @@
     }
 
     function abandonedPill() {
-      const pill = el('span', 'pill pill--abandonne', 'ABANDONNÉ');
-      pill.setAttribute('lang', 'fr');
+      const pill = el('span', 'pill pill--abandonne');
+      pill.innerHTML = glossHtml('ABANDONNÉ', 'avancement');
+      pill.title = 'Abandoned (ABANDONNÉ)';
       return pill;
     }
 
@@ -371,6 +376,7 @@
           geometry: { type: 'Point', coordinates: [operation.longitude, operation.latitude] },
           properties: {
             title: operation.titre_projet_gagnant,
+            projId: operation.identifiant_projet_gagnant ?? '',
             operation: operation.titre_operation,
             edition: operation.edition,
             budget: operation.budget_global_projet_gagnant,
@@ -453,10 +459,11 @@
           map.getCanvas().style.cursor = 'pointer';
           const p = event.features[0].properties;
           tooltip.innerHTML = '';
-          const name = el('span', 'tt-name', p.title);
-          name.setAttribute('lang', 'fr');
-          const row1 = el('span', 'tt-row', `${p.avancement} · ${p.edition} · ${formatMoney(Number(p.budget))}`);
-          row1.setAttribute('lang', 'fr');
+          const name = el('span', 'tt-name');
+          name.innerHTML = titleHtml(p.projId, p.title, 'projects');
+          const status = gloss(p.avancement, 'avancement');
+          const statusText = status && getLang() !== 'fr' ? status : p.avancement;
+          const row1 = el('span', 'tt-row', `${statusText} · ${p.edition} · ${formatMoney(Number(p.budget))}`);
           const row2 = el('span', 'tt-row', p.adresse || '');
           row2.setAttribute('lang', 'fr');
           tooltip.append(name, row1, row2);

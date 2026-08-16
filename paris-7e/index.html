@@ -377,7 +377,8 @@
 
         const what = document.createElement('div');
         what.className = 'date-what';
-        what.setAttribute('lang', 'fr');
+        // Labels are hand-authored in English; only proper nouns inside them
+        // are French, so the whole node must not be tagged as French.
         what.textContent = entry.label;
         li.append(what);
 
