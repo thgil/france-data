@@ -229,6 +229,33 @@ export function abandonedFile(operationRows, localCode, status = ABANDONED_STATU
   };
 }
 
+export const DELIVERED_STATUS = 'FIN';
+export const HANDOVER_STATUS = 'LIVRAISON';
+
+// ---------------------------------------------------------------------------
+// deliveredFile
+// The counterpart to abandonedFile: projects that reached the end. Same unit of
+// analysis, so the two are directly comparable and neither flatters the other.
+// Selection is on avancement_projet, the project's own status, because a
+// project is delivered when the project is finished, not when one of its
+// operations is. Operations are still carried for the count.
+// ---------------------------------------------------------------------------
+export function deliveredFile(operationRows, localCode, status = DELIVERED_STATUS) {
+  const projects = dedupeProjects(operationRows).filter(p => p.avancement_projet === status);
+  const split = splitLocalVsCitywide(projects, localCode);
+  return {
+    status,
+    operation_count: operationRows.filter(r => r.avancement_operation === status).length,
+    project_count: split.local_count + split.citywide_count,
+    local: split.local,
+    citywide: split.citywide,
+    local_total: split.local_total,
+    citywide_total: split.citywide_total,
+    local_budget_unknown: split.local_budget_unknown,
+    citywide_budget_unknown: split.citywide_budget_unknown,
+  };
+}
+
 // ---------------------------------------------------------------------------
 // statusFunnel
 // Operation counts and deduplicated project money at each avancement_operation.

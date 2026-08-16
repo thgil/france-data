@@ -95,7 +95,12 @@
     "count_ops": "operations",
     "map_loading": "Loading the map",
     "map_failed": "The map failed to load.",
-    "load_failed": "The pipeline data failed to load. Nothing on this page is filled in."
+    "load_failed": "The pipeline data failed to load. Nothing on this page is filled in.",
+    "h_delivered": "What got delivered",
+    "h_delivered_local": "Delivered 7e-local projects",
+    "h_delivered_citywide": "Delivered citywide projects with a 7e operation",
+    "cap_delivered_local": "7e-local projects recorded as FIN, deduplicated to project level.",
+    "cap_delivered_citywide": "Citywide projects recorded as FIN with at least one operation sited in the 7e. Budgets are Paris-wide."
   },
   "money": {
     "title": "Money",

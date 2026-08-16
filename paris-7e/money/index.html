@@ -360,22 +360,22 @@
       renderTable('#etat-lines', {
         columns: [
           { key: 'exercice', labelKey: 'col.exercice', filter: true },
-          { key: 'section', labelKey: 'col.section_budget', filter: true, sourceTerm: true },
-          { key: 'type_du_vote', labelKey: 'col.vote', filter: true, sourceTerm: true },
+          { key: 'section', labelKey: 'col.section_budget', filter: true, glossDomain: 'section' },
+          { key: 'type_du_vote', labelKey: 'col.vote', filter: true, glossDomain: 'vote' },
           {
             key: 'chapitre_texte',
             labelKey: 'col.chapitre',
             filter: true,
-            sourceTerm: true,
             className: 'wrap',
-            format: (value, row) => `${row.chapitre} · ${value}`,
+            glossDomain: 'chapitre',
+            prefix: (row) => row.chapitre,
           },
           {
             key: 'nature_texte',
             labelKey: 'col.nature',
-            sourceTerm: true,
             className: 'wrap',
-            format: (value, row) => `${row.nature} · ${value}`,
+            glossDomain: 'nature',
+            prefix: (row) => row.nature,
           },
           { key: 'amount', labelKey: 'col.amount', type: 'money' },
         ],

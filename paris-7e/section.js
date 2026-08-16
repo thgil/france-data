@@ -86,6 +86,121 @@ async function fetchJson(url) {
   return res.json();
 }
 
+/* ── Glossary ──────────────────────────────────────────────────────── */
+
+// French source terms (budget natures, avancement statuses, Direction names)
+// are data, not UI chrome, so they cannot live in the strings files. The
+// glossary maps them to English, and both are always rendered: the gloss is
+// there to be understood, the French term is there so a figure stays citable
+// back to the dataset it came from. CSS decides which one is visible.
+
+let glossaryPromise = null;
+const GLOSSARY_DOMAINS = new Map();
+
+// Source data mixes U+2019 and ASCII apostrophes for the same term, so keys
+// are matched on a normalised form rather than byte equality.
+function glossKey(term) {
+  return String(term)
+    .replace(/[‘’ʼ]/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+// Free-text titles cannot be keyed on the string, because the same wording
+// recurs with different meanings and upstream edits would orphan entries.
+// They are keyed on the source identifier instead.
+const TITLE_DOMAINS = new Map();
+
+export async function loadGlossary() {
+  if (glossaryPromise) return glossaryPromise;
+  const terms = fetchJson(new URL('content/glossary.json', SECTION_ROOT))
+    .then((raw) => {
+      for (const [domain, entries] of Object.entries(raw)) {
+        if (domain.startsWith('_') || typeof entries !== 'object') continue;
+        const map = new Map();
+        for (const [fr, en] of Object.entries(entries)) map.set(glossKey(fr), en);
+        GLOSSARY_DOMAINS.set(domain, map);
+      }
+    })
+    .catch(() => {}); // A missing glossary degrades to French only.
+
+  const titles = fetchJson(new URL('content/titles.en.json', SECTION_ROOT))
+    .then((raw) => {
+      for (const [domain, entries] of Object.entries(raw)) {
+        if (domain.startsWith('_') || typeof entries !== 'object') continue;
+        TITLE_DOMAINS.set(domain, new Map(Object.entries(entries)));
+      }
+    })
+    .catch(() => {});
+
+  glossaryPromise = Promise.all([terms, titles]).then(() => GLOSSARY_DOMAINS);
+  return glossaryPromise;
+}
+
+// The English title for a source id, or null when none was written.
+export function titleGloss(id, domain) {
+  if (id === null || id === undefined) return null;
+  const map = TITLE_DOMAINS.get(domain);
+  if (!map) return null;
+  return map.get(String(id)) || null;
+}
+
+// A free-text title with its English rendering, same two-form contract as
+// glossHtml. Untranslated titles stay French in both languages, which reads
+// as a gap rather than as a bad translation.
+export function titleHtml(id, sourceTitle, domain) {
+  const fr = escapeHtml(String(sourceTitle ?? ''));
+  const en = titleGloss(id, domain);
+  if (!en) return `<span class="term" lang="fr">${fr}</span>`;
+  return (
+    `<span class="term-gloss">` +
+    `<span class="term-en">${escapeHtml(en)}</span>` +
+    `<span class="term-fr" lang="fr">${fr}</span>` +
+    `</span>`
+  );
+}
+
+// The English gloss for a term, or null when the glossary has no entry.
+export function gloss(term, domain) {
+  if (term === null || term === undefined || term === '') return null;
+  const map = GLOSSARY_DOMAINS.get(domain);
+  if (!map) return null;
+  return map.get(glossKey(term)) || null;
+}
+
+// Renders a source term with its gloss. Both are always in the DOM; the
+// active language decides which is prominent, so switching costs no re-render.
+// Untranslated terms render as the French term alone in both languages.
+export function glossHtml(term, domain) {
+  if (term === null || term === undefined || term === '') return '';
+  const fr = escapeHtml(String(term));
+  const en = gloss(term, domain);
+  if (!en) return `<span class="term" lang="fr">${fr}</span>`;
+  return (
+    `<span class="term-gloss">` +
+    `<span class="term-en">${escapeHtml(en)}</span>` +
+    `<span class="term-fr" lang="fr">${fr}</span>` +
+    `</span>`
+  );
+}
+
+// Plain-text form for sort keys, search indexes and title attributes.
+export function glossText(term, domain) {
+  const en = gloss(term, domain);
+  if (!en) return String(term ?? '');
+  return getLang() === 'fr' ? String(term) : `${en} (${term})`;
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 /* ── i18n ──────────────────────────────────────────────────────────── */
 
 export function getLang() {
@@ -242,7 +357,10 @@ export function renderSubnav(current, mount) {
 
 // Call once per page, before rendering anything else.
 export async function initSection({ page } = {}) {
-  await setLang(readStoredLang() || DEFAULT_LANG, { persist: false });
+  await Promise.all([
+    setLang(readStoredLang() || DEFAULT_LANG, { persist: false }),
+    loadGlossary(),
+  ]);
   if (page) renderSubnav(page);
   applyLang(document);
   onLangChange(() => applyLang(document));
@@ -311,8 +429,16 @@ export function statusPill(status) {
     ? t('value.unknown')
     : String(status);
   span.className = `pill pill--${statusClass(raw)}`;
-  span.setAttribute('lang', 'fr');
-  span.textContent = raw;
+  const en = gloss(raw, 'avancement');
+  if (!en) {
+    span.setAttribute('lang', 'fr');
+    span.textContent = raw;
+    return span;
+  }
+  // Both forms ship; CSS shows the one matching the active language. The
+  // French status is what appears in the dataset, so it never disappears.
+  span.innerHTML = glossHtml(raw, 'avancement');
+  span.title = `${en} (${raw})`;
   return span;
 }
 
@@ -535,6 +661,28 @@ export function renderTable(mount, config) {
         if (column.type === 'status') {
           td.classList.add('nowrap');
           td.append(statusPill(value));
+        } else if (column.titleDomain || column.glossDomain) {
+          // Two-form cell: English rendering plus the source term. column.prefix
+          // supplies the account code, which is never translated because it is
+          // the citable key.
+          const code = column.prefix ? column.prefix(row) : null;
+          const inner = column.titleDomain
+            ? titleHtml(column.titleKey(row), value, column.titleDomain)
+            : glossHtml(value, column.glossDomain);
+          const html =
+            (code ? `<span class="term-code">${escapeHtml(String(code))}</span> ` : '') + inner;
+          const href = column.href ? column.href(row) : null;
+          if (href) {
+            const a = document.createElement('a');
+            a.href = href;
+            a.rel = 'noopener';
+            a.target = '_blank';
+            a.innerHTML = html;
+            td.append(a);
+          } else {
+            td.innerHTML = html;
+          }
+          if (value === null || value === undefined || value === '') td.classList.add('muted');
         } else {
           const text = column.format
             ? column.format(value, row)

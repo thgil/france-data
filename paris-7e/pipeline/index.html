@@ -272,6 +272,32 @@
       <p class="note" data-lang="fr" hidden>Chaque ligne est une transition. Les médianes de transitions distinctes ne s'additionnent pas en une durée de bout en bout, et ne sont pas additionnées ici. <span lang="fr" class="fr-term">livraison_prev_operation</span> est une date de livraison prévisionnelle, pas constatée : les deux transitions qui la touchent sont donc en partie prévisionnelles et ne sont pas des durées écoulées.</p>
     </section>
 
+    <!-- ── What got delivered ──────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_delivered">What got delivered</h2>
+      <div class="section-prose">
+        <div data-lang="en">
+          <p><span id="n-delivered-local">28</span> 7e-local projects are recorded as <span lang="fr">FIN</span>, <span id="v-delivered-local">EUR 5,902,600</span> in total. That is the bulk of what the Budget Participatif has actually built here since 2014, and it is roughly nineteen times the value of what was abandoned.</p>
+          <p>A further <span id="n-delivered-citywide">10</span> citywide projects with an operation sited in the 7e are recorded as finished, carrying <span id="v-delivered-citywide">EUR 31,200,000</span> of Paris-wide budget. What that share cost in the 7e is not recorded, so it is listed separately and never added to the local figure.</p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p><span class="fill-delivered-local">28</span> projets locaux du 7e sont enregistrés en <span lang="fr">FIN</span>, soit <span class="fill-delivered-local-total">5 902 600 EUR</span>. C'est l'essentiel de ce que le Budget Participatif a réellement construit ici depuis 2014, environ dix-neuf fois la valeur de ce qui a été abandonné.</p>
+          <p>S'y ajoutent <span class="fill-delivered-citywide">10</span> projets parisiens ayant une opération dans le 7e et enregistrés comme terminés, portant <span class="fill-delivered-citywide-total">31 200 000 EUR</span> de budget parisien. Leur coût dans le 7e n'est pas enregistré : ils sont donc listés à part et jamais additionnés au chiffre local.</p>
+        </div>
+      </div>
+
+      <h3 data-i18n="pipeline.h_delivered_local">Delivered 7e-local projects</h3>
+      <div id="table-delivered-local"></div>
+
+      <h3 data-i18n="pipeline.h_delivered_citywide">Delivered citywide projects with a 7e operation</h3>
+      <div id="table-delivered-citywide"></div>
+
+      <div class="section-prose">
+        <p data-lang="en">Delivery is read from <span lang="fr" class="fr-term">avancement_projet</span>, the project's own status, on the same basis as the abandoned file below. A project counted here is finished as a project. The funnel above counts operations instead, so its <span lang="fr">FIN</span> row is larger: it includes projects with one finished operation and others still running.</p>
+        <p data-lang="fr" hidden>La livraison est lue sur <span lang="fr" class="fr-term">avancement_projet</span>, le statut du projet lui-même, sur la même base que le fichier des abandons ci-dessous. Un projet compté ici est terminé en tant que projet. L'entonnoir ci-dessus compte des opérations : sa ligne <span lang="fr">FIN</span> est donc plus élevée, car elle inclut des projets dont une opération est terminée et d'autres encore en cours.</p>
+      </div>
+    </section>
+
     <!-- ── The abandoned file ──────────────────────────────────────────── -->
     <section class="unit-block">
       <h2 data-i18n="pipeline.h_abandoned">The abandoned file</h2>
@@ -321,8 +347,8 @@
         <li data-lang="fr" hidden>Pourquoi un projet a été abandonné. Le jeu de données n'a ni champ motif ni trace de décision.</li>
         <li data-lang="en">What was actually spent. A budget is what was attached to the project, not an expenditure record.</li>
         <li data-lang="fr" hidden>Ce qui a réellement été dépensé. Un budget est ce qui a été rattaché au projet, pas une dépense constatée.</li>
-        <li data-lang="en">What a citywide project cost in the 7e. Citywide budgets are Paris-wide and are not published split by arrondissement.</li>
-        <li data-lang="fr" hidden>Ce qu'un projet parisien a coûté dans le 7e. Les budgets parisiens ne sont pas publiés par arrondissement.</li>
+        <li data-lang="en">What a citywide project cost in the 7e. The dataset carries one money field, <span lang="fr" class="fr-term">budget_global_projet_gagnant</span>, and it is the whole project's budget. There is no per-operation cost, so the 7e share of a Paris-wide project is not recorded anywhere in it.</li>
+        <li data-lang="fr" hidden>Ce qu'un projet parisien a coûté dans le 7e. Le jeu de données ne comporte qu'un champ monétaire, <span lang="fr" class="fr-term">budget_global_projet_gagnant</span>, qui est le budget du projet entier. Aucun coût par opération n'existe : la part revenant au 7e d'un projet parisien n'y figure donc nulle part.</li>
         <li data-lang="en">How long a stage takes for an operation that never finished it. The medians cover only operations carrying both dates, so <span id="n-stage-dropped"></span> of the <span id="n-stage-entered"></span> operations that began études are left out, and the median is a median of completed transitions.</li>
         <li data-lang="fr" hidden>La durée d'une étape pour une opération qui ne l'a jamais achevée. Les médianes ne portent que sur les opérations ayant les deux dates : <span class="fill-stage-dropped"></span> des <span class="fill-stage-entered"></span> opérations entrées en études en sont écartées, et la médiane est une médiane de transitions achevées.</li>
         <li data-lang="en">Anything about a 7e project with no operation recorded in the 7e. The build selects operation rows on <span lang="fr" class="fr-term">arrondissement_operation = 75007</span>, so a winning project registered here whose operations are filed elsewhere does not appear at all.</li>
@@ -498,6 +524,16 @@
           setAll(`#v-${key}`, value);
           setAll(`.fill-${key}`, value);
         }
+        const delivered = data.delivered;
+        setAll('#n-delivered-local', formatNumber(delivered.local.length));
+        setAll('.fill-delivered-local', formatNumber(delivered.local.length));
+        setAll('#n-delivered-citywide', formatNumber(delivered.citywide.length));
+        setAll('.fill-delivered-citywide', formatNumber(delivered.citywide.length));
+        setAll('#v-delivered-local', formatMoney(delivered.local_total));
+        setAll('.fill-delivered-local-total', formatMoney(delivered.local_total));
+        setAll('#v-delivered-citywide', formatMoney(delivered.citywide_total));
+        setAll('.fill-delivered-citywide-total', formatMoney(delivered.citywide_total));
+
         setAll('#v-abandoned-local', formatMoney(localTotal));
         setAll('.fill-abandoned-local-total', formatMoney(localTotal));
         setAll('#v-abandoned-citywide', formatMoney(citywideTotal));
@@ -820,6 +856,37 @@
       // the source can never render as a dead URL.
       const linkAll = (rows) => (rows.every(linkFor) ? linkFor : undefined);
 
+      const deliveredColumns = (rows) => [
+        {
+          key: 'titre_projet_gagnant',
+          labelKey: 'col.project',
+          className: 'wrap',
+          titleDomain: 'projects',
+          titleKey: (row) => row.identifiant_projet_gagnant,
+          href: linkAll(rows),
+        },
+        { key: 'edition', labelKey: 'col.edition', filter: true },
+        { key: 'thematique', labelKey: 'col.theme', filter: true, glossDomain: 'thematique' },
+        { key: 'adresse_projet_gagnant', labelKey: 'col.address', className: 'wrap', sourceTerm: true },
+        { key: 'direction_pilote_projet', labelKey: 'col.direction', className: 'wrap', filter: true, glossDomain: 'direction' },
+        { key: 'budget', labelKey: 'col.budget', type: 'money' },
+      ];
+
+      renderTable('#table-delivered-local', {
+        rows: data.delivered.local,
+        captionKey: 'pipeline.cap_delivered_local',
+        sort: { key: 'budget', dir: 'desc' },
+        search: { keys: ['titre_projet_gagnant', 'adresse_projet_gagnant'] },
+        columns: deliveredColumns(data.delivered.local),
+      });
+
+      renderTable('#table-delivered-citywide', {
+        rows: data.delivered.citywide,
+        captionKey: 'pipeline.cap_delivered_citywide',
+        sort: { key: 'budget', dir: 'desc' },
+        columns: deliveredColumns(data.delivered.citywide),
+      });
+
       renderTable('#table-abandoned-local', {
         rows: data.abandoned.local,
         captionKey: 'pipeline.cap_local',
@@ -829,13 +896,14 @@
             key: 'titre_projet_gagnant',
             labelKey: 'col.project',
             className: 'wrap',
-            sourceTerm: true,
+            titleDomain: 'projects',
+            titleKey: (row) => row.identifiant_projet_gagnant,
             href: linkAll(data.abandoned.local),
           },
           { key: 'edition', labelKey: 'col.edition' },
-          { key: 'thematique', labelKey: 'col.theme', sourceTerm: true },
+          { key: 'thematique', labelKey: 'col.theme', glossDomain: 'thematique' },
           { key: 'adresse_projet_gagnant', labelKey: 'col.address', className: 'wrap', sourceTerm: true },
-          { key: 'direction_pilote_projet', labelKey: 'col.direction', className: 'wrap', sourceTerm: true },
+          { key: 'direction_pilote_projet', labelKey: 'col.direction', className: 'wrap', glossDomain: 'direction' },
           { key: 'budget', labelKey: 'col.budget', type: 'money' },
         ],
       });
@@ -849,7 +917,8 @@
             key: 'titre_projet_gagnant',
             labelKey: 'col.project',
             className: 'wrap',
-            sourceTerm: true,
+            titleDomain: 'projects',
+            titleKey: (row) => row.identifiant_projet_gagnant,
             href: linkAll(data.abandoned.citywide),
           },
           { key: 'edition', labelKey: 'col.edition' },
@@ -885,12 +954,19 @@
             key: 'titre_operation',
             labelKey: 'col.operation',
             className: 'wrap',
-            sourceTerm: true,
+            titleDomain: 'operations',
+            titleKey: (row) => row.identifiant_operation,
             href: linked ? (row) => row.lien_projet_gagnant : undefined,
           },
-          { key: 'titre_projet_gagnant', labelKey: 'col.project', className: 'wrap', sourceTerm: true },
+          {
+            key: 'titre_projet_gagnant',
+            labelKey: 'col.project',
+            className: 'wrap',
+            titleDomain: 'projects',
+            titleKey: (row) => row.identifiant_projet_gagnant,
+          },
           { key: 'edition', labelKey: 'col.edition', filter: true },
-          { key: 'thematique', labelKey: 'col.theme', filter: true, sourceTerm: true },
+          { key: 'thematique', labelKey: 'col.theme', filter: true, glossDomain: 'thematique' },
           { key: 'avancement_operation', labelKey: 'col.status', type: 'status', filter: true },
           { key: 'budget_global_projet_gagnant', labelKey: 'col.budget', type: 'money' },
           {
@@ -899,7 +975,7 @@
             filter: true,
             value: (row) => (isLocal(row) ? t('value.local') : t('value.citywide')),
           },
-          { key: 'direction_pilote_operation', labelKey: 'col.direction', className: 'wrap', filter: true, sourceTerm: true },
+          { key: 'direction_pilote_operation', labelKey: 'col.direction', className: 'wrap', filter: true, glossDomain: 'direction' },
           { key: 'quartier_operation', labelKey: 'col.quartier', className: 'wrap', filter: true, sourceTerm: true },
           { key: 'type_financement_operation', labelKey: 'col.financing', sourceTerm: true },
           { key: 'adresse_operation', labelKey: 'col.address', className: 'wrap', sourceTerm: true },

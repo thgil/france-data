@@ -426,3 +426,56 @@ table.data-table td.muted { color: var(--ink-mute); }
   table.data-table thead th { position: static; }
   .cannot-tell { padding: 14px 16px; }
 }
+
+/* ── Glossed source terms ──────────────────────────────────────────────
+   French source terms carry an English gloss. Both are in the DOM; the
+   active language decides which reads as primary, so the language toggle
+   never triggers a re-render and the French term is never lost. */
+
+.term-gloss {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  vertical-align: top;
+}
+
+.term-en,
+.term-fr {
+  display: block;
+}
+
+/* English default: gloss leads, source term sits under it in small type. */
+.term-fr {
+  font-size: 0.78em;
+  line-height: 1.25;
+  color: var(--ink-mute);
+}
+
+/* French: the source term is the only thing anyone needs. */
+:root[data-lang='fr'] .term-en {
+  display: none;
+}
+
+:root[data-lang='fr'] .term-fr {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Inside a status pill the two forms stack too tightly, so the source term
+   is dropped to a tooltip and only the active language is drawn. */
+.pill .term-gloss {
+  display: inline;
+}
+
+.pill .term-fr {
+  display: none;
+}
+
+:root[data-lang='fr'] .pill .term-en {
+  display: none;
+}
+
+:root[data-lang='fr'] .pill .term-fr {
+  display: inline;
+}

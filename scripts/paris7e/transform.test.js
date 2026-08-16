@@ -22,6 +22,7 @@ import {
   directionByTheme,
   statusFunnel,
   abandonedFile,
+  deliveredFile,
   filterEtatSpecial,
   aggregateEtatSpecial,
   filterTravaux,
@@ -572,4 +573,24 @@ test('filterElus keeps the 7e and shapeElus preserves delegation wording verbati
 test('the élus catalog fixture carries the 2021 upstream modified date the section must display', () => {
   const modified = catalogConseillers.metas.default.modified;
   assert.match(modified, /^2021-12-01/);
+});
+
+test('deliveredFile counts delivered projects on the project status, not the operation status', () => {
+  const file = deliveredFile(bpOperations, '75007');
+  // Same unit of analysis as abandonedFile, so the two are comparable.
+  const localIds = new Set(file.local.map(p => p.identifiant_projet_gagnant));
+  assert.equal(localIds.size, file.local.length, 'delivered local projects must be deduplicated');
+  for (const project of file.local) {
+    assert.equal(project.avancement_projet, 'FIN');
+    assert.equal(project.scope, 'local');
+  }
+  for (const project of file.citywide) {
+    assert.notEqual(project.arrondissement_projet_gagnant, '75007');
+  }
+  assert.equal(
+    file.local_total,
+    file.local.reduce((sum, p) => sum + (p.budget || 0), 0),
+    'local total must be the sum of local project budgets only',
+  );
+  assert.ok(!('total' in file), 'no combined local-plus-citywide total may exist');
 });
