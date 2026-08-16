@@ -808,6 +808,28 @@
           o.stage_dates || `${o.etudes_began || ''} to ${o.delivery_expected || ''}`.trim(),
           o.reading,
         ])));
+        // The three resident ideas the project was assembled from, and which
+        // operation each became. Paris publishes winners but not submitted
+        // ideas, so this comes from the mairie's own page.
+        const three = live.the_three_ideas;
+        const threeHost = document.getElementById('live-project-ops');
+        const threeHead = document.createElement('p');
+        threeHead.append(el('strong', null, 'It was assembled from three resident ideas. '));
+        threeHead.append(document.createTextNode(three._note));
+        threeHost.append(threeHead);
+        threeHost.append(buildTable([
+          { en: 'The idea residents submitted', fr: 'L’idée déposée', cellClass: 'wrap' },
+          { en: 'Became', fr: 'Devenue', cellClass: 'wrap' },
+          { en: 'Status', fr: 'Avancement' },
+          { en: 'Direction', fr: 'Direction', cellClass: 'wrap' },
+        ], three.ideas.map((i) => [
+          i.idea, `${i.operation_title} (${i.became_operation})`, i.status, i.direction,
+        ])));
+        const patternP = document.createElement('p');
+        patternP.append(el('strong', null, `${three.the_pattern} `));
+        patternP.append(document.createTextNode(three.why_that_matters));
+        threeHost.append(patternP);
+
         // What is actually being renovated, where the money sits, and what the
         // data can and cannot say about the stall.
         const liveOps = document.getElementById('live-project-ops');

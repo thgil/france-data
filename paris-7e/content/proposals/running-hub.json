@@ -520,6 +520,13 @@
       "what": "Traced where Budget Participatif money physically sits. It becomes an autorisation de programme labelled BPA - Direction - arrondissement. Sport lines exist for at least ten arrondissements. The 7e has no DJS line for 2018 to 2022, but that dataset ends at 2022 and cannot cover the 2023 edition.",
       "consequence": "Gives a named budget line to ask about, BPA - DJS - 7e arrondissement, rather than a vague question about funding. Also found that the parcours sportif already exists in a derelict state, so the ask is restoration rather than new build.",
       "outcome": "Open. Five specific questions recorded for the Direction de la Jeunesse et des Sports."
+    },
+    {
+      "date": "2026-08-16",
+      "action": "research",
+      "what": "Confirmed against the Mairie du 7e's own Budget Participatif 2023 page that project 11141 combines three separate resident proposals, and identified which operation each became.",
+      "consequence": "The one delivered operation is the seniors and gentle-exercise idea, piloted by Espaces Verts. Both unstarted operations are the running-specific ideas, piloted by the Direction de la Jeunesse et des Sports. The proposal now has a precise account of what was promised and what was not done.",
+      "outcome": "Verified against a primary source. Supersedes the earlier search-derived description."
     }
   ],
   "site_infrastructure": {
@@ -684,10 +691,12 @@
       ]
     },
     "can_it_absorb_more": {
-      "answer": "There is direct evidence that it can.",
-      "why": "According to the project's own public description, project 11141 was itself formed by grouping three separate resident ideas about sports infrastructure in the 7e. A project the city assembled from three ideas has already demonstrated it can carry more than one.",
-      "fit": "Lockers and changing serve a 2.3 km parcours sportif directly. This is not an unrelated addition; it is the missing support facility for the thing being renovated.",
-      "caveat": "The description was read from search results citing the Budget Participatif project page. The page itself could not be opened directly, so this should be confirmed against the page before it is quoted to anyone."
+      "answer": "Yes, and it already did.",
+      "why": "The Mairie du 7e's own page for the Budget Participatif 2023 states that this project combines three separate proposals into one. The city assembled it from three resident ideas, so absorbing a fourth element is the pattern it was built on.",
+      "fit": "Lockers and changing serve a 2.3 km parcours sportif and a 7.7 km circuit directly. This is the missing support facility for the thing being restored, not an unrelated addition.",
+      "source": "https://mairie07.paris.fr/pages/budget-participatif-2023-24602",
+      "verified": true,
+      "checked_on": "2026-08-16"
     },
     "what_is_being_renovated": {
       "what": "An existing parcours sportif that has fallen into disrepair. The public description refers to restoring the remnants of a 2.3 km sports course made of wooden apparatus and ground markings, with the renovation in wood to respect the aesthetic of the quays.",
@@ -702,7 +711,56 @@
       "The project is recorded as LIVRAISON while two of its three operations show no start. Is the remaining work still programmed, or was the project closed with those operations undelivered?",
       "Was a financing route ever determined for those two operations? Both carry a null type_financement while the delivered operation carries Régie.",
       "If the parcours sportif renovation proceeds, could lockers and changing be scoped into it as supporting facilities?"
-    ]
+    ],
+    "the_three_ideas": {
+      "_note": "Paris publishes winning projects in open data but not the ideas residents submitted, so this list comes from the Mairie du 7e's own page rather than a dataset.",
+      "source": "https://mairie07.paris.fr/pages/budget-participatif-2023-24602",
+      "checked_on": "2026-08-16",
+      "ideas": [
+        {
+          "idea": "Outdoor exercise equipment around the 7.7 km circuit",
+          "became_operation": 8023,
+          "operation_title": "De nouveaux équipements légers pour faire du sport en plein air",
+          "status": "(non démarré)",
+          "direction": "Direction de la Jeunesse et des Sports"
+        },
+        {
+          "idea": "Restoring the wooden apparatus and ground markings of the 2.3 km sports course along quais Anatole France",
+          "became_operation": 7788,
+          "operation_title": "Rénovation du Parcours sportif 2,3 km",
+          "status": "(non démarré)",
+          "direction": "Direction de la Jeunesse et des Sports"
+        },
+        {
+          "idea": "Muscle-training equipment adaptable for seniors and gentle exercise classes",
+          "became_operation": 8022,
+          "operation_title": "Gym douce dans les espaces verts",
+          "status": "LIVRAISON",
+          "direction": "Direction des Espaces Verts et de l’Environnement"
+        }
+      ],
+      "the_pattern": "Three ideas went in. The one that was delivered is the seniors and gentle-exercise one, piloted by Espaces Verts. The two that never started are the two that serve runners: the 7.7 km circuit equipment and the 2.3 km quai trail. Both sit with the Direction de la Jeunesse et des Sports.",
+      "why_that_matters": "It is not that the 7e failed to deliver sport. It delivered the part that fitted an existing parks programme and left the two running-specific parts unstarted. That is the gap this proposal sits in."
+    },
+    "edition_context": {
+      "edition": "2023",
+      "winners_in_the_7e": [
+        {
+          "project": "Accessibilité, rénovation et sécurisation Église Saint-François-Xavier",
+          "eur": 630000
+        },
+        {
+          "project": "Favoriser la pratique du sport dans le 7e",
+          "eur": 500000
+        },
+        {
+          "project": "Réaménager et équiper les espaces verts et jardins du 7e",
+          "eur": 300000
+        }
+      ],
+      "total_eur": 1430000,
+      "note": "Three winners totalling EUR 1,430,000, which matches the 2023 figure in the pipeline data exactly."
+    }
   },
   "site_context_quai": {
     "study_area": "48.8580,2.3100 to 48.8660,2.3300",
