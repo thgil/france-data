@@ -596,8 +596,16 @@ export function renderTable(mount, config) {
       for (const value of values) {
         const option = document.createElement('option');
         option.value = value;
-        option.textContent = value;
-        option.setAttribute('lang', 'fr');
+        // A select cannot stack two lines, so the option shows the active
+        // language's form and keeps the source term as its title.
+        const en = column.glossDomain ? gloss(value, column.glossDomain) : null;
+        if (en && getLang() !== 'fr') {
+          option.textContent = en;
+          option.title = value;
+        } else {
+          option.textContent = value;
+          option.setAttribute('lang', 'fr');
+        }
         select.append(option);
       }
       // A filter column whose values are translated changes its whole option

@@ -386,6 +386,8 @@
       onLangChange,
       applyLang,
       t,
+      titleHtml,
+      glossHtml,
       STATUS_ORDER,
     } from '../section.js';
 
@@ -976,8 +978,8 @@
             value: (row) => (isLocal(row) ? t('value.local') : t('value.citywide')),
           },
           { key: 'direction_pilote_operation', labelKey: 'col.direction', className: 'wrap', filter: true, glossDomain: 'direction' },
-          { key: 'quartier_operation', labelKey: 'col.quartier', className: 'wrap', filter: true, sourceTerm: true },
-          { key: 'type_financement_operation', labelKey: 'col.financing', sourceTerm: true },
+          { key: 'quartier_operation', labelKey: 'col.quartier', className: 'wrap', filter: true, glossDomain: 'quartier' },
+          { key: 'type_financement_operation', labelKey: 'col.financing', glossDomain: 'financement' },
           { key: 'adresse_operation', labelKey: 'col.address', className: 'wrap', sourceTerm: true },
           { key: 'debut_etudes_operation', labelKey: 'col.etudes', type: 'date' },
           { key: 'lancement_procedure_operation', labelKey: 'col.procedure', type: 'date' },
@@ -1019,6 +1021,8 @@
             status: operation.avancement_operation || '',
             title: operation.titre_operation || '',
             project: operation.titre_projet_gagnant || '',
+            opId: operation.identifiant_operation ?? '',
+            projId: operation.identifiant_projet_gagnant ?? '',
             edition: operation.edition || '',
             address: operation.adresse_operation || '',
             budget: operation.budget_global_projet_gagnant ?? null,
@@ -1078,9 +1082,9 @@
             : formatMoney(Number(p.budget));
           const scope = p.local === true || p.local === 'true' ? t('value.local') : t('value.citywide');
           const html = [
-            `<span class="tt-title" lang="fr">${escapeHtml(p.title)}</span>`,
-            `<span class="tt-row" lang="fr">${escapeHtml(p.project)}</span>`,
-            `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.status'))}:</span> <span lang="fr">${escapeHtml(p.status)}</span></span>`,
+            `<span class="tt-title">${titleHtml(p.opId, p.title, 'operations')}</span>`,
+            `<span class="tt-row">${titleHtml(p.projId, p.project, 'projects')}</span>`,
+            `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.status'))}:</span> ${glossHtml(p.status, 'avancement')}</span>`,
             `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.edition'))}:</span> ${escapeHtml(p.edition)}</span>`,
             `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.budget'))}:</span> ${escapeHtml(budget)} (${escapeHtml(scope)})</span>`,
             `<span class="tt-row" lang="fr">${escapeHtml(p.address)}</span>`,

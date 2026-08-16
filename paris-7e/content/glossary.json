@@ -95,6 +95,73 @@
   },
   "echelle": {
     "Budget participatif d'arrondissement": "Arrondissement participatory budget",
+    "Budget participatif parisien": "Paris-wide participatory budget",
     "Budget participatif Tout Paris": "Paris-wide participatory budget"
+  },
+  "fonction": {
+    "Maire": "Mayor of the arrondissement",
+    "Adjoint": "Deputy mayor",
+    "Conseiller délégué": "Councillor with a delegated brief"
+  },
+  "financement": {
+    "Marché": "Public contract",
+    "Régie": "Delivered in-house",
+    "Subvention": "Grant"
+  },
+  "quartier": {
+    "ECOLE MILITAIRE (027)": "Ecole Militaire",
+    "GROS CAILLOU (028)": "Gros Caillou",
+    "INVALIDES (026)": "Invalides",
+    "SAINT - THOMAS D'AQUIN (025)": "Saint-Thomas-d'Aquin",
+    "DUPLEIX - LA MOTTE PICQUET (079)": "Dupleix and La Motte-Picquet (15e)",
+    "JARDIN DES PLANTES (016)": "Jardin des Plantes (5e)",
+    "SAINT - GERMAIN L'AUXERROIS (001)": "Saint-Germain-l'Auxerrois (1er)",
+    "ECOLE MILITAIRE": "Ecole Militaire",
+    "GROS CAILLOU": "Gros Caillou",
+    "INVALIDES": "Invalides",
+    "SAINT - THOMAS D'AQUIN": "Saint-Thomas-d'Aquin"
+  },
+  "equipement": {
+    "Conservatoire": "Music and drama school",
+    "Groupe scolaire": "School complex",
+    "École": "School"
+  },
+  "secteur": {
+    "Culture": "Culture",
+    "Petite Enfance": "Early years",
+    "Éducation": "Education"
+  },
+  "construction": {
+    "Isolation": "Insulation",
+    "Modernisation": "Modernisation",
+    "Performance énergétique": "Energy efficiency",
+    "Végétalisation": "Planting and greening"
+  },
+  "nature_marche": {
+    "FOURNITURE": "Supplies",
+    "SERVICES": "Services",
+    "TRAVAUX": "Works"
+  },
+  "delegation": {
+    "petite enfance, affaires scolaires et médiation": "Early years, schools and mediation",
+    "Sécurité et tranquillité publiques, gestion de l'espace public et correspondant Défense": "Public safety and order, management of public space, defence liaison",
+    "budget, urbanisme, caisse des écoles et logement": "Budget, planning, the schools fund and housing",
+    "affaires sociales, intergénérationnel et relations avec les cultes": "Social affairs, intergenerational work and relations with faith communities",
+    "professions libérales et métiers d'art": "Professional practices and craft trades",
+    "solidarité et handicap": "Social solidarity and disability",
+    "coordination de l'action municipale, questions relatives aux commerçants, relations avec les usagers et aux anciens combattants": "Coordination of council action, retail matters, relations with residents and with veterans",
+    "tourisme et relations internationales": "Tourism and international relations",
+    "conseils de quartier et associations": "Neighbourhood councils and associations",
+    "Culture, sports et santé": "Culture, sport and health",
+    "propreté, environnement, espaces verts et mobilité": "Street cleanliness, environment, parks and mobility",
+    "animation locale": "Local events and activities"
+  },
+  "travaux_description": {
+    "Modernisation des menuiseries (1ère phase)": "Window and joinery upgrade (phase 1)",
+    "Créer de nouveaux espaces récréatifs et ludiques, offrir aux enfants une cour plus végétalisée, plus naturelle et plus protégée des rayonnements solaires": "New play areas, and a greener, more natural playground with more shade",
+    "Modernisation des menuiseries extérieures": "External window and joinery upgrade",
+    "Remplacement des menuiseries préau coté cour": "Replacing the joinery of the covered play area on the courtyard side",
+    "Changement d'énergie des installations de chauffage du site de gaz vers la vapeur": "Switching the site's heating from gas to steam",
+    "Agrandissement des réfectoires": "Enlarging the canteens"
   }
 }

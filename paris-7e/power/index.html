@@ -275,6 +275,7 @@
     import {
       initSection, loadData, loadContent, renderTable, renderProvenance,
       pickSources, t, getLang, onLangChange, formatNumber, formatDate, tooFew,
+      gloss, glossHtml,
     } from '../section.js';
 
     // The four datasets this page draws on. The provenance footer and the
@@ -348,6 +349,18 @@
       node.setAttribute('lang', 'fr');
       return node;
     };
+
+    // A source term with its English gloss. Both forms ship; CSS shows the one
+    // matching the active language, same contract as the table cells.
+    const frGloss = (text, domain, className) => {
+      const node = el('span', className);
+      node.innerHTML = glossHtml(text, domain);
+      return node;
+    };
+
+    // Plain-text gloss for lists where two stacked lines per item would be
+    // unreadable. Safe because every caller re-renders on language change.
+    const glossPlain = (text, domain) => gloss(text, domain) || text;
 
     const quartierCode = (label) => {
       const match = String(label || '').match(/\((\d+)\)\s*$/);
@@ -457,8 +470,8 @@
             value: (row) => `${row.civilite} ${row.prenom} ${row.nom}`,
             sortValue: (row) => row.nom,
           },
-          { key: 'fonction', labelKey: 'col.fonction', sourceTerm: true },
-          { key: 'delegation', labelKey: 'col.delegation', sourceTerm: true },
+          { key: 'fonction', labelKey: 'col.fonction', glossDomain: 'fonction' },
+          { key: 'delegation', labelKey: 'col.delegation', className: 'wrap', glossDomain: 'delegation' },
         ],
       });
 
@@ -515,7 +528,7 @@
           if (row.insufficient_data) {
             dirCell.append(tooFew(row.n, floor));
           } else {
-            dirCell.append(fr(row.direction));
+            dirCell.append(frGloss(row.direction, 'direction'));
             dirCell.append(el('div', 'route-why', s('pilot', {
               n: formatNumber(row.direction_n),
               total: formatNumber(row.n),
@@ -527,7 +540,7 @@
             const label = row.insufficient_data ? s('observed') : s('also_observed');
             const observed = el('div', 'observed');
             observed.append(el('span', null, `${label} `));
-            observed.append(fr(others.map((d) => `${d.direction} (${d.n})`).join(', ')));
+            observed.append(el('span', null, others.map((d) => `${glossPlain(d.direction, 'direction')} (${d.n})`).join(', ')));
             dirCell.append(observed);
           }
           tr.append(dirCell);
@@ -557,8 +570,12 @@
         for (const row of pipeline.direction_by_theme) {
           const option = document.createElement('option');
           option.value = row.thematique;
-          option.textContent = row.thematique;
-          option.setAttribute('lang', 'fr');
+          // A select cannot stack two lines, so it shows the active language's
+          // form and keeps the source term as the title. fillSelects re-runs on
+          // a language switch.
+          option.textContent = glossPlain(row.thematique, 'thematique');
+          option.title = row.thematique;
+          if (getLang() === 'fr') option.setAttribute('lang', 'fr');
           themeSelect.append(option);
         }
         if (keepTheme) themeSelect.value = keepTheme;
@@ -567,8 +584,9 @@
         for (const props of quartierFeatures) {
           const option = document.createElement('option');
           option.value = props.no_consqrt;
-          option.textContent = props.nom_quart;
-          option.setAttribute('lang', 'fr');
+          option.textContent = glossPlain(props.nom_quart, 'quartier');
+          option.title = props.nom_quart;
+          if (getLang() === 'fr') option.setAttribute('lang', 'fr');
           quartierSelect.append(option);
         }
         if (keepQuartier) quartierSelect.value = keepQuartier;
@@ -582,7 +600,7 @@
         if (entry.role) {
           head.append(el('span', 'route-role', entry.role === 'secondary' ? s('role_secondary') : s('role_primary')));
         }
-        head.append(fr(entry.delegation));
+        head.append(frGloss(entry.delegation, 'delegation'));
         item.append(head);
 
         const holder = eluByDelegation.get(entry.delegation);
@@ -590,7 +608,7 @@
         if (holder) {
           const name = el('strong', null, `${holder.civilite} ${holder.prenom} ${holder.nom}`);
           line.append(name, document.createTextNode(' '));
-          line.append(fr(holder.fonction, 'route-why'));
+          line.append(frGloss(holder.fonction, 'fonction', 'route-why'));
           line.append(el('span', 'unverified', t('value.unverified')));
         } else {
           line.append(el('span', 'route-why', t('value.unknown')));
@@ -642,11 +660,11 @@
           if (row && row.directions.length) {
             const observed = el('div', 'observed');
             observed.append(el('span', null, `${s('observed')} `));
-            observed.append(fr(row.directions.map((d) => `${d.direction} (${d.n})`).join(', ')));
+            observed.append(el('span', null, row.directions.map((d) => `${glossPlain(d.direction, 'direction')} (${d.n})`).join(', ')));
             dirWrap.append(observed);
           }
         } else {
-          dirWrap.append(fr(row.direction));
+          dirWrap.append(frGloss(row.direction, 'direction'));
           dirWrap.append(el('div', 'route-why', s('pilot', {
             n: formatNumber(row.direction_n),
             total: formatNumber(row.n),
@@ -657,7 +675,7 @@
 
         // Quartier detail.
         const quartierWrap = document.createElement('div');
-        quartierWrap.append(fr(props.nom_quart, 'route-item'));
+        quartierWrap.append(frGloss(props.nom_quart, 'quartier', 'route-item'));
         const ops = quartierOps.get(props.no_consqrt) || [];
         const inTheme = ops.filter((op) => op.thematique === theme.thematique).length;
         const counts = el('div', 'route-why');

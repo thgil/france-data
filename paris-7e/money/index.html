@@ -416,10 +416,10 @@
     function renderTravaux(travaux, sources) {
       renderTable('#travaux-table', {
         columns: [
-          { key: 'equipement', labelKey: 'col.equipement', sourceTerm: true, className: 'wrap' },
+          { key: 'equipement', labelKey: 'col.equipement', className: 'wrap', glossDomain: 'equipement' },
           { key: 'adresse', labelKey: 'col.address', sourceTerm: true, className: 'wrap' },
-          { key: 'type_construction', label: 'Type de construction', sourceTerm: true },
-          { key: 'description', labelKey: 'col.works', sourceTerm: true, className: 'wrap' },
+          { key: 'type_construction', label: 'Type de construction', glossDomain: 'construction' },
+          { key: 'description', labelKey: 'col.works', className: 'wrap', glossDomain: 'travaux_description' },
           { key: 'annee_livraison', label: 'Année de livraison' },
           { key: 'budget', label: 'Budget', type: 'money' },
         ],
@@ -506,7 +506,7 @@
           { key: 'annee_de_notification', labelKey: 'col.notified', filter: true },
           { key: 'fournisseur_nom', labelKey: 'col.supplier', sourceTerm: true, className: 'wrap' },
           { key: 'objet_du_marche', labelKey: 'col.objet', sourceTerm: true, className: 'wrap' },
-          { key: 'nature_du_marche', label: 'Nature du marché', filter: true, sourceTerm: true },
+          { key: 'nature_du_marche', label: 'Nature du marché', filter: true, glossDomain: 'nature_marche' },
           { key: 'montant_min', label: 'Montant min', type: 'money' },
           { key: 'montant_max', label: 'Montant max', type: 'money' },
         ],
