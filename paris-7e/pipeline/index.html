@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline in the 7e | France, by the numbers</title>
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="../section.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* Page-local components only. Everything reusable lives in section.css. */
+
+    /* ── Headline figures ────────────────────────────────────────────── */
+    .figure-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px 28px;
+      margin: 28px 0 0;
+      max-width: 900px;
+    }
+    .figure-row .fig { border-top: 2px solid var(--rule); padding-top: 10px; }
+    .figure-row .fig-value {
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+    .figure-row .fig-label {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 6px;
+    }
+    .figure-row .fig-note { font-size: 12px; color: var(--ink-mute); margin-top: 4px; }
+
+    /* ── Map ─────────────────────────────────────────────────────────── */
+    .map-figure { margin: 24px 0 0; }
+    .map-figure .mount {
+      position: relative;
+      width: 100%;
+      height: min(68vh, 600px);
+      min-height: 380px;
+      border: 1px solid var(--panel-line);
+    }
+    .map-figure figcaption {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink-mute);
+      margin-top: 10px;
+      max-width: 680px;
+    }
+    .map-controls {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      padding: 8px 12px;
+      background: var(--panel);
+      border: 1px solid var(--panel-line);
+      border-top: none;
+      font-size: 12px;
+    }
+    .map-controls .control { display: flex; flex-direction: column; gap: 4px; }
+    .map-controls label {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .map-controls select {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--panel-line);
+      border-radius: 2px;
+      padding: 5px 8px;
+      min-width: 160px;
+    }
+    .map-btn {
+      font-family: var(--sans);
+      font-size: 12px;
+      background: var(--paper);
+      border: 1px solid var(--panel-line);
+      border-radius: 2px;
+      padding: 6px 10px;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .map-btn:hover { background: var(--row-hover); border-color: var(--ink-mute); }
+    .map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-mute);
+    }
+    .map-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: var(--paper);
+      border: 1px solid #b8b0a0;
+      border-radius: 3px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink);
+      max-width: 280px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      z-index: 100;
+    }
+    .map-tooltip .tt-title { font-family: var(--serif); font-size: 13px; display: block; margin-bottom: 4px; }
+    .map-tooltip .tt-row { font-size: 11px; color: var(--ink-soft); display: block; }
+    .map-tooltip .tt-label { color: var(--ink-mute); }
+
+    /* ── Quantity cells: a number and its bar ────────────────────────── */
+    .qty { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+    .qty-num { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .qty-bar { display: block; width: 100%; min-width: 60px; height: 4px; background: #e2dbcd; }
+    .qty-bar i { display: block; height: 100%; background: var(--ink-mute); }
+    .qty-bar.is-money i { background: var(--pill-etudes); }
+    .qty-bar.is-citywide i { background: #b9b1a3; }
+
+    .funnel-controls { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .funnel-controls label {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .funnel-controls select {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--panel-line);
+      border-radius: 2px;
+      padding: 5px 8px;
+      min-width: 180px;
+      max-width: 260px;
+    }
+
+    /* Stage names print the raw source field under the English gloss. */
+    .stage-field { display: block; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+
+    .champ-list { margin: 12px 0 0; padding-left: 18px; max-width: 680px; }
+    .champ-list li { font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+    .champ-list .champ-budget { font-family: var(--mono); font-size: 12px; color: var(--ink); }
+
+    .load-error {
+      border: 1px solid var(--accent);
+      border-left-width: 4px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--accent);
+      margin: 24px 0;
+    }
+
+    @media (max-width: 640px) {
+      .map-controls select { min-width: 0; width: 100%; }
+      .map-controls .control { width: 100%; }
+      .figure-row .fig-value { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <nav id="subnav"></nav>
+
+    <header class="unit-header">
+      <div class="unit-kicker">Paris 7e / Unit 2</div>
+      <h1 class="unit-title">Every project, every status</h1>
+      <p class="unit-dek" data-lang="en">Every Budget Participatif operation recorded in the 7e, where it sits, what stage it reached, and which ones were abandoned.</p>
+      <p class="unit-dek" data-lang="fr" hidden>Toutes les opérations du Budget Participatif enregistrées dans le 7e : où elles se trouvent, à quelle étape elles sont arrivées, et lesquelles ont été abandonnées.</p>
+    </header>
+
+    <div id="staleness"></div>
+    <div id="load-error" class="load-error" hidden></div>
+
+    <div class="section-prose">
+      <div data-lang="en">
+        <p><span id="n-operations">97</span> operations, belonging to <span id="n-projects">58</span> winning projects, from the <span id="n-edition-first">2014</span> edition to <span id="n-edition-last">2025</span>. A row in the source is an operation. One project can have several. The budget attached to a row is the budget of the whole project, repeated on each of its operations, so that column does not add up.</p>
+      </div>
+      <div data-lang="fr" hidden>
+        <p><span class="fill-operations">97</span> opérations, rattachées à <span class="fill-projects">58</span> projets lauréats, de l'édition <span class="fill-edition-first">2014</span> à <span class="fill-edition-last">2025</span>. Une ligne de la source est une opération. Un projet peut en compter plusieurs. Le budget porté par une ligne est celui du projet entier, répété sur chacune de ses opérations : cette colonne ne s'additionne pas.</p>
+      </div>
+    </div>
+
+    <div class="cannot-tell">
+      <h2 data-i18n="callout.unit_of_analysis">How the money is counted</h2>
+      <ul>
+        <li data-lang="en">Money is only ever summed over projects, deduplicated by <code>identifiant_projet_gagnant</code>. Never over operation rows.</li>
+        <li data-lang="fr" hidden>L'argent n'est additionné qu'au niveau des projets, dédoublonnés par <code>identifiant_projet_gagnant</code>. Jamais au niveau des opérations.</li>
+        <li data-lang="en"><span id="n-local-projects">46</span> projects registered at 75007 have at least one operation sited in the 7e: <span id="v-local-total">EUR 13,542,100</span>. That is 7e money. A project registered here whose operations are filed under another arrondissement code is not in this count.</li>
+        <li data-lang="fr" hidden><span class="fill-local-projects">46</span> projets rattachés au 75007 ont au moins une opération située dans le 7e : <span class="fill-local-total">13 542 100 EUR</span>. C'est de l'argent du 7e. Un projet rattaché ici mais dont les opérations sont classées sous un autre code d'arrondissement n'est pas compté.</li>
+        <li data-lang="en"><span id="n-citywide-projects">12</span> are citywide projects registered elsewhere with an operation sited in the 7e, carrying <span id="v-citywide-total">EUR 38,700,000</span> of Paris-wide budget. That is not 7e money and is never added to the line above.</li>
+        <li data-lang="fr" hidden><span class="fill-citywide-projects">12</span> sont des projets parisiens rattachés ailleurs, avec une opération située dans le 7e, portant <span class="fill-citywide-total">38 700 000 EUR</span> de budget parisien. Ce n'est pas de l'argent du 7e et cela ne s'ajoute jamais à la ligne précédente.</li>
+        <li data-lang="en">Counts and money answer different questions, so they are always printed as two quantities.</li>
+        <li data-lang="fr" hidden>Les effectifs et les montants répondent à deux questions différentes : ils sont toujours affichés séparément.</li>
+      </ul>
+    </div>
+
+    <!-- ── Map ─────────────────────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_map">Where the operations are</h2>
+      <div class="section-prose">
+        <p data-lang="en">One dot per operation, at the coordinates the dataset gives it, coloured by <span lang="fr" class="fr-term">avancement_operation</span>. The colours match the status pills used everywhere on this page.</p>
+        <p data-lang="fr" hidden>Un point par opération, aux coordonnées fournies par le jeu de données, coloré selon <span lang="fr" class="fr-term">avancement_operation</span>. Les couleurs sont celles des pastilles d'avancement utilisées sur toute la page.</p>
+      </div>
+
+      <figure class="map-figure">
+        <div id="map" class="mount"><div class="map-loading" data-i18n="pipeline.map_loading">Loading the map</div></div>
+        <div class="map-controls" id="map-controls" hidden>
+          <div class="control">
+            <label for="map-status" data-i18n="col.status">Status (avancement)</label>
+            <select id="map-status"></select>
+          </div>
+          <button type="button" class="map-btn" id="btn-fit-7e" data-i18n="pipeline.fit_7e">Fit to the 7e</button>
+          <button type="button" class="map-btn" id="btn-fit-all" data-i18n="pipeline.fit_all">Fit to all operations</button>
+        </div>
+        <div id="map-legend"></div>
+        <figcaption>
+          <span data-lang="en">Source: <span lang="fr">budget-participatif_operations-projets-gagnants-realisations</span>. <span id="n-outside">3</span> operation rows carry coordinates outside a bounding box drawn around the 7e, although the source files them under 75007. They are drawn where the source puts them.</span>
+          <span data-lang="fr" hidden>Source : <span lang="fr">budget-participatif_operations-projets-gagnants-realisations</span>. <span class="fill-outside">3</span> opérations portent des coordonnées hors d'un cadre tracé autour du 7e, alors que la source les rattache au 75007. Elles sont tracées là où la source les place.</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Funnel ──────────────────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_funnel">The funnel</h2>
+      <div class="section-prose">
+        <p data-lang="en">Status is recorded per operation. Value is the deduplicated project budget, split into 7e-local and citywide. Read them as separate quantities, not as one. A project whose operations sit at different statuses is counted under each of them, so these columns do not add up to the section totals.</p>
+        <p data-lang="fr" hidden>L'avancement est enregistré par opération. La valeur est le budget des projets dédoublonnés, séparé entre local (7e) et parisien. Ce sont deux grandeurs distinctes, pas une seule. Un projet dont les opérations sont à des avancements différents est compté sous chacun d'eux : ces colonnes ne totalisent donc pas les montants de la section.</p>
+      </div>
+
+      <div class="funnel-controls">
+        <label for="funnel-edition" data-i18n="col.edition">Edition (édition)</label>
+        <select id="funnel-edition"></select>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table funnel-table">
+          <caption data-i18n="pipeline.cap_funnel">Operation count and deduplicated project value, per status.</caption>
+          <thead id="funnel-head"></thead>
+          <tbody id="funnel-body"></tbody>
+        </table>
+      </div>
+      <p class="note" data-lang="en">Citywide values are whole-Paris project budgets attached to an operation sited in the 7e. They are shown so the figure is visible, not because the money was spent here.</p>
+      <p class="note" data-lang="fr" hidden>Les montants parisiens sont les budgets de projets à l'échelle de Paris, rattachés à une opération située dans le 7e. Ils sont affichés pour être visibles, pas parce que l'argent a été dépensé ici.</p>
+    </section>
+
+    <!-- ── Time in stage ───────────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_time">How long each stage takes</h2>
+      <div class="section-prose">
+        <p data-lang="en">Medians between the operation-level stage dates, computed over operations that carry both dates. The sample column prints that count against the number of operations that reached the earlier stage at all, because the difference is made up of the operations that entered the stage and never left it: stalled, still running, or abandoned. Every median here is therefore a median of completed transitions and reads low. Operations where the later date precedes the earlier one are excluded and counted separately. A transition below the sample floor prints that it is below the floor instead of a median.</p>
+        <p data-lang="fr" hidden>Médianes entre les dates d'étape au niveau opération, calculées sur les opérations qui portent les deux dates. La colonne échantillon indique ce nombre rapporté à celui des opérations ayant atteint l'étape de départ, car l'écart est fait des opérations entrées dans l'étape et jamais sorties : à l'arrêt, en cours, ou abandonnées. Chaque médiane est donc une médiane de transitions achevées et sous-estime la durée réelle. Les opérations dont la seconde date précède la première sont exclues et comptées à part. Une transition sous le seuil d'échantillon affiche ce fait au lieu d'une médiane.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table">
+          <caption data-i18n="pipeline.cap_time">Median months between stage dates. Operation-level fields.</caption>
+          <thead id="time-head"></thead>
+          <tbody id="time-body"></tbody>
+        </table>
+      </div>
+      <p class="note" data-lang="en">Each row is one transition. Medians of separate transitions cannot be added into an end-to-end duration, and are not added here. <span lang="fr" class="fr-term">livraison_prev_operation</span> is a forecast delivery date, not an observed one, so the two transitions touching it are part forecast and are not elapsed durations.</p>
+      <p class="note" data-lang="fr" hidden>Chaque ligne est une transition. Les médianes de transitions distinctes ne s'additionnent pas en une durée de bout en bout, et ne sont pas additionnées ici. <span lang="fr" class="fr-term">livraison_prev_operation</span> est une date de livraison prévisionnelle, pas constatée : les deux transitions qui la touchent sont donc en partie prévisionnelles et ne sont pas des durées écoulées.</p>
+    </section>
+
+    <!-- ── The abandoned file ──────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_abandoned">The abandoned file</h2>
+      <div class="section-prose">
+        <div data-lang="en">
+          <p><span id="n-abandoned-ops">11</span> operations in the 7e are marked <span lang="fr">ABANDONNÉ</span>. They fall into two groups that must not be added together.</p>
+          <p><span id="n-abandoned-local">7</span> are 7e-local projects, <span id="v-abandoned-local">EUR 309,500</span> in total. <span id="n-abandoned-citywide">4</span> are operations of citywide projects registered at 75004, carrying <span id="v-abandoned-citywide">EUR 15,000,000</span> of Paris-wide budget. In all four citywide cases the 7e operation is abandoned while the project itself is still recorded as <span lang="fr">FIN</span>.</p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p><span class="fill-abandoned-ops">11</span> opérations du 7e sont marquées <span lang="fr">ABANDONNÉ</span>. Elles se répartissent en deux groupes qui ne doivent pas être additionnés.</p>
+          <p><span class="fill-abandoned-local">7</span> sont des projets locaux du 7e, soit <span class="fill-abandoned-local-total">309 500 EUR</span>. <span class="fill-abandoned-citywide">4</span> sont des opérations de projets parisiens rattachés au 75004, portant <span class="fill-abandoned-citywide-total">15 000 000 EUR</span> de budget parisien. Dans ces quatre cas, l'opération du 7e est abandonnée alors que le projet lui-même reste enregistré en <span lang="fr">FIN</span>.</p>
+        </div>
+      </div>
+
+      <h3 data-i18n="pipeline.h_local">Abandoned 7e-local projects</h3>
+      <div id="table-abandoned-local"></div>
+
+      <h3 data-i18n="pipeline.h_citywide">Abandoned 7e operations of citywide projects</h3>
+      <div id="table-abandoned-citywide"></div>
+
+      <h3 data-i18n="pipeline.h_champ">Where the abandoned local projects are</h3>
+      <div class="section-prose">
+        <p data-lang="en"><span id="n-champ">Five</span> of the <span id="n-abandoned-local-2">seven</span> abandoned 7e-local projects are sited at Champ-de-Mars, including the <span id="n-parcours">EUR 40,000</span> <span lang="fr">Parcours de santé au Champ de Mars</span>, a fitness trail that won a public vote:</p>
+        <p data-lang="fr" hidden><span class="fill-champ">Cinq</span> des <span class="fill-abandoned-local-2">sept</span> projets locaux abandonnés sont situés au Champ-de-Mars, dont le <span lang="fr">Parcours de santé au Champ de Mars</span> à <span class="fill-parcours">40 000 EUR</span>, voté par les habitants :</p>
+      </div>
+      <ul class="champ-list" id="champ-list"></ul>
+      <div class="section-prose" style="margin-top:18px">
+        <p data-lang="en">The dataset records that these projects were abandoned. It records no reason, for any of them. There is no reason field, no decision date, and no linked deliberation. This page therefore states the pattern and does not explain it. Any explanation belongs to a primary source this section does not yet hold.</p>
+        <p data-lang="fr" hidden>Le jeu de données enregistre que ces projets ont été abandonnés. Il n'enregistre aucun motif, pour aucun d'eux. Pas de champ motif, pas de date de décision, pas de délibération liée. Cette page constate donc la régularité et ne l'explique pas. Toute explication relève d'une source primaire dont cette section ne dispose pas encore.</p>
+      </div>
+    </section>
+
+    <!-- ── The table ───────────────────────────────────────────────────── -->
+    <section class="unit-block">
+      <h2 data-i18n="pipeline.h_table">Every operation</h2>
+      <div class="section-prose">
+        <p data-lang="en">Sortable and filterable. Rows are operations. The budget column is the project's budget, repeated on every operation of that project, and must not be summed down the column.</p>
+        <p data-lang="fr" hidden>Triable et filtrable. Les lignes sont des opérations. La colonne budget est celle du projet, répétée sur chacune de ses opérations : elle ne doit pas être additionnée.</p>
+      </div>
+      <div id="table-operations"></div>
+    </section>
+
+    <div class="cannot-tell">
+      <h2 data-i18n="callout.cannot_tell">What this page cannot tell you</h2>
+      <ul>
+        <li data-lang="en">Why anything was abandoned. The dataset has no reason field and no decision record.</li>
+        <li data-lang="fr" hidden>Pourquoi un projet a été abandonné. Le jeu de données n'a ni champ motif ni trace de décision.</li>
+        <li data-lang="en">What was actually spent. A budget is what was attached to the project, not an expenditure record.</li>
+        <li data-lang="fr" hidden>Ce qui a réellement été dépensé. Un budget est ce qui a été rattaché au projet, pas une dépense constatée.</li>
+        <li data-lang="en">What a citywide project cost in the 7e. Citywide budgets are Paris-wide and are not published split by arrondissement.</li>
+        <li data-lang="fr" hidden>Ce qu'un projet parisien a coûté dans le 7e. Les budgets parisiens ne sont pas publiés par arrondissement.</li>
+        <li data-lang="en">How long a stage takes for an operation that never finished it. The medians cover only operations carrying both dates, so <span id="n-stage-dropped"></span> of the <span id="n-stage-entered"></span> operations that began études are left out, and the median is a median of completed transitions.</li>
+        <li data-lang="fr" hidden>La durée d'une étape pour une opération qui ne l'a jamais achevée. Les médianes ne portent que sur les opérations ayant les deux dates : <span class="fill-stage-dropped"></span> des <span class="fill-stage-entered"></span> opérations entrées en études en sont écartées, et la médiane est une médiane de transitions achevées.</li>
+        <li data-lang="en">Anything about a 7e project with no operation recorded in the 7e. The build selects operation rows on <span lang="fr" class="fr-term">arrondissement_operation = 75007</span>, so a winning project registered here whose operations are filed elsewhere does not appear at all.</li>
+        <li data-lang="fr" hidden>Quoi que ce soit sur un projet du 7e sans opération enregistrée dans le 7e. La construction sélectionne les opérations sur <span lang="fr" class="fr-term">arrondissement_operation = 75007</span> : un projet lauréat rattaché ici mais dont les opérations sont classées ailleurs n'apparaît pas.</li>
+        <li data-lang="en">Whether a stage date was ever revised. Only the current value is published, with no history.</li>
+        <li data-lang="fr" hidden>Si une date d'étape a été révisée. Seule la valeur actuelle est publiée, sans historique.</li>
+        <li data-lang="en">Anything that happened after the upstream modified date shown in the sources table below.</li>
+        <li data-lang="fr" hidden>Ce qui s'est passé après la date de modification en amont indiquée dans le tableau des sources ci-dessous.</li>
+      </ul>
+    </div>
+
+    <footer id="provenance"></footer>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">all stories</a></span>
+    <span>Data from <a href="https://opendata.paris.fr">opendata.paris.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import maplibregl from 'https://cdn.jsdelivr.net/npm/maplibre-gl@4/+esm';
+    import {
+      initSection,
+      loadData,
+      renderTable,
+      renderProvenance,
+      pickSources,
+      statusPill,
+      statusLegend,
+      formatMoney,
+      formatNumber,
+      formatDate,
+      onLangChange,
+      applyLang,
+      t,
+      STATUS_ORDER,
+    } from '../section.js';
+
+    const DATASET = 'budget-participatif_operations-projets-gagnants-realisations';
+    const BASEMAP = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
+
+    // Centre of the 7e, at a zoom where individual operations are separable.
+    const SEVENTH_CENTER = [2.3105, 48.8565];
+    const SEVENTH_ZOOM = 13.4;
+    const SEVENTH_BOUNDS = [[2.2905, 48.8435], [2.3305, 48.8675]];
+
+    // One colour per avancement value, matching the pill colours in section.css.
+    // An unrecognised status keeps its label and takes the fallback colour.
+    const STATUS_COLOR = {
+      '(non démarré)': '#7a7268',
+      'ETUDES': '#4a6fa5',
+      'PROCEDURES': '#8a6d1f',
+      'TRAVAUX': '#b06a1c',
+      'LIVRAISON': '#2f7d72',
+      'FIN': '#3d7a3d',
+      'ABANDONNÉ': '#b32020',
+    };
+    const STATUS_FALLBACK = '#8a8a8a';
+
+    const LOCAL_ARRONDISSEMENT = '75007';
+
+    const isLocal = (row) => String(row.arrondissement_projet_gagnant || '') === LOCAL_ARRONDISSEMENT;
+
+    // Titles carry the site name in several spellings, so compare on a folded
+    // form: lowercase, and every dash character flattened to a space.
+    const isChampDeMars = (project) => String(project.titre_projet_gagnant || '')
+      .toLowerCase()
+      .replace(/[\u002d\u2010-\u2015]/g, ' ')
+      .includes('champ de mars');
+
+    const escapeHtml = (value) => String(value ?? '').replace(
+      /[&<>"']/g,
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
+    );
+
+    function setAll(selector, text) {
+      for (const el of document.querySelectorAll(selector)) el.textContent = text;
+    }
+
+    main();
+
+    async function main() {
+      await initSection({ page: 'pipeline' });
+
+      let data;
+      let sources;
+      try {
+        [data, sources] = await Promise.all([loadData('pipeline'), loadData('sources')]);
+      } catch (err) {
+        console.error(err);
+        const box = document.getElementById('load-error');
+        box.hidden = false;
+        box.textContent = t('pipeline.load_failed');
+        onLangChange(() => { box.textContent = t('pipeline.load_failed'); });
+        // The figures typed into the prose are placeholders that renderFigures
+        // overwrites. With no data behind them they are emptied, so the page
+        // fails closed instead of printing numbers it cannot source.
+        blankFigures();
+        return;
+      }
+
+      const entries = pickSources(sources, [DATASET]);
+      renderProvenance(entries, {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+
+      renderFigures(data);
+      renderFunnel(data);
+      renderTimeInStage(data);
+      renderAbandoned(data);
+      renderOperations(data);
+      buildMap(data);
+    }
+
+    /* ── Figures in the prose ──────────────────────────────────────────── */
+
+    // Every span the prose fills from data, emptied. Used when the load fails,
+    // so no placeholder survives as an unsourced figure.
+    function blankFigures() {
+      for (const node of document.querySelectorAll('[id^="n-"], [id^="v-"], [class*="fill-"]')) {
+        node.textContent = '';
+      }
+      const champ = document.getElementById('champ-list');
+      if (champ) champ.innerHTML = '';
+    }
+
+    function renderFigures(data) {
+      const editions = data.editions.map((e) => e.edition).sort();
+      const abandonedLocal = data.abandoned.local;
+      const abandonedCitywide = data.abandoned.citywide;
+      const localTotal = abandonedLocal.reduce((sum, p) => sum + (p.budget || 0), 0);
+      const citywideTotal = abandonedCitywide.reduce((sum, p) => sum + (p.budget || 0), 0);
+      const champ = abandonedLocal.filter(isChampDeMars);
+      const parcours = champ.find((p) => /parcours/i.test(p.titre_projet_gagnant || ''));
+      // Operations that entered études and are missing from the first median.
+      const firstStage = data.time_in_stage.transitions[0] || {};
+      const stageEntered = firstStage.n_entered ?? null;
+      const stageDropped = stageEntered === null
+        ? null
+        : stageEntered - (firstStage.n || 0) - (firstStage.excluded_negative || 0);
+      const outside = data.operations.filter((o) => (
+        o.latitude != null && o.longitude != null
+        && (o.latitude < SEVENTH_BOUNDS[0][1] || o.latitude > SEVENTH_BOUNDS[1][1]
+          || o.longitude < SEVENTH_BOUNDS[0][0] || o.longitude > SEVENTH_BOUNDS[1][0])
+      )).length;
+
+      const paint = () => {
+        const pairs = [
+          ['operations', formatNumber(data.operation_count)],
+          ['projects', formatNumber(data.project_count)],
+          ['edition-first', editions[0]],
+          ['edition-last', editions[editions.length - 1]],
+          ['local-projects', formatNumber(data.local_project_count)],
+          ['local-total', formatMoney(data.local_total)],
+          ['citywide-projects', formatNumber(data.citywide_project_count)],
+          ['citywide-total', formatMoney(data.citywide_total)],
+          ['abandoned-ops', formatNumber(data.abandoned.operation_count)],
+          ['abandoned-local', formatNumber(abandonedLocal.length)],
+          ['abandoned-local-2', formatNumber(abandonedLocal.length)],
+          ['abandoned-citywide', formatNumber(abandonedCitywide.length)],
+          ['champ', formatNumber(champ.length)],
+          ['parcours', parcours ? formatMoney(parcours.budget) : t('value.unknown')],
+          ['outside', formatNumber(outside)],
+          ['stage-entered', stageEntered === null ? t('value.unknown') : formatNumber(stageEntered)],
+          ['stage-dropped', stageDropped === null ? t('value.unknown') : formatNumber(stageDropped)],
+        ];
+        for (const [key, value] of pairs) {
+          setAll(`#n-${key}`, value);
+          setAll(`#v-${key}`, value);
+          setAll(`.fill-${key}`, value);
+        }
+        setAll('#v-abandoned-local', formatMoney(localTotal));
+        setAll('.fill-abandoned-local-total', formatMoney(localTotal));
+        setAll('#v-abandoned-citywide', formatMoney(citywideTotal));
+        setAll('.fill-abandoned-citywide-total', formatMoney(citywideTotal));
+
+        const list = document.getElementById('champ-list');
+        list.innerHTML = '';
+        for (const project of champ) {
+          const li = document.createElement('li');
+          const title = document.createElement('span');
+          title.setAttribute('lang', 'fr');
+          title.textContent = project.titre_projet_gagnant;
+          const budget = document.createElement('span');
+          budget.className = 'champ-budget';
+          budget.textContent = ` ${formatMoney(project.budget)}`;
+          li.append(title, budget);
+          list.append(li);
+        }
+      };
+
+      paint();
+      onLangChange(paint);
+    }
+
+    /* ── Funnel: operation count and deduplicated project value ────────── */
+
+    function renderFunnel(data) {
+      const projectsById = new Map(
+        data.projects.map((p) => [p.identifiant_projet_gagnant, p]),
+      );
+
+      // Statuses are operation-level. Value is summed over the distinct projects
+      // behind those operations, never over the operation rows themselves.
+      function rowsFor(edition) {
+        const operations = edition
+          ? data.operations.filter((o) => String(o.edition) === edition)
+          : data.operations;
+
+        const groups = new Map();
+        for (const operation of operations) {
+          const status = operation.avancement_operation || '';
+          if (!groups.has(status)) groups.set(status, { status, operations: 0, ids: new Set() });
+          const group = groups.get(status);
+          group.operations += 1;
+          group.ids.add(operation.identifiant_projet_gagnant);
+        }
+
+        const rows = [...groups.values()].map((group) => {
+          const row = {
+            status: group.status,
+            operations: group.operations,
+            localProjects: 0,
+            citywideProjects: 0,
+            localValue: 0,
+            citywideValue: 0,
+            unknownBudgets: 0,
+          };
+          for (const id of group.ids) {
+            const project = projectsById.get(id);
+            if (!project) { row.unknownBudgets += 1; continue; }
+            const budget = typeof project.budget === 'number' ? project.budget : null;
+            if (budget === null) row.unknownBudgets += 1;
+            if (isLocal(project)) {
+              row.localProjects += 1;
+              row.localValue += budget || 0;
+            } else {
+              row.citywideProjects += 1;
+              row.citywideValue += budget || 0;
+            }
+          }
+          return row;
+        });
+
+        const rank = (status) => {
+          const index = STATUS_ORDER.indexOf(status);
+          return index === -1 ? STATUS_ORDER.length : index;
+        };
+        rows.sort((a, b) => rank(a.status) - rank(b.status));
+        return rows;
+      }
+
+      const select = document.getElementById('funnel-edition');
+      const editions = data.editions.map((e) => e.edition).sort().reverse();
+      let edition = '';
+
+      const head = document.getElementById('funnel-head');
+      const body = document.getElementById('funnel-body');
+
+      const paint = () => {
+        const current = select.value;
+        select.innerHTML = '';
+        const all = document.createElement('option');
+        all.value = '';
+        all.textContent = t('pipeline.edition_all');
+        select.append(all);
+        for (const value of editions) {
+          const option = document.createElement('option');
+          option.value = value;
+          option.textContent = value;
+          select.append(option);
+        }
+        select.value = current || edition;
+
+        const rows = rowsFor(edition);
+        const maxOperations = Math.max(1, ...rows.map((r) => r.operations));
+        const maxValue = Math.max(1, ...rows.map((r) => Math.max(r.localValue, r.citywideValue)));
+
+        head.innerHTML = '';
+        const headRow = document.createElement('tr');
+        const columns = [
+          { key: 'col.status', num: false },
+          { key: 'col.operations', num: true },
+          { key: 'col.projects', num: true },
+          { key: 'col.local_total', num: true },
+          { key: 'col.citywide_total', num: true },
+        ];
+        for (const column of columns) {
+          const th = document.createElement('th');
+          th.scope = 'col';
+          if (column.num) th.classList.add('num');
+          const inner = document.createElement('span');
+          inner.className = 'th-inner';
+          inner.textContent = t(column.key);
+          th.append(inner);
+          headRow.append(th);
+        }
+        head.append(headRow);
+
+        body.innerHTML = '';
+        if (!rows.length) {
+          const tr = document.createElement('tr');
+          const td = document.createElement('td');
+          td.colSpan = columns.length;
+          td.className = 'table-empty';
+          td.textContent = t('table.empty');
+          tr.append(td);
+          body.append(tr);
+        }
+
+        for (const row of rows) {
+          const tr = document.createElement('tr');
+
+          const statusCell = document.createElement('td');
+          statusCell.className = 'nowrap';
+          statusCell.append(statusPill(row.status));
+          tr.append(statusCell);
+
+          tr.append(quantityCell(formatNumber(row.operations), row.operations / maxOperations, ''));
+
+          const projectsCell = document.createElement('td');
+          projectsCell.className = 'num';
+          projectsCell.textContent = formatNumber(row.localProjects + row.citywideProjects);
+          tr.append(projectsCell);
+
+          tr.append(quantityCell(
+            formatMoney(row.localValue),
+            row.localValue / maxValue,
+            'is-money',
+            `${formatNumber(row.localProjects)} ${t('col.projects').toLowerCase()}`,
+          ));
+          tr.append(quantityCell(
+            formatMoney(row.citywideValue),
+            row.citywideValue / maxValue,
+            'is-citywide',
+            `${formatNumber(row.citywideProjects)} ${t('col.projects').toLowerCase()}`,
+          ));
+
+          body.append(tr);
+        }
+      };
+
+      select.addEventListener('change', () => { edition = select.value; paint(); });
+      paint();
+      onLangChange(paint);
+    }
+
+    function quantityCell(text, share, modifier, title) {
+      const td = document.createElement('td');
+      td.className = 'num';
+      const wrap = document.createElement('div');
+      wrap.className = 'qty';
+      const number = document.createElement('span');
+      number.className = 'qty-num';
+      number.textContent = text;
+      const bar = document.createElement('span');
+      bar.className = `qty-bar ${modifier}`.trim();
+      const fill = document.createElement('i');
+      fill.style.width = `${Math.max(0, Math.min(1, share || 0)) * 100}%`;
+      bar.append(fill);
+      wrap.append(number, bar);
+      if (title) td.title = title;
+      td.append(wrap);
+      return td;
+    }
+
+    /* ── Time in stage ─────────────────────────────────────────────────── */
+
+    const STAGE_LABEL = {
+      debut_etudes_operation: 'col.etudes',
+      lancement_procedure_operation: 'col.procedure',
+      lancement_travaux_operation: 'col.travaux',
+      livraison_prev_operation: 'col.livraison',
+      ouverture_operation: 'col.ouverture',
+    };
+
+    function renderTimeInStage(data) {
+      const head = document.getElementById('time-head');
+      const body = document.getElementById('time-body');
+      const transitions = data.time_in_stage.transitions;
+      const floor = data.time_in_stage.sample_floor ?? data.sample_floor;
+
+      const stageCell = (field, isForecast) => {
+        const td = document.createElement('td');
+        td.className = 'wrap';
+        const gloss = document.createElement('span');
+        gloss.textContent = STAGE_LABEL[field] ? t(STAGE_LABEL[field]) : field;
+        const raw = document.createElement('span');
+        raw.className = 'stage-field';
+        raw.setAttribute('lang', 'fr');
+        raw.textContent = field;
+        td.append(gloss, raw);
+        // livraison_prev is a forecast, so a gap touching it is not an
+        // elapsed duration. The cell says so rather than the prose alone.
+        if (isForecast) {
+          const flag = document.createElement('span');
+          flag.className = 'too-few';
+          flag.textContent = t('pipeline.forecast_note');
+          td.append(flag);
+        }
+        return td;
+      };
+
+      const paint = () => {
+        head.innerHTML = '';
+        const headRow = document.createElement('tr');
+        const columns = [
+          { key: 'pipeline.from', num: false },
+          { key: 'pipeline.to', num: false },
+          { key: 'col.sample', num: true },
+          { key: 'pipeline.excluded', num: true },
+          { key: 'col.median_months', num: true },
+        ];
+        for (const column of columns) {
+          const th = document.createElement('th');
+          th.scope = 'col';
+          if (column.num) th.classList.add('num');
+          const inner = document.createElement('span');
+          inner.className = 'th-inner';
+          inner.textContent = t(column.key);
+          th.append(inner);
+          headRow.append(th);
+        }
+        head.append(headRow);
+
+        body.innerHTML = '';
+        for (const transition of transitions) {
+          const tr = document.createElement('tr');
+          tr.append(
+            stageCell(transition.from, transition.from_is_forecast),
+            stageCell(transition.to, transition.to_is_forecast),
+          );
+
+          // Both numbers, always: n is the operations that carry both dates,
+          // n_entered is those that reached the earlier stage at all. The gap
+          // between them is the operations that entered and never left.
+          const sample = document.createElement('td');
+          sample.className = 'num';
+          sample.textContent = transition.n_entered === undefined
+            ? formatNumber(transition.n)
+            : t('pipeline.sample_of', {
+              n: formatNumber(transition.n),
+              entered: formatNumber(transition.n_entered),
+            });
+          tr.append(sample);
+
+          const excluded = document.createElement('td');
+          excluded.className = 'num';
+          excluded.textContent = formatNumber(transition.excluded_negative || 0);
+          tr.append(excluded);
+
+          const median = document.createElement('td');
+          const belowFloor = transition.insufficient_data
+            || transition.median_months === null
+            || transition.median_months === undefined;
+          if (belowFloor) {
+            median.className = 'wrap';
+            const note = document.createElement('span');
+            note.className = 'too-few';
+            note.textContent = t('stats.too_few', {
+              n: formatNumber(transition.n),
+              floor: formatNumber(transition.sample_floor ?? floor),
+            });
+            median.append(note);
+          } else {
+            median.className = 'num';
+            median.textContent = formatNumber(transition.median_months);
+          }
+          tr.append(median);
+
+          body.append(tr);
+        }
+      };
+
+      paint();
+      onLangChange(paint);
+    }
+
+    /* ── The abandoned file ────────────────────────────────────────────── */
+
+    function renderAbandoned(data) {
+      // Project pages are only linked from operation rows, so build the lookup.
+      const linkById = new Map();
+      for (const operation of data.operations) {
+        if (operation.lien_projet_gagnant && !linkById.has(operation.identifiant_projet_gagnant)) {
+          linkById.set(operation.identifiant_projet_gagnant, operation.lien_projet_gagnant);
+        }
+      }
+      const linkFor = (row) => linkById.get(row.identifiant_projet_gagnant);
+      // Link the title only when every row in the table has a link, so a gap in
+      // the source can never render as a dead URL.
+      const linkAll = (rows) => (rows.every(linkFor) ? linkFor : undefined);
+
+      renderTable('#table-abandoned-local', {
+        rows: data.abandoned.local,
+        captionKey: 'pipeline.cap_local',
+        sort: { key: 'budget', dir: 'desc' },
+        columns: [
+          {
+            key: 'titre_projet_gagnant',
+            labelKey: 'col.project',
+            className: 'wrap',
+            sourceTerm: true,
+            href: linkAll(data.abandoned.local),
+          },
+          { key: 'edition', labelKey: 'col.edition' },
+          { key: 'thematique', labelKey: 'col.theme', sourceTerm: true },
+          { key: 'adresse_projet_gagnant', labelKey: 'col.address', className: 'wrap', sourceTerm: true },
+          { key: 'direction_pilote_projet', labelKey: 'col.direction', className: 'wrap', sourceTerm: true },
+          { key: 'budget', labelKey: 'col.budget', type: 'money' },
+        ],
+      });
+
+      renderTable('#table-abandoned-citywide', {
+        rows: data.abandoned.citywide,
+        captionKey: 'pipeline.cap_citywide',
+        sort: { key: 'budget', dir: 'desc' },
+        columns: [
+          {
+            key: 'titre_projet_gagnant',
+            labelKey: 'col.project',
+            className: 'wrap',
+            sourceTerm: true,
+            href: linkAll(data.abandoned.citywide),
+          },
+          { key: 'edition', labelKey: 'col.edition' },
+          {
+            key: 'arrondissement_projet_gagnant',
+            labelKey: 'pipeline.registered',
+            value: (row) => row.registered_arrondissement || row.arrondissement_projet_gagnant,
+          },
+          {
+            key: 'operation_status',
+            labelKey: 'pipeline.op_status',
+            type: 'status',
+            value: () => 'ABANDONNÉ',
+            sortable: false,
+          },
+          { key: 'avancement_projet', labelKey: 'pipeline.project_status', type: 'status' },
+          { key: 'budget', labelKey: 'col.citywide_total', type: 'money' },
+        ],
+      });
+    }
+
+    /* ── Every operation ───────────────────────────────────────────────── */
+
+    function renderOperations(data) {
+      const linked = data.operations.every((row) => row.lien_projet_gagnant);
+      renderTable('#table-operations', {
+        rows: data.operations,
+        captionKey: 'pipeline.cap_table',
+        sort: { key: 'edition', dir: 'desc' },
+        search: { keys: ['titre_operation', 'titre_projet_gagnant', 'adresse_operation'] },
+        columns: [
+          {
+            key: 'titre_operation',
+            labelKey: 'col.operation',
+            className: 'wrap',
+            sourceTerm: true,
+            href: linked ? (row) => row.lien_projet_gagnant : undefined,
+          },
+          { key: 'titre_projet_gagnant', labelKey: 'col.project', className: 'wrap', sourceTerm: true },
+          { key: 'edition', labelKey: 'col.edition', filter: true },
+          { key: 'thematique', labelKey: 'col.theme', filter: true, sourceTerm: true },
+          { key: 'avancement_operation', labelKey: 'col.status', type: 'status', filter: true },
+          { key: 'budget_global_projet_gagnant', labelKey: 'col.budget', type: 'money' },
+          {
+            key: 'scope',
+            labelKey: 'col.scope',
+            filter: true,
+            value: (row) => (isLocal(row) ? t('value.local') : t('value.citywide')),
+          },
+          { key: 'direction_pilote_operation', labelKey: 'col.direction', className: 'wrap', filter: true, sourceTerm: true },
+          { key: 'quartier_operation', labelKey: 'col.quartier', className: 'wrap', filter: true, sourceTerm: true },
+          { key: 'type_financement_operation', labelKey: 'col.financing', sourceTerm: true },
+          { key: 'adresse_operation', labelKey: 'col.address', className: 'wrap', sourceTerm: true },
+          { key: 'debut_etudes_operation', labelKey: 'col.etudes', type: 'date' },
+          { key: 'lancement_procedure_operation', labelKey: 'col.procedure', type: 'date' },
+          { key: 'lancement_travaux_operation', labelKey: 'col.travaux', type: 'date' },
+          { key: 'livraison_prev_operation', labelKey: 'col.livraison', type: 'date' },
+          { key: 'ouverture_operation', labelKey: 'col.ouverture', type: 'date' },
+        ],
+      });
+    }
+
+    /* ── Map ───────────────────────────────────────────────────────────── */
+
+    function buildMap(data) {
+      const container = document.getElementById('map');
+      const controls = document.getElementById('map-controls');
+
+      const located = data.operations.filter((o) => o.longitude != null && o.latitude != null);
+      const statuses = [...new Set(data.operations.map((o) => o.avancement_operation || ''))]
+        .sort((a, b) => {
+          const rank = (s) => (STATUS_ORDER.indexOf(s) === -1 ? STATUS_ORDER.length : STATUS_ORDER.indexOf(s));
+          return rank(a) - rank(b);
+        });
+
+      const legend = document.getElementById('map-legend');
+      const paintLegend = () => {
+        legend.innerHTML = '';
+        legend.append(statusLegend(statuses));
+      };
+      paintLegend();
+      onLangChange(paintLegend);
+
+      const geojson = {
+        type: 'FeatureCollection',
+        features: located.map((operation, index) => ({
+          type: 'Feature',
+          id: index,
+          geometry: { type: 'Point', coordinates: [operation.longitude, operation.latitude] },
+          properties: {
+            status: operation.avancement_operation || '',
+            title: operation.titre_operation || '',
+            project: operation.titre_projet_gagnant || '',
+            edition: operation.edition || '',
+            address: operation.adresse_operation || '',
+            budget: operation.budget_global_projet_gagnant ?? null,
+            local: isLocal(operation),
+          },
+        })),
+      };
+
+      const matchColor = ['match', ['get', 'status']];
+      for (const [status, color] of Object.entries(STATUS_COLOR)) matchColor.push(status, color);
+      matchColor.push(STATUS_FALLBACK);
+
+      container.innerHTML = '';
+      let map;
+      try {
+        map = new maplibregl.Map({
+          container,
+          style: BASEMAP,
+          center: SEVENTH_CENTER,
+          zoom: SEVENTH_ZOOM,
+          attributionControl: false,
+        });
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = `<div class="map-loading">${escapeHtml(t('pipeline.map_failed'))}</div>`;
+        return;
+      }
+
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+      const tooltip = document.createElement('div');
+      tooltip.className = 'map-tooltip';
+      tooltip.style.display = 'none';
+      container.append(tooltip);
+
+      map.on('load', () => {
+        map.addSource('operations', { type: 'geojson', data: geojson });
+        map.addLayer({
+          id: 'operation-dots',
+          type: 'circle',
+          source: 'operations',
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 3.5, 13.5, 6.5, 16, 11],
+            'circle-color': matchColor,
+            'circle-opacity': 0.85,
+            'circle-stroke-color': '#ffffff',
+            'circle-stroke-width': 1,
+          },
+        });
+
+        map.on('mousemove', 'operation-dots', (e) => {
+          map.getCanvas().style.cursor = 'pointer';
+          const p = e.features[0].properties;
+          const budget = p.budget === null || p.budget === '' || p.budget === undefined
+            ? t('value.unknown')
+            : formatMoney(Number(p.budget));
+          const scope = p.local === true || p.local === 'true' ? t('value.local') : t('value.citywide');
+          const html = [
+            `<span class="tt-title" lang="fr">${escapeHtml(p.title)}</span>`,
+            `<span class="tt-row" lang="fr">${escapeHtml(p.project)}</span>`,
+            `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.status'))}:</span> <span lang="fr">${escapeHtml(p.status)}</span></span>`,
+            `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.edition'))}:</span> ${escapeHtml(p.edition)}</span>`,
+            `<span class="tt-row"><span class="tt-label">${escapeHtml(t('col.budget'))}:</span> ${escapeHtml(budget)} (${escapeHtml(scope)})</span>`,
+            `<span class="tt-row" lang="fr">${escapeHtml(p.address)}</span>`,
+          ].join('');
+          tooltip.innerHTML = html;
+          tooltip.style.display = 'block';
+          let x = e.point.x + 14;
+          let y = e.point.y - 10;
+          if (x + 290 > container.clientWidth) x = e.point.x - 296;
+          if (y + 130 > container.clientHeight) y = e.point.y - 140;
+          tooltip.style.left = `${Math.max(4, x)}px`;
+          tooltip.style.top = `${Math.max(4, y)}px`;
+        });
+
+        map.on('mouseleave', 'operation-dots', () => {
+          map.getCanvas().style.cursor = '';
+          tooltip.style.display = 'none';
+        });
+
+        controls.hidden = false;
+      });
+
+      map.on('error', (e) => { console.error('map error', e && e.error); });
+
+      const select = document.getElementById('map-status');
+      const paintSelect = () => {
+        const current = select.value;
+        select.innerHTML = '';
+        const all = document.createElement('option');
+        all.value = '';
+        all.textContent = t('table.filter_all');
+        select.append(all);
+        for (const status of statuses) {
+          const option = document.createElement('option');
+          option.value = status;
+          option.textContent = status;
+          option.setAttribute('lang', 'fr');
+          select.append(option);
+        }
+        select.value = current;
+      };
+      paintSelect();
+      onLangChange(paintSelect);
+
+      select.addEventListener('change', () => {
+        if (!map.getLayer('operation-dots')) return;
+        map.setFilter(
+          'operation-dots',
+          select.value ? ['==', ['get', 'status'], select.value] : null,
+        );
+      });
+
+      document.getElementById('btn-fit-7e').addEventListener('click', () => {
+        map.flyTo({ center: SEVENTH_CENTER, zoom: SEVENTH_ZOOM, duration: 700 });
+      });
+
+      document.getElementById('btn-fit-all').addEventListener('click', () => {
+        const bounds = new maplibregl.LngLatBounds();
+        for (const feature of geojson.features) bounds.extend(feature.geometry.coordinates);
+        map.fitBounds(bounds, { padding: 48, duration: 700 });
+      });
+
+      applyLang(document);
+    }
+  </script>
+</body>
+</html>

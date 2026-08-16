@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 7th, in public | France, by the numbers</title>
+  <meta name="description" content="Who decides, what it costs, and what actually gets built in the 7e arrondissement of Paris.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="./section.css">
+  <style>
+    /* Overview-only layout. Everything reusable lives in section.css. */
+
+    .lead-figures {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: var(--panel-line);
+      border: 1px solid var(--panel-line);
+    }
+    .lead-figures > li { background: var(--paper); padding: 16px 18px; }
+    .figure-value {
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      margin: 0 0 8px;
+    }
+    .figure-label {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .figure-note {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ink-mute);
+      margin: 6px 0 0;
+    }
+
+    .split-money {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .split-money > li {
+      border-left: 3px solid var(--panel-line);
+      padding: 2px 0 2px 14px;
+    }
+    .split-money .split-value {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-variant-numeric: tabular-nums;
+      margin: 0 0 6px;
+    }
+
+    .unit-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .unit-link {
+      display: block;
+      height: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--panel-line);
+      border-left: 3px solid var(--accent);
+      background: var(--paper);
+      color: inherit;
+      text-decoration: none;
+    }
+    .unit-link:hover { background: var(--row-hover); }
+    .unit-link-title {
+      display: block;
+      font-family: var(--serif);
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+    .unit-link-dek {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-mute);
+    }
+
+    .dates-list { list-style: none; margin: 18px 0 0; padding: 0; }
+    .dates-list > li {
+      border-top: 1px solid var(--panel-line);
+      padding: 12px 0;
+    }
+    .dates-list > li:last-child { border-bottom: 1px solid var(--panel-line); }
+    .date-when {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .date-when.unset { color: var(--accent); }
+    .date-what { font-size: 15px; line-height: 1.4; margin-bottom: 4px; }
+    .date-note {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      max-width: 680px;
+      margin: 0 0 4px;
+    }
+    .date-meta { font-size: 12px; color: var(--ink-mute); }
+    .date-meta a { color: inherit; }
+
+    @media (max-width: 640px) {
+      .figure-value { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <nav id="subnav"></nav>
+
+    <header class="unit-header">
+      <div class="unit-kicker">Paris 7e</div>
+      <h1 class="unit-title">The 7th, in public</h1>
+      <p class="unit-dek" data-lang="en">Who decides, what it costs, and what actually gets built in one Paris arrondissement. Every figure here traces to an open dataset, listed at the foot of the page with the date its publisher last touched it.</p>
+      <p class="unit-dek" data-lang="fr">Qui décide, ce que cela coûte, et ce qui se construit vraiment dans un arrondissement de Paris. Chaque chiffre renvoie à un jeu de données ouvert, listé en bas de page avec la date de sa dernière modification en amont.</p>
+    </header>
+
+    <div id="staleness"></div>
+
+    <section class="unit-block">
+      <h2 data-lang="en">At a glance</h2>
+      <h2 data-lang="fr">En bref</h2>
+
+      <ul class="lead-figures">
+        <li>
+          <p class="figure-value" id="fig-investment">&hellip;</p>
+          <p class="figure-label" data-lang="en">The arrondissement's own investment budget. The same figure in every one of the six exercices from <span class="year-first"></span> to <span class="year-last"></span>.</p>
+          <p class="figure-label" data-lang="fr">Le budget d'investissement propre de l'arrondissement. Le même montant pour chacun des six exercices de <span class="year-first"></span> à <span class="year-last"></span>.</p>
+          <p class="figure-note" data-lang="en">Dépenses, Budget Primitif, état spécial d'arrondissement. The dataset stops at <span class="year-last"></span>. This section claims nothing about the years after it.</p>
+          <p class="figure-note" data-lang="fr">Dépenses, Budget Primitif, état spécial d'arrondissement. Le jeu de données s'arrête à <span class="year-last"></span>. Cette section n'avance rien sur les années suivantes.</p>
+        </li>
+        <li>
+          <p class="figure-value" id="fig-operating">&hellip;</p>
+          <p class="figure-label" data-lang="en">Fonctionnement, Budget Primitif <span class="year-last"></span>. The running costs the mairie votes each year.</p>
+          <p class="figure-label" data-lang="fr">Fonctionnement, Budget Primitif <span class="year-last"></span>. Les dépenses courantes votées chaque année par la mairie.</p>
+          <p class="figure-note" data-lang="en">Up <span id="operating-change"></span> from <span id="operating-first"></span> in <span class="year-first"></span>, while investment did not move.</p>
+          <p class="figure-note" data-lang="fr">En hausse de <span id="operating-change"></span> par rapport à <span id="operating-first"></span> en <span class="year-first"></span>, alors que l'investissement n'a pas bougé.</p>
+        </li>
+        <li>
+          <p class="figure-value" id="fig-operations">&hellip;</p>
+          <p class="figure-label" data-lang="en">Budget Participatif operations sited in the 7e, belonging to <span class="project-count"></span> winning projects.</p>
+          <p class="figure-label" data-lang="fr">Opérations du Budget Participatif situées dans le 7e, rattachées à <span class="project-count"></span> projets gagnants.</p>
+          <p class="figure-note" data-lang="en">An operation is a piece of work. A project can span several. Counts and money answer different questions and are kept apart.</p>
+          <p class="figure-note" data-lang="fr">Une opération est un chantier. Un projet peut en compter plusieurs. Les comptages et les montants répondent à des questions différentes et restent séparés.</p>
+        </li>
+        <li>
+          <p class="figure-value" id="fig-elus">&hellip;</p>
+          <p class="figure-label" data-lang="en">Élus in the conseil d'arrondissement. <span class="elus-delegated"></span> hold a named délégation; the Maire's delegation field is empty.</p>
+          <p class="figure-label" data-lang="fr">Élus au conseil d'arrondissement. <span class="elus-delegated"></span> détiennent une délégation nommée ; le champ délégation du Maire est vide.</p>
+          <p class="figure-note" data-lang="en">From a dataset last modified <span class="elus-modified"></span>, which describes the 2020 to 2026 mandate. Not verified against the mairie. Treat the names as historical.</p>
+          <p class="figure-note" data-lang="fr">Jeu de données modifié pour la dernière fois le <span class="elus-modified"></span>, qui décrit la mandature 2020 à 2026. Non vérifié auprès de la mairie. À lire comme un état ancien.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="unit-block">
+      <h2 data-lang="en">Where the projects stand</h2>
+      <h2 data-lang="fr">Où en sont les projets</h2>
+      <p class="section-prose" data-lang="en">Every Budget Participatif operation in the 7e, by its <span class="fr-term" lang="fr">avancement</span>. Statuses are printed in the source's own words. Money is summed over projects, deduplicated, never over operation rows.</p>
+      <p class="section-prose" data-lang="fr">Toutes les opérations du Budget Participatif dans le 7e, par avancement. Les statuts sont repris tels quels. Les montants sont additionnés au niveau des projets, dédoublonnés, jamais sur les lignes d'opérations.</p>
+      <div id="status-table"></div>
+      <p class="note" data-lang="en">A project whose operations sit at different stages is counted under each of those stages, so neither the project column nor the two money columns add up to the section totals of <span class="project-count"></span> projects, <span class="local-total"></span> local and <span class="citywide-total"></span> citywide.</p>
+      <p class="note" data-lang="fr">Un projet dont les opérations sont à des stades différents est compté sous chacun de ces stades : ni la colonne des projets ni les deux colonnes de montants ne totalisent les chiffres de la section, soit <span class="project-count"></span> projets, <span class="local-total"></span> en local et <span class="citywide-total"></span> à l'échelle de Paris.</p>
+    </section>
+
+    <section class="unit-block">
+      <h2 data-lang="en">Abandoned</h2>
+      <h2 data-lang="fr">Abandonnés</h2>
+      <p class="section-prose" data-lang="en"><span class="abandoned-ops"></span> operations in the 7e are marked <span class="fr-term" lang="fr">ABANDONNÉ</span>. Their money is two different things and is never added together.</p>
+      <p class="section-prose" data-lang="fr"><span class="abandoned-ops"></span> opérations du 7e sont marquées ABANDONNÉ. Leurs montants relèvent de deux choses distinctes et ne sont jamais additionnés.</p>
+
+      <ul class="split-money">
+        <li>
+          <p class="split-value" id="abandoned-local">&hellip;</p>
+          <p class="figure-label" data-lang="en">of 7e-local money, across <span class="abandoned-local-n"></span> projects registered to 75007.</p>
+          <p class="figure-label" data-lang="fr">d'argent local du 7e, sur <span class="abandoned-local-n"></span> projets rattachés au 75007.</p>
+        </li>
+        <li>
+          <p class="split-value" id="abandoned-citywide">&hellip;</p>
+          <p class="figure-label" data-lang="en">of citywide budgets, across <span class="abandoned-citywide-n"></span> Paris-wide projects that had an operation sited here. This is not 7e money.</p>
+          <p class="figure-label" data-lang="fr">de budgets parisiens, sur <span class="abandoned-citywide-n"></span> projets à l'échelle de Paris dont une opération était située ici. Ce n'est pas de l'argent du 7e.</p>
+        </li>
+      </ul>
+
+      <p class="note" data-lang="en"><span class="cdm-count"></span> of the <span class="abandoned-local-n"></span> abandoned local projects are sited at Champ-de-Mars, including a voted <span class="fr-term" lang="fr">Parcours de santé</span>. The dataset records that these projects were abandoned. It records no reason, and this page does not guess at one.</p>
+      <p class="note" data-lang="fr"><span class="cdm-count"></span> des <span class="abandoned-local-n"></span> projets locaux abandonnés se situent au Champ-de-Mars, dont un Parcours de santé voté. Le jeu de données indique l'abandon. Il n'en donne aucune raison, et cette page n'en invente pas.</p>
+    </section>
+
+    <section class="unit-block">
+      <h2 data-lang="en">The four units</h2>
+      <h2 data-lang="fr">Les quatre volets</h2>
+      <ul class="unit-links">
+        <li>
+          <a class="unit-link" href="power/">
+            <span class="unit-link-title" data-lang="en">Power</span>
+            <span class="unit-link-title" data-lang="fr">Pouvoir</span>
+            <span class="unit-link-dek" data-lang="en">Who holds which délégation, which Direction pilots which kind of project, and how to route a request.</span>
+            <span class="unit-link-dek" data-lang="fr">Qui détient quelle délégation, quelle Direction pilote quel type de projet, et à qui adresser une demande.</span>
+          </a>
+        </li>
+        <li>
+          <a class="unit-link" href="pipeline/">
+            <span class="unit-link-title" data-lang="en">Pipeline</span>
+            <span class="unit-link-title" data-lang="fr">Projets</span>
+            <span class="unit-link-dek" data-lang="en">Every operation, its status, its location, how long each stage takes, and the full abandoned file.</span>
+            <span class="unit-link-dek" data-lang="fr">Chaque opération, son avancement, sa localisation, la durée de chaque étape, et le dossier complet des abandons.</span>
+          </a>
+        </li>
+        <li>
+          <a class="unit-link" href="money/">
+            <span class="unit-link-title" data-lang="en">Money</span>
+            <span class="unit-link-title" data-lang="fr">Argent</span>
+            <span class="unit-link-dek" data-lang="en">The état spécial line by line, what actually got built, and what the attribution limits are.</span>
+            <span class="unit-link-dek" data-lang="fr">L'état spécial ligne par ligne, ce qui a réellement été construit, et les limites d'attribution.</span>
+          </a>
+        </li>
+        <li>
+          <a class="unit-link" href="proposals/">
+            <span class="unit-link-title" data-lang="en">Proposals</span>
+            <span class="unit-link-title" data-lang="fr">Propositions</span>
+            <span class="unit-link-dek" data-lang="en">Proposals put to the mairie, each with its problem, its cost, its routing, and a dated log of what happened.</span>
+            <span class="unit-link-dek" data-lang="fr">Les propositions adressées à la mairie, avec problème, coût, circuit et journal daté des suites.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="unit-block">
+      <h2 data-lang="en">Dates worth knowing</h2>
+      <h2 data-lang="fr">Dates à connaître</h2>
+      <p class="section-prose" data-lang="en">Hand-curated, hand-checked. No open dataset publishes these dates in queryable form, so every entry carries the date it was last checked, and an entry that has not been confirmed says so instead of showing a date.</p>
+      <p class="section-prose" data-lang="fr">Curation et vérification manuelles. Aucun jeu de données ouvert ne publie ces dates de façon interrogeable : chaque entrée porte donc sa date de vérification, et une entrée non confirmée le dit au lieu d'afficher une date.</p>
+      <ul class="dates-list" id="dates-list"></ul>
+      <p class="note" id="dates-reviewed"></p>
+    </section>
+
+    <section class="cannot-tell">
+      <h2 data-lang="en">What this page cannot tell you</h2>
+      <h2 data-lang="fr">Ce que cette page ne peut pas dire</h2>
+      <ul data-lang="en">
+        <li>The 7e's share of the citywide Paris budget. Paris does not publish its budget split by arrondissement, and this section will not estimate one.</li>
+        <li>Anything about the arrondissement's own budget after <span class="year-last"></span>. The état spécial dataset ends there.</li>
+        <li>Who the current élus are. The source predates the 2026 municipal elections and has not been checked against the mairie.</li>
+        <li>Why any project was abandoned. The field does not exist in the data.</li>
+        <li>A single total for 7e money. Local project money and citywide project money are separate quantities here and stay separate.</li>
+      </ul>
+      <ul data-lang="fr">
+        <li>La part du 7e dans le budget parisien. Paris ne publie pas son budget ventilé par arrondissement, et cette section n'en estimera pas une.</li>
+        <li>Quoi que ce soit sur le budget propre de l'arrondissement après <span class="year-last"></span>. Le jeu de données de l'état spécial s'arrête là.</li>
+        <li>Qui sont les élus actuels. La source est antérieure aux élections municipales de 2026 et n'a pas été vérifiée auprès de la mairie.</li>
+        <li>Pourquoi un projet a été abandonné. Le champ n'existe pas dans les données.</li>
+        <li>Un total unique pour l'argent du 7e. L'argent des projets locaux et celui des projets parisiens sont deux grandeurs distinctes et le restent.</li>
+      </ul>
+    </section>
+
+    <section id="provenance"></section>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../">&larr; all stories</a></span>
+    <span>Data from <a href="https://opendata.paris.fr">opendata.paris.fr</a></span>
+  </footer>
+
+  <script src="../shared/nav.js" defer></script>
+  <script type="module">
+    import {
+      initSection,
+      loadData,
+      loadContent,
+      renderTable,
+      renderProvenance,
+      pickSources,
+      formatDate,
+      formatMoney,
+      formatNumber,
+      getLang,
+      onLangChange,
+    } from './section.js';
+
+    // Datasets this page draws a figure from. The provenance footer lists
+    // exactly these, with each one's upstream modified date.
+    const DATASET_IDS = [
+      'budget-participatif_operations-projets-gagnants-realisations',
+      'budgets-votes-etats-speciaux-darrondissements-m57-ville',
+      'conseillerseres-darrondissements',
+    ];
+
+    // Page-local chrome. Long-form prose stays in the HTML above; the shared
+    // strings files are UI chrome for the whole section, not for one page.
+    const LOCAL = {
+      en: {
+        needs_checking: 'Needs checking',
+        checked_on: 'Checked on',
+        source: 'Source',
+        reviewed: 'Whole list last reviewed {date}.',
+        varies: 'varies',
+      },
+      fr: {
+        needs_checking: 'À vérifier',
+        checked_on: 'Vérifié le',
+        source: 'Source',
+        reviewed: 'Liste entièrement revue le {date}.',
+        varies: 'variable',
+      },
+    };
+
+    function s(key, vars) {
+      let out = (LOCAL[getLang()] || LOCAL.en)[key] || key;
+      for (const [name, value] of Object.entries(vars || {})) {
+        out = out.split(`{${name}}`).join(String(value));
+      }
+      return out;
+    }
+
+    function setAll(selector, text) {
+      for (const el of document.querySelectorAll(selector)) el.textContent = text;
+    }
+
+    // Budget Primitif, Dépenses, one section, summed per exercice. The sens
+    // filter matters: the same figure is computed the same way on the
+    // proposals pages, and the extract holding only Dépenses today is not a
+    // guarantee that it always will.
+    function primitifByYear(etat, section) {
+      const byYear = new Map();
+      for (const line of etat.lines) {
+        if (line.section !== section) continue;
+        if (line.sens !== 'Dépenses') continue;
+        if (line.type_du_vote !== 'Budget Primitif') continue;
+        byYear.set(line.exercice, (byYear.get(line.exercice) || 0) + line.amount);
+      }
+      return byYear;
+    }
+
+    const CHAMP_DE_MARS = /champ[ -]?de[ -]?mars/i;
+
+    function isChampDeMars(op) {
+      return CHAMP_DE_MARS.test([
+        op.titre_projet_gagnant,
+        op.titre_operation,
+        op.adresse_operation,
+        op.adresse_projet_gagnant,
+      ].join(' '));
+    }
+
+    function renderDates(dates) {
+      const host = document.getElementById('dates-list');
+      host.innerHTML = '';
+
+      for (const entry of dates.entries) {
+        const li = document.createElement('li');
+
+        const when = document.createElement('div');
+        when.className = entry.date ? 'date-when' : 'date-when unset';
+        when.textContent = entry.date ? formatDate(entry.date) : s('needs_checking');
+        li.append(when);
+
+        const what = document.createElement('div');
+        what.className = 'date-what';
+        what.setAttribute('lang', 'fr');
+        what.textContent = entry.label;
+        li.append(what);
+
+        if (entry.note) {
+          const note = document.createElement('p');
+          note.className = 'date-note';
+          note.textContent = entry.note;
+          li.append(note);
+        }
+
+        const meta = document.createElement('div');
+        meta.className = 'date-meta';
+        meta.textContent = `${s('checked_on')} ${formatDate(entry.checked_on)}`;
+        if (entry.source_url) {
+          meta.append(document.createTextNode(` · ${s('source')}: `));
+          const a = document.createElement('a');
+          a.href = entry.source_url;
+          a.rel = 'noopener';
+          a.target = '_blank';
+          a.textContent = entry.source_url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+          meta.append(a);
+        }
+        li.append(meta);
+
+        host.append(li);
+      }
+
+      document.getElementById('dates-reviewed').textContent =
+        s('reviewed', { date: formatDate(dates.last_reviewed) });
+    }
+
+    async function main() {
+      await initSection({ page: 'overview' });
+
+      const [pipeline, etat, elus, sources, dates] = await Promise.all([
+        loadData('pipeline'),
+        loadData('etat-special'),
+        loadData('elus'),
+        loadData('sources'),
+        loadContent('dates'),
+      ]);
+
+      const investment = primitifByYear(etat, 'Investissement');
+      const operating = primitifByYear(etat, 'Fonctionnement');
+      const investmentValues = [...new Set(investment.values())];
+      const frozen = investmentValues.length === 1 ? investmentValues[0] : null;
+
+      const firstYear = etat.exercice_min;
+      const lastYear = etat.exercice_max;
+      const operatingFirst = operating.get(firstYear);
+      const operatingLast = operating.get(lastYear);
+      const operatingChange = operatingFirst
+        ? Math.round(((operatingLast - operatingFirst) / operatingFirst) * 100)
+        : null;
+
+      const delegated = elus.elus.filter(
+        (e) => e.delegation && String(e.delegation).trim() !== '',
+      ).length;
+
+      const champDeMars = pipeline.abandoned.local.filter(isChampDeMars).length;
+
+      renderTable('#status-table', {
+        rows: pipeline.funnel.statuses,
+        sort: { key: 'operation_count', dir: 'desc' },
+        columns: [
+          { key: 'status', labelKey: 'col.status', type: 'status' },
+          { key: 'operation_count', labelKey: 'col.operations', type: 'number' },
+          { key: 'project_count', labelKey: 'col.projects', type: 'number' },
+          { key: 'local_project_total', labelKey: 'col.local_total', type: 'money' },
+          { key: 'citywide_project_total', labelKey: 'col.citywide_total', type: 'money' },
+        ],
+      });
+
+      renderProvenance(pickSources(sources, DATASET_IDS), {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+
+      // Numbers are reformatted when the language changes, so grouping and
+      // currency follow the rendering the reader chose.
+      const paint = () => {
+        document.getElementById('fig-investment').textContent =
+          frozen === null ? s('varies') : formatMoney(frozen);
+        document.getElementById('fig-operating').textContent = formatMoney(operatingLast);
+        document.getElementById('fig-operations').textContent =
+          formatNumber(pipeline.operation_count);
+        document.getElementById('fig-elus').textContent = formatNumber(elus.elus.length);
+        document.getElementById('abandoned-local').textContent =
+          formatMoney(pipeline.abandoned.local_total);
+        document.getElementById('abandoned-citywide').textContent =
+          formatMoney(pipeline.abandoned.citywide_total);
+
+        document.getElementById('operating-first').textContent = formatMoney(operatingFirst);
+        document.getElementById('operating-change').textContent =
+          operatingChange === null ? s('varies') : `${formatNumber(operatingChange)}%`;
+
+        setAll('.year-first', firstYear);
+        setAll('.year-last', lastYear);
+        setAll('.project-count', formatNumber(pipeline.project_count));
+        setAll('.local-total', formatMoney(pipeline.local_total));
+        setAll('.citywide-total', formatMoney(pipeline.citywide_total));
+        setAll('.elus-delegated', formatNumber(delegated));
+        setAll('.elus-modified', formatDate(elus.elus_modified));
+        setAll('.abandoned-ops', formatNumber(pipeline.abandoned.operation_count));
+        setAll('.abandoned-local-n', formatNumber(pipeline.abandoned.local.length));
+        setAll('.abandoned-citywide-n', formatNumber(pipeline.abandoned.citywide.length));
+        setAll('.cdm-count', formatNumber(champDeMars));
+
+        renderDates(dates);
+      };
+
+      paint();
+      onLangChange(paint);
+    }
+
+    main().catch((err) => {
+      console.error('Failed to build the Paris 7e overview:', err);
+      document.getElementById('staleness').textContent =
+        'Failed to load the section data. Nothing on this page is being shown from cache.';
+    });
+  </script>
+</body>
+</html>

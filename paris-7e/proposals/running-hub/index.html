@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Running hub proposal, 7e | France, by the numbers</title>
+  <meta name="description" content="Proposal record: a small public running facility near Champ-de-Mars, held at research status by an adverse precedent at the same site.">
+  <link rel="stylesheet" href="../../../shared/style.css">
+  <link rel="stylesheet" href="../../section.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4/dist/maplibre-gl.css">
+  <style>
+    /* Page-local map furniture. Nothing here restyles the shared shell. */
+    .map-frame {
+      position: relative;
+      width: 100%;
+      height: clamp(360px, 60vh, 560px);
+      border: 1px solid var(--panel-line);
+      background: var(--panel);
+    }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid var(--panel-line);
+      border-top: none;
+      background: var(--paper);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .map-legend .key { display: flex; align-items: center; gap: 6px; }
+    .map-legend .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      border: 1px solid currentColor;
+      flex: none;
+    }
+    .map-legend .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px var(--accent);
+      flex: none;
+    }
+    .map-legend .dot.small { width: 8px; height: 8px; }
+    .map-tooltip {
+      position: absolute;
+      z-index: 3;
+      max-width: 240px;
+      padding: 8px 10px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      font-size: 12px;
+      line-height: 1.4;
+      pointer-events: none;
+    }
+    .map-tooltip .tt-name { display: block; font-weight: 700; margin-bottom: 3px; }
+    .map-tooltip .tt-row { display: block; color: var(--ink-mute); }
+
+    .record-list { margin: 0 0 18px; padding-left: 18px; max-width: 680px; }
+    .record-list li { font-size: 14px; line-height: 1.55; margin-bottom: 6px; color: var(--ink-soft); }
+    .stat-line {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.45;
+      max-width: 680px;
+      margin: 0 0 18px;
+    }
+    .record-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      align-items: center;
+      margin: 12px 0 0;
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+  </style>
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <nav id="subnav"></nav>
+    <div id="staleness"></div>
+
+    <header class="unit-header">
+      <div class="unit-kicker">
+        <span data-lang="en">Proposal record · running-hub</span><span data-lang="fr" lang="fr">Fiche de proposition · running-hub</span>
+      </div>
+      <h1 class="unit-title" id="title"></h1>
+      <p class="unit-dek" id="summary"></p>
+      <div class="record-meta" id="record-meta"></div>
+    </header>
+
+    <!-- Lead: the precedent that cuts against this proposal. It comes first
+         on purpose. Anyone who knows the file already knows it. -->
+    <div class="cannot-tell" id="precedent">
+      <h2 data-i18n="callout.precedent">Precedent against this proposal</h2>
+      <div id="precedent-body"></div>
+    </div>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">The problem</span><span data-lang="fr" lang="fr">Le problème</span></h2>
+      <div class="section-prose" id="problem"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">The proposal</span><span data-lang="fr" lang="fr">La proposition</span></h2>
+      <div class="section-prose" id="proposal"></div>
+      <h3><span data-lang="en">Not proposed</span><span data-lang="fr" lang="fr">Ce qui n'est pas proposé</span></h3>
+      <ul class="record-list" id="not-proposed"></ul>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Where</span><span data-lang="fr" lang="fr">Où</span></h2>
+      <div class="section-prose" id="location-note"></div>
+      <div class="map-frame" id="map"></div>
+      <div class="map-legend" id="map-legend"></div>
+      <p class="note" id="map-note"></p>
+      <div id="candidates"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Cost, against the arrondissement's own budget</span><span data-lang="fr" lang="fr">Le coût, rapporté au budget de l'arrondissement</span></h2>
+      <p class="stat-line" id="scale-headline"></p>
+      <div id="cost-tiers"></div>
+      <div class="section-prose" id="scale-body"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Precedent for the format</span><span data-lang="fr" lang="fr">Précédent sur le format</span></h2>
+      <div id="supporting"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">The pilot, and how it is judged</span><span data-lang="fr" lang="fr">Le pilote et son évaluation</span></h2>
+      <p class="stat-line" id="pilot-line"></p>
+      <div id="metrics"></div>
+      <p class="note" id="decision-rule"></p>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Maintenance</span><span data-lang="fr" lang="fr">Entretien</span></h2>
+      <div id="maintenance"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Routing</span><span data-lang="fr" lang="fr">Circuit d'instruction</span></h2>
+      <p class="note">
+        <span data-lang="en">Which élu, which Direction, which conseil de quartier, which funding cycle. Delegations and Direction names are quoted verbatim in French.</span>
+        <span data-lang="fr" lang="fr">Quel élu, quelle Direction, quel conseil de quartier, quel cycle de financement. Les délégations et les noms de Direction sont cités tels quels.</span>
+      </p>
+      <div id="routing"></div>
+      <h3><span data-lang="en">Funding cycle</span><span data-lang="fr" lang="fr">Cycle de financement</span></h3>
+      <div id="cycle"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Status log</span><span data-lang="fr" lang="fr">Journal de suivi</span></h2>
+      <p class="note">
+        <span data-lang="en">Every contact and every response, dated. This is the part of the record with the longest useful life.</span>
+        <span data-lang="fr" lang="fr">Chaque contact et chaque réponse, avec sa date. C'est la partie de la fiche qui sert le plus longtemps.</span>
+      </p>
+      <div id="status-log"></div>
+    </section>
+
+    <div class="cannot-tell">
+      <h2 data-i18n="callout.cannot_tell">What this page cannot tell you</h2>
+      <ul id="limits"></ul>
+      <h3><span data-lang="en">Open questions</span><span data-lang="fr" lang="fr">Questions ouvertes</span></h3>
+      <ul id="open-questions"></ul>
+    </div>
+
+    <footer id="provenance"></footer>
+  </main>
+
+  <script src="../../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import maplibregl from 'https://cdn.jsdelivr.net/npm/maplibre-gl@4/+esm';
+    import {
+      initSection, loadData, loadContent, applyLang, formatMoney, formatNumber,
+      formatDate, onLangChange, pickSources, renderProvenance, t,
+    } from '../../section.js';
+
+    const BASEMAP = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
+    const CANDIDATE_QUARTIERS = ['GROS CAILLOU', 'INVALIDES'];
+    const DATASETS = [
+      'budget-participatif_operations-projets-gagnants-realisations',
+      'budgets-votes-etats-speciaux-darrondissements-m57-ville',
+      'conseillerseres-darrondissements',
+      'conseils-quartiers',
+    ];
+
+    // Every mount the record renders into. #map is not here: the map is built
+    // once and kept.
+    const MOUNTS = [
+      'title', 'summary', 'record-meta', 'precedent-body', 'problem', 'proposal',
+      'not-proposed', 'location-note', 'map-legend', 'map-note', 'candidates',
+      'scale-headline', 'cost-tiers', 'scale-body', 'supporting', 'pilot-line',
+      'metrics', 'decision-rule', 'maintenance', 'routing', 'cycle',
+      'status-log', 'limits', 'open-questions',
+    ];
+
+    const el = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== null && text !== undefined) node.textContent = text;
+      return node;
+    };
+
+    // Bilingual inline pair. applyLang hides the one that is not active.
+    const bi = (en, fr) => {
+      const frag = document.createDocumentFragment();
+      const a = el('span', null, en);
+      a.dataset.lang = 'en';
+      const b = el('span', null, fr);
+      b.dataset.lang = 'fr';
+      b.setAttribute('lang', 'fr');
+      frag.append(a, b);
+      return frag;
+    };
+
+    const fr = (text) => {
+      const span = el('span', 'fr-term', text);
+      span.setAttribute('lang', 'fr');
+      return span;
+    };
+
+    // Local table builder, reusing .table-scroll / .data-table from
+    // section.css. renderTable() is for filterable data tables; these are
+    // short fixed tables read from the hand-authored proposal record.
+    function buildTable(columns, rows) {
+      const scroll = el('div', 'table-scroll');
+      const table = el('table', 'data-table');
+      const thead = el('thead');
+      const headRow = el('tr');
+      for (const column of columns) {
+        const th = el('th');
+        th.scope = 'col';
+        if (column.num) th.className = 'num';
+        const inner = el('span', 'th-inner');
+        inner.append(bi(column.en, column.fr));
+        th.append(inner);
+        headRow.append(th);
+      }
+      thead.append(headRow);
+      const tbody = el('tbody');
+      for (const cells of rows) {
+        const tr = el('tr');
+        cells.forEach((cell, i) => {
+          const td = el('td', columns[i].cellClass || null);
+          if (columns[i].num) td.classList.add('num');
+          if (cell === null || cell === undefined || cell === '') {
+            td.classList.add('muted');
+            td.textContent = t('value.unknown');
+          } else if (typeof cell === 'string' || typeof cell === 'number') {
+            td.textContent = String(cell);
+          } else {
+            td.append(cell);
+          }
+          tr.append(td);
+        });
+        tbody.append(tr);
+      }
+      table.append(thead, tbody);
+      scroll.append(table);
+      return scroll;
+    }
+
+    const listInto = (host, items) => {
+      for (const item of items || []) host.append(el('li', null, item));
+    };
+
+    const para = (host, text) => { host.append(el('p', null, text)); };
+
+    /* ── Adverse precedent, the lead ─────────────────────────────────── */
+
+    function renderPrecedent(host, record, abandoned) {
+      const precedent = record.adverse_precedent;
+      const direct = precedent.direct_precedent;
+
+      const headline = el('p');
+      headline.append(el('strong', null, precedent.headline));
+      host.append(headline);
+
+      para(host, direct.why_it_matters);
+
+      const champMars = [direct, ...precedent.other_abandoned_champ_de_mars_projects];
+      const champTotal = champMars.reduce((sum, p) => sum + (p.budget_eur || 0), 0);
+
+      host.append(buildTable([
+        { en: 'Project (projet gagnant)', fr: 'Projet gagnant', cellClass: 'wrap' },
+        { en: 'Edition (édition)', fr: 'Édition' },
+        { en: 'Budget', fr: 'Budget', num: true },
+        { en: 'Status (avancement)', fr: 'Avancement' },
+      ], champMars.map((project) => {
+        const title = el('span');
+        title.setAttribute('lang', 'fr');
+        title.textContent = project.titre_projet_gagnant;
+        if (project === direct) {
+          const strong = el('strong');
+          strong.append(title);
+          const tag = el('div', 'too-few');
+          tag.append(bi('The direct precedent for this proposal.', 'Le précédent direct de cette proposition.'));
+          const cell = el('div');
+          cell.append(strong, tag);
+          return [cell, project.edition, formatMoney(project.budget_eur), abandonedPill()];
+        }
+        return [title, project.edition, formatMoney(project.budget_eur), abandonedPill()];
+      })));
+
+      const pattern = el('p');
+      pattern.append(bi(
+        `${formatNumber(champMars.length)} abandoned 7e-local projects sit at one site, together ${formatMoney(champTotal)} of the ${formatMoney(abandoned.local_total)} of 7e-local money attached to abandoned projects. ${formatNumber(champMars.length)} of the ${formatNumber(abandoned.local.length)} abandoned local projects are at Champ-de-Mars.`,
+        `${formatNumber(champMars.length)} projets locaux abandonnés sont sur un seul site, soit ${formatMoney(champTotal)} sur les ${formatMoney(abandoned.local_total)} d'argent local du 7e rattachés à des projets abandonnés. ${formatNumber(champMars.length)} des ${formatNumber(abandoned.local.length)} projets locaux abandonnés sont au Champ-de-Mars.`,
+      ));
+      host.append(pattern);
+
+      const reasons = el('p');
+      reasons.append(bi(
+        'The dataset records the abandonment and never the cause. No reason is published for any of the five.',
+        "Le jeu de données enregistre l'abandon, jamais la cause. Aucun motif n'est publié pour ces cinq projets.",
+      ));
+      host.append(reasons);
+
+      const hypothesis = el('p');
+      hypothesis.append(el('strong', null, `${precedent.hypothesis.text} `));
+      hypothesis.append(bi(
+        'That is a hypothesis. It is unverified, it is not stated as fact anywhere on this site, and it will not be used in any submission until a primary source confirms it.',
+        "C'est une hypothèse. Elle n'est pas vérifiée, elle n'est présentée comme un fait nulle part sur ce site, et elle ne servira à aucune démarche tant qu'une source primaire ne l'aura pas confirmée.",
+      ));
+      host.append(hypothesis);
+
+      const consequence = el('p');
+      consequence.append(el('strong', null, precedent.consequence_for_this_proposal));
+      host.append(consequence);
+
+      const provenance = el('p', 'too-few');
+      provenance.textContent = `Source: ${precedent.source}. Discovered ${precedent.discovered_on}.`;
+      host.append(provenance);
+    }
+
+    function abandonedPill() {
+      const pill = el('span', 'pill pill--abandonne', 'ABANDONNÉ');
+      pill.setAttribute('lang', 'fr');
+      return pill;
+    }
+
+    /* ── Map ─────────────────────────────────────────────────────────── */
+
+    function precedentPoints(record, pipeline) {
+      const precedent = record.adverse_precedent;
+      const wanted = new Map();
+      wanted.set(precedent.direct_precedent.identifiant_projet_gagnant, true);
+      for (const project of precedent.other_abandoned_champ_de_mars_projects) {
+        wanted.set(project.identifiant_projet_gagnant, false);
+      }
+      const features = [];
+      for (const operation of pipeline.operations) {
+        if (!wanted.has(operation.identifiant_projet_gagnant)) continue;
+        if (operation.avancement_operation !== 'ABANDONNÉ') continue;
+        if (operation.longitude === null || operation.latitude === null) continue;
+        features.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [operation.longitude, operation.latitude] },
+          properties: {
+            title: operation.titre_projet_gagnant,
+            operation: operation.titre_operation,
+            edition: operation.edition,
+            budget: operation.budget_global_projet_gagnant,
+            adresse: operation.adresse_operation,
+            avancement: operation.avancement_operation,
+            direct: wanted.get(operation.identifiant_projet_gagnant),
+          },
+        });
+      }
+      return { type: 'FeatureCollection', features };
+    }
+
+    function boundsOf(geojson) {
+      let minX = Infinity; let minY = Infinity; let maxX = -Infinity; let maxY = -Infinity;
+      const visit = (coords) => {
+        if (typeof coords[0] === 'number') {
+          minX = Math.min(minX, coords[0]); maxX = Math.max(maxX, coords[0]);
+          minY = Math.min(minY, coords[1]); maxY = Math.max(maxY, coords[1]);
+          return;
+        }
+        for (const part of coords) visit(part);
+      };
+      for (const feature of geojson.features) visit(feature.geometry.coordinates);
+      return [[minX, minY], [maxX, maxY]];
+    }
+
+    function drawMap(container, quartiers, points) {
+      const bounds = boundsOf(quartiers);
+      const map = new maplibregl.Map({
+        container,
+        style: BASEMAP,
+        bounds,
+        fitBoundsOptions: { padding: 24 },
+        attributionControl: false,
+      });
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+      const tooltip = el('div', 'map-tooltip');
+      tooltip.style.display = 'none';
+      container.appendChild(tooltip);
+
+      map.on('load', () => {
+        map.addSource('quartiers', { type: 'geojson', data: quartiers });
+        map.addLayer({
+          id: 'quartier-fill',
+          type: 'fill',
+          source: 'quartiers',
+          paint: {
+            'fill-color': ['match', ['get', 'nom_quart'], CANDIDATE_QUARTIERS, '#4a6fa5', '#8a8378'],
+            'fill-opacity': ['match', ['get', 'nom_quart'], CANDIDATE_QUARTIERS, 0.16, 0.05],
+          },
+        });
+        map.addLayer({
+          id: 'quartier-line',
+          type: 'line',
+          source: 'quartiers',
+          paint: {
+            'line-color': ['match', ['get', 'nom_quart'], CANDIDATE_QUARTIERS, '#4a6fa5', '#8a8378'],
+            'line-width': ['match', ['get', 'nom_quart'], CANDIDATE_QUARTIERS, 1.6, 0.8],
+            'line-opacity': 0.8,
+          },
+        });
+
+        map.addSource('abandoned', { type: 'geojson', data: points });
+        map.addLayer({
+          id: 'abandoned-dots',
+          type: 'circle',
+          source: 'abandoned',
+          paint: {
+            'circle-radius': ['case', ['get', 'direct'], 9, 6],
+            'circle-color': '#b32020',
+            'circle-opacity': 0.85,
+            'circle-stroke-color': '#ffffff',
+            'circle-stroke-width': 1.5,
+          },
+        });
+
+        map.on('mousemove', 'abandoned-dots', (event) => {
+          map.getCanvas().style.cursor = 'pointer';
+          const p = event.features[0].properties;
+          tooltip.innerHTML = '';
+          const name = el('span', 'tt-name', p.title);
+          name.setAttribute('lang', 'fr');
+          const row1 = el('span', 'tt-row', `${p.avancement} · ${p.edition} · ${formatMoney(Number(p.budget))}`);
+          row1.setAttribute('lang', 'fr');
+          const row2 = el('span', 'tt-row', p.adresse || '');
+          row2.setAttribute('lang', 'fr');
+          tooltip.append(name, row1, row2);
+          tooltip.style.display = 'block';
+          let x = event.point.x + 14;
+          let y = event.point.y - 10;
+          if (x + 250 > container.clientWidth) x = event.point.x - 254;
+          if (y + 90 > container.clientHeight) y = event.point.y - 96;
+          tooltip.style.left = `${x}px`;
+          tooltip.style.top = `${y}px`;
+        });
+        map.on('mouseleave', 'abandoned-dots', () => {
+          map.getCanvas().style.cursor = '';
+          tooltip.style.display = 'none';
+        });
+      });
+
+      return map;
+    }
+
+    function renderLegend(host, pointCount) {
+      host.innerHTML = '';
+      const key = (node, en, frText) => {
+        const wrap = el('div', 'key');
+        wrap.append(node);
+        const label = el('span');
+        label.append(bi(en, frText));
+        wrap.append(label);
+        host.append(wrap);
+      };
+      const swatch = (color, opacity) => {
+        const node = el('span', 'swatch');
+        node.style.color = color;
+        node.style.background = color;
+        node.style.opacity = String(opacity);
+        return node;
+      };
+      key(swatch('#4a6fa5', 0.55), 'Quartier under consideration', 'Quartier envisagé');
+      key(swatch('#8a8378', 0.35), 'Other conseil de quartier in the 7e', 'Autre conseil de quartier du 7e');
+      key(el('span', 'dot'), 'Parcours de santé, abandoned', 'Parcours de santé, abandonné');
+      key(el('span', 'dot small'), `Other abandoned Champ-de-Mars projects (${pointCount - 1})`, `Autres projets abandonnés du Champ-de-Mars (${pointCount - 1})`);
+    }
+
+    /* ── The 7e's own investment budget, computed from the état spécial ── */
+
+    function annualInvestment(etatSpecial) {
+      const byYear = new Map();
+      for (const line of etatSpecial.lines) {
+        if (line.sens !== 'Dépenses') continue;
+        if (line.type_du_vote !== 'Budget Primitif') continue;
+        if (line.section !== 'Investissement') continue;
+        byYear.set(line.exercice, (byYear.get(line.exercice) || 0) + (line.amount || 0));
+      }
+      const values = [...byYear.values()];
+      const years = [...byYear.keys()].sort();
+      const latest = years[years.length - 1];
+      return {
+        // The denominator for every share on this page is one named exercice:
+        // the last one the dataset holds. While the line is frozen that is
+        // every year; if it ever moves, the page says which year it used.
+        amount: byYear.get(latest),
+        amount_exercice: latest,
+        exercice_count: years.length,
+        min: Math.min(...values),
+        max: Math.max(...values),
+        constant: values.every((v) => v === values[0]),
+        from: years[0],
+        to: latest,
+      };
+    }
+
+    /* ── Page ────────────────────────────────────────────────────────── */
+
+    async function main() {
+      await initSection({ page: 'proposals' });
+
+      const [record, pipeline, etatSpecial, quartiers, dates, sources] = await Promise.all([
+        loadContent('proposals/running-hub'),
+        loadData('pipeline'),
+        loadData('etat-special'),
+        loadData('quartiers.geojson'),
+        loadContent('dates'),
+        loadData('sources'),
+      ]);
+
+      const points = precedentPoints(record, pipeline);
+      const budget = annualInvestment(etatSpecial);
+      // The most recent edition with 7e-local projects in it, project-level.
+      const latestEdition = [...pipeline.editions]
+        .filter((edition) => edition.local_project_count > 0)
+        .sort((a, b) => String(b.edition).localeCompare(String(a.edition)))[0];
+      let mapDrawn = false;
+
+      // Money and dates are formatted for the active language, so the record
+      // is rebuilt on a language change. The map itself is built once.
+      const render = () => {
+        for (const id of MOUNTS) document.getElementById(id).innerHTML = '';
+
+        // Header
+        const title = document.getElementById('title');
+        title.append(bi(record.title, record.title_fr || record.title));
+        document.getElementById('summary').textContent = record.summary;
+
+        const meta = document.getElementById('record-meta');
+        const statusPill = el('span', 'pill pill--unknown', record.status);
+        meta.append(statusPill);
+        meta.append(el('span', null, record.status_note));
+        const updated = el('span');
+        updated.append(bi(`Updated ${record.updated_on}`, `Mise à jour le ${record.updated_on}`));
+        meta.append(updated);
+
+        // Lead: the adverse precedent
+        renderPrecedent(document.getElementById('precedent-body'), record, pipeline.abandoned);
+
+        // Problem
+        const problem = document.getElementById('problem');
+        para(problem, record.problem.statement);
+        para(problem, record.problem.who_is_affected);
+        const evidence = el('p');
+        evidence.append(bi(
+          'No dataset counts runners on the Champ-de-Mars or the Esplanade des Invalides. Nothing here claims measured demand, and the pilot exists partly to produce the first measurement.',
+          "Aucun jeu de données ne compte les coureurs au Champ-de-Mars ou sur l'Esplanade des Invalides. Rien ici ne prétend mesurer la demande, et le pilote sert d'abord à produire la première mesure.",
+        ));
+        problem.append(evidence);
+
+        // Proposal
+        const proposal = document.getElementById('proposal');
+        para(proposal, record.proposal.description);
+        const components = el('ul', 'record-list');
+        listInto(components, record.proposal.components);
+        proposal.append(components);
+        para(proposal, record.proposal.reversibility);
+        listInto(document.getElementById('not-proposed'), record.proposal.explicitly_not_proposed);
+
+        // Location
+        const locationNote = document.getElementById('location-note');
+        const status = el('p');
+        status.append(el('strong', null, `Siting status: ${record.location.status}. `));
+        status.append(document.createTextNode(record.location.note));
+        locationNote.append(status);
+
+        if (!mapDrawn) {
+          drawMap(document.getElementById('map'), quartiers, points);
+          mapDrawn = true;
+        }
+        renderLegend(document.getElementById('map-legend'), points.features.length);
+
+        const distinctSites = new Set(
+          points.features.map((feature) => feature.geometry.coordinates.join(',')),
+        ).size;
+        const overlapNote = distinctSites < points.features.length
+          ? {
+            en: `They share ${formatNumber(distinctSites)} recorded addresses between them, so some markers sit on top of each other. `,
+            fr: `Ils se partagent ${formatNumber(distinctSites)} adresses enregistrées, donc certains repères se superposent. `,
+          }
+          : { en: '', fr: '' };
+
+        const mapNote = document.getElementById('map-note');
+        mapNote.append(bi(
+          `No candidate site has coordinates, because no site has been chosen. The map shows the two conseils de quartier under consideration and the recorded locations of the ${formatNumber(points.features.length)} abandoned Champ-de-Mars projects, which are the reason the choice is open. ${overlapNote.en}Quartier boundaries come from conseils-quartiers; the points are the operations' own coordinates in the Budget Participatif data.`,
+          `Aucun site candidat n'a de coordonnées, parce qu'aucun site n'est choisi. La carte montre les deux conseils de quartier envisagés et les emplacements enregistrés des ${formatNumber(points.features.length)} projets abandonnés du Champ-de-Mars, qui sont la raison pour laquelle le choix reste ouvert. ${overlapNote.fr}Les limites viennent de conseils-quartiers ; les points sont les coordonnées des opérations dans les données du Budget Participatif.`,
+        ));
+
+        document.getElementById('candidates').append(buildTable([
+          { en: 'Candidate', fr: 'Site candidat', cellClass: 'wrap' },
+          { en: 'Conseil de quartier', fr: 'Conseil de quartier' },
+          { en: 'Status', fr: 'Statut', cellClass: 'wrap' },
+          { en: 'Risk', fr: 'Risque', cellClass: 'wrap' },
+        ], record.location.candidates.map((candidate) => [
+          candidate.label,
+          fr(candidate.quartier),
+          candidate.status,
+          candidate.risk,
+        ])));
+
+        // Cost tiers and scale
+        const tiers = record.cost_tiers;
+        const cheapest = Math.min(...tiers.map((tier) => tier.eur));
+        const dearest = Math.max(...tiers.map((tier) => tier.eur));
+        const share = (value) => `${formatNumber(Math.round((value / budget.amount) * 100))}%`;
+        // Named only when the line is not flat, because then which year the
+        // share is taken against changes the answer.
+        const denominatorEn = budget.constant ? '' : ` (the ${budget.amount_exercice} figure)`;
+        const denominatorFr = budget.constant ? '' : ` (chiffre ${budget.amount_exercice})`;
+
+        document.getElementById('scale-headline').append(bi(
+          `At ${formatMoney(cheapest)} to ${formatMoney(dearest)}, this pilot is between ${share(cheapest)} and ${share(dearest)} of the arrondissement's entire annual investment budget of ${formatMoney(budget.amount)}${denominatorEn}.`,
+          `De ${formatMoney(cheapest)} à ${formatMoney(dearest)}, ce pilote représente entre ${share(cheapest)} et ${share(dearest)} de la totalité du budget annuel d'investissement de l'arrondissement, soit ${formatMoney(budget.amount)}${denominatorFr}.`,
+        ));
+
+        document.getElementById('cost-tiers').append(buildTable([
+          { en: 'Tier', fr: 'Palier' },
+          { en: 'Cost', fr: 'Coût', num: true },
+          { en: 'Share of one year of 7e investment', fr: "Part d'une année d'investissement du 7e", num: true },
+          { en: 'Scope', fr: 'Contenu', cellClass: 'wrap' },
+        ], tiers.map((tier) => [
+          tier.tier,
+          formatMoney(tier.eur),
+          share(tier.eur),
+          tier.scope,
+        ])));
+
+        const scaleBody = document.getElementById('scale-body');
+        const budgetLine = el('p');
+        budgetLine.append(bi(
+          budget.constant
+            ? `That budget figure is the 7e's own investment line, Dépenses, Budget Primitif: ${formatMoney(budget.amount)} in every exercice from ${budget.from} to ${budget.to}, where the dataset ends. It is not an estimate and it did not move across ${formatNumber(budget.exercice_count)} exercices.`
+            : `That budget figure is the 7e's own investment line, Dépenses, Budget Primitif, which ran from ${formatMoney(budget.min)} to ${formatMoney(budget.max)} over ${budget.from} to ${budget.to}, where the dataset ends.`,
+          budget.constant
+            ? `Ce montant est la ligne d'investissement propre au 7e, Dépenses, Budget Primitif : ${formatMoney(budget.amount)} à chaque exercice de ${budget.from} à ${budget.to}, terme du jeu de données. Ce n'est pas une estimation et elle n'a pas bougé sur ${formatNumber(budget.exercice_count)} exercices.`
+            : `Ce montant est la ligne d'investissement propre au 7e, Dépenses, Budget Primitif, allant de ${formatMoney(budget.min)} à ${formatMoney(budget.max)} sur ${budget.from} à ${budget.to}, terme du jeu de données.`,
+        ));
+        scaleBody.append(budgetLine);
+        para(scaleBody, record.scale_context.statement);
+        const consequence = el('p');
+        consequence.append(el('strong', null, record.scale_context.consequence));
+        scaleBody.append(consequence);
+
+        const mechanism = el('p');
+        mechanism.append(document.createTextNode(`${record.target_mechanism.primary}. ${record.target_mechanism.why} `));
+        // Deduplicated to project level, from pipeline.editions. Status splits
+        // are deliberately not quoted here: a project with operations at two
+        // stages appears under both, so those figures do not add up.
+        mechanism.append(bi(
+          `Deduplicated to project level, the ${latestEdition.edition} edition alone carried ${formatMoney(latestEdition.local_total)} into the 7e across ${formatNumber(latestEdition.local_project_count)} local projects, against ${formatMoney(budget.amount)} a year of local investment capacity.`,
+          `Dédoublonnée au niveau projet, la seule édition ${latestEdition.edition} a apporté ${formatMoney(latestEdition.local_total)} dans le 7e sur ${formatNumber(latestEdition.local_project_count)} projets locaux, contre ${formatMoney(budget.amount)} par an de capacité d'investissement local.`,
+        ));
+        scaleBody.append(mechanism);
+        scaleBody.append(buildTable([
+          { en: 'Alternative mechanism', fr: 'Mécanisme alternatif', cellClass: 'wrap' },
+          { en: 'Verdict', fr: 'Conclusion', cellClass: 'wrap' },
+        ], record.target_mechanism.alternatives_considered.map((alternative) => [
+          alternative.mechanism,
+          alternative.verdict,
+        ])));
+        const mechanismSource = el('p', 'too-few', `Source: ${record.target_mechanism.source}.`);
+        scaleBody.append(mechanismSource);
+
+        // Supporting precedent
+        const supporting = document.getElementById('supporting');
+        for (const item of record.supporting_precedent) {
+          const block = el('div', 'section-prose');
+          const heading = el('p');
+          heading.append(el('strong', null, `${item.name}. `));
+          heading.append(document.createTextNode(`${item.what} ${item.relevance}`));
+          block.append(heading);
+          const caveat = el('p', 'too-few');
+          caveat.append(bi(
+            `Unverified. ${item.note}`,
+            `Non vérifié. ${item.note}`,
+          ));
+          block.append(caveat);
+          supporting.append(block);
+        }
+
+        // Pilot
+        document.getElementById('pilot-line').append(bi(
+          `A ${record.evaluation.pilot_months} month pilot, measured on ${formatNumber(record.evaluation.metrics.length)} named metrics, none of which has a baseline because none has ever been measured here.`,
+          `Un pilote de ${record.evaluation.pilot_months} mois, mesuré sur ${formatNumber(record.evaluation.metrics.length)} indicateurs nommés, aucun n'ayant de référence puisque aucun n'a jamais été mesuré ici.`,
+        ));
+        document.getElementById('metrics').append(buildTable([
+          { en: 'Metric', fr: 'Indicateur', cellClass: 'wrap' },
+          { en: 'How it is measured', fr: 'Méthode de mesure', cellClass: 'wrap' },
+          { en: 'Baseline', fr: 'Référence', cellClass: 'wrap' },
+        ], record.evaluation.metrics.map((metric) => [
+          metric.metric,
+          metric.method,
+          metric.baseline === null
+            ? (metric.note ? metric.note : asLabel('No baseline exists.', 'Aucune référence existante.'))
+            : metric.baseline,
+        ])));
+        const decision = document.getElementById('decision-rule');
+        decision.append(el('strong', null, 'Decision rule. '));
+        decision.append(document.createTextNode(record.evaluation.decision_rule));
+
+        // Maintenance
+        const maintenance = record.maintenance_plan;
+        document.getElementById('maintenance').append(buildTable([
+          { en: 'Item', fr: 'Élément' },
+          { en: 'Plan', fr: 'Disposition', cellClass: 'wrap' },
+        ], [
+          [asLabel('Who maintains it', 'Qui entretient'), maintenance.who],
+          [asLabel('Annual cost', 'Coût annuel'), maintenance.annual_cost_estimate_eur === null
+            ? maintenance.annual_cost_estimate_note
+            : formatMoney(maintenance.annual_cost_estimate_eur)],
+          [asLabel('Consumables', 'Consommables'), (maintenance.consumables || []).join('. ')],
+          [asLabel('Replacement horizon', 'Horizon de remplacement'), maintenance.replacement_horizon_years === null
+            ? null
+            : asLabel(
+              `${formatNumber(maintenance.replacement_horizon_years)} years`,
+              `${formatNumber(maintenance.replacement_horizon_years)} ans`,
+            )],
+          [asLabel('End of life', 'Fin de vie'), maintenance.end_of_life],
+        ]));
+
+        // Routing
+        const routing = record.routing;
+        const directionCell = el('div');
+        directionCell.append(fr(routing.direction.likely));
+        if (routing.direction.inference) {
+          const tag = el('div', 'too-few');
+          tag.append(bi(
+            `Inference, not a published mapping. ${routing.direction.basis}`,
+            `Déduction, pas une répartition publiée. ${routing.direction.basis}`,
+          ));
+          directionCell.append(tag);
+        }
+        const eluCell = el('div');
+        eluCell.append(fr(routing.elu.delegation));
+        const eluNote = el('div', 'too-few', routing.elu.why_no_name);
+        eluCell.append(eluNote);
+
+        const secondary = el('div');
+        for (const delegation of routing.elu.secondary_delegations || []) {
+          const line = el('div');
+          line.append(fr(delegation));
+          secondary.append(line);
+        }
+
+        const quartierCell = el('div');
+        quartierCell.append(fr([routing.conseil_de_quartier.primary, routing.conseil_de_quartier.secondary]
+          .filter(Boolean).join(', ')));
+        quartierCell.append(el('div', 'too-few', routing.conseil_de_quartier.why));
+
+        document.getElementById('routing').append(buildTable([
+          { en: 'Route', fr: 'Voie' },
+          { en: 'Value', fr: 'Valeur', cellClass: 'wrap' },
+        ], [
+          [asLabel('Délégation (primary)', 'Délégation (principale)'), eluCell],
+          [asLabel('Délégations (secondary)', 'Délégations (secondaires)'), secondary],
+          [asLabel('Direction pilote', 'Direction pilote'), directionCell],
+          [asLabel('If the site ends up outside the park', 'Si le site est hors du parc'), fr(routing.direction.alternative)],
+          [asLabel('Conseil de quartier', 'Conseil de quartier'), quartierCell],
+          [asLabel('Mechanism', 'Mécanisme'), routing.target_mechanism || record.target_mechanism.primary],
+        ]));
+
+        const cycleEntries = (routing.funding_cycle.entries || [])
+          .map((id) => (dates.entries || []).find((entry) => entry.id === id))
+          .filter(Boolean);
+        const cycleHost = document.getElementById('cycle');
+        cycleHost.append(buildTable([
+          { en: 'What', fr: 'Étape', cellClass: 'wrap' },
+          { en: 'Date', fr: 'Date' },
+          { en: 'Checked on', fr: 'Vérifié le' },
+          { en: 'Source', fr: 'Source', cellClass: 'wrap' },
+        ], cycleEntries.map((entry) => {
+          const dateCell = entry.date
+            ? formatDate(entry.date)
+            : unverified();
+          const source = el('a', null, new URL(entry.source_url).hostname);
+          source.href = entry.source_url;
+          source.rel = 'noopener';
+          source.target = '_blank';
+          return [entry.label, dateCell, entry.checked_on, source];
+        })));
+        const cycleNote = el('p', 'note');
+        cycleNote.append(bi(
+          `${routing.funding_cycle.note} Dates are hand-curated in content/dates.json with their own checked_on stamp, because the Conseil de Paris agenda dataset holds dates as French prose and cannot be queried.`,
+          `${routing.funding_cycle.note} Les dates sont saisies à la main dans content/dates.json avec leur propre date de vérification : le jeu de données de l'ordre du jour du Conseil de Paris stocke les dates en texte libre et n'est pas interrogeable.`,
+        ));
+        cycleHost.append(cycleNote);
+
+        // Status log
+        document.getElementById('status-log').append(buildTable([
+          { en: 'Date', fr: 'Date' },
+          { en: 'Event', fr: 'Événement', cellClass: 'wrap' },
+          { en: 'Detail', fr: 'Détail', cellClass: 'wrap' },
+          { en: 'Outcome', fr: 'Suite', cellClass: 'wrap' },
+        ], [...record.status_log].reverse().map((entry) => [
+          entry.date,
+          entry.event,
+          entry.detail,
+          entry.outcome,
+        ])));
+
+        // Limits and open questions
+        listInto(document.getElementById('limits'), record.evidence_limits);
+        listInto(document.getElementById('open-questions'), record.open_questions);
+
+        applyLang(document);
+      };
+
+      render();
+      onLangChange(render);
+
+      renderProvenance(pickSources(sources, DATASETS), {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+
+      applyLang(document);
+    }
+
+    function asLabel(en, frText) {
+      const span = el('span');
+      span.append(bi(en, frText));
+      return span;
+    }
+
+    function unverified() {
+      const span = el('span', 'too-few');
+      span.textContent = t('value.unverified');
+      return span;
+    }
+
+    main().catch((error) => {
+      console.error(error);
+      const host = document.getElementById('precedent-body');
+      if (host) host.append(el('p', 'note', 'This proposal record could not be loaded.'));
+    });
+  </script>
+</body>
+</html>

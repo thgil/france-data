@@ -1,0 +1,91 @@
+{
+  "_editorial": "HAND-CURATED, HAND-CHECKED. No script writes this file. The open dataset ordre-du-jour-du-conseil-de-paris cannot supply future dates: all seven of its fields are text and the session date is French prose, so there is nothing to query. A dates widget that looked live while quietly rotting would be worse than no widget. Every entry therefore carries its own checked_on stamp, and that stamp is displayed on the page.",
+  "policy": "An entry with date null is published as unverified, with its note. No date is ever inferred from a previous year's pattern.",
+  "last_reviewed": "2026-08-16",
+  "entries": [
+    {
+      "id": "forum-associations-7e",
+      "kind": "forum",
+      "label": "Forum des Associations du 7e",
+      "date": null,
+      "source_url": "https://mairie07.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Held annually in September in recent years. The 2026 date was not published on the mairie site at the time of checking. Needs checking against the mairie's own events listing before it is stated."
+    },
+    {
+      "id": "bp-depot-idees",
+      "kind": "budget-participatif",
+      "label": "Budget Participatif: idea submission window",
+      "date": null,
+      "source_url": "https://budgetparticipatif.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "The submission window is the entry point for any capital proposal in the 7e. Dates for the next edition were not verified. Check budgetparticipatif.paris.fr, not third-party summaries."
+    },
+    {
+      "id": "bp-vote",
+      "kind": "budget-participatif",
+      "label": "Budget Participatif: public vote",
+      "date": null,
+      "source_url": "https://budgetparticipatif.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "The vote closes the cycle that the submission window opens. Not verified for the current edition."
+    },
+    {
+      "id": "conseil-de-paris",
+      "kind": "conseil-de-paris",
+      "label": "Conseil de Paris session",
+      "date": null,
+      "source_url": "https://www.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Sessions run on a published calendar, but the open dataset holds session dates as French prose in text fields and cannot be queried for future sessions. This entry is filled in by hand from the city's own calendar page."
+    },
+    {
+      "id": "cq-ecole-militaire",
+      "kind": "conseil-de-quartier",
+      "label": "Conseil de quartier École Militaire",
+      "quartier_source_label": "ECOLE MILITAIRE",
+      "date": null,
+      "source_url": "https://mairie07.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Meeting dates are announced by the mairie du 7e and are not in any open dataset. Not verified."
+    },
+    {
+      "id": "cq-saint-thomas-daquin",
+      "kind": "conseil-de-quartier",
+      "label": "Conseil de quartier Saint-Thomas d'Aquin",
+      "quartier_source_label": "SAINT - THOMAS D'AQUIN",
+      "date": null,
+      "source_url": "https://mairie07.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Meeting dates are announced by the mairie du 7e and are not in any open dataset. Not verified."
+    },
+    {
+      "id": "cq-gros-caillou",
+      "kind": "conseil-de-quartier",
+      "label": "Conseil de quartier Gros Caillou",
+      "quartier_source_label": "GROS CAILLOU",
+      "date": null,
+      "source_url": "https://mairie07.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Meeting dates are announced by the mairie du 7e and are not in any open dataset. Not verified. This is the quartier covering the Champ-de-Mars side of the arrondissement."
+    },
+    {
+      "id": "cq-invalides",
+      "kind": "conseil-de-quartier",
+      "label": "Conseil de quartier Invalides",
+      "quartier_source_label": "INVALIDES",
+      "date": null,
+      "source_url": "https://mairie07.paris.fr/",
+      "checked_on": "2026-08-16",
+      "needs_verification": true,
+      "note": "Meeting dates are announced by the mairie du 7e and are not in any open dataset. Not verified."
+    }
+  ]
+}

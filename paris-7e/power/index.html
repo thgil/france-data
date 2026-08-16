@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power in the 7e | France, by the numbers</title>
+  <meta name="description" content="Who holds what power in the 7e arrondissement of Paris: élus and their delegations, and which city Direction pilots which kind of project.">
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="../section.css">
+  <style>
+    /* Page-local layout only. Nothing here restyles the shared shell or the
+       section components in ../section.css. */
+
+    .load-error { color: var(--accent); font-size: 14px; }
+
+    /* The elections banner sits above the automatic staleness banners and is
+       louder than them, because it is the one thing a reader must not miss. */
+    .staleness--election {
+      border: 2px solid var(--accent);
+      background: #f8ece9;
+      color: #4a1414;
+      align-items: flex-start;
+    }
+
+    .power-columns { display: grid; gap: 44px; margin: 40px 0; }
+    @media (min-width: 940px) {
+      .power-columns { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    }
+    /* Grid children default to min-width:auto, which lets a wide table push
+       the column past the page. min-width:0 hands the overflow back to
+       .table-scroll, where it belongs. */
+    .power-columns > * { min-width: 0; }
+    .power-columns .unit-block { margin: 0; }
+    .power-columns table.data-table { min-width: 0; font-size: 12.5px; }
+    .power-columns table.data-table th,
+    .power-columns table.data-table td { padding: 7px 10px; }
+
+    .col-kind {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .router {
+      border: 1px solid var(--panel-line);
+      background: var(--panel);
+      padding: 18px 20px;
+      max-width: 820px;
+    }
+    .router .table-controls { margin-bottom: 18px; }
+
+    .route { margin: 0; display: grid; gap: 12px 18px; }
+    @media (min-width: 640px) { .route { grid-template-columns: 160px 1fr; } }
+    .route dt {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      padding-top: 3px;
+    }
+    .route dd { margin: 0; font-size: 14px; line-height: 1.5; }
+    .route-item { margin-bottom: 12px; }
+    .route-item:last-child { margin-bottom: 0; }
+    .route-role {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-right: 6px;
+    }
+    .route-why, .observed { font-size: 12.5px; line-height: 1.5; color: var(--ink-mute); }
+    .observed { margin-top: 4px; }
+    .unverified {
+      display: inline-block;
+      border: 1px solid var(--panel-line);
+      border-radius: 2px;
+      padding: 1px 5px;
+      margin-left: 6px;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+
+    .contact-list { list-style: none; padding: 0; margin: 0; max-width: 680px; }
+    .contact-list li { margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
+    .contact-list .contact-note { color: var(--ink-mute); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <div id="subnav"></div>
+
+    <article>
+      <header class="unit-header">
+        <div class="unit-kicker">
+          <span data-lang="en">Paris 7e / Unit 1</span>
+          <span data-lang="fr">Paris 7e / Volet 1</span>
+        </div>
+        <h1 class="unit-title">
+          <span data-lang="en">Who holds what power</span>
+          <span data-lang="fr">Qui détient quel pouvoir</span>
+        </h1>
+        <p class="unit-dek">
+          <span data-lang="en">Two kinds of power sit over the 7e, and outsiders routinely confuse them. Élus hold delegations. Directions pilot the work. Both are below, each with the age of its source printed on it.</span>
+          <span data-lang="fr">Deux pouvoirs se superposent dans le 7e, et on les confond souvent. Les élus détiennent des délégations. Les Directions pilotent les travaux. Les deux figurent ci-dessous, avec l'âge de chaque source.</span>
+        </p>
+      </header>
+
+      <div class="staleness staleness--election" role="note" id="election-banner">
+        <span class="staleness-flag" data-lang="en">Not verified</span>
+        <span class="staleness-flag" data-lang="fr">Non vérifié</span>
+        <span data-lang="en">The élus list on this page comes from a dataset last modified upstream on <span class="fill-elus-modified"></span>. It describes the 2020 to 2026 mandate and predates the March 2026 municipal elections. It has not been checked against <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a>. Treat every name and every delegation here as unverified, and check the mairie's own pages before acting on any of it.</span>
+        <span data-lang="fr">La liste des élus de cette page provient d'un jeu de données modifié en amont pour la dernière fois le <span class="fill-elus-modified"></span>. Elle décrit la mandature 2020-2026 et précède les élections municipales de mars 2026. Elle n'a pas été vérifiée sur <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a>. Chaque nom et chaque délégation doit être considéré comme non vérifié : consultez les pages de la mairie avant de vous en servir.</span>
+      </div>
+
+      <div id="staleness"></div>
+
+      <p class="load-error" id="load-error" hidden>
+        <span data-lang="en">The page data failed to load. Open the console for the error.</span>
+        <span data-lang="fr">Le chargement des données a échoué. Voir la console pour l'erreur.</span>
+      </p>
+
+      <div class="power-columns">
+
+        <section class="unit-block">
+          <div class="col-kind">
+            <span data-lang="en">Column 1</span>
+            <span data-lang="fr">Colonne 1</span>
+          </div>
+          <h2>
+            <span data-lang="en">Political</span>
+            <span data-lang="fr">Politique</span>
+          </h2>
+          <div class="section-prose">
+            <p data-lang="en"><span class="fill-elus"></span> élus sit for the 7e in the source dataset. <span class="fill-elus-delegated"></span> carry a named delegation. The remaining one is the Maire, whose delegation field is null: that is how the dataset records the office, not an absence of power. Delegation wording is quoted exactly as published and never translated, because a translated delegation cannot be cited back to the person who wrote it.</p>
+            <p data-lang="fr">Le jeu de données recense <span class="fill-elus"></span> élus pour le 7e. <span class="fill-elus-delegated"></span> portent une délégation nommée. Le dernier est le Maire, dont le champ délégation vaut null : c'est ainsi que le jeu de données inscrit la fonction, et non une absence de pouvoir. Les libellés de délégation sont cités tels quels et jamais traduits : une délégation traduite ne peut pas être opposée à celui qui l'a rédigée.</p>
+          </div>
+          <div id="elus-table"></div>
+          <p class="note">
+            <span data-lang="en">Source: conseillerseres-darrondissements, upstream modified <span class="fill-elus-modified-iso"></span>. Rows are printed verbatim, including the null.</span>
+            <span data-lang="fr">Source : conseillerseres-darrondissements, modifié en amont le <span class="fill-elus-modified-iso"></span>. Les lignes sont reproduites telles quelles, valeur null comprise.</span>
+          </p>
+
+          <h3>Conseillers de Paris</h3>
+          <div id="cdp-table"></div>
+          <p class="note">
+            <span data-lang="en"><span class="fill-cdp"></span> of the <span class="fill-elus"></span> also sit at the Conseil de Paris, where the city's money is actually voted. Separate dataset, upstream modified <span class="fill-cdp-modified-iso"></span>, equally unverified against the 2026 elections.</span>
+            <span data-lang="fr"><span class="fill-cdp"></span> des <span class="fill-elus"></span> siègent aussi au Conseil de Paris, où le budget de la Ville est voté. Jeu de données distinct, modifié en amont le <span class="fill-cdp-modified-iso"></span>, tout aussi non vérifié après les élections de 2026.</span>
+          </p>
+        </section>
+
+        <section class="unit-block">
+          <div class="col-kind">
+            <span data-lang="en">Column 2</span>
+            <span data-lang="fr">Colonne 2</span>
+          </div>
+          <h2>
+            <span data-lang="en">Executive</span>
+            <span data-lang="fr">Administratif</span>
+          </h2>
+          <div class="section-prose">
+            <p data-lang="en">The city does not publish which Direction handles which kind of project in an arrondissement. The table below infers it: for each thématique, the Direction that piloted the most Budget Participatif operations in the 7e, across <span class="fill-operations"></span> operations and all editions. It records what happened. It is not a rule, and a Direction is often decided by where a project sits rather than by what it is.</p>
+            <p data-lang="fr">La Ville ne publie nulle part quelle Direction traite quel type de projet dans un arrondissement. Le tableau ci-dessous le déduit : pour chaque thématique, la Direction ayant piloté le plus d'opérations du Budget Participatif dans le 7e, sur <span class="fill-operations"></span> opérations et toutes éditions confondues. C'est un constat, pas une règle : la Direction dépend souvent du lieu plus que du sujet.</p>
+          </div>
+          <div class="cannot-tell">
+            <h3 data-i18n="callout.inference">This is inference, not a published mapping</h3>
+            <ul>
+              <li data-lang="en">Derived by counting <span lang="fr" class="fr-term">direction_pilote_operation</span> by <span lang="fr" class="fr-term">thématique</span> across 7e operations. No official source states this mapping.</li>
+              <li data-lang="fr">Déduit en comptant <span lang="fr" class="fr-term">direction_pilote_operation</span> par <span lang="fr" class="fr-term">thématique</span> sur les opérations du 7e. Aucune source officielle n'établit cette répartition.</li>
+              <li data-lang="en">Below <span class="fill-floor"></span> operations, no Direction is named as the pilot; the observed counts are printed instead. <span class="fill-themes-clearing"></span> of the <span class="fill-themes"></span> themes clear that floor.</li>
+              <li data-lang="fr">En dessous de <span class="fill-floor"></span> opérations, aucune Direction n'est désignée comme pilote ; les comptages observés sont affichés à la place. <span class="fill-themes-clearing"></span> thématiques sur <span class="fill-themes"></span> dépassent ce seuil.</li>
+            </ul>
+          </div>
+          <div id="direction-table"></div>
+          <p class="note">
+            <span data-lang="en">Source: budget-participatif_operations-projets-gagnants-realisations, <span class="fill-operations"></span> operations sited in the 7e. Operation-level Direction, not project-level.</span>
+            <span data-lang="fr">Source : budget-participatif_operations-projets-gagnants-realisations, <span class="fill-operations"></span> opérations situées dans le 7e. Direction au niveau opération, pas au niveau projet.</span>
+          </p>
+        </section>
+
+      </div>
+
+      <section class="unit-block">
+        <h2>
+          <span data-lang="en">Route a proposal</span>
+          <span data-lang="fr">Orienter une proposition</span>
+        </h2>
+        <div class="section-prose">
+          <p data-lang="en">Pick a theme and a conseil de quartier. The widget returns the delegation that covers the theme, the élu who held that delegation in the source dataset, the Direction that has historically piloted it, and what the data says about that quartier. The theme to delegation mapping is an editorial reading of free-text delegation wording, hand-curated in <span class="fr-term">content/theme-crosswalk.json</span>. It is a judgement, not a computation.</p>
+          <p data-lang="fr">Choisissez une thématique et un conseil de quartier. L'outil renvoie la délégation qui couvre la thématique, l'élu qui la détenait dans le jeu de données source, la Direction qui l'a historiquement pilotée, et ce que les données disent de ce quartier. La correspondance thématique-délégation est une lecture éditoriale de libellés en texte libre, tenue à la main dans <span class="fr-term">content/theme-crosswalk.json</span>. C'est un jugement, pas un calcul.</p>
+        </div>
+
+        <div class="router">
+          <div class="table-controls">
+            <div class="control">
+              <label for="route-theme" data-i18n="col.theme">Theme</label>
+              <select id="route-theme"></select>
+            </div>
+            <div class="control">
+              <label for="route-quartier" data-i18n="col.quartier">Conseil de quartier</label>
+              <select id="route-quartier"></select>
+            </div>
+          </div>
+          <div id="route-out"></div>
+        </div>
+
+        <p class="note">
+          <span data-lang="en">Quartier figures count operations by the source field <span lang="fr" class="fr-term">quartier_operation</span>. <span class="fill-outside-quartier"></span> of the <span class="fill-operations"></span> operations carry a quartier outside the 7e while sitting at a 7e address, so they appear in the arrondissement total and in none of the four quartiers. No address is geocoded on this page and no request leaves your browser.</span>
+          <span data-lang="fr">Les chiffres par quartier comptent les opérations selon le champ source <span lang="fr" class="fr-term">quartier_operation</span>. <span class="fill-outside-quartier"></span> des <span class="fill-operations"></span> opérations portent un quartier situé hors du 7e tout en ayant une adresse dans le 7e : elles comptent dans le total de l'arrondissement et dans aucun des quatre quartiers. Aucune adresse n'est géocodée sur cette page et aucune requête ne quitte votre navigateur.</span>
+        </p>
+      </section>
+
+      <section class="unit-block">
+        <h2>
+          <span data-lang="en">Contacts</span>
+          <span data-lang="fr">Contacts</span>
+        </h2>
+        <div class="section-prose">
+          <p data-lang="en">Official pages only. No phone numbers and no personal email addresses are republished here. Roles change, and after March 2026 they certainly have: the mairie's own pages are the only source that stays correct.</p>
+          <p data-lang="fr">Uniquement des pages officielles. Aucun numéro de téléphone ni adresse électronique personnelle n'est republié ici. Les fonctions changent, et après mars 2026 elles ont certainement changé : seules les pages de la mairie restent exactes.</p>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">Mairie du 7e</a>
+            <span class="contact-note" data-lang="en">Élus, conseils de quartier, meeting announcements.</span>
+            <span class="contact-note" data-lang="fr">Élus, conseils de quartier, annonces de réunions.</span>
+          </li>
+          <li>
+            <a href="https://www.paris.fr/" rel="noopener" target="_blank">paris.fr</a>
+            <span class="contact-note" data-lang="en">Conseil de Paris and the city Directions.</span>
+            <span class="contact-note" data-lang="fr">Conseil de Paris et Directions de la Ville.</span>
+          </li>
+          <li>
+            <a href="https://budgetparticipatif.paris.fr/" rel="noopener" target="_blank">budgetparticipatif.paris.fr</a>
+            <span class="contact-note" data-lang="en">The mechanism every project in the executive column came through.</span>
+            <span class="contact-note" data-lang="fr">Le mécanisme par lequel sont passés tous les projets de la colonne administrative.</span>
+          </li>
+        </ul>
+      </section>
+
+      <div class="cannot-tell">
+        <h2 data-i18n="callout.cannot_tell">What this page cannot tell you</h2>
+        <ul>
+          <li data-lang="en">Whether any of these people still hold these delegations. The élus dataset is from <span class="fill-elus-modified-iso"></span> and predates the March 2026 elections. Nothing here has been checked against the mairie.</li>
+          <li data-lang="fr">Si ces personnes détiennent encore ces délégations. Le jeu de données des élus date du <span class="fill-elus-modified-iso"></span> et précède les élections de mars 2026. Rien ici n'a été vérifié auprès de la mairie.</li>
+          <li data-lang="en">Which Direction will pilot your project. The mapping is inferred from <span class="fill-operations"></span> past operations and holds no authority over the next one.</li>
+          <li data-lang="fr">Quelle Direction pilotera votre projet. La répartition est déduite de <span class="fill-operations"></span> opérations passées et n'engage en rien la suivante.</li>
+          <li data-lang="en">Which Direction pilots a theme with fewer than <span class="fill-floor"></span> operations. Those cells print the raw counts and name no pilot.</li>
+          <li data-lang="fr">Quelle Direction pilote une thématique comptant moins de <span class="fill-floor"></span> opérations. Ces cellules affichent les comptages bruts et ne désignent aucun pilote.</li>
+          <li data-lang="en">Who decides inside a Direction. The data names Directions, never the civil servants in them.</li>
+          <li data-lang="fr">Qui décide à l'intérieur d'une Direction. Les données nomment des Directions, jamais les agents qui y travaillent.</li>
+          <li data-lang="en">When a conseil de quartier meets. Names and boundaries are published; meeting dates and agendas are in no open dataset and are announced by the mairie.</li>
+          <li data-lang="fr">Quand se réunit un conseil de quartier. Les noms et les périmètres sont publiés ; les dates et ordres du jour ne figurent dans aucun jeu de données ouvert et sont annoncés par la mairie.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div id="provenance"></div>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../../">← all stories</a></span>
+    <span>Data from <a href="https://opendata.paris.fr">opendata.paris.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import {
+      initSection, loadData, loadContent, renderTable, renderProvenance,
+      pickSources, t, getLang, onLangChange, formatNumber, formatDate, tooFew,
+    } from '../section.js';
+
+    // The four datasets this page draws on. The provenance footer and the
+    // staleness banners are generated from these entries in sources.json.
+    const DATASETS = [
+      'conseillerseres-darrondissements',
+      'conseillers-de-paris',
+      'budget-participatif_operations-projets-gagnants-realisations',
+      'conseils-quartiers',
+    ];
+
+    // Page-local labels. UI chrome that already exists in content/strings.*.json
+    // goes through t(); these are the few strings only this page needs.
+    const LABELS = {
+      en: {
+        role_primary: 'Primary',
+        role_secondary: 'Secondary',
+        crosscutting: 'Also, every time',
+        observed: 'Observed:',
+        also_observed: 'Also observed:',
+        pilot: '{n} of {total} operations ({pct}%)',
+        ops_here: '{n} Budget Participatif operations are sited in this quartier.',
+        ops_theme: '{n} of them under {theme}.',
+        ops_theme_none: 'None of them under {theme}.',
+        meetings: 'Meeting dates are announced by the mairie and are in no open dataset.',
+        source_label: 'Source label:',
+        prompt: 'Pick a theme and a quartier.',
+        note: 'Note',
+        col_delegation_holder: 'Élu and délégation',
+      },
+      fr: {
+        role_primary: 'Principale',
+        role_secondary: 'Secondaire',
+        crosscutting: 'Et dans tous les cas',
+        observed: 'Observé :',
+        also_observed: 'Également observé :',
+        pilot: '{n} opérations sur {total} ({pct} %)',
+        ops_here: '{n} opérations du Budget Participatif sont situées dans ce quartier.',
+        ops_theme: "{n} d'entre elles relèvent de {theme}.",
+        ops_theme_none: 'Aucune ne relève de {theme}.',
+        meetings: 'Les dates de réunion sont annoncées par la mairie et ne figurent dans aucun jeu de données ouvert.',
+        source_label: 'Libellé source :',
+        prompt: 'Choisissez une thématique et un quartier.',
+        note: 'Remarque',
+        col_delegation_holder: 'Élu et délégation',
+      },
+    };
+
+    const s = (key, vars) => {
+      const dict = LABELS[getLang()] || LABELS.en;
+      let out = dict[key] || LABELS.en[key] || key;
+      if (vars) {
+        for (const [name, value] of Object.entries(vars)) {
+          out = out.split(`{${name}}`).join(String(value));
+        }
+      }
+      return out;
+    };
+
+    const el = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+
+    // A French source term: printed verbatim, tagged as French for screen
+    // readers and hyphenation.
+    const fr = (text, className) => {
+      const node = el('span', className, text);
+      node.setAttribute('lang', 'fr');
+      return node;
+    };
+
+    const quartierCode = (label) => {
+      const match = String(label || '').match(/\((\d+)\)\s*$/);
+      return match ? match[1] : null;
+    };
+
+    // Every count and date in the prose on this page is filled from the data
+    // it describes, so a refresh cannot leave a sentence contradicting the
+    // table printed beside it.
+    const setAll = (selector, text) => {
+      for (const node of document.querySelectorAll(selector)) node.textContent = text;
+    };
+
+    async function main() {
+      await initSection({ page: 'power' });
+
+      const [elus, pipeline, quartiers, sources, crosswalk, dates] = await Promise.all([
+        loadData('elus'),
+        loadData('pipeline'),
+        loadData('quartiers.geojson'),
+        loadData('sources'),
+        loadContent('theme-crosswalk'),
+        loadContent('dates'),
+      ]);
+
+      // The banner comes down only when the build says the list has been
+      // checked against the mairie. Today it says false.
+      if (elus.verified_against_mairie === true) {
+        const banner = document.getElementById('election-banner');
+        if (banner) banner.hidden = true;
+      }
+
+      const floor = pipeline.sample_floor;
+      const themeByName = new Map(crosswalk.themes.map((theme) => [theme.thematique, theme]));
+      const eluByDelegation = new Map(
+        elus.elus.filter((e) => e.delegation).map((e) => [e.delegation, e]),
+      );
+      const directionByTheme = new Map(
+        pipeline.direction_by_theme.map((row) => [row.thematique, row]),
+      );
+
+      // Operation counts per quartier, from the source field only.
+      const quartierOps = new Map();
+      for (const op of pipeline.operations) {
+        const code = quartierCode(op.quartier_operation);
+        if (!code) continue;
+        if (!quartierOps.has(code)) quartierOps.set(code, []);
+        quartierOps.get(code).push(op);
+      }
+
+      const quartierFeatures = quartiers.features
+        .map((f) => f.properties)
+        .sort((a, b) => a.nom_quart.localeCompare(b.nom_quart, 'fr'));
+
+      const meetingByQuartier = new Map(
+        dates.entries
+          .filter((entry) => entry.kind === 'conseil-de-quartier')
+          .map((entry) => [entry.quartier_source_label, entry]),
+      );
+
+      /* ── Figures in the prose ────────────────────────────────────── */
+
+      // Operations the source files in the 7e but attaches to a quartier that
+      // is not one of the four, plus any with no quartier at all. They count in
+      // the arrondissement total and in none of the quartier totals.
+      const outsideQuartier = pipeline.operations.filter((op) => {
+        const code = quartierCode(op.quartier_operation);
+        return !code || !quartierFeatures.some((q) => q.no_consqrt === code);
+      }).length;
+
+      const delegated = elus.elus.filter(
+        (e) => e.delegation && String(e.delegation).trim() !== '',
+      ).length;
+      const eluKey = (person) => `${person.nom}|${person.prenom}`;
+      const eluKeys = new Set(elus.elus.map(eluKey));
+      const alsoConseillers = elus.conseillers_de_paris.filter(
+        (person) => eluKeys.has(eluKey(person)),
+      ).length;
+      const themesClearing = pipeline.direction_by_theme.filter((r) => !r.insufficient_data).length;
+
+      const paintFigures = () => {
+        setAll('.fill-operations', formatNumber(pipeline.operation_count));
+        setAll('.fill-floor', formatNumber(floor));
+        setAll('.fill-themes', formatNumber(pipeline.direction_by_theme.length));
+        setAll('.fill-themes-clearing', formatNumber(themesClearing));
+        setAll('.fill-outside-quartier', formatNumber(outsideQuartier));
+        setAll('.fill-elus', formatNumber(elus.elus.length));
+        setAll('.fill-elus-delegated', formatNumber(delegated));
+        setAll('.fill-cdp', formatNumber(alsoConseillers));
+        setAll('.fill-elus-modified', formatDate(elus.elus_modified));
+        setAll('.fill-elus-modified-iso', formatDate(elus.elus_modified, { style: 'iso' }));
+        setAll('.fill-cdp-modified-iso', formatDate(elus.conseillers_de_paris_modified, { style: 'iso' }));
+      };
+
+      paintFigures();
+      onLangChange(paintFigures);
+
+      /* ── Political column ────────────────────────────────────────── */
+
+      renderTable('#elus-table', {
+        rows: elus.elus,
+        sort: { key: 'nom', dir: 'asc' },
+        columns: [
+          {
+            key: 'nom',
+            labelKey: 'col.elu',
+            value: (row) => `${row.civilite} ${row.prenom} ${row.nom}`,
+            sortValue: (row) => row.nom,
+          },
+          { key: 'fonction', labelKey: 'col.fonction', sourceTerm: true },
+          { key: 'delegation', labelKey: 'col.delegation', sourceTerm: true },
+        ],
+      });
+
+      renderTable('#cdp-table', {
+        rows: elus.conseillers_de_paris,
+        sort: { key: 'nom', dir: 'asc' },
+        columns: [
+          {
+            key: 'nom',
+            labelKey: 'col.elu',
+            value: (row) => `${row.civilite} ${row.prenom} ${row.nom}`,
+            sortValue: (row) => row.nom,
+          },
+          { key: 'groupe', labelKey: 'col.groupe', sourceTerm: true },
+        ],
+      });
+
+      /* ── Executive column ────────────────────────────────────────── */
+
+      const directionMount = document.querySelector('#direction-table');
+
+      function paintDirections() {
+        directionMount.innerHTML = '';
+        const scroll = el('div', 'table-scroll');
+        const table = el('table', 'data-table');
+
+        const thead = document.createElement('thead');
+        const headRow = document.createElement('tr');
+        for (const [key, num] of [['col.theme', false], ['col.operations', true], ['col.direction', false]]) {
+          const th = document.createElement('th');
+          th.scope = 'col';
+          if (num) th.classList.add('num');
+          th.append(el('span', 'th-inner', t(key)));
+          headRow.append(th);
+        }
+        thead.append(headRow);
+
+        const tbody = document.createElement('tbody');
+        for (const row of pipeline.direction_by_theme) {
+          const tr = document.createElement('tr');
+
+          const themeCell = el('td');
+          themeCell.append(fr(row.thematique));
+          const gloss = themeByName.get(row.thematique);
+          if (gloss && gloss.gloss_en && getLang() === 'en') {
+            themeCell.append(el('div', 'route-why', gloss.gloss_en));
+          }
+          tr.append(themeCell);
+
+          const nCell = el('td', 'num', formatNumber(row.n));
+          tr.append(nCell);
+
+          const dirCell = el('td');
+          if (row.insufficient_data) {
+            dirCell.append(tooFew(row.n, floor));
+          } else {
+            dirCell.append(fr(row.direction));
+            dirCell.append(el('div', 'route-why', s('pilot', {
+              n: formatNumber(row.direction_n),
+              total: formatNumber(row.n),
+              pct: Math.round(row.direction_share * 100),
+            })));
+          }
+          const others = row.directions.filter((d) => d.direction !== row.direction);
+          if (others.length) {
+            const label = row.insufficient_data ? s('observed') : s('also_observed');
+            const observed = el('div', 'observed');
+            observed.append(el('span', null, `${label} `));
+            observed.append(fr(others.map((d) => `${d.direction} (${d.n})`).join(', ')));
+            dirCell.append(observed);
+          }
+          tr.append(dirCell);
+
+          tbody.append(tr);
+        }
+
+        table.append(thead, tbody);
+        scroll.append(table);
+        directionMount.append(scroll);
+      }
+
+      paintDirections();
+      onLangChange(paintDirections);
+
+      /* ── Routing widget ──────────────────────────────────────────── */
+
+      const themeSelect = document.querySelector('#route-theme');
+      const quartierSelect = document.querySelector('#route-quartier');
+      const routeOut = document.querySelector('#route-out');
+
+      function fillSelects() {
+        const keepTheme = themeSelect.value;
+        const keepQuartier = quartierSelect.value;
+
+        themeSelect.innerHTML = '';
+        for (const row of pipeline.direction_by_theme) {
+          const option = document.createElement('option');
+          option.value = row.thematique;
+          option.textContent = row.thematique;
+          option.setAttribute('lang', 'fr');
+          themeSelect.append(option);
+        }
+        if (keepTheme) themeSelect.value = keepTheme;
+
+        quartierSelect.innerHTML = '';
+        for (const props of quartierFeatures) {
+          const option = document.createElement('option');
+          option.value = props.no_consqrt;
+          option.textContent = props.nom_quart;
+          option.setAttribute('lang', 'fr');
+          quartierSelect.append(option);
+        }
+        if (keepQuartier) quartierSelect.value = keepQuartier;
+      }
+
+      // One élu block: the delegation verbatim, its holder, and the reason the
+      // crosswalk attaches it to this theme.
+      function delegationItem(entry) {
+        const item = el('div', 'route-item');
+        const head = document.createElement('div');
+        if (entry.role) {
+          head.append(el('span', 'route-role', entry.role === 'secondary' ? s('role_secondary') : s('role_primary')));
+        }
+        head.append(fr(entry.delegation));
+        item.append(head);
+
+        const holder = eluByDelegation.get(entry.delegation);
+        const line = document.createElement('div');
+        if (holder) {
+          const name = el('strong', null, `${holder.civilite} ${holder.prenom} ${holder.nom}`);
+          line.append(name, document.createTextNode(' '));
+          line.append(fr(holder.fonction, 'route-why'));
+          line.append(el('span', 'unverified', t('value.unverified')));
+        } else {
+          line.append(el('span', 'route-why', t('value.unknown')));
+        }
+        item.append(line);
+
+        // Crosswalk notes are hand-authored in English and are not translated.
+        if (entry.why || entry.applies_to) {
+          const why = el('div', 'route-why', entry.why || entry.applies_to);
+          why.setAttribute('lang', 'en');
+          item.append(why);
+        }
+        return item;
+      }
+
+      function pair(dl, label, node) {
+        dl.append(el('dt', null, label));
+        const dd = document.createElement('dd');
+        dd.append(node);
+        dl.append(dd);
+      }
+
+      function paintRoute() {
+        routeOut.innerHTML = '';
+        const theme = themeByName.get(themeSelect.value);
+        const props = quartierFeatures.find((p) => p.no_consqrt === quartierSelect.value);
+        if (!theme || !props) {
+          routeOut.append(el('p', 'route-why', s('prompt')));
+          return;
+        }
+
+        const dl = el('dl', 'route');
+
+        // Élu.
+        const elusWrap = document.createElement('div');
+        for (const entry of theme.delegations) elusWrap.append(delegationItem(entry));
+        pair(dl, t('col.elu'), elusWrap);
+
+        // Cross-cutting delegations, which apply whatever the theme.
+        const crossWrap = document.createElement('div');
+        for (const entry of crosswalk.cross_cutting_delegations) crossWrap.append(delegationItem(entry));
+        pair(dl, s('crosscutting'), crossWrap);
+
+        // Direction, subject to the sample floor.
+        const row = directionByTheme.get(theme.thematique);
+        const dirWrap = document.createElement('div');
+        if (!row || row.insufficient_data) {
+          dirWrap.append(tooFew(row ? row.n : 0, floor));
+          if (row && row.directions.length) {
+            const observed = el('div', 'observed');
+            observed.append(el('span', null, `${s('observed')} `));
+            observed.append(fr(row.directions.map((d) => `${d.direction} (${d.n})`).join(', ')));
+            dirWrap.append(observed);
+          }
+        } else {
+          dirWrap.append(fr(row.direction));
+          dirWrap.append(el('div', 'route-why', s('pilot', {
+            n: formatNumber(row.direction_n),
+            total: formatNumber(row.n),
+            pct: Math.round(row.direction_share * 100),
+          })));
+        }
+        pair(dl, t('col.direction'), dirWrap);
+
+        // Quartier detail.
+        const quartierWrap = document.createElement('div');
+        quartierWrap.append(fr(props.nom_quart, 'route-item'));
+        const ops = quartierOps.get(props.no_consqrt) || [];
+        const inTheme = ops.filter((op) => op.thematique === theme.thematique).length;
+        const counts = el('div', 'route-why');
+        counts.textContent = `${s('ops_here', { n: formatNumber(ops.length) })} ${
+          inTheme
+            ? s('ops_theme', { n: formatNumber(inTheme), theme: theme.thematique })
+            : s('ops_theme_none', { theme: theme.thematique })
+        }`;
+        quartierWrap.append(counts);
+
+        const meeting = meetingByQuartier.get(props.nom_quart);
+        const meetingLine = el('div', 'route-why');
+        meetingLine.append(document.createTextNode(`${s('meetings')} `));
+        const link = document.createElement('a');
+        link.href = (meeting && meeting.source_url) || 'https://mairie07.paris.fr/';
+        link.textContent = 'mairie07.paris.fr';
+        link.rel = 'noopener';
+        link.target = '_blank';
+        meetingLine.append(link);
+        quartierWrap.append(meetingLine);
+
+        const codeLine = el('div', 'route-why');
+        codeLine.append(document.createTextNode(`${s('source_label')} `));
+        codeLine.append(fr(`${props.nom_quart} (${props.no_consqrt})`));
+        quartierWrap.append(codeLine);
+
+        pair(dl, t('col.quartier'), quartierWrap);
+
+        // The crosswalk's own editorial note on this theme.
+        if (theme.note) {
+          const note = el('div', 'route-why', theme.note);
+          note.setAttribute('lang', 'en');
+          pair(dl, s('note'), note);
+        }
+
+        routeOut.append(dl);
+      }
+
+      fillSelects();
+      themeSelect.addEventListener('change', paintRoute);
+      quartierSelect.addEventListener('change', paintRoute);
+      paintRoute();
+      onLangChange(() => { fillSelects(); paintRoute(); });
+
+      /* ── Provenance ──────────────────────────────────────────────── */
+
+      renderProvenance(pickSources(sources, DATASETS), {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+    }
+
+    main().catch((error) => {
+      console.error(error);
+      const banner = document.getElementById('load-error');
+      if (banner) banner.hidden = false;
+    });
+  </script>
+</body>
+</html>

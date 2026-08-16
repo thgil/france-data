@@ -1,0 +1,428 @@
+/* ===== Paris 7e section styles =====
+   Extends shared/style.css. Load order on every page:
+     ../../shared/style.css  then  ../section.css
+   Nothing here restyles the shared shell. It adds the components this
+   section needs: sub-nav, data tables, status pills, the limits callout,
+   the staleness banner and the provenance footer. */
+
+:root {
+  /* Section tokens. The palette stays the shared paper palette. */
+  --panel: #f4f0e8;
+  --panel-line: #d8d0c0;
+  --row-hover: #efeae0;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Status pills, one per observed avancement value. Unrecognised values
+     fall back to --pill-unknown and are still rendered verbatim. */
+  --pill-nonstarted: #7a7268;
+  --pill-etudes: #4a6fa5;
+  --pill-procedures: #8a6d1f;
+  --pill-travaux: #b06a1c;
+  --pill-livraison: #2f7d72;
+  --pill-fin: #3d7a3d;
+  --pill-abandonne: var(--accent);
+  --pill-unknown: #8a8a8a;
+}
+
+/* ── Sub-nav ─────────────────────────────────────────────────────────── */
+
+.section-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+  margin-bottom: 32px;
+}
+
+.section-nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.section-nav ul::-webkit-scrollbar { display: none; }
+
+.section-nav a {
+  display: block;
+  padding: 2px 0;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.section-nav a:hover { color: var(--ink); }
+.section-nav a[aria-current='page'] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ── Language toggle ─────────────────────────────────────────────────── */
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.lang-toggle .lang-label { letter-spacing: 1.5px; }
+.lang-toggle button {
+  font: inherit;
+  letter-spacing: 1px;
+  background: none;
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  padding: 3px 8px;
+  color: var(--ink-mute);
+  cursor: pointer;
+}
+.lang-toggle button:hover { border-color: var(--ink-mute); color: var(--ink); }
+.lang-toggle button[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+[hidden] { display: none !important; }
+
+/* ── Page furniture ──────────────────────────────────────────────────── */
+
+.unit-header { margin: 8px 0 28px; }
+.unit-kicker {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.unit-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4.5vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+.unit-dek {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin: 0;
+}
+
+.section-prose {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 680px;
+}
+.section-prose p { margin: 0 0 18px; }
+
+.unit-block { margin: 48px 0; }
+.unit-block > h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.unit-block > h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin: 32px 0 10px;
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+  max-width: 680px;
+  margin: 10px 0 0;
+}
+
+/* French source terms rendered inside English prose. */
+.fr-term { font-style: italic; }
+
+/* ── Tables ──────────────────────────────────────────────────────────── */
+
+.table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 16px;
+  margin-bottom: 10px;
+}
+.table-controls .control { display: flex; flex-direction: column; gap: 4px; }
+.table-controls label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.table-controls input,
+.table-controls select {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  padding: 5px 8px;
+  min-width: 150px;
+  max-width: 100%;
+}
+.table-controls input:focus,
+.table-controls select:focus { outline: 2px solid var(--ink); outline-offset: -2px; }
+
+.table-count {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-left: auto;
+  padding-bottom: 6px;
+}
+
+/* Every table scrolls inside its own container, never the page body. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--panel-line);
+  background: var(--paper);
+}
+
+table.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+table.data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 10px 12px 0;
+}
+
+table.data-table th,
+table.data-table td {
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--panel-line);
+}
+
+table.data-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--panel);
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 0;
+}
+
+table.data-table thead th .th-inner { display: block; padding: 9px 12px; }
+
+table.data-table thead th button {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 9px 12px;
+  width: 100%;
+  text-align: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+table.data-table thead th button:hover { color: var(--ink); background: var(--row-hover); }
+table.data-table thead th button .arrow { color: var(--ink-mute); font-size: 9px; }
+table.data-table thead th[aria-sort='ascending'] button,
+table.data-table thead th[aria-sort='descending'] button { color: var(--ink); }
+table.data-table thead th[aria-sort='ascending'] .arrow::after { content: '\25B2'; }
+table.data-table thead th[aria-sort='descending'] .arrow::after { content: '\25BC'; }
+table.data-table thead th[aria-sort='none'] .arrow::after { content: '\2195'; opacity: 0.45; }
+
+table.data-table tbody tr:hover { background: var(--row-hover); }
+table.data-table tbody tr:last-child td { border-bottom: 0; }
+
+table.data-table td.num,
+table.data-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data-table td.num { font-family: var(--mono); font-size: 12px; }
+table.data-table td.wrap { white-space: normal; min-width: 220px; }
+table.data-table td.nowrap { white-space: nowrap; }
+table.data-table td.muted { color: var(--ink-mute); }
+
+.table-empty {
+  padding: 18px 12px;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+/* Withheld statistic: a sample below the floor prints this, not a number. */
+.too-few {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-mute);
+}
+
+/* ── Status pills ────────────────────────────────────────────────────── */
+
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 2px 7px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  color: var(--pill-unknown);
+  background: transparent;
+}
+.pill--non-demarre { color: var(--pill-nonstarted); }
+.pill--etudes { color: var(--pill-etudes); }
+.pill--procedures { color: var(--pill-procedures); }
+.pill--travaux { color: var(--pill-travaux); }
+.pill--livraison { color: var(--pill-livraison); }
+.pill--fin { color: var(--pill-fin); }
+.pill--abandonne { color: var(--pill-abandonne); font-weight: 700; }
+.pill--unknown { border-style: dashed; }
+
+.pill-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 12px 0;
+}
+
+/* Scope tags: 7e-local money versus citywide money, never combined. */
+.scope-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-bottom: 1px dotted var(--ink-mute);
+}
+
+/* ── "What this page cannot tell you" callout ────────────────────────── */
+
+.cannot-tell {
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  background: var(--panel);
+  padding: 18px 20px;
+  margin: 40px 0;
+  max-width: 720px;
+}
+.cannot-tell h2,
+.cannot-tell h3 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--accent);
+}
+.cannot-tell ul { margin: 0; padding-left: 18px; }
+.cannot-tell li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.cannot-tell li:last-child { margin-bottom: 0; }
+
+/* ── Staleness banner ────────────────────────────────────────────────── */
+
+.staleness-banners { margin: 0 0 28px; }
+
+.staleness {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  border: 1px solid var(--pill-procedures);
+  background: #f6efdc;
+  color: #4a3c10;
+  padding: 10px 14px;
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.staleness .staleness-flag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.staleness a { color: inherit; }
+.staleness time { font-variant-numeric: tabular-nums; }
+
+/* ── Provenance footer ───────────────────────────────────────────────── */
+
+.provenance {
+  margin: 64px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.provenance h2 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+}
+.provenance .provenance-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+  max-width: 680px;
+  margin: 0 0 14px;
+}
+.provenance table.data-table { min-width: 520px; font-size: 12px; }
+.provenance td.dataset-id { font-family: var(--mono); font-size: 11px; }
+.provenance td.dataset-id a { color: inherit; }
+.provenance .fetched { color: var(--ink-mute); }
+
+/* ── Mobile ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .section-nav { gap: 10px; }
+  .table-controls { flex-direction: column; align-items: stretch; }
+  .table-controls input,
+  .table-controls select { min-width: 0; width: 100%; }
+  .table-count { margin-left: 0; padding-bottom: 0; }
+  table.data-table thead th { position: static; }
+  .cannot-tell { padding: 14px 16px; }
+}

@@ -1,10 +1,17 @@
 // scripts/build-index.js
-// Reads stories/*/meta.json and writes a static index.html.
+// Reads meta.json files and writes a static index.html.
+// Two kinds of entry:
+//   stories/<slug>/meta.json   -> a story, rendered in the card grid
+//   <slug>/meta.json           -> kind:"section", a standing resource rendered above the grid
 // Run: node scripts/build-index.js  (or: npm run build)
 
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, realpathSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+
+// Top-level directories that hold no publishable entry. Anything else at the
+// root is scanned for a meta.json so a new section needs no code change.
+const NOT_ENTRY_DIRS = new Set(['stories', 'shared', 'scripts', 'docs', 'research', 'node_modules']);
 
 const escapeHtml = (s) =>
   String(s)
@@ -14,32 +21,56 @@ const escapeHtml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-function loadStories(projectRoot) {
-  const storiesDir = join(projectRoot, 'stories');
-  if (!existsSync(storiesDir)) return [];
+const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '');
 
-  return readdirSync(storiesDir)
-    .map((name) => join(storiesDir, name))
-    .filter((p) => {
-      try { return statSync(p).isDirectory(); } catch { return false; }
-    })
-    .map((dir) => {
-      const metaPath = join(dir, 'meta.json');
-      if (!existsSync(metaPath)) return null;   // draft / WIP — skip silently
-      const raw = readFileSync(metaPath, 'utf8');
-      try {
-        return JSON.parse(raw);
-      } catch (err) {
-        throw new Error(`Invalid JSON in ${metaPath}: ${err.message}`);
-      }
-    })
-    .filter(Boolean)
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+function subdirectories(parent) {
+  if (!existsSync(parent)) return [];
+  return readdirSync(parent)
+    .map((name) => ({ name, path: join(parent, name) }))
+    .filter(({ path }) => {
+      try { return statSync(path).isDirectory(); } catch { return false; }
+    });
+}
+
+// Returns the parsed meta.json, or null when the folder has none (draft / WIP).
+function readMeta(dir) {
+  const metaPath = join(dir, 'meta.json');
+  if (!existsSync(metaPath)) return null;
+  const raw = readFileSync(metaPath, 'utf8');
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    throw new Error(`Invalid JSON in ${metaPath}: ${err.message}`);
+  }
+}
+
+function loadEntries(projectRoot) {
+  const entries = [];
+
+  for (const { path } of subdirectories(join(projectRoot, 'stories'))) {
+    const meta = readMeta(path);
+    if (meta) entries.push({ ...meta, href: `stories/${meta.slug}/` });
+  }
+
+  for (const { name, path } of subdirectories(projectRoot)) {
+    if (name.startsWith('.') || NOT_ENTRY_DIRS.has(name)) continue;
+    const meta = readMeta(path);
+    if (meta) entries.push({ ...meta, href: `${meta.slug}/` });
+  }
+
+  return entries;
+}
+
+function splitEntries(entries) {
+  return {
+    sections: entries.filter((e) => e.kind === 'section').sort(byDateDesc),
+    stories: entries.filter((e) => e.kind !== 'section').sort(byDateDesc),
+  };
 }
 
 function renderCard(story) {
   return `
-    <a class="story-card" href="stories/${escapeHtml(story.slug)}/">
+    <a class="story-card" href="${escapeHtml(story.href)}">
       <div class="kicker">${escapeHtml(story.topic)}</div>
       <h2>${escapeHtml(story.title)}</h2>
       <p class="dek">${escapeHtml(story.dek)}</p>
@@ -47,12 +78,28 @@ function renderCard(story) {
     </a>`;
 }
 
-function renderIndex(stories) {
+// A section is an ongoing resource, not a dated story, so it gets its own card
+// above the grid rather than competing for a slot inside it.
+function renderSectionCard(section) {
+  return `
+    <a class="story-card section-card" href="${escapeHtml(section.href)}">
+      <div class="kicker">Section · ${escapeHtml(section.topic)}</div>
+      <h2>${escapeHtml(section.title)}</h2>
+      <p class="dek">${escapeHtml(section.dek)}</p>
+      <div class="meta">${escapeHtml(section.date)} · ${escapeHtml(section.readTime)}</div>
+    </a>`;
+}
+
+function renderIndex(sections, stories) {
   const intro = `
     <section class="index-intro">
       <h1>France, by the numbers.</h1>
       <p>Data stories pulled from the French government's open data platform — demographics, economy, health, and the occasional statistical oddity.</p>
     </section>`;
+
+  const rail = sections.length
+    ? `<section class="section-rail">${sections.map(renderSectionCard).join('\n')}</section>`
+    : '';
 
   const body = stories.length
     ? `<section class="cards-grid">${stories.map(renderCard).join('\n')}</section>`
@@ -70,6 +117,7 @@ function renderIndex(stories) {
   <header id="masthead"></header>
   <main class="page">
     ${intro}
+    ${rail}
     ${body}
   </main>
   <footer class="site-footer">
@@ -83,10 +131,10 @@ function renderIndex(stories) {
 }
 
 export function buildIndex(projectRoot) {
-  const stories = loadStories(projectRoot);
-  const html = renderIndex(stories);
+  const { sections, stories } = splitEntries(loadEntries(projectRoot));
+  const html = renderIndex(sections, stories);
   writeFileSync(join(projectRoot, 'index.html'), html);
-  return { count: stories.length, path: join(projectRoot, 'index.html') };
+  return { count: stories.length, sectionCount: sections.length, path: join(projectRoot, 'index.html') };
 }
 
 // Entry point when run as a script. The realpathSync/pathToFileURL round-trip
@@ -100,5 +148,8 @@ if (invokedAsScript) {
   const here = dirname(fileURLToPath(import.meta.url));
   const root = join(here, '..');
   const result = buildIndex(root);
-  console.log(`Built ${result.path} (${result.count} stories)`);
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  console.log(
+    `Built ${result.path} (${plural(result.count, 'story', 'stories')}, ${plural(result.sectionCount, 'section', 'sections')})`
+  );
 }

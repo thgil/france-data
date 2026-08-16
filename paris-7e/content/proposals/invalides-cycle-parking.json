@@ -1,0 +1,97 @@
+{
+  "_editorial": "HAND-AUTHORED STUB. Same record shape as running-hub.json, with unresearched fields left null rather than guessed. It renders as a row in the register and has no detail page until it is filled in.",
+  "id": "invalides-cycle-parking",
+  "title": "Secure cycle parking at Invalides",
+  "title_fr": "Stationnement vélo sécurisé aux Invalides",
+  "stub": true,
+  "status": "idea",
+  "status_note": "Idea only. No research done.",
+  "created_on": "2026-08-16",
+  "updated_on": "2026-08-16",
+  "summary": "Secure, covered cycle parking around the Esplanade des Invalides and its transport interchange.",
+  "problem": {
+    "statement": "The Invalides interchange combines métro, RER and bus with heavy cycle traffic, and secure parking there is limited.",
+    "who_is_affected": null,
+    "evidence_available": "None collected yet. Existing stand capacity has not been counted."
+  },
+  "proposal": {
+    "description": null,
+    "components": [],
+    "reversibility": null,
+    "explicitly_not_proposed": []
+  },
+  "location": {
+    "status": "not surveyed",
+    "note": "Esplanade des Invalides and the streets around the interchange. Part of the esplanade is state land, which would change the approval chain.",
+    "candidates": []
+  },
+  "cost_tiers": [],
+  "scale_context": {
+    "arrondissement_annual_investment_eur": 161405,
+    "arrondissement_investment_source": "budgets-votes-etats-speciaux-darrondissements-m57-ville, Dépenses, Budget Primitif, exercices 2018 to 2023",
+    "statement": null
+  },
+  "target_mechanism": {
+    "primary": null,
+    "why": null,
+    "alternatives_considered": []
+  },
+  "routing": {
+    "elu": {
+      "delegation": "propreté, environnement, espaces verts et mobilité",
+      "secondary_delegations": ["Sécurité et tranquillité publiques, gestion de l'espace public et correspondant Défense"],
+      "holder_named": false,
+      "why_no_name": "The élus dataset predates the March 2026 elections and no holder is named until the mairie site is checked.",
+      "source": "conseillerseres-darrondissements"
+    },
+    "direction": {
+      "likely": "Direction de la Voirie et des Déplacements",
+      "basis": "Street-sited mobility work in the 7e has gone to this Direction, but the relevant thematique sample is small. Treat it as a starting point.",
+      "alternative": null,
+      "inference": true
+    },
+    "conseil_de_quartier": {
+      "primary": "INVALIDES",
+      "secondary": null,
+      "why": "The site sits in this quartier."
+    },
+    "funding_cycle": {
+      "ref": "content/dates.json",
+      "entries": [],
+      "note": null
+    }
+  },
+  "adverse_precedent": null,
+  "supporting_precedent": [],
+  "evaluation": {
+    "pilot_months": null,
+    "metrics": [],
+    "decision_rule": null
+  },
+  "maintenance_plan": {
+    "who": null,
+    "annual_cost_estimate_eur": null,
+    "annual_cost_estimate_note": "Not estimated.",
+    "consumables": [],
+    "replacement_horizon_years": null,
+    "end_of_life": null
+  },
+  "evidence_limits": [
+    "Cycle counter data near the site measures traffic, not unmet parking demand, and would be labelled a proxy if used.",
+    "Existing capacity at the interchange has not been counted."
+  ],
+  "open_questions": [
+    "How much secure cycle parking already exists around the interchange?",
+    "Which parts of the esplanade are city land and which are state land?"
+  ],
+  "status_log": [
+    {
+      "date": "2026-08-16",
+      "event": "Recorded as an idea",
+      "actor": "author",
+      "detail": "Added to the register as a stub so it is tracked rather than forgotten. No research, no cost, no routing decision.",
+      "source": null,
+      "outcome": "Stub."
+    }
+  ]
+}

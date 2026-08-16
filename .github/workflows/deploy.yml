@@ -11,8 +11,12 @@ permissions:
   id-token: write
 
 concurrency:
+  # The group is shared with refresh-paris7e.yml and GitHub evaluates
+  # cancel-in-progress on the incoming run, so both workflows must set it to
+  # false. With true here, a push landing during the monthly refresh cancels
+  # that refresh mid-job and the month's data is silently skipped.
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-deploy:

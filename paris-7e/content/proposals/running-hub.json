@@ -1,0 +1,230 @@
+{
+  "_editorial": "HAND-AUTHORED. Never written by a script. Figures quoted from open data carry the dataset they came from so every number on the rendered page traces to sources.json.",
+  "id": "running-hub",
+  "title": "A public running hub near Champ-de-Mars",
+  "title_fr": "Un point d'appui pour la course à pied près du Champ-de-Mars",
+  "stub": false,
+  "status": "research",
+  "status_note": "Research only. Nothing has been submitted to anyone. The adverse precedent below is being investigated first.",
+  "created_on": "2026-08-16",
+  "updated_on": "2026-08-16",
+  "summary": "Secure storage, drinking water, and basic changing facilities for runners using the Champ-de-Mars and Invalides lawns, tested as a 12-month pilot before anything permanent is built.",
+  "problem": {
+    "statement": "The Champ-de-Mars and the Esplanade des Invalides are among the most heavily used running surfaces in Paris. Neither has anywhere to leave a bag, refill a bottle reliably in winter, or change. Runners either carry everything or do not come.",
+    "who_is_affected": "Residents and workers in the 7e who run before or after work, and visitors staying nearby.",
+    "evidence_available": "None that counts runners. See evidence_limits.",
+    "evidence_limits_ref": "evidence_limits"
+  },
+  "proposal": {
+    "description": "A single small facility at one edge of the running loop: lockers, a drinking fountain, and a changing and rinse space. Pilot first, in reversible form, then decide.",
+    "components": [
+      "Secure lockers, card or code operated",
+      "Year-round drinking fountain",
+      "Changing space with a rinse point",
+      "Signage naming the loop distance and the facility hours"
+    ],
+    "reversibility": "The pilot tier is demountable. Nothing at the pilot tier requires a permanent foundation, which matters if a site classé constraint is confirmed.",
+    "explicitly_not_proposed": [
+      "Any structure inside the protected Champ-de-Mars perimeter before the heritage position is established",
+      "A commercial concession",
+      "Anything requiring the removal of a tree or a lawn"
+    ]
+  },
+  "location": {
+    "status": "undecided, deliberately",
+    "note": "The siting decision waits on the heritage question in adverse_precedent. If installations inside the Champ-de-Mars perimeter require heritage approval that Budget Participatif projects have not obtained, the pilot sites itself just outside that perimeter.",
+    "candidates": [
+      {
+        "id": "champ-de-mars-edge",
+        "label": "Champ-de-Mars, eastern edge",
+        "quartier": "GROS CAILLOU",
+        "status": "on hold pending heritage check",
+        "risk": "Highest exposure to the abandonment pattern recorded in adverse_precedent."
+      },
+      {
+        "id": "outside-perimeter",
+        "label": "A street-side site just outside the protected perimeter",
+        "quartier": "GROS CAILLOU",
+        "status": "preferred until the heritage question is answered",
+        "risk": "Further from the loop, so less used. Voirie rather than parks, which changes the piloting Direction."
+      },
+      {
+        "id": "invalides-esplanade",
+        "label": "Esplanade des Invalides",
+        "quartier": "INVALIDES",
+        "status": "alternative",
+        "risk": "State-owned land in part, which introduces a different approval chain entirely."
+      }
+    ]
+  },
+  "cost_tiers": [
+    {
+      "tier": "pilot",
+      "eur": 20000,
+      "scope": "Demountable lockers plus signage, using an existing water point. One season.",
+      "share_of_annual_7e_investment": 0.124
+    },
+    {
+      "tier": "standard",
+      "eur": 75000,
+      "scope": "Lockers, a new year-round fountain, and a small changing and rinse space.",
+      "share_of_annual_7e_investment": 0.465
+    },
+    {
+      "tier": "full",
+      "eur": 250000,
+      "scope": "Permanent structure with serviced changing rooms and maintenance contract.",
+      "share_of_annual_7e_investment": 1.549
+    }
+  ],
+  "scale_context": {
+    "arrondissement_annual_investment_eur": 161405,
+    "arrondissement_investment_source": "budgets-votes-etats-speciaux-darrondissements-m57-ville, Dépenses, Budget Primitif, exercices 2018 to 2023",
+    "statement": "The 7e's own investment budget was 161,405 EUR a year, unchanged from 2018 to 2023, which is where that dataset ends. The pilot tier is an eighth of it and the full tier is one and a half times all of it. The état spécial cannot fund this at any tier without displacing everything else the arrondissement does.",
+    "consequence": "The mechanism is the Budget Participatif, not the état spécial. That is the single most important fact for routing this proposal."
+  },
+  "target_mechanism": {
+    "primary": "Budget Participatif, projet d'arrondissement",
+    "why": "It is the only route in the 7e that moves capital sums of this size. The comparison that follows is rendered from the section's own pipeline data, deduplicated to project level, and is never split by avancement: a project whose operations sit at different stages is counted under each of those stages, so status figures cannot be added.",
+    "source": "budget-participatif_operations-projets-gagnants-realisations, deduplicated by identifiant_projet_gagnant",
+    "alternatives_considered": [
+      {
+        "mechanism": "État spécial d'arrondissement",
+        "verdict": "Rejected on scale. See scale_context."
+      },
+      {
+        "mechanism": "Direction budget, outside any participatory process",
+        "verdict": "Possible but opaque from outside. Kept as a fallback if the Budget Participatif route fails."
+      }
+    ]
+  },
+  "routing": {
+    "elu": {
+      "delegation": "Culture, sports et santé",
+      "secondary_delegations": [
+        "propreté, environnement, espaces verts et mobilité",
+        "conseils de quartier et associations"
+      ],
+      "holder_named": false,
+      "why_no_name": "The élus dataset was last modified 2021-12-01 and predates the March 2026 municipal elections. No holder is named here until the mairie du 7e site has been checked. See the Blocking Preconditions in the section spec.",
+      "source": "conseillerseres-darrondissements"
+    },
+    "direction": {
+      "likely": "Direction des Espaces Verts et de l’Environnement",
+      "basis": "Sport has 5 operations in the 7e, exactly the sample floor. The theme-level inference on the Power page names Direction de la Jeunesse et des Sports (3 of 5). This proposal names Direction des Espaces Verts et de l’Environnement instead, on the 2 operations the author judges park-sited (Parcours de santé au Champ de Mars, Gym douce dans les espaces verts). n=2 is below the floor, park-sited is an editorial classification with no field behind it, and the outdoor Parcours sportif 2,3 km went to Direction de la Jeunesse et des Sports. Treat both Directions as open.",
+      "alternative": "Direction de la Voirie et des Déplacements, if the site ends up outside the park.",
+      "inference": true
+    },
+    "conseil_de_quartier": {
+      "primary": "GROS CAILLOU",
+      "secondary": "INVALIDES",
+      "why": "The candidate sites sit in these two quartiers. Entry through the conseil de quartier is also what the délégation conseils de quartier et associations exists for."
+    },
+    "funding_cycle": {
+      "ref": "content/dates.json",
+      "entries": ["bp-depot-idees", "bp-vote"],
+      "note": "Both dates are unverified. Nothing is submitted against a date that has not been checked."
+    }
+  },
+  "adverse_precedent": {
+    "headline": "A publicly voted fitness trail at Champ-de-Mars was approved and then abandoned.",
+    "must_be_addressed_on_page": true,
+    "discovered_on": "2026-08-16",
+    "source": "budget-participatif_operations-projets-gagnants-realisations, avancement ABANDONNÉ, arrondissement_projet_gagnant 75007",
+    "direct_precedent": {
+      "titre_projet_gagnant": "Parcours de santé au Champ de Mars",
+      "identifiant_projet_gagnant": 2357,
+      "edition": "2016",
+      "thematique": "Sport",
+      "budget_eur": 40000,
+      "avancement": "ABANDONNÉ",
+      "direction_pilote_projet": "Direction des Espaces Verts et de l’Environnement",
+      "adresse_projet_gagnant": "Avenue Joseph Bouvard",
+      "why_it_matters": "This is the same idea, at the same site, already funded by public vote, and it did not get built. Any proposal for a running facility at Champ-de-Mars that does not confront this will be dismissed by anyone who knows the file."
+    },
+    "other_abandoned_champ_de_mars_projects": [
+      {
+        "titre_projet_gagnant": "Jardin pédagogique sur le Champ de Mars",
+        "identifiant_projet_gagnant": 2674,
+        "edition": "2016",
+        "budget_eur": 60000
+      },
+      {
+        "titre_projet_gagnant": "Cultiver au Champ-de-Mars",
+        "identifiant_projet_gagnant": 2390,
+        "edition": "2016",
+        "budget_eur": 20000
+      },
+      {
+        "titre_projet_gagnant": "Une ruche sur le Champ de Mars",
+        "identifiant_projet_gagnant": 1606,
+        "edition": "2015",
+        "budget_eur": 12000
+      },
+      {
+        "titre_projet_gagnant": "Panneaux Histoire du Champ de mars",
+        "identifiant_projet_gagnant": 2522,
+        "edition": "2016",
+        "budget_eur": 2500
+      }
+    ],
+    "pattern": "Five abandoned 7e-local projects are sited at Champ-de-Mars, together 134,500 EUR of the 309,500 EUR of 7e-local money attached to abandoned projects. Five out of the seven abandoned local projects are at one site.",
+    "reasons_recorded_in_data": "None. The dataset records the abandonment and not the cause.",
+    "hypothesis": {
+      "text": "Champ-de-Mars is a site classé, so physical installations require heritage approval.",
+      "verified": false,
+      "rule": "This is a hypothesis and is not stated as fact on any page or in any proposal until it is verified against a primary source. Until then the page reports the pattern and declines to explain it."
+    },
+    "consequence_for_this_proposal": "The first research task is establishing why those five projects died. The answer decides whether the pilot names a Champ-de-Mars location at all, or deliberately sites itself just outside the protected perimeter."
+  },
+  "supporting_precedent": [
+    {
+      "name": "Yeouinaru Runner Station, Seoul",
+      "what": "A small municipal facility on a riverside running route providing lockers, showers and changing rooms.",
+      "relevance": "Demonstrates the format at municipal scale on a park running loop.",
+      "verified": false,
+      "needs_source": true,
+      "note": "Cited only once a primary source for the operator, cost, and usage is in hand. Not used as a demand figure for Paris under any circumstances."
+    }
+  ],
+  "evaluation": {
+    "pilot_months": 12,
+    "metrics": [
+      { "metric": "Users per day", "method": "Locker unlock counts", "baseline": null, "note": "No baseline exists. The pilot creates the first measurement." },
+      { "metric": "Vandalism incidents", "method": "Incident log kept by the operating Direction", "baseline": null },
+      { "metric": "Maintenance cost", "method": "Actual spend against the maintenance line", "baseline": null },
+      { "metric": "Equipment uptime", "method": "Days with all lockers and the fountain in service, over days in the period", "baseline": null },
+      { "metric": "User satisfaction", "method": "Short on-site survey at months 6 and 12", "baseline": null }
+    ],
+    "decision_rule": "At month 12 the numbers decide: continue, move the site, or remove the installation and publish what it cost."
+  },
+  "maintenance_plan": {
+    "who": "Named at submission. The proposal does not leave maintenance to be worked out later, because unowned maintenance is how small installations become abandoned ones.",
+    "annual_cost_estimate_eur": null,
+    "annual_cost_estimate_note": "Not estimated yet. It is estimated before submission, not after.",
+    "consumables": ["Locker mechanism batteries or card system", "Fountain filter and winterisation"],
+    "replacement_horizon_years": 10,
+    "end_of_life": "The pilot tier is demountable and its removal cost is part of the pilot budget."
+  },
+  "evidence_limits": [
+    "No runner-count data exists for the Champ-de-Mars or the Invalides esplanade. Nothing on the page claims measured demand.",
+    "Bike counter data (comptage-velo-donnees-compteurs) is an active-mobility proxy at best, is not in the v1 build, and is not evidence of demand for a running facility. If it is ever shown, it is labelled a proxy.",
+    "The Budget Participatif dataset records that projects were abandoned, never why."
+  ],
+  "open_questions": [
+    "Why were the five Champ-de-Mars Budget Participatif projects abandoned? Primary source required.",
+    "Does the site classé status of the Champ-de-Mars apply to demountable installations?",
+    "Who currently holds the délégation Culture, sports et santé at the mairie du 7e, post-2026 elections?",
+    "Which Direction would own maintenance at each candidate site?"
+  ],
+  "status_log": [
+    {
+      "date": "2026-08-16",
+      "event": "Adverse precedent discovered",
+      "actor": "author",
+      "detail": "While building the section's abandoned-projects file, found that Parcours de santé au Champ de Mars (40,000 EUR, edition 2016, identifiant_projet_gagnant 2357) won a Budget Participatif vote and is recorded as ABANDONNÉ, along with four other Champ-de-Mars projects totalling 94,500 EUR. This is directly adverse to this proposal and is now its first research task. No siting decision is made until the reason is established.",
+      "source": "budget-participatif_operations-projets-gagnants-realisations",
+      "outcome": "Proposal held at research status."
+    }
+  ]
+}

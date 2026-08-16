@@ -1,0 +1,196 @@
+{
+  "_editorial": "EDITORIAL CROSSWALK, HAND-AUTHORED. This file is a judgement, not a computation and not an official mapping. Nothing published by the Ville de Paris states which arrondissement délégation covers which Budget Participatif thématique. The theme-to-délégation column is the author's reading of free-text délégation wording. The theme-to-Direction column is inferred from what the city actually did in the 7e, and is regenerated from data/pipeline.json when the data changes. Correct it in place when a better source appears; never generate it from a script.",
+  "version": "2026-08-16",
+  "sample_floor": 5,
+  "thematique_source": {
+    "field": "thematique",
+    "dataset_id": "budget-participatif_operations-projets-gagnants-realisations",
+    "derived_from": "paris-7e/data/pipeline.json",
+    "note": "The list is exactly the thématique values present on 7e operations. A new value appearing upstream will not be in this file until a person adds it."
+  },
+  "delegation_source": {
+    "dataset_id": "conseillerseres-darrondissements",
+    "modified": "2021-12-01",
+    "verified_against_mairie": false,
+    "note": "Délégation wording is quoted verbatim and never translated. The dataset predates the March 2026 municipal elections, so it describes the 2020-2026 mandate. Holders are not named in this file: use the source dataset, and do not present a holder until the mairie site has been checked."
+  },
+  "direction_source": {
+    "basis": "inferred_from_operations",
+    "method": "Most frequent direction_pilote_operation across Budget Participatif operations in the 7e for that thématique.",
+    "note": "Below the sample floor of 5 operations the cell states that it is too few and names no Direction."
+  },
+  "cross_cutting_delegations": [
+    {
+      "delegation": "conseils de quartier et associations",
+      "applies_to": "every theme",
+      "why": "A resident proposal normally enters through a conseil de quartier or an association, whatever its subject."
+    },
+    {
+      "delegation": "budget, urbanisme, caisse des écoles et logement",
+      "applies_to": "any capital request",
+      "why": "Anything that spends investment money or touches planning also runs through this délégation."
+    }
+  ],
+  "themes": [
+    {
+      "thematique": "Environnement",
+      "gloss_en": "Environment",
+      "operations_in_7e": 29,
+      "delegations": [
+        { "delegation": "propreté, environnement, espaces verts et mobilité", "role": "primary" },
+        { "delegation": "petite enfance, affaires scolaires et médiation", "role": "secondary", "why": "Much of the 7e's environment spending is greening inside schools." }
+      ],
+      "typical_direction": {
+        "direction": "Direction des Affaires Scolaires",
+        "n": 15,
+        "share": 0.52,
+        "insufficient_data": false,
+        "runners_up": [
+          { "direction": "Direction des Espaces Verts et de l’Environnement", "n": 13 },
+          { "direction": "Direction Constructions Publiques et Architecture", "n": 1 }
+        ]
+      },
+      "note": "The split is close to even. School-sited greening goes to Direction des Affaires Scolaires; street and park greening goes to Direction des Espaces Verts et de l’Environnement. The site decides the Direction more than the theme does."
+    },
+    {
+      "thematique": "Culture et patrimoine",
+      "gloss_en": "Culture and heritage",
+      "operations_in_7e": 25,
+      "delegations": [
+        { "delegation": "Culture, sports et santé", "role": "primary" },
+        { "delegation": "tourisme et relations internationales", "role": "secondary", "why": "Heritage interpretation and signage overlap with tourism." }
+      ],
+      "typical_direction": {
+        "direction": "Direction des Affaires Culturelles",
+        "n": 20,
+        "share": 0.8,
+        "insufficient_data": false,
+        "runners_up": [
+          { "direction": "Direction de la Voirie et des Déplacements", "n": 2 },
+          { "direction": "Direction des Espaces Verts et de l’Environnement", "n": 2 },
+          { "direction": "Direction Constructions Publiques et Architecture", "n": 1 }
+        ]
+      },
+      "note": "The clearest mapping in the set. Culture work sited in the street or in a park moves to the Direction that owns the ground."
+    },
+    {
+      "thematique": "Education et jeunesse",
+      "gloss_en": "Education and youth",
+      "operations_in_7e": 16,
+      "delegations": [
+        { "delegation": "petite enfance, affaires scolaires et médiation", "role": "primary" },
+        { "delegation": "budget, urbanisme, caisse des écoles et logement", "role": "secondary", "why": "The caisse des écoles sits in this délégation." }
+      ],
+      "typical_direction": {
+        "direction": "Direction des Affaires Scolaires",
+        "n": 14,
+        "share": 0.88,
+        "insufficient_data": false,
+        "runners_up": [
+          { "direction": "Direction Constructions Publiques et Architecture", "n": 1 },
+          { "direction": "Direction des Affaires Culturelles", "n": 1 }
+        ]
+      },
+      "note": "Building work inside a school moves to Direction Constructions Publiques et Architecture."
+    },
+    {
+      "thematique": "Cadre de vie",
+      "gloss_en": "Everyday surroundings",
+      "operations_in_7e": 16,
+      "delegations": [
+        { "delegation": "propreté, environnement, espaces verts et mobilité", "role": "primary" },
+        { "delegation": "Sécurité et tranquillité publiques, gestion de l'espace public et correspondant Défense", "role": "primary", "why": "Anything installed on the public way sits in this délégation as much as the previous one." }
+      ],
+      "typical_direction": {
+        "direction": "Direction des Espaces Verts et de l’Environnement",
+        "n": 6,
+        "share": 0.38,
+        "insufficient_data": false,
+        "runners_up": [
+          { "direction": "Direction de la Voirie et des Déplacements", "n": 4 },
+          { "direction": "(sans direction)", "n": 2 },
+          { "direction": "Direction Constructions Publiques et Architecture", "n": 2 },
+          { "direction": "Direction de la Propreté et de l’Eau", "n": 1 },
+          { "direction": "Direction des Solidarités", "n": 1 }
+        ]
+      },
+      "note": "The most scattered theme: five named Directions across sixteen operations, two of which carry no Direction in the source, and a 38 percent plurality. Treat the named Direction as a starting point, not a routing answer."
+    },
+    {
+      "thematique": "Sport",
+      "gloss_en": "Sport",
+      "operations_in_7e": 5,
+      "delegations": [
+        { "delegation": "Culture, sports et santé", "role": "primary" },
+        { "delegation": "propreté, environnement, espaces verts et mobilité", "role": "secondary", "why": "Sports equipment sited in a park is piloted by the parks Direction, not the sports one." }
+      ],
+      "typical_direction": {
+        "direction": "Direction de la Jeunesse et des Sports",
+        "n": 3,
+        "share": 0.6,
+        "insufficient_data": false,
+        "runners_up": [
+          { "direction": "Direction des Espaces Verts et de l’Environnement", "n": 2 }
+        ]
+      },
+      "note": "Sport has 5 operations in the 7e, exactly the sample floor. The inference names Direction de la Jeunesse et des Sports, 3 of 5. The 2 operations an editor would call park-sited (Parcours de santé au Champ de Mars, Gym douce dans les espaces verts) went to Direction des Espaces Verts et de l’Environnement, but n=2 is below the floor, park-sited is an editorial classification with no field behind it, and the outdoor Parcours sportif 2,3 km went to Direction de la Jeunesse et des Sports. Treat both Directions as open."
+    },
+    {
+      "thematique": "Propreté",
+      "gloss_en": "Cleanliness",
+      "operations_in_7e": 4,
+      "delegations": [
+        { "delegation": "propreté, environnement, espaces verts et mobilité", "role": "primary" }
+      ],
+      "typical_direction": {
+        "direction": null,
+        "n": null,
+        "share": null,
+        "insufficient_data": true,
+        "observed": [
+          { "direction": "Direction de la Propreté et de l’Eau", "n": 3 },
+          { "direction": "Direction des Espaces Verts et de l’Environnement", "n": 1 }
+        ]
+      },
+      "note": "Below the sample floor. The observed counts are shown for completeness; the page states that four operations are too few to name a Direction."
+    },
+    {
+      "thematique": "Attractivité et emploi",
+      "gloss_en": "Attractiveness and employment",
+      "operations_in_7e": 1,
+      "delegations": [
+        { "delegation": "coordination de l'action municipale, questions relatives aux commerçants, relations avec les usagers et aux anciens combattants", "role": "primary" },
+        { "delegation": "professions libérales et métiers d'art", "role": "secondary" }
+      ],
+      "typical_direction": {
+        "direction": null,
+        "n": null,
+        "share": null,
+        "insufficient_data": true,
+        "observed": [
+          { "direction": "Direction de l’Attractivité et de l’Emploi", "n": 1 }
+        ]
+      },
+      "note": "One operation. Says nothing."
+    },
+    {
+      "thematique": "Solidarités",
+      "gloss_en": "Social solidarity",
+      "operations_in_7e": 1,
+      "delegations": [
+        { "delegation": "affaires sociales, intergénérationnel et relations avec les cultes", "role": "primary" },
+        { "delegation": "solidarité et handicap", "role": "primary" }
+      ],
+      "typical_direction": {
+        "direction": null,
+        "n": null,
+        "share": null,
+        "insufficient_data": true,
+        "observed": [
+          { "direction": "Direction des Espaces Verts et de l’Environnement", "n": 1 }
+        ]
+      },
+      "note": "One operation, and it was piloted by the parks Direction, which is a siting artefact rather than a mapping."
+    }
+  ]
+}

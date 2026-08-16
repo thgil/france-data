@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposals in the 7e | France, by the numbers</title>
+  <meta name="description" content="A register of proposals prepared for the Mairie du 7e: the problem, the proposal, and the status of each one.">
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="../section.css">
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <nav id="subnav"></nav>
+    <div id="staleness"></div>
+
+    <header class="unit-header">
+      <div class="unit-kicker">
+        <span data-lang="en">Paris 7e · Proposals</span><span data-lang="fr" lang="fr">Paris 7e · Propositions</span>
+      </div>
+      <h1 class="unit-title">
+        <span data-lang="en">The proposal register</span><span data-lang="fr" lang="fr">Le registre des propositions</span>
+      </h1>
+      <p class="unit-dek">
+        <span data-lang="en">Every proposal this section prepares for the Mairie du 7e, with its problem, its proposal, and its status. Recorded before it is sent, not after.</span>
+        <span data-lang="fr" lang="fr">Chaque proposition préparée pour la Mairie du 7e, avec son problème, sa proposition et son statut. Enregistrée avant l'envoi, pas après.</span>
+      </p>
+    </header>
+
+    <div class="section-prose">
+      <p>
+        <span data-lang="en">A proposal that leaves no record cannot be followed up. This register keeps the problem, the proposal, and what happened, so that an answer, a refusal, or a silence can be cited later.</span>
+        <span data-lang="fr" lang="fr">Une proposition qui ne laisse pas de trace ne peut pas faire l'objet d'un suivi. Ce registre conserve le problème, la proposition et la suite donnée, pour qu'une réponse, un refus ou un silence puisse être cité plus tard.</span>
+      </p>
+      <p>
+        <span data-lang="en">Nothing here has been submitted to anyone. Status is the honest state of each record, never an ambition. <span class="fill-stubs"></span> of the <span class="fill-records"></span> records are stubs: an idea kept in the register with the research undone, rather than lost in a notebook.</span>
+        <span data-lang="fr" lang="fr">Rien ici n'a été soumis à qui que ce soit. Le statut décrit l'état réel de chaque dossier, jamais une intention. <span class="fill-stubs"></span> des <span class="fill-records"></span> fiches sont des ébauches : une idée gardée au registre, recherche non faite, plutôt que perdue dans un carnet.</span>
+      </p>
+      <p id="scale-line"></p>
+    </div>
+
+    <section class="unit-block">
+      <h2>
+        <span data-lang="en">Problem, proposal, status</span><span data-lang="fr" lang="fr">Problème, proposition, statut</span>
+      </h2>
+      <div id="register"></div>
+      <p class="note">
+        <span data-lang="en">Status vocabulary: idea, research, submitted, answered, closed. Only idea and research are in use. A status never moves without a dated entry in that record's status log. Record text is authored in English; source terms stay in French.</span>
+        <span data-lang="fr" lang="fr">Vocabulaire des statuts : idea, research, submitted, answered, closed. Seuls idea et research sont utilisés. Un statut ne change jamais sans une entrée datée dans le journal de la fiche. Les fiches sont rédigées en anglais ; les termes source restent en français.</span>
+      </p>
+    </section>
+
+    <section class="unit-block">
+      <h2>
+        <span data-lang="en">Open questions across the register</span><span data-lang="fr" lang="fr">Questions ouvertes du registre</span>
+      </h2>
+      <p class="note">
+        <span data-lang="en">Each record's unanswered questions, in one list. These are the work, not decoration.</span>
+        <span data-lang="fr" lang="fr">Les questions sans réponse de chaque fiche, réunies. C'est le travail à faire, pas de l'ornement.</span>
+      </p>
+      <div id="open-questions"></div>
+    </section>
+
+    <div class="cannot-tell">
+      <h2 data-i18n="callout.cannot_tell">What this page cannot tell you</h2>
+      <ul>
+        <li>
+          <span data-lang="en">Whether any of this gets funded. Nothing has been submitted, so there is nothing to report.</span>
+          <span data-lang="fr" lang="fr">Si tout cela sera financé. Rien n'a été soumis, donc il n'y a rien à rapporter.</span>
+        </li>
+        <li>
+          <span data-lang="en">Why a past project was abandoned. The Budget Participatif dataset records the abandonment and never the reason.</span>
+          <span data-lang="fr" lang="fr">Pourquoi un projet passé a été abandonné. Le jeu de données du Budget Participatif enregistre l'abandon, jamais la cause.</span>
+        </li>
+        <li>
+          <span data-lang="en">Who holds which delegation today. The élus dataset predates the March 2026 municipal elections, so delegations are quoted verbatim and no holder is named.</span>
+          <span data-lang="fr" lang="fr">Qui détient quelle délégation aujourd'hui. Le jeu de données des élus est antérieur aux élections municipales de mars 2026 : les délégations sont citées telles quelles, sans nommer de titulaire.</span>
+        </li>
+        <li>
+          <span data-lang="en">What the stubs would cost. Unresearched fields are null in the record and print as blank here, never as a guess.</span>
+          <span data-lang="fr" lang="fr">Ce que coûteraient les ébauches. Les champs non étudiés sont nuls dans la fiche et restent vides ici, jamais remplacés par une estimation.</span>
+        </li>
+      </ul>
+    </div>
+
+    <footer id="provenance"></footer>
+  </main>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import {
+      initSection, loadData, loadContent, applyLang, formatMoney, formatNumber,
+      onLangChange, pickSources, renderProvenance, t,
+    } from '../section.js';
+
+    const PROPOSAL_IDS = ['running-hub', 'bosquet-street-furniture', 'invalides-cycle-parking'];
+    const DATASETS = [
+      'budget-participatif_operations-projets-gagnants-realisations',
+      'budgets-votes-etats-speciaux-darrondissements-m57-ville',
+      'conseillerseres-darrondissements',
+    ];
+
+    const el = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== null && text !== undefined) node.textContent = text;
+      return node;
+    };
+
+    // Bilingual inline pair. applyLang hides the one that is not active.
+    const bi = (en, fr) => {
+      const frag = document.createDocumentFragment();
+      const a = el('span', null, en);
+      a.dataset.lang = 'en';
+      const b = el('span', null, fr);
+      b.dataset.lang = 'fr';
+      b.setAttribute('lang', 'fr');
+      frag.append(a, b);
+      return frag;
+    };
+
+    // Local table builder. It reuses .table-scroll / .data-table from
+    // section.css. renderTable() is not used here because the register needs
+    // internal links in a cell and a status vocabulary that is not avancement.
+    function buildTable(columns, rows) {
+      const scroll = el('div', 'table-scroll');
+      const table = el('table', 'data-table');
+      const thead = el('thead');
+      const headRow = el('tr');
+      for (const column of columns) {
+        const th = el('th');
+        th.scope = 'col';
+        if (column.className) th.className = column.className;
+        const inner = el('span', 'th-inner');
+        inner.append(bi(column.en, column.fr));
+        th.append(inner);
+        headRow.append(th);
+      }
+      thead.append(headRow);
+      const tbody = el('tbody');
+      for (const cells of rows) {
+        const tr = el('tr');
+        cells.forEach((cell, i) => {
+          const td = el('td', columns[i].cellClass || null);
+          if (cell === null || cell === undefined || cell === '') {
+            td.classList.add('muted');
+            td.textContent = t('value.unknown');
+          } else if (typeof cell === 'string') {
+            td.textContent = cell;
+          } else {
+            td.append(cell);
+          }
+          tr.append(td);
+        });
+        tbody.append(tr);
+      }
+      table.append(thead, tbody);
+      scroll.append(table);
+      return scroll;
+    }
+
+    function statusCell(record) {
+      const wrap = el('div');
+      const pill = el('span', 'pill pill--unknown', record.status);
+      wrap.append(pill);
+      if (record.status_note) {
+        const note = el('div', 'too-few', record.status_note);
+        wrap.append(note);
+      }
+      const last = record.status_log && record.status_log[record.status_log.length - 1];
+      if (last) {
+        const line = el('div', 'too-few', `${last.date}: ${last.event}`);
+        wrap.append(line);
+      }
+      return wrap;
+    }
+
+    function titleCell(record) {
+      const wrap = el('div');
+      const label = bi(record.title, record.title_fr || record.title);
+      if (record.stub) {
+        const strong = el('strong');
+        strong.append(label);
+        wrap.append(strong);
+        const stubNote = el('div', 'too-few');
+        stubNote.append(bi(
+          'Stub. No detail page until the research is done.',
+          'Ébauche. Pas de fiche détaillée tant que la recherche n\'est pas faite.',
+        ));
+        wrap.append(stubNote);
+      } else {
+        const link = el('a');
+        link.href = `${record.id}/`;
+        link.append(label);
+        const strong = el('strong');
+        strong.append(link);
+        wrap.append(strong);
+      }
+      if (record.summary) wrap.append(el('div', 'too-few', record.summary));
+      return wrap;
+    }
+
+    // The 7e's own investment budget, computed rather than quoted: Dépenses,
+    // Budget Primitif, section Investissement, one total per exercice.
+    function annualInvestment(etatSpecial) {
+      const byYear = new Map();
+      for (const line of etatSpecial.lines) {
+        if (line.sens !== 'Dépenses') continue;
+        if (line.type_du_vote !== 'Budget Primitif') continue;
+        if (line.section !== 'Investissement') continue;
+        byYear.set(line.exercice, (byYear.get(line.exercice) || 0) + (line.amount || 0));
+      }
+      const values = [...byYear.values()];
+      const years = [...byYear.keys()].sort();
+      return {
+        amount: values[0],
+        min: Math.min(...values),
+        max: Math.max(...values),
+        constant: values.every((v) => v === values[0]),
+        from: years[0],
+        to: years[years.length - 1],
+      };
+    }
+
+    async function main() {
+      await initSection({ page: 'proposals' });
+
+      const [sources, etatSpecial, ...records] = await Promise.all([
+        loadData('sources'),
+        loadData('etat-special'),
+        ...PROPOSAL_IDS.map((id) => loadContent(`proposals/${id}`)),
+      ]);
+
+      const budget = annualInvestment(etatSpecial);
+
+      // Money and dates are formatted for the active language, so the whole
+      // register is rebuilt when the language changes.
+      const render = () => {
+        // Counted from the records actually loaded, so the sentence cannot
+        // outlive the register it describes.
+        const stubs = records.filter((record) => record.stub === true).length;
+        for (const node of document.querySelectorAll('.fill-stubs')) {
+          node.textContent = formatNumber(stubs);
+        }
+        for (const node of document.querySelectorAll('.fill-records')) {
+          node.textContent = formatNumber(records.length);
+        }
+
+        const scale = document.getElementById('scale-line');
+        scale.innerHTML = '';
+        const money = formatMoney(budget.amount);
+        const range = `${formatMoney(budget.min)} to ${formatMoney(budget.max)}`;
+        scale.append(bi(
+          budget.constant
+            ? `Scale decides the mechanism. The arrondissement's own investment budget was ${money} a year, unchanged from ${budget.from} to ${budget.to}, which is where that dataset ends. A capital proposal much above that is a Budget Participatif question, not an état spécial question.`
+            : `Scale decides the mechanism. The arrondissement's own investment budget ran from ${range} a year over ${budget.from} to ${budget.to}, which is where that dataset ends. A capital proposal much above that is a Budget Participatif question, not an état spécial question.`,
+          budget.constant
+            ? `L'échelle détermine le mécanisme. Le budget d'investissement propre à l'arrondissement était de ${money} par an, inchangé de ${budget.from} à ${budget.to}, terme du jeu de données. Une proposition d'investissement nettement supérieure relève du Budget Participatif, pas de l'état spécial.`
+            : `L'échelle détermine le mécanisme. Le budget d'investissement propre à l'arrondissement est allé de ${range} par an sur ${budget.from} à ${budget.to}, terme du jeu de données. Une proposition d'investissement nettement supérieure relève du Budget Participatif, pas de l'état spécial.`,
+        ));
+
+        const columns = [
+          { en: 'Proposal', fr: 'Proposition', cellClass: 'wrap' },
+          { en: 'Problem', fr: 'Problème', cellClass: 'wrap' },
+          { en: 'What is proposed', fr: 'Ce qui est proposé', cellClass: 'wrap' },
+          { en: 'Status', fr: 'Statut', cellClass: 'wrap' },
+          { en: 'Updated', fr: 'Mise à jour', cellClass: 'nowrap' },
+        ];
+
+        const rows = records.map((record) => [
+          titleCell(record),
+          record.problem && record.problem.statement,
+          record.proposal && record.proposal.description,
+          statusCell(record),
+          record.updated_on,
+        ]);
+
+        const registerHost = document.getElementById('register');
+        registerHost.innerHTML = '';
+        registerHost.append(buildTable(columns, rows));
+
+        const questionRows = [];
+        for (const record of records) {
+          for (const question of record.open_questions || []) {
+            questionRows.push([bi(record.title, record.title_fr || record.title), question]);
+          }
+        }
+        const questionHost = document.getElementById('open-questions');
+        questionHost.innerHTML = '';
+        questionHost.append(buildTable([
+          { en: 'Proposal', fr: 'Proposition', cellClass: 'wrap' },
+          { en: 'Question', fr: 'Question', cellClass: 'wrap' },
+        ], questionRows));
+
+        applyLang(document);
+      };
+
+      render();
+      onLangChange(render);
+
+      renderProvenance(pickSources(sources, DATASETS), {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+
+      applyLang(document);
+    }
+
+    main().catch((error) => {
+      console.error(error);
+      const host = document.getElementById('register');
+      if (host) host.append(el('p', 'note', 'The register could not be loaded.'));
+    });
+  </script>
+</body>
+</html>

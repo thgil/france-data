@@ -1,0 +1,99 @@
+name: Refresh Paris 7e data
+
+# BRANCH TOPOLOGY IS UNRESOLVED. Confirm it before enabling this workflow.
+# deploy.yml deploys from `main`, the remote default branch is `v1-build`, and
+# work happens on `drafts/*`. This workflow targets `main` to match deploy.yml,
+# so the bot and the deploy read the same tree. If the deploy branch changes,
+# change TARGET_BRANCH below and deploy.yml together.
+#
+# This workflow deploys the site itself rather than leaving that to deploy.yml.
+# Pushes made with the default GITHUB_TOKEN do not trigger `on: push` workflows,
+# so a refresh that only committed data would update the repo and never
+# redeploy. The shared `concurrency: pages` group serialises it against
+# deploy.yml.
+
+on:
+  schedule:
+    - cron: '17 4 1 * *' # 04:17 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  TARGET_BRANCH: main
+
+jobs:
+  refresh-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      # Aborts the job on any fetch failure or schema mismatch and writes
+      # nothing, so a bad upstream response leaves the last good data in place.
+      - name: Rebuild paris-7e data
+        run: node scripts/paris7e/build-data.mjs
+
+      - name: Commit data if changed
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # Only generated data. Never content/, never pages, never index.html.
+          git add -- 'paris-7e/data'
+
+          # sources.json carries fetched_at and generated_at, which are the
+          # clock, not the data: it differs on every run even when Paris has
+          # changed nothing. Deciding the commit on it would make every monthly
+          # run a commit and a redeploy, and the commit log would stop being a
+          # signal that the data moved. So the decision is made on everything
+          # else, and sources.json rides along only when something else moved.
+          if git diff --cached --quiet -- 'paris-7e/data' ':(exclude)paris-7e/data/sources.json'; then
+            echo 'paris-7e data unchanged, nothing to commit'
+            git restore --staged --worktree -- paris-7e/data/sources.json
+            exit 0
+          fi
+
+          git commit -m 'Refresh paris-7e data'
+
+          # Retry once: a human push can land between checkout and push.
+          if ! git push origin "HEAD:${TARGET_BRANCH}"; then
+            echo 'push rejected, rebasing and retrying once'
+            git pull --rebase origin "${TARGET_BRANCH}"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
+
+      - name: Build index
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

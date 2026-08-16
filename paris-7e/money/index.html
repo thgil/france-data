@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money in the 7e | France, by the numbers</title>
+  <meta name="description" content="The 7e arrondissement's own budget, the works it got, its Budget Participatif awards, and the citywide context. Every figure traced to its source dataset.">
+  <link rel="stylesheet" href="../../shared/style.css">
+  <link rel="stylesheet" href="../section.css">
+</head>
+<body>
+  <header id="masthead"></header>
+
+  <main class="page">
+    <nav id="subnav"></nav>
+
+    <header class="unit-header">
+      <div class="unit-kicker">Paris 7e</div>
+      <h1 class="unit-title" data-i18n="money.title"></h1>
+      <p class="unit-dek">
+        <span data-lang="en">Four separate pots, counted four separate ways: the arrondissement's own budget, the works it received, its Budget Participatif awards, and the citywide context. None of them add up to a single figure for the 7e. This page never adds them.</span>
+        <span data-lang="fr" hidden>Quatre enveloppes distinctes, comptées séparément : le budget propre de l'arrondissement, les travaux livrés, les projets du Budget Participatif, et le contexte parisien. Aucune ne se totalise avec les autres. Cette page ne les additionne jamais.</span>
+      </p>
+    </header>
+
+    <p id="load-error" class="note" data-i18n="money.load_failed" hidden></p>
+
+    <div id="staleness"></div>
+
+    <!-- ── A. État spécial d'arrondissement ─────────────────────────── -->
+    <section class="unit-block" id="block-etat">
+      <h2>A. État spécial d'arrondissement</h2>
+
+      <div class="section-prose">
+        <div data-lang="en">
+          <p>
+            The état spécial is the budget the arrondissement itself votes. Its investment line did not move once between
+            <span data-fill="exercice-min"></span> and <span data-fill="exercice-max"></span>: <strong data-fill="frozen"></strong> in the Budget Primitif, the same figure in every one of <span data-fill="exercice-count"></span> exercices, to the euro.
+          </p>
+          <p>
+            Over the same <span data-fill="exercice-count"></span> exercices the fonctionnement line rose <span data-fill="fonc-growth"></span>, from <span data-fill="fonc-first"></span> to <span data-fill="fonc-last"></span>. Budget Suppl. votes add small top-ups on top of the primitif. Even counting them, investment peaks at <span data-fill="invest-peak"></span> in <span data-fill="invest-peak-year"></span>.
+          </p>
+          <p>
+            <strong>The dataset ends at exercice <span data-fill="exercice-max"></span>.</strong> It was last modified upstream on <span data-fill="etat-modified"></span>. This page states nothing about 2024, 2025 or 2026, because the source knows nothing about them.
+          </p>
+          <p>
+            Every row in this extract is a dépense. The source carries no recettes rows for the 7e, so there is no balance here, only spending authorisation.
+          </p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p>
+            L'état spécial est le budget que l'arrondissement vote lui-même. Sa ligne d'investissement n'a pas bougé une seule fois entre <span data-fill="exercice-min"></span> et <span data-fill="exercice-max"></span> : <strong data-fill="frozen"></strong> au Budget Primitif, sur chacun des <span data-fill="exercice-count"></span> exercices, à l'euro près.
+          </p>
+          <p>
+            Sur les mêmes <span data-fill="exercice-count"></span> exercices, la ligne de fonctionnement a progressé de <span data-fill="fonc-growth"></span>, de <span data-fill="fonc-first"></span> à <span data-fill="fonc-last"></span>. Les Budgets Suppl. ajoutent de faibles compléments. Même en les comptant, l'investissement culmine à <span data-fill="invest-peak"></span> en <span data-fill="invest-peak-year"></span>.
+          </p>
+          <p>
+            <strong>Le jeu de données s'arrête à l'exercice <span data-fill="exercice-max"></span>.</strong> Sa dernière modification en amont date du <span data-fill="etat-modified"></span>. Cette page n'affirme rien sur 2024, 2025 ou 2026 : la source n'en sait rien.
+          </p>
+          <p>
+            Toutes les lignes de cet extrait sont des dépenses. La source ne contient aucune ligne de recettes pour le 7e. Il n'y a donc pas d'équilibre ici, seulement une autorisation de dépense.
+          </p>
+        </div>
+      </div>
+
+      <h3 data-i18n="money.h_etat_summary"></h3>
+      <div id="etat-summary"></div>
+      <p class="note">
+        <span data-lang="en">Dépenses. Budget Primitif and Budget Suppl. shown separately, never summed into one headline figure.</span>
+        <span data-lang="fr" hidden>Dépenses. Budget Primitif et Budget Suppl. présentés séparément, jamais additionnés en un chiffre unique.</span>
+      </p>
+
+      <h3 data-i18n="money.h_etat_lines"></h3>
+      <div id="etat-lines"></div>
+      <p class="note">
+        <span data-lang="en">The <span data-fill="etat-rows"></span> source rows for the 7e are grouped into <span data-fill="etat-lines"></span> lines, one per exercice, section, nature du vote, chapitre and nature réglementaire. Budget line wording is printed verbatim in French, including where the source itself switches to capitals mid-series.</span>
+        <span data-lang="fr" hidden>Les <span data-fill="etat-rows"></span> lignes source du 7e sont regroupées en <span data-fill="etat-lines"></span> lignes, une par exercice, section, nature du vote, chapitre et nature réglementaire. Les libellés budgétaires sont repris tels quels, y compris là où la source passe elle-même en majuscules.</span>
+      </p>
+    </section>
+
+    <!-- ── B. What actually got built ───────────────────────────────── -->
+    <section class="unit-block" id="block-travaux">
+      <h2 data-i18n="money.h_travaux"></h2>
+
+      <div class="section-prose">
+        <div data-lang="en">
+          <p>
+            <span class="fr-term">travaux_equipements_publics</span> records works engaged on public facilities. <strong><span data-fill="travaux-count"></span> of its <span data-fill="travaux-upstream"></span> records</strong> carry <span class="fr-term">code_postal</span> 75007, delivered in <span data-fill="travaux-years"></span>. Their <span class="fr-term">type_equipement</span> values are <span class="fr-term" data-fill="travaux-types"></span>, and nothing else. The larger number is the citywide count, not a 7e figure.
+          </p>
+          <p>
+            The <span data-fill="travaux-count"></span> records sum to <span data-fill="travaux-total"></span>. Costs arrive as strings in three forms in this source, including one using a non-breaking space; <span data-fill="travaux-unparseable"></span> failed to parse, and none were coerced to zero.
+          </p>
+          <p id="travaux-floor-en" hidden>
+            <span data-fill="travaux-count"></span> records is too few to support a rate, a trend or a per-year figure. They are listed, and nothing is derived from them.
+          </p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p>
+            <span class="fr-term">travaux_equipements_publics</span> recense les travaux engagés sur les équipements publics. <strong><span data-fill="travaux-count"></span> de ses <span data-fill="travaux-upstream"></span> enregistrements</strong> portent le <span class="fr-term">code_postal</span> 75007, livrés en <span data-fill="travaux-years"></span>. Leurs valeurs de <span class="fr-term">type_equipement</span> sont <span class="fr-term" data-fill="travaux-types"></span>, et rien d'autre. Le grand nombre est le total parisien, pas un chiffre du 7e.
+          </p>
+          <p>
+            Ces <span data-fill="travaux-count"></span> enregistrements totalisent <span data-fill="travaux-total"></span>. Les coûts arrivent sous forme de chaînes, dans trois formats dont un avec espace insécable ; <span data-fill="travaux-unparseable"></span> n'a pas pu être analysé, et aucun n'a été ramené à zéro.
+          </p>
+          <p id="travaux-floor-fr" hidden>
+            <span data-fill="travaux-count"></span> enregistrements, c'est trop peu pour en tirer un taux, une tendance ou un montant annuel. Ils sont listés, rien n'en est déduit.
+          </p>
+        </div>
+      </div>
+
+      <div id="travaux-table"></div>
+      <p class="note">
+        <span data-lang="en">This source was last modified upstream on <span data-fill="travaux-modified"></span>. Works delivered after that date do not appear, and their absence is not evidence that none happened.</span>
+        <span data-lang="fr" hidden>Cette source a été modifiée en amont pour la dernière fois le <span data-fill="travaux-modified"></span>. Les travaux livrés depuis n'y figurent pas, et leur absence ne prouve pas qu'il n'y en a pas eu.</span>
+      </p>
+    </section>
+
+    <!-- ── C. Budget Participatif money into the 7e ─────────────────── -->
+    <section class="unit-block" id="block-bp">
+      <h2 data-i18n="money.h_bp"></h2>
+
+      <div class="cannot-tell">
+        <h3 data-i18n="callout.unit_of_analysis"></h3>
+        <ul>
+          <li>
+            <span data-lang="en">Each row below is an edition. Money is summed over projects, deduplicated by <span class="fr-term">identifiant_projet_gagnant</span>, never over operations. A project's budget repeats on every one of its operation rows, so summing operation rows multiplies the money.</span>
+            <span data-lang="fr" hidden>Chaque ligne ci-dessous est une édition. L'argent est sommé sur les projets, dédoublonnés par <span class="fr-term">identifiant_projet_gagnant</span>, jamais sur les opérations. Le budget d'un projet est répété sur chacune de ses opérations : les sommer multiplie l'argent.</span>
+          </li>
+          <li>
+            <span data-lang="en">7e-local projects and citywide projects are counted in separate columns and never added together. A citywide project sited in the 7e carries its full Paris-wide budget, which is not 7e money.</span>
+            <span data-lang="fr" hidden>Les projets locaux du 7e et les projets parisiens sont comptés dans des colonnes distinctes et jamais additionnés. Un projet parisien implanté dans le 7e porte son budget parisien entier, qui n'est pas de l'argent du 7e.</span>
+          </li>
+          <li>
+            <span data-lang="en">These are project budgets at award. They are not amounts paid, and the source does not say what was paid.</span>
+            <span data-lang="fr" hidden>Ce sont des budgets de projets au moment de l'attribution. Ce ne sont pas des montants payés, et la source ne dit pas ce qui a été payé.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section-prose">
+        <div data-lang="en">
+          <p>
+            Across <span data-fill="bp-editions"></span> editions, <strong><span data-fill="bp-local-projects"></span> projects registered to the 7e with at least one operation sited here</strong> carry <strong data-fill="bp-local-total"></strong> of project budget. A further <span data-fill="bp-citywide-projects"></span> citywide projects have an operation sited in the 7e; those carry <span data-fill="bp-citywide-total"></span> of Paris-wide budget. The second figure is not 7e money and is not added to the first.
+          </p>
+          <p>
+            <span data-fill="bp-beats-etat"></span> of the <span data-fill="bp-editions"></span> editions carried more 7e-local project budget than a full year of the arrondissement's own investment line. For anything capital, the Budget Participatif is the mechanism with the money in it, and the état spécial is not.
+          </p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p>
+            Sur <span data-fill="bp-editions"></span> éditions, <strong><span data-fill="bp-local-projects"></span> projets rattachés au 7e ayant au moins une opération située ici</strong> portent <strong data-fill="bp-local-total"></strong> de budget de projet. S'y ajoutent <span data-fill="bp-citywide-projects"></span> projets parisiens ayant une opération implantée dans le 7e, qui portent <span data-fill="bp-citywide-total"></span> de budget parisien. Ce second montant n'est pas de l'argent du 7e et n'est pas ajouté au premier.
+          </p>
+          <p>
+            <span data-fill="bp-beats-etat"></span> des <span data-fill="bp-editions"></span> éditions ont apporté plus de budget local au 7e qu'une année entière de sa propre ligne d'investissement. Pour un projet d'investissement, c'est le Budget Participatif qui porte l'argent, pas l'état spécial.
+          </p>
+        </div>
+      </div>
+
+      <div id="bp-editions"></div>
+      <p class="note">
+        <span data-lang="en">Editions are award years, not spending years. A project won in 2021 may still be in études today.</span>
+        <span data-lang="fr" hidden>Les éditions sont des années d'attribution, pas des années de dépense. Un projet gagnant en 2021 peut encore être en études aujourd'hui.</span>
+      </p>
+    </section>
+
+    <!-- ── D. Citywide context ──────────────────────────────────────── -->
+    <section class="unit-block" id="block-citywide">
+      <h2 data-i18n="money.h_citywide"></h2>
+
+      <div class="section-prose">
+        <div data-lang="en">
+          <p>
+            Paris publishes its accounts for the whole city. It does not publish them split by arrondissement. Nothing in this block is the 7e's share of anything, and no share is estimated here.
+          </p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p>
+            Paris publie ses comptes pour la ville entière. Elle ne les publie pas ventilés par arrondissement. Rien dans ce bloc n'est la part du 7e, et aucune part n'y est estimée.
+          </p>
+        </div>
+      </div>
+
+      <h3 data-i18n="money.h_comptes"></h3>
+      <div id="comptes-table"></div>
+      <p class="note">
+        <span data-lang="en">Dépenses réalisées. The voted-budget extract is not shown as a series: it covers 2019 to 2021 only, every 2020 row in it is zero, and 2021 carries Budget Suppl. rows alone. Presenting it as a citywide budget trend would be presenting an incomplete extract as a fact.</span>
+        <span data-lang="fr" hidden>Dépenses réalisées. L'extrait des budgets votés n'est pas présenté en série : il ne couvre que 2019 à 2021, toutes ses lignes 2020 sont à zéro, et 2021 ne contient que des Budgets Suppl. En faire une tendance reviendrait à présenter un extrait incomplet comme un fait.</span>
+      </p>
+
+      <h3 data-i18n="money.h_marches"></h3>
+
+      <div class="section-prose">
+        <div data-lang="en">
+          <p>
+            <strong><span data-fill="marches-count"></span> contracts</strong> to <span data-fill="marches-suppliers"></span> suppliers, notified between <span data-fill="marches-first-year"></span> and <span data-fill="marches-last-year"></span>, selected on <span class="fr-term">fournisseur_code_postal</span> = 75007.
+          </p>
+          <p>
+            <strong>That field is the supplier's registered address.</strong> It says where a company has its head office, not where the work happened and not where the money was spent. A caterer registered on rue de Grenelle can be paid to work in the 19e. This page therefore claims contracts awarded to suppliers registered in the 7e, and claims nothing about money spent in the 7e.
+          </p>
+          <p>
+            Their ceilings sum to <span data-fill="marches-max"></span> and their floors to <span data-fill="marches-min"></span>. Those are the limits written into the contracts, not payments made.
+          </p>
+        </div>
+        <div data-lang="fr" hidden>
+          <p>
+            <strong><span data-fill="marches-count"></span> marchés</strong> attribués à <span data-fill="marches-suppliers"></span> titulaires, notifiés entre <span data-fill="marches-first-year"></span> et <span data-fill="marches-last-year"></span>, sélectionnés sur <span class="fr-term">fournisseur_code_postal</span> = 75007.
+          </p>
+          <p>
+            <strong>Ce champ est l'adresse de domiciliation du titulaire.</strong> Il indique où l'entreprise a son siège, pas où les travaux ont eu lieu ni où l'argent a été dépensé. Un traiteur domicilié rue de Grenelle peut être payé pour intervenir dans le 19e. Cette page parle donc de marchés attribués à des titulaires domiciliés dans le 7e, et ne dit rien de l'argent dépensé dans le 7e.
+          </p>
+          <p>
+            Leurs montants maximum totalisent <span data-fill="marches-max"></span> et leurs montants minimum <span data-fill="marches-min"></span>. Ce sont les bornes inscrites aux marchés, pas des paiements.
+          </p>
+        </div>
+      </div>
+
+      <div id="marches-table"></div>
+    </section>
+
+    <!-- ── What this page cannot tell you ───────────────────────────── -->
+    <section class="cannot-tell">
+      <h2 data-i18n="callout.cannot_tell"></h2>
+      <ul>
+        <li>
+          <span data-lang="en"><strong>Where city money was spent in the 7e.</strong> The procurement dataset carries the supplier's registered postcode and no place of performance. Contracts awarded to suppliers registered here are not money spent here, and the two are never presented as the same thing.</span>
+          <span data-lang="fr" hidden><strong>Où l'argent de la Ville a été dépensé dans le 7e.</strong> Le jeu de données des marchés porte le code postal de domiciliation du titulaire, et aucun lieu d'exécution. Des marchés attribués à des titulaires domiciliés ici ne sont pas de l'argent dépensé ici, et les deux ne sont jamais confondus.</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>Which associations in the 7e received grants.</strong> Neither grants dataset carries an arrondissement or an address, so grants can only be presented citywide and are not in this build. A deterministic SIRET join would yield grants to organisations <em>registered</em> in the 7e, subject to exactly the same caveat as the contracts above.</span>
+          <span data-lang="fr" hidden><strong>Quelles associations du 7e ont reçu des subventions.</strong> Aucun des deux jeux de données de subventions ne porte d'arrondissement ni d'adresse : les subventions ne peuvent être présentées qu'à l'échelle parisienne et ne figurent pas dans cette version. Une jointure SIRET déterministe donnerait les subventions aux organismes <em>domiciliés</em> dans le 7e, avec exactement la même réserve que pour les marchés ci-dessus.</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>The 7e's share of the citywide budget.</strong> Paris does not publish its budget split by arrondissement. No estimate is made here, because any split would be this site's invention rather than the city's figure.</span>
+          <span data-lang="fr" hidden><strong>La part du 7e dans le budget parisien.</strong> Paris ne publie pas son budget ventilé par arrondissement. Aucune estimation n'est faite ici : toute ventilation serait une invention de ce site, pas un chiffre de la Ville.</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>Anything about the état spécial after <span data-fill="exercice-max"></span>.</strong> The dataset stops there and was last modified upstream on <span data-fill="etat-modified"></span>.</span>
+          <span data-lang="fr" hidden><strong>Quoi que ce soit sur l'état spécial après <span data-fill="exercice-max"></span>.</strong> Le jeu de données s'y arrête et a été modifié en amont pour la dernière fois le <span data-fill="etat-modified"></span>.</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>Whether every 7e Budget Participatif project is here.</strong> The build selects operation rows on <span class="fr-term">arrondissement_operation</span> = 75007, so the population is projects with at least one operation sited in the 7e. A project registered to the 7e whose operations are filed under another arrondissement code does not appear, and the project-level table <span class="fr-term">bp_projets_gagnants</span> is not fetched in this build to reconcile against.</span>
+          <span data-lang="fr" hidden><strong>Si tous les projets du Budget Participatif du 7e figurent ici.</strong> La construction sélectionne les opérations sur <span class="fr-term">arrondissement_operation</span> = 75007 : la population est donc celle des projets ayant au moins une opération située dans le 7e. Un projet rattaché au 7e dont les opérations sont classées sous un autre code d'arrondissement n'apparaît pas, et la table projet <span class="fr-term">bp_projets_gagnants</span> n'est pas récupérée dans cette version pour faire le rapprochement.</span>
+        </li>
+        <li>
+          <span data-lang="en"><strong>What was actually paid on Budget Participatif projects.</strong> The source carries the project budget at award and the stage each operation has reached. It does not carry payments.</span>
+          <span data-lang="fr" hidden><strong>Ce qui a réellement été payé sur les projets du Budget Participatif.</strong> La source porte le budget du projet à l'attribution et l'avancement de chaque opération. Elle ne porte pas les paiements.</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer id="provenance"></footer>
+  </main>
+
+  <footer class="site-footer">
+    <span><a href="../">Paris 7e</a></span>
+    <span><a href="../../">All stories</a></span>
+    <span>Data from <a href="https://opendata.paris.fr" rel="noopener">opendata.paris.fr</a></span>
+  </footer>
+
+  <script src="../../shared/nav.js" defer></script>
+
+  <script type="module">
+    import {
+      initSection,
+      loadData,
+      renderTable,
+      renderProvenance,
+      pickSources,
+      formatDate,
+      formatMoney,
+      formatNumber,
+      getLang,
+      onLangChange,
+      t,
+    } from '../section.js';
+
+    // Every dataset a figure on this page comes from. The provenance footer
+    // renders these, and each one's upstream modified date.
+    const DATASET_IDS = [
+      'budgets-votes-etats-speciaux-darrondissements-m57-ville',
+      'travaux_equipements_publics',
+      'budget-participatif_operations-projets-gagnants-realisations',
+      'comptes-administratifs-budgets-principaux-a-partir-de-2019-m57-ville-departement',
+      'budgets-votes-principaux-a-partir-de-2019-m57-ville-departement',
+      'liste-des-marches-de-la-collectivite-parisienne',
+    ];
+
+    // Inline figures are filled from the data, never typed into the prose, so
+    // the sentence cannot drift from the file it describes. Fills are lazy so
+    // they re-render in the other language on toggle.
+    const fills = new Map();
+    const fill = (name, fn) => fills.set(name, fn);
+
+    function paintFills() {
+      for (const [name, fn] of fills) {
+        let text;
+        try {
+          text = fn();
+        } catch {
+          text = '';
+        }
+        for (const el of document.querySelectorAll(`[data-fill="${name}"]`)) {
+          el.textContent = text;
+        }
+      }
+    }
+
+    const sum = (rows, of) => rows.reduce((total, row) => total + (of(row) || 0), 0);
+
+    const uniqueSorted = (values) => [...new Set(values.filter(Boolean))]
+      .sort((a, b) => String(a).localeCompare(String(b), 'fr'));
+
+    // "2022 and 2023" / "2022 et 2023". Source terms are joined, never
+    // translated.
+    const joinList = (values) => {
+      if (values.length === 0) return t('value.unknown');
+      if (values.length === 1) return String(values[0]);
+      const last = values[values.length - 1];
+      const rest = values.slice(0, -1).join(', ');
+      return `${rest} ${getLang() === 'fr' ? 'et' : 'and'} ${last}`;
+    };
+
+    function formatPercent(fraction, digits = 1) {
+      return new Intl.NumberFormat(getLang() === 'fr' ? 'fr-FR' : 'en-GB', {
+        style: 'percent',
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits,
+      }).format(fraction);
+    }
+
+    /* ── A. État spécial ─────────────────────────────────────────────── */
+
+    function renderEtatSpecial(etat) {
+      const lines = etat.lines;
+      const total = (exercice, section, vote) => sum(
+        lines.filter((l) => l.exercice === exercice
+          && l.section === section
+          && l.type_du_vote === vote),
+        (l) => l.amount,
+      );
+
+      const rows = etat.exercices.map((exercice) => ({
+        exercice,
+        fonctionnement_bp: total(exercice, 'Fonctionnement', 'Budget Primitif'),
+        investissement_bp: total(exercice, 'Investissement', 'Budget Primitif'),
+        fonctionnement_bs: total(exercice, 'Fonctionnement', 'Budget Suppl.'),
+        investissement_bs: total(exercice, 'Investissement', 'Budget Suppl.'),
+      }));
+
+      renderTable('#etat-summary', {
+        columns: [
+          { key: 'exercice', labelKey: 'col.exercice', sortable: false },
+          { key: 'fonctionnement_bp', label: 'Fonctionnement · Budget Primitif', type: 'money', sortable: false },
+          { key: 'investissement_bp', label: 'Investissement · Budget Primitif', type: 'money', sortable: false },
+          { key: 'fonctionnement_bs', label: 'Fonctionnement · Budget Suppl.', type: 'money', sortable: false },
+          { key: 'investissement_bs', label: 'Investissement · Budget Suppl.', type: 'money', sortable: false },
+        ],
+        rows,
+      });
+
+      renderTable('#etat-lines', {
+        columns: [
+          { key: 'exercice', labelKey: 'col.exercice', filter: true },
+          { key: 'section', labelKey: 'col.section_budget', filter: true, sourceTerm: true },
+          { key: 'type_du_vote', labelKey: 'col.vote', filter: true, sourceTerm: true },
+          {
+            key: 'chapitre_texte',
+            labelKey: 'col.chapitre',
+            filter: true,
+            sourceTerm: true,
+            className: 'wrap',
+            format: (value, row) => `${row.chapitre} · ${value}`,
+          },
+          {
+            key: 'nature_texte',
+            labelKey: 'col.nature',
+            sourceTerm: true,
+            className: 'wrap',
+            format: (value, row) => `${row.nature} · ${value}`,
+          },
+          { key: 'amount', labelKey: 'col.amount', type: 'money' },
+        ],
+        rows: lines,
+        sort: { key: 'amount', dir: 'desc' },
+        search: { keys: ['chapitre_texte', 'nature_texte', 'chapitre', 'nature'] },
+      });
+
+      // The frozen line is only stated as frozen if the data says so.
+      const investValues = [...new Set(rows.map((r) => r.investissement_bp))];
+      const peak = rows.reduce(
+        (best, r) => (r.investissement_bp + r.investissement_bs
+          > best.investissement_bp + best.investissement_bs ? r : best),
+        rows[0],
+      );
+      const first = rows[0];
+      const last = rows[rows.length - 1];
+
+      fill('exercice-min', () => etat.exercice_min);
+      fill('exercice-max', () => etat.exercice_max);
+      fill('frozen', () => (investValues.length === 1
+        ? formatMoney(investValues[0])
+        : `${formatMoney(Math.min(...investValues))} to ${formatMoney(Math.max(...investValues))}`));
+      fill('fonc-first', () => formatMoney(first.fonctionnement_bp));
+      fill('fonc-last', () => formatMoney(last.fonctionnement_bp));
+      fill('fonc-growth', () => formatPercent(
+        (last.fonctionnement_bp - first.fonctionnement_bp) / first.fonctionnement_bp,
+      ));
+      fill('invest-peak', () => formatMoney(peak.investissement_bp + peak.investissement_bs));
+      fill('invest-peak-year', () => peak.exercice);
+      fill('etat-rows', () => formatNumber(etat.row_count));
+      fill('etat-lines', () => formatNumber(lines.length));
+      fill('exercice-count', () => formatNumber(etat.exercices.length));
+    }
+
+    /* ── B. What got built ───────────────────────────────────────────── */
+
+    function renderTravaux(travaux, sources) {
+      renderTable('#travaux-table', {
+        columns: [
+          { key: 'equipement', labelKey: 'col.equipement', sourceTerm: true, className: 'wrap' },
+          { key: 'adresse', labelKey: 'col.address', sourceTerm: true, className: 'wrap' },
+          { key: 'type_construction', label: 'Type de construction', sourceTerm: true },
+          { key: 'description', labelKey: 'col.works', sourceTerm: true, className: 'wrap' },
+          { key: 'annee_livraison', label: 'Année de livraison' },
+          { key: 'budget', label: 'Budget', type: 'money' },
+        ],
+        rows: travaux.records,
+        sort: { key: 'budget', dir: 'desc' },
+      });
+
+      const upstream = sources.find((s) => s.dataset_id === 'travaux_equipements_publics');
+
+      fill('travaux-count', () => formatNumber(travaux.record_count));
+      fill('travaux-upstream', () => (upstream && upstream.upstream_record_count
+        ? formatNumber(upstream.upstream_record_count)
+        : formatNumber(travaux.record_count)));
+      fill('travaux-total', () => formatMoney(travaux.total_budget));
+      fill('travaux-unparseable', () => formatNumber(travaux.budget_unparseable));
+      fill('travaux-years', () => joinList(uniqueSorted(travaux.records.map((r) => r.annee_livraison))));
+      // type_equipement is a source term and is printed verbatim.
+      fill('travaux-types', () => joinList(uniqueSorted(travaux.records.map((r) => r.type_equipement))));
+      fill('travaux-modified', () => (upstream ? formatDate(upstream.modified) : t('value.unknown')));
+
+      if (travaux.sample_too_small) {
+        for (const id of ['travaux-floor-en', 'travaux-floor-fr']) {
+          const el = document.getElementById(id);
+          if (el) el.hidden = false;
+        }
+      }
+    }
+
+    /* ── C. Budget Participatif ──────────────────────────────────────── */
+
+    function renderBudgetParticipatif(pipeline, frozenInvestment) {
+      renderTable('#bp-editions', {
+        columns: [
+          { key: 'edition', labelKey: 'col.edition' },
+          { key: 'local_project_count', labelKey: 'money.col_local_projects', type: 'number' },
+          { key: 'local_total', labelKey: 'col.local_total', type: 'money' },
+          { key: 'citywide_project_count', labelKey: 'money.col_citywide_projects', type: 'number' },
+          { key: 'citywide_total', labelKey: 'col.citywide_total', type: 'money' },
+        ],
+        rows: pipeline.editions,
+        sort: { key: 'edition', dir: 'desc' },
+      });
+
+      const beats = pipeline.editions.filter((e) => e.local_total > frozenInvestment).length;
+
+      fill('bp-editions', () => formatNumber(pipeline.editions.length));
+      fill('bp-local-projects', () => formatNumber(pipeline.local_project_count));
+      fill('bp-local-total', () => formatMoney(pipeline.local_total));
+      fill('bp-citywide-projects', () => formatNumber(pipeline.citywide_project_count));
+      fill('bp-citywide-total', () => formatMoney(pipeline.citywide_total));
+      fill('bp-beats-etat', () => formatNumber(beats));
+    }
+
+    /* ── D. Citywide context ─────────────────────────────────────────── */
+
+    function renderCitywide(ville, marches) {
+      const spend = ville.comptes.filter(
+        (r) => r.budget === 'M57 Ville' && r.sens_depense_recette === 'Dépenses',
+      );
+      const exercices = [...new Set(spend.map((r) => r.exercice_comptable))].sort();
+      const rows = exercices.map((exercice) => ({
+        exercice,
+        fonctionnement: sum(
+          spend.filter((r) => r.exercice_comptable === exercice && r.section_budgetaire_i_f === 'Fonctionnement'),
+          (r) => r.total,
+        ),
+        investissement: sum(
+          spend.filter((r) => r.exercice_comptable === exercice && r.section_budgetaire_i_f === 'Investissement'),
+          (r) => r.total,
+        ),
+      }));
+
+      renderTable('#comptes-table', {
+        columns: [
+          { key: 'exercice', labelKey: 'col.exercice', sortable: false },
+          { key: 'fonctionnement', label: 'Fonctionnement · dépenses', type: 'money', sortable: false },
+          { key: 'investissement', label: 'Investissement · dépenses', type: 'money', sortable: false },
+        ],
+        rows,
+      });
+
+      renderTable('#marches-table', {
+        columns: [
+          { key: 'annee_de_notification', labelKey: 'col.notified', filter: true },
+          { key: 'fournisseur_nom', labelKey: 'col.supplier', sourceTerm: true, className: 'wrap' },
+          { key: 'objet_du_marche', labelKey: 'col.objet', sourceTerm: true, className: 'wrap' },
+          { key: 'nature_du_marche', label: 'Nature du marché', filter: true, sourceTerm: true },
+          { key: 'montant_min', label: 'Montant min', type: 'money' },
+          { key: 'montant_max', label: 'Montant max', type: 'money' },
+        ],
+        rows: marches.contracts,
+        sort: { key: 'montant_max', dir: 'desc' },
+        search: { keys: ['fournisseur_nom', 'objet_du_marche', 'categorie'] },
+      });
+
+      const years = marches.contracts
+        .map((c) => c.annee_de_notification)
+        .filter(Boolean)
+        .sort();
+      const suppliers = new Set(marches.contracts.map((c) => c.fournisseur_nom));
+
+      fill('marches-count', () => formatNumber(marches.contract_count));
+      fill('marches-suppliers', () => formatNumber(suppliers.size));
+      fill('marches-first-year', () => years[0]);
+      fill('marches-last-year', () => years[years.length - 1]);
+      fill('marches-max', () => formatMoney(marches.total_montant_max));
+      fill('marches-min', () => formatMoney(marches.total_montant_min));
+    }
+
+    /* ── Boot ────────────────────────────────────────────────────────── */
+
+    async function main() {
+      await initSection({ page: 'money' });
+
+      const [etat, travaux, pipeline, marches, ville, sources] = await Promise.all([
+        loadData('etat-special'),
+        loadData('travaux'),
+        loadData('pipeline'),
+        loadData('marches'),
+        loadData('ville-budget'),
+        loadData('sources'),
+      ]);
+
+      const entries = pickSources(sources, DATASET_IDS);
+
+      // The upstream modified dates in the prose come from the same entries the
+      // provenance table and the staleness banner read, so a refresh moves the
+      // sentence and the table together.
+      const modifiedOf = (datasetId) => {
+        const entry = entries.find((s) => s.dataset_id === datasetId);
+        return entry ? formatDate(entry.modified) : t('value.unknown');
+      };
+      fill('etat-modified', () => modifiedOf('budgets-votes-etats-speciaux-darrondissements-m57-ville'));
+
+      renderEtatSpecial(etat);
+      renderTravaux(travaux, entries);
+
+      // The état spécial comparison uses the Budget Primitif investment line
+      // of the last exercice the dataset holds.
+      const investment = sum(
+        etat.lines.filter((l) => l.exercice === etat.exercice_max
+          && l.section === 'Investissement'
+          && l.type_du_vote === 'Budget Primitif'),
+        (l) => l.amount,
+      );
+
+      renderBudgetParticipatif(pipeline, investment);
+      renderCitywide(ville, marches);
+
+      renderProvenance(entries, {
+        mount: '#provenance',
+        bannerMount: '#staleness',
+        staleAfterMonths: sources.stale_after_months,
+      });
+
+      paintFills();
+      onLangChange(paintFills);
+    }
+
+    main().catch((err) => {
+      console.error('paris-7e/money failed to load:', err);
+      const banner = document.getElementById('load-error');
+      if (banner) banner.hidden = false;
+    });
+  </script>
+</body>
+</html>

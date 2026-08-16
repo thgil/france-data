@@ -1,0 +1,96 @@
+{
+  "_editorial": "HAND-AUTHORED STUB. Same record shape as running-hub.json, with the fields that have not been researched left null rather than guessed. It renders as a row in the register and has no detail page until it is filled in.",
+  "id": "bosquet-street-furniture",
+  "title": "Street furniture on avenue Bosquet",
+  "title_fr": "Mobilier urbain avenue Bosquet",
+  "stub": true,
+  "status": "idea",
+  "status_note": "Idea only. No research done.",
+  "created_on": "2026-08-16",
+  "updated_on": "2026-08-16",
+  "summary": "Seating and shade along a long shopping street with almost nowhere to sit.",
+  "problem": {
+    "statement": "Avenue Bosquet is a working shopping street used heavily by older residents, with very little public seating along its length.",
+    "who_is_affected": null,
+    "evidence_available": "None collected yet. A seat count along the avenue is the first task."
+  },
+  "proposal": {
+    "description": null,
+    "components": [],
+    "reversibility": null,
+    "explicitly_not_proposed": []
+  },
+  "location": {
+    "status": "not surveyed",
+    "note": "Avenue Bosquet, exact placements not chosen.",
+    "candidates": []
+  },
+  "cost_tiers": [],
+  "scale_context": {
+    "arrondissement_annual_investment_eur": 161405,
+    "arrondissement_investment_source": "budgets-votes-etats-speciaux-darrondissements-m57-ville, Dépenses, Budget Primitif, exercices 2018 to 2023",
+    "statement": null
+  },
+  "target_mechanism": {
+    "primary": null,
+    "why": null,
+    "alternatives_considered": []
+  },
+  "routing": {
+    "elu": {
+      "delegation": "Sécurité et tranquillité publiques, gestion de l'espace public et correspondant Défense",
+      "secondary_delegations": ["propreté, environnement, espaces verts et mobilité"],
+      "holder_named": false,
+      "why_no_name": "The élus dataset predates the March 2026 elections and no holder is named until the mairie site is checked.",
+      "source": "conseillerseres-darrondissements"
+    },
+    "direction": {
+      "likely": null,
+      "basis": "Cadre de vie is the most scattered theme in the 7e: five named Directions across sixteen operations, two of which carry no Direction in the source. No single Direction can be named from the data.",
+      "alternative": null,
+      "inference": true
+    },
+    "conseil_de_quartier": {
+      "primary": "GROS CAILLOU",
+      "secondary": null,
+      "why": "Avenue Bosquet sits in this quartier."
+    },
+    "funding_cycle": {
+      "ref": "content/dates.json",
+      "entries": [],
+      "note": null
+    }
+  },
+  "adverse_precedent": null,
+  "supporting_precedent": [],
+  "evaluation": {
+    "pilot_months": null,
+    "metrics": [],
+    "decision_rule": null
+  },
+  "maintenance_plan": {
+    "who": null,
+    "annual_cost_estimate_eur": null,
+    "annual_cost_estimate_note": "Not estimated.",
+    "consumables": [],
+    "replacement_horizon_years": null,
+    "end_of_life": null
+  },
+  "evidence_limits": [
+    "No count of existing seating exists. Nothing here claims a shortage in numbers yet."
+  ],
+  "open_questions": [
+    "How many public seats are there on avenue Bosquet today?",
+    "Is there an existing street furniture programme covering this street?"
+  ],
+  "status_log": [
+    {
+      "date": "2026-08-16",
+      "event": "Recorded as an idea",
+      "actor": "author",
+      "detail": "Added to the register as a stub so it is tracked rather than forgotten. No research, no cost, no routing decision.",
+      "source": null,
+      "outcome": "Stub."
+    }
+  ]
+}
