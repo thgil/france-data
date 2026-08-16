@@ -613,3 +613,63 @@ export function shapeConseillersDeParis(rows) {
     fonction: row.fonction_dans_l_executif ?? null,
   }));
 }
+
+// ---------------------------------------------------------------------------
+// siteContext
+// What is already built in a study area, so a proposal can narrow its ask.
+// Pure: takes raw records, returns counts and the bike proxy. Never combines
+// the bike figure with anything, because it counts bicycles and nothing else.
+// ---------------------------------------------------------------------------
+export function siteContext(fontaineRows, sanisetteRows, veloAggregates, sources = {}) {
+  const available = fontaineRows.filter(r => String(r.dispo).toUpperCase() === 'OUI');
+
+  const byStreet = new Map();
+  for (const r of fontaineRows) {
+    const street = r.voie || '(sans voie)';
+    byStreet.set(street, (byStreet.get(street) || 0) + 1);
+  }
+
+  const totalMovements = veloAggregates.reduce((sum, r) => sum + (Number(r.total) || 0), 0);
+  const hours = veloAggregates.reduce((max, r) => Math.max(max, Number(r.hours) || 0), 0);
+  const dailyMean = hours > 0 ? Math.round(totalMovements / (hours / 24)) : null;
+
+  return {
+    water: {
+      source: sources.fontainesSource ?? null,
+      count: fontaineRows.length,
+      available: available.length,
+      by_street: [...byStreet.entries()]
+        .map(([street, n]) => ({ street, n }))
+        .sort((a, b) => b.n - a.n || a.street.localeCompare(b.street)),
+      // The dataset records current availability. It does not record whether a
+      // park fountain runs through winter, so this file must not imply it does.
+      winter_operation_recorded: false,
+    },
+    toilets: {
+      source: sources.sanisettesSource ?? null,
+      count: sanisetteRows.length,
+      wheelchair_accessible: sanisetteRows.filter(r => String(r.acces_pmr).toLowerCase() === 'oui').length,
+      by_hours: [...sanisetteRows.reduce((map, r) => {
+        const h = r.horaire || '(non renseigné)';
+        map.set(h, (map.get(h) || 0) + 1);
+        return map;
+      }, new Map())].map(([hours_label, n]) => ({ hours_label, n })).sort((a, b) => b.n - a.n),
+    },
+    active_mobility_proxy: {
+      source: sources.veloSource ?? null,
+      counters: veloAggregates.map(r => ({
+        id: r.id_compteur,
+        name: r.nom_compteur,
+        movements: Number(r.total) || 0,
+        daily_mean: r.hours ? Math.round(Number(r.total) / (Number(r.hours) / 24)) : null,
+      })),
+      movements: totalMovements,
+      daily_mean: dailyMean,
+      first_seen: veloAggregates.map(r => r.first_seen).sort()[0] ?? null,
+      last_seen: veloAggregates.map(r => r.last_seen).sort().at(-1) ?? null,
+      counts: 'bicycles',
+      is_runner_count: false,
+      note: 'An active-mobility proxy. It counts bicycles at Pont des Invalides and is never presented as a runner count.',
+    },
+  };
+}

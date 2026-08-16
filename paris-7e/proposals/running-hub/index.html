@@ -61,6 +61,27 @@
     .map-tooltip .tt-name { display: block; font-weight: 700; margin-bottom: 3px; }
     .map-tooltip .tt-row { display: block; color: var(--ink-mute); }
 
+    /* Component list: what, which tier it lands in, and why it is there. */
+    .kit { display: flex; flex-direction: column; margin: 4px 0 18px; max-width: 700px; }
+    .kit .item { padding: 12px 0; border-top: 1px solid var(--panel-line); }
+    .kit .item:first-child { border-top: none; padding-top: 4px; }
+    .item-what { font-size: 15px; font-weight: 600; line-height: 1.4; }
+    .item-why { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-top: 3px; }
+    .tier-tag {
+      display: inline-block;
+      margin-left: 9px;
+      padding: 1px 7px;
+      border: 1px solid var(--panel-line);
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      vertical-align: 2px;
+    }
+    .tier-head { font-size: 15px; margin: 26px 0 8px; }
+
     .record-list { margin: 0 0 18px; padding-left: 18px; max-width: 680px; }
     .record-list li { font-size: 14px; line-height: 1.55; margin-bottom: 6px; color: var(--ink-soft); }
     .stat-line {
@@ -110,6 +131,18 @@
     </section>
 
     <section class="unit-block">
+      <h2><span data-lang="en">What is already built here</span><span data-lang="fr" lang="fr">Ce qui existe déjà sur place</span></h2>
+      <div class="section-prose" id="site-infra"></div>
+      <div id="site-infra-table"></div>
+      <p class="note" id="site-infra-note"></p>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">How many people would use it</span><span data-lang="fr" lang="fr">Combien de personnes l'utiliseraient</span></h2>
+      <div class="section-prose" id="usage"></div>
+    </section>
+
+    <section class="unit-block">
       <h2><span data-lang="en">The proposal</span><span data-lang="fr" lang="fr">La proposition</span></h2>
       <div class="section-prose" id="proposal"></div>
       <h3><span data-lang="en">Not proposed</span><span data-lang="fr" lang="fr">Ce qui n'est pas proposé</span></h3>
@@ -126,10 +159,28 @@
     </section>
 
     <section class="unit-block">
-      <h2><span data-lang="en">Cost, against the arrondissement's own budget</span><span data-lang="fr" lang="fr">Le coût, rapporté au budget de l'arrondissement</span></h2>
+      <h2><span data-lang="en">What it costs</span><span data-lang="fr" lang="fr">Ce que cela coûte</span></h2>
       <p class="stat-line" id="scale-headline"></p>
       <div id="cost-tiers"></div>
       <div class="section-prose" id="scale-body"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">What to ask for, and in what order</span><span data-lang="fr" lang="fr">Quoi demander, et dans quel ordre</span></h2>
+      <div class="section-prose" id="phasing"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">The lockers: how they work and what they cost to use</span><span data-lang="fr" lang="fr">Les casiers : fonctionnement et tarif</span></h2>
+      <div class="section-prose" id="locker-intro"></div>
+      <div id="locker-tariff"></div>
+      <div class="section-prose" id="locker-body"></div>
+      <div id="locker-revenue"></div>
+    </section>
+
+    <section class="unit-block">
+      <h2><span data-lang="en">Vending</span><span data-lang="fr" lang="fr">Distributeurs</span></h2>
+      <div class="section-prose" id="vending"></div>
     </section>
 
     <section class="unit-block">
@@ -196,6 +247,9 @@
       'budgets-votes-etats-speciaux-darrondissements-m57-ville',
       'conseillerseres-darrondissements',
       'conseils-quartiers',
+      'fontaines-a-boire',
+      'sanisettesparis',
+      'comptage-velo-donnees-compteurs',
     ];
 
     // Every mount the record renders into. #map is not here: the map is built
@@ -203,6 +257,8 @@
     const MOUNTS = [
       'title', 'summary', 'record-meta', 'precedent-body', 'problem', 'proposal',
       'not-proposed', 'location-note', 'map-legend', 'map-note', 'candidates',
+      'site-infra', 'site-infra-table', 'site-infra-note', 'usage', 'phasing',
+      'locker-intro', 'locker-tariff', 'locker-body', 'locker-revenue', 'vending',
       'scale-headline', 'cost-tiers', 'scale-body', 'supporting', 'pilot-line',
       'metrics', 'decision-rule', 'maintenance', 'routing', 'cycle',
       'status-log', 'limits', 'open-questions',
@@ -540,13 +596,14 @@
     async function main() {
       await initSection({ page: 'proposals' });
 
-      const [record, pipeline, etatSpecial, quartiers, dates, sources] = await Promise.all([
+      const [record, pipeline, etatSpecial, quartiers, dates, sources, site] = await Promise.all([
         loadContent('proposals/running-hub'),
         loadData('pipeline'),
         loadData('etat-special'),
         loadData('quartiers.geojson'),
         loadContent('dates'),
         loadData('sources'),
+        loadData('site-context'),
       ]);
 
       const points = precedentPoints(record, pipeline);
@@ -592,18 +649,44 @@
         // Proposal
         const proposal = document.getElementById('proposal');
         para(proposal, record.proposal.description);
-        const components = el('ul', 'record-list');
-        listInto(components, record.proposal.components);
+        if (record.proposal.one_line) {
+          const line = el('p', 'stat-line');
+          line.append(document.createTextNode(record.proposal.one_line));
+          proposal.append(line);
+        }
+        // Each component carries the tier it lands in and the reason it is
+        // there, because a component list without reasons invites deletion.
+        const components = el('div', 'kit');
+        for (const c of record.proposal.components) {
+          const item = el('div', 'item');
+          const head = el('div', 'item-what');
+          head.append(document.createTextNode(c.what));
+          if (c.in_tier) head.append(el('span', 'tier-tag', `Tier ${c.in_tier}`));
+          const why = el('div', 'item-why', c.why);
+          item.append(head, why);
+          components.append(item);
+        }
         proposal.append(components);
         para(proposal, record.proposal.reversibility);
-        listInto(document.getElementById('not-proposed'), record.proposal.explicitly_not_proposed);
+
+        const excluded = document.getElementById('not-proposed');
+        for (const x of record.proposal.deliberately_excluded) {
+          const li = el('li');
+          li.append(el('strong', null, `${x.what}. `));
+          li.append(document.createTextNode(x.why));
+          excluded.append(li);
+        }
 
         // Location
         const locationNote = document.getElementById('location-note');
         const status = el('p');
-        status.append(el('strong', null, `Siting status: ${record.location.status}. `));
-        status.append(document.createTextNode(record.location.note));
+        status.append(el('strong', null, `Siting: ${record.location.status}. `));
+        status.append(document.createTextNode(record.location.method));
         locationNote.append(status);
+
+        const caveat = el('p', 'note');
+        caveat.append(document.createTextNode(record.location.evidence.caveat));
+        locationNote.append(caveat);
 
         if (!mapDrawn) {
           drawMap(document.getElementById('map'), quartiers, points);
@@ -627,17 +710,28 @@
           `Aucun site candidat n'a de coordonnées, parce qu'aucun site n'est choisi. La carte montre les deux conseils de quartier envisagés et les emplacements enregistrés des ${formatNumber(points.features.length)} projets abandonnés du Champ-de-Mars, qui sont la raison pour laquelle le choix reste ouvert. ${overlapNote.fr}Les limites viennent de conseils-quartiers ; les points sont les coordonnées des opérations dans les données du Budget Participatif.`,
         ));
 
-        document.getElementById('candidates').append(buildTable([
+        const candidatesHost = document.getElementById('candidates');
+        candidatesHost.append(buildTable([
+          { en: 'Rank', fr: 'Rang', num: true },
           { en: 'Candidate', fr: 'Site candidat', cellClass: 'wrap' },
-          { en: 'Conseil de quartier', fr: 'Conseil de quartier' },
-          { en: 'Status', fr: 'Statut', cellClass: 'wrap' },
+          { en: 'Status', fr: 'Statut' },
+          { en: 'The case for it', fr: 'Ce qui plaide pour', cellClass: 'wrap' },
           { en: 'Risk', fr: 'Risque', cellClass: 'wrap' },
-        ], record.location.candidates.map((candidate) => [
-          candidate.label,
-          fr(candidate.quartier),
-          candidate.status,
-          candidate.risk,
+        ], record.location.candidates.map((c) => [
+          String(c.rank), c.label, c.status, c.case, c.risk,
         ])));
+
+        const avoidHead = el('p');
+        avoidHead.append(bi('Sites ruled out, and why:', 'Sites écartés, et pourquoi :'));
+        candidatesHost.append(avoidHead);
+        const avoid = el('ul', 'record-list');
+        for (const a of record.location.explicitly_avoided) {
+          const li = el('li');
+          li.append(el('strong', null, `${a.where}. `));
+          li.append(document.createTextNode(a.why));
+          avoid.append(li);
+        }
+        candidatesHost.append(avoid);
 
         // Cost tiers and scale
         const tiers = record.cost_tiers;
@@ -649,15 +743,20 @@
         const denominatorEn = budget.constant ? '' : ` (the ${budget.amount_exercice} figure)`;
         const denominatorFr = budget.constant ? '' : ` (chiffre ${budget.amount_exercice})`;
 
+        // The headline benchmark is the delivered installation at the preferred
+        // site, not the etat special. Measuring a capital pilot against an
+        // operating budget that never funds capital work makes it look enormous
+        // and tells the reader nothing true.
+        const anchor = record.scale_context.the_right_denominators[0];
         document.getElementById('scale-headline').append(bi(
-          `At ${formatMoney(cheapest)} to ${formatMoney(dearest)}, this pilot is between ${share(cheapest)} and ${share(dearest)} of the arrondissement's entire annual investment budget of ${formatMoney(budget.amount)}${denominatorEn}.`,
-          `De ${formatMoney(cheapest)} à ${formatMoney(dearest)}, ce pilote représente entre ${share(cheapest)} et ${share(dearest)} de la totalité du budget annuel d'investissement de l'arrondissement, soit ${formatMoney(budget.amount)}${denominatorFr}.`,
+          `Tier 1 costs ${formatMoney(cheapest)}. ${anchor.benchmark} cost ${formatMoney(anchor.eur)} and was built.`,
+          `Le palier 1 coûte ${formatMoney(cheapest)}. ${anchor.benchmark} a coûté ${formatMoney(anchor.eur)} et a été réalisé.`,
         ));
 
         document.getElementById('cost-tiers').append(buildTable([
           { en: 'Tier', fr: 'Palier' },
           { en: 'Cost', fr: 'Coût', num: true },
-          { en: 'Share of one year of 7e investment', fr: "Part d'une année d'investissement du 7e", num: true },
+          { en: 'Share of the 7e line (see below)', fr: "Part de la ligne du 7e (voir plus bas)", num: true },
           { en: 'Scope', fr: 'Contenu', cellClass: 'wrap' },
         ], tiers.map((tier) => [
           tier.tier,
@@ -665,6 +764,129 @@
           share(tier.eur),
           tier.scope,
         ])));
+
+        // Itemisation, so a reader can argue with a line rather than the total.
+        const itemHost = document.getElementById('cost-tiers');
+        for (const tier of tiers) {
+          if (!tier.line_items) continue;
+          const h = el('h3', 'tier-head', tier.tier);
+          itemHost.append(h);
+          itemHost.append(buildTable([
+            { en: 'Line', fr: 'Poste', cellClass: 'wrap' },
+            { en: 'Estimate', fr: 'Estimation', num: true },
+          ], tier.line_items.map((li) => [li.item, formatMoney(li.eur)])));
+          const why = el('p', 'note');
+          why.append(document.createTextNode(`${tier.why_this_tier} ${tier.estimate_basis}`));
+          itemHost.append(why);
+        }
+
+        /* ── What is already built here ────────────────────────────── */
+        const infra = record.site_infrastructure;
+        para(document.getElementById('site-infra'), infra._why_this_matters);
+        // Counts come from the generated file, never from the record, so the
+        // page cannot drift from the source it cites.
+        const topStreets = site.water.by_street
+          .slice(0, 3)
+          .map((x) => `${formatNumber(x.n)} on ${x.street.toLowerCase()}`)
+          .join(', ');
+        const hoursSummary = site.toilets.by_hours
+          .map((x) => `${formatNumber(x.n)} at ${x.hours_label}`)
+          .join(', ');
+        document.getElementById('site-infra-table').append(buildTable([
+          { en: 'Already on site', fr: 'Déjà sur place', cellClass: 'wrap' },
+          { en: 'Count', fr: 'Nombre', num: true },
+          { en: 'In service', fr: 'En service', num: true },
+          { en: 'Detail', fr: 'Détail', cellClass: 'wrap' },
+        ], [
+          ['Drinking water', formatNumber(site.water.count), formatNumber(site.water.available), topStreets],
+          ['Public toilets', formatNumber(site.toilets.count),
+            formatNumber(site.toilets.wheelchair_accessible),
+            `${hoursSummary}. Every one wheelchair accessible.`],
+        ]));
+        const infraNote = document.getElementById('site-infra-note');
+        infraNote.append(document.createTextNode(`${infra.consequence} ${infra.toilets_note} `));
+        infraNote.append(el('em', null, infra.water_open_question));
+
+        /* ── Usage ─────────────────────────────────────────────────── */
+        const usageHost = document.getElementById('usage');
+        para(usageHost, record.usage.note);
+        const proxy = site.active_mobility_proxy;
+        const proxyLine = el('p', 'stat-line');
+        proxyLine.append(document.createTextNode(
+          `${formatNumber(proxy.movements)} bicycle crossings at Pont des Invalides, ${formatDate(proxy.first_seen)} to ${formatDate(proxy.last_seen)}. About ${formatNumber(proxy.daily_mean)} a day.`,
+        ));
+        usageHost.append(proxyLine);
+        const proxyWarn = el('p');
+        proxyWarn.append(el('strong', null, record.usage.proxy_warning));
+        usageHost.append(proxyWarn);
+        usageHost.append(buildTable([
+          { en: 'Counter', fr: 'Compteur', cellClass: 'wrap' },
+          { en: 'Movements', fr: 'Passages', num: true },
+          { en: 'Daily mean', fr: 'Moyenne / jour', num: true },
+        ], proxy.counters.map((c) => [
+          c.name, formatNumber(c.movements), formatNumber(c.daily_mean),
+        ])));
+        para(usageHost, record.usage.first_real_measurement);
+
+        /* ── Phasing ───────────────────────────────────────────────── */
+        const phasing = document.getElementById('phasing');
+        const rec = el('p', 'stat-line');
+        rec.append(document.createTextNode(record.phasing.recommendation));
+        phasing.append(rec);
+        para(phasing, record.phasing.why);
+        para(phasing, record.phasing.escalation_rule);
+
+        /* ── Lockers ───────────────────────────────────────────────── */
+        const lm = record.locker_model;
+        const lockerIntro = document.getElementById('locker-intro');
+        const principle = el('p', 'stat-line');
+        principle.append(document.createTextNode(lm.principle));
+        lockerIntro.append(principle);
+        document.getElementById('locker-tariff').append(buildTable([
+          { en: 'Band', fr: 'Tranche' },
+          { en: 'Price', fr: 'Tarif', num: true },
+          { en: 'Why', fr: 'Pourquoi', cellClass: 'wrap' },
+        ], lm.proposed_tariff.map((t) => [
+          t.band, t.price_eur === 0 ? 'Free' : formatMoney(t.price_eur), t.rationale,
+        ])));
+        const lockerBody = document.getElementById('locker-body');
+        para(lockerBody, lm.why_not_full_charging);
+        para(lockerBody, lm.access);
+        para(lockerBody, lm.seoul_comparison);
+
+        /* Revenue: shown as arithmetic so it can be argued with. */
+        const rev = lm.revenue_model;
+        const revHost = document.getElementById('locker-revenue');
+        const revWarn = el('p', 'note');
+        revWarn.append(el('strong', null, rev._status));
+        revHost.append(revWarn);
+        revHost.append(buildTable([
+          { en: 'Assumption', fr: 'Hypothèse', cellClass: 'wrap' },
+          { en: 'Value', fr: 'Valeur', num: true },
+        ], [
+          ['Lockers', formatNumber(rev.assumptions.lockers)],
+          ['Operating hours per day', formatNumber(rev.assumptions.operating_hours_per_day)],
+          ['Mean session, hours', String(rev.assumptions.mean_session_hours)],
+          ['Utilisation assumed', `${Math.round(rev.assumptions.utilisation_assumed * 100)}%`],
+          ['Share of uses over 2 hours', `${Math.round(rev.assumptions.share_of_uses_exceeding_2_hours_assumed * 100)}%`],
+          ['Uses per day', formatNumber(rev.derived.uses_per_day)],
+          ['Paying uses per day', formatNumber(rev.derived.paying_uses_per_day)],
+          ['Revenue per year', formatMoney(rev.derived.revenue_per_year_eur)],
+        ]));
+        para(revHost, rev.conclusion);
+
+        /* ── Vending ───────────────────────────────────────────────── */
+        const vend = record.vending;
+        const vendHost = document.getElementById('vending');
+        const vendRec = el('p', 'stat-line');
+        vendRec.append(document.createTextNode(vend.recommendation));
+        vendHost.append(vendRec);
+        para(vendHost, vend.why);
+        para(vendHost, `What covers the need today: ${vend.what_covers_the_need_now}`);
+        para(vendHost, vend.note_on_the_reference);
+        const vendLater = el('ul', 'record-list');
+        listInto(vendLater, vend.if_pursued_later);
+        vendHost.append(vendLater);
 
         const scaleBody = document.getElementById('scale-body');
         const budgetLine = el('p');
@@ -677,10 +899,44 @@
             : `Ce montant est la ligne d'investissement propre au 7e, Dépenses, Budget Primitif, allant de ${formatMoney(budget.min)} à ${formatMoney(budget.max)} sur ${budget.from} à ${budget.to}, terme du jeu de données.`,
         ));
         scaleBody.append(budgetLine);
-        para(scaleBody, record.scale_context.statement);
-        const consequence = el('p');
-        consequence.append(el('strong', null, record.scale_context.consequence));
-        scaleBody.append(consequence);
+
+        const sc = record.scale_context;
+        const wrongDen = el('p');
+        wrongDen.append(el('strong', null, `${sc.the_wrong_denominator} `));
+        wrongDen.append(document.createTextNode(sc.why_it_is_misleading));
+        scaleBody.append(wrongDen);
+
+        // Per resident, which is the form the question usually arrives in.
+        const pr = sc.per_resident;
+        scaleBody.append(buildTable([
+          { en: 'Per resident, per year', fr: 'Par habitant et par an', cellClass: 'wrap' },
+          { en: 'Amount', fr: 'Montant', num: true },
+        ], [
+          ["The 7e's own investment line", formatMoney(pr.etat_special_investment_per_resident_eur)],
+          ["The 7e's own operating budget", formatMoney(pr.etat_special_operating_per_resident_eur)],
+          ['Ville de Paris investment budget', formatMoney(pr.ville_de_paris_investment_per_resident_eur)],
+        ]));
+        const prNote = el('p');
+        prNote.append(el('strong', null, `${pr.ratio} `));
+        prNote.append(document.createTextNode(pr.reading));
+        scaleBody.append(prNote);
+        const prSrc = el('p', 'too-few',
+          `${formatNumber(pr.residents)} residents, ${pr.residents_source}. Ville investment is the ${pr.ville_investment_exercice} budget primitif across ${formatNumber(pr.paris_residents)} Parisians.`);
+        scaleBody.append(prSrc);
+
+        const rightHead = el('p');
+        rightHead.append(bi('Measured against the things that actually fund work in the 7e:',
+          "Rapporté à ce qui finance réellement les travaux dans le 7e :"));
+        scaleBody.append(rightHead);
+        scaleBody.append(buildTable([
+          { en: 'Benchmark', fr: 'Référence', cellClass: 'wrap' },
+          { en: 'Amount', fr: 'Montant', num: true },
+          { en: 'Tier 1 against it', fr: 'Le palier 1 en regard', cellClass: 'wrap' },
+        ], sc.the_right_denominators.map((b) => [b.benchmark, formatMoney(b.eur), b.reading])));
+
+        const conclusion = el('p');
+        conclusion.append(el('strong', null, sc.conclusion));
+        scaleBody.append(conclusion);
 
         const mechanism = el('p');
         mechanism.append(document.createTextNode(`${record.target_mechanism.primary}. ${record.target_mechanism.why} `));

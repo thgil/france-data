@@ -16,72 +16,296 @@
     "evidence_limits_ref": "evidence_limits"
   },
   "proposal": {
-    "description": "A single small facility at one edge of the running loop: lockers, a drinking fountain, and a changing and rinse space. Pilot first, in reversible form, then decide.",
+    "description": "A bank of secure lockers and, later, somewhere to change, on a side allee of the Champ-de-Mars. Nothing dug, nothing plumbed, nothing that cannot be removed. It closes the one gap the site actually has.",
+    "one_line": "Paris has already built the water and the toilets here. What is missing is somewhere to put your bag.",
     "components": [
-      "Secure lockers, card or code operated",
-      "Year-round drinking fountain",
-      "Changing space with a rinse point",
-      "Signage naming the loop distance and the facility hours"
+      {
+        "what": "20 secure lockers, phone-operated",
+        "in_tier": 1,
+        "why": "The single most named gap by runners in Seoul's own consultation, and the only element that needs no service connection of any kind."
+      },
+      {
+        "what": "Signage: loop distances, hours, rules",
+        "in_tier": 1,
+        "why": "Answers the beginner's question, which is where to go rather than how to run. Seoul put route maps on its media board for the same reason."
+      },
+      {
+        "what": "Two changing cubicles, wheelchair accessible",
+        "in_tier": 2,
+        "why": "Changing was the second gap Seoul's runners named. Accessible from the start, not retrofitted."
+      },
+      {
+        "what": "Two showers and clothes spin dryers",
+        "in_tier": 3,
+        "why": "What makes running before work possible rather than theoretical. Seoul included spin dryers specifically; they are cheap and they are the difference between carrying wet kit to the office or not."
+      }
     ],
-    "reversibility": "The pilot tier is demountable. Nothing at the pilot tier requires a permanent foundation, which matters if a site classé constraint is confirmed.",
-    "explicitly_not_proposed": [
-      "Any structure inside the protected Champ-de-Mars perimeter before the heritage position is established",
-      "A commercial concession",
-      "Anything requiring the removal of a tree or a lawn"
-    ]
+    "deliberately_excluded": [
+      {
+        "what": "A drinking fountain",
+        "why": "19 already exist in the Champ-de-Mars box, 18 available, three on the preferred allee. Asking for one would suggest the proposal had not checked."
+      },
+      {
+        "what": "Toilets",
+        "why": "7 sanisettes already serve this site, all wheelchair accessible, several 06h00-22h00."
+      },
+      {
+        "what": "A vending machine",
+        "why": "It converts a park amenity into a commercial occupation with a slower permission track. Kept as a separate later proposal."
+      },
+      {
+        "what": "Anything inside the central axis",
+        "why": "No delivered precedent there and five abandoned projects."
+      },
+      {
+        "what": "Any excavation, foundation or tree removal",
+        "why": "Removes the most likely heritage objection at tier 1."
+      }
+    ],
+    "reversibility": "Tier 1 is ballasted, not founded. It can be lifted out in a day and the removal cost is inside the pilot budget."
   },
   "location": {
-    "status": "undecided, deliberately",
-    "note": "The siting decision waits on the heritage question in adverse_precedent. If installations inside the Champ-de-Mars perimeter require heritage approval that Budget Participatif projects have not obtained, the pilot sites itself just outside that perimeter.",
+    "status": "Ranked from evidence, one preferred",
+    "method": "Every 7e-local Budget Participatif project sited at Champ-de-Mars was checked against its outcome. Three were delivered and five abandoned. The split does not follow cost, edition or piloting Direction. It follows exact position: everything delivered sits on a side allee, everything abandoned was proposed on the central axis.",
+    "evidence": {
+      "delivered_on_side_allees": [
+        {
+          "project": "Restaurer le Champ de Mars et son mobilier historique",
+          "eur": 2000000,
+          "where": "Avenue Charles Risler",
+          "edition": "2022"
+        },
+        {
+          "project": "Reamenagement des allees du Champ de Mars",
+          "eur": 600000,
+          "where": "Allee Thomy-Thierry",
+          "edition": "2017"
+        },
+        {
+          "project": "Creation aire de petanque et bancs ecologiques",
+          "eur": 40000,
+          "where": "Allee Adrienne-Lecouvreur",
+          "edition": "2016"
+        }
+      ],
+      "abandoned_on_the_central_axis": [
+        {
+          "project": "Jardin pedagogique sur le Champ de Mars",
+          "eur": 60000,
+          "where": "Avenue Joseph Bouvard"
+        },
+        {
+          "project": "Parcours de sante au Champ de Mars",
+          "eur": 40000,
+          "where": "Avenue Joseph Bouvard"
+        },
+        {
+          "project": "Panneaux Histoire du Champ de mars",
+          "eur": 2500,
+          "where": "Avenue Joseph Bouvard"
+        },
+        {
+          "project": "Cultiver au Champ-de-Mars",
+          "eur": 20000,
+          "where": "Rue Savorgnan de Brazza"
+        },
+        {
+          "project": "Une ruche sur le Champ de Mars",
+          "eur": 12000,
+          "where": "116 Rue de Grenelle"
+        }
+      ],
+      "caveat": "Eight data points and no recorded reasons. This is a hypothesis strong enough to site a pilot on, not a finding strong enough to state as fact in a submission."
+    },
     "candidates": [
       {
-        "id": "champ-de-mars-edge",
-        "label": "Champ-de-Mars, eastern edge",
+        "id": "allee-adrienne-lecouvreur",
+        "label": "Allee Adrienne-Lecouvreur",
         "quartier": "GROS CAILLOU",
-        "status": "on hold pending heritage check",
-        "risk": "Highest exposure to the abandonment pattern recorded in adverse_precedent."
+        "rank": 1,
+        "status": "preferred",
+        "case": "The petanque court and eco benches were approved here from the 2016 edition at EUR 40,000 and built. That is a delivered precedent for a small new recreational installation at this exact address, piloted by the same Direction that would pilot this one. Three drinking fountains are already on this allee.",
+        "risk": "None specific to the site beyond the general heritage question, which tier 1 avoids by needing no foundation."
       },
       {
-        "id": "outside-perimeter",
-        "label": "A street-side site just outside the protected perimeter",
+        "id": "avenue-charles-risler",
+        "label": "Avenue Charles Risler",
         "quartier": "GROS CAILLOU",
-        "status": "preferred until the heritage question is answered",
-        "risk": "Further from the loop, so less used. Voirie rather than parks, which changes the piloting Direction."
-      },
-      {
-        "id": "invalides-esplanade",
-        "label": "Esplanade des Invalides",
-        "quartier": "INVALIDES",
+        "rank": 2,
         "status": "alternative",
-        "risk": "State-owned land in part, which introduces a different approval chain entirely."
+        "case": "Four drinking fountains and a sanisette open 06h00-22h00. The EUR 2,000,000 restoration of the paths, lawns, kerbs and fencing was addressed here and delivered.",
+        "risk": "A site that has just received a EUR 2,000,000 heritage restoration may be the least willing to accept a new object on it."
+      },
+      {
+        "id": "allee-thomy-thierry",
+        "label": "Allee Thomy-Thierry",
+        "quartier": "GROS CAILLOU",
+        "rank": 3,
+        "status": "alternative",
+        "case": "Two drinking fountains and a sanisette open 06h00-22h00. The EUR 600,000 allees project was delivered here.",
+        "risk": "Same as above, at smaller scale."
+      }
+    ],
+    "explicitly_avoided": [
+      {
+        "where": "Avenue Joseph Bouvard",
+        "why": "Three of the five abandoned Champ-de-Mars projects were sited here, including the fitness trail that is the direct precedent for this proposal. Proposing the same thing at the same address is the one move guaranteed to fail."
+      },
+      {
+        "where": "Rue Savorgnan de Brazza",
+        "why": "Also in the abandoned group."
+      },
+      {
+        "where": "The central lawns",
+        "why": "No delivered precedent for a new installation anywhere on the axis."
       }
     ]
   },
   "cost_tiers": [
     {
-      "tier": "pilot",
-      "eur": 20000,
-      "scope": "Demountable lockers plus signage, using an existing water point. One season.",
-      "share_of_annual_7e_investment": 0.124
+      "tier": "1. Lockers only",
+      "eur": 28000,
+      "share_of_annual_7e_investment": 0.173,
+      "scope": "A bank of 20 secure outdoor lockers with phone-based access, on a ballasted plinth needing no foundation, plus signage. No plumbing, no power beyond the access system, nothing dug.",
+      "line_items": [
+        {
+          "item": "20-locker outdoor bank, code or QR access",
+          "eur": 14000
+        },
+        {
+          "item": "Ballasted plinth, no excavation",
+          "eur": 3000
+        },
+        {
+          "item": "Signage: loop distances, hours, rules",
+          "eur": 2500
+        },
+        {
+          "item": "Installation and access-system commissioning",
+          "eur": 4000
+        },
+        {
+          "item": "Removal and reinstatement provision",
+          "eur": 2000
+        },
+        {
+          "item": "Contingency, 10 percent",
+          "eur": 2500
+        }
+      ],
+      "why_this_tier": "Costs less than the EUR 40,000 petanque court and eco benches that was approved and delivered on Allee Adrienne-Lecouvreur from the 2016 edition. That is the closest precedent at this site and it is a built one.",
+      "reversible": true,
+      "estimate_basis": "Order-of-magnitude estimate made for this record. Not a quotation. Firmed up by asking the piloting Direction for a costing before submission."
     },
     {
-      "tier": "standard",
-      "eur": 75000,
-      "scope": "Lockers, a new year-round fountain, and a small changing and rinse space.",
-      "share_of_annual_7e_investment": 0.465
+      "tier": "2. Lockers and changing",
+      "eur": 95000,
+      "share_of_annual_7e_investment": 0.589,
+      "scope": "Tier 1 plus two demountable changing cubicles with bench, hooks, mirror and light, and 20 further lockers. Power connection required. Still no water connection.",
+      "line_items": [
+        {
+          "item": "Everything in tier 1",
+          "eur": 28000
+        },
+        {
+          "item": "Two demountable changing cubicles, wheelchair accessible",
+          "eur": 26000
+        },
+        {
+          "item": "Bench, hooks, mirror, lighting",
+          "eur": 6000
+        },
+        {
+          "item": "Power supply connection",
+          "eur": 12000
+        },
+        {
+          "item": "20 additional lockers",
+          "eur": 14000
+        },
+        {
+          "item": "Contingency, 10 percent",
+          "eur": 9000
+        }
+      ],
+      "why_this_tier": "Changing was the specific gap Seoul's runners named. This is the first tier that closes it.",
+      "reversible": true,
+      "estimate_basis": "Order-of-magnitude estimate made for this record. Not a quotation. Firmed up by asking the piloting Direction for a costing before submission."
     },
     {
-      "tier": "full",
-      "eur": 250000,
-      "scope": "Permanent structure with serviced changing rooms and maintenance contract.",
-      "share_of_annual_7e_investment": 1.549
+      "tier": "3. Lockers, changing and washing",
+      "eur": 240000,
+      "share_of_annual_7e_investment": 1.487,
+      "scope": "Tier 2 plus two showers, hot water, and clothes spin dryers. Requires a water supply and a drainage connection, which is where most of the cost sits and where most of the permitting risk sits.",
+      "line_items": [
+        {
+          "item": "Everything in tier 2",
+          "eur": 95000
+        },
+        {
+          "item": "Water supply and drainage connection to the existing network",
+          "eur": 95000
+        },
+        {
+          "item": "Two showers, wheelchair accessible, with electric hot water",
+          "eur": 22000
+        },
+        {
+          "item": "Four clothes spin dryers",
+          "eur": 8000
+        },
+        {
+          "item": "Enclosure and weatherproofing upgrade",
+          "eur": 15000
+        },
+        {
+          "item": "Contingency, 10 percent, on new items only",
+          "eur": 5000
+        }
+      ],
+      "why_this_tier": "Matches what Seoul actually built. Note the drainage connection alone is roughly the cost of the entire tier 1 three times over, which is the honest reason to phase rather than ask for this first.",
+      "reversible": false,
+      "estimate_basis": "Order-of-magnitude estimate made for this record. Not a quotation. Firmed up by asking the piloting Direction for a costing before submission."
     }
   ],
   "scale_context": {
-    "arrondissement_annual_investment_eur": 161405,
-    "arrondissement_investment_source": "budgets-votes-etats-speciaux-darrondissements-m57-ville, Dépenses, Budget Primitif, exercices 2018 to 2023",
-    "statement": "The 7e's own investment budget was 161,405 EUR a year, unchanged from 2018 to 2023, which is where that dataset ends. The pilot tier is an eighth of it and the full tier is one and a half times all of it. The état spécial cannot fund this at any tier without displacing everything else the arrondissement does.",
-    "consequence": "The mechanism is the Budget Participatif, not the état spécial. That is the single most important fact for routing this proposal."
+    "the_wrong_denominator": "Comparing this pilot to the arrondissement's own investment budget makes it look enormous. That comparison is misleading and this page no longer leads with it.",
+    "why_it_is_misleading": "The etat special d'arrondissement is an operating budget for the buildings the mairie runs. Its 2023 expenditure is electricity at EUR 332,401, premises cleaning at EUR 175,850, water at EUR 115,738, district heating at EUR 102,414, canteen food at EUR 122,650. Its entire investment section is a single line, Dotation d'investissement versee, EUR 161,405. Nothing physical in the 7e is built from it at any size.",
+    "per_resident": {
+      "residents": 48015,
+      "residents_source": "INSEE legal population via geo.api.gouv.fr, commune 75107",
+      "etat_special_investment_per_resident_eur": 3.36,
+      "etat_special_operating_per_resident_eur": 47.15,
+      "ville_de_paris_investment_per_resident_eur": 1251,
+      "ville_investment_total_eur": 2631840282,
+      "ville_investment_exercice": "2019",
+      "paris_residents": 2103778,
+      "ratio": "The Ville de Paris invests about 372 times more per resident than the arrondissement's own investment line amounts to per resident of the 7e.",
+      "reading": "EUR 3.36 per resident per year is not what Paris spends on the 7e. It is the size of the arrondissement council's own discretionary capital allocation. The real money is on the citywide budget and is spent in the 7e by city Directions."
+    },
+    "the_right_denominators": [
+      {
+        "benchmark": "The petanque court and eco benches delivered on Allee Adrienne-Lecouvreur",
+        "eur": 40000,
+        "reading": "Tier 1 at EUR 28,000 costs less than something already approved and built at the preferred site."
+      },
+      {
+        "benchmark": "Budget Participatif money attached to live 7e projects in the 2025 edition alone",
+        "eur": 1860000,
+        "reading": "Tier 1 is about 1.5 percent of it."
+      },
+      {
+        "benchmark": "Delivered 7e-local Budget Participatif projects since 2014",
+        "eur": 5902600,
+        "reading": "Tier 1 is about half a percent of what this mechanism has already built here."
+      },
+      {
+        "benchmark": "Ville de Paris investment budget, 2019",
+        "eur": 2631840282,
+        "reading": "Tier 1 is about one millionth of it."
+      }
+    ],
+    "conclusion": "Against the mechanism that would actually fund it, this is a small ask. It only looks large against a budget that would never have paid for it."
   },
   "target_mechanism": {
     "primary": "Budget Participatif, projet d'arrondissement",
@@ -246,9 +470,12 @@
     "end_of_life": "The pilot tier is demountable and its removal cost is part of the pilot budget."
   },
   "evidence_limits": [
-    "No runner-count data exists for the Champ-de-Mars or the Invalides esplanade. Nothing on the page claims measured demand.",
-    "Bike counter data (comptage-velo-donnees-compteurs) is an active-mobility proxy at best, is not in the v1 build, and is not evidence of demand for a running facility. If it is ever shown, it is labelled a proxy.",
-    "The Budget Participatif dataset records that projects were abandoned, never why."
+    "No runner count exists for the Champ-de-Mars or the Invalides esplanade, in any dataset checked. Nothing on this page claims measured demand.",
+    "The bike counters at Pont des Invalides are shown as an active-mobility proxy and labelled as one. They count bicycles. They are not evidence of demand for a running facility.",
+    "The Budget Participatif dataset records that projects were abandoned, never why. The siting hypothesis rests on eight data points and no stated reasons.",
+    "Every cost figure on this page is an order-of-magnitude estimate made for this record. None is a quotation, and none has been checked against a Direction.",
+    "The locker revenue model is entirely assumed. Utilisation, session length and the share of paying uses are guesses shown so they can be challenged.",
+    "Winter operation of the drinking fountains is not recorded in the dataset. Water is confirmed available now, not in February."
   ],
   "open_questions": [
     "Why were the five Champ-de-Mars Budget Participatif projects abandoned? Primary source required.",
@@ -280,5 +507,86 @@
       "consequence": "Seoul's model is unused indoor transit space, not parkland. In Paris that route runs through RATP and Ile-de-France Mobilites, not the Ville de Paris, so it is a separate proposal with separate routing.",
       "outcome": "Open. Capital cost not published in the sources checked."
     }
-  ]
+  ],
+  "site_infrastructure": {
+    "_why_this_matters": "Two of the four things a running facility needs are already built at this site, at public expense. Asking for them again would weaken the proposal and inflate its cost. The ask is narrowed to what is genuinely missing.",
+    "checked_on": "2026-08-16",
+    "bounding_box": "48.8515,2.2930 to 48.8620,2.3120",
+    "genuinely_missing": [
+      "Somewhere to lock belongings",
+      "Somewhere to change",
+      "Somewhere to wash"
+    ],
+    "consequence": "The proposal asks for lockers, changing and washing only. It does not ask for water or toilets, and says on its face that both already exist and were already paid for.",
+    "rendered_from": "paris-7e/data/site-context.json",
+    "note_on_provenance": "Counts on this page are read from the generated site-context file, not typed into this record, so they cannot drift from the source.",
+    "water_open_question": "The dataset records current availability, not winter operation. Whether these park fountains run year-round is unconfirmed and must be checked before the proposal claims water is available in February.",
+    "toilets_note": "The 06h00-22h00 sanisette hours are a natural operating window for the facility, and match Seoul’s 06:00-24:00 locker hours closely enough to adopt."
+  },
+  "usage": {
+    "runner_count_available": false,
+    "note": "No count of runners at Champ-de-Mars exists in any dataset checked. Nobody has measured this, which is itself part of the argument for a pilot.",
+    "first_real_measurement": "Locker unlock counts in month one of the pilot produce the first actual count of runners using a facility in the 7e. That measurement is an output of the pilot, not an input to it.",
+    "proxy_rendered_from": "paris-7e/data/site-context.json, active_mobility_proxy",
+    "proxy_warning": "This is not evidence of demand for a running facility. It counts bicycles at Pont des Invalides, and is never presented as a runner count. What it does establish is that this corridor carries heavy self-powered traffic every day of the year."
+  },
+  "locker_model": {
+    "principle": "Free to use for the length of a run. Charged only beyond that. The pricing exists to ration lockers and offset maintenance, not to make money.",
+    "why_not_full_charging": "Charging properly for lockers on public parkland turns a park amenity into a commercial occupation, which requires an autorisation d'occupation temporaire and a different, slower permission track. Keeping the first two hours free keeps the pilot inside the amenity regime it is easiest to approve under.",
+    "proposed_tariff": [
+      {
+        "band": "First 2 hours",
+        "price_eur": 0,
+        "rationale": "Covers a normal run with time either side. The overwhelming majority of uses should pay nothing."
+      },
+      {
+        "band": "Each hour after 2",
+        "price_eur": 1,
+        "rationale": "Discourages using a public locker as day storage."
+      },
+      {
+        "band": "Daily cap",
+        "price_eur": 5,
+        "rationale": "Bounds the worst case so the tariff cannot read as a fine."
+      }
+    ],
+    "access": "Phone-based, code or QR, no staffed desk. This is what lets the facility open 06h00-22h00 without 16 hours of staffing, and it is the mechanism Seoul uses.",
+    "seoul_comparison": "Seoul charges from the first minute: roughly KRW 2,200 to 6,100 for four hours by locker size, more at weekends, with entry to the space free. The model here is deliberately gentler because the permission regime differs.",
+    "revenue_model": {
+      "_status": "MODELLED, NOT OBSERVED. Every figure below is an assumption. They are shown so the arithmetic can be challenged, and the pilot exists to replace them with measurements.",
+      "assumptions": {
+        "lockers": 20,
+        "operating_hours_per_day": 16,
+        "mean_session_hours": 1.5,
+        "utilisation_assumed": 0.25,
+        "share_of_uses_exceeding_2_hours_assumed": 0.2,
+        "mean_paid_amount_eur": 2
+      },
+      "derived": {
+        "uses_per_day": 50,
+        "paying_uses_per_day": 10,
+        "revenue_per_day_eur": 20,
+        "revenue_per_year_eur": 7300
+      },
+      "conclusion": "Roughly the order of the estimated annual maintenance. The tariff is a maintenance offset, not a business case, and the proposal should say so rather than dress it up as revenue."
+    }
+  },
+  "phasing": {
+    "recommendation": "Ask for tier 1. Ask for tiers 2 and 3 as named options in the same document, conditional on what tier 1 measures.",
+    "why": "Tier 1 is the only tier that costs less than a comparable installation already approved and built on this exact site. It needs no excavation, no drainage and no permanent foundation, which removes the heritage objection that most plausibly killed the earlier Champ-de-Mars projects. It is also the only tier that can be removed without trace if it fails.",
+    "escalation_rule": "Tier 2 is requested only if tier 1's measured locker use exceeds a threshold agreed in advance with the piloting Direction. Tier 3 is requested only if tier 2 is used and a drainage route has been confirmed as feasible."
+  },
+  "vending": {
+    "requested": true,
+    "in_pilot": false,
+    "recommendation": "Keep vending out of the pilot. Propose it separately, later.",
+    "why": "A vending machine on public parkland is a commercial occupation, not a park amenity. It needs an autorisation d'occupation temporaire and, depending on scale, a concession procedure. That is a slower and more contested permission track than the one lockers sit on, and attaching it to the pilot exposes the whole proposal to it.",
+    "what_covers_the_need_now": "The drinking fountains already in the Champ-de-Mars study area, counted in site-context.json. Free. Hydration, which is the thing a runner actually needs mid-run, is already solved at this site.",
+    "if_pursued_later": [
+      "Attach it to an existing kiosk concession rather than installing a standalone machine, so it runs on a permission that already exists.",
+      "Price it as an amenity, not a captive-audience concession. A tariff cap should be written into the proposal rather than left to the operator.",
+      "Bring it as its own proposal record with its own routing, since the deciding Direction is unlikely to be the same one."
+    ],
+    "note_on_the_reference": "East Asian station vending works because it sits inside a transit concession estate with dense footfall and an established operator. The Paris equivalent of that setting is a metro station, not a park lawn, which points at the second proposal route rather than this one."
+  }
 }

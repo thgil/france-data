@@ -36,6 +36,7 @@ import {
   statusFunnel,
   abandonedFile,
   deliveredFile,
+  siteContext,
   timeInStage,
   directionByTheme,
   filterEtatSpecial,
@@ -78,7 +79,19 @@ const DATASETS = {
   marches: 'liste-des-marches-de-la-collectivite-parisienne',
   villeBudgetVotes: 'budgets-votes-principaux-a-partir-de-2019-m57-ville-departement',
   villeComptes: 'comptes-administratifs-budgets-principaux-a-partir-de-2019-m57-ville-departement',
+  fontaines: 'fontaines-a-boire',
+  sanisettes: 'sanisettesparis',
+  veloCounts: 'comptage-velo-donnees-compteurs',
 };
+
+// The Champ-de-Mars study area, used to establish what a running facility would
+// and would not need to ask for. Kept as one constant so every figure derived
+// from it is derived from the same box.
+const CHAMP_DE_MARS_BBOX = '48.8515,2.2930,48.8620,2.3120';
+
+// Pont des Invalides, both directions. The nearest counters to the 7e running
+// corridor. An active-mobility proxy, never a runner count.
+const INVALIDES_COUNTERS = ['100056223-101056223', '100056046-101056046'];
 
 // Fields the transforms depend on. A missing one means the upstream schema
 // changed and the build must stop rather than write a quietly wrong file.
@@ -112,6 +125,8 @@ const REQUIRED_FIELDS = {
   quartiers: ['no_consqrt', 'nom_quart', 'nar', 'geom'],
   travaux: ['adresse', 'code_postal', 'equipement', 'budget', 'annee_livraison'],
   marches: ['num_marche', 'objet_du_marche', 'fournisseur_code_postal', 'montant_max'],
+  fontaines: ['voie', 'modele', 'dispo', 'commune'],
+  sanisettes: ['adresse', 'horaire', 'acces_pmr', 'arrondissement'],
 };
 
 function log(message) {
@@ -207,6 +222,34 @@ async function main() {
     where: whereTextEquals('fournisseur_code_postal', ARRONDISSEMENT_CODE),
   });
   assertSchema('marches', marches.results, REQUIRED_FIELDS.marches);
+
+  // Site context for the Champ-de-Mars study area. Establishes what is already
+  // built there, so a proposal does not ask for water and toilets that exist.
+  const fontaines = await fetchAllRecords(DATASETS.fontaines, {
+    where: `in_bbox(geo_point_2d,${CHAMP_DE_MARS_BBOX})`,
+  });
+  assertSchema('fontaines', fontaines.results, REQUIRED_FIELDS.fontaines);
+
+  const sanisettes = await fetchAllRecords(DATASETS.sanisettes, {
+    where: `in_bbox(geo_point_2d,${CHAMP_DE_MARS_BBOX})`,
+  });
+  assertSchema('sanisettes', sanisettes.results, REQUIRED_FIELDS.sanisettes);
+
+  // Bike counters, aggregated server-side: the raw table is 1.06M rows.
+  const veloRows = [];
+  for (const counter of INVALIDES_COUNTERS) {
+    // fetchAggregate returns the rows directly, not a { results } envelope.
+    const agg = await fetchAggregate(DATASETS.veloCounts, {
+      where: whereTextEquals('id_compteur', counter),
+      select: 'sum(sum_counts) as total,count(*) as hours,min(date) as first_seen,max(date) as last_seen',
+      groupBy: 'nom_compteur',
+    });
+    for (const row of agg) veloRows.push({ id_compteur: counter, ...row });
+  }
+  if (veloRows.length === 0) {
+    throw new Error('veloCounts: no counter aggregates returned. Refusing to write a proxy with no data behind it.');
+  }
+  log(`  ${DATASETS.veloCounts}: ${veloRows.length} counter aggregates`);
 
   // Citywide budget context, aggregated server-side. The raw tables are 8,598
   // and 25,629 rows and the section only ever shows totals from them. Note the
@@ -321,6 +364,17 @@ async function main() {
   outputs.set('marches.json', {
     generated_from: DATASETS.marches,
     ...aggregateMarches(filterMarches(marches.results, ARRONDISSEMENT_CODE), ARRONDISSEMENT_CODE),
+  });
+
+  outputs.set('site-context.json', {
+    study_area: CHAMP_DE_MARS_BBOX,
+    // What already exists on site. The point of this file is to narrow an ask,
+    // not to widen one.
+    ...siteContext(fontaines.results, sanisettes.results, veloRows, {
+      fontainesSource: DATASETS.fontaines,
+      sanisettesSource: DATASETS.sanisettes,
+      veloSource: DATASETS.veloCounts,
+    }),
   });
 
   outputs.set('ville-budget.json', {
