@@ -125,6 +125,13 @@
       <div id="precedent-body"></div>
     </div>
 
+    <div class="cannot-tell" id="live-project" style="border-left-color: var(--pill-fin);">
+      <h2><span data-lang="en">There is already funded sport money here, and it has stalled</span><span data-lang="fr" lang="fr">De l'argent voté pour le sport existe déjà ici, et il est à l'arrêt</span></h2>
+      <div id="live-project-body"></div>
+      <div id="live-project-ops"></div>
+      <div id="live-project-action"></div>
+    </div>
+
     <section class="unit-block">
       <h2><span data-lang="en">The problem</span><span data-lang="fr" lang="fr">Le problème</span></h2>
       <div class="section-prose" id="problem"></div>
@@ -258,6 +265,7 @@
       'title', 'summary', 'record-meta', 'precedent-body', 'problem', 'proposal',
       'not-proposed', 'location-note', 'map-legend', 'map-note', 'candidates',
       'site-infra', 'site-infra-table', 'site-infra-note', 'usage', 'phasing',
+      'live-project-body', 'live-project-ops', 'live-project-action',
       'locker-intro', 'locker-tariff', 'locker-body', 'locker-revenue', 'vending',
       'scale-headline', 'cost-tiers', 'scale-body', 'supporting', 'pilot-line',
       'metrics', 'decision-rule', 'maintenance', 'routing', 'cycle',
@@ -779,6 +787,43 @@
           why.append(document.createTextNode(`${tier.why_this_tier} ${tier.estimate_basis}`));
           itemHost.append(why);
         }
+
+        /* ── The live project to attach to ─────────────────────────── */
+        const live = record.live_project_to_attach_to;
+        const liveBody = document.getElementById('live-project-body');
+        const liveHead = el('p');
+        liveHead.append(el('strong', null, live._why_this_matters));
+        liveBody.append(liveHead);
+        const lp = live.project;
+        para(liveBody,
+          `${lp.title} (${lp.identifiant_projet_gagnant}), ${lp.edition} edition, ${formatMoney(lp.budget_eur)}, piloted by the ${lp.direction_pilote}, in the conseil de quartier ${lp.quartier}.`);
+        document.getElementById('live-project-ops').append(buildTable([
+          { en: 'Operation', fr: 'Opération', cellClass: 'wrap' },
+          { en: 'Status', fr: 'Avancement' },
+          { en: 'Stage dates', fr: 'Dates d\'étape', cellClass: 'wrap' },
+          { en: 'Reading', fr: 'Lecture', cellClass: 'wrap' },
+        ], live.operations.map((o) => [
+          o.address ? `${o.title}, ${o.address}` : o.title,
+          o.status,
+          o.stage_dates || `${o.etudes_began || ''} to ${o.delivery_expected || ''}`.trim(),
+          o.reading,
+        ])));
+        const liveAction = document.getElementById('live-project-action');
+        para(liveAction, live.inconsistency_to_check);
+        para(liveAction, live.what_it_supports);
+        const move = el('p');
+        move.append(el('strong', null, live.recommended_first_move));
+        liveAction.append(move);
+        const changes = live.what_changes_if_this_route_is_taken;
+        liveAction.append(buildTable([
+          { en: 'If this route is taken', fr: 'Si cette voie est suivie', cellClass: 'wrap' },
+          { en: 'Changes to', fr: 'Devient', cellClass: 'wrap' },
+        ], [
+          ['Direction', changes.direction],
+          ['Conseil de quartier', changes.quartier],
+          ['Mechanism', changes.mechanism],
+          ['Money', changes.money],
+        ]));
 
         /* ── What is already built here ────────────────────────────── */
         const infra = record.site_infrastructure;

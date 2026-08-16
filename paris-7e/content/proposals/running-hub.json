@@ -506,6 +506,13 @@
       "what": "Sourced the Seoul Runner Station precedent from Seoul Metropolitan Government material. Recorded in supporting_precedent with four source URLs.",
       "consequence": "Seoul's model is unused indoor transit space, not parkland. In Paris that route runs through RATP and Ile-de-France Mobilites, not the Ville de Paris, so it is a separate proposal with separate routing.",
       "outcome": "Open. Capital cost not published in the sources checked."
+    },
+    {
+      "date": "2026-08-16",
+      "action": "research",
+      "what": "Tested the Seine quai as a site. Found project 11141, Favoriser la pratique du sport dans le 7e, EUR 500,000, 2023 edition, piloted by the Direction de la Jeunesse et des Sports. Two of its three operations have not started and carry no stage dates: Renovation du Parcours sportif 2,3 km at 23 Quai Anatole France, and De nouveaux equipements legers pour faire du sport en plein air.",
+      "consequence": "The first approach should be a question about an existing funded project, not a proposal for a new one. This also relocates the routing to the Direction de la Jeunesse et des Sports and the conseil de quartier Invalides.",
+      "outcome": "Open. Needs the current status of operations 7788 and 8023 from the Direction."
     }
   ],
   "site_infrastructure": {
@@ -588,5 +595,65 @@
       "Bring it as its own proposal record with its own routing, since the deciding Direction is unlikely to be the same one."
     ],
     "note_on_the_reference": "East Asian station vending works because it sits inside a transit concession estate with dense footfall and an established operator. The Paris equivalent of that setting is a metro station, not a park lawn, which points at the second proposal route rather than this one."
+  },
+  "live_project_to_attach_to": {
+    "_why_this_matters": "There is already voted, approved sport money in the 7e whose delivery has stalled, and one of its stalled operations is a sports trail on the Seine quai. Attaching to that is a far shorter route than winning a new Budget Participatif project.",
+    "discovered_on": "2026-08-16",
+    "project": {
+      "identifiant_projet_gagnant": 11141,
+      "title": "Favoriser la pratique du sport dans le 7e",
+      "edition": "2023",
+      "budget_eur": 500000,
+      "thematique": "Sport",
+      "direction_pilote": "Direction de la Jeunesse et des Sports",
+      "quartier": "INVALIDES (026)",
+      "project_status_recorded": "LIVRAISON"
+    },
+    "operations": [
+      {
+        "id": 8022,
+        "title": "Gym douce dans les espaces verts",
+        "status": "LIVRAISON",
+        "direction": "Direction des Espaces Verts et de l’Environnement",
+        "financement": "Régie",
+        "etudes_began": "2024-01",
+        "delivery_expected": "2025-12",
+        "reading": "This one moved. Studies started January 2024, delivery expected December 2025."
+      },
+      {
+        "id": 7788,
+        "title": "Rénovation du Parcours sportif 2,3 km",
+        "status": "(non démarré)",
+        "address": "23 Quai Anatole France",
+        "direction": "Direction de la Jeunesse et des Sports",
+        "stage_dates": "none recorded at any stage",
+        "reading": "A 2.3 km sports trail on the Seine quai, funded, approved, and with no recorded start on any stage. This is the operation to ask about."
+      },
+      {
+        "id": 8023,
+        "title": "De nouveaux équipements légers pour faire du sport en plein air",
+        "status": "(non démarré)",
+        "direction": "Direction de la Jeunesse et des Sports",
+        "stage_dates": "none recorded at any stage",
+        "reading": "Lightweight outdoor exercise equipment, funded, approved, no recorded start."
+      }
+    ],
+    "inconsistency_to_check": "The project is recorded as LIVRAISON at project level while two of its three operations show no start date at any stage. Either the remaining operations are still to come, or the project was closed with them undelivered. The dataset does not say which, and this is the first question to ask.",
+    "what_it_supports": "The Champ-de-Mars parcours de santé was abandoned in 2016. The same idea was funded again in 2023 at a different site, on the quai. That is evidence for the siting hypothesis: the idea was acceptable, the location was not.",
+    "recommended_first_move": "Do not open by proposing a new facility. Open by asking the Direction de la Jeunesse et des Sports what the status of operations 7788 and 8023 is, and whether lockers and changing could be scoped into the parcours sportif renovation that is already funded. A resident helping an approved project move is a different conversation from a resident asking for a new one.",
+    "what_changes_if_this_route_is_taken": {
+      "direction": "Direction de la Jeunesse et des Sports, not Direction des Espaces Verts et de l’Environnement.",
+      "quartier": "Conseil de quartier Invalides, not Gros Caillou.",
+      "mechanism": "An existing 2023 Budget Participatif project, not a new edition.",
+      "money": "Potentially none new. The tier 1 cost sits inside an unspent EUR 500,000 envelope."
+    }
+  },
+  "site_context_quai": {
+    "study_area": "48.8580,2.3100 to 48.8660,2.3300",
+    "checked_on": "2026-08-16",
+    "water": "8 drinking fountains in the box, 2 of them on Quai Anatole France itself, both in service.",
+    "toilets": "5 sanisettes, all wheelchair accessible. Two on Quai Anatole France, both open 10h00-22h00.",
+    "gap_this_creates": "The quai sanisettes open at 10h00, four hours later than the Champ-de-Mars ones at 06h00. For a facility aimed at people running before work, that is a real gap on this site and an argument that belongs in the proposal rather than being hidden.",
+    "note": "These figures are hand-checked for this record and are not yet produced by the build, unlike the Champ-de-Mars study area."
   }
 }
