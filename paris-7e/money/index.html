@@ -28,6 +28,25 @@
     <div id="staleness"></div>
 
     <!-- ── A. État spécial d'arrondissement ─────────────────────────── -->
+    <section class="unit-block" id="block-how">
+      <h2><span data-lang="en">So how does anything get built?</span><span data-lang="fr" lang="fr">Alors, comment quoi que ce soit se construit-il ?</span></h2>
+      <div class="section-prose">
+        <p data-lang="en">The arrondissement's own investment line is <strong>&euro;161,405</strong> a year. Across 48,015 residents that is <strong>&euro;3.36 each</strong>. It is the first number on this page and it provokes the same question every time: at that size, how does anything happen here at all?</p>
+        <p data-lang="fr" hidden>La ligne d'investissement propre à l'arrondissement est de <strong>161 405 &euro;</strong> par an, soit <strong>3,36 &euro;</strong> par habitant pour 48 015 habitants. C'est le premier chiffre de cette page et il soulève chaque fois la même question : à cette échelle, comment quoi que ce soit se fait-il ici ?</p>
+        <p data-lang="en">It happens with money the arrondissement does not control. Two streams are visible in open data, and each is several times larger than the line above.</p>
+        <p data-lang="fr" hidden>Cela se fait avec de l'argent que l'arrondissement ne contrôle pas. Deux flux sont visibles en open data, chacun plusieurs fois supérieur à la ligne ci-dessus.</p>
+      </div>
+      <div id="how-table"></div>
+      <div class="section-prose">
+        <p data-lang="en">Both of those are several times the arrondissement's own line, and neither is decided in the 7e. The Budget Participatif figure is money voted by residents but held on the Ville budget. The building-works figure is spent by city Directions. Between them, roughly <strong data-fill="how-combined"></strong> of visible capital work reaches the 7e in a typical year, against <strong data-fill="how-investment"></strong> the arrondissement itself controls.</p>
+        <p data-lang="fr" hidden>Ces deux flux valent plusieurs fois la ligne propre à l'arrondissement, et aucun n'est décidé dans le 7e. Le Budget Participatif est voté par les habitants mais porté par le budget de la Ville. Les travaux sont engagés par les directions de la Ville. Ensemble, environ <strong data-fill="how-combined"></strong> de travaux visibles arrivent dans le 7e une année type, contre <strong data-fill="how-investment"></strong> que l'arrondissement contrôle lui-même.</p>
+        <p data-lang="en">And those are only the two streams open data makes visible. Street works, parks, schools and social services also happen here, on the Ville budget, with no arrondissement breakdown published at all.</p>
+        <p data-lang="fr" hidden>Et ce ne sont que les deux flux visibles en open data. La voirie, les espaces verts, les écoles et l'action sociale relèvent aussi du budget de la Ville, sans ventilation par arrondissement publiée.</p>
+        <p data-lang="en">The entire investment section of the état spécial is a single line named <span lang="fr" class="fr-term">Dotation d'investissement versée</span>. It is the arrondissement council's own discretionary allocation, not a construction budget. Nothing in the 7e is built from it at any size. That is why it is the wrong number to measure a project against.</p>
+        <p data-lang="fr" hidden>Toute la section investissement de l'état spécial tient en une ligne, <span lang="fr" class="fr-term">Dotation d'investissement versée</span>. C'est la dotation propre du conseil d'arrondissement, pas un budget de construction. Rien dans le 7e n'en est construit, à quelque échelle que ce soit. C'est pourquoi c'est le mauvais étalon pour juger un projet.</p>
+      </div>
+    </section>
+
     <section class="unit-block" id="block-etat">
       <h2>A. État spécial d'arrondissement</h2>
 
@@ -329,6 +348,67 @@
 
     /* ── A. État spécial ─────────────────────────────────────────────── */
 
+    // Answers the question the EUR 161,405 line provokes: at that size, how does
+    // anything get built here? With money the arrondissement does not control.
+    // Both comparison streams are derived from the loaded files, never typed.
+    function renderHowAnythingGetsBuilt(etat, travaux, pipeline) {
+      const investment = sum(
+        etat.lines.filter((l) => l.exercice === etat.exercice_max
+          && l.section === 'Investissement'
+          && l.sens === 'Dépenses'
+          && l.type_du_vote === 'Budget Primitif'),
+        (l) => l.amount,
+      );
+
+      const localProjects = pipeline.projects.filter(
+        (x) => String(x.arrondissement_projet_gagnant) === '75007',
+      );
+      const bpTotal = sum(localProjects, (x) => x.budget);
+      const editionCount = new Set(localProjects.map((x) => String(x.edition).slice(0, 4))).size;
+      const bpPerEdition = editionCount ? bpTotal / editionCount : 0;
+
+      const yearCount = new Set((travaux.records || []).map((r) => String(r.annee_livraison))).size;
+      const travauxPerYear = yearCount ? travaux.total_budget / yearCount : 0;
+
+      const times = (value) => (investment > 0 ? `${(value / investment).toFixed(1)}x` : '');
+
+      renderTable('#how-table', {
+        columns: [
+          { key: 'stream', labelKey: 'col.stream', className: 'wrap', sortable: false },
+          { key: 'who', labelKey: 'col.who', className: 'wrap', sortable: false },
+          { key: 'amount', labelKey: 'col.amount', type: 'money', sortable: false },
+          { key: 'basis', labelKey: 'col.basis', className: 'wrap', sortable: false },
+          { key: 'scale', labelKey: 'col.scale', sortable: false },
+        ],
+        rows: [
+          {
+            stream: "The arrondissement's own investment line",
+            who: 'Mairie du 7e',
+            amount: investment,
+            basis: `per year, exercice ${etat.exercice_max}`,
+            scale: 'the line in question',
+          },
+          {
+            stream: 'Budget Participatif, 7e-local projects',
+            who: 'Ville de Paris, voted by residents',
+            amount: bpPerEdition,
+            basis: `mean per edition, ${formatNumber(editionCount)} editions`,
+            scale: times(bpPerEdition),
+          },
+          {
+            stream: 'Works on public buildings in 75007',
+            who: 'Ville de Paris, via city Directions',
+            amount: travauxPerYear,
+            basis: `mean per year, ${formatNumber(yearCount)} years`,
+            scale: times(travauxPerYear),
+          },
+        ],
+      });
+
+      fill('how-combined', () => formatMoney(bpPerEdition + travauxPerYear));
+      fill('how-investment', () => formatMoney(investment));
+    }
+
     function renderEtatSpecial(etat) {
       const lines = etat.lines;
       const total = (exercice, section, vote) => sum(
@@ -554,6 +634,7 @@
       };
       fill('etat-modified', () => modifiedOf('budgets-votes-etats-speciaux-darrondissements-m57-ville'));
 
+      renderHowAnythingGetsBuilt(etat, travaux, pipeline);
       renderEtatSpecial(etat);
       renderTravaux(travaux, entries);
 
