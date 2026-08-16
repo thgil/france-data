@@ -122,7 +122,10 @@
     },
     "funding_cycle": {
       "ref": "content/dates.json",
-      "entries": ["bp-depot-idees", "bp-vote"],
+      "entries": [
+        "bp-depot-idees",
+        "bp-vote"
+      ],
       "note": "Both dates are unverified. Nothing is submitted against a date that has not been checked."
     }
   },
@@ -179,22 +182,55 @@
   },
   "supporting_precedent": [
     {
-      "name": "Yeouinaru Runner Station, Seoul",
-      "what": "A small municipal facility on a riverside running route providing lockers, showers and changing rooms.",
-      "relevance": "Demonstrates the format at municipal scale on a park running loop.",
-      "verified": false,
-      "needs_source": true,
-      "note": "Cited only once a primary source for the operator, cost, and usage is in hand. Not used as a demand figure for Paris under any circumstances."
+      "name": "Runner Station, Yeouinaru Station, Seoul",
+      "what": "A municipal facility built into unused space inside a metro station on Line 5, on the B1 and M1 floors, opened 21 May 2024. It carries 42 lockers, changing rooms, powder rooms, shoe sanitisers, body-composition measurement, and a media board showing weather and running conditions. Entry is free and access is by phone authentication. Open 06:00 to 24:00.",
+      "operator": "Seoul Metropolitan Government",
+      "revenue_model": "Entry free; lockers charged by size and duration, roughly KRW 2,200 to 6,100 for four hours. Running crews get free use of the space. Clothing rental is paid.",
+      "stated_rationale": "The city frames it as converting idle station space into everyday sport and leisure facilities, citing roughly 8.83 million runners nationally as of 2022.",
+      "evidence_it_worked": "Seoul announced an expansion on 23 October 2025 to three further stations: Gwanghwamun (Line 5), Hoehyeon (Line 4) and World Cup Stadium (Line 6). A separate facility at Ttukseom Station opens free public showers.",
+      "capital_cost": null,
+      "capital_cost_note": "Not published in the English-language sources checked. The cost tiers on this page are Paris estimates and are not derived from Seoul.",
+      "sources": [
+        "https://english.seoul.go.kr/seoul-policy-archive/runner-station/",
+        "https://english.seoul.go.kr/seoul-to-expand-recreational-sports-facilities-starting-with-runners-base-at-subway-stations/",
+        "https://english.visitseoul.net/area/RunnerStation/ENPh15wjf",
+        "https://www.korea.net/NewsFocus/Korea_in_photos/view?articleId=251784"
+      ],
+      "checked_on": "2026-08-16",
+      "verified": true,
+      "relevance": "The model is repurposing unused indoor transit space, not building on parkland. That is a materially different proposition from a structure on the Champ-de-Mars lawn, and in Paris it would fall to RATP and Ile-de-France Mobilites rather than to the Ville de Paris. It is recorded here as a second route, not as a demand figure for Paris.",
+      "not_evidence_of": "Demand for a running facility in the 7e. Seoul's usage says nothing about Paris."
     }
   ],
   "evaluation": {
     "pilot_months": 12,
     "metrics": [
-      { "metric": "Users per day", "method": "Locker unlock counts", "baseline": null, "note": "No baseline exists. The pilot creates the first measurement." },
-      { "metric": "Vandalism incidents", "method": "Incident log kept by the operating Direction", "baseline": null },
-      { "metric": "Maintenance cost", "method": "Actual spend against the maintenance line", "baseline": null },
-      { "metric": "Equipment uptime", "method": "Days with all lockers and the fountain in service, over days in the period", "baseline": null },
-      { "metric": "User satisfaction", "method": "Short on-site survey at months 6 and 12", "baseline": null }
+      {
+        "metric": "Users per day",
+        "method": "Locker unlock counts",
+        "baseline": null,
+        "note": "No baseline exists. The pilot creates the first measurement."
+      },
+      {
+        "metric": "Vandalism incidents",
+        "method": "Incident log kept by the operating Direction",
+        "baseline": null
+      },
+      {
+        "metric": "Maintenance cost",
+        "method": "Actual spend against the maintenance line",
+        "baseline": null
+      },
+      {
+        "metric": "Equipment uptime",
+        "method": "Days with all lockers and the fountain in service, over days in the period",
+        "baseline": null
+      },
+      {
+        "metric": "User satisfaction",
+        "method": "Short on-site survey at months 6 and 12",
+        "baseline": null
+      }
     ],
     "decision_rule": "At month 12 the numbers decide: continue, move the site, or remove the installation and publish what it cost."
   },
@@ -202,7 +238,10 @@
     "who": "Named at submission. The proposal does not leave maintenance to be worked out later, because unowned maintenance is how small installations become abandoned ones.",
     "annual_cost_estimate_eur": null,
     "annual_cost_estimate_note": "Not estimated yet. It is estimated before submission, not after.",
-    "consumables": ["Locker mechanism batteries or card system", "Fountain filter and winterisation"],
+    "consumables": [
+      "Locker mechanism batteries or card system",
+      "Fountain filter and winterisation"
+    ],
     "replacement_horizon_years": 10,
     "end_of_life": "The pilot tier is demountable and its removal cost is part of the pilot budget."
   },
@@ -225,6 +264,21 @@
       "detail": "While building the section's abandoned-projects file, found that Parcours de santé au Champ de Mars (40,000 EUR, edition 2016, identifiant_projet_gagnant 2357) won a Budget Participatif vote and is recorded as ABANDONNÉ, along with four other Champ-de-Mars projects totalling 94,500 EUR. This is directly adverse to this proposal and is now its first research task. No siting decision is made until the reason is established.",
       "source": "budget-participatif_operations-projets-gagnants-realisations",
       "outcome": "Proposal held at research status."
+    },
+    {
+      "date": "2026-08-16",
+      "action": "research",
+      "what": "Tested whether the Champ-de-Mars abandonment pattern is fatal. It is not. Of 8 Champ-de-Mars 7e-local projects, 3 were delivered (EUR 2,640,000) and 5 abandoned (EUR 134,500). A EUR 40,000 petanque court with benches from the same 2016 edition, same piloting Direction, was built on Allee Adrienne-Lecouvreur.",
+      "hypothesis": "The split appears to follow exact location, not cost, edition or Direction: everything abandoned was proposed on the central axis (Avenue Joseph Bouvard, Rue Savorgnan de Brazza), everything delivered sits on a side allee (Adrienne-Lecouvreur, Thomy-Thierry, Charles Risler). Eight data points, no recorded reasons. Unverified.",
+      "consequence": "Siting the pilot on a side allee, with the petanque court as the cited precedent, is the first option to test.",
+      "outcome": "Open. Needs a primary source on why the central-axis projects were dropped."
+    },
+    {
+      "date": "2026-08-16",
+      "action": "research",
+      "what": "Sourced the Seoul Runner Station precedent from Seoul Metropolitan Government material. Recorded in supporting_precedent with four source URLs.",
+      "consequence": "Seoul's model is unused indoor transit space, not parkland. In Paris that route runs through RATP and Ile-de-France Mobilites, not the Ville de Paris, so it is a separate proposal with separate routing.",
+      "outcome": "Open. Capital cost not published in the sources checked."
     }
   ]
 }
