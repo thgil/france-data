@@ -808,6 +808,52 @@
           o.stage_dates || `${o.etudes_began || ''} to ${o.delivery_expected || ''}`.trim(),
           o.reading,
         ])));
+        // What is actually being renovated, where the money sits, and what the
+        // data can and cannot say about the stall.
+        const liveOps = document.getElementById('live-project-ops');
+        const ren = live.what_is_being_renovated;
+        const renP = document.createElement('p');
+        renP.append(el('strong', null, `${ren.what} `));
+        renP.append(document.createTextNode(`${ren.extent} ${ren.why_it_matters}`));
+        liveOps.append(renP);
+        liveOps.append(el('p', 'too-few', `${ren.source} Checked ${ren.checked_on}.`));
+
+        const money = live.where_the_money_sits;
+        const moneyP = document.createElement('p');
+        moneyP.append(el('strong', null, `Where the money sits: ${money.answer} `));
+        moneyP.append(document.createTextNode(`${money.mechanism} ${money.what_exists_for_other_arrondissements} ${money.what_exists_for_the_7e}`));
+        liveOps.append(moneyP);
+        const caveatP = document.createElement('p');
+        caveatP.append(document.createTextNode(`${money.why_this_is_not_a_finding} `));
+        caveatP.append(el('strong', null, money.the_useful_part));
+        liveOps.append(caveatP);
+
+        const stall = live.why_it_may_have_stalled;
+        const stallP = document.createElement('p');
+        stallP.append(el('strong', null, 'Why it may have stalled. '));
+        stallP.append(document.createTextNode(stall.note));
+        liveOps.append(stallP);
+        liveOps.append(buildTable([
+          { en: 'Signal in the data', fr: 'Signal dans les données', cellClass: 'wrap' },
+          { en: 'Against', fr: 'En regard', cellClass: 'wrap' },
+          { en: 'Reading', fr: 'Lecture', cellClass: 'wrap' },
+        ], stall.signals.map((x) => [x.signal, x.contrast || '', x.reading])));
+
+        const absorb = live.can_it_absorb_more;
+        const absorbP = document.createElement('p');
+        absorbP.append(el('strong', null, `Can this proposal attach to it? ${absorb.answer} `));
+        absorbP.append(document.createTextNode(`${absorb.why} ${absorb.fit}`));
+        liveOps.append(absorbP);
+        liveOps.append(el('p', 'too-few', absorb.caveat));
+
+        const qHead = document.createElement('p');
+        qHead.append(bi('Questions to put to the Direction de la Jeunesse et des Sports:',
+          'Questions à poser à la Direction de la Jeunesse et des Sports :'));
+        liveOps.append(qHead);
+        const qList = el('ul', 'record-list');
+        listInto(qList, live.questions_to_ask);
+        liveOps.append(qList);
+
         const liveAction = document.getElementById('live-project-action');
         para(liveAction, live.inconsistency_to_check);
         para(liveAction, live.what_it_supports);

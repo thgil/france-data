@@ -513,6 +513,13 @@
       "what": "Tested the Seine quai as a site. Found project 11141, Favoriser la pratique du sport dans le 7e, EUR 500,000, 2023 edition, piloted by the Direction de la Jeunesse et des Sports. Two of its three operations have not started and carry no stage dates: Renovation du Parcours sportif 2,3 km at 23 Quai Anatole France, and De nouveaux equipements legers pour faire du sport en plein air.",
       "consequence": "The first approach should be a question about an existing funded project, not a proposal for a new one. This also relocates the routing to the Direction de la Jeunesse et des Sports and the conseil de quartier Invalides.",
       "outcome": "Open. Needs the current status of operations 7788 and 8023 from the Direction."
+    },
+    {
+      "date": "2026-08-16",
+      "action": "research",
+      "what": "Traced where Budget Participatif money physically sits. It becomes an autorisation de programme labelled BPA - Direction - arrondissement. Sport lines exist for at least ten arrondissements. The 7e has no DJS line for 2018 to 2022, but that dataset ends at 2022 and cannot cover the 2023 edition.",
+      "consequence": "Gives a named budget line to ask about, BPA - DJS - 7e arrondissement, rather than a vague question about funding. Also found that the parcours sportif already exists in a derelict state, so the ask is restoration rather than new build.",
+      "outcome": "Open. Five specific questions recorded for the Direction de la Jeunesse et des Sports."
     }
   ],
   "site_infrastructure": {
@@ -646,7 +653,56 @@
       "quartier": "Conseil de quartier Invalides, not Gros Caillou.",
       "mechanism": "An existing 2023 Budget Participatif project, not a new edition.",
       "money": "Potentially none new. The tier 1 cost sits inside an unspent EUR 500,000 envelope."
-    }
+    },
+    "where_the_money_sits": {
+      "answer": "Not determinable from open data.",
+      "mechanism": "Budget Participatif money becomes an autorisation de programme on the Ville investment budget, tagged by Direction and arrondissement. The destination labels run BPA - <Direction> - <arrondissement>, for example BPA - DJS - 13e arrondissement.",
+      "what_exists_for_other_arrondissements": "Sport lines exist for at least ten arrondissements: 19e EUR 4,626,250, 13e EUR 3,818,000, 16e EUR 2,300,000, 11e EUR 1,930,000, 15e EUR 1,800,000, 10e EUR 1,010,000, 17e EUR 880,000, 12e EUR 400,000.",
+      "what_exists_for_the_7e": "For 2018 to 2022 the 7e has BPA lines under DAC, DASCO, DEVE, DPA and DVD. There is no DJS sport line in that window, which is consistent with sport being new to the 7e in the 2023 edition.",
+      "why_this_is_not_a_finding": "The autorisations de programme dataset ends at exercice 2022 and was last modified 2020-11-25. It cannot cover a 2023-edition project. The absence of a 7e sport line proves nothing about 2023.",
+      "the_useful_part": "It gives the exact budget line to ask about by name: BPA - DJS - 7e arrondissement. Asking whether that authorisation exists, and what has been engaged against it, is a precise question a Direction can answer.",
+      "source": "budgets-votes-autorisations-de-programmes-a-partir-de-2018-m57-ville-departement"
+    },
+    "why_it_may_have_stalled": {
+      "recorded_reason": null,
+      "note": "The dataset records no reason for any operation, stalled or abandoned. What follows is signal in the data, not explanation.",
+      "signals": [
+        {
+          "signal": "type_financement_operation is null on both stalled operations",
+          "contrast": "The one operation that moved, Gym douce, carries Régie.",
+          "reading": "The delivery route was settled for the operation that progressed and never settled for the two that did not. An operation with no financing route recorded has not been picked up by anyone."
+        },
+        {
+          "signal": "No stage date at all on either stalled operation",
+          "contrast": "Gym douce has debut_etudes 2024-01 and livraison_prev 2025-12.",
+          "reading": "They never entered studies. This is not a project that started and got stuck; it is one that never started."
+        },
+        {
+          "signal": "The two stalled operations are piloted by the Direction de la Jeunesse et des Sports; the one that moved is piloted by the Direction des Espaces Verts et de l’Environnement",
+          "reading": "Within a single funded project, the Direction differs between what moved and what did not."
+        }
+      ]
+    },
+    "can_it_absorb_more": {
+      "answer": "There is direct evidence that it can.",
+      "why": "According to the project's own public description, project 11141 was itself formed by grouping three separate resident ideas about sports infrastructure in the 7e. A project the city assembled from three ideas has already demonstrated it can carry more than one.",
+      "fit": "Lockers and changing serve a 2.3 km parcours sportif directly. This is not an unrelated addition; it is the missing support facility for the thing being renovated.",
+      "caveat": "The description was read from search results citing the Budget Participatif project page. The page itself could not be opened directly, so this should be confirmed against the page before it is quoted to anyone."
+    },
+    "what_is_being_renovated": {
+      "what": "An existing parcours sportif that has fallen into disrepair. The public description refers to restoring the remnants of a 2.3 km sports course made of wooden apparatus and ground markings, with the renovation in wood to respect the aesthetic of the quays.",
+      "extent": "Along quais Anatole France, from the Passerelle Léopold-Sédar-Senghor to the Pont de l'Alma.",
+      "why_it_matters": "This changes the ask from build something new to restore something the city already owns and residents already voted to fix. That is a materially easier argument, and it means the running route already has apparatus on it.",
+      "source": "Budget Participatif project description, read via search results. Not directly verified.",
+      "checked_on": "2026-08-16"
+    },
+    "questions_to_ask": [
+      "Does an autorisation de programme exist for BPA - DJS - 7e arrondissement covering the 2023 edition, and what has been engaged against it?",
+      "What is the current status of operations 7788 (Rénovation du Parcours sportif 2,3 km) and 8023 (équipements légers), neither of which has a recorded start at any stage?",
+      "The project is recorded as LIVRAISON while two of its three operations show no start. Is the remaining work still programmed, or was the project closed with those operations undelivered?",
+      "Was a financing route ever determined for those two operations? Both carry a null type_financement while the delivered operation carries Régie.",
+      "If the parcours sportif renovation proceeds, could lockers and changing be scoped into it as supporting facilities?"
+    ]
   },
   "site_context_quai": {
     "study_area": "48.8580,2.3100 to 48.8660,2.3300",
