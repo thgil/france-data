@@ -341,3 +341,93 @@ function parseSemicolonCsv(text) {
     return row;
   });
 }
+
+// ---------------------------------------------------------------------------
+// RNE, every mandate type
+//
+// The register publishes one file per kind of office. Joining them on name plus
+// date of birth shows every office a person currently holds anywhere in France,
+// which is the only way to see that a 7e adjoint is also a Conseiller de Paris.
+//
+// The national files are large (conseillers municipaux is around half a million
+// rows), so rows are filtered against the roster as they are parsed and only
+// matches are kept. Nothing large is ever held or written.
+// ---------------------------------------------------------------------------
+
+export const RNE_MANDATE_TYPES = [
+  { key: 'conseiller_arrondissement', match: /conseiller-d.?arrondissement/i, label: "Conseiller d'arrondissement" },
+  { key: 'conseiller_municipal', match: /conseiller-municipal/i, label: 'Conseiller municipal (Conseil de Paris)' },
+  { key: 'maire', match: /elus-maire-mai/i, label: 'Maire' },
+  { key: 'conseiller_communautaire', match: /conseiller-communautaire/i, label: 'Conseiller communautaire' },
+  { key: 'conseiller_departemental', match: /conseiller-departemental/i, label: 'Conseiller départemental' },
+  { key: 'conseiller_regional', match: /conseiller-regional/i, label: 'Conseiller régional' },
+  { key: 'depute', match: /elus-depute-dep/i, label: 'Député' },
+  { key: 'senateur', match: /elus-senateur-sen/i, label: 'Sénateur' },
+  { key: 'parlement_europeen', match: /Parlement/i, label: 'Représentant au Parlement européen' },
+  { key: 'membre_assemblee', match: /membre-assemblee|membre-d.?assemblee/i, label: "Membre d'assemblée" },
+];
+
+function personKey(nom, prenom, dob) {
+  const norm = (v) => String(v ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^A-Za-z]/g, '').toUpperCase();
+  return `${norm(nom)}|${norm(prenom)}|${String(dob ?? '').trim()}`;
+}
+
+export { personKey };
+
+// people: [{ nom, prenom, dob }]. Returns matches grouped by mandate type,
+// plus a per-file report so a silently missing file is visible.
+export async function fetchRneAllMandates(people) {
+  const meta = await fetchJson(`https://www.data.gouv.fr/api/1/datasets/${RNE_DATASET}/`);
+  const wanted = new Set(people.map(p => personKey(p.nom, p.prenom, p.dob)));
+
+  const byType = {};
+  const report = [];
+
+  for (const type of RNE_MANDATE_TYPES) {
+    const resource = (meta.resources || []).find(r => type.match.test(r.url || ''));
+    if (!resource) {
+      report.push({ key: type.key, found: false, note: 'no resource matched in the RNE dataset' });
+      byType[type.key] = [];
+      continue;
+    }
+
+    const res = await fetch(resource.url);
+    if (!res.ok) throw new Error(`RNE ${type.key}: HTTP ${res.status} on ${resource.url}`);
+    const text = await res.text();
+
+    const lines = text.replace(/^﻿/, '').split(/\r?\n/);
+    const header = (lines[0] || '').split(';');
+    const idx = (name) => header.indexOf(name);
+    const iNom = idx("Nom de l'élu");
+    const iPre = idx("Prénom de l'élu");
+    const iDob = idx('Date de naissance');
+    if (iNom < 0 || iPre < 0 || iDob < 0) {
+      throw new Error(`RNE ${type.key}: expected name and date-of-birth columns, got ${header.join(',')}`);
+    }
+
+    const matches = [];
+    for (let i = 1; i < lines.length; i += 1) {
+      const line = lines[i];
+      if (!line) continue;
+      const cells = line.split(';');
+      if (!wanted.has(personKey(cells[iNom], cells[iPre], cells[iDob]))) continue;
+      const row = {};
+      header.forEach((key, j) => { row[key] = (cells[j] ?? '').trim(); });
+      matches.push(row);
+    }
+
+    byType[type.key] = matches;
+    report.push({
+      key: type.key,
+      label: type.label,
+      found: true,
+      url: resource.url,
+      modified: resource.last_modified || null,
+      rows_scanned: lines.length - 1,
+      matches: matches.length,
+    });
+  }
+
+  return { byType, report, dataset_page: `https://www.data.gouv.fr/fr/datasets/${RNE_DATASET}/` };
+}

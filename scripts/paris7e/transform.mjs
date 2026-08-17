@@ -751,3 +751,163 @@ export function currentCouncil(rneRows, previousElus, meta = {}) {
       'The RNE carries names and functions, not delegations. No open source publishes the delegations of the 2026 council. Any delegation shown here is from the 2020-2026 mandature and is historical context only. The mairie site is the only place the current ones are published, and they must be read there before anyone is contacted.',
   };
 }
+
+// ---------------------------------------------------------------------------
+// elusHistory
+// A timeline per person, assembled from sources that do not overlap cleanly.
+//
+// What is available, and it is uneven:
+//   1977-2014  Conseil de Paris only, richly documented, with dated delegations.
+//   2014-2021  nothing at all. A genuine hole, not an omission here.
+//   2021       one snapshot of arrondissement councillors, the only one ever.
+//   2023       one snapshot of Conseillers de Paris.
+//   now        the RNE, current mandates across every kind of office.
+//
+// Arrondissement councillors who never sat on the Conseil de Paris therefore
+// have at most two points and no earlier record. The output states that per
+// person rather than presenting a thin timeline as if it were a full one.
+// ---------------------------------------------------------------------------
+
+export const HISTORY_GAP = { from: '2014', to: '2021', what: 'No Conseil de Paris membership is published for these years.' };
+
+function histKey(nom) {
+  return String(nom ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^A-Za-z]/g, '').toUpperCase();
+}
+
+export function elusHistory({ council, historical, snapshot2021, snapshotCdp, rneByType, rneReport, sources = {} }) {
+  const byPerson = new Map();
+
+  const ensure = (nom, prenom) => {
+    const key = histKey(nom);
+    if (!byPerson.has(key)) {
+      byPerson.set(key, { nom, prenom, events: [], current_mandates: [], sources_used: [] });
+    }
+    return byPerson.get(key);
+  };
+
+  // 1. Current council, from the RNE.
+  for (const m of council.members || []) {
+    const p = ensure(m.nom, m.prenom);
+    p.civilite = m.civilite;
+    p.events.push({
+      date: m.mandate_start,
+      year: String(m.mandate_start || '').slice(0, 4) || null,
+      body: "Conseil d'arrondissement du 7e",
+      role: m.fonction,
+      source: 'RNE',
+      certainty: 'recorded',
+    });
+    if (!p.sources_used.includes('RNE')) p.sources_used.push('RNE');
+  }
+
+  // 2. The 2020-2026 mandature snapshot. Its only date is the snapshot itself.
+  for (const e of snapshot2021 || []) {
+    const p = ensure(e.nom, e.prenom);
+    p.events.push({
+      date: null,
+      year: '2020',
+      body: "Conseil d'arrondissement du 7e",
+      role: e.fonction,
+      delegation: e.delegation || null,
+      mandature: '2020-2026',
+      source: 'conseillerseres-darrondissements snapshot',
+      certainty: 'mandature only, no dated start in the source',
+    });
+    if (!p.sources_used.includes('2021 snapshot')) p.sources_used.push('2021 snapshot');
+  }
+
+  // 3. Conseillers de Paris snapshot.
+  for (const e of snapshotCdp || []) {
+    const p = ensure(e.nom, e.prenom);
+    p.events.push({
+      date: null,
+      year: '2020',
+      body: 'Conseil de Paris',
+      role: e.fonction_dans_l_executif || 'Conseiller de Paris',
+      groupe: e.groupe || null,
+      mandature: '2020-2026',
+      source: 'conseillers-de-paris snapshot',
+      certainty: 'mandature only, no dated start in the source',
+    });
+    if (!p.sources_used.includes('2023 snapshot')) p.sources_used.push('2023 snapshot');
+  }
+
+  // 4. Conseil de Paris 1977-2014. The rich one: dated delegations, groups,
+  // and the reason a mandate ended.
+  for (const r of historical || []) {
+    const p = ensure(r.nom, r.prenom);
+    const delegations = [
+      r.delegation_1_adjoint, r.delegation_2_adjoint,
+      r.delegation_3_adjoint, r.delegation_4_adjoint,
+      r.delegation_1_conseiller_delegue, r.delegation_2_conseiller_delegue,
+      r.delegation_3_conseiller_delegue,
+    ].filter(Boolean);
+    p.civilite = p.civilite || r.civilite || null;
+    p.born = p.born || r.ne_e_le || null;
+    p.profession = p.profession || r.profession || null;
+    p.events.push({
+      date: r.elu_e_le || null,
+      year: String(r.mandature || '').slice(0, 4) || null,
+      body: 'Conseil de Paris',
+      role: r.conseiller || 'Conseiller de Paris',
+      mandature: r.mandature || null,
+      secteur: r.secteur || null,
+      groupe: r.groupe_politique || null,
+      adjoint_au_maire: r.adjoint_au_maire || null,
+      maire_de_paris: r.maire_de_paris || null,
+      delegations,
+      ended_by: r.deces ? 'décès' : r.demission ? 'démission' : null,
+      before_1977: r.avant_1977_au_conseil_de_paris || null,
+      source: 'les-conseillers-de-paris-de-1977-a-2014',
+      certainty: 'recorded',
+    });
+    if (!p.sources_used.includes('1977-2014')) p.sources_used.push('1977-2014');
+  }
+
+  // 5. Every other office currently held, from the other RNE files.
+  for (const [type, rows] of Object.entries(rneByType || {})) {
+    if (type === 'conseiller_arrondissement') continue;
+    for (const r of rows) {
+      const p = ensure(r["Nom de l'élu"], r["Prénom de l'élu"]);
+      p.current_mandates.push({
+        type,
+        commune: r['Libellé de la commune'] || r['Libellé du département'] || null,
+        secteur: r['Libellé du secteur'] || null,
+        fonction: r['Libellé de la fonction'] || null,
+        mandate_start: r['Date de début du mandat'] || null,
+      });
+      p.born = p.born || r['Date de naissance'] || null;
+      p.profession = p.profession || r['Libellé de la catégorie socio-professionnelle'] || null;
+    }
+  }
+
+  const people = [...byPerson.values()].map(p => {
+    p.events.sort((a, b) => String(a.year ?? '').localeCompare(String(b.year ?? '')));
+    const years = p.events.map(e => e.year).filter(Boolean);
+    const serving = (council.members || []).some(m => histKey(m.nom) === histKey(p.nom));
+    return {
+      ...p,
+      in_office_now: serving,
+      first_recorded_year: years.length ? years[0] : null,
+      last_recorded_year: years.length ? years[years.length - 1] : null,
+      event_count: p.events.length,
+      // The honest headline for a person with one or two points.
+      record_depth: p.events.length >= 3 ? 'multiple mandatures recorded'
+        : p.events.length === 2 ? 'two points, nothing earlier published'
+          : 'a single point, nothing else published',
+    };
+  }).sort((a, b) => Number(b.in_office_now) - Number(a.in_office_now)
+    || String(a.nom).localeCompare(String(b.nom)));
+
+  return {
+    people,
+    person_count: people.length,
+    in_office_now: people.filter(p => p.in_office_now).length,
+    gap: HISTORY_GAP,
+    coverage_note:
+      'Arrondissement councillors are published in exactly one historical snapshot, from December 2021. Anyone who never sat on the Conseil de Paris therefore has no record before 2020, and none exists to find. The 1977-2014 dataset covers the Conseil de Paris only.',
+    rne_report: rneReport || [],
+    sources,
+  };
+}

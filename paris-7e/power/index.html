@@ -188,6 +188,27 @@
 
       <section class="unit-block">
         <h2>
+          <span data-lang="en">How far back the record goes</span>
+          <span data-lang="fr">Jusqu'où remonte la trace</span>
+        </h2>
+        <div class="section-prose">
+          <p data-lang="en">The record is uneven and the gaps are real. <span class="fill-hist-people"></span> people appear across every source, <span class="fill-hist-serving"></span> of them in office now. The Conseil de Paris is documented from 1977 to 2014. Arrondissement councillors are published in exactly one snapshot, from December 2021, so anyone who never sat on the Conseil de Paris has no record before 2020, and none exists to find.</p>
+          <p data-lang="fr">La trace est inégale et les manques sont réels. <span class="fill-hist-people"></span> personnes apparaissent dans l'ensemble des sources, dont <span class="fill-hist-serving"></span> en exercice. Le Conseil de Paris est documenté de 1977 à 2014. Les conseillers d'arrondissement ne figurent que dans un seul instantané, de décembre 2021 : qui n'a jamais siégé au Conseil de Paris n'a aucune trace avant 2020, et il n'en existe pas.</p>
+          <p class="note" data-lang="en">2014 to 2021: no Conseil de Paris membership is published for these years.</p>
+          <p class="note" data-lang="fr">2014-2021 : aucune appartenance au Conseil de Paris n'est publiée pour ces années.</p>
+        </div>
+        <div id="history-table"></div>
+        <div class="section-prose">
+          <p data-lang="en">Arrondissement councillors are published in exactly one historical snapshot. Anyone who never sat on the Conseil de Paris therefore has no record before 2020, and the 1977 to 2014 dataset covers the Conseil de Paris only.</p>
+          <p data-lang="fr">Les conseillers d'arrondissement ne figurent que dans un seul instantané historique. Qui n'a jamais siégé au Conseil de Paris n'a donc aucune trace avant 2020, et le jeu 1977-2014 ne couvre que le Conseil de Paris.</p>
+          <p class="too-few" id="history-sources"></p>
+          <p class="too-few" data-lang="en">Each refresh writes a dated copy of the roster to <span class="fr-term">paris-7e/data/archive/</span>. The register publishes only the current state, so the series above only deepens if this site keeps its own record.</p>
+          <p class="too-few" data-lang="fr">Chaque rafraîchissement écrit une copie datée du conseil dans <span class="fr-term">paris-7e/data/archive/</span>. Le répertoire ne publie que l'état courant : la série ne s'enrichit que si ce site conserve sa propre trace.</p>
+        </div>
+      </section>
+
+      <section class="unit-block">
+        <h2>
           <span data-lang="en">Route a proposal</span>
           <span data-lang="fr">Orienter une proposition</span>
         </h2>
@@ -377,8 +398,9 @@
     async function main() {
       await initSection({ page: 'power' });
 
-      const [elus, pipeline, quartiers, sources, crosswalk, dates] = await Promise.all([
+      const [elus, history, pipeline, quartiers, sources, crosswalk, dates] = await Promise.all([
         loadData('elus'),
+        loadData('elus-history'),
         loadData('pipeline'),
         loadData('quartiers.geojson'),
         loadData('sources'),
@@ -461,6 +483,8 @@
         setAll('.fill-elus-modified-iso', formatDate(elus.elus_modified, { style: 'iso' }));
         setAll('.fill-cdp-modified-iso', formatDate(elus.conseillers_de_paris_modified, { style: 'iso' }));
         setAll('.fill-departed', formatNumber(departed.length));
+        setAll('.fill-hist-people', formatNumber(history.person_count));
+        setAll('.fill-hist-serving', formatNumber(history.in_office_now));
         setAll('.fill-mandate-start', formatDate(elus.council?.members?.[0]?.mandate_start));
       };
 
@@ -503,6 +527,44 @@
           { key: 'groupe', labelKey: 'col.groupe', sourceTerm: true },
         ],
       });
+
+      /* ── How far back the record goes ─────────────────────────────── */
+      // Deliberately shows depth, not just names. A person with two points and
+      // a five-year gap must not look like a documented career.
+      const inOffice = history.people.filter((p) => p.in_office_now);
+      renderTable('#history-table', {
+        rows: inOffice,
+        sort: { key: 'first_recorded_year', dir: 'asc' },
+        columns: [
+          {
+            key: 'nom',
+            labelKey: 'col.elu',
+            className: 'wrap',
+            value: (row) => `${row.civilite ? row.civilite + ' ' : ''}${row.prenom} ${row.nom}`,
+            sortValue: (row) => row.nom,
+          },
+          { key: 'first_recorded_year', labelKey: 'col.first_seen' },
+          { key: 'event_count', labelKey: 'col.records', type: 'number' },
+          { key: 'record_depth', labelKey: 'col.depth', className: 'wrap' },
+          {
+            key: 'current_mandates',
+            labelKey: 'col.other_offices',
+            className: 'wrap',
+            value: (row) => (row.current_mandates.length
+              ? row.current_mandates
+                .map((m) => `${m.type.replace(/_/g, ' ')}${m.commune ? ' (' + m.commune + ')' : ''}, ${formatDate(m.mandate_start)}`)
+                .join('; ')
+              : t('value.none')),
+          },
+        ],
+      });
+
+      document.getElementById('history-sources').textContent = [
+        `Sources: ${history.sources.historique} for the Conseil de Paris 1977-2014`,
+        `${history.sources.snapshot_2021} (${formatDate(history.sources.snapshot_2021_modified)})`,
+        `${history.sources.snapshot_cdp} (${formatDate(history.sources.snapshot_cdp_modified)})`,
+        `Répertoire National des Élus (${formatDate(history.sources.rne_modified)}), ten mandate files joined on name and date of birth.`,
+      ].join('. ');
 
       /* ── Executive column ────────────────────────────────────────── */
 

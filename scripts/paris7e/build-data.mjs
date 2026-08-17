@@ -16,7 +16,7 @@
 // series for counters within ~1km of Champ-de-Mars, never the raw dataset.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
@@ -28,6 +28,7 @@ import {
   whereAll,
   rateLimit,
   fetchRneArrondissementElus,
+  fetchRneAllMandates,
 } from './fetch.mjs';
 
 import {
@@ -39,6 +40,7 @@ import {
   deliveredFile,
   siteContext,
   currentCouncil,
+  elusHistory,
   timeInStage,
   directionByTheme,
   filterEtatSpecial,
@@ -77,6 +79,7 @@ const DATASETS = {
   elus: 'conseillerseres-darrondissements',
   conseillersDeParis: 'conseillers-de-paris',
   quartiers: 'conseils-quartiers',
+  historiqueCdp: 'les-conseillers-de-paris-de-1977-a-2014',
   travaux: 'travaux_equipements_publics',
   marches: 'liste-des-marches-de-la-collectivite-parisienne',
   villeBudgetVotes: 'budgets-votes-principaux-a-partir-de-2019-m57-ville-departement',
@@ -91,6 +94,9 @@ const DATASETS = {
 // from it is derived from the same box.
 // Secteur label as the RNE spells it. Paris arrondissements are 'secteurs'.
 const RNE_SECTEUR = 'Paris 7Eme Secteur';
+
+// Secteur label as the 1977-2014 Conseil de Paris dataset spells it.
+const HISTORIQUE_SECTEUR = '7ème arrondissement';
 
 const CHAMP_DE_MARS_BBOX = '48.8515,2.2930,48.8620,2.3120';
 
@@ -233,6 +239,23 @@ async function main() {
   // people who no longer hold office. The RNE is the only current source.
   const rne = await fetchRneArrondissementElus(RNE_SECTEUR);
   log(`  RNE ${RNE_SECTEUR}: ${rne.rows.length} current members (file ${rne.modified})`);
+
+  // Conseil de Paris 1977-2014. The only deep historical record, and it covers
+  // Conseillers de Paris only, never arrondissement councillors.
+  const historique = await fetchAllRecords(DATASETS.historiqueCdp, {
+    where: whereTextEquals('secteur', HISTORIQUE_SECTEUR),
+  });
+  log(`  ${DATASETS.historiqueCdp}: ${historique.results.length} rows for ${HISTORIQUE_SECTEUR}`);
+
+  // Every other office the current council holds. Filters the national files
+  // against the roster while parsing; nothing large is kept.
+  const roster = rne.rows.map(r => ({
+    nom: r["Nom de l'élu"], prenom: r["Prénom de l'élu"], dob: r['Date de naissance'],
+  }));
+  const mandates = await fetchRneAllMandates(roster);
+  for (const entry of mandates.report) {
+    log(`  RNE ${entry.key}: ${entry.matches ?? 0} match(es) in ${entry.rows_scanned ?? 0} rows`);
+  }
 
   // Site context for the Champ-de-Mars study area. Establishes what is already
   // built there, so a proposal does not ask for water and toilets that exist.
@@ -401,6 +424,45 @@ async function main() {
     conseillers_de_paris: shapeConseillersDeParis(cdp.results),
   });
 
+  const councilNow = currentCouncil(rne.rows, previousElus, {
+    source_url: rne.source_url, dataset_page: rne.dataset_page,
+    modified: rne.modified, secteur: RNE_SECTEUR,
+  });
+
+  outputs.set('elus-history.json', elusHistory({
+    council: councilNow,
+    historical: historique.results,
+    snapshot2021: previousElus,
+    snapshotCdp: shapeConseillersDeParis(cdp.results),
+    rneByType: mandates.byType,
+    rneReport: mandates.report,
+    sources: {
+      historique: DATASETS.historiqueCdp,
+      historique_modified: metas.historiqueCdp?.modified ?? null,
+      snapshot_2021: DATASETS.elus,
+      snapshot_2021_modified: metas.elus.modified,
+      snapshot_cdp: DATASETS.conseillersDeParis,
+      snapshot_cdp_modified: metas.conseillersDeParis.modified,
+      rne: mandates.dataset_page,
+      rne_modified: rne.modified,
+    },
+  }));
+
+  // Dated roster snapshot. The RNE publishes only the current state and its
+  // versioned URLs are not guaranteed to persist, so the series only exists if
+  // this build keeps its own copy. One small file per run, written once per day.
+  const snapshotDate = new Date().toISOString().slice(0, 10);
+  outputs.set(join('archive', `council-${snapshotDate}.json`), {
+    snapshot_date: snapshotDate,
+    rne_file_modified: rne.modified,
+    rne_source_url: rne.source_url,
+    secteur: RNE_SECTEUR,
+    member_count: councilNow.member_count,
+    members: councilNow.members.map(m => ({
+      nom: m.nom, prenom: m.prenom, fonction: m.fonction, mandate_start: m.mandate_start,
+    })),
+  });
+
   outputs.set('quartiers.geojson', quartiersToGeoJSON(filterQuartiers(quartiers.results, QUARTIER_NAR)));
 
   outputs.set('travaux.json', {
@@ -484,7 +546,10 @@ async function main() {
   // -------------------------------------------------------------------------
   mkdirSync(OUT, { recursive: true });
   for (const [name, { json, bytes }] of serialised) {
-    writeFileSync(join(OUT, name), json, 'utf8');
+    const target = join(OUT, name);
+    // Outputs may sit in a subdirectory, as the dated archive does.
+    mkdirSync(dirname(target), { recursive: true });
+    writeFileSync(target, json, 'utf8');
     log(`  wrote ${name}: ${(bytes / 1024).toFixed(0)} KB`);
   }
 

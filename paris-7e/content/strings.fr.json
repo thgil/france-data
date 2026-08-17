@@ -70,7 +70,11 @@
     "who": "Décidé par",
     "basis": "Base",
     "scale": "Face à la ligne du 7e",
-    "delegation_prev": "Délégation en 2020-2026 (non actuelle)"
+    "delegation_prev": "Délégation en 2020-2026 (non actuelle)",
+    "first_seen": "Première trace",
+    "records": "Entrées",
+    "depth": "Profondeur",
+    "other_offices": "Autres mandats actuels"
   },
   "pipeline": {
     "h_map": "Où sont les opérations",
@@ -145,7 +149,8 @@
     "citywide": "Parisien",
     "yes": "Oui",
     "no": "Non",
-    "unverified": "Non vérifié"
+    "unverified": "Non vérifié",
+    "none": "Aucun"
   },
   "stats": {
     "too_few": "Trop peu de projets pour conclure (n={n}, minimum {floor})."

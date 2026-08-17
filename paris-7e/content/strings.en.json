@@ -70,7 +70,11 @@
     "who": "Decided by",
     "basis": "Basis",
     "scale": "Against the 7e line",
-    "delegation_prev": "Delegation in 2020-2026 (not current)"
+    "delegation_prev": "Delegation in 2020-2026 (not current)",
+    "first_seen": "First recorded",
+    "records": "Records",
+    "depth": "Depth of record",
+    "other_offices": "Other offices held now"
   },
   "pipeline": {
     "h_map": "Where the operations are",
@@ -145,7 +149,8 @@
     "citywide": "Citywide",
     "yes": "Yes",
     "no": "No",
-    "unverified": "Unverified"
+    "unverified": "Unverified",
+    "none": "None"
   },
   "stats": {
     "too_few": "Too few projects to say (n={n}, minimum {floor})."
