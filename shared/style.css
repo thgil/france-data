@@ -191,6 +191,22 @@ body { line-height: 1.5; }
   color: var(--ink-mute);
 }
 
+/* Section card: an ongoing resource, not a dated story. Sits above the grid. */
+.section-rail {
+  margin: 0 0 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-card {
+  border-color: var(--rule);
+  border-left-width: 4px;
+  border-left-color: var(--accent);
+  max-width: 720px;
+}
+.section-card h2 { font-size: 32px; }
+.section-card .dek { font-size: 17px; }
+
 /* Footer */
 .site-footer {
   max-width: var(--max-width);
