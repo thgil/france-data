@@ -1025,6 +1025,40 @@
         riskP.append(document.createTextNode(`${risk.why} ${risk.second_risk} ${risk.consequence_for_the_pilot}`));
         pfHost.append(riskP);
 
+        // Does the quai escape the parks ban, and is donated content advertising?
+        const quai = pf.does_the_quai_change_it;
+        const qP = el('p');
+        qP.append(el('strong', null, `${quai.question} ${quai.answer} `));
+        qP.append(document.createTextNode(quai.why.join(' ')));
+        pfHost.append(qP);
+        para(pfHost, quai.practical_consequence);
+
+        const content = pf.is_supplied_content_advertising;
+        const cP = el('p');
+        cP.append(el('strong', null, `${content.question} `));
+        cP.append(document.createTextNode(content.the_legal_test));
+        pfHost.append(cP);
+        pfHost.append(buildTable([
+          { en: 'What is proposed', fr: 'Ce qui est proposé', cellClass: 'wrap' },
+          { en: 'Verdict', fr: 'Verdict', cellClass: 'wrap' },
+        ], content.so_the_line_falls_here.map((x) => [x.case, x.verdict])));
+        para(pfHost, content.but_that_is_not_the_end);
+        const cleanP = el('p');
+        cleanP.append(el('strong', null, content.the_clean_version));
+        pfHost.append(cleanP);
+        para(pfHost, content.worth_noting);
+
+        const better = pf.the_better_partner;
+        const bP = el('p');
+        bP.append(el('strong', null, `${better.idea} `));
+        bP.append(document.createTextNode(`${better.why} ${better.what_the_data_shows}`));
+        pfHost.append(bP);
+        const gapP = el('p');
+        gapP.append(el('strong', null, `${better.the_gap} `));
+        gapP.append(document.createTextNode(better.what_that_means));
+        pfHost.append(gapP);
+        pfHost.append(el('p', 'too-few', `Source: ${better.source}. Checked ${better.checked_on}.`));
+
         const stepsHost = document.getElementById('private-funding-steps');
         const recP = el('p');
         recP.append(el('strong', null, pf.recommendation));

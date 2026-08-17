@@ -534,6 +534,13 @@
       "what": "Checked whether local gyms could fund the facility in exchange for visibility. Advertising in any form is prohibited in Ville de Paris parks, gardens and woods under article 12 of the parks regulation, and separately on historic monuments and trees. Mécénat is the legal route, with counterparts capped at 25 percent of the donation, and carries a requalification risk as a marché public if the counterpart is direct.",
       "consequence": "Private funding stays out of the tier 1 ask and is documented as a mécénat route for later tiers. The word sponsorship is avoided throughout.",
       "outcome": "Open. The regime governing the quai, as distinct from a parc or jardin, still needs checking."
+    },
+    {
+      "date": "2026-08-17",
+      "action": "research",
+      "what": "Checked whether the quai escapes the parks advertising ban, and whether donated digital content counts as advertising. The quai is more constrained: the left-bank promenade is itself a public park, the banks are UNESCO-inscribed since 1991, and management is split between Port autonome de Paris, the Ville and Voies Navigables de France. Donated phone content is not outdoor advertising under L581-3 because it is not visible from a public way, but it is still a mécénat counterpart.",
+      "consequence": "Recorded a better route: 22 sport associations are registered in the 7e but none is a running club. An association partner removes the non-discrimination and requalification problems, and forming one answers the demand question no dataset can.",
+      "outcome": "Open. The HAROPA cahier des prescriptions for the Seine banks needs reading before the quai is treated as a viable site."
     }
   ],
   "site_infrastructure": {
@@ -802,13 +809,50 @@
       "second_risk": "Naming one gym raises an immediate question about why that gym and not another. Any private funding route has to be open and non-discriminatory, which is a procedure in itself.",
       "consequence_for_the_pilot": "Both risks convert a small reversible pilot into a procurement question. That is exactly the kind of complication that leaves an operation sitting at non démarré with no financing route recorded, which is what happened to the two stalled operations on this page."
     },
-    "recommendation": "Keep private funding out of the tier 1 ask, for the same reason vending is kept out: it changes the legal regime. Name it in the document as a funding route for tiers 2 and 3, framed as mécénat rather than sponsorship, with the 25 percent cap stated so the reader can see it has been thought through.",
+    "recommendation": "Keep private funding out of the tier 1 ask. If content or equipment is to be donated, prefer an association over a commercial gym: it removes the non-discrimination problem, the requalification risk and the advertising question at once. Frame anything from a commercial partner as mécénat, unbranded, with acknowledgment inside the 25 percent cap.",
     "if_pursued": [
       "Frame it as mécénat, never as sponsorship or advertising. The words carry different legal regimes and the wrong one invites refusal.",
       "Propose in-kind donation of equipment plus a maintenance commitment, rather than cash. It avoids the handling question and directly answers the maintenance question a Direction will ask.",
       "Offer acknowledgment at or below the 25 percent cap, and say so explicitly in the proposal.",
       "Propose an open call to all qualifying local operators rather than naming one, so the non-discrimination question is answered before it is asked.",
       "Route it through the Ville's own mécénat channel, not through a private arrangement with the mairie."
-    ]
+    ],
+    "does_the_quai_change_it": {
+      "question": "The parks advertising ban applies to Ville parks, gardens and woods. Does the quai escape it?",
+      "answer": "No. The quai is more constrained, not less.",
+      "why": [
+        "The Promenade des Berges de la Seine on the left bank of the 7e, between the Pont de l'Alma and the Musée d'Orsay, is itself described as a public park and promenade, so the parks regulation is likely to reach it directly.",
+        "The Seine banks in Paris have been inscribed on the UNESCO World Heritage list since 1991, as Paris, rives de la Seine. The inscribed perimeter runs from the Pont de Sully to the Pont d'Iéna, and to the Pont de Bir-Hakeim on the left bank, which covers the whole 7e frontage including Quai Anatole France.",
+        "Ownership is split. The banks are managed, depending on the sector, by the Port autonome de Paris, the Ville de Paris, or Voies Navigables de France. Which body governs a given spot has to be established before anything is proposed there."
+      ],
+      "practical_consequence": "HAROPA publishes a cahier des prescriptions for the Seine banks in Paris. That document, not general reasoning, is what governs what may be installed on the quai. It should be read before the quai is treated as an easier site for anything, including the pilot itself.",
+      "checked_on": "2026-08-17"
+    },
+    "is_supplied_content_advertising": {
+      "question": "If a gym supplies stretching videos rather than a sign, is that advertising?",
+      "the_legal_test": "Article L581-3 of the Code de l'environnement defines publicité as any inscription, form or image intended to inform the public or attract its attention. The rules bite on what is visible from a way open to public traffic.",
+      "so_the_line_falls_here": [
+        {
+          "case": "A panel or screen in public space carrying the gym's name or logo",
+          "verdict": "Publicité. Visible from a public way, intended to attract attention. Prohibited in this setting."
+        },
+        {
+          "case": "Content on the runner's own phone, reached by scanning a QR code",
+          "verdict": "Not outdoor advertising. It is not visible from a public way. The outdoor advertising rules do not reach it."
+        }
+      ],
+      "but_that_is_not_the_end": "Escaping the advertising rules does not escape the mécénat rules. Brand exposure, a link, or an offer is a counterpart, and it stays capped at 25 percent of the donation. A substantial direct counterpart still risks requalification as a marché public. And the Ville pointing residents at one commercial operator raises the same question as before: why that one.",
+      "the_clean_version": "The gym donates the content with no branding, or with acknowledgment confined to a credits line the Ville owns and hosts. That is genuine mécénat and it survives every test above. The version where the brand is the point is parrainage, and parrainage changes the legal regime.",
+      "worth_noting": "Seoul's media board carries weather, air quality and route information. It carries no brand content at all. The precedent being cited did not need a sponsor to fill the screen."
+    },
+    "the_better_partner": {
+      "idea": "Use an association rather than a commercial gym.",
+      "why": "An association removes the non-discrimination problem, the requalification risk, and the advertising question in one move. It is also the vehicle the French civic system expects: a conseil de quartier deals with associations routinely and with commercial operators rarely.",
+      "what_the_data_shows": "22 distinct sport associations are registered in 75007, including SPORTS 7, PARIS AMICALE CAMOU, ENTENTE SPORTIVE PETITS ANGES 7EME and the Cercle sportif de l'Institution nationale des Invalides.",
+      "the_gap": "None of them is a running club. A search of association names in 75007 for running, course, athlétisme or marathon returns nothing.",
+      "what_that_means": "Seoul's facility worked because running crews were consulted from the planning stage. The 7e appears to have no organised running association to consult. That is a gap, and it is one a resident can close far more cheaply than a locker bank. A named group of runners behind the proposal answers the demand question that no dataset can.",
+      "source": "liste_des_associations_parisiennes, secteur d'activité Sport, code postal 75007",
+      "checked_on": "2026-08-17"
+    }
   }
 }
