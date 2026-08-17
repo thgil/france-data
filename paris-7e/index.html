@@ -166,10 +166,10 @@
         </li>
         <li>
           <p class="figure-value" id="fig-elus">&hellip;</p>
-          <p class="figure-label" data-lang="en">Élus in the conseil d'arrondissement. <span class="elus-delegated"></span> hold a named délégation; the Maire's delegation field is empty.</p>
-          <p class="figure-label" data-lang="fr">Élus au conseil d'arrondissement. <span class="elus-delegated"></span> détiennent une délégation nommée ; le champ délégation du Maire est vide.</p>
-          <p class="figure-note" data-lang="en">From a dataset last modified <span class="elus-modified"></span>, which describes the 2020 to 2026 mandate. Not verified against the mairie. Treat the names as historical.</p>
-          <p class="figure-note" data-lang="fr">Jeu de données modifié pour la dernière fois le <span class="elus-modified"></span>, qui décrit la mandature 2020 à 2026. Non vérifié auprès de la mairie. À lire comme un état ancien.</p>
+          <p class="figure-label" data-lang="en">Élus in the conseil d'arrondissement, all elected in March 2026. The delegations they hold are published nowhere.</p>
+          <p class="figure-label" data-lang="fr">Élus au conseil d'arrondissement, tous élus en mars 2026. Leurs délégations ne sont publiées nulle part.</p>
+          <p class="figure-note" data-lang="en">From the Répertoire National des Élus, file dated <span class="elus-modified"></span>. The Paris open data élus file still lists the 2020 to 2026 council and five of its members left office at that election.</p>
+          <p class="figure-note" data-lang="fr">Issu du Répertoire National des Élus, fichier du <span class="elus-modified"></span>. Le fichier open data de la Ville décrit encore le conseil 2020-2026, dont cinq membres ont quitté leurs fonctions à ce scrutin.</p>
         </li>
       </ul>
     </section>
@@ -434,10 +434,6 @@
         ? Math.round(((operatingLast - operatingFirst) / operatingFirst) * 100)
         : null;
 
-      const delegated = elus.elus.filter(
-        (e) => e.delegation && String(e.delegation).trim() !== '',
-      ).length;
-
       const champDeMars = pipeline.abandoned.local.filter(isChampDeMars).length;
 
       renderTable('#status-table', {
@@ -481,7 +477,6 @@
         setAll('.project-count', formatNumber(pipeline.project_count));
         setAll('.local-total', formatMoney(pipeline.local_total));
         setAll('.citywide-total', formatMoney(pipeline.citywide_total));
-        setAll('.elus-delegated', formatNumber(delegated));
         setAll('.elus-modified', formatDate(elus.elus_modified));
         setAll('.abandoned-ops', formatNumber(pipeline.abandoned.operation_count));
         setAll('.abandoned-local-n', formatNumber(pipeline.abandoned.local.length));
