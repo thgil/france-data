@@ -281,3 +281,63 @@ export async function fetchDatasetMeta(datasetId) {
 export function portalUrl(datasetId) {
   return `https://opendata.paris.fr/explore/dataset/${encodeURIComponent(datasetId)}/information/`;
 }
+
+// ---------------------------------------------------------------------------
+// Repertoire National des Elus, on data.gouv.fr
+//
+// The Paris open data elus files describe the 2020-2026 mandature and were last
+// touched in 2021 and 2023. The March 2026 municipales replaced that council,
+// so those files are not merely stale, they name people who no longer hold
+// office. The RNE is the national register, is refreshed continuously, and is
+// the only machine-readable source for the current roster.
+//
+// It carries names and functions. It does NOT carry delegations or political
+// groups, which have no post-2026 open-data source at all.
+// ---------------------------------------------------------------------------
+
+export const RNE_DATASET = '5c34c4d1634f4173183a64f1';
+
+// Resolves the current CSV through the data.gouv.fr API rather than pinning a
+// dated URL, so a refresh picks up the newest file without a code change.
+export async function fetchRneArrondissementElus(secteurLabel) {
+  const meta = await fetchJson(`https://www.data.gouv.fr/api/1/datasets/${RNE_DATASET}/`);
+  const resource = (meta.resources || []).find(
+    r => /conseiller.?s?-?d.?arrondissement/i.test(r.url || '') && /\.csv$/i.test(r.url || ''),
+  );
+  if (!resource) {
+    throw new Error('RNE: no conseillers d\'arrondissement CSV found in the dataset resources.');
+  }
+
+  const res = await fetch(resource.url, { headers: { 'accept-encoding': 'gzip' } });
+  if (!res.ok) throw new Error(`RNE: HTTP ${res.status} fetching ${resource.url}`);
+  const text = await res.text();
+
+  const rows = parseSemicolonCsv(text);
+  const matched = rows.filter(r => (r['Libellé du secteur'] || '').trim() === secteurLabel);
+  if (matched.length === 0) {
+    throw new Error(`RNE: zero rows for secteur "${secteurLabel}". Refusing to write an empty roster.`);
+  }
+
+  return {
+    rows: matched,
+    source_url: resource.url,
+    modified: resource.last_modified || null,
+    dataset_page: `https://www.data.gouv.fr/fr/datasets/${RNE_DATASET}/`,
+  };
+}
+
+// The RNE files are semicolon-delimited with a UTF-8 BOM and no quoted fields
+// carrying delimiters. A full CSV parser would be overkill; this asserts the
+// shape instead of assuming it.
+function parseSemicolonCsv(text) {
+  const clean = text.replace(/^﻿/, '');
+  const lines = clean.split(/\r?\n/).filter(line => line.trim() !== '');
+  if (lines.length < 2) throw new Error('RNE: CSV has no data rows.');
+  const header = lines[0].split(';');
+  return lines.slice(1).map(line => {
+    const cells = line.split(';');
+    const row = {};
+    header.forEach((key, i) => { row[key] = (cells[i] ?? '').trim(); });
+    return row;
+  });
+}

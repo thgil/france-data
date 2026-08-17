@@ -113,10 +113,10 @@
       </header>
 
       <div class="staleness staleness--election" role="note" id="election-banner">
-        <span class="staleness-flag" data-lang="en">Not verified</span>
-        <span class="staleness-flag" data-lang="fr">Non vérifié</span>
-        <span data-lang="en">The élus list on this page comes from a dataset last modified upstream on <span class="fill-elus-modified"></span>. It describes the 2020 to 2026 mandate and predates the March 2026 municipal elections. It has not been checked against <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a>. Treat every name and every delegation here as unverified, and check the mairie's own pages before acting on any of it.</span>
-        <span data-lang="fr">La liste des élus de cette page provient d'un jeu de données modifié en amont pour la dernière fois le <span class="fill-elus-modified"></span>. Elle décrit la mandature 2020-2026 et précède les élections municipales de mars 2026. Elle n'a pas été vérifiée sur <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a>. Chaque nom et chaque délégation doit être considéré comme non vérifié : consultez les pages de la mairie avant de vous en servir.</span>
+        <span class="staleness-flag" data-lang="en">Names current, delegations not</span>
+        <span class="staleness-flag" data-lang="fr">Noms à jour, délégations non</span>
+        <span data-lang="en">The names below are the council in office, taken from the Répertoire National des Élus, file dated <span class="fill-elus-modified"></span>. Every mandate began <span class="fill-mandate-start"></span>, at the March 2026 municipal elections. <strong>The delegations are a different matter: no open source publishes who holds which brief in the 2026 council.</strong> The delegation column shows what each person held in the 2020 to 2026 mandate, which is history, not a routing instruction. Check <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a> for the current briefs before contacting anyone. <span class="fill-departed"></span> people named in the Paris open data élus file left office at that election and are not listed here.</span>
+        <span data-lang="fr">Les noms ci-dessous sont ceux du conseil en exercice, issus du Répertoire National des Élus, fichier du <span class="fill-elus-modified"></span>. Tous les mandats ont débuté le <span class="fill-mandate-start"></span>, aux élections municipales de mars 2026. <strong>Les délégations, elles, ne sont publiées nulle part en open data pour le conseil de 2026.</strong> La colonne délégation indique ce que chacun détenait sous la mandature 2020-2026 : c'est un historique, pas une indication d'interlocuteur. Consultez <a href="https://mairie07.paris.fr/" rel="noopener" target="_blank">mairie07.paris.fr</a> pour les délégations actuelles avant tout contact. <span class="fill-departed"></span> personnes figurant dans le fichier open data de la Ville ont quitté leurs fonctions lors de ce scrutin et ne sont pas listées ici.</span>
       </div>
 
       <div id="staleness"></div>
@@ -138,8 +138,8 @@
             <span data-lang="fr">Politique</span>
           </h2>
           <div class="section-prose">
-            <p data-lang="en"><span class="fill-elus"></span> élus sit for the 7e in the source dataset. <span class="fill-elus-delegated"></span> carry a named delegation. The remaining one is the Maire, whose delegation field is null: that is how the dataset records the office, not an absence of power. Delegation wording is quoted exactly as published and never translated, because a translated delegation cannot be cited back to the person who wrote it.</p>
-            <p data-lang="fr">Le jeu de données recense <span class="fill-elus"></span> élus pour le 7e. <span class="fill-elus-delegated"></span> portent une délégation nommée. Le dernier est le Maire, dont le champ délégation vaut null : c'est ainsi que le jeu de données inscrit la fonction, et non une absence de pouvoir. Les libellés de délégation sont cités tels quels et jamais traduits : une délégation traduite ne peut pas être opposée à celui qui l'a rédigée.</p>
+            <p data-lang="en"><span class="fill-elus"></span> élus sit for the 7e, all elected on <span class="fill-mandate-start"></span>. The Maire and five adjoints are ranked by the Répertoire National des Élus; the rest are conseillers d'arrondissement. Of the <span class="fill-elus"></span>, <span class="fill-elus-delegated"></span> also held a named delegation in the 2020 to 2026 mandate, shown in the third column. That column is history. Whether any of them still holds that brief is not published, and the <span class="fill-departed"></span> people who left at the election are not shown at all. Delegation wording is quoted exactly as published and never translated, because a translated delegation cannot be cited back to the person who wrote it.</p>
+            <p data-lang="fr"><span class="fill-elus"></span> élus siègent pour le 7e, tous élus le <span class="fill-mandate-start"></span>. Le Répertoire National des Élus classe la Maire et cinq adjoints ; les autres sont conseillers d'arrondissement. Sur ces <span class="fill-elus"></span>, <span class="fill-elus-delegated"></span> portaient aussi une délégation nommée sous la mandature 2020-2026, indiquée en troisième colonne. Cette colonne est un historique. Rien ne publie si ces délégations sont encore les leurs, et les <span class="fill-departed"></span> personnes parties au scrutin ne figurent pas ici. Les libellés de délégation sont cités tels quels et jamais traduits : une délégation traduite ne peut pas être opposée à celui qui l'a rédigée.</p>
           </div>
           <div id="elus-table"></div>
           <p class="note">
@@ -395,9 +395,16 @@
 
       const floor = pipeline.sample_floor;
       const themeByName = new Map(crosswalk.themes.map((theme) => [theme.thematique, theme]));
+      // No 2026 delegation is published anywhere, so the routing widget cannot
+      // name a current holder. It maps to the person who held the brief in the
+      // 2020-2026 mandature, and only when that person is still in office.
+      const stillServing = new Set(elus.elus.map((e) => `${e.nom}|${e.prenom}`));
       const eluByDelegation = new Map(
-        elus.elus.filter((e) => e.delegation).map((e) => [e.delegation, e]),
+        (elus.previous_mandature?.elus || [])
+          .filter((e) => e.delegation && stillServing.has(`${e.nom}|${e.prenom}`))
+          .map((e) => [e.delegation, e]),
       );
+      const departed = elus.council?.departed_since_previous_dataset || [];
       const directionByTheme = new Map(
         pipeline.direction_by_theme.map((row) => [row.thematique, row]),
       );
@@ -432,7 +439,7 @@
       }).length;
 
       const delegated = elus.elus.filter(
-        (e) => e.delegation && String(e.delegation).trim() !== '',
+        (e) => e.previous_delegation && String(e.previous_delegation).trim() !== '',
       ).length;
       const eluKey = (person) => `${person.nom}|${person.prenom}`;
       const eluKeys = new Set(elus.elus.map(eluKey));
@@ -453,6 +460,8 @@
         setAll('.fill-elus-modified', formatDate(elus.elus_modified));
         setAll('.fill-elus-modified-iso', formatDate(elus.elus_modified, { style: 'iso' }));
         setAll('.fill-cdp-modified-iso', formatDate(elus.conseillers_de_paris_modified, { style: 'iso' }));
+        setAll('.fill-departed', formatNumber(departed.length));
+        setAll('.fill-mandate-start', formatDate(elus.council?.members?.[0]?.mandate_start));
       };
 
       paintFigures();
@@ -470,8 +479,14 @@
             value: (row) => `${row.civilite} ${row.prenom} ${row.nom}`,
             sortValue: (row) => row.nom,
           },
-          { key: 'fonction', labelKey: 'col.fonction', glossDomain: 'fonction' },
-          { key: 'delegation', labelKey: 'col.delegation', className: 'wrap', glossDomain: 'delegation' },
+          { key: 'fonction', labelKey: 'col.fonction', className: 'wrap' },
+          {
+            key: 'previous_delegation',
+            labelKey: 'col.delegation_prev',
+            className: 'wrap',
+            glossDomain: 'delegation',
+            format: undefined,
+          },
         ],
       });
 

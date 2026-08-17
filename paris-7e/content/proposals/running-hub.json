@@ -549,6 +549,14 @@
       "sent": false,
       "note": "Not sent. It asks for nothing and mentions no proposal, deliberately: the answer decides whether a new proposal is needed at all. Addressee left unnamed until the current delegation holders are checked against mairie07.paris.fr, since the open dataset predates the 2026 elections.",
       "outcome": "Awaiting review before sending."
+    },
+    {
+      "date": "2026-08-17",
+      "action": "correction",
+      "what": "A data audit found the elus data was not merely stale but wrong. The Repertoire National des Elus shows the 7e council was replaced at the March 2026 municipales. Five people the section published had left office: MONPLAISIR, LAUSSUCQ, LEBELT, BARTHELEMY and DELGADO.",
+      "why_it_matters": "Bruno DELGADO held conseils de quartier et associations, which was the contact this whole strategy pointed at. He is no longer on the council. Any approach built on that name would have gone nowhere.",
+      "consequence": "The build now reads the current council from the RNE. Delegations for the 2026 council are not published anywhere, so the section shows the 2020-2026 delegations as history and says so. The mairie site is the only source for current briefs and must be read before contacting anyone.",
+      "outcome": "Fixed in the data. The email draft's decision to leave the addressee unnamed was correct and stands."
     }
   ],
   "site_infrastructure": {

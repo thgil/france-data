@@ -673,3 +673,81 @@ export function siteContext(fontaineRows, sanisetteRows, veloAggregates, sources
     },
   };
 }
+
+// ---------------------------------------------------------------------------
+// currentCouncil
+// The roster in office now, from the RNE, joined to the delegations recorded in
+// the 2020-2026 Paris dataset.
+//
+// The join is the delicate part. A person still in office who held a delegation
+// in the previous mandature has NOT thereby kept it: the delegations were
+// redistributed after the March 2026 election and no open source records the
+// new ones. So a matched delegation is carried as historical context, flagged,
+// and never presented as current. A person who has left is dropped from the
+// roster entirely rather than shown with a caveat, because a name on a contact
+// list is read as a contact.
+// ---------------------------------------------------------------------------
+
+function normaliseName(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^A-Za-z]/g, '')
+    .toUpperCase();
+}
+
+export function currentCouncil(rneRows, previousElus, meta = {}) {
+  const NOM = "Nom de l'élu";
+  const PRE = "Prénom de l'élu";
+
+  const previousByName = new Map();
+  for (const p of previousElus || []) {
+    previousByName.set(normaliseName(p.nom), p);
+  }
+
+  const members = rneRows.map(r => {
+    const key = normaliseName(r[NOM]);
+    const previous = previousByName.get(key) || null;
+    const fonction = (r['Libellé de la fonction'] || '').trim();
+    // The RNE carries Code sexe, not a civility string. Map it rather than
+    // leaving the roster without one, and fall back to no title if absent.
+    const sexe = (r['Code sexe'] || '').trim().toUpperCase();
+    const civilite = sexe === 'M' ? 'M.' : sexe === 'F' ? 'Mme' : null;
+    return {
+      civilite,
+      nom: r[NOM],
+      prenom: r[PRE],
+      fonction: fonction || 'Conseiller d\'arrondissement',
+      fonction_is_explicit: Boolean(fonction),
+      mandate_start: r['Date de début du mandat'] || null,
+      function_start: r['Date de début de la fonction'] || null,
+      // Historical only. The 2026 delegations are not published anywhere.
+      previous_delegation: previous ? previous.delegation : null,
+      previous_delegation_mandature: previous ? '2020-2026' : null,
+      delegation_current_known: false,
+    };
+  });
+
+  const stillServing = new Set(members.map(m => normaliseName(m.nom)));
+  const departed = (previousElus || [])
+    .filter(p => !stillServing.has(normaliseName(p.nom)))
+    .map(p => ({ nom: p.nom, prenom: p.prenom, previous_delegation: p.delegation }));
+
+  return {
+    source: 'Répertoire National des Élus',
+    source_url: meta.source_url ?? null,
+    dataset_page: meta.dataset_page ?? null,
+    modified: meta.modified ?? null,
+    secteur: meta.secteur ?? null,
+    mandature: '2026-',
+    member_count: members.length,
+    members,
+    // Named so the section can state plainly that the previous roster is wrong,
+    // rather than quietly dropping people and hoping nobody had emailed them.
+    departed_since_previous_dataset: departed,
+    departed_count: departed.length,
+    delegations_available: false,
+    delegations_note:
+      'The RNE carries names and functions, not delegations. No open source publishes the delegations of the 2026 council. Any delegation shown here is from the 2020-2026 mandature and is historical context only. The mairie site is the only place the current ones are published, and they must be read there before anyone is contacted.',
+  };
+}

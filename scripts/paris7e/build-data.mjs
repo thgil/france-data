@@ -27,6 +27,7 @@ import {
   whereNumberEquals,
   whereAll,
   rateLimit,
+  fetchRneArrondissementElus,
 } from './fetch.mjs';
 
 import {
@@ -37,6 +38,7 @@ import {
   abandonedFile,
   deliveredFile,
   siteContext,
+  currentCouncil,
   timeInStage,
   directionByTheme,
   filterEtatSpecial,
@@ -87,6 +89,9 @@ const DATASETS = {
 // The Champ-de-Mars study area, used to establish what a running facility would
 // and would not need to ask for. Kept as one constant so every figure derived
 // from it is derived from the same box.
+// Secteur label as the RNE spells it. Paris arrondissements are 'secteurs'.
+const RNE_SECTEUR = 'Paris 7Eme Secteur';
+
 const CHAMP_DE_MARS_BBOX = '48.8515,2.2930,48.8620,2.3120';
 
 // Pont des Invalides, both directions. The nearest counters to the 7e running
@@ -223,6 +228,12 @@ async function main() {
   });
   assertSchema('marches', marches.results, REQUIRED_FIELDS.marches);
 
+  // The council actually in office. The Paris elus datasets describe the
+  // 2020-2026 mandature and the March 2026 municipales replaced it, so they name
+  // people who no longer hold office. The RNE is the only current source.
+  const rne = await fetchRneArrondissementElus(RNE_SECTEUR);
+  log(`  RNE ${RNE_SECTEUR}: ${rne.rows.length} current members (file ${rne.modified})`);
+
   // Site context for the Champ-de-Mars study area. Establishes what is already
   // built there, so a proposal does not ask for water and toilets that exist.
   const fontaines = await fetchAllRecords(DATASETS.fontaines, {
@@ -340,16 +351,53 @@ async function main() {
     ...aggregateEtatSpecial(filterEtatSpecial(es.results, ETAT_SPECIAL_LABEL)),
   });
 
+  const previousElus = shapeElus(filterElus(elus.results, ELUS_LABEL));
+
   outputs.set('elus.json', {
     arrondissement_label: ELUS_LABEL,
-    // Unit 1 does not ship until these lists are verified against
-    // mairie07.paris.fr. The élus dataset predates the March 2026 elections.
-    verified_against_mairie: false,
-    elus_source: DATASETS.elus,
-    elus_modified: metas.elus.modified,
+
+    // The roster in office now. This is the list the section publishes.
+    council: currentCouncil(rne.rows, previousElus, {
+      source_url: rne.source_url,
+      dataset_page: rne.dataset_page,
+      modified: rne.modified,
+      secteur: RNE_SECTEUR,
+    }),
+
+    // The 2020-2026 mandature, kept only because it is the sole record of who
+    // held which delegation. It is superseded and must never be rendered as a
+    // contact list: five of its members left office at the March 2026 election.
+    previous_mandature: {
+      mandature: '2020-2026',
+      superseded: true,
+      source: DATASETS.elus,
+      modified: metas.elus.modified,
+      elus: previousElus,
+    },
+
+    // Flat view of the CURRENT council, for the pages that render a roster.
+    // delegation is null on every row, deliberately: the 2026 delegations are
+    // not published anywhere, and carrying the old ones forward under the name
+    // "delegation" is precisely the error this rebuild exists to remove.
+    elus: currentCouncil(rne.rows, previousElus, {}).members.map(m => ({
+      civilite: m.civilite,
+      nom: m.nom,
+      prenom: m.prenom,
+      fonction: m.fonction,
+      delegation: null,
+      delegation_status: 'not published for the 2026 council',
+      previous_delegation: m.previous_delegation,
+      arrondissement: ELUS_LABEL,
+    })),
+    elus_modified: rne.modified,
+    elus_source_label: 'Répertoire National des Élus',
+
+    // Conseillers de Paris, still on the pre-2026 Paris dataset. Flagged rather
+    // than dropped: the RNE publishes conseillers de Paris in a separate file
+    // that this build does not yet read.
     conseillers_de_paris_source: DATASETS.conseillersDeParis,
     conseillers_de_paris_modified: metas.conseillersDeParis.modified,
-    elus: shapeElus(filterElus(elus.results, ELUS_LABEL)),
+    conseillers_de_paris_superseded: true,
     conseillers_de_paris: shapeConseillersDeParis(cdp.results),
   });
 
