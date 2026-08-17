@@ -80,8 +80,15 @@ export async function loadContent(name) {
   return promise;
 }
 
+// Local preview only: a script-initiated fetch uses the HTTP cache regardless
+// of a hard reload, so an edited data file can keep serving its old contents
+// and read exactly like a rendering bug. On a deployed host the normal cache
+// is wanted, so this applies to localhost alone.
+const IS_LOCAL = typeof location !== 'undefined'
+  && ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+
 async function fetchJson(url) {
-  const res = await fetch(url);
+  const res = await fetch(url, IS_LOCAL ? { cache: 'no-store' } : undefined);
   if (!res.ok) throw new Error(`Failed to load ${url.pathname}: ${res.status}`);
   return res.json();
 }

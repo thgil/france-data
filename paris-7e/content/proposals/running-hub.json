@@ -7,7 +7,7 @@
   "status": "research",
   "status_note": "Research only. Nothing has been submitted to anyone. The adverse precedent below is being investigated first.",
   "created_on": "2026-08-16",
-  "updated_on": "2026-08-16",
+  "updated_on": "2026-08-17",
   "summary": "Secure storage, drinking water, and basic changing facilities for runners using the Champ-de-Mars and Invalides lawns, tested as a 12-month pilot before anything permanent is built.",
   "problem": {
     "statement": "The Champ-de-Mars and the Esplanade des Invalides are among the most heavily used running surfaces in Paris. Neither has anywhere to leave a bag, refill a bottle reliably in winter, or change. Runners either carry everything or do not come.",
@@ -527,6 +527,13 @@
       "what": "Confirmed against the Mairie du 7e's own Budget Participatif 2023 page that project 11141 combines three separate resident proposals, and identified which operation each became.",
       "consequence": "The one delivered operation is the seniors and gentle-exercise idea, piloted by Espaces Verts. Both unstarted operations are the running-specific ideas, piloted by the Direction de la Jeunesse et des Sports. The proposal now has a precise account of what was promised and what was not done.",
       "outcome": "Verified against a primary source. Supersedes the earlier search-derived description."
+    },
+    {
+      "date": "2026-08-17",
+      "action": "research",
+      "what": "Checked whether local gyms could fund the facility in exchange for visibility. Advertising in any form is prohibited in Ville de Paris parks, gardens and woods under article 12 of the parks regulation, and separately on historic monuments and trees. Mécénat is the legal route, with counterparts capped at 25 percent of the donation, and carries a requalification risk as a marché public if the counterpart is direct.",
+      "consequence": "Private funding stays out of the tier 1 ask and is documented as a mécénat route for later tiers. The word sponsorship is avoided throughout.",
+      "outcome": "Open. The regime governing the quai, as distinct from a parc or jardin, still needs checking."
     }
   ],
   "site_infrastructure": {
@@ -769,5 +776,39 @@
     "toilets": "5 sanisettes, all wheelchair accessible. Two on Quai Anatole France, both open 10h00-22h00.",
     "gap_this_creates": "The quai sanisettes open at 10h00, four hours later than the Champ-de-Mars ones at 06h00. For a facility aimed at people running before work, that is a real gap on this site and an argument that belongs in the proposal rather than being hidden.",
     "note": "These figures are hand-checked for this record and are not yet produced by the build, unlike the Champ-de-Mars study area."
+  },
+  "private_funding": {
+    "the_idea": "Local gyms such as Basic-Fit would reach exactly the audience a running facility attracts, so let them pay for it in exchange for visibility.",
+    "verdict": "The visibility half is prohibited. The money half is legal, under a different name and with a hard cap on what the funder gets back.",
+    "checked_on": "2026-08-17",
+    "why_advertising_is_out": {
+      "rule": "Article 12 of the Ville de Paris regulation for parks, gardens and green spaces prohibits advertising in any form in parks, gardens and woods belonging to the city, including on walls and enclosure fences, inside and outside.",
+      "also": "Advertising is separately prohibited on buildings classified or listed as historic monuments, and on trees.",
+      "consequence": "A branded installation on the Champ-de-Mars is not a difficult ask. It is a prohibited one. Proposing it would mark the whole submission as uninformed.",
+      "open_question": "The quai is not obviously a parc or jardin under that regulation, so its regime may differ. Heritage constraints on the Seine banks apply either way. This must be checked before the quai is treated as more permissive.",
+      "source": "Réglementation générale des parcs, jardins et espaces verts de la Ville de Paris"
+    },
+    "the_route_that_works": {
+      "name": "Mécénat",
+      "what_it_is": "Material or financial support given, in principle, without direct or indirect counterpart, to a body carrying out an activity of general interest. Corporate and individual donors receive a tax reduction.",
+      "counterparts_allowed": "Counterparts are permitted but capped. Tax doctrine requires a marked disproportion between the gift and what the donor receives: the counterpart may not exceed 25 percent of the donation, a ratio of 1 to 4.",
+      "what_that_buys_in_practice": "A donor giving EUR 20,000 may receive acknowledgment worth at most EUR 5,000. In a park that means a discreet plaque naming the donor. It does not mean a logo, a wrap, or a branded locker bank.",
+      "in_kind_option": "Mécénat can be in kind. A gym donating and maintaining the equipment itself avoids cash handling entirely and is often easier for both sides.",
+      "who_receives_it": "Not the proposer. A resident cannot collect sponsorship for a municipal facility. The money goes to the Ville de Paris through its own mécénat channel, or to an association acting as the vehicle."
+    },
+    "the_risk_that_kills_it": {
+      "risk": "Requalification as a marché public.",
+      "why": "If the arrangement carries a direct counterpart, it stops being a gift and becomes a contract for services. That drags the whole thing into public procurement law, with a competitive procedure attached.",
+      "second_risk": "Naming one gym raises an immediate question about why that gym and not another. Any private funding route has to be open and non-discriminatory, which is a procedure in itself.",
+      "consequence_for_the_pilot": "Both risks convert a small reversible pilot into a procurement question. That is exactly the kind of complication that leaves an operation sitting at non démarré with no financing route recorded, which is what happened to the two stalled operations on this page."
+    },
+    "recommendation": "Keep private funding out of the tier 1 ask, for the same reason vending is kept out: it changes the legal regime. Name it in the document as a funding route for tiers 2 and 3, framed as mécénat rather than sponsorship, with the 25 percent cap stated so the reader can see it has been thought through.",
+    "if_pursued": [
+      "Frame it as mécénat, never as sponsorship or advertising. The words carry different legal regimes and the wrong one invites refusal.",
+      "Propose in-kind donation of equipment plus a maintenance commitment, rather than cash. It avoids the handling question and directly answers the maintenance question a Direction will ask.",
+      "Offer acknowledgment at or below the 25 percent cap, and say so explicitly in the proposal.",
+      "Propose an open call to all qualifying local operators rather than naming one, so the non-discrimination question is answered before it is asked.",
+      "Route it through the Ville's own mécénat channel, not through a private arrangement with the mairie."
+    ]
   }
 }

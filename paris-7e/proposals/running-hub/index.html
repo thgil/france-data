@@ -186,6 +186,12 @@
     </section>
 
     <section class="unit-block">
+      <h2><span data-lang="en">Could a gym pay for it?</span><span data-lang="fr" lang="fr">Une salle de sport pourrait-elle le financer ?</span></h2>
+      <div class="section-prose" id="private-funding"></div>
+      <div id="private-funding-steps"></div>
+    </section>
+
+    <section class="unit-block">
       <h2><span data-lang="en">Vending</span><span data-lang="fr" lang="fr">Distributeurs</span></h2>
       <div class="section-prose" id="vending"></div>
     </section>
@@ -267,6 +273,7 @@
       'site-infra', 'site-infra-table', 'site-infra-note', 'usage', 'phasing',
       'live-project-body', 'live-project-ops', 'live-project-action',
       'locker-intro', 'locker-tariff', 'locker-body', 'locker-revenue', 'vending',
+      'private-funding', 'private-funding-steps',
       'scale-headline', 'cost-tiers', 'scale-body', 'supporting', 'pilot-line',
       'metrics', 'decision-rule', 'maintenance', 'routing', 'cycle',
       'status-log', 'limits', 'open-questions',
@@ -745,11 +752,9 @@
         const tiers = record.cost_tiers;
         const cheapest = Math.min(...tiers.map((tier) => tier.eur));
         const dearest = Math.max(...tiers.map((tier) => tier.eur));
-        const share = (value) => `${formatNumber(Math.round((value / budget.amount) * 100))}%`;
+
         // Named only when the line is not flat, because then which year the
         // share is taken against changes the answer.
-        const denominatorEn = budget.constant ? '' : ` (the ${budget.amount_exercice} figure)`;
-        const denominatorFr = budget.constant ? '' : ` (chiffre ${budget.amount_exercice})`;
 
         // The headline benchmark is the delivered installation at the preferred
         // site, not the etat special. Measuring a capital pilot against an
@@ -764,12 +769,11 @@
         document.getElementById('cost-tiers').append(buildTable([
           { en: 'Tier', fr: 'Palier' },
           { en: 'Cost', fr: 'Coût', num: true },
-          { en: 'Share of the 7e line (see below)', fr: "Part de la ligne du 7e (voir plus bas)", num: true },
+
           { en: 'Scope', fr: 'Contenu', cellClass: 'wrap' },
         ], tiers.map((tier) => [
           tier.tier,
           formatMoney(tier.eur),
-          share(tier.eur),
           tier.scope,
         ])));
 
@@ -987,6 +991,47 @@
           ['Revenue per year', formatMoney(rev.derived.revenue_per_year_eur)],
         ]));
         para(revHost, rev.conclusion);
+
+        /* ── Private funding ───────────────────────────────────────── */
+        const pf = record.private_funding;
+        const pfHost = document.getElementById('private-funding');
+        const pfIdea = el('p', 'stat-line');
+        pfIdea.append(document.createTextNode(pf.the_idea));
+        pfHost.append(pfIdea);
+        const pfVerdict = el('p');
+        pfVerdict.append(el('strong', null, pf.verdict));
+        pfHost.append(pfVerdict);
+
+        const ad = pf.why_advertising_is_out;
+        const adP = el('p');
+        adP.append(el('strong', null, 'Why advertising is out. '));
+        adP.append(document.createTextNode(`${ad.rule} ${ad.also} ${ad.consequence}`));
+        pfHost.append(adP);
+        pfHost.append(el('p', 'too-few', `${ad.open_question} Source: ${ad.source}.`));
+
+        const route = pf.the_route_that_works;
+        const routeP = el('p');
+        routeP.append(el('strong', null, `The route that works: ${route.name}. `));
+        routeP.append(document.createTextNode(route.what_it_is));
+        pfHost.append(routeP);
+        para(pfHost, route.counterparts_allowed);
+        para(pfHost, route.what_that_buys_in_practice);
+        para(pfHost, route.in_kind_option);
+        para(pfHost, route.who_receives_it);
+
+        const risk = pf.the_risk_that_kills_it;
+        const riskP = el('p');
+        riskP.append(el('strong', null, `The risk that kills it: ${risk.risk} `));
+        riskP.append(document.createTextNode(`${risk.why} ${risk.second_risk} ${risk.consequence_for_the_pilot}`));
+        pfHost.append(riskP);
+
+        const stepsHost = document.getElementById('private-funding-steps');
+        const recP = el('p');
+        recP.append(el('strong', null, pf.recommendation));
+        stepsHost.append(recP);
+        const steps = el('ul', 'record-list');
+        listInto(steps, pf.if_pursued);
+        stepsHost.append(steps);
 
         /* ── Vending ───────────────────────────────────────────────── */
         const vend = record.vending;
