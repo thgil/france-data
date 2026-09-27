@@ -2,6 +2,7 @@
 """Headway regularity and bunching from collected vehicle positions.
 
 Usage: python3 analyze.py positions.csv [--json out.json]
+       python3 analyze.py passes.csv --passes   # from collect_prim.py
 
 Method: a vehicle "passes" a stop the first time the feed reports it at or
 heading to that stop's successor, i.e. when its stop_id changes; the pass
@@ -87,9 +88,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv")
     ap.add_argument("--json")
+    ap.add_argument("--passes", action="store_true", help="input is stop passes (collect_prim.py), not positions")
     a = ap.parse_args()
     with open(a.csv) as f:
-        s = summarize(headways(stop_passes(csv.DictReader(f))))
+        rows = csv.DictReader(f)
+        passes = ((r["route_id"], r["direction_id"], r["stop_id"], int(r["vehicle_ts"])) for r in rows) if a.passes else stop_passes(rows)
+        s = summarize(headways(passes))
     print(f"network: {s['network']}")
     print(f"{'route':>8} {'n':>6} {'med(min)':>9} {'CoV':>5} {'bunch%':>7} {'gap%':>6}")
     for r in s["routes"][:25]:

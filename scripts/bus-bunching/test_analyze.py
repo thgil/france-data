@@ -29,5 +29,21 @@ class T(unittest.TestCase):
         self.assertGreater(s["BUN"]["cov"], 0.5)
 
 
+    def test_prim_diff(self):
+        from collect_prim import calls, diff
+        doc = {"Siri": {"ServiceDelivery": {"EstimatedTimetableDelivery": [{"EstimatedJourneyVersionFrame": [{"EstimatedVehicleJourney": [
+            {"DatedVehicleJourneyRef": {"value": "J1"}, "LineRef": {"value": "L"}, "DirectionRef": {"value": "A"},
+             "EstimatedCalls": {"EstimatedCall": [
+                 {"StopPointRef": {"value": "S1"}, "ExpectedArrivalTime": "2026-09-27T10:00:00Z"},
+                 {"StopPointRef": {"value": "S2"}, "ExpectedArrivalTime": "2026-09-27T10:05:00Z"}]}}]}]}]}}}
+        prev = {(j, s): (l, d, t) for j, l, d, s, t in calls(doc)}
+        t0 = prev[("J1", "S1")][2]
+        cur = {k: v for k, v in prev.items() if k[1] != "S1"}
+        out = list(diff(prev, cur, t0 + 30))
+        self.assertEqual([(o["stop_id"], o["vehicle_ts"]) for o in out], [("S1", t0)])
+        # a far-future call vanishing (e.g. trip cancelled) is not a pass
+        self.assertEqual(list(diff(prev, {}, t0 - 600)), [])
+
+
 if __name__ == "__main__":
     unittest.main()
